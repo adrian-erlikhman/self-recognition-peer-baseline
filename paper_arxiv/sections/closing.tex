@@ -1,5 +1,13 @@
-\section{Recommendations}
+\section{What this means for LLM-judge pipelines}
 \label{sec:recs}
+
+Our results cut both ways, and both matter. The evidence usually offered for
+self-recognition, a self-naming rate above chance, was wrong in \SVPFalse{} of
+\SVPStd{} cases in our data. But where we did
+find genuine self-recognition, it was large (a 33-point advantage for Claude)
+and invisible to anyone who looked at only one format or one set of texts.
+Anonymisation is therefore neither safe by default nor broken by default; it
+has to be measured. We recommend:
 
 \begin{enumerate}
 \item \textbf{Report three numbers, not one.} A self-naming rate means
@@ -57,16 +65,22 @@ whenever a judge changes.
 \section{Conclusion}
 \label{sec:conclusion}
 
-A judge that names itself as the author of its own text has not thereby shown
-that it recognises that text. Scored against its own false alarms and against
-its peers, most apparent self-recognition disappears: of the
-\SVPStd{} cases the usual check flags, \SVPProper{} hold up, all of them
-Claude or GPT on one set of essays, and none on a larger, more varied set.
-The texts carry the signal, and open-weight judges' own probabilities pick
-out their own text, but the judges' answers do not follow either. Before
-relying on anonymisation, test each judge on the kind of text the pipeline
-judges, and use a peer baseline to see whether anyone else can attribute it
-too.
+Self-recognition in LLM judges is usually measured with a number that cannot
+tell recognition from bias. A judge that names itself as the author of its
+own text has not thereby shown that it recognises that text. Scored against
+its own false alarms and against its peers, most apparent self-recognition
+disappears: of the \SVPStd{} cases the usual check flags, only \SVPProper{}
+hold up. Those that do are real and large, Claude and GPT beating their peers
+by 33 and 28 points on chat-app essays, yet they vanish on a second set of
+texts from the same models, and the question format alone can create or erase
+them. Meanwhile the information a judge would need to recognise itself is
+already in the text and in its own probabilities, unused. Self-recognition is
+therefore not a fixed property of a model that can be checked once: it depends
+on the judge, the texts and the question. Any pipeline that relies on
+anonymisation should test each judge, on the texts it actually judges,
+against a peer baseline, and repeat the test whenever the judge or the texts
+change. The audit costs nothing beyond the judgments a lineup already
+produces.
 
 \section*{Data and code}
 All texts, prompts, judgments (with confidence ratings and reasons), archived

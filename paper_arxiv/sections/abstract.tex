@@ -1,16 +1,24 @@
-LLM judges are often anonymised on the assumption that they cannot tell who
-wrote a text. The usual check is whether a judge names itself as the author
-of its own text more often than chance. We show that this check is
-unreliable. A high self-naming rate can mean the judge recognises its
-writing, but it can also mean the text is easy for anyone to attribute, or
-that the judge answers ``me'' to almost everything. We therefore compare
-each judge with two references from the same experiment: how often it names
-itself on text it did not write, and how often the \emph{other} judges name
-it on its text. Across nine judges (five frontier, four open-weight), three
-sets of texts and three question formats, the usual check finds
-self-recognition in \SVPStd{} of \SVPCells{} cases; only \SVPProper{} hold up
-against both references, all of them Claude or GPT on one set of prose
-texts, and none on a larger set of 600 texts in four genres. Asked directly
-whether they wrote a text, three frontier judges deny writing any of them,
-their own included. Self-recognition should be measured for each judge, on
-the texts it will actually judge, against a peer baseline.
+LLM judges rank models on leaderboards, supply the rewards that train them,
+and monitor other models for unsafe behaviour. The standard protection
+against a judge favouring its own outputs is to hide who wrote each answer,
+and whether that protection holds is checked with one number: how often a
+judge names itself as the author of its own text, compared with chance. We
+show that this check is badly miscalibrated. A high self-naming rate can mean
+the judge recognises its own writing, but it can equally mean that the text is
+easy for \emph{any} model to attribute, or that the judge says ``me'' to
+almost everything. We score each judge against two references the same
+experiment already provides: how often it names itself on text it did not
+write, and how often the \emph{other} judges name it on its text. Across nine
+judges, 1,270 texts in four genres and more than 19,000 judgments, the usual
+check reports self-recognition in \SVPStd{} cases; \SVPFalse{} of them do not
+survive. Genuine self-recognition does exist: on chat-app essays, Claude and
+GPT beat their peers by 33 and 28 points. But it disappears on a second set of
+600 texts, and the question format alone can create or erase it. Asked
+directly, three frontier judges deny writing any of 190 texts, their own
+included. The authorship signal itself is plainly there (a simple style
+classifier attributes 86\% of the essays, and every open-weight judge's
+likelihoods pick out its own text on every prompt), yet the judges' answers
+do not follow it. Anonymisation therefore cannot be certified once and for
+all: it has to be tested per judge, on the texts the pipeline actually
+judges, against a peer baseline. We release all data and an audit that needs
+no extra data.

@@ -1,21 +1,27 @@
 \section{Introduction}
 \label{sec:intro}
 
-Language models are now routinely used to grade other language models, in
-leaderboards, reward models and automated monitors. The judge and the models
-it grades usually come from the same small set of systems, and judges are
-known to favour their own outputs
+Language models now grade other language models. They rank systems on public
+leaderboards, supply the preference labels that train reward models, and
+monitor other models' actions for safety. The judge and the models it grades
+usually come from the same handful of systems, and judges are known to favour
+their own outputs
 \citep{panickssery2024selfpreference, wataoka2024perplexity, ye2025justice}.
-The standard defence is to hide which model wrote each answer. That defence
-only works if the judge cannot tell from the text itself that it wrote it.
+The standard defence is anonymisation: hide which model wrote each answer.
+That defence holds only if a judge cannot tell from the text itself which
+answers are its own. If it can, a leaderboard can drift towards the judge's
+own model, a reward model can learn the judge's style rather than quality,
+and a monitor checking a copy of itself is no longer independent
+\citep{khullar2026selfattribution}.
 
-This is usually checked with a single number: how often a judge names
-itself as the author of its own text, compared with chance. We call this the
-\emph{self-naming rate}. On its own it cannot answer the question. A judge
-that names itself on 87\% of its own answers may recognise its writing. But
-the text may also be easy for \emph{any} model to attribute, or the judge
-may simply say ``me'' to everything. Two more numbers from the same
-experiment tell these cases apart (Figure~\ref{fig:lead}):
+Whether anonymisation holds is usually checked with a single number: how
+often a judge names itself as the author of its own text, compared with
+chance. We call this the \emph{self-naming rate}. It cannot answer the
+question on its own. A judge that names itself on 87\% of its own answers may
+recognise its writing. But the text may also be easy for \emph{any} model to
+attribute, or the judge may simply say ``me'' to everything. The first case
+is a real leak; the other two are not, and a single rate cannot tell them
+apart. Two more numbers from the same experiment can (Figure~\ref{fig:lead}):
 \begin{itemize}
 \item the \textbf{false-alarm rate}: how often the judge names itself on
 text it did \emph{not} write;
@@ -29,29 +35,30 @@ its peers do (it has a \emph{self-advantage}).
 \begin{figure}[t]
 \centering
 \includegraphics[width=\textwidth]{figures/lead.pdf}
-\caption{A self-naming rate (filled circle) means little on its own. Read it
-against the peer baseline (open circle: how often the other four judges name
-this judge on its text) and the false-alarm rate ($\times$: how often the
-judge names itself on text it did not write). Five frontier judges, 38 texts
-each; the numbers on the right are the self-advantage in percentage points;
-the dashed line is the 20\% chance level. In the lineup, Claude and GPT beat
-their peers and Grok trails them. Shown one text at a time, three judges
-never name themselves, and Claude's peers name Claude as often as Claude
-does.}
+\caption{The same self-naming rate (filled circle) can mean very different
+things. Read it against the peer baseline (open circle: how often the other
+four judges name this judge on its text) and the false-alarm rate ($\times$:
+how often the judge names itself on text it did not write). Five frontier
+judges, 38 essays each; the numbers on the right are the self-advantage in
+percentage points; the dashed line is the 20\% chance level. In the lineup,
+Claude and GPT beat their peers and Grok trails them. Shown the same essays
+one at a time, three judges never name themselves, and Claude's peers name
+Claude almost as often as Claude does.}
 \label{fig:lead}
 \end{figure}
 
-We apply this test to nine judges and three sets of texts
-(Table~\ref{tab:data}). We wrote 120 prompts in four genres: essays, Python
-code, short answers and math word problems. Five frontier models (GPT-5.5,
-Claude Opus 4.7, Gemini 3.5 Flash, Grok 4.3 and DeepSeek) answered all 120
-through the API, and had earlier answered 38 of the essay prompts in their
-consumer chat apps. Four open-weight models (Qwen2.5-7B, Llama-3.1-8B,
-Mistral-7B and Phi-4-mini) answered all 120 as well; with their weights we can
-also read how likely each judge finds each text. In every set, the models that
-wrote the texts are the judges. They answer in three formats: picking authors
-for a \emph{lineup} of answers to the same prompt, naming the author of
-\emph{one text at a time}, and answering \emph{``Did you write this text?''}.
+We run this test on nine judges, three sets of texts, three question formats, and more than
+19,000 authorship judgments (Table~\ref{tab:data}). We wrote 120 prompts in
+four genres: essays, Python code, short answers and math word problems. Five
+frontier models (GPT-5.5, Claude Opus 4.7, Gemini 3.5 Flash, Grok 4.3 and
+DeepSeek) answered all 120 through the API, and had earlier answered 38 of the
+essay prompts in their consumer chat apps. Four open-weight models
+(Qwen2.5-7B, Llama-3.1-8B, Mistral-7B and Phi-4-mini) answered all 120 as
+well, which also lets us read how likely each judge finds each text. In every
+set, the models that wrote the texts are the judges. They answer in three
+formats: picking authors for a \emph{lineup} of answers to the same prompt,
+naming the author of \emph{one text at a time}, and answering \emph{``Did you
+write this text?''}.
 
 \begin{table}[t]
 \centering\small
@@ -75,23 +82,50 @@ wrote the texts also judge them.}
 
 \paragraph{Findings.}
 \begin{enumerate}
-\item \textbf{Most apparent self-recognition is not real.} The usual check
-finds self-recognition in \SVPStd{} of \SVPCells{} combinations of judge,
-text set and format; only \SVPProper{} pass our test
-(Table~\ref{tab:verdicts}). Most of the others are judges that name
-themselves on much of what they read: one text at a time, Llama names itself
-on every text and Qwen on \OWQwenSingleNamesSelf{}. Asked ``Did you write
-this text?'', Mistral says yes to \OWMistralBinaryFA{} of texts it did not
-write, while GPT, Grok and DeepSeek say no to every text, their own included.
-\item \textbf{Real self-recognition is rare and depends on the texts.} Only
-Claude and GPT pass, and only on the chat-app essays. On the 600 API texts no
-judge beats its peers, although Claude still tells its own text from others'.
-\item \textbf{The information is there, but the judges do not use it.} A
-simple classifier over 18 style features identifies the author of a chat-app
-essay \EngineAAcc{} of the time, better than any judge. Each open-weight
-judge finds its own text the most likely one on every prompt, yet what it
-claims as its own does not follow that likelihood.
+\item \textbf{The usual check is wrong most of the time it raises an
+alarm.} It reports self-recognition in \SVPStd{} of \SVPCells{}
+combinations of judge, text set and format. Only \SVPProper{} survive our
+test (Table~\ref{tab:verdicts}); the other \SVPFalse{} are artefacts. Most
+are judges that put their own name on much of what they read: one text at a
+time, Llama names itself on every text and Qwen on \OWQwenSingleNamesSelf{};
+asked ``Did you write this text?'', Mistral says yes to \OWMistralBinaryFA{}
+of texts it did not write. The errors run one way: in no case did our test
+find self-recognition that the usual check missed.
+\item \textbf{Real self-recognition exists, and it is large, but it does not
+transfer.} On the chat-app essays, Claude beats its peers by
+\ClaudeAdvLineup{} points and GPT by \GPTAdvLineup{}: a genuine leak that
+anonymisation does not stop. On 600 API texts from the same models, no judge
+beats its peers. A judge certified safe, or flagged, on one set of texts says
+little about the next.
+\item \textbf{The question decides the answer.} The same judges on the same
+essays look completely different across formats. One text at a time, they
+send \SingleConcentration{} of all guesses to GPT or Claude, and three judges
+never name themselves at all. Asked directly, GPT, Grok and DeepSeek deny
+writing any of the 190 essays, their own included, while GPT names itself on
+95\% of its own essays when given five names to choose from.
+\item \textbf{The signal is there; the judges do not use it.} A simple
+classifier over 18 style features identifies the author of \EngineAAcc{} of
+the essays, more than any judge. Each open-weight judge finds its own text the
+most likely one on every prompt, yet what it claims as its own does not follow
+that likelihood. With each essay's words shuffled, a bag-of-words classifier
+still attributes \BowShufAcc{} while the judges fall to chance. Today's
+judges leave this information unused; a future judge that learns to use it
+would recognise itself far better, so a judge that passes an audit today may
+not pass it after an update.
 \end{enumerate}
+
+\paragraph{Contributions.} (1) A diagnosis of why the standard
+self-recognition check fails, and a corrected test, built from a peer
+baseline and a false-alarm rate, that needs no data beyond what a lineup
+already collects (Section~\ref{sec:measure}). (2) A study of LLM
+self-recognition across closed and open models, four genres and three formats,
+with more than 19,000 judgments (Sections~\ref{sec:frontier}
+and~\ref{sec:openweight}).
+(3) Tests of four explanations of what judges rely on, using their stated
+reasons, similarity to their own writing, their likelihoods, quality ratings
+and watermarks (Section~\ref{sec:mechanism}). (4) A practical audit for
+anyone running an LLM-judge pipeline (Section~\ref{sec:recs}), and all data
+and code.\footnote{\CodeURL}
 
 \paragraph{Scope.} We study one question: can an LLM judge, shown
 anonymised text, tell which texts it wrote? We test this zero-shot, the way
@@ -101,7 +135,3 @@ outputs when scoring them (self-preference), and we do not train detectors.
 All texts are in English and every prompt fixes the content of the answer,
 so that the answers differ mainly in style. Our results describe particular
 model versions at particular dates in 2026.
-
-The audit we propose needs no extra data, only the judgments a lineup
-already produces (Section~\ref{sec:recs}), and all data and code are
-released.\footnote{\CodeURL}
