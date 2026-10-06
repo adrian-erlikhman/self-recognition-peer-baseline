@@ -1,0 +1,49 @@
+{
+  "request_model": "anthropic/claude-opus-4.7",
+  "response": {
+    "id": "gen-1786845788-QC1aVoU6ipIxddVyqjQd",
+    "object": "chat.completion",
+    "created": 1786845788,
+    "model": "anthropic/claude-opus-4.7",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"A\": {\"model\": \"GPT\", \"confidence\": 3, \"reason\": \"Balanced structure with detailed examples and measured tone typical of GPT.\"},\n  \"B\": {\"model\": \"Claude\", \"confidence\": 2, \"reason\": \"Cautious hedging language and straightforward organization suggest Claude.\"},\n  \"C\": {\"model\": \"Claude\", \"confidence\": 4, \"reason\": \"Reflective, flowing prose with nuanced phrasing like 'thirst in disguise' feels Claude-like.\"},\n  \"D\": {\"model\": \"DeepSeek\", \"confidence\": 3, \"reason\": \"Formal, technical vocabulary and structured paragraphs suggest DeepSeek.\"},\n  \"E\": {\"model\": \"Grok\", \"confidence\": 4, \"reason\": \"Run-on sentences with minimal punctuation is characteristic of Grok output.\"}\n}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 4302,
+      "completion_tokens": 289,
+      "total_tokens": 4591,
+      "cost": 0.028735,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.028735,
+        "upstream_inference_prompt_cost": 0.02151,
+        "upstream_inference_completions_cost": 0.007225
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

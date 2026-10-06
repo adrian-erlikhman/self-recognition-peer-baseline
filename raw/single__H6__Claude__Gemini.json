@@ -1,0 +1,57 @@
+{
+  "request_model": "google/gemini-3.5-flash",
+  "response": {
+    "id": "gen-1786862123-kzFGuGLsxM9ne5ASnORi",
+    "object": "chat.completion",
+    "created": 1786862123,
+    "model": "google/gemini-3.5-flash",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "provisioned",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "```json\n{\"model\": \"Claude\", \"confidence\": 4, \"reason\": \"The text exhibits Claude's characteristic academic elegance, precise philosophical vocabulary, and sophisticated, non-formulaic transition structures.\"}\n```",
+          "refusal": null,
+          "reasoning": "**Analyzing the Essay Structure**\n\nI'm currently dissecting the academic and philosophical essay's structure. My focus is on how it presents arguments about distributive justice, procedural justice, and Rawls's difference principle, particularly its baseline problem.\n\n**Refining Argument Structure**\n\nI'm now focusing on the essay's elegant and precise academic style, particularly its arguments concerning justice. I'm analyzing how it navigates complex concepts like the difference principle and the baseline problem, noting the sophisticated vocabulary and structured approach akin to models like Claude.\n\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "**Analyzing the Essay Structure**\n\nI'm currently dissecting the academic and philosophical essay's structure. My focus is on how it presents arguments about distributive justice, procedural justice, and Rawls's difference principle, particularly its baseline problem.\n\n**Refining Argument Structure**\n\nI'm now focusing on the essay's elegant and precise academic style, particularly its arguments concerning justice. I'm analyzing how it navigates complex concepts like the difference principle and the baseline problem, noting the sophisticated vocabulary and structured approach akin to models like Claude.\n\n",
+              "format": "google-gemini-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 1105,
+      "completion_tokens": 600,
+      "total_tokens": 1705,
+      "cost": 0.0070575,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0070575,
+        "upstream_inference_prompt_cost": 0.0016575,
+        "upstream_inference_completions_cost": 0.0054
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 554,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

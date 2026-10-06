@@ -1,0 +1,63 @@
+{
+  "request_model": "google/gemini-3.5-flash",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Write a Python function `parse_duration(s: str) -> int` that converts a duration string made of an optional hours part, an optional minutes part and an optional seconds part, in that order, such as \"1h30m15s\", \"45m\" or \"2h5s\", into a total number of seconds. Each part is a non-negative integer followed by the letter h, m or s. Raise ValueError if the string is empty, contains any other characters, or lists the parts out of order. Use only the Python standard library. Include a docstring and brief inline comments. Return only the code in a single Python code block, with no explanation before or after."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916312-SsJN6nNWDbz2aiNk97iW",
+    "object": "chat.completion",
+    "created": 1790916312,
+    "model": "google/gemini-3.5-flash",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "provisioned",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "```python\nimport re\n\ndef parse_duration(s: str) -> int:\n    \"\"\"\n    Convert a duration string into the total number of seconds.\n    \n    The string must consist of an optional hours part, an optional minutes part,\n    and an optional seconds part, in that exact order (e.g., \"1h30m15s\", \"45m\", \"2h5s\").\n    Each part is a non-negative integer followed by 'h', 'm', or 's'.\n    \n    Raises ValueError if the string is empty, contains invalid characters,\n    or has parts out of order.\n    \"\"\"\n    if not s:\n        raise ValueError(\"Duration string cannot be empty.\")\n        \n    # Regex to match optional hours, minutes, and seconds in strict order.\n    # ^ and $ ensure the entire string must match the pattern.\n    pattern = r'^(?:(?P<h>\\d+)h)?(?:(?P<m>\\d+)m)?(?:(?P<s>\\d+)s)?$'\n    match = re.match(pattern, s)\n    \n    # If it doesn't match, or if it matches an empty match (which shouldn't\n    # happen since we checked for empty s, but as a safeguard).\n    if not match or match.group(0) == \"\":\n        raise ValueError(f\"Invalid duration format: '{s}'\")\n        \n    # Extract values, defaulting to 0 if a part is missing\n    hours = int(match.group('h') or 0)\n    minutes = int(match.group('m') or 0)\n    seconds = int(match.group('s') or 0)\n    \n    # Calculate and return the total seconds\n    return hours * 3600 + minutes * 60 + seconds\n```",
+          "refusal": null,
+          "reasoning": "**Analyzing Input Strings**\n\nI'm currently focused on dissecting the duration strings. My thought process is centered on identifying and extracting the numerical values associated with hours, minutes, and seconds, while ensuring accurate parsing of various combinations and edge cases.\n\n**Parsing Duration Strings**\n\nMy current thinking involves refining the regular expression to precisely capture hour, minute, and second components while enforcing the specified order and preventing empty matches, aligning with the error handling requirements.\n\n**Validating Matches**\n\nMy focus has shifted to rigorous validation of the parsed duration strings. I'm now verifying that the regex successfully captures all necessary components and that extraneous characters are excluded, while confirming that empty strings are correctly flagged for rejection.\n\n**Addressing Duplicate Units**\n\nI'm now considering how to handle cases with repeated units, like \"1h2h\". My current regex correctly prevents this by design, ensuring each unit appears at most once. I've also confirmed that partial unit matches, like just \"h\", are handled as invalid due to the digit requirement.\n\n**Ensuring Complete Matches**\n\nI'm now confirming that my regex exclusively matches valid duration formats and rejects invalid ones. I've established that non-matching non-empty strings will result in `None`, and that the anchored pattern inherently prevents partial or empty matches within non-empty strings, addressing the last few edge cases.\n\n**Verifying Entire String Match**\n\nI'm confirming my regex's behavior with non-matching strings. It correctly fails to match and returns `None` for inputs like \"a\" due to the anchored `^$` and the fact that non-empty strings must capture at least one group, effectively ensuring only valid durations are matched.\n\n**Confirming Match Integrity**\n\nI'm now double-checking that my regex inherently prevents empty matches on non-empty inputs. My analysis confirms that only the empty string can yield all `None` groups, and since empty strings are handled separately, any successful match on a non-empty input must contain at least one valid captured group.\n\n**Refining Regex Pattern**\n\nI'm now solidifying the regex. My current focus is ensuring it strictly enforces the order of hours, minutes, and seconds while rejecting any invalid characters or out-of-sequence components for a robust parsing mechanism.\n\n**Validating Units Order**\n\nI'm now confirming the regex correctly prevents invalid unit orders, like minutes before hours, and ensures that units like 'h' or 'm' are not matched without preceding digits. It also prevents duplicate units and invalid trailing characters.\n\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "**Analyzing Input Strings**\n\nI'm currently focused on dissecting the duration strings. My thought process is centered on identifying and extracting the numerical values associated with hours, minutes, and seconds, while ensuring accurate parsing of various combinations and edge cases.\n\n**Parsing Duration Strings**\n\nMy current thinking involves refining the regular expression to precisely capture hour, minute, and second components while enforcing the specified order and preventing empty matches, aligning with the error handling requirements.\n\n**Validating Matches**\n\nMy focus has shifted to rigorous validation of the parsed duration strings. I'm now verifying that the regex successfully captures all necessary components and that extraneous characters are excluded, while confirming that empty strings are correctly flagged for rejection.\n\n**Addressing Duplicate Units**\n\nI'm now considering how to handle cases with repeated units, like \"1h2h\". My current regex correctly prevents this by design, ensuring each unit appears at most once. I've also confirmed that partial unit matches, like just \"h\", are handled as invalid due to the digit requirement.\n\n**Ensuring Complete Matches**\n\nI'm now confirming that my regex exclusively matches valid duration formats and rejects invalid ones. I've established that non-matching non-empty strings will result in `None`, and that the anchored pattern inherently prevents partial or empty matches within non-empty strings, addressing the last few edge cases.\n\n**Verifying Entire String Match**\n\nI'm confirming my regex's behavior with non-matching strings. It correctly fails to match and returns `None` for inputs like \"a\" due to the anchored `^$` and the fact that non-empty strings must capture at least one group, effectively ensuring only valid durations are matched.\n\n**Confirming Match Integrity**\n\nI'm now double-checking that my regex inherently prevents empty matches on non-empty inputs. My analysis confirms that only the empty string can yield all `None` groups, and since empty strings are handled separately, any successful match on a non-empty input must contain at least one valid captured group.\n\n**Refining Regex Pattern**\n\nI'm now solidifying the regex. My current focus is ensuring it strictly enforces the order of hours, minutes, and seconds while rejecting any invalid characters or out-of-sequence components for a robust parsing mechanism.\n\n**Validating Units Order**\n\nI'm now confirming the regex correctly prevents invalid unit orders, like minutes before hours, and ensures that units like 'h' or 'm' are not matched without preceding digits. It also prevents duplicate units and invalid trailing characters.\n\n",
+              "format": "google-gemini-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 146,
+      "completion_tokens": 3177,
+      "total_tokens": 3323,
+      "cost": 0.028812,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.028812,
+        "upstream_inference_prompt_cost": 0.000219,
+        "upstream_inference_completions_cost": 0.028593
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 2771,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

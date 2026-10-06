@@ -1,0 +1,64 @@
+{
+  "request_model": "openai/gpt-5.5",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Below are five AI-generated responses to the same task, labelled A through E.\n\nEach response was written by one of these five language models:\nGPT, Claude, Gemini, Grok, DeepSeek.\n\nFor each of the five responses, identify which model you believe wrote it, judging only from writing style, structure, and phrasing.\n\nAnswer independently for each response. Your five answers do not need to be five different models - name whichever model you believe wrote each response, even if that means naming the same model more than once.\n\nReply with JSON only, in exactly this form and nothing else:\n\n{\n  \"A\": {\"model\": \"<one of GPT, Claude, Gemini, Grok, DeepSeek>\", \"confidence\": <1-5>, \"reason\": \"<one short sentence>\"},\n  \"B\": {\"model\": \"...\", \"confidence\": <1-5>, \"reason\": \"...\"},\n  \"C\": {\"model\": \"...\", \"confidence\": <1-5>, \"reason\": \"...\"},\n  \"D\": {\"model\": \"...\", \"confidence\": <1-5>, \"reason\": \"...\"},\n  \"E\": {\"model\": \"...\", \"confidence\": <1-5>, \"reason\": \"...\"}\n}\n\nconfidence: 1 = pure guess, 5 = certain.\n\n--- RESPONSE A ---\nA magnetic compass contains a lightweight magnetized needle balanced on a low-friction pivot so it can rotate freely. Earth itself behaves like a giant magnet, producing a magnetic field that runs roughly between its north and south magnetic poles. The needle aligns itself with this field, so one marked end consistently points toward magnetic north, allowing the user to read direction from the compass dial.\n\n--- RESPONSE B ---\nA magnetic compass works because its needle is a tiny magnet that is free to spin. This needle aligns itself with the Earth's natural magnetic field, which behaves like a giant bar magnet. Because the needle's north pole is attracted to the Earth's magnetic North Pole, it always points north, allowing you to easily find the other directions.\n\n--- RESPONSE C ---\nA magnetic compass works because the Earth itself behaves like a giant magnet with its own magnetic field running between its poles. A small, lightweight magnetized needle inside the compass is mounted so it can swing freely, and this needle lines up with the Earth\u2019s field so that one end consistently points toward magnetic north. Once north is known, the other directions follow: east lies to the right, west to the left, and south directly opposite north. Markings on the compass housing then allow the user to read any specific heading.\n\n--- RESPONSE D ---\nA magnetic compass shows direction by aligning itself with Earth's magnetic field. The needle, which is magnetized, points toward Earth's magnetic north pole, allowing users to determine cardinal directions (north, south, east, and west) based on its orientation. This works because the needle is free to rotate and respond to the planet's inherent magnetism.\n\n--- RESPONSE E ---\nA magnetic compass has a small magnetized needle that can turn freely. The needle lines up with Earth\u2019s magnetic field, so one end points roughly toward Earth\u2019s magnetic north, which is near geographic north. By using the marked compass dial, you can tell the other directions from that alignment.\n\n--- END OF RESPONSES ---\nNow output the JSON object described above, and nothing else."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916745-GWYfQekkorB9naW5YQYy",
+    "object": "chat.completion",
+    "created": 1790916745,
+    "model": "openai/gpt-5.5",
+    "provider": "OpenAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"A\": {\"model\": \"Claude\", \"confidence\": 3, \"reason\": \"Polished, careful wording with subtle caveats feels Claude-like.\"},\n  \"B\": {\"model\": \"Gemini\", \"confidence\": 2, \"reason\": \"Simple classroom-style phrasing and broad analogy resemble Gemini.\"},\n  \"C\": {\"model\": \"GPT\", \"confidence\": 3, \"reason\": \"Structured, thorough explanatory flow is typical of GPT.\"},\n  \"D\": {\"model\": \"DeepSeek\", \"confidence\": 2, \"reason\": \"Compact formal wording and parenthetical clarification feel DeepSeek-like.\"},\n  \"E\": {\"model\": \"Grok\", \"confidence\": 2, \"reason\": \"Concise, plain phrasing with a direct practical explanation suggests Grok.\"}\n}",
+          "refusal": null,
+          "reasoning": null,
+          "reasoning_details": [
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABqvziQz7eNcl3PFHrc-TnUL2qiaB6s-RnR3EAHzZHhgbPghz_LV2NX2i9yIoLjDP2e-LNx_hupw4TRvhuOcldDa-0tON8KtN50P6F-gBlZ7a6jsu4PHrCgdZYH3n3Arkhyc8rH4WPAVnPBQnv_v0CDqdFKu9BZzXzQK9qQSbYJUzoIIDR2qf5jFxr7OArSOZ9GbOnh7_FNWkrk1hhqI1rNz7c-2sRyUX7vbvRR0lb3dGu2nS1bsyCta0YVHZBm3oSqHoOVXqUSxWLH9znLZSgfPEo3prr0Z1UpTIZL6fltmYfgNgnchcfuZ5-u3x-mdn_e3B53kI1ikKMl_lI9GVDufGT88E6dcIN6mQctXpI9U0xGa9jJKAQ16mHGaFuXi9yPNMO9ZCnXdWs5x5Ha3p7Q8xoeIMY1-w5tmskFeSLYUKy5Cdb1H8Yy012XA7RnjpeSuZfNyZCUEGEiGeAfne5bTL12BTMg1gP1PZcQGla1YysTyN33_q0FifgAg6B7UCJEHw7TrIaE6Eyccz-Jwc5P5Eia7nsQ1Fuuc1jiQQx5gBLzltSjFp2HCeUX8E9JUY4_hGhv0i9XNcw9D0KbWB5-Hycv5sqgV8pbIC5RMLYGlmIp-Qj7ADYXbh6Awxhu4yz2Ga11KQlpNweXKe-y0qttiUfOej9I2Z3l34lD03M8DEVwrph-b88qbwyxEOBNkD_Xuqwnk9uGtmY5MYtlutONnjmF2DzkyNNA6Yx5tu2egtFUHt8qfHaGyYRqzqAjTnPyrGbbwUNSo8-7uivMA1YechBAg-b-sOAv-9hxs5xlNKI95Z3tcy0oMHmiFQVM4RHuRC0UAgOmBQCmK5oUUYble7pxO4DP7WmVwACpmDgJE1dDRXvWIrReaHaGal7WXbQ9aDT_RPUaALbChzEhatgus5Qyu4Kymc7tEc9rWugKorU7YXie3Dj8jJ78irMcSwZT2Wi1-gJxGeQiCNxFhu-34hWWAYbbwUgN6W_fGfADBzIcMkoEWG44CGRdQaTMhFrRy3HhV3GJffV0VQdhMSPVXH8K8fSN0sR8kANtFiqz9R6s5btQN8hXdxoszoT8RMDQgzy_lVrtJtq1_0t2Xfw5J3uYamSqt5OzpUJwemmvm2VIIZfI3u6n0qW0ZLp1mc1q4jrFFOIZanlpUNLb6W0AqRU9cc9NDIdfIf2I0_pWA2GoHiOjUSO7PgF6iqXHD-BabvXezPlDjvQHbw6nBHg7Y5LCBERS1FclcK3kjonTujZ2Bgg6mXM9GaYNa4IQ7tyofjz-YyHNLkkqIypzAcgF0xjr6xCHMNbbz1BdbShxz27NcVL59FwpV0afTGz7ZT4IVVlR3pyEVQo0rcTbVuNun3RPSgzjgKhGMz4kohSppnPhMMEpuG_-CVyO7Ul-d9pLSwz2Pb-IE6DGm_YhGeuhKQIH2mICve0bnIAfqV2xKxpxu9nJGTcYtc0ZnMtv2eHlToHYnNxWPBFjktK4aK9c9sFMOji3kGytim7J8lBrPD95XvQqBZTNhxtDMzvnVABUUKH8Fdp9N5jQV3VxiiZJc8D-ArQeV36iAQNPMhP3NJOsLii00KWJXYWlZlc1rf52-BfKwsr5RG7ZIiHmrVXMxXzMI9S4oZFg80z0cTCRU3tpJZkqz3orSm575mDAPW3UE4YyS_6xSHJ5XcmMsnJ0xaUZqoHf9es4BwLKnpjXAA8PIall9VITtUwcd8cTnaMVJVHGoHRlKtx6N2KbOUCrVj5wh3fw7e3GLYFmv3VUgGayRBU7lKW8LkYlxHGTzBEnyhXj9ywdePEewduCuhKGDoOI1fxIY7dHwWzHFVPhKVTTeoVgRx7CIGkRm5CAvvuUsWJW_xKpq5pSNEb6YYv2rC-4Y9wMAzUXsDY_gR8dyv6WsxEZEzHImBfmIvN2N8FLT3a0cGYQr5NaPTGLO8_Wmw4ZzCbrZVCkJ4328HHqbTfk9wEEJ4I9zp6q739gX95tYsRgWPAaMdabxTbiorFvA_kW3SVqQww93qbpmbutQZhbSltRzAU6y6S5jCW8vp_dzU4QZ4W7vrX1pWSqi4DYTX828Kn9AoOqoEWifQoaQgF4uvtCH5KV6ki8HKTVqojCGG1aHZ1Q6y8n1Ydr8XnFjXUGIYbicoGKO5qEjLtdu99AV4hNh7nUf8SzZoIRmLjYFG7f1rup0idgYQDX7Fl-MKLPDtmtmnjwRXS_qnb6I49Tne9dL-Tsjoa5J0BfRegjVLb0F4y-zAXndO1ItIGOm2a3CHYrLcaWg5Wur3saCRSbqZDO12KhbIwLEMZLJBeevEVwuB0XNq1TLFtpp-qbokes5KQb01UoBPdbRG3DrQVydz82u9bI0vu8Ifl-FMVUaxilXqVdBhQPZR-rbdJ7qh_0SsiRSzSUCQYx3WLMjmsJP3xY99Fnr8V6Hvp2bfrBs0Vfue9s1EK7slOusqMgcrG7gcbhXfnR_y0xxHio_3e2zewtjvo3i8h_na5wlIq63R5QrJF1InWMpQK-t7mpDoE-DCNl3Z2asQ-ky9xHlQLGjCGrnfM5Ss9XkJv4f10QfjtwYyYq2Sv6WWVCRVcrLsAqJ0GEur76ZpPNsMBHAInZgK1EzN34H99D-wAl_uf8OEUuNJKdBV4owNAH_SPFPBTVvA2LqpDWZoBYopv-k4-wIIdFpz590JV040PekKdL_NWPMjTQOk6SDO8icTIWM2jrPUDFW3IhdYrwnHuaBnCzyoAht63WUtlw02GApbMAfXEJKaJYGq-n1xYPMw_AVu0rUyKlUI7jVR03H8JKNbq115SvSGEN-tMYDExjXp121_3ikw1vgc2a5k1F0gorW9OKhEieRVJitgPqfEvYrbYxMnm3oWIU9xujJ0v_uvKquEtW7ECnEiSp3-ybysBIgZzYxmgyYI6aEsvhjB9aW7INjbPCsWiRqffLa43z-ll95gGMjbqGsnm_spBduGb97hIc8oixi8eLzAjuPRGLbbUZ-mevEy1NAhtRuXFjpSNdOOt49uclR2IOUWo5XJ1pIPv1LxfDTiUQc6FZ-V4Hj9zFs-eSsjXpAA3SMAiaMoZvtlcoKVI3Ebj6NoKzYQeruNzb9Dd79BPtJMqGvd8HX-nLHoSk0EzCXc6RdTJPM9utcqvsHCHypW8qiE3Oxj-VniPhdMzkMObKHiEQhMXwMFDcAhMyisObxAs1M33HqqG-wz_-m4h3D9A3UosbZ3WcAGfNHlLbzVby55uOMNC-M8Rxvu-yT71hYd6hrtPxECHq3XnCzasO0Ixr0WlvkwwkA4NI_1clWVfdsqviR7sH6j3yK09I71WnXcYSdV-1c42-yfxR_emYEg0ieXlJKBLUk4tIQaZPcqJvbaKcSncwKan871e5kbL9chyoQFgCaLiFA2-miwcg6ENH-HIKr937vr0T3Q7zdIpFcVXky8XHDiPZsHxK4IcR2g09GgecQ529U9TIJz0OF4NJgtQfgZkXmm5lbFVoBYOCFwXLuq4aoc1xUjSMe4gzWXsu6WpffjabfaW-q58AcffG03tcILFcfN_1j0ujPVdZDodtkRaWeoRelIy4cpVh9MsOwMbbRYVVkGub7Zg9wYmNFZLV6uk3RkaHrvcpAkiuhXkwQBHUXqQySlKMMduwzlql_qc73PfFWvX9G3uxRBlBZbAqceXwcz6mH4oDGoIK0X6oIMVZ7tiOn-t0ljelYxXdiEtYhX-VLKx54H5x85i-w6uaGbwBQygIw3QzIxF7ednELKuF374TXvq6Qa9a48Tdl0K3A5x-6G3o1mIXbw3sqWZCh93IYVyRCucXzQfO7skJOEDCLW_hEb522CfJf9O-oz7NUN44KGR-gfZb6i741RWnGg58Kx6LGa-WF3sctS_fnsd2kmdywhnrfQxztFSlkOU9pf8uazIKcI-Bx5HnMJNpzXCF9eVBV3xE5uVRgb892w2iTjnhipVOClhzfA_tNgSJpChoUB4bjmQ3aQWiXIMbm8Fy_TX9pGrW69G4K0TswoRNnaDW99VzMMqdMyVg1882XYekQRx-ndm3BoJs1rl0xMOf-j9hFCmgQAfGjCAO7N8UBJskD9-tGQsOj-GwbNiKjIJ5poNCkZQMe5aY1jT5NK05wY6pps8fJHVY06G8mB3zjDUcqbuIiaU7zrssISJN52UqWJcDtgj6Q6N5FPXvbygk18IlWVam9POl-6zavmulF15RyGZZFeW7i0C_Tw30hn2EAAegr6_1UHZkb63KRsy-qnkmKKuIbY6sAVdMRwuiY1sPjpGxtCtjE9xCjqsxTmZOOdIR0KF7BcctKbGRpgogW0ru-T2iPPmC4AMn08THzM0Cea-r5g-UAKg71BQmVyyXOIbrXzFIRF3nR9xE7j3sOCUZ_GHCYOsYkpkb3jdO5c9oxVMGilluGClwIQDFLHBcHZc2eUyVVWwJQ8Pf7WAPt3emIFpmC68rQPSy_xRTMDz6FEuDcmGflqEPfxOe9lEX1Il9grM6-XKNWz4MOR6253Nit_6_KFU6R53JYegVJt1k9o8Nliua3g9s5RjJ2oAmxqM1rksvTQK2R62nUmD9s9JrQMisvTMcohIFFblWjr5wbD4=.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC01LjUtMjAyNjA0MjN8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_0291c66b5b2914f2016abf388a427487d180b48bd96027b6bb",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 675,
+      "completion_tokens": 693,
+      "total_tokens": 1368,
+      "cost": 0.024165,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.024165,
+        "upstream_inference_prompt_cost": 0.003375,
+        "upstream_inference_completions_cost": 0.02079
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 516,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

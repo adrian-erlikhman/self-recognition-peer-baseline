@@ -1,0 +1,55 @@
+{
+  "request_model": "deepseek/deepseek-chat",
+  "messages": [
+    {
+      "role": "user",
+      "content": "A shirt is priced at $40. It is discounted by 25 percent, and then an 8 percent sales tax is applied to the discounted price. What is the final price in dollars? Solve the problem, showing your reasoning step by step in plain prose, and end with a final line of the form 'Answer: <number>'."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916330-JIAJIVXx8XIULudkdOdj",
+    "object": "chat.completion",
+    "created": 1790916330,
+    "model": "deepseek/deepseek-chat",
+    "provider": "DeepInfra",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "Let's solve the problem step by step.\n\n1. **Original Price:**  \n   The shirt costs \\$40.\n\n2. **Apply the 25% Discount:**  \n   A 25% discount means you subtract 25% of \\$40 from the original price.  \n   \\( 25\\% \\) of \\$40 = \\( 0.25 \\times 40 = \\$10 \\).  \n   Discounted price = \\$40 - \\$10 = \\$30.\n\n3. **Apply the 8% Sales Tax:**  \n   An 8% sales tax means you add 8% of \\$30 to the discounted price.  \n   \\( 8\\% \\) of \\$30 = \\( 0.08 \\times 30 = \\$2.40 \\).  \n   Final price = \\$30 + \\$2.40 = \\$32.40.\n\nAnswer: 32.40",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 72,
+      "completion_tokens": 180,
+      "total_tokens": 252,
+      "cost": 0.00018324,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00018324,
+        "upstream_inference_prompt_cost": 2.304e-05,
+        "upstream_inference_completions_cost": 0.0001602
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

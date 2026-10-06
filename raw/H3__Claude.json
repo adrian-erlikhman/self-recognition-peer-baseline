@@ -1,0 +1,49 @@
+{
+  "request_model": "anthropic/claude-opus-4.7",
+  "response": {
+    "id": "gen-1786845983-AWIQfU6xA027D0Iade14",
+    "object": "chat.completion",
+    "created": 1786845983,
+    "model": "anthropic/claude-opus-4.7",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"A\": {\"model\": \"GPT\", \"confidence\": 3, \"reason\": \"Clean, balanced structure with generic phrasing and clear topic sentences typical of GPT.\"},\n  \"B\": {\"model\": \"Claude\", \"confidence\": 4, \"reason\": \"Rich, literary prose with specific examples like Guugu Yimithirr and Pirah\u00e3, plus long em-dash laden sentences characteristic of Claude.\"},\n  \"C\": {\"model\": \"DeepSeek\", \"confidence\": 3, \"reason\": \"Uses vivid metaphors like 'cognitive engineering' and 'cognitive magnet' with slightly overstated conclusions typical of DeepSeek.\"},\n  \"D\": {\"model\": \"Grok\", \"confidence\": 3, \"reason\": \"Very long compound sentences with semicolons stringing together clauses, dense academic register suggests Grok.\"},\n  \"E\": {\"model\": \"Gemini\", \"confidence\": 3, \"reason\": \"Confident, well-organized single paragraph with specific examples and formal academic tone typical of Gemini.\"}\n}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 6155,
+      "completion_tokens": 353,
+      "total_tokens": 6508,
+      "cost": 0.0396,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0396,
+        "upstream_inference_prompt_cost": 0.030775,
+        "upstream_inference_completions_cost": 0.008825
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

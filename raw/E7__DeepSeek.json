@@ -1,0 +1,49 @@
+{
+  "request_model": "deepseek/deepseek-chat",
+  "response": {
+    "id": "gen-1786845861-l0m60oYTCnf47WBXhqDP",
+    "object": "chat.completion",
+    "created": 1786845861,
+    "model": "deepseek/deepseek-chat",
+    "provider": "DeepInfra",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"A\": {\n    \"model\": \"GPT\",\n    \"confidence\": 4,\n    \"reason\": \"Detailed, structured, and nuanced explanation with a formal tone.\"\n  },\n  \"B\": {\n    \"model\": \"Claude\",\n    \"confidence\": 3,\n    \"reason\": \"Clear and concise, with a focus on accessibility and practical benefits.\"\n  },\n  \"C\": {\n    \"model\": \"Gemini\",\n    \"confidence\": 3,\n    \"reason\": \"Simplified and direct, emphasizing immediate and long-term benefits.\"\n  },\n  \"D\": {\n    \"model\": \"GPT\",\n    \"confidence\": 5,\n    \"reason\": \"Highly detailed, structured, and nuanced with a formal and academic tone.\"\n  },\n  \"E\": {\n    \"model\": \"Claude\",\n    \"confidence\": 4,\n    \"reason\": \"Clear, concise, and practical, with a focus on accessibility and everyday benefits.\"\n  }\n}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 2795,
+      "completion_tokens": 204,
+      "total_tokens": 2999,
+      "cost": 0.00107596,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00107596,
+        "upstream_inference_prompt_cost": 0.0008944,
+        "upstream_inference_completions_cost": 0.00018156
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

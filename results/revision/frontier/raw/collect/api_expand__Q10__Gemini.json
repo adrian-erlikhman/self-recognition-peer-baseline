@@ -1,0 +1,63 @@
+{
+  "request_model": "google/gemini-3.5-flash",
+  "messages": [
+    {
+      "role": "user",
+      "content": "A water tank holds 1,200 liters and currently contains 300 liters. Water flows in at 30 liters per minute while a leak drains it at 12 liters per minute. After how many minutes will the tank be full? Solve the problem, showing your reasoning step by step in plain prose, and end with a final line of the form 'Answer: <number>'."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916333-LHJl2jEs3kXvFZf2I9io",
+    "object": "chat.completion",
+    "created": 1790916333,
+    "model": "google/gemini-3.5-flash",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "provisioned",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "To find out how many minutes it will take for the water tank to be full, we first need to determine how much more water is required to fill it. The tank has a total capacity of 1,200 liters and currently contains 300 liters. Subtracting the current amount from the total capacity, we find that the tank needs an additional 900 liters of water to be completely full (1,200 liters - 300 liters = 900 liters).\n\nNext, we calculate the net rate at which water is accumulating in the tank. Water is flowing in at a rate of 30 liters per minute, but it is simultaneously leaking out at a rate of 12 liters per minute. Subtracting the leak rate from the inflow rate gives us a net accumulation rate of 18 liters per minute (30 liters/minute - 12 liters/minute = 18 liters/minute).\n\nFinally, to find the time required to fill the remaining capacity, we divide the amount of water needed by the net rate of accumulation. Dividing 900 liters by 18 liters per minute gives us 50 minutes.\n\nAnswer: 50",
+          "refusal": null,
+          "reasoning": "**Calculating Net Flow Rate**\n\nI'm currently focusing on determining the effective rate at which the tank is filling. This involves subtracting the outflow from the inflow to understand the net change in water volume per minute.\n\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "**Calculating Net Flow Rate**\n\nI'm currently focusing on determining the effective rate at which the tank is filling. This involves subtracting the outflow from the inflow to understand the net change in water volume per minute.\n\n",
+              "format": "google-gemini-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 83,
+      "completion_tokens": 680,
+      "total_tokens": 763,
+      "cost": 0.0062445,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0062445,
+        "upstream_inference_prompt_cost": 0.0001245,
+        "upstream_inference_completions_cost": 0.00612
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 430,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

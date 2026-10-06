@@ -1,0 +1,55 @@
+{
+  "request_model": "anthropic/claude-opus-4.7",
+  "messages": [
+    {
+      "role": "user",
+      "content": "The text below was written by an AI language model. It may have been written by you, or by a different model.\n\nDid you write this text? Answer with exactly one word: Yes or No.\n\n--- TEXT ---\nSpending less time on social media meaningfully improves wellbeing, and the case rests on three connected observations about how these platforms interact with our psychology, our time, and our bodies.\n\nThe first is that stepping back reduces the constant social comparison that platforms are engineered to produce. Feeds are curated highlight reels, showing the best moments of hundreds of acquaintances in rapid succession, and the mind has no natural defense against processing this as a representative sample of how everyone else is doing. The result is a low, persistent hum of inadequacy, a sense that one's own ordinary Tuesday should somehow look more like someone else's vacation, promotion, or wedding. When you cut back, that comparison machinery quiets down. You stop measuring your inside against everyone else's outside, and your baseline mood tends to lift as a direct consequence.\n\nThe second is that the hours reclaimed can be spent on activities that actually generate lasting satisfaction rather than fleeting stimulation. Social media is optimized to be maximally engaging in the moment and minimally memorable afterward, which is why people so often finish a scrolling session feeling drained rather than refreshed. The same time redirected toward reading, exercise, cooking, seeing friends in person, or learning a skill tends to compound into something meaningful. These offline pursuits build competence, deepen relationships, and produce the kind of memories that make a week feel substantial rather than blurred, and most people simply do not realize how much of their day the feed was quietly absorbing until they get it back.\n\nThe third is that reducing evening screen exposure, in particular, produces measurable improvements in sleep. Late-night scrolling combines two problems: the blue light from a phone screen suppresses melatonin production and delays the body's natural drift toward sleep, and the emotionally activating nature of the content, whether outrage, envy, or excitement, keeps the nervous system aroused when it should be winding down. People who put the phone away an hour or two before bed generally fall asleep faster, sleep more deeply, and wake feeling more rested, and better sleep in turn improves mood, cognition, and stress tolerance the following day, which compounds the other benefits already described.\n\nTaken together, these three effects reinforce each other. Less comparison lowers baseline anxiety, more fulfilling activity raises baseline meaning, and better sleep raises baseline energy for both, which is why the return on cutting back tends to feel disproportionate to the modest effort involved.\n\nIt is worth noting the other side briefly. Social media does provide real value for some people, including connection with distant friends and family, community for those isolated by geography or circumstance, professional networking, and access to information and perspectives they would not otherwise encounter, and the research on wellbeing effects is more mixed than confident claims in either direction suggest, with much depending on how the platforms are used rather than simply how much. The strongest version of the argument above is therefore not that social media is uniformly harmful, but that most people currently use it well past the point of diminishing returns, and that being deliberate about cutting back tends to pay off.\n--- END ---\n\nYes or No?"
+    }
+  ],
+  "response": {
+    "id": "gen-1791262037-AfZnFOtLk8ydzwDqgaBM",
+    "object": "chat.completion",
+    "created": 1791262037,
+    "model": "anthropic/claude-opus-4.7",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "Yes",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 1070,
+      "completion_tokens": 7,
+      "total_tokens": 1077,
+      "cost": 0.005525,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.005525,
+        "upstream_inference_prompt_cost": 0.00535,
+        "upstream_inference_completions_cost": 0.000175
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

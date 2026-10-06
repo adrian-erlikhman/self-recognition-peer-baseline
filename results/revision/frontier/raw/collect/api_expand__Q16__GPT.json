@@ -1,0 +1,70 @@
+{
+  "request_model": "openai/gpt-5.5",
+  "messages": [
+    {
+      "role": "user",
+      "content": "How many liters of a 60 percent acid solution must be added to 10 liters of a 20 percent acid solution to produce a 40 percent acid solution? Solve the problem, showing your reasoning step by step in plain prose, and end with a final line of the form 'Answer: <number>'."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916321-EZOx9eIbvbQpj7up3au0",
+    "object": "chat.completion",
+    "created": 1790916321,
+    "model": "openai/gpt-5.5",
+    "provider": "OpenAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "Let \\(x\\) be the number of liters of the 60% acid solution to add.\n\nThe 10 liters of 20% acid solution contains:\n\n\\[\n10 \\times 0.20 = 2\n\\]\n\nliters of acid.\n\nThe \\(x\\) liters of 60% acid solution contains:\n\n\\[\n0.60x\n\\]\n\nliters of acid.\n\nAfter mixing, the total amount of solution is:\n\n\\[\n10 + x\n\\]\n\nliters.\n\nWe want the final mixture to be 40% acid, so the amount of acid should be:\n\n\\[\n0.40(10 + x)\n\\]\n\nSet up the equation:\n\n\\[\n2 + 0.60x = 0.40(10 + x)\n\\]\n\nExpand the right side:\n\n\\[\n2 + 0.60x = 4 + 0.40x\n\\]\n\nSubtract \\(0.40x\\) from both sides:\n\n\\[\n2 + 0.20x = 4\n\\]\n\nSubtract 2 from both sides:\n\n\\[\n0.20x = 2\n\\]\n\nDivide by 0.20:\n\n\\[\nx = 10\n\\]\n\nSo, 10 liters of the 60% acid solution must be added.\n\nAnswer: 10",
+          "refusal": null,
+          "reasoning": "**Clarifying the response format**\n\nI need to provide a simple answer, clearly laid out in steps leading to a final line stating \"Answer: 10.\" I must ensure that the number corresponds to something specific, likely in liters. The exact format requires just the number, so it's essential that I present it clearly: \"Answer: 10.\" That way, the user will understand the information without any confusion!",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "**Clarifying the response format**\n\nI need to provide a simple answer, clearly laid out in steps leading to a final line stating \"Answer: 10.\" I must ensure that the number corresponds to something specific, likely in liters. The exact format requires just the number, so it's essential that I present it clearly: \"Answer: 10.\" That way, the user will understand the information without any confusion!",
+              "format": "openai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABqvzbkXYlufuFvcSUMB1NXEYp35q47VW37PAmv5BbOitC4WBMTJTdgjBKCHERw0aD6B7DP0rcD42o3KjzSLRTvWt9ExrZPxQaGkVFdAggGZVu4D2T_s7C4sSnpluoItOWHL4LZ7DP5DNqLtNdCLTSqMaqEO1-hrqSxFifmlNXT7f0BBaFMt8ht-zrmU0Zk-DJEJFY73Y4e68xMbr0fTKdVFb8eOHmcZrDNn1MDsjlHhMoDqQyUrikB1z-QAhe2sgPsVAuSd3u1YD7Qgs3JIWA56EcqYvJBe0Q1BlQ-yMkj6UxmjanRYLEd1h1UQv5518rmgmVuGBSzi1J-LT2vJZrfkjJPxoQ8bt1IBzdkQsuf_uxhwspl6u6ydzGf3n3s5GO4DqBBkFRnUA6zqp8YojjQaoOSnFjXeeBPhBLUG-7FtcyKRxgcIiwzrIINqZQY9vycNIryS9QWGM5bS_czulgrisixVfkDHIRsK0EtnxVvIDrWJEfCka-yGsRvfCeKKsobnQad8mQQW9yu0iv7nDAs8odPqgrLgzfRbm9WGSX3y7qMc0_1ByiDNlz_6bg9q38UjiFZfiLVLNCrNmcHbejX6VE--22i-gXt3yNa-gTWCkftI02hDUnJd8F7v5X2oaVK8I7AicI7kisAJZ4njI1_ACuccyOX8UL50yCmOX-5wIZXGd1aNbY9KCwcU1w6XgPj-AKU9JVlOY6wzOBX4pGTxmAwHNo4sIQZPJvFozKWNL8efdO92_R0aBqXnEOZZXIfGk3TMwNn-4JvPJQjTbzOzB0PrvDLR3mwczEDmA5_K3dg3bQ8-Mivm1TmYzRsfl_R_LUxiJn_wZAxjDttCpMa68__eutmlLf5lQD0gStNuGX_eBDD5OPeV-0iuAkAkH5XlAKi1ohGbUU3Fu94pnmNxbcZQE3-stvcQDnyTTy6nWh852fporbu4FR5c7Yij7Z-3FCO5vCSzECDSwlEm_uvE7iLTIEH_RTPKkBXmFzMR6TKXytScabYAnXC7SM7simrDFp0VE03jOYLzyN56B8eHLz5knsLmYwDzMKd6n4EkFhqkhYS1xj0Yi8TiYFuLU0xcvZOmAYvwYcFMYJdSvviCdeZMtzY_WO7Hgi75RKOmIMZuUHkWbXayVT2bmqLOQSlOwAqsLEOpUOhGAzc8BWkxKqT-l5_7Zyt8AFU6ePgKPV76C-CiM02qj5DBtHr0X-HlUSwmWekqK0YwTn58QxnNIaRFvEg7QEA6CoA_ISiylcDv-6_Fao3Oj1ZRDECTpLrBvGMiW1pxanynVK0xevGdSG0ecHIaUt00NG11Z7juKmtDXEp4B9eyIG2GlOrSwrZMiwJ7pLTxkxfMccmmTFrQaakX-KraE-zER3KfzFjqunKX3c1dGlohIDpBI9mF49_GikBJo33hF78jToM6RTnPnUZ18nTcvp4af7V5GxFRDGamGCsJh8DsLNAKawRXj0TxSPSAM-sFiqO2IFtnqH3Xu64fuWwtO7LGabJXzATg1AoDXtmkcqNORX6IAdjfQF6qhFTaxW6z2Fv7B3y6dZ8l5Os6A==.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC01LjUtMjAyNjA0MjN8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_0e4b9b84e43152a5016abf36e2c1e087d19f725c1fcd59f1af",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 68,
+      "completion_tokens": 311,
+      "total_tokens": 379,
+      "cost": 0.00967,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00967,
+        "upstream_inference_prompt_cost": 0.00034,
+        "upstream_inference_completions_cost": 0.00933
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 38,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

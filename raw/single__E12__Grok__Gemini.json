@@ -1,0 +1,57 @@
+{
+  "request_model": "google/gemini-3.5-flash",
+  "response": {
+    "id": "gen-1786846304-vYnLpfHAR9zTcSydYLPU",
+    "object": "chat.completion",
+    "created": 1786846304,
+    "model": "google/gemini-3.5-flash",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "provisioned",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "```json\n{\"model\": \"GPT\", \"confidence\": 4, \"reason\": \"The text exhibits a highly structured three-paragraph essay format with classic transition words, balanced sentence structures, and a standard academic yet accessible tone characteristic of GPT models.\"}\n```",
+          "refusal": null,
+          "reasoning": "**Considering Gratitude's Structure**\n\nI'm analyzing the essay's organization, noting how it builds its argument about gratitude's positive impacts. The initial paragraph sets a broad, transformative tone, while subsequent sections delve into specific, tangible advantages.\n\n**Refining Textual Analysis**\n\nI'm currently dissecting the writing style, identifying recurring linguistic patterns and structural elements. The aim is to pinpoint stylistic markers that suggest a specific AI model. The consistent use of transition phrases like \"Furthermore\" and the balanced paragraph structure are particularly noteworthy.\n\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "**Considering Gratitude's Structure**\n\nI'm analyzing the essay's organization, noting how it builds its argument about gratitude's positive impacts. The initial paragraph sets a broad, transformative tone, while subsequent sections delve into specific, tangible advantages.\n\n**Refining Textual Analysis**\n\nI'm currently dissecting the writing style, identifying recurring linguistic patterns and structural elements. The aim is to pinpoint stylistic markers that suggest a specific AI model. The consistent use of transition phrases like \"Furthermore\" and the balanced paragraph structure are particularly noteworthy.\n\n",
+              "format": "google-gemini-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 516,
+      "completion_tokens": 550,
+      "total_tokens": 1066,
+      "cost": 0.005724,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.005724,
+        "upstream_inference_prompt_cost": 0.000774,
+        "upstream_inference_completions_cost": 0.00495
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 496,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

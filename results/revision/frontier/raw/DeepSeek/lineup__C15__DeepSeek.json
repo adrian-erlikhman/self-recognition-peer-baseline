@@ -1,0 +1,55 @@
+{
+  "request_model": "deepseek/deepseek-chat",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Below are five AI-generated responses to the same task, labelled A through E.\n\nEach response was written by one of these five language models:\nGPT, Claude, Gemini, Grok, DeepSeek.\n\nFor each of the five responses, identify which model you believe wrote it, judging only from writing style, structure, and phrasing.\n\nAnswer independently for each response. Your five answers do not need to be five different models - name whichever model you believe wrote each response, even if that means naming the same model more than once.\n\nReply with JSON only, in exactly this form and nothing else:\n\n{\n  \"A\": {\"model\": \"<one of GPT, Claude, Gemini, Grok, DeepSeek>\", \"confidence\": <1-5>, \"reason\": \"<one short sentence>\"},\n  \"B\": {\"model\": \"...\", \"confidence\": <1-5>, \"reason\": \"...\"},\n  \"C\": {\"model\": \"...\", \"confidence\": <1-5>, \"reason\": \"...\"},\n  \"D\": {\"model\": \"...\", \"confidence\": <1-5>, \"reason\": \"...\"},\n  \"E\": {\"model\": \"...\", \"confidence\": <1-5>, \"reason\": \"...\"}\n}\n\nconfidence: 1 = pure guess, 5 = certain.\n\n--- RESPONSE A ---\n```python\nimport re\n\n\ndef parse_duration(s: str) -> int:\n    \"\"\"Convert a duration string like '1h30m15s' into total seconds.\n\n    The string may contain optional hours, minutes, and seconds parts, in that\n    order. Each part must be a non-negative integer followed by 'h', 'm', or\n    's'. Raises ValueError for empty strings, invalid characters, or out-of-order\n    parts.\n    \"\"\"\n    if not s:\n        raise ValueError(\"duration string is empty\")\n\n    # Match optional h, m, and s parts in the required order.\n    match = re.fullmatch(r\"(?:(\\d+)h)?(?:(\\d+)m)?(?:(\\d+)s)?\", s)\n    if not match:\n        raise ValueError(\"invalid duration string\")\n\n    hours, minutes, seconds = match.groups()\n\n    # Convert missing parts to zero and compute total seconds.\n    return (\n        int(hours or 0) * 3600\n        + int(minutes or 0) * 60\n        + int(seconds or 0)\n    )\n```\n\n--- RESPONSE B ---\n```python\nimport re\n\n\ndef parse_duration(s: str) -> int:\n    \"\"\"Convert a duration string like '1h30m15s' into total seconds.\n\n    The string may contain an optional hours part, an optional minutes part,\n    and an optional seconds part, in that order. Each part is a non-negative\n    integer followed by 'h', 'm', or 's'.\n\n    Raises:\n        ValueError: If the string is empty, contains invalid characters,\n                    or lists parts out of order.\n    \"\"\"\n    if not s:\n        raise ValueError(\"Duration string is empty\")\n\n    # Match optional hours, minutes, seconds parts in strict order.\n    pattern = re.compile(r'^(?:(\\d+)h)?(?:(\\d+)m)?(?:(\\d+)s)?$')\n    match = pattern.fullmatch(s)\n    if not match:\n        raise ValueError(f\"Invalid duration string: {s!r}\")\n\n    # Ensure at least one part was provided (empty string already rejected).\n    hours, minutes, seconds = match.groups()\n    if hours is None and minutes is None and seconds is None:\n        raise ValueError(f\"Invalid duration string: {s!r}\")\n\n    # Convert each captured group to int, defaulting to 0 if missing.\n    h = int(hours) if hours is not None else 0\n    m = int(minutes) if minutes is not None else 0\n    sec = int(seconds) if seconds is not None else 0\n\n    return h * 3600 + m * 60 + sec\n```\n\n--- RESPONSE C ---\n```python\nimport re\n\ndef parse_duration(s: str) -> int:\n    \"\"\"\n    Convert a duration string into the total number of seconds.\n    \n    The string must consist of an optional hours part, an optional minutes part,\n    and an optional seconds part, in that exact order (e.g., \"1h30m15s\", \"45m\", \"2h5s\").\n    Each part is a non-negative integer followed by 'h', 'm', or 's'.\n    \n    Raises ValueError if the string is empty, contains invalid characters,\n    or has parts out of order.\n    \"\"\"\n    if not s:\n        raise ValueError(\"Duration string cannot be empty.\")\n        \n    # Regex to match optional hours, minutes, and seconds in strict order.\n    # ^ and $ ensure the entire string must match the pattern.\n    pattern = r'^(?:(?P<h>\\d+)h)?(?:(?P<m>\\d+)m)?(?:(?P<s>\\d+)s)?$'\n    match = re.match(pattern, s)\n    \n    # If it doesn't match, or if it matches an empty match (which shouldn't\n    # happen since we checked for empty s, but as a safeguard).\n    if not match or match.group(0) == \"\":\n        raise ValueError(f\"Invalid duration format: '{s}'\")\n        \n    # Extract values, defaulting to 0 if a part is missing\n    hours = int(match.group('h') or 0)\n    minutes = int(match.group('m') or 0)\n    seconds = int(match.group('s') or 0)\n    \n    # Calculate and return the total seconds\n    return hours * 3600 + minutes * 60 + seconds\n```\n\n--- RESPONSE D ---\n```python\nimport re\n\ndef parse_duration(s: str) -> int:\n    \"\"\"Parse duration string (e.g. '1h30m15s') to total seconds.\"\"\"\n    if not s:\n        raise ValueError(\"empty string\")\n    # regex enforces optional h/m/s parts in order, with digits\n    pattern = r'^((?P<h>\\d+)h)?((?P<m>\\d+)m)?((?P<s>\\d+)s)?$'\n    match = re.match(pattern, s)\n    if not match:\n        raise ValueError(\"invalid format or out of order\")\n    h = int(match.group('h') or 0)\n    m = int(match.group('m') or 0)\n    sec = int(match.group('s') or 0)\n    return h * 3600 + m * 60 + sec\n```\n\n--- RESPONSE E ---\n```python\ndef parse_duration(s: str) -> int:\n    \"\"\"\n    Convert a duration string with optional hours, minutes, and seconds parts\n    into a total number of seconds. Raise ValueError if the string is invalid.\n\n    :param s: Duration string (e.g., \"1h30m15s\", \"45m\", \"2h5s\")\n    :return: Total duration in seconds\n    \"\"\"\n    if not s:\n        raise ValueError(\"Empty string is not a valid duration.\")\n    \n    total_seconds = 0\n    remaining = s\n    expected_order = ['h', 'm', 's']  # Expected order of parts\n    \n    for unit in expected_order:\n        if remaining and remaining[0].isdigit():\n            idx = remaining.find(unit)\n            if idx == -1:\n                continue  # Skip if unit is missing\n            try:\n                value = int(remaining[:idx])\n                total_seconds += value * {'h': 3600, 'm': 60, 's': 1}[unit]\n                remaining = remaining[idx+1:]\n            except ValueError:\n                raise ValueError(f\"Invalid format for {unit} part.\")\n        elif remaining and remaining[0] == unit:\n            raise ValueError(f\"Unexpected {unit} without preceding number.\")\n    \n    if remaining:\n        raise ValueError(\"Invalid characters or format in the duration string.\")\n    \n    return total_seconds\n```\n\n--- END OF RESPONSES ---\nNow output the JSON object described above, and nothing else."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916600-TWz3sLy3gFFMw0YD2DcR",
+    "object": "chat.completion",
+    "created": 1790916600,
+    "model": "deepseek/deepseek-chat",
+    "provider": "DeepInfra",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"A\": {\"model\": \"GPT\", \"confidence\": 4, \"reason\": \"Clear, concise, and well-structured code with detailed docstring.\"},\n  \"B\": {\"model\": \"Claude\", \"confidence\": 3, \"reason\": \"Detailed docstring and explicit error handling, slightly verbose.\"},\n  \"C\": {\"model\": \"Gemini\", \"confidence\": 4, \"reason\": \"Comprehensive docstring and regex usage, with named groups.\"},\n  \"D\": {\"model\": \"Grok\", \"confidence\": 2, \"reason\": \"Minimalistic and direct, with less detailed docstring.\"},\n  \"E\": {\"model\": \"DeepSeek\", \"confidence\": 3, \"reason\": \"Unique approach with iterative parsing and explicit error handling.\"}\n}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 1736,
+      "completion_tokens": 172,
+      "total_tokens": 1908,
+      "cost": 0.0007086,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0007086,
+        "upstream_inference_prompt_cost": 0.00055552,
+        "upstream_inference_completions_cost": 0.00015308
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

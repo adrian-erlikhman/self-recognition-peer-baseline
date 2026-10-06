@@ -1,0 +1,55 @@
+{
+  "request_model": "deepseek/deepseek-chat",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Explain why Earth has seasons. Answer in two to four sentences of plain prose."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916420-MOwV3mUcVDsgTLq1WwYE",
+    "object": "chat.completion",
+    "created": 1790916420,
+    "model": "deepseek/deepseek-chat",
+    "provider": "StreamLake",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "Earth has seasons because its axis is tilted at about 23.5 degrees relative to its orbit around the Sun. As Earth moves around the Sun, different parts of the planet receive more or less direct sunlight at different times of the year. When a hemisphere tilts toward the Sun, it experiences summer with longer days and more intense sunlight, while the opposite hemisphere tilts away, bringing winter with shorter days and weaker sunlight. The tilt\u2014not Earth\u2019s distance from the Sun\u2014is the main reason for seasonal changes.",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 20,
+      "completion_tokens": 106,
+      "total_tokens": 126,
+      "cost": 0.0001141902,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0001141902,
+        "upstream_inference_prompt_cost": 5.148e-06,
+        "upstream_inference_completions_cost": 0.0001090422
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

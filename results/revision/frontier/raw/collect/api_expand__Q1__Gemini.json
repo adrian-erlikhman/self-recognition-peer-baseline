@@ -1,0 +1,63 @@
+{
+  "request_model": "google/gemini-3.5-flash",
+  "messages": [
+    {
+      "role": "user",
+      "content": "A bookstore sells notebooks for $3.00 each and pens for $1.25 each. Maria buys 4 notebooks and 6 pens. How many dollars does she spend in total? Solve the problem, showing your reasoning step by step in plain prose, and end with a final line of the form 'Answer: <number>'."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916330-fGoG9Vpi1L2cuUzlzHbj",
+    "object": "chat.completion",
+    "created": 1790916330,
+    "model": "google/gemini-3.5-flash",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "provisioned",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "To find the total amount of money Maria spends, we need to calculate the cost of the notebooks and the pens separately and then add them together.\n\nFirst, we calculate the cost of the notebooks. Maria buys 4 notebooks, and each notebook costs $3.00. Multiplying the number of notebooks by the price of one notebook, we get:\n4 * $3.00 = $12.00.\n\nNext, we calculate the cost of the pens. Maria buys 6 pens, and each pen costs $1.25. Multiplying the number of pens by the price of one pen, we get:\n6 * $1.25 = $7.50.\n\nFinally, we add the cost of the notebooks and the cost of the pens to find the total amount spent:\n$12.00 + $7.50 = $19.50.\n\nAnswer: 19.50",
+          "refusal": null,
+          "reasoning": "**Calculating Maria's Spending**\n\nI'm currently focused on determining the total expenditure for notebooks and pens. My calculations confirm the cost of the notebooks. Next, I'll address the pens to finalize the overall spending amount.\n\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "**Calculating Maria's Spending**\n\nI'm currently focused on determining the total expenditure for notebooks and pens. My calculations confirm the cost of the notebooks. Next, I'll address the pens to finalize the overall spending amount.\n\n",
+              "format": "google-gemini-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 70,
+      "completion_tokens": 473,
+      "total_tokens": 543,
+      "cost": 0.004362,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.004362,
+        "upstream_inference_prompt_cost": 0.000105,
+        "upstream_inference_completions_cost": 0.004257
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 274,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

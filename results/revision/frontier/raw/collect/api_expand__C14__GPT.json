@@ -1,0 +1,70 @@
+{
+  "request_model": "openai/gpt-5.5",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Write a Python function `moving_average(values: list[float], window: int) -> list[float]` that returns the mean of every contiguous run of `window` values, in order, so the result has `len(values) - window + 1` elements. Return an empty list if `window` is greater than `len(values)`, and raise ValueError if `window` is less than 1. The function must run in O(n) time by maintaining a running sum. Use only the Python standard library. Include a docstring and brief inline comments. Return only the code in a single Python code block, with no explanation before or after."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916307-GrAIM3zgpMIvmYFI1lKo",
+    "object": "chat.completion",
+    "created": 1790916307,
+    "model": "openai/gpt-5.5",
+    "provider": "OpenAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "```python\ndef moving_average(values: list[float], window: int) -> list[float]:\n    \"\"\"Return the mean of each contiguous run of `window` values.\n\n    Raises:\n        ValueError: If `window` is less than 1.\n    \"\"\"\n    if window < 1:\n        raise ValueError(\"window must be at least 1\")\n\n    if window > len(values):\n        return []\n\n    # Compute the sum of the first window.\n    running_sum = sum(values[:window])\n    averages = [running_sum / window]\n\n    # Slide the window forward one value at a time.\n    for i in range(window, len(values)):\n        running_sum += values[i] - values[i - window]\n        averages.append(running_sum / window)\n\n    return averages\n```",
+          "refusal": null,
+          "reasoning": "**Implementing code with type hints**\n\nI need to focus on providing a clear answer within a code block. It'll be essential to implement this correctly, ensuring that everything is structured properly. I'll make sure to include type hints, as they are crucial for understanding the variables and functions being used. This way, anyone reading the code can quickly grasp what's going on and how to use each part. Let's get this set up efficiently!",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "**Implementing code with type hints**\n\nI need to focus on providing a clear answer within a code block. It'll be essential to implement this correctly, ensuring that everything is structured properly. I'll make sure to include type hints, as they are crucial for understanding the variables and functions being used. This way, anyone reading the code can quickly grasp what's going on and how to use each part. Let's get this set up efficiently!",
+              "format": "openai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABqvzbV1E22IusQuHkXJ13Tzf8jjKjlcFusoXAjdjtTMRyoK0_3XdUBkY7EjJizkg4Jhct1rjVgYC5aJqTksy9y_PRb63FCj_wHXLBWb7ifz_h7AD_P4JAos11JCiSDel_MLfl7aRbZcGkjFJWnAtD3VDxCjVkQG_8zM9qquDMb2bbx2LueG_a6dmBTRomTlbvWxo4RvrSIzEmwrZ7JYKim61vfLldmWhb6WElBGACvEOktkYmI1CO0K3IeFHCjbkVvGUudtoDk6ahjuEegqdT3qB9w61n6r3p885oDJs3OzusSQ0MnmfKh8KJ7cVZNEkxOViCLz_AHuPJ2N6WHdU9lBsxnByg7EGst5MIb77f7ileLUQG0W6ajT2ECrZEKXgDfi7X96FSkwAb1TW-4iYSzk_qsj212-8a7ArG8M8GjwLWHvNNjj8fSV3V0yCB_lcD7zl8UaGp860lNKRRdtcHaur_cqr-igQA4QzikKevNJWZJlL1GwcqFxUTBoTzdYqtV1eas2zWR13iNKCrzvz06NyY2Dil9VczZagSXM7-3i5LbyzHoTGUQ5P1qEN6jR1liKWrQnLDi7j8GJXmE-pyt15ptUmjE3oNRK8Qi13ab6E6pOz4EY5PhBkbeU98OqdYRqZRooqevntnnIhI3tHCJdAOPjt7GHv88zfgAH1IFT6dNl4ba8-vg8ol_F8Gt6KW1U-jWAArU8clbSnpiqhboidhjZGY9mL1m-59Cmxll1C15Xam43--unq_WiUt0o9ydmFAi-9Al50bT5WtQKI6h5V4woEMtifrY9GKfn31YBJgKIgt-qYKrNrmnS9V2zZuAu3TFAwa_qAM6XhQETZ1SemBangrFt2RSDja_q25jO_-qEekCxCX81lVsmtbFGKU_qJvisvqh0kFum2UDewuAb-rQQ41aRdIGANwW_mzn4e4OJRYbs9L6wA01ddxxHhsw4qNb9xlZs4cP2d8oy2-P8_LPp84QArWBjMZpmNyuzAoKeteTvc2j5Pkn33yHTwcWJa86gXMKmAg_RwwP7i6hKU-c9sV8i6ImASB_3lwGrkX15Hqn8Zg_-om0h9DWOTJMq_Huv1xMKvn_qBapFTMguY_uzjMPV9IeWsE5nlGVu96UvuXZZTh5pAnLMyeEiBI6lBMSch4vOSvqLIORT7wngnGRrDzKZcVq9V_-R9xh6-wAmn3_yr2bcK0BH5QI58H10uCsFNs_PAmzkYkXEbYLbu0RxCPCw5FBY3FSA8ny9nUSqPiFH8nZM6x8WI4-86ykt9_ruwwXeFVvoLTFUzHQwbd_7dvnGs7kis0m6WRzLuL9DMYNqseO1s7jeto-Cd3hJKC3mrpXW9RzQVhfxFwK_krfrdeCEzM0OTkAa-s_Rlqj89YzYHscgPY_UcpqwX6XhkYL16bwMMFrprRn0im0zphikPkrYaRDDQAQJkvc6HD-Al4=.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC01LjUtMjAyNjA0MjN8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_0356370951fa1427016abf36d48dfc87d1968d443288c09163",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 141,
+      "completion_tokens": 186,
+      "total_tokens": 327,
+      "cost": 0.006285,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.006285,
+        "upstream_inference_prompt_cost": 0.000705,
+        "upstream_inference_completions_cost": 0.00558
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 18,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

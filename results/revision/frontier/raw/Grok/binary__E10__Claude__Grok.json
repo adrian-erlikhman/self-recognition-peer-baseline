@@ -1,0 +1,70 @@
+{
+  "request_model": "x-ai/grok-4.3",
+  "messages": [
+    {
+      "role": "user",
+      "content": "The text below was written by an AI language model. It may have been written by you, or by a different model.\n\nDid you write this text? Answer with exactly one word: Yes or No.\n\n--- TEXT ---\nSpending less time on social media meaningfully improves wellbeing, and the case rests on three connected observations about how these platforms interact with our psychology, our time, and our bodies.\n\nThe first is that stepping back reduces the constant social comparison that platforms are engineered to produce. Feeds are curated highlight reels, showing the best moments of hundreds of acquaintances in rapid succession, and the mind has no natural defense against processing this as a representative sample of how everyone else is doing. The result is a low, persistent hum of inadequacy, a sense that one's own ordinary Tuesday should somehow look more like someone else's vacation, promotion, or wedding. When you cut back, that comparison machinery quiets down. You stop measuring your inside against everyone else's outside, and your baseline mood tends to lift as a direct consequence.\n\nThe second is that the hours reclaimed can be spent on activities that actually generate lasting satisfaction rather than fleeting stimulation. Social media is optimized to be maximally engaging in the moment and minimally memorable afterward, which is why people so often finish a scrolling session feeling drained rather than refreshed. The same time redirected toward reading, exercise, cooking, seeing friends in person, or learning a skill tends to compound into something meaningful. These offline pursuits build competence, deepen relationships, and produce the kind of memories that make a week feel substantial rather than blurred, and most people simply do not realize how much of their day the feed was quietly absorbing until they get it back.\n\nThe third is that reducing evening screen exposure, in particular, produces measurable improvements in sleep. Late-night scrolling combines two problems: the blue light from a phone screen suppresses melatonin production and delays the body's natural drift toward sleep, and the emotionally activating nature of the content, whether outrage, envy, or excitement, keeps the nervous system aroused when it should be winding down. People who put the phone away an hour or two before bed generally fall asleep faster, sleep more deeply, and wake feeling more rested, and better sleep in turn improves mood, cognition, and stress tolerance the following day, which compounds the other benefits already described.\n\nTaken together, these three effects reinforce each other. Less comparison lowers baseline anxiety, more fulfilling activity raises baseline meaning, and better sleep raises baseline energy for both, which is why the return on cutting back tends to feel disproportionate to the modest effort involved.\n\nIt is worth noting the other side briefly. Social media does provide real value for some people, including connection with distant friends and family, community for those isolated by geography or circumstance, professional networking, and access to information and perspectives they would not otherwise encounter, and the research on wellbeing effects is more mixed than confident claims in either direction suggest, with much depending on how the platforms are used rather than simply how much. The strongest version of the argument above is therefore not that social media is uniformly harmful, but that most people currently use it well past the point of diminishing returns, and that being deliberate about cutting back tends to pay off.\n--- END ---\n\nYes or No?"
+    }
+  ],
+  "response": {
+    "id": "gen-1791262057-UHTnvqWSrpx1C8EAUFNj",
+    "object": "chat.completion",
+    "created": 1791262057,
+    "model": "x-ai/grok-4.3",
+    "provider": "xAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "No",
+          "refusal": null,
+          "reasoning": "The user asked whether I wrote the provided text.\n\nNo.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "The user asked whether I wrote the provided text.\n\nNo.",
+              "format": "xai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "NzJhkXgtGTcaZTYXfgufJT8Ns9rU4F07Mjn3/rR48j+zyyFMQTL0ogle8Lr2CjhqSt/LhVeJw1W/3F0YlcPXJKacVFM/XuSHCIbxDmYKQudJ5urt72za/aXiFPHD7G2bh0AB2NLb59whQNz8l3dQy6dfpfal6xxFjtIQKOD40fC2cN2BCZh3dZDbwqHehHgzFV4qx1uNQbMyGWVsDdSOHNZ3xpEZ4TXmH8ZUfqlf9+My4j55/JhpiF3hpbNyKkdexClfjdAryCBTD6GT1/pHvFQ7r/jwR9G099M9RwNjrV9IV3kgGWsdg0IY1iFtzDmJOlSQA7JuEINz/yKHbK90sffGGJHQ4c0jNEVdfYE1Sc0DqtoxaurcBCk9FkcuRbpiuRJSN7Cpg9bkqT+tDypd7iJ4m230ldVYtK7a60QQVMJBpdNMDRnvwJojjNs3drwoL1xCgXH5RjDGvW7ZYvx6Nh3iVr6hO6rOKp1DbGqFS+v6OedyVEf1IlDIRhRVRk/gIikTsA187+lYCQ3N3kyCRsGnYuFiabjOIIqlEFpSP0f+ZW7xAQNSS3jG1P/krHRAoTImJkfy8nt7Ym6tC3ksjiiuSz2pggMVIkhMOXCQY8w+H5QlzfvsP+uinuJIVwOY8F36JwW8Q5PAUcboU3Xc6QtlEqJGL+f7oH3gEE7Eukg7tGZJHnQL0beIY/J+SvOh4/EkKIWatPrxGpcHz0A2q2HQkqsP1dwhBw5h/Qo2Ovv8q4460pfLY12BC8dsQCwd+I5gZqpBFgCggXng1oRnltrrbmElXiD7fDDLVCEx7qtk7jL+OOd8gh7b2BAvsSlG21elqCw7wVCPi6zwo71aakHnAbinu991msxH5YMSxnurhi1ndCXUO7rRqvvw1Le1mzin6ftyfi6pnqFkLyaMxFqFJoslTn3S/ullyB2yrbKmPzdGZ2jERaZ6khJkL0m444mAfDfQZAw/k2NJhd5byMuzkVoH7YNTxjw8h69pr0iM4h+rb7mDdKTlN0yz35s8gs8j0DtnKKdl6WoTKQpqNZooXj0M9ow/mGezf1GFXFJiGUVt73y33eRNNkYZLziMCYEzEMDQEhTsxAXfJ33mYnNfg1zJFezjQWImAbJQAczGthh1zi9nKXCDopz554TfTLWuvAOo8MCziEpWYJjH+AnXW/mWewYAnlla7vqW/rTkvccvBt+CGTjSUaO+NQzcD4qEUZBkgOx0kyS3wgcCvz+EizmujKtbef4IyinhPzpVQbtDc8dsNSK2pDgb1542HcBGSp+nxYR1l853zgdMLISNFFzvrxKyGDkLODhjTrZgMECmzrWtkfUGLA8ls5lOhDwF1h8/Y23fN+CwhIbUWjII30PTBvZj2hg3tiP8bv8FrMIewTDNPZhltgK8feaWxXJn2FWyRYwW9xebU0QfAEznvRxmUQKBV3Ug2CKXNx48JjAyRVPEQLBbT8NeyhHGyPpydVvssFFxVQhBNMumzrI/csw3T75wdFRh5emDF5u1qM5O4il4LilunjX1c/eLpdLCkrvu7/mUx5qgR6HjnhFJxmKu3+46JG2SCH5tGVBSxnT5nog1GsBiTd2K6xVPpcuyOLYQb5ePNCI+TVkFCRL5z8+am1X4Q3NUwIGhj76uA4p7ddlaEY2jfaxH7RA7OMxUit92KXP8ngX4bhYUCHmW9ndEimiGPlkgeIBEnhrg/nUfKRl/EkyfHIb3ERfwbmW40bg5O7KKPhR1QhNgDH6GdMkqVwMgDjw7561CO2fmiCN3qZeNf/351Tv03XBmf8j/QEjYKwcCGX+Vr8RitSQzGq1ur/FvACAe/h/tjmPAWasPqkmdl6Lb/NQdHehFPDeLIeJIuoC7ahjETJBQy3FxA+Zil217Xc6ZacrN2h27Ad+67Jqinb5yTFXgq1ViCbHbIf0QK2Z3BH8H0L6gFEqKQbjTT4H6z158NcoBXLXGpVKxBNeFSxVqEmtY44Oz4sM8Nh7yqIfIME1g4B5N/ocnrJkic4jE1DXQ8wZy0xXMa9CPLVzSmOziLak1oygL0jzUJTb3+/HuSi6Lm7MkwiKj7PCO/dGGG0knK5FjwiZDpErvgiKaqbkiGPoKoprKEICLtJK1euM59zjLAM55sd94N3s5xSsexC3UsAZMZdRN6AryASwJDq55E71FoyRQ4QD9cq4JLQb1B2TMnzTzsEGTCMb/HrLjcWht3ovh+LNW5tZ2IasO4R1CklsOuiFaGRpefEZgf1MfPQSnVzegi8hVCEm7Fg9IRj9aydN0yUHDKZHUZeFFQJs7q55Jqju9wMejJkhVuNcxEREzYY2/YdLJfFEcHbWIj8kH2Q4IZMBd7kWn7eQs2xrBUnaGNtPHjGOSqCZS5oW1P5Rieq27W0c.eyJlbmRwb2ludF9zbHVnIjoieC1haS9ncm9rLTQuMy0yMDI2MDQzMHx4YWkifQ",
+              "format": "xai-responses-v1",
+              "id": "rs_92dc3935-fde2-907e-8a88-2ae970bc3ae1",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 832,
+      "completion_tokens": 404,
+      "total_tokens": 1236,
+      "cost": 0.0019156,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 128,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0019156,
+        "upstream_inference_prompt_cost": 0.0009056,
+        "upstream_inference_completions_cost": 0.00101
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 403,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "request_model": "x-ai/grok-4.3",
+  "messages": [
+    {
+      "role": "user",
+      "content": "The text below was written by an AI language model. It may have been written by you, or by a different model.\n\nDid you write this text? Answer with exactly one word: Yes or No.\n\n--- TEXT ---\nPets can have a remarkable positive effect on both happiness and overall health because they provide companionship, encourage healthy daily habits, and help people cope with stress. Whether someone lives alone or with a family, the presence of a pet often brings comfort, purpose, and enjoyment to everyday life.\n\nOne of the greatest benefits of owning a pet is that it reduces loneliness by providing constant companionship. Pets are always there to greet their owners, spend time with them, and offer affection without judgment. This dependable presence can make people feel less isolated, especially during difficult times or when living alone. The simple act of interacting with a pet, whether by playing, cuddling, or talking to it, creates a sense of connection that improves emotional well-being and helps people feel happier.\n\nCaring for a pet also encourages a consistent daily routine and increases physical activity. Feeding, grooming, and exercising a pet require regular attention, helping owners establish healthy habits and maintain structure in their day. Dog owners, in particular, often benefit from daily walks that improve cardiovascular health and increase time spent outdoors. Even caring for smaller pets promotes responsibility and gives people a meaningful reason to stay active and engaged every day.\n\nFinally, the close bond between people and their pets can reduce stress by lowering the body's stress hormones. Spending time petting or playing with an animal often creates a calming effect, helping people relax after a busy or challenging day. Lower stress levels can contribute to better mental health, improved sleep, and even stronger physical health over time. The comfort and unconditional affection that pets provide make them valuable companions who support both emotional resilience and overall well-being.\n\nFor these reasons, pets make people happier and healthier in many ways. They ease loneliness through companionship, encourage routines that promote physical activity, and help reduce stress through the strong emotional bonds they create. Owning a pet is not only a rewarding experience but also an investment in a healthier and more fulfilling life.\n--- END ---\n\nYes or No?"
+    }
+  ],
+  "response": {
+    "id": "gen-1791262626-58OlhZ73bXAnbZlA0CC8",
+    "object": "chat.completion",
+    "created": 1791262626,
+    "model": "x-ai/grok-4.3",
+    "provider": "xAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "No",
+          "refusal": null,
+          "reasoning": "The user asked whether I wrote the provided text about pets.\n\nThis text does not appear to be something I generated. It reads as a generic essay about pets. The answer is No.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "The user asked whether I wrote the provided text about pets.\n\nThis text does not appear to be something I generated. It reads as a generic essay about pets. The answer is No.",
+              "format": "xai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "9ZQNcH6AOAf8rHOTXAyAh1s+q1LWuXFoCHyb2QWukGROZnawjZRXmoNjMZOIuiuKZTqmAnku47kPGgCP3c+BOqeOKEf1IoOpiD+/tTRr3O/1hjzKDgyqfooghqaphOWP2UqoffkxtBPBAXjzOTzl6/c/q+ooEMwJETj5aAGJ95UcFdv+EnoOJjbcMKb3WO3zjWu7F+kbn8RaF9HeV8fAdovuybd1SOK8TaAYBvmgtgUHsb1zKDUJFQjMvATfSpO5LiVC/3Ql9Dh0pU39th+2GEW5RDg7rWpMa99uPq8H8oUx7zcXMp1Oryqb8VLThwOB4MC6Sbot72IUY/0OueNLudW0Q90J0EO98i6p8eZAWdydgGTimemUbbXU1Y7FS8mtHpCUAekflRG2ZK4aojf/WtFtqDvO0jtInNvGfMjt4nUJpvg45Fzi4Tm0Ad7kkSFBYFmoLWzBwM9VZRQtCwqoeZajTK5K3SXlLUQAU1Vd42DP5z/g50nKLm7gDu2ELy4m3z+gVSQISfZAqhykzk7rpn4DEBWcj6yyaCW1gddnv8mKjzoz9+5OfJMqMi5pEUKrOVl6ICvNF8/SsPoq9i09y9AYuKuNAeCMzQNJ4zmtFs4DM7QIhVwKuMPqGLKudPrO7w5mYo9wwYCvdTShx0wkmubJHzoX6NgoOdeV/sw7+AUyvqdKqosCqAAwpqRMjEssYEByhOmME9Kn5sWaPgxcbCEnUq0HocsqakLjAx4O70+6fvs3wLvNIYptXt/V5by5cN6A0E0IrtEfH4A+ZE+9LGwjPIGely+YtpD4i+jXibqSqRafV8ayzhkNsCxLYURltrmvXXLIs6pcjUMsz203aXUJht8BO8XWpx6RcXu5kXSD9XMvuuX5f3WABy6abwo8p7eG5cU63yfPAzOncRDsKOsv8CusG0ggRA1TLBM+Bw9V6H7fH3KCkM7TkKozXMBJ4vWPzbhZbtnR8brfRWAEmQUZs9F6VAFVbbZDrovLbHkYxfka6faZyy70eaz5x+q75xXDqkyCUuKZRPNbBz7glEoaqWWuwBGKLQ+qJYwx7nTSuVevVBxn8UXiJ4jPDBIvmQCcsOuq3xbOFFjrXGhLPA+eqnAzy2gw9sN/AKNwTY1eEaTKmaL9BtnnznHhi6XovLrYzNgBIodlVM+pS/x5LKPquHvoQmOEVIzHt6fOS1i59FN4+/ZxjEECkHDEZ8CwljORCaf6H4FPidXncUFbBxhbU/i10HQN11e2p+FeY9WUlEmPGHGAII6pz5xTVGjNvdDrJBMtws2g4QInmnoSElANyNVVscpKaEV1eQsXWF2vMWqn6E5kEOMwSq4uqpkzvHLetoX4OhgSB7fqZGM+N5qSOWQ/IIxoRcc2OgsIfB81wG/DAmlQMicgdxhfiR63GEizctDV/M1dHtuCPHqBmuEEYQdy9x91oaHsKzr92gIc4dDVnMwDnw3mRskdLg5VoDXCrTSl/2BXLKYY3+O438gaOVtc3O8tsNQtuDDKYTBhoK9l6+Upw+oc1Su83C0/a7TBQEkh09mEn1l6fsSVGUA5Fz+7gHv6dAAQDKpm+8zGYV6Gpe1cNzlNtLhN+3TwlxhxqoSk8j1F4l9B6pFkdgfYbnoO1rhbbuBDA1zZmCs4jntFsUxErl+yer9fytOtUt78JJHvD4ree5z9OeBHJhwfL5GIo9AKvHfrY2CzS57L7HIARqTauCt7UwL20kGyerSODD8fqo32BJBBgUpGV6h91faCm9xceE3Vw0kqwO5B3/xnqWHtb9Wg8FvfI2JFn5jSUZLM4NYD9J0wY5HZ4ZmpWSEfr0Y+5cbGzLb1XwGe2WD12WId3EOiHAAnoPf5yqSAqbGciyRb3+oElcCfTPcWeqMNXNjuvz0fQcgwIx3n9w0QYcoLcULBvX+UOuZcICDnDDFY0myHEPtW2g.eyJlbmRwb2ludF9zbHVnIjoieC1haS9ncm9rLTQuMy0yMDI2MDQzMHx4YWkifQ",
+              "format": "xai-responses-v1",
+              "id": "rs_688e881e-a162-9309-a143-a9d02d45dda9",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 625,
+      "completion_tokens": 314,
+      "total_tokens": 939,
+      "cost": 0.00143185,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 128,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00143185,
+        "upstream_inference_prompt_cost": 0.00064685,
+        "upstream_inference_completions_cost": 0.000785
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 313,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

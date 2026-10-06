@@ -1,0 +1,70 @@
+{
+  "request_model": "x-ai/grok-4.3",
+  "messages": [
+    {
+      "role": "user",
+      "content": "The text below was written by an AI language model. It may have been written by you, or by a different model.\n\nDid you write this text? Answer with exactly one word: Yes or No.\n\n--- TEXT ---\nFinding time to read for pleasure might feel like an impossible luxury amidst a packed schedule, yet the payoff far outweighs the investment of those few stolen minutes a day. One of the most immediate advantages of diving into a good book is the natural, effortless expansion of your vocabulary and communication skills. Unlike casual conversation or social media posts, written literature exposes you to complex sentence structures, nuanced phrasing, and rich language. As you encounter new words in context, you absorb them organically, sharpening your ability to articulate your own thoughts, write more persuasively, and express yourself with greater precision in every area of life.\n\nBeyond linguistic perks, reading serves as a remarkably powerful antidote to the daily grind, offering a level of stress relief that screen-based activities simply cannot match. Scrolling through news feeds or watching videos often leaves the mind stimulated, distracted, or even anxious due to the constant influx of quick sensory inputs. In contrast, losing yourself in a printed page forces your brain to slow down and focus on a single narrative thread, triggering a physiological relaxation response that can lower your heart rate and ease muscle tension in just a few minutes. It provides a true mental sanctuary, allowing your brain to reset in a way that passive screen time rarely allows.\n\nPerhaps most profoundly, reading fiction cultivates a deep sense of empathy by inviting you to step directly into the inner lives of others. When you read, you are granted access to a character's private thoughts, fears, motivations, and heartbreaks, experiencing worldviews vastly different from your own. This immersive perspective-taking trains your brain to recognize and relate to the emotional experiences of real people around you. Ultimately, dedicating even a small fraction of your day to a book does not just make you a better communicator or a calmer individual; it makes you a more compassionate human being.\n--- END ---\n\nYes or No?"
+    }
+  ],
+  "response": {
+    "id": "gen-1791262673-m7I519EzEKaYP1EhZN3w",
+    "object": "chat.completion",
+    "created": 1791262673,
+    "model": "x-ai/grok-4.3",
+    "provider": "xAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "No",
+          "refusal": null,
+          "reasoning": "I am evaluating whether I wrote the provided text.\n\nThe text does not appear familiar. I cannot confirm authorship.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "I am evaluating whether I wrote the provided text.\n\nThe text does not appear familiar. I cannot confirm authorship.",
+              "format": "xai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "x3t8rTt+DC1U4EXLbQGtw71cYT4DubNtNaGkCiEBEphRlhuFrrjFNoYq+V4aeNaqSVewkwtKMlcpic2jtNlpXcQmpEbHMLwQmRhK1MjqVlNmHCIMHeI8K1mDbjLgVxkZKt6ltg+W/bf9+cvrWPVcvunkTfVzK55n80z2nTrCyBfspxeHp2URAQhd8OYqXGW05g9C3nrjQz5bnZxau1bywj9BWKsV4Fg2WhOKXE6qz/CNk4mIzpV0UCepwEFTu2O2yX/Y0CU5zs0yjcICgaNCbf5XA+bTAQ06206A5tQQ0ysGjr5CItNCsSx+VhF0rZ5g2F2/Hp/imnOjT8EoRDR4XAiU6dIrRtMMbixX4jW0ubxbXEIz2Hk5sgzzIjqmDTAvfh4Uaj4bOw+u2Y2BGdWjSyfAPs4JtHy9K9WYACgGiP0e6SDitqScdHoGFMlYR66ivusZ+PdKTRnCvtU5EZeFXtNC0/P6R9OBZRHMUy8Ezxe/00ff+eGivggsCqkbEQYVov15l9Kxa7ta+wC/2LxGdwntnyvxR2Dye+pdA1JlKbw+xWXgw5MJG38XdyvY3LxTOFlExElcg3Q/pDUjk2xvLJQ/rC3BgkVutwkXrEYnm30YtQSb7MCro5g9g8i4CMih+2ayEa4/iQL7r5xJNHj8JJBqUuf/HyIdGaMBdlnXxaxKSVzhABBHYffXeb1AYTXn8wR5xD7Xr5uniLDuXWW0WMo/LpbzcmwJpTvc1Oy+Yt9/VloGshtM9TJZn6aCZhy2NLT2HKHvKRHYeOV0czywdvhT6C4vT1phFhoD3cxeGXkIODI4TdAmbwlVHr7Wj/lguve3Vp8fRRHoCOZED9dcptk3vaNSBLd2hOTAygPicdmDsYiCVF/oR5Z/mHUbXSs3ho/8gFk88x0zKfyMWqF9JUq4yQV9NOFwBh9TchJRfE1f+ALKeHModvwi7HxMv1A3qayknX7rOwjWp9UEtRTVnq2FQZU2cUOCQRacJAHWSj65wt5Px7VMwzKG/f3Yst4R8Uf0cwerKpz+0rfQKcws2ZGLTXqDEEiK5VKOsl2Q/D4eFp3M7x48CGWf89IdRe2mlQ+nU9l7kHwh3i/bHpXrQlGGPJqpvO4nUXfYNBEV8FpN9af0EpV23iMxWjFwPYB82+NJcorRZ3ZEHzv6JPuZKin6YSps77Soio3uTFmLdkAQXMbU5GHaCcTsEHvpTu1SVzGz7JhXRs6ruhQM2V/II5D0YDQr24v/ku4kW3iigyJlAA5ogMSApiTlZ3fg1h0CYTJT2dJmkjebDHTmx3eaS9n+UmBxrC9QX+DlsmeJm471ahccdApnNef0UvhdkjMSSojO8j9GNqv1Yectchcg/W9tb+ame9Gsla5QNXV666clpjpj85qu7u9JTOc5MG4iOOVR8w+8nUYbtMknXHiuv+EhbbywCEi1/j7aRsYMBY4mPLyKdRpfQwMeJ6W0vgiC/+ZhRmZAT3B+uPXJHChCBJsMT+HADiJ4I2xzFu3GEfp2zk2ZTBzpPJ6FHAZEeN7+caqAwZ/78omPH5rQDyJoeGtg9r4fGCrJ4tNpEIMVacEEogFNFLJXXkJh+/2z9eRCimvCsLocukGCcEeLKOYAediYdb1m9KinnG9Cma83edeFBFuiALPK1BWyze7oKP4NzxBFj+qE+mqShwaEPyqxQz12cmgddFLFGnlJqNDhZc1wNZONsKMrlL58UCwXkPzFMxDd6j5HeliCsrAeNr1JefZ4IoPT71rF89ktJCB/yAN8nWb7hsc4spbYsEEJppxV0FqwtHxvOn6vE7CtWBtREBAghxL4YiU.eyJlbmRwb2ludF9zbHVnIjoieC1haS9ncm9rLTQuMy0yMDI2MDQzMHx4YWkifQ",
+              "format": "xai-responses-v1",
+              "id": "rs_d063ad84-e9ff-9d5a-a43a-ff1d1427728e",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 603,
+      "completion_tokens": 309,
+      "total_tokens": 912,
+      "cost": 0.00132465,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 192,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00132465,
+        "upstream_inference_prompt_cost": 0.00055215,
+        "upstream_inference_completions_cost": 0.0007725
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 308,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

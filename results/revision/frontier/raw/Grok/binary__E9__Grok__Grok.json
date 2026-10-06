@@ -1,0 +1,70 @@
+{
+  "request_model": "x-ai/grok-4.3",
+  "messages": [
+    {
+      "role": "user",
+      "content": "The text below was written by an AI language model. It may have been written by you, or by a different model.\n\nDid you write this text? Answer with exactly one word: Yes or No.\n\n--- TEXT ---\nKeeping a tidy living space can transform your daily routine in ways that might surprise you at first. When everything has its place, you no longer waste precious minutes each day rummaging through piles of clutter to locate your keys, wallet, or that important document, turning what could be a frantic hunt into a simple grab-and-go moment that frees up time for more meaningful activities. This efficiency builds up over weeks and months, giving you back hours that would otherwise slip away in frustration, making your mornings smoother and your evenings less exhausting as you move through your space with ease.\nBeyond the practical savings, a clean environment quietly lifts a layer of background stress that many people don't even realize is weighing them down. Scattered belongings and visual chaos create a constant low-level mental noise, subtly draining your energy and leaving you feeling overwhelmed even when you're not actively dealing with the mess. By maintaining order, your home becomes a sanctuary that promotes calm and clarity, allowing your mind to relax rather than constantly scanning for disorder, which in turn improves your overall mood and resilience against the pressures of everyday life.\nFinally, this sense of order paves the way for sharper focus when it comes to work or study, as a tidy space minimizes distractions and helps your thoughts flow without interruption. With a clear desk and organized surroundings, your brain can zero in on the task at hand more readily, boosting productivity and making it easier to enter a productive state without the nagging pull of nearby disarray. Over time, these benefits compound, leading to better results in your professional or academic pursuits and a greater sense of accomplishment at the end of each day.\n--- END ---\n\nYes or No?"
+    }
+  ],
+  "response": {
+    "id": "gen-1791262678-w4lek39uGHzoSJxL9DBU",
+    "object": "chat.completion",
+    "created": 1791262678,
+    "model": "x-ai/grok-4.3",
+    "provider": "xAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "No",
+          "refusal": null,
+          "reasoning": "The user is asking whether I wrote the provided text.\n\nI do not recognize this text. I cannot confirm authorship.\n\nThe answer is No.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "The user is asking whether I wrote the provided text.\n\nI do not recognize this text. I cannot confirm authorship.\n\nThe answer is No.",
+              "format": "xai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "ljmNmhOTsPPvq8sE/kuXLTjpIxcR0oMQ8WiTuuMcnItztEjqd4ZDOCiAZC+5d1BlQ3OWqd7DWcQH0T/Z1/7Nbwzc6XYz1LtrDD7AvxDh8sF2/zBY9mbtQcvfCdspizoHXuCfp+LfuLDidTf2mpo89MZ7jNn0vPLuT5Q2AaGuTa5AkWN/7johslL+zVTLAcqvlQO+SAJlhY1YTNCOMg40alYFcPW3ztR2dAC9gRb5b5XscXpCq/FlO1gWUx7O01Dw1wMhWGKdLujCVmFMWCMtf5czb/sIKWK4bBiXOYxg9WQhbqta2Z0WdZuKYNt3S4132ZrIAnPUgknYle2piU8AUXFw/yPD77CtcfhivxVVRd0rWgVvFVcU8QQ+Ua3XMg56t/qzLROalIk93e/UAsvqFQC5BE18+tJjyuE5IGNh/qnC9kHIbueYvCMieLdkaUx1zv/ILNVt6Lpzo1zpombJ2o/jn68gdS7ANfsud/Jq/lzAxcko/sX/mDIKkPPTZ1et02dtQA3ImVfO69wsXAAkSLiqaJObvq0RLzSZ/K0gof38zEWUIgAcsVDLg7362QMX/ik8V1LqWT4/a0RMVDOQLBCGTB9cwLRujwWPtJqRap6PI41Ny6RUKZBFvTlJZ41V04VqGTEiBtWkCGEEJ3EwAws+CWJeYUyt9VUtP9V3o5c/tLjU88fXIBPSj6npn5YrW69qwG7eWkdx7CHDVsibizWThKVHmoPxrTw9Ekjfz4Iu7kXpjsLwSSzSVjHX5HeZFOlzsryfUeDrX6F98XPvTs0iOWZ0KT+QTag9VjyEtadNAkwYtk6qSZaD9+jVqgxMzFzP1/Rg9lmrDR4LceixyP7yry+OowzXwQUMZyZfjRtzbuIQoCPACgetCBB0hNp2T87koIrI7DU+VN/FgH7pj1KD6NRhzSAasDOmrodfCHONj3+ULX9E3eJqtO5ElFTS4xUAW1i02m+oEW02NIDFdnaS5E5oCQmoXEi9yJmRUkuvH8TOP3nxnkoblyukWNlBJs05bOIiFI/A5pt4b0VC94yI6ofRYZTGaFY5sOwogMuwdpmkr5lAr8q1skPah/a4M+vzRS1WaXPR0Oe/ciMiScdKVnTsickckBtBWYlyzTdVCRLLSybpX1/2lwrlZ4/snAQ+DI68Z164Z17slv+Wa2WYwO4ZncX6ILUX3NA1g8hc3CpfEvCauUVrax3ojwtrrGZbTYhuQjfRjYTxs+2rDjWW7lYRsCDk9/dfr7vgqO81CYkBg5PEYrOLg9pWUXz+TKM6OD8h2BQkyy0TUqbhQDPJAEM0KpMFzoklXQCfs+s38mOjJHZTnfdw2RUKOoCzRA5ykZGVOnPvGBA+lZi0pPKjSTV5zQXqeVWRpzeHHaif2HYK/kwuErohuQWqLmIkp//mxcuzyJo7m12b1Gd6uNbbbvzx5CsXO2aoEfVfGVndRWpepQsx+RTIc0/3SCT4WkMcv3fZDuDdxjxeWEEerhpR6wyJyQitf6cvUnIPK1RpWdWVy7POkg659uNQZR+AJG+s6L/Pova1wP/i/M7y4wsagx9pfZB9va3QPB3PCeFxapG4pWWZExEj4zI9YiFom2BzyuMRxBWABXqBWD8AoPWC+52LY+6qDEwnvfL1OP2hsIUh1HyA5IvELkosjoj8ktW9j+j1JN7Vh5L1jIRS7i+sEoXigjSPr1J4K/hdKFbbLlnBr3A8v9/FE/3Z9GGKygt0tkL07qZMXTN9LnRHZxkC455mljOggb5IMtwtPJdwguqRRciN+F5tdZm07Rugxe9HY5GAjLg667Hd2y2YEof4GIsAYelQfYlZGqfXtVFoW9l1m/rvI2Om/CntdcgP/pGhxYiqJ3GPmbn+ztNQSPpWl9K4ihQyyxFDXaPadpuTDyJk6jil2jTMsZl0eXAe6ji43yfZterjEOopfCX/XR5qEUg9hA.eyJlbmRwb2ludF9zbHVnIjoieC1haS9ncm9rLTQuMy0yMDI2MDQzMHx4YWkifQ",
+              "format": "xai-responses-v1",
+              "id": "rs_2f3a0af1-0316-99e7-8579-f8bbb52bc571",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 564,
+      "completion_tokens": 325,
+      "total_tokens": 889,
+      "cost": 0.0013831,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 128,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0013831,
+        "upstream_inference_prompt_cost": 0.0005706,
+        "upstream_inference_completions_cost": 0.0008125
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 324,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "request_model": "x-ai/grok-4.3",
+  "response": {
+    "id": "gen-1786845911-v9f1BOJfvlqYWH8Wgy87",
+    "object": "chat.completion",
+    "created": 1786845911,
+    "model": "x-ai/grok-4.3",
+    "provider": "xAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"A\": {\"model\": \"GPT\", \"confidence\": 3, \"reason\": \"Formal academic phrasing with 'Moreover' and 'Finally' transitions, balanced paragraph structure.\"},\n  \"B\": {\"model\": \"Gemini\", \"confidence\": 2, \"reason\": \"Concise historical framing and clean logical flow typical of Gemini's style.\"},\n  \"C\": {\"model\": \"Claude\", \"confidence\": 4, \"reason\": \"Extremely verbose, elaborate sentences and 'interlocking considerations' structure match Claude's philosophical verbosity.\"},\n  \"D\": {\"model\": \"Grok\", \"confidence\": 3, \"reason\": \"Direct, punchy assertions and slightly irreverent tone in epistemic claims.\"},\n  \"E\": {\"model\": \"DeepSeek\", \"confidence\": 2, \"reason\": \"Repetitive sentence patterns and dense, slightly mechanical academic phrasing.\"}\n}",
+          "refusal": null,
+          "reasoning": "The task is to identify which model wrote each of the five responses A through E, based on writing style, structure, and phrasing. The models are GPT, Claude, Gemini, Grok, DeepSeek.\nFirst, the models: GPT, Claude, Gemini, Grok, DeepSeek.\n\nI need to recall writing styles:\n\n- Claude: Known for being very verbose, elaborate, philosophical, with long sentences, structured arguments (e.g., interlocking considerations), heavy on history and logic. Often uses phrases like \"for instance\", \"thus\", and builds with \"Moreover\".",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "The task is to identify which model wrote each of the five responses A through E, based on writing style, structure, and phrasing. The models are GPT, Claude, Gemini, Grok, DeepSeek.\nFirst, the models: GPT, Claude, Gemini, Grok, DeepSeek.\n\nI need to recall writing styles:\n\n- Claude: Known for being very verbose, elaborate, philosophical, with long sentences, structured arguments (e.g., interlocking considerations), heavy on history and logic. Often uses phrases like \"for instance\", \"thus\", and builds with \"Moreover\".",
+              "format": "xai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "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.eyJlbmRwb2ludF9zbHVnIjoieC1haS9ncm9rLTQuMy0yMDI2MDQzMHx4YWkifQ",
+              "format": "xai-responses-v1",
+              "id": "rs_3be84b30-de4d-9a09-a6a9-aa9a7c578afa",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 4081,
+      "completion_tokens": 758,
+      "total_tokens": 4839,
+      "cost": 0.00686185,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 128,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00686185,
+        "upstream_inference_prompt_cost": 0.00496685,
+        "upstream_inference_completions_cost": 0.001895
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 569,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "request_model": "google/gemini-3.5-flash",
+  "response": {
+    "id": "gen-1786846726-oKSf1CGiAFC3kpRhsO6X",
+    "object": "chat.completion",
+    "created": 1786846726,
+    "model": "google/gemini-3.5-flash",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "provisioned",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "```json\n{\"model\": \"Claude\", \"confidence\": 4, \"reason\": \"The text exhibits Claude's characteristic academic sophistication, featuring highly complex, multi-clause sentences and precise philosophical vocabulary.\"}\n```",
+          "refusal": null,
+          "reasoning": "**Analyzing Text Styles**\n\nI'm currently dissecting the provided text, focusing on its academic and philosophical leanings. My analysis is zeroing in on elements like its engagement with the Duhem-Quine thesis, underdetermination, and fallibilism within the context of scientific paradigms like Newtonian mechanics and Einstein's theories.\n\n**Examining Sentence Structures**\n\nMy recent focus has been on dissecting sentence length and complexity, noting a distinct pattern of two very long, multi-clause sentences per paragraph. This stylistic choice, along with sophisticated vocabulary, aligns with the author's known academic and flowing prose, particularly when delving into scientific and philosophical concepts.\n\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "**Analyzing Text Styles**\n\nI'm currently dissecting the provided text, focusing on its academic and philosophical leanings. My analysis is zeroing in on elements like its engagement with the Duhem-Quine thesis, underdetermination, and fallibilism within the context of scientific paradigms like Newtonian mechanics and Einstein's theories.\n\n**Examining Sentence Structures**\n\nMy recent focus has been on dissecting sentence length and complexity, noting a distinct pattern of two very long, multi-clause sentences per paragraph. This stylistic choice, along with sophisticated vocabulary, aligns with the author's known academic and flowing prose, particularly when delving into scientific and philosophical concepts.\n\n",
+              "format": "google-gemini-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 636,
+      "completion_tokens": 601,
+      "total_tokens": 1237,
+      "cost": 0.006363,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.006363,
+        "upstream_inference_prompt_cost": 0.000954,
+        "upstream_inference_completions_cost": 0.005409
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 556,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

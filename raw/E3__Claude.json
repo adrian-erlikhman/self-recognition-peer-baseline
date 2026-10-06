@@ -1,0 +1,49 @@
+{
+  "request_model": "anthropic/claude-opus-4.7",
+  "response": {
+    "id": "gen-1786845807-LiAd9YEyJXmWhi63UJrZ",
+    "object": "chat.completion",
+    "created": 1786845807,
+    "model": "anthropic/claude-opus-4.7",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"A\": {\"model\": \"Grok\", \"confidence\": 2, \"reason\": \"Long flowing sentences with generic uplifting language typical of Grok.\"},\n  \"B\": {\"model\": \"Gemini\", \"confidence\": 3, \"reason\": \"Elaborate metaphors, British spelling 'recognises', and expansive descriptive prose suggest Gemini.\"},\n  \"C\": {\"model\": \"DeepSeek\", \"confidence\": 2, \"reason\": \"Straightforward, simple structure with plain phrasing typical of DeepSeek.\"},\n  \"D\": {\"model\": \"GPT\", \"confidence\": 3, \"reason\": \"Balanced, measured tone with concrete details and natural transitions typical of GPT.\"},\n  \"E\": {\"model\": \"Claude\", \"confidence\": 2, \"reason\": \"Clear structured paragraphs with polished explanatory tone.\"}\n}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 4216,
+      "completion_tokens": 286,
+      "total_tokens": 4502,
+      "cost": 0.02823,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.02823,
+        "upstream_inference_prompt_cost": 0.02108,
+        "upstream_inference_completions_cost": 0.00715
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

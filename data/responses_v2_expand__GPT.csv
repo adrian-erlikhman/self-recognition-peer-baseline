@@ -1,0 +1,1239 @@
+prompt_id,genre,tier,model,model_version,source,word_count,text
+C1,code,Easy,GPT,openai/gpt-5.5,api_expand,51,"```python
+def is_palindrome(s: str) -> bool:
+    """"""Return True if s is a palindrome after lowercasing and keeping only letters/digits.""""""
+    # Normalize by removing non-alphanumeric characters and converting to lowercase.
+    cleaned = """".join(char.lower() for char in s if char.isalnum())
+
+    # Compare the normalized string with its reverse.
+    return cleaned == cleaned[::-1]
+```"
+C2,code,Easy,GPT,openai/gpt-5.5,api_expand,111,"```python
+def fizzbuzz(n: int) -> list[str]:
+    """"""Return the FizzBuzz sequence from 1 to n inclusive.
+
+    Multiples of both 3 and 5 are represented as ""FizzBuzz"", multiples of
+    only 3 as ""Fizz"", multiples of only 5 as ""Buzz"", and all other numbers
+    as their decimal string. Returns an empty list if n is less than 1.
+    """"""
+    result: list[str] = []
+
+    # Build the sequence one number at a time.
+    for i in range(1, n + 1):
+        # Check divisibility by both 3 and 5 first.
+        if i % 15 == 0:
+            result.append(""FizzBuzz"")
+        elif i % 3 == 0:
+            result.append(""Fizz"")
+        elif i % 5 == 0:
+            result.append(""Buzz"")
+        else:
+            result.append(str(i))
+
+    return result
+```"
+C3,code,Easy,GPT,openai/gpt-5.5,api_expand,110,"```python
+def sieve_primes(n: int) -> list[int]:
+    """"""Return all prime numbers less than or equal to n using the Sieve of Eratosthenes.""""""
+    if n < 2:
+        return []
+
+    # Assume all numbers are prime initially, then mark known non-primes.
+    is_prime = [True] * (n + 1)
+    is_prime[0] = is_prime[1] = False
+
+    # Only need to mark multiples for factors up to sqrt(n).
+    for number in range(2, int(n**0.5) + 1):
+        if is_prime[number]:
+            # Mark multiples of the current prime as non-prime.
+            for multiple in range(number * number, n + 1, number):
+                is_prime[multiple] = False
+
+    # Collect primes in increasing order.
+    return [number for number in range(2, n + 1) if is_prime[number]]
+```"
+C4,code,Easy,GPT,openai/gpt-5.5,api_expand,107,"```python
+def second_largest(nums: list[int]) -> int | None:
+    """"""Return the second largest distinct value in nums, or None if it does not exist.""""""
+    largest: int | None = None
+    second: int | None = None
+
+    for num in nums:
+        # Skip duplicates of the current largest or second largest values.
+        if num == largest or num == second:
+            continue
+
+        # Update largest and shift the old largest to second.
+        if largest is None or num > largest:
+            second = largest
+            largest = num
+        # Update second when num is between largest and second.
+        elif second is None or num > second:
+            second = num
+
+    return second
+```"
+C5,code,Easy,GPT,openai/gpt-5.5,api_expand,82,"```python
+def run_length_encode(s: str) -> str:
+    """"""Compress a string by replacing each run of repeated characters with char + run length.""""""
+    if not s:
+        return """"
+
+    encoded_parts = []
+    current_char = s[0]
+    count = 1
+
+    # Walk through the string, counting consecutive repeated characters.
+    for char in s[1:]:
+        if char == current_char:
+            count += 1
+        else:
+            # End the current run and start a new one.
+            encoded_parts.append(f""{current_char}{count}"")
+            current_char = char
+            count = 1
+
+    # Add the final run.
+    encoded_parts.append(f""{current_char}{count}"")
+
+    return """".join(encoded_parts)
+```"
+C6,code,Easy,GPT,openai/gpt-5.5,api_expand,91,"```python
+def valid_brackets(s: str) -> bool:
+    """"""Return True if all (), [], and {} brackets in s are correctly matched and nested.""""""
+    pairs = {"")"": ""("", ""]"": ""["", ""}"": ""{""}
+    opening = set(pairs.values())
+    stack = []
+
+    for char in s:
+        if char in opening:
+            # Track opening brackets until their matching closers appear.
+            stack.append(char)
+        elif char in pairs:
+            # A closing bracket must match the most recent opening bracket.
+            if not stack or stack.pop() != pairs[char]:
+                return False
+
+    # Valid only if no opening brackets remain unmatched.
+    return not stack
+```"
+C7,code,Easy,GPT,openai/gpt-5.5,api_expand,64,"```python
+def flatten(nested: list) -> list:
+    """"""Return a new flat list of all non-list elements in left-to-right order.""""""
+    flat = []
+    stack = [iter(nested)]
+
+    while stack:
+        try:
+            item = next(stack[-1])
+        except StopIteration:
+            # Finished the current list; return to its parent.
+            stack.pop()
+            continue
+
+        if type(item) is list:
+            # Descend into lists only; keep tuples, strings, etc. as values.
+            stack.append(iter(item))
+        else:
+            flat.append(item)
+
+    return flat
+```"
+C8,code,Medium,GPT,openai/gpt-5.5,api_expand,91,"```python
+def merge_intervals(intervals: list[tuple[int, int]]) -> list[tuple[int, int]]:
+    """"""Merge closed intervals, combining intervals that overlap or touch.""""""
+    if not intervals:
+        return []
+
+    # Sort a copy by start, then end, leaving the input list unchanged.
+    sorted_intervals = sorted(intervals)
+
+    merged: list[tuple[int, int]] = []
+    current_start, current_end = sorted_intervals[0]
+
+    for start, end in sorted_intervals[1:]:
+        # Closed intervals merge if they overlap or touch at an endpoint.
+        if start <= current_end:
+            current_end = max(current_end, end)
+        else:
+            merged.append((current_start, current_end))
+            current_start, current_end = start, end
+
+    # Add the final accumulated interval.
+    merged.append((current_start, current_end))
+    return merged
+```"
+C9,code,Medium,GPT,openai/gpt-5.5,api_expand,64,"```python
+def rotate_matrix(matrix: list[list[int]]) -> list[list[int]]:
+    """"""Return a new n-by-n matrix rotated 90 degrees clockwise.
+
+    The input matrix is not modified. An empty matrix returns an empty list.
+    """"""
+    if not matrix:
+        return []
+
+    n = len(matrix)
+
+    # Build each rotated row from the corresponding column of the original.
+    return [[matrix[row][col] for row in range(n - 1, -1, -1)] for col in range(n)]
+```"
+C10,code,Medium,GPT,openai/gpt-5.5,api_expand,77,"```python
+import re
+from collections import Counter
+
+
+def top_k_words(text: str, k: int) -> list[tuple[str, int]]:
+    """"""Return the k most frequent words in text, sorted by frequency then alphabetically.""""""
+    if k <= 0:
+        return []
+
+    # Lowercase text and extract maximal runs of a-z letters and apostrophes.
+    words = re.findall(r""[a-z']+"", text.lower())
+
+    # Count word frequencies.
+    counts = Counter(words)
+
+    # Sort by count descending, then word alphabetically, and take the top k.
+    return sorted(counts.items(), key=lambda item: (-item[1], item[0]))[:k]
+```"
+C11,code,Medium,GPT,openai/gpt-5.5,api_expand,94,"```python
+def leftmost_index(arr: list[int], target: int) -> int:
+    """"""Return the index of the first occurrence of target in sorted arr, or -1.""""""
+    left, right = 0, len(arr) - 1
+    result = -1
+
+    while left <= right:
+        mid = (left + right) // 2
+
+        if arr[mid] == target:
+            result = mid          # Record match and keep searching left
+            right = mid - 1
+        elif arr[mid] < target:
+            left = mid + 1        # Target must be to the right
+        else:
+            right = mid - 1       # Target must be to the left
+
+    return result
+```"
+C12,code,Medium,GPT,openai/gpt-5.5,api_expand,93,"```python
+def roman_to_int(s: str) -> int:
+    """"""Convert a valid uppercase Roman numeral between 1 and 3999 to an integer.""""""
+    values = {
+        ""I"": 1,
+        ""V"": 5,
+        ""X"": 10,
+        ""L"": 50,
+        ""C"": 100,
+        ""D"": 500,
+        ""M"": 1000,
+    }
+
+    total = 0
+    prev_value = 0
+
+    # Process symbols from right to left so subtractive cases are easy to detect.
+    for char in reversed(s):
+        value = values[char]
+
+        # If a smaller value appears before a larger one, subtract it.
+        if value < prev_value:
+            total -= value
+        else:
+            total += value
+            prev_value = value
+
+    return total
+```"
+C13,code,Medium,GPT,openai/gpt-5.5,api_expand,83,"```python
+def max_subarray_sum(nums: list[int]) -> int:
+    """"""Return the largest sum of any non-empty contiguous subarray.
+
+    Uses Kadane's algorithm in O(n) time. Raises ValueError if nums is empty.
+    """"""
+    if not nums:
+        raise ValueError(""nums must not be empty"")
+
+    # Initialize with the first element to correctly handle all-negative lists.
+    current_sum = max_sum = nums[0]
+
+    # Extend the current subarray or start a new one at each element.
+    for num in nums[1:]:
+        current_sum = max(num, current_sum + num)
+        max_sum = max(max_sum, current_sum)
+
+    return max_sum
+```"
+C14,code,Medium,GPT,openai/gpt-5.5,api_expand,88,"```python
+def moving_average(values: list[float], window: int) -> list[float]:
+    """"""Return the mean of each contiguous run of `window` values.
+
+    Raises:
+        ValueError: If `window` is less than 1.
+    """"""
+    if window < 1:
+        raise ValueError(""window must be at least 1"")
+
+    if window > len(values):
+        return []
+
+    # Compute the sum of the first window.
+    running_sum = sum(values[:window])
+    averages = [running_sum / window]
+
+    # Slide the window forward one value at a time.
+    for i in range(window, len(values)):
+        running_sum += values[i] - values[i - window]
+        averages.append(running_sum / window)
+
+    return averages
+```"
+C15,code,Medium,GPT,openai/gpt-5.5,api_expand,119,"```python
+import re
+
+
+def parse_duration(s: str) -> int:
+    """"""Convert a duration string like '1h30m15s' into total seconds.
+
+    The string may contain optional hours, minutes, and seconds parts, in that
+    order. Each part must be a non-negative integer followed by 'h', 'm', or
+    's'. Raises ValueError for empty strings, invalid characters, or out-of-order
+    parts.
+    """"""
+    if not s:
+        raise ValueError(""duration string is empty"")
+
+    # Match optional h, m, and s parts in the required order.
+    match = re.fullmatch(r""(?:(\d+)h)?(?:(\d+)m)?(?:(\d+)s)?"", s)
+    if not match:
+        raise ValueError(""invalid duration string"")
+
+    hours, minutes, seconds = match.groups()
+
+    # Convert missing parts to zero and compute total seconds.
+    return (
+        int(hours or 0) * 3600
+        + int(minutes or 0) * 60
+        + int(seconds or 0)
+    )
+```"
+C16,code,Hard,GPT,openai/gpt-5.5,api_expand,116,"```python
+def longest_common_subsequence(a: str, b: str) -> int:
+    """"""Return the length of the longest common subsequence of strings a and b.
+
+    Uses dynamic programming with O(min(len(a), len(b))) extra memory.
+    """"""
+    # Use the shorter string for the DP row to minimize memory usage.
+    if len(a) < len(b):
+        short, long = a, b
+    else:
+        short, long = b, a
+
+    dp = [0] * (len(short) + 1)
+
+    for ch_long in long:
+        # prev holds the diagonal value from the previous row: dp[j - 1].
+        prev = 0
+        for j, ch_short in enumerate(short, start=1):
+            temp = dp[j]
+            if ch_long == ch_short:
+                dp[j] = prev + 1
+            else:
+                dp[j] = max(dp[j], dp[j - 1])
+            prev = temp
+
+    return dp[-1]
+```"
+C17,code,Hard,GPT,openai/gpt-5.5,api_expand,118,"```python
+def edit_distance(a: str, b: str) -> int:
+    """"""Return the Levenshtein distance between strings a and b.""""""
+    # Ensure b is the shorter string to minimize memory usage.
+    if len(a) < len(b):
+        a, b = b, a
+
+    # Previous row: distance from empty prefix of a to prefixes of b.
+    previous = list(range(len(b) + 1))
+
+    for i, char_a in enumerate(a, start=1):
+        # Current row starts with deleting all characters from a's prefix.
+        current = [i]
+
+        for j, char_b in enumerate(b, start=1):
+            # Costs for the three allowed operations.
+            insertion = current[j - 1] + 1
+            deletion = previous[j] + 1
+            substitution = previous[j - 1] + (char_a != char_b)
+
+            current.append(min(insertion, deletion, substitution))
+
+        previous = current
+
+    return previous[-1]
+```"
+C18,code,Hard,GPT,openai/gpt-5.5,api_expand,111,"```python
+import heapq
+
+
+def shortest_paths(graph: dict[str, list[tuple[str, int]]], source: str) -> dict[str, int]:
+    """"""Return shortest-path distances from source using Dijkstra's algorithm.""""""
+    distances: dict[str, int] = {source: 0}
+    heap: list[tuple[int, str]] = [(0, source)]
+
+    while heap:
+        current_dist, node = heapq.heappop(heap)
+
+        # Skip stale heap entries that are no longer the best known distance.
+        if current_dist != distances[node]:
+            continue
+
+        # Use an empty list for nodes that appear only as neighbors.
+        for neighbor, weight in graph.get(node, []):
+            new_dist = current_dist + weight
+
+            # Relax the edge if a shorter path to the neighbor is found.
+            if neighbor not in distances or new_dist < distances[neighbor]:
+                distances[neighbor] = new_dist
+                heapq.heappush(heap, (new_dist, neighbor))
+
+    return distances
+```"
+C19,code,Hard,GPT,openai/gpt-5.5,api_expand,158,"```python
+from heapq import heapify, heappop, heappush
+
+
+def topological_order(graph: dict[str, list[str]]) -> list[str]:
+    """"""Return the alphabetically smallest topological ordering of a directed graph.
+
+    Args:
+        graph: Mapping where graph[u] lists nodes v with an edge from u to v.
+
+    Raises:
+        ValueError: If the graph contains a cycle.
+    """"""
+    nodes: set[str] = set(graph)
+
+    # Include nodes that appear only as targets.
+    for neighbors in graph.values():
+        nodes.update(neighbors)
+
+    indegree = {node: 0 for node in nodes}
+
+    # Count incoming edges for each node.
+    for neighbors in graph.values():
+        for neighbor in neighbors:
+            indegree[neighbor] += 1
+
+    # Start with all nodes that have no incoming edges, alphabetically ordered.
+    available = [node for node in nodes if indegree[node] == 0]
+    heapify(available)
+
+    order: list[str] = []
+
+    while available:
+        node = heappop(available)
+        order.append(node)
+
+        # Remove outgoing edges from the chosen node.
+        for neighbor in graph.get(node, []):
+            indegree[neighbor] -= 1
+            if indegree[neighbor] == 0:
+                heappush(available, neighbor)
+
+    if len(order) != len(nodes):
+        raise ValueError(""graph contains a cycle"")
+
+    return order
+```"
+C20,code,Hard,GPT,openai/gpt-5.5,api_expand,168,"```python
+def count_n_queens(n: int) -> int:
+    """"""Return the number of valid ways to place n queens on an n-by-n board.""""""
+    if n < 0:
+        raise ValueError(""n must be non-negative"")
+
+    # A 0-by-0 board has exactly one arrangement: the empty placement.
+    if n == 0:
+        return 1
+
+    count = 0
+
+    def backtrack(row: int, columns: set[int], diag_down: set[int], diag_up: set[int]) -> None:
+        """"""Place queens row by row while tracking attacked columns and diagonals.""""""
+        nonlocal count
+
+        # All rows have been filled with non-attacking queens.
+        if row == n:
+            count += 1
+            return
+
+        for col in range(n):
+            # Diagonals are identified by row - col and row + col.
+            if col in columns or (row - col) in diag_down or (row + col) in diag_up:
+                continue
+
+            # Place a queen and mark its attacked lines.
+            columns.add(col)
+            diag_down.add(row - col)
+            diag_up.add(row + col)
+
+            backtrack(row + 1, columns, diag_down, diag_up)
+
+            # Remove the queen and try the next column.
+            columns.remove(col)
+            diag_down.remove(row - col)
+            diag_up.remove(row + col)
+
+    backtrack(0, set(), set(), set())
+    return count
+```"
+Q1,math,Easy,GPT,openai/gpt-5.5,api_expand,49,"Each notebook costs $3.00, and Maria buys 4 notebooks. So the notebooks cost 4 × 3.00 = $12.00.
+
+Each pen costs $1.25, and Maria buys 6 pens. So the pens cost 6 × 1.25 = $7.50.
+
+Now add the two costs together: $12.00 + $7.50 = $19.50.
+
+Answer: 19.50"
+Q2,math,Easy,GPT,openai/gpt-5.5,api_expand,80,"First, calculate the distance traveled during the first part of the trip.
+
+The train travels at 72 kilometers per hour for 2.5 hours, so the distance is:
+
+72 × 2.5 = 180 kilometers
+
+Next, calculate the distance traveled during the second part of the trip.
+
+The train travels at 90 kilometers per hour for 1.5 hours, so the distance is:
+
+90 × 1.5 = 135 kilometers
+
+Now add the two distances together:
+
+180 + 135 = 315 kilometers
+
+Answer: 315"
+Q3,math,Easy,GPT,openai/gpt-5.5,api_expand,136,"Let the width of the rectangle be \(w\) centimeters.
+
+The length is 5 centimeters more than the width, so the length is \(w + 5\) centimeters.
+
+The perimeter of a rectangle is:
+
+\[
+2(\text{length} + \text{width})
+\]
+
+The perimeter is 46 centimeters, so:
+
+\[
+2((w+5) + w) = 46
+\]
+
+Combine the terms inside the parentheses:
+
+\[
+2(2w + 5) = 46
+\]
+
+Divide both sides by 2:
+
+\[
+2w + 5 = 23
+\]
+
+Subtract 5 from both sides:
+
+\[
+2w = 18
+\]
+
+Divide by 2:
+
+\[
+w = 9
+\]
+
+So the width is 9 centimeters. The length is 5 centimeters more:
+
+\[
+9 + 5 = 14
+\]
+
+The area of a rectangle is:
+
+\[
+\text{length} \times \text{width}
+\]
+
+So the area is:
+
+\[
+14 \times 9 = 126
+\]
+
+Answer: 126"
+Q4,math,Medium,GPT,openai/gpt-5.5,api_expand,224,"We want the sum of all integers from 1 to 200 that are divisible by 3 or by 5.
+
+First, find the sum of multiples of 3.
+
+The multiples of 3 from 1 to 200 are:
+
+3, 6, 9, ..., 198
+
+This is an arithmetic sequence with 66 terms, since \(198 \div 3 = 66\).
+
+So the sum is:
+
+\[
+3(1+2+\cdots+66)
+\]
+
+\[
+= 3 \cdot \frac{66 \cdot 67}{2}
+\]
+
+\[
+= 3 \cdot 2211
+\]
+
+\[
+= 6633
+\]
+
+Next, find the sum of multiples of 5.
+
+The multiples of 5 from 1 to 200 are:
+
+5, 10, 15, ..., 200
+
+There are 40 terms, since \(200 \div 5 = 40\).
+
+So the sum is:
+
+\[
+5(1+2+\cdots+40)
+\]
+
+\[
+= 5 \cdot \frac{40 \cdot 41}{2}
+\]
+
+\[
+= 5 \cdot 820
+\]
+
+\[
+= 4100
+\]
+
+If we add these two sums, numbers divisible by both 3 and 5 have been counted twice. Those are the multiples of 15.
+
+The multiples of 15 from 1 to 200 are:
+
+15, 30, 45, ..., 195
+
+There are 13 terms, since \(195 \div 15 = 13\).
+
+Their sum is:
+
+\[
+15(1+2+\cdots+13)
+\]
+
+\[
+= 15 \cdot \frac{13 \cdot 14}{2}
+\]
+
+\[
+= 15 \cdot 91
+\]
+
+\[
+= 1365
+\]
+
+Now subtract this overlap once:
+
+\[
+6633 + 4100 - 1365 = 9368
+\]
+
+Answer: 9368"
+Q5,math,Easy,GPT,openai/gpt-5.5,api_expand,57,"The shirt starts at $40.
+
+A 25% discount means you pay 75% of the original price:
+
+$40 × 0.75 = $30
+
+So the discounted price is $30.
+
+Then an 8% sales tax is applied to the discounted price:
+
+$30 × 0.08 = $2.40
+
+Add the tax to the discounted price:
+
+$30 + $2.40 = $32.40
+
+Answer: 32.40"
+Q6,math,Medium,GPT,openai/gpt-5.5,api_expand,104,"When two fair six-sided dice are rolled, there are 6 possible outcomes for the first die and 6 possible outcomes for the second die.
+
+So the total number of equally likely outcomes is:
+
+6 × 6 = 36
+
+Now count the outcomes where the two numbers add up to 8:
+
+- 2 + 6 = 8
+- 3 + 5 = 8
+- 4 + 4 = 8
+- 5 + 3 = 8
+- 6 + 2 = 8
+
+There are 5 favorable outcomes.
+
+So the probability is:
+
+5 / 36 = 0.138888...
+
+Rounded to four decimal places, this is 0.1389.
+
+Answer: 0.1389"
+Q7,math,Medium,GPT,openai/gpt-5.5,api_expand,58,"The account starts with a principal of $5,000.
+
+The interest rate is 4% per year, compounded annually. That means each year the balance is multiplied by:
+
+1.04
+
+After 3 years, the balance is:
+
+$5,000 × 1.04³
+
+Now calculate:
+
+1.04³ = 1.124864
+
+So:
+
+$5,000 × 1.124864 = $5,624.32
+
+Rounded to the nearest cent, the account has $5,624.32.
+
+Answer: 5624.32"
+Q8,math,Medium,GPT,openai/gpt-5.5,api_expand,101,"Ana paints the fence in 6 hours, so her rate is \( \frac{1}{6} \) of the fence per hour.
+
+Ben paints the fence in 4 hours, so his rate is \( \frac{1}{4} \) of the fence per hour.
+
+Working together, their combined rate is:
+
+\[
+\frac{1}{6} + \frac{1}{4}
+\]
+
+Find a common denominator of 12:
+
+\[
+\frac{2}{12} + \frac{3}{12} = \frac{5}{12}
+\]
+
+So together, they paint \( \frac{5}{12} \) of the fence per hour.
+
+The time to paint 1 whole fence is:
+
+\[
+1 \div \frac{5}{12} = \frac{12}{5} = 2.4
+\]
+
+So it takes them 2.4 hours working together.
+
+Answer: 2.4"
+Q9,math,Easy,GPT,openai/gpt-5.5,api_expand,88,"To choose a committee of 3 members from 10 members, the order of selection does not matter.
+
+So we use combinations.
+
+The number of ways to choose 3 members from 10 is:
+
+\[
+\binom{10}{3}=\frac{10!}{3!(10-3)!}
+\]
+
+This simplifies to:
+
+\[
+\binom{10}{3}=\frac{10 \times 9 \times 8}{3 \times 2 \times 1}
+\]
+
+Now calculate:
+
+\[
+10 \times 9 \times 8 = 720
+\]
+
+\[
+3 \times 2 \times 1 = 6
+\]
+
+\[
+720 \div 6 = 120
+\]
+
+So there are 120 different ways to choose the committee.
+
+Answer: 120"
+Q10,math,Medium,GPT,openai/gpt-5.5,api_expand,80,"The tank can hold 1,200 liters, and it currently contains 300 liters.
+
+So, the amount of water needed to fill the tank is:
+
+1,200 − 300 = 900 liters.
+
+Water flows in at 30 liters per minute, but the leak drains 12 liters per minute.
+
+So, the net rate of filling is:
+
+30 − 12 = 18 liters per minute.
+
+Now divide the amount of water needed by the net filling rate:
+
+900 ÷ 18 = 50 minutes.
+
+Answer: 50"
+Q11,math,Easy,GPT,openai/gpt-5.5,api_expand,63,"The average of five numbers is 18.
+
+That means the total of all five numbers is \(5 \times 18 = 90\).
+
+Four of the numbers are 12, 15, 20, and 22.
+
+Their sum is \(12 + 15 + 20 + 22 = 69\).
+
+So the fifth number must be the difference between the total and 69:
+
+\(90 - 69 = 21\).
+
+Answer: 21"
+Q12,math,Easy,GPT,openai/gpt-5.5,api_expand,94,"An arithmetic sequence increases by the same amount each time.
+
+The first term is 7, and the common difference is 4.
+
+To find the 25th term, use the arithmetic sequence formula:
+
+\[
+a_n = a_1 + (n - 1)d
+\]
+
+Here:
+
+\[
+a_1 = 7
+\]
+
+\[
+d = 4
+\]
+
+\[
+n = 25
+\]
+
+Substitute these values:
+
+\[
+a_{25} = 7 + (25 - 1) \cdot 4
+\]
+
+Simplify:
+
+\[
+a_{25} = 7 + 24 \cdot 4
+\]
+
+\[
+a_{25} = 7 + 96
+\]
+
+\[
+a_{25} = 103
+\]
+
+Answer: 103"
+Q13,math,Medium,GPT,openai/gpt-5.5,api_expand,64,"The car starts with a value of $24,000.
+
+At the end of the first year, it loses 15% of its value, so it keeps 85% of its value.
+
+So after 1 year, its value is:
+
+$24,000 × 0.85 = $20,400
+
+At the end of the second year, it again loses 15%, so it keeps 85% of $20,400.
+
+$20,400 × 0.85 = $17,340
+
+Answer: 17340"
+Q14,math,Medium,GPT,openai/gpt-5.5,api_expand,117,"To find how many positive integers divide 360 exactly, we first write 360 as a product of prime powers.
+
+Start by factoring:
+
+360 = 36 × 10
+
+36 = 2² × 3², and 10 = 2 × 5
+
+So:
+
+360 = 2³ × 3² × 5¹
+
+Now use the divisor-counting rule: if a number has prime factorization
+
+n = pᵃ × qᵇ × rᶜ,
+
+then the number of positive divisors is
+
+(a + 1)(b + 1)(c + 1).
+
+For 360 = 2³ × 3² × 5¹, the exponents are 3, 2, and 1.
+
+So the number of positive divisors is:
+
+(3 + 1)(2 + 1)(1 + 1) = 4 × 3 × 2 = 24
+
+Answer: 24"
+Q15,math,Hard,GPT,openai/gpt-5.5,api_expand,182,"The ladder, wall, and ground form a right triangle.
+
+Initially, the ladder is 25 feet long, and its foot is 7 feet from the wall. So the height of the top of the ladder is found using the Pythagorean theorem:
+
+\[
+7^2 + h^2 = 25^2
+\]
+
+\[
+49 + h^2 = 625
+\]
+
+\[
+h^2 = 576
+\]
+
+\[
+h = 24
+\]
+
+So initially, the top of the ladder is 24 feet up the wall.
+
+The top of the ladder then slides 4 feet down, so its new height is:
+
+\[
+24 - 4 = 20
+\]
+
+Now the ladder is still 25 feet long, so we again use the Pythagorean theorem to find the new distance of the foot from the wall:
+
+\[
+x^2 + 20^2 = 25^2
+\]
+
+\[
+x^2 + 400 = 625
+\]
+
+\[
+x^2 = 225
+\]
+
+\[
+x = 15
+\]
+
+So the foot of the ladder is now 15 feet from the wall. It was originally 7 feet from the wall, so it moved:
+
+\[
+15 - 7 = 8
+\]
+
+Answer: 8"
+Q16,math,Hard,GPT,openai/gpt-5.5,api_expand,150,"Let \(x\) be the number of liters of the 60% acid solution to add.
+
+The 10 liters of 20% acid solution contains:
+
+\[
+10 \times 0.20 = 2
+\]
+
+liters of acid.
+
+The \(x\) liters of 60% acid solution contains:
+
+\[
+0.60x
+\]
+
+liters of acid.
+
+After mixing, the total amount of solution is:
+
+\[
+10 + x
+\]
+
+liters.
+
+We want the final mixture to be 40% acid, so the amount of acid should be:
+
+\[
+0.40(10 + x)
+\]
+
+Set up the equation:
+
+\[
+2 + 0.60x = 0.40(10 + x)
+\]
+
+Expand the right side:
+
+\[
+2 + 0.60x = 4 + 0.40x
+\]
+
+Subtract \(0.40x\) from both sides:
+
+\[
+2 + 0.20x = 4
+\]
+
+Subtract 2 from both sides:
+
+\[
+0.20x = 2
+\]
+
+Divide by 0.20:
+
+\[
+x = 10
+\]
+
+So, 10 liters of the 60% acid solution must be added.
+
+Answer: 10"
+Q17,math,Medium,GPT,openai/gpt-5.5,api_expand,131,"The lighthouses will next flash together after a number of seconds that is a multiple of all three flashing intervals: 12, 18, and 30.
+
+So we need to find the least common multiple of 12, 18, and 30.
+
+Break each number into prime factors:
+
+12 = 2 × 2 × 3 = 2² × 3  
+18 = 2 × 3 × 3 = 2 × 3²  
+30 = 2 × 3 × 5
+
+Now take the highest powers of each prime factor:
+
+- Highest power of 2 is 2²
+- Highest power of 3 is 3²
+- Highest power of 5 is 5
+
+Multiply these together:
+
+2² × 3² × 5 = 4 × 9 × 5 = 180
+
+So the lighthouses will next flash together after 180 seconds.
+
+Answer: 180"
+Q18,math,Medium,GPT,openai/gpt-5.5,api_expand,57,"The culture starts with 150 bacteria.
+
+The population doubles every 20 minutes.
+
+Two hours is 120 minutes.
+
+To find how many doubling periods occur in 120 minutes, divide:
+
+120 ÷ 20 = 6
+
+So the population doubles 6 times.
+
+Starting with 150 bacteria, after 6 doublings:
+
+150 × 2⁶ = 150 × 64 = 9,600
+
+Answer: 9600"
+Q19,math,Hard,GPT,openai/gpt-5.5,api_expand,117,"At 3:40, the minute hand is on the 40-minute mark.
+
+Each minute mark represents 6 degrees, so the minute hand is:
+
+40 × 6 = 240 degrees from 12.
+
+The hour hand starts at 3, which is:
+
+3 × 30 = 90 degrees from 12.
+
+But by 3:40, the hour hand has moved partway from 3 toward 4. The hour hand moves 30 degrees in 60 minutes, so in 40 minutes it moves:
+
+40/60 × 30 = 20 degrees.
+
+So the hour hand is at:
+
+90 + 20 = 110 degrees from 12.
+
+Now find the difference between the two hand positions:
+
+240 − 110 = 130 degrees.
+
+The smaller angle is therefore 130 degrees.
+
+Answer: 130"
+Q20,math,Hard,GPT,openai/gpt-5.5,api_expand,167,"We can count the opposite: integers that do **not** contain the digit 7.
+
+First consider the numbers from 0 to 999. Write each one as a three-digit string by allowing leading zeros:
+
+- 5 becomes 005
+- 42 becomes 042
+- 999 stays 999
+
+For each of the three digit positions, there are 9 possible digits that are not 7:
+
+\[
+0,1,2,3,4,5,6,8,9
+\]
+
+So the number of three-digit strings from 000 to 999 with no digit 7 is:
+
+\[
+9 \times 9 \times 9 = 729
+\]
+
+There are 1000 total numbers from 0 to 999, so the number that contain at least one digit 7 is:
+
+\[
+1000 - 729 = 271
+\]
+
+The range in the problem is 1 to 1000. The number 0 was included in the complement count above, but it does not contain a 7, so it does not affect the count of numbers containing 7. Also, 1000 does not contain a 7.
+
+Therefore, the count remains:
+
+\[
+271
+\]
+
+Answer: 271"
+E14,prose,Easy,GPT,openai/gpt-5.5,api_expand,327,"Volunteering your time to help others is often described as an act of generosity, but it is also an investment in your own growth. When you volunteer, you place yourself in situations that may require communication, organization, problem-solving, leadership, teaching, fundraising, or teamwork. These are practical skills that can strengthen your confidence and make you more capable in professional settings. Volunteering also connects you with people you might never meet otherwise, including community leaders, nonprofit staff, business owners, educators, and other motivated volunteers. Those relationships can expand your professional network in a natural and meaningful way, sometimes leading to mentorship, references, job opportunities, or collaborations.
+
+Volunteering also gives you a stronger sense of purpose and meaning. Daily life can sometimes feel repetitive or overly focused on personal responsibilities, but helping others reminds you that your actions matter beyond your own immediate concerns. Whether you are serving meals, tutoring a student, visiting older adults, cleaning up a public space, or helping at a local event, you can see the direct effect of your effort. That sense of contribution can make life feel more grounded and valuable because you know you are part of something larger than yourself. Even small acts of service can create a powerful feeling that your time has been used well.
+
+Finally, volunteering can improve mental health by reducing feelings of isolation. Many people struggle with loneliness, especially when work, school, family duties, or life changes limit social connection. Volunteering creates a reason to show up, interact with others, and build relationships around shared goals. It can replace passive loneliness with active participation and give people a supportive community where they feel seen and useful. Helping others can also shift attention away from personal worries and create moments of gratitude, connection, and emotional relief. In this way, volunteering benefits both the people receiving help and the person giving it, making it one of the rare choices that strengthens a community while also strengthening the individual."
+E15,prose,Easy,GPT,openai/gpt-5.5,api_expand,467,"Learning to play a musical instrument is absolutely worth it even as an adult, because it offers rewards that go far beyond simply being able to perform songs. Many adults assume they have missed the ideal window for learning, but adulthood can actually bring patience, discipline, and a clearer sense of purpose to practice. You do not need to become a professional musician for the experience to be valuable. The act of learning itself can sharpen your mind, enrich your daily routine, and give you something meaningful to build over time.
+
+One major benefit is that playing an instrument exercises memory and hand coordination at the same time. When you practice, you are remembering notes, rhythms, finger placements, patterns, and musical phrases while also training your hands to move accurately and smoothly. This combination keeps your brain actively engaged in a way that is different from many ordinary tasks. Whether you are learning piano chords, guitar shapes, violin fingerings, or drum patterns, you are asking your mind and body to work together. Over time, movements that once felt awkward begin to feel natural, and that improvement can be both satisfying and mentally stimulating.
+
+Learning an instrument also gives you a creative outlet after work or school. Adult life can become repetitive, with much of the day spent meeting obligations, solving practical problems, or staring at screens. Sitting down with an instrument creates a different kind of space, one where you can express emotion, experiment with sound, and focus on something that is not purely productive in the usual sense. Even a short practice session can help you decompress and shift your attention away from stress. Music gives you a way to process your mood without needing to explain it, and that can make it a powerful form of relaxation.
+
+Another reason it is worth learning as an adult is that practice provides a steady sense of progress. Musical improvement is often gradual, but it is also very noticeable. A chord change becomes cleaner, a melody becomes smoother, a rhythm finally clicks, or a song that once seemed impossible becomes playable. These small victories build confidence and create a sense of momentum. In a world where many goals feel vague or distant, an instrument offers clear evidence that consistent effort matters. Each practice session adds something, and that steady growth can be deeply motivating.
+
+For adults especially, learning an instrument is not about catching up to someone who started younger. It is about giving yourself a skill that strengthens your memory and coordination, opens a creative escape from daily pressures, and rewards you with visible progress. The beginning may feel clumsy, but that is part of what makes the journey valuable. Every note learned and every improvement earned becomes proof that growth is still possible at any age."
+E16,prose,Easy,GPT,openai/gpt-5.5,api_expand,248,"Choosing to walk or bike for short trips instead of driving can make everyday life feel easier, healthier, and more enjoyable. One of the most practical benefits is that it saves money. Short car trips still use fuel, and they can also come with parking costs, meters, garages, or the frustration of searching for a spot. When you walk or bike, those expenses disappear, and over time the savings can add up in a noticeable way.
+
+Walking or biking also builds exercise into your day without requiring extra planning. You do not have to schedule a workout, drive to a gym, or set aside a separate block of time. A trip to the store, a visit to a friend, or an errand across town becomes a chance to move your body, get your heart rate up, and feel more energetic. It turns ordinary routines into simple opportunities to take care of your health.
+
+It can also make your neighborhood feel more familiar and pleasant. When you are not sealed inside a car, you notice details you might otherwise miss: a new café, flowers in someone’s yard, a quiet side street, neighbors saying hello, or the changing light at different times of day. Walking or biking slows the trip down just enough to make it more connected and enjoyable. For short distances, leaving the car behind is not just a transportation choice; it is a way to spend less, move more, and feel more at home where you live."
+E17,prose,Easy,GPT,openai/gpt-5.5,api_expand,255,"Taking a basic first aid course is a smart use of a weekend because it gives you practical skills you may actually need. Common emergencies can happen anywhere: at home, at work, at a park, or on the road. Someone may choke, faint, suffer a burn, cut themselves badly, have an allergic reaction, or collapse while waiting for professional help. A first aid course teaches you what to do in those first important minutes, when quick, simple actions can reduce harm and sometimes even save a life.
+
+It also helps you stay calm when everyone else is panicking. In a stressful moment, most people want to help but hesitate because they are afraid of doing the wrong thing. Training replaces that uncertainty with a clear plan. You learn how to assess a situation, call for help, give basic care, and avoid making things worse. That confidence is valuable not only for you, but also for the people around you, because a calm person can guide others and make an emergency feel more manageable.
+
+The best part is that a basic first aid course does not require a huge investment. It usually takes only a few hours or a single weekend session, and it is often inexpensive compared with the value of the skills you gain. For a small amount of time and money, you leave with knowledge that could help a friend, a family member, a coworker, a stranger, or even yourself. That makes it one of the most worthwhile ways to spend a weekend."
+E18,prose,Easy,GPT,openai/gpt-5.5,api_expand,231,"Growing a small herb or vegetable garden at home is a rewarding hobby because it brings the satisfaction of fresh food right to your doorstep. Even a few pots of basil, mint, tomatoes, peppers, or lettuce can make everyday meals feel brighter and more personal. Instead of relying entirely on store-bought produce, you can step outside, pick what you need, and enjoy ingredients at their freshest. That simple act creates a stronger connection to what you eat and can make cooking feel more enjoyable.
+
+Tending plants also offers a calming break from daily pressures. Watering, pruning, checking the soil, and noticing new leaves or blossoms give you a reason to slow down and focus on something peaceful. In a world filled with screens, schedules, and constant demands, a garden provides a quiet routine that can clear the mind. Even a few minutes spent caring for plants can feel grounding and refreshing.
+
+A home garden also teaches patience in a meaningful way. Plants do not grow instantly; they require steady care, attention, and time. Watching a seed sprout, a vine climb, or a vegetable slowly ripen reminds you that good results often come gradually. This makes the harvest feel even more rewarding, because you have seen every stage of the process. For these reasons, growing a small herb or vegetable garden is not only practical, but also relaxing, satisfying, and deeply worthwhile."
+E19,prose,Easy,GPT,openai/gpt-5.5,api_expand,343,"Writing tasks down in a daily planner is one of the simplest ways to stay on top of your life because it turns scattered responsibilities into a clear, visible plan. When appointments, deadlines, errands, and reminders are kept only in your head, it is easy for something to slip through the cracks, especially on busy days. A planner gives every task a place to live. Instead of relying on memory alone, you can check one reliable source and know what needs to happen next. This helps you forget fewer tasks and appointments because your day is not being managed by guesswork; it is being guided by a record you can return to again and again.
+
+A daily planner also clears your head, which makes it easier to relax. When you are trying to remember everything at once, your mind keeps circling back to unfinished business: the email you need to send, the bill you need to pay, the meeting tomorrow morning, the groceries you need to buy. That mental clutter can make even free time feel stressful. Writing things down removes some of that pressure because you no longer have to keep reminding yourself constantly. Once the task is on the page, you can trust that it will be there when you need it, which gives your mind permission to focus, rest, or enjoy the present moment.
+
+Finally, checking items off in a planner helps you see how much you have actually done. Many people end a busy day feeling as if they were running around but accomplishing nothing, simply because completed tasks disappear from memory as quickly as new ones appear. A planner creates a visible record of progress. Each checked-off item is proof that you moved forward, handled responsibilities, and made use of your time. That sense of accomplishment can be motivating, especially on days when your to-do list feels long. By helping you remember, reducing mental stress, and showing your progress, a daily planner becomes more than a notebook; it becomes a practical tool for feeling organized and in control."
+E20,prose,Easy,GPT,openai/gpt-5.5,api_expand,242,"Playing board games with family and friends is time well spent because it gives everyone a reason to sit together, talk, laugh, and pay attention to one another. Unlike watching a show where everyone is facing the same direction, a board game puts people around the same table, reacting to each other in real time. You end up joking, teasing, making plans, telling stories, and sharing little moments that become memories. It is a simple way to turn an ordinary evening into real connection.
+
+Board games also teach good sportsmanship in a natural way. Sometimes you win, sometimes you lose, and sometimes the game changes because of luck or someone else’s clever move. That gives everyone practice being gracious, patient, and fair. Learning to celebrate someone else’s win, handle disappointment, and keep the mood friendly is valuable for kids and adults alike. It reminds people that the point is not just victory, but enjoying the time together.
+
+They are also one of the cheapest forms of entertainment you can keep enjoying again and again. Once you own a game, you can play it many times without buying tickets, paying for food out, or spending money every time you want to have fun. A single game can bring hours of entertainment across many nights, with different outcomes and different laughs each time. For something so affordable, board games offer a lot: conversation, connection, life lessons, and repeated fun with the people who matter."
+E21,prose,Easy,GPT,openai/gpt-5.5,api_expand,253,"Everyone should learn how to swim because it is one of the most practical life skills a person can have. Being comfortable in the water can make people much safer around pools, lakes, rivers, and the ocean. Accidents can happen quickly near water, and knowing how to float, tread water, and swim to safety can reduce panic and help prevent drowning. Even for people who do not plan to swim often, basic swimming ability can make family vacations, beach trips, and time near backyard pools far safer and more enjoyable.
+
+Swimming is also an excellent form of exercise. It works the whole body, using the arms, legs, core, heart, and lungs all at once. Unlike many other workouts, swimming is gentle on the joints because the water supports the body and reduces impact. This makes it a good option for people of many ages and fitness levels, including those who may find running or other high-impact exercises uncomfortable. Learning to swim can therefore help people build strength, endurance, and confidence without putting too much strain on their bodies.
+
+Finally, swimming opens the door to many enjoyable activities that would otherwise be difficult or impossible. People who can swim can try snorkeling, surfing, kayaking, paddleboarding, diving, and other water sports with greater confidence. They can explore coral reefs, play safely in waves, or simply enjoy a lake or pool without fear holding them back. Because swimming improves safety, supports health, and makes so many fun experiences possible, it is a skill everyone should learn."
+M14,prose,Medium,GPT,openai/gpt-5.5,api_expand,304,"Routine preventive maintenance is more cost-effective than waiting to repair buildings and equipment after failure because scheduled inspections reveal small defects while they are still inexpensive to correct. A minor roof leak, a worn belt, a loose electrical connection, early corrosion, or a small crack in a structural element can often be fixed quickly and at limited cost when found early. If ignored until failure occurs, the same defect can spread into water damage, equipment seizure, electrical failure, or structural deterioration that requires extensive labor, replacement parts, specialized contractors, and disruption to surrounding systems.
+
+Preventive maintenance also saves money by avoiding the unplanned downtime and lost output that come with sudden breakdowns. When maintenance is planned, work can be scheduled during low-use periods, parts can be ordered in advance, personnel can be assigned efficiently, and building occupants or production teams can prepare around the interruption. By contrast, an unexpected equipment failure or building-system outage can stop operations immediately, delay deliveries, idle employees, interrupt tenants or customers, and force expensive emergency repairs. The cost of the repair itself is often only part of the loss; the larger financial impact can come from the productive time that disappears while the asset is out of service.
+
+Well-maintained assets also last substantially longer, which spreads their capital cost over more years of useful service. Buildings, HVAC systems, elevators, pumps, vehicles, machinery, and other major assets represent large upfront investments, and their value improves when they can operate reliably beyond the minimum expected service period. Regular lubrication, calibration, cleaning, adjustment, sealing, and component replacement reduce wear and slow deterioration, allowing assets to perform properly for longer before major replacement is required. Extending service life lowers the annualized cost of ownership because the original purchase or construction cost is distributed across more years, making preventive maintenance a financially efficient strategy."
+M15,prose,Medium,GPT,openai/gpt-5.5,api_expand,200,"Organizations benefit from contributing to open-source software because sharing code spreads the cost of maintenance across many contributors instead of leaving a single company responsible for every fix, update, and improvement. When a project is open, other companies, independent developers, and users can submit patches, identify bugs, improve documentation, and adapt the software to new environments. This shared effort reduces the burden on the original organization while helping the software remain useful, stable, and current over time.
+
+Public peer review of source code also improves software quality and exposes security flaws sooner. When code is visible to a broad technical community, more people can inspect its design, test its behavior, and notice mistakes that an internal team might miss. This scrutiny helps uncover bugs, performance issues, and vulnerabilities earlier in the development cycle, leading to stronger and more reliable software.
+
+Visible open-source contributions strengthen an organization’s technical reputation and help it recruit skilled engineers. Public contributions demonstrate engineering competence, collaboration, and a commitment to building useful technology beyond the organization’s own walls. For talented engineers, an active open-source presence can be a strong signal that the organization values technical excellence and offers opportunities to work on meaningful, widely used software."
+M16,prose,Medium,GPT,openai/gpt-5.5,api_expand,259,"The standardized shipping container was one of the most economically consequential innovations of the twentieth century because it radically changed the basic economics of moving goods. Before containerization, cargo often had to be handled piece by piece at ports, requiring large gangs of dockworkers, extensive sorting, and long delays while ships sat idle. Standard containers sharply reduced the labor and time required to load and unload cargo because cranes could move entire units at once. Faster port turnaround meant ships spent more time carrying goods and less time waiting, lowering transportation costs and making long-distance trade far more efficient.
+
+Its importance also came from standardization. A common container size allowed the same box of goods to move between ships, trains, and trucks without being unpacked and repacked at each stage. This made transportation systems interoperable and turned shipping into a continuous process rather than a series of disconnected handoffs. As a result, producers could coordinate factories, suppliers, warehouses, and retailers across continents, enabling integrated global supply chains that made it practical to manufacture components in one place, assemble products in another, and sell them worldwide.
+
+Sealed containers further increased the economic impact of containerization by reducing theft and damage in transit. Once goods were packed and sealed, they were less exposed to weather, breakage, pilferage, and repeated handling. This lowered insurance costs, reduced losses, and simplified responsibility for cargo as it moved through complex transport networks. By cutting labor, time, theft, damage, insurance, and handling costs while making global intermodal shipping routine, the standardized shipping container transformed world commerce."
+M17,prose,Medium,GPT,openai/gpt-5.5,api_expand,268,"Citizen science projects make genuine contributions to scientific research because volunteer observers can gather data across geographic areas and time spans that professional teams could not realistically cover alone. Long-running bird counts are a clear example: when many participants record sightings in many locations year after year, researchers gain access to broad patterns in migration, population change, seasonal timing, and species distribution. The value of such projects comes from scale and continuity, since thousands of local observations can be combined into datasets large enough to reveal trends that would be invisible to a small professional field team.
+
+Citizen science also advances research by allowing online volunteers to classify large image and audio datasets far faster than small groups of scientists could manage on their own. Projects involving galaxy photographs, wildlife camera images, or sound recordings often produce enormous quantities of material that must be sorted before it can be analyzed. When many volunteers examine and label these data, they help transform raw collections into usable scientific evidence, enabling researchers to identify patterns, select promising targets for closer study, and move through data-processing stages much more efficiently.
+
+Participation in citizen science further contributes to science by improving public scientific literacy and helping people understand how evidence is gathered. Volunteers learn that scientific knowledge depends on careful observation, consistent methods, records, comparison, and repeated contributions over time. By taking part in real data collection or classification, participants gain a more concrete understanding of how conclusions are built from evidence, making citizen science valuable not only for the datasets it produces but also for the broader public understanding of scientific work."
+M18,prose,Medium,GPT,openai/gpt-5.5,api_expand,299,"Structured code review improves software quality by giving teams a disciplined opportunity to catch defects before code reaches users. Reviewers can identify logic errors, missing edge-case handling, incorrect assumptions, security weaknesses, performance issues, and inadequate tests while the change is still fresh and inexpensive to correct. At that stage, the developer still has the context in mind, the affected code is isolated, and the fix usually requires only a small adjustment. Once the same defect reaches production, it can trigger customer impact, urgent incident response, data repair, hotfix coordination, and loss of trust, all of which make the cost far higher. By moving defect discovery earlier in the development process, structured review directly raises the quality of released software.
+
+Reviewing each other’s changes also spreads knowledge of the codebase across the team. Every review exposes engineers to modules, patterns, business rules, dependencies, and design decisions they might not encounter in their own feature work. Over time, this shared visibility reduces reliance on single experts who are the only people familiar with a critical area. More engineers become capable of diagnosing problems, extending features, and making informed architectural decisions. That broader ownership makes the team more resilient and helps ensure that quality does not depend on one person’s availability or memory.
+
+Regular review further improves quality by enforcing consistent coding standards. When teams repeatedly examine changes against shared expectations for naming, structure, testing, error handling, documentation, and design style, those expectations become part of everyday engineering practice. Consistency makes the software easier to read, reason about, modify, and debug because engineers do not have to relearn conventions from file to file or component to component. As the codebase grows, this maintainability becomes a major quality advantage: future changes can be made with greater confidence, lower risk, and less accidental complexity."
+M19,prose,Medium,GPT,openai/gpt-5.5,api_expand,288,"Written checklists reduce preventable errors in high-stakes professions because they take routine but critical steps out of fallible memory and place them into a reliable external process. In aviation and surgery, many safety actions are simple, familiar, and easily assumed to have been completed, yet the consequences of omission can be severe. Stress, fatigue, time pressure, interruptions, and emergencies all weaken attention and recall, making it more likely that even experienced professionals will skip a step. A written checklist creates a structured pause that ensures essential actions are verified every time, not only when conditions are ideal.
+
+Checklists also improve safety by standardizing communication within teams. In complex settings, errors often occur not because no one notices a problem, but because the team lacks a clear moment or accepted mechanism for speaking up. A checklist gives pilots, nurses, surgeons, anesthesiologists, and other team members a shared script and a defined opportunity to confirm information, identify risks, and raise concerns. This makes communication less dependent on hierarchy, personality, or chance, and it helps the whole team form a common understanding before critical action begins.
+
+The value of checklists is supported by documented results showing measurable reductions in harm after adoption. One of the best-known examples is the World Health Organization’s surgical safety checklist, which has been associated with lower rates of complications and deaths in surgical patients across varied hospital settings. By requiring confirmation of items such as patient identity, procedure, site, infection prevention measures, anesthesia concerns, and anticipated complications, the checklist translates known safety practices into consistent action. These results show that written checklists are not merely administrative tools; they are practical safety systems that reduce preventable errors and improve outcomes in professions where mistakes can be catastrophic."
+M20,prose,Medium,GPT,openai/gpt-5.5,api_expand,349,"Improvements in weather forecasting over recent decades have created large economic value by giving farmers better information at the moments when weather-sensitive decisions matter most. More accurate forecasts help farmers choose when to plant so seeds are not lost to unexpected frost, flooding, or drought conditions. They also support more precise irrigation decisions, allowing water to be applied when crops need it and avoided when rainfall is expected. Better forecasts help farmers time harvesting before damaging storms, excessive rain, or heat reduce crop quality and yield. By reducing avoidable crop losses and improving the use of labor, machinery, water, and other inputs, modern forecasting directly strengthens agricultural productivity and farm income.
+
+More reliable and earlier warnings of severe storms also generate major economic and human benefits. When hurricanes, tornadoes, floods, blizzards, or dangerous thunderstorms are forecast with more lead time, communities can evacuate vulnerable areas, protect homes and businesses, move vehicles and equipment, close roads, reinforce infrastructure, and stage emergency personnel and supplies. These preparations reduce property damage by giving people and institutions time to secure assets before the storm arrives. They also reduce loss of life by allowing residents to leave dangerous areas, seek shelter, and avoid travel during the most hazardous conditions. The value of these warnings is especially large because severe weather can produce enormous losses in a short period, and even modest improvements in preparation can prevent substantial harm.
+
+Weather forecasting has also improved efficiency across transportation and energy systems. Airlines use forecasts to plan safer and more fuel-efficient routes, avoid turbulence and storms, reduce delays, and manage airport operations more effectively. Shipping companies use marine forecasts to choose routes that avoid dangerous seas, high winds, and costly disruptions, protecting cargo while improving fuel use and scheduling reliability. Electricity grid operators rely on forecasts to anticipate heating and cooling demand, predict wind and solar generation, schedule backup power, and balance supply and demand in real time. These uses lower operating costs, reduce waste, improve reliability, and help large networks function more smoothly, showing that better forecasts deliver economic value far beyond the weather services themselves."
+H14,prose,Hard,GPT,openai/gpt-5.5,api_expand,391,"Causation cannot be adequately analyzed as mere regular succession between types of events because regularity is too indiscriminate. If one event type is regularly followed by another, that fact alone does not show that the first produces, generates, or makes a difference to the second. A falling barometer reading is regularly followed by a storm, but the falling reading does not cause the storm. Rather, both are effects of a common atmospheric condition: changes in air pressure. The regular sequence is real, but it is not causal in the relevant direction. This shows that a regularity account mistakes reliable association for causal connection. It lacks the resources to distinguish cases in which one event genuinely brings about another from cases in which the two are merely correlated because of a shared background cause or accidental pattern.
+
+Interventionist accounts, especially as developed by James Woodward, succeed at precisely this point by analyzing causation in terms of stable dependence under ideal interventions. On this view, the crucial question is not whether events of one type are regularly followed by events of another type, but whether changing the putative cause by an appropriate intervention would change the effect. A causal relation exists when the effect depends on the cause in a way that remains invariant under interventions that alter the cause while holding fixed other relevant influences. If one could intervene to change the barometer reading alone, without changing the atmospheric conditions, the storm would not thereby be changed. By contrast, if one intervenes on a genuine cause, the effect varies accordingly. The interventionist account therefore captures the difference-making structure that regular succession by itself misses.
+
+This also explains the epistemic privilege of randomized controlled experiments. Such experiments are powerful because their design approximates an ideal intervention on the putative cause. Random assignment severs the treatment or exposure from its ordinary antecedents, preventing preexisting differences among subjects from determining who receives the intervention. As a result, correlations between the assigned treatment and the outcome are not merely ordinary regularities embedded in a web of background causes; they are evidence of what happens when the putative cause is manipulated independently. The randomized controlled experiment is therefore especially well suited to reveal causal relations because it creates conditions under which the relevant dependency can be observed apart from the confounding patterns that make regular succession insufficient."
+H15,prose,Hard,GPT,openai/gpt-5.5,api_expand,604,"Biological function is best understood etiologically because functions are normative: a trait can perform its function well or badly, and it can have a function even when it fails to perform it. Selected-effect accounts explain this by identifying a trait’s function with the effect for which earlier instances of that trait were selected. The function of the heart is to pump blood because ancestral hearts contributed to survival and reproduction by pumping blood, and that effect explains why hearts of that kind were preserved and reproduced in the lineage. This makes sense of malfunction. A diseased heart that fails to pump blood properly still has pumping blood as its function, because its function is fixed by the selection history of hearts, not by its present causal powers. By contrast, a purely dispositional analysis identifies function with what a trait is disposed to do, or with what it in fact does under certain conditions. Such an account cannot adequately distinguish functioning from malfunctioning. If a heart is disposed only to fibrillate, or if an eye is incapable of seeing, a purely dispositional account has difficulty explaining why these are defective instances rather than traits with different functions. Etiology supplies the missing standard: the trait is evaluated against the effect that explains its historical retention.
+
+Causal-role accounts in the tradition of Cummins analyze function in terms of the contribution a component makes to the capacities of a containing system. On this view, the function of a trait is whatever causal role it plays in some larger explanatory analysis. But biological traits have many causal effects, and not all of them are functions. The heart pumps blood, makes sounds, adds weight to the body, consumes energy, and can obstruct a surgeon’s access to other organs. A causal-role analysis can call any of these a function if the chosen explanatory project makes that effect relevant. This means that the line between a function and an accidental effect depends on the investigator’s explanatory interests. If one is explaining circulation, pumping blood is selected; if one is explaining diagnostic auscultation, producing sounds is selected; if one is explaining body mass, contributing weight is selected. The attribution becomes relative to a chosen analysis rather than fixed by the biological history of the trait. Etiological accounts preserve objectivity by distinguishing the effect that explains the trait’s existence from the many effects the trait happens to have. The function is not whatever an investigator finds useful to cite, but the effect for which the trait was selected.
+
+Etiological accounts also best explain why functional claims have distinctive explanatory force. To say that the function of the heart is to pump blood is not merely to describe a current activity of the heart. It is to answer why organisms have hearts of that type at all. The selected effect explains the presence and persistence of the trait in the lineage: hearts are there because ancestral hearts pumped blood in ways that contributed to reproductive success. This historical explanation is what gives functional language its biological depth. A purely causal-role statement says what a trait does within a system now; it locates the trait in an organized causal economy. But it does not by itself explain why that trait exists rather than not, or why organisms came to possess it. Etiological function does. It connects current organization to evolutionary history, showing how a trait’s present role is grounded in past selection. For that reason, functional claims in biology are most fully explanatory when they are etiological: they identify not merely an effect of the trait, but the effect that accounts for the trait’s being there."
+H16,prose,Hard,GPT,openai/gpt-5.5,api_expand,592,"Knowledge acquired through testimony cannot be reduced to knowledge grounded solely in the hearer’s own perception, memory, and inductive inference, because ordinary epistemic life depends on a range of sources whose reliability no individual could independently establish. As Coady argued, the reductionist picture asks too much: it requires the hearer to justify reliance on testimony by appealing to observed correlations between what people say and how things turn out, but no person is in a position to check more than a tiny fraction of the reports on which ordinary belief depends. Much of what one knows about history, geography, medicine, law, distant events, institutions, and other people’s lives comes from chains of testimony that extend far beyond one’s personal experience. One may confirm some reports, but those confirmations are themselves usually dependent on further testimony: maps, records, measurements, expert statements, archives, and educational materials. The hearer’s own perception and memory provide only a narrow basis compared with the vast body of beliefs acquired from others. Since ordinary knowledge depends on sources whose general track record cannot be independently surveyed by each individual, testimonial knowledge cannot in practice be reconstructed as the outcome of private inductive verification.
+
+The irreducibility of testimony is even clearer in the case of young children. Children acquire enormous bodies of knowledge from parents, teachers, caregivers, and other speakers before they possess the cognitive resources needed to justify testimony in the reductionist manner. They learn the names of objects, the identities of people, the meanings of words, the existence of places they have never seen, rules of conduct, basic facts about animals, bodies, numbers, and social life, and countless claims about the past and the future. This learning does not wait upon an independently established inductive theory of speaker reliability. A young child cannot first collect a large sample of testimonial successes and failures, assess the competence and sincerity of informants, and then infer that testimony is generally trustworthy. Testimony is instead one of the primary routes by which the child comes to possess the concepts, categories, and background beliefs that later make sophisticated inference possible. If testimonial justification required prior reduction to the child’s own perceptual and inductive base, then much of early knowledge would be inexplicable. The developmental order is the reverse: children come to know through testimony before they are capable of the kind of independent epistemic checking that reductionism demands.
+
+The same point holds at the most advanced levels of inquiry, especially in contemporary science. As Hardwig emphasized, modern scientific knowledge is produced through a division of cognitive labor in which researchers depend on the testimony of other researchers whose work they cannot personally verify in full. A scientist may rely on data generated by technicians, statistical analyses performed by collaborators, instruments calibrated by specialists, background theories established in other fields, and experimental results reported in journals by teams with highly specialized expertise. No individual researcher can personally repeat all the experiments, inspect all the equipment, master all the relevant subdisciplines, or audit every calculation on which a scientific conclusion depends. Scientific knowledge is therefore not simply the possession of isolated individuals who have grounded every belief in their own observation and inference. It is sustained by networks of trust, credentials, disciplinary norms, and expert dependence. The cognitive achievements of science arise precisely because researchers accept and build upon the testimony of others in circumstances where personal verification is not available. Thus even paradigmatic knowledge in the sciences rests irreducibly on testimonial trust rather than on the hearer’s independent perceptual, memorial, and inductive resources alone."
+H17,prose,Hard,GPT,openai/gpt-5.5,api_expand,555,"Idealized scientific models can provide genuine understanding even when they contain assumptions known to be false because their purpose is often not to reproduce every feature of a system, but to isolate the features that matter to the phenomenon being explained. A frictionless plane, an infinite population, or a point mass is not usually introduced because scientists believe planes lack friction, populations are literally infinite, or bodies have no spatial extent. These idealizations deliberately remove complications that would obscure the explanatory structure of the phenomenon. In modeling a block sliding down an inclined plane, treating the plane as frictionless can reveal how acceleration depends on gravity and the angle of inclination. In population genetics, assuming an infinite population can display the effects of selection without the complicating influence of random drift. In mechanics, treating a planet as a point mass can make clear how its motion depends on mass, distance, and gravitational interaction. In each case, the false assumption functions as a tool of abstraction: it brackets factors that are not difference-making for the explanatory pattern at issue, thereby allowing the model to show which variables are doing the relevant explanatory work.
+
+This is why understanding should not be identified with the possession of a literally true description in every respect. Scientific understanding often consists in grasping patterns of counterfactual dependence: seeing how a phenomenon would change if certain relevant factors were varied, held fixed, removed, or intensified. An idealized model can represent these dependence relations accurately even if its literal assumptions are false. The model of a point mass may falsely describe the shape and extension of a body, but it can still correctly show how changes in mass or distance would affect gravitational attraction. The frictionless-plane model may falsely omit friction, but it can still show how acceleration would vary with the angle of the incline or the strength of the gravitational field. What matters for understanding is that the model captures the right modal structure: it tells us which changes would make a difference, which would not, and how the phenomenon depends on the factors represented in the model. The falsity of an idealizing assumption therefore need not undermine understanding, because the cognitive achievement lies in grasping the relevant counterfactual pattern rather than in mirroring the target system in all its concrete detail.
+
+This point is especially clear in the case of minimal-model explanations of the kind analyzed by Batterman. Minimal models explain universal behavior across physically heterogeneous systems precisely by omitting the microscopic details that differ from one system to another. Near critical points, for example, fluids, magnets, and other systems with very different underlying constituents can display the same large-scale patterns of behavior. A model that tried to include all the microscopic features of each system would obscure the common structure responsible for the universality. By stripping away those details, the minimal model reveals why systems with different microphysical compositions fall into the same universality class and exhibit the same critical behavior. The explanatory force of the model depends on its idealizing omissions: it succeeds because it represents the stable, large-scale pattern that remains invariant across diverse physical realizations. Thus, in Batterman’s sense, the model provides understanding not by describing any one system in complete microscopic detail, but by showing why many different systems behave alike despite their physical differences."
+H18,prose,Hard,GPT,openai/gpt-5.5,api_expand,547,"Practical knowledge, or knowing how, is not reducible to propositional knowledge, or knowing that, because intelligent action cannot be understood simply as the prior possession and consultation of truths. To know how to do something is not merely to know a set of propositions about how it is done; it is to be able to perform, adjust, discriminate, and respond appropriately in the activity itself. Ryle’s regress argument makes this clear. If every intelligent performance required first contemplating a proposition, rule, or instruction, then the intelligent use of that proposition would itself have to be guided by another act of knowing that: one would need to know that this rule applies here, that this is the right moment to use it, that this way of interpreting it is correct, and so on. But applying such further propositions would itself be an intelligent act, requiring still more propositional guidance. The result is an infinite regress in which no action could ever begin. Intelligent practice must therefore involve a kind of competence that is not dependent on the prior theoretical contemplation of propositions. A person who knows how to ride a bicycle, improvise at the piano, or respond tactically in a game does not first run through a complete set of explicit propositions and then execute them; the intelligence is manifested directly in the doing.
+
+Skilled performance also involves a sensitivity to context that outstrips any finite set of propositions the agent could articulate or endorse. The competent practitioner does not merely follow stated rules but perceives what matters in a concrete situation and adjusts accordingly. A surgeon’s hand, a chess player’s sense of position, a dancer’s timing, or a fluent speaker’s choice of expression depends on fine-grained responsiveness to particulars: pressure, rhythm, balance, tone, opportunity, risk, and countless other features that may not be separately named or consciously represented. Even when propositions can be offered after the fact, they rarely capture the full practical discrimination involved. Rules such as “keep your balance,” “strike with the right force,” or “respond to the opponent’s weakness” remain too general until embodied in the ability to recognize what counts as balance, the right force, or a weakness here and now. Practical knowledge is therefore not exhausted by explicit knowledge of rules or facts; it consists in an ability to navigate variable circumstances with an appropriateness that cannot be fully codified in advance.
+
+Neuropsychological dissociations further support the distinction between knowing how and knowing that. Some amnesic patients can acquire new motor skills through repeated practice while retaining no explicit memory of having practiced them. They may improve at tasks such as mirror tracing or other learned motor routines across sessions, even while sincerely reporting each time that the task is unfamiliar. In such cases, practical learning is present: performance becomes smoother, faster, or more accurate. Yet the corresponding propositional or episodic knowledge is absent: the patient does not know that they practiced before, does not remember the learning episode, and may be unable to state how their improvement occurred. This separation shows that practical knowledge and propositional knowledge can come apart in actual human cognition. Since an agent can gain and manifest a skill without possessing the relevant explicit memory or articulable propositional knowledge, knowing how cannot be reduced to knowing that."
+H19,prose,Hard,GPT,openai/gpt-5.5,api_expand,392,"The loss of biodiversity undermines the long-term stability and functioning of ecosystems because diverse communities are better able to maintain productivity under changing conditions. The insurance hypothesis holds that species differ in their responses to environmental fluctuation: some tolerate drought, others thrive in wet years, some recover quickly after disturbance, and others perform best under cooler or warmer conditions. When many species are present, declines in some can be offset by the persistence or growth of others, so the community as a whole continues to function. This stabilizes aggregate productivity over time, because ecosystem output does not depend on a narrow set of species all vulnerable to the same stress. As biodiversity declines, this stabilizing effect weakens, making ecosystem productivity more variable and less reliable as environmental conditions shift.
+
+Biodiversity also supports ecosystem functioning through functional redundancy, in which several species perform overlapping ecological roles. Multiple pollinators may service the same plants, multiple decomposers may break down organic matter, and multiple grazers or predators may regulate similar resources or prey. This overlap buffers ecosystem processes against the loss of any single species because another species can partially or fully compensate for the missing function. However, as species are removed, the redundancy within each functional role erodes. Eventually, the loss of one more species may eliminate an important function rather than merely reduce the number of species performing it. In this way, biodiversity loss gradually strips ecosystems of their backup systems, making essential processes such as nutrient cycling, pollination, decomposition, and population regulation more fragile.
+
+The loss of keystone species can be especially destabilizing because some species have effects on community structure that are disproportionate to their abundance. When such species disappear, the consequences can spread through food webs in the form of trophic cascades. A clear example is the decline of sea otters, which allowed sea urchin populations to increase and overgraze kelp forests. Because kelp forests provide habitat, food, and structural complexity for many organisms, their decline affected far more than the immediate interaction between otters and urchins. This example shows how the extinction or severe reduction of a single species can propagate through an entire community, altering ecosystem structure and weakening the processes that depend on it. Together, these mechanisms show that biodiversity is not merely a count of species, but a foundation of ecological stability and long-term ecosystem functioning."
+S1,short,Easy,GPT,openai/gpt-5.5,api_expand,50,"The sky appears blue because sunlight is scattered by tiny molecules in Earth’s atmosphere. Blue light has shorter wavelengths than red or yellow light, so it scatters more strongly and spreads across the sky. That scattered blue light reaches our eyes from many directions, making the daytime sky look blue."
+S2,short,Easy,GPT,openai/gpt-5.5,api_expand,45,"Ice floats on liquid water because it is less dense than liquid water. When water freezes, its molecules form an open crystal structure held by hydrogen bonds, which spreads them farther apart than in the liquid state. This lower density makes ice stay on top."
+S3,short,Easy,GPT,openai/gpt-5.5,api_expand,59,"A rainbow forms when sunlight enters raindrops in the air and bends, or refracts. The light reflects off the inside of each drop and bends again as it leaves, spreading into different colors because each color bends by a slightly different amount. To see a rainbow, the sun is usually behind you and rain is in front of you."
+S4,short,Medium,GPT,openai/gpt-5.5,api_expand,62,"Earth has seasons because its axis is tilted as it orbits the Sun. When a hemisphere is tilted toward the Sun, it gets more direct sunlight and longer days, making it warmer; when it is tilted away, it gets less direct sunlight and shorter days, making it cooler. The seasons are not mainly caused by changes in Earth’s distance from the Sun."
+S5,short,Medium,GPT,openai/gpt-5.5,api_expand,68,"Ocean tides are caused mainly by the Moon’s gravity pulling on Earth’s oceans, with the Sun’s gravity also playing a smaller role. Because gravity pulls more strongly on the side of Earth facing the Moon than on the far side, the oceans form two tidal bulges. As Earth rotates through these bulges, most coastal areas experience rising and falling sea levels, shaped further by coastlines and ocean basins."
+S6,short,Easy,GPT,openai/gpt-5.5,api_expand,49,"Bread dough rises because yeast feeds on sugars in the flour and releases carbon dioxide gas. The stretchy gluten network in the dough traps this gas in tiny bubbles, causing the dough to expand. Warmth helps the yeast work faster, so the dough puffs up before it is baked."
+S7,short,Medium,GPT,openai/gpt-5.5,api_expand,56,"A black hole is a region of space where gravity is so strong that nothing, not even light, can escape once it gets too close. This boundary is called the event horizon. Black holes can form when very massive stars collapse, and they can also grow by pulling in gas, dust, and other matter around them."
+S8,short,Medium,GPT,openai/gpt-5.5,api_expand,61,"A metal spoon feels colder because metal conducts heat much better than wood. When you touch it, heat flows out of your warmer hand into the metal quickly, making your skin cool rapidly. Wood conducts heat slowly, so it does not draw heat from your hand as fast and feels warmer even though both spoons are at the same room temperature."
+S9,short,Medium,GPT,openai/gpt-5.5,api_expand,61,"A refrigerator keeps food cold by moving heat from inside the cabinet to the outside room. It does this with a circulating refrigerant that absorbs heat as it evaporates inside the fridge, then releases that heat as it is compressed and condensed in coils outside. This continuous cycle lowers the temperature inside and slows the growth of bacteria that spoil food."
+S10,short,Easy,GPT,openai/gpt-5.5,api_expand,35,"Photosynthesis lets a plant make its own food using sunlight, water, and carbon dioxide from the air. During this process, the plant produces sugar for energy and growth, and it releases oxygen as a byproduct."
+S11,short,Easy,GPT,openai/gpt-5.5,api_expand,60,"In autumn, shorter days and cooler temperatures cause many trees to stop making chlorophyll, the green pigment that helps leaves capture sunlight. As chlorophyll breaks down, other pigments already in the leaves, such as yellow and orange carotenoids, become visible. Some trees also produce red or purple anthocyanins, which can help protect leaves as the tree withdraws nutrients before winter."
+S12,short,Easy,GPT,openai/gpt-5.5,api_expand,58,"Weather is the short-term condition of the atmosphere in a specific place, such as whether it is rainy, windy, hot, or cold today. Climate is the long-term pattern of weather in a region, usually measured over many years or decades. In short, weather is what you experience day to day, while climate is what is typical over time."
+S13,short,Easy,GPT,openai/gpt-5.5,api_expand,49,"A magnetic compass has a small magnetized needle that can turn freely. The needle lines up with Earth’s magnetic field, so one end points roughly toward Earth’s magnetic north, which is near geographic north. By using the marked compass dial, you can tell the other directions from that alignment."
+S14,short,Medium,GPT,openai/gpt-5.5,api_expand,51,"Inflation means that the general level of prices in an economy is rising over time. When inflation happens, each unit of money buys less than it did before, so the cost of living tends to increase. It is usually measured by tracking changes in the prices of common goods and services."
+S15,short,Easy,GPT,openai/gpt-5.5,api_expand,47,"The Moon appears to go through phases because as it orbits Earth, we see different amounts of its sunlit half. The Sun always lights up one side of the Moon, but from Earth our viewing angle changes, making the Moon look full, partly lit, or nearly dark."
+S16,short,Easy,GPT,openai/gpt-5.5,api_expand,43,"An algorithm is a step-by-step set of instructions for solving a problem or completing a task. It takes some input, follows clear rules in a specific order, and produces an output. Recipes, driving directions, and computer programs can all be examples of algorithms."
+S17,short,Medium,GPT,openai/gpt-5.5,api_expand,62,"Salt is spread on icy roads because it lowers the freezing point of water, causing ice to melt even when the air is below 0°C. The salt mixes with a thin layer of water on the ice to form brine, which helps break up the ice and makes the road less slippery. It is most effective when temperatures are not extremely low."
+S18,short,Hard,GPT,openai/gpt-5.5,api_expand,65,"An airplane wing generates lift mainly by moving air downward as it passes over and under the wing. Because of the wing’s shape and angle to the airflow, air pressure becomes lower above the wing and higher below it, producing an upward force. This lift increases with speed, wing area, air density, and angle of attack, up to the point where the wing can stall."
+S19,short,Medium,GPT,openai/gpt-5.5,api_expand,49,"DNA stores the instructions a living cell needs to build and maintain itself. The cell uses DNA as a guide to make proteins, which do much of the work inside the cell. DNA is also copied when a cell divides, so the new cells receive the same basic instructions."
+S20,short,Hard,GPT,openai/gpt-5.5,api_expand,46,"Water boils when its vapor pressure matches the surrounding air pressure. At high altitude, the air pressure is lower, so water reaches that match at a lower temperature. Because of this, boiling water is cooler at high elevations, which can make food take longer to cook."

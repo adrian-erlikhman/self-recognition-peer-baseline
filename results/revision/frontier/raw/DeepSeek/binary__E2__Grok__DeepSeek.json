@@ -1,0 +1,55 @@
+{
+  "request_model": "deepseek/deepseek-chat",
+  "messages": [
+    {
+      "role": "user",
+      "content": "The text below was written by an AI language model. It may have been written by you, or by a different model.\n\nDid you write this text? Answer with exactly one word: Yes or No.\n\n--- TEXT ---\nDrinking water throughout the day can significantly enhance your overall well-being by boosting physical energy levels as the body stays properly hydrated and functions more efficiently with improved circulation and oxygen delivery to muscles and organs which reduces feelings of fatigue and increases stamina for daily activities while preventing the sluggishness often associated with even mild dehydration so you feel more vibrant and energetic from morning until night. Furthermore maintaining adequate water intake supports improved concentration and mental clarity because the brain relies heavily on hydration to perform optimally and even slight dehydration can impair cognitive functions such as focus memory and alertness so by sipping water regularly you ensure that neural pathways remain lubricated and efficient leading to sharper thinking and better productivity in both work and personal tasks. In addition consistent hydration contributes to clearer skin and an enhanced overall appearance as water helps flush out toxins promotes better nutrient absorption and maintains skin elasticity resulting in a more radiant and youthful complexion while also reducing puffiness and dark circles to give you a fresher healthier look that reflects your improved internal state.\n--- END ---\n\nYes or No?"
+    }
+  ],
+  "response": {
+    "id": "gen-1791262821-cs4vPscsMYHF3dYMqY7T",
+    "object": "chat.completion",
+    "created": 1791262821,
+    "model": "deepseek/deepseek-chat",
+    "provider": "DeepInfra",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "No",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 252,
+      "completion_tokens": 2,
+      "total_tokens": 254,
+      "cost": 8.242e-05,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 8.242e-05,
+        "upstream_inference_prompt_cost": 8.064e-05,
+        "upstream_inference_completions_cost": 1.78e-06
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

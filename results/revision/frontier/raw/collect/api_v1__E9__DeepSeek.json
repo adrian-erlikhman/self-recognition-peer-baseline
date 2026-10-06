@@ -1,0 +1,55 @@
+{
+  "request_model": "deepseek/deepseek-chat",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Convince someone that keeping their living space tidy makes daily life easier. Use three arguments: you waste less time searching for things, a clean environment reduces background stress, and it makes it easier to focus on work or study. Write in continuous prose paragraphs only. Do not use bullet points, numbered lists, headers, bold text, or any other formatting."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916449-mTyqwS0R9KOrNCMQve3Z",
+    "object": "chat.completion",
+    "created": 1790916449,
+    "model": "deepseek/deepseek-chat",
+    "provider": "DeepInfra",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "Maintaining a tidy living space significantly enhances daily life by streamlining routines and reducing unnecessary stress. One of the most immediate benefits is the reduction in time wasted searching for misplaced items. When everything has a designated place and clutter is minimized, locating essentials becomes effortless. Whether it\u2019s finding your keys before heading out, locating a specific document for work, or grabbing a clean pair of socks, a well-organized environment ensures you spend less time rummaging and more time being productive. This efficiency not only saves valuable minutes but also eliminates the frustration that often accompanies disorganization, making your day run more smoothly.\n\nBeyond the practical advantages, a clean and tidy space has a profound impact on mental well-being. Clutter can create a subtle but persistent sense of background stress, as it constantly signals unfinished tasks or visual chaos. By contrast, a neat environment fosters a sense of calm and control, allowing you to feel more relaxed and at ease in your own home. This reduction in stress can improve your overall mood, making it easier to unwind after a long day or approach daily challenges with a clearer mind. The psychological benefits of tidiness extend beyond mere aesthetics, contributing to a more positive and balanced mindset.\n\nFinally, a tidy space enhances your ability to focus on work or study, which is essential for productivity. Clutter can be distracting, pulling your attention away from the task at hand and making it harder to concentrate. A clean and organized workspace, however, minimizes visual distractions and creates a conducive environment for deep focus. When your surroundings are orderly, your mind is free to direct its energy toward the work or study you need to accomplish, leading to greater efficiency and better results. In this way, keeping your living space tidy isn\u2019t just about cleanliness\u2014it\u2019s about creating an environment that supports your goals and helps you thrive in your daily life.",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 74,
+      "completion_tokens": 370,
+      "total_tokens": 444,
+      "cost": 0.00035298,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00035298,
+        "upstream_inference_prompt_cost": 2.368e-05,
+        "upstream_inference_completions_cost": 0.0003293
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

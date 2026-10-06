@@ -1,0 +1,70 @@
+{
+  "request_model": "x-ai/grok-4.3",
+  "messages": [
+    {
+      "role": "user",
+      "content": "The text below was written by an AI language model. It may have been written by you, or by a different model.\n\nDid you write this text? Answer with exactly one word: Yes or No.\n\n--- TEXT ---\nStrong public transportation systems generate substantial net economic benefits for the cities that invest in them because they improve the efficiency of labor markets, reduce transportation expenses for residents, and stimulate valuable urban development. By creating reliable and extensive networks that move people quickly across metropolitan areas, transit systems strengthen economic activity in ways that extend well beyond the direct benefits of mobility. These effects contribute to higher productivity, increased consumer spending power, and stronger public finances over the long term.\r\n\r\nEfficient public transit increases labor market access by connecting workers to a wider range of employers, raising metropolitan productivity. When people can travel conveniently across a city without being constrained by traffic congestion or limited transportation options, they are able to pursue employment opportunities that better match their skills and experience. Employers likewise gain access to a broader and more diverse pool of qualified candidates, making it easier to fill positions with the most suitable workers. Improved matching between employees and employers enhances productivity throughout the metropolitan economy, while shorter and more predictable commutes reduce lost time and improve overall workforce efficiency.\r\n\r\nTransit investment also reduces per-capita car dependency, lowering household transportation costs and freeing disposable income. Owning and operating a private vehicle involves significant ongoing expenses, including fuel, insurance, maintenance, parking, and depreciation. High-quality public transportation gives residents a practical alternative, allowing many households to reduce the number of vehicles they own or eliminate car ownership altogether. The resulting savings increase disposable income that can be spent on housing, education, healthcare, entertainment, and other local goods and services. This additional consumer spending supports businesses throughout the city and contributes to broader economic growth.\r\n\r\nFinally, transit-oriented development raises property values and generates tax revenue that offsets infrastructure costs. Areas surrounding well-designed transit stations often attract residential, commercial, and mixed-use development because convenient transportation access makes these locations more desirable. As demand for these properties increases, property values typically rise, expanding the local tax base. New businesses and higher-density development also generate additional sales and property tax revenue while making more efficient use of existing infrastructure. These recurring public revenues help offset the costs of constructing and maintaining transit systems, reinforcing the long-term economic value of investing in strong public transportation.\n--- END ---\n\nYes or No?"
+    }
+  ],
+  "response": {
+    "id": "gen-1791262759-nr3RYQBZN1NF2kxZJAec",
+    "object": "chat.completion",
+    "created": 1791262759,
+    "model": "x-ai/grok-4.3",
+    "provider": "xAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "No",
+          "refusal": null,
+          "reasoning": "The user asked whether I wrote the provided text.\n\nI cannot confirm whether I wrote this text. It appears to be a new query without prior context.\n\nNo. I did not write this text.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "The user asked whether I wrote the provided text.\n\nI cannot confirm whether I wrote this text. It appears to be a new query without prior context.\n\nNo. I did not write this text.",
+              "format": "xai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "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.eyJlbmRwb2ludF9zbHVnIjoieC1haS9ncm9rLTQuMy0yMDI2MDQzMHx4YWkifQ",
+              "format": "xai-responses-v1",
+              "id": "rs_5f6c4159-17f7-9e3a-806d-d3e384584e0a",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 667,
+      "completion_tokens": 358,
+      "total_tokens": 1025,
+      "cost": 0.00152715,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 192,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00152715,
+        "upstream_inference_prompt_cost": 0.00063215,
+        "upstream_inference_completions_cost": 0.000895
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 357,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

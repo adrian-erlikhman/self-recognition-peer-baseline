@@ -1,0 +1,55 @@
+{
+  "request_model": "deepseek/deepseek-chat",
+  "messages": [
+    {
+      "role": "user",
+      "content": "The text below was written by an AI language model. It may have been written by you, or by a different model.\n\nDid you write this text? Answer with exactly one word: Yes or No.\n\n--- TEXT ---\nRemote work provides substantial advantages that enhance outcomes for both employees and employers alike. Employees experience measurable gains in productivity and focus due to reduced commute time and open-plan distractions as the elimination of daily travel allows them to reclaim hours previously lost in traffic or transit which can instead be invested directly into high-value work activities leading to faster task completion and higher quality results while the absence of noisy collaborative environments and frequent interruptions common in shared office spaces enables deeper concentration periods that foster creativity and efficiency in completing complex projects. \n\nEmployers benefit from access to a wider talent pool and reduced real-estate overhead because remote arrangements break down geographical barriers permitting organizations to recruit skilled professionals from across regions or even globally without the constraints of local availability which strengthens team capabilities and drives innovation through diverse perspectives while simultaneously decreasing the need for large physical workspaces translates into significant savings on rent utilities and maintenance costs that can be redirected toward employee compensation technology investments or business expansion initiatives. \n\nFlexible work arrangements improve employee retention and reduce costly turnover by creating an environment where individuals feel empowered to manage their personal and professional lives more effectively resulting in greater job satisfaction and a stronger sense of loyalty that discourages them from seeking opportunities elsewhere as lower stress levels from balanced schedules contribute to sustained engagement and morale ultimately minimizing the expenses associated with recruiting training and onboarding new hires while preserving institutional knowledge within the organization.\n--- END ---\n\nYes or No?"
+    }
+  ],
+  "response": {
+    "id": "gen-1791262991-8xbD6uHagIQ9bvq2PWaA",
+    "object": "chat.completion",
+    "created": 1791262991,
+    "model": "deepseek/deepseek-chat",
+    "provider": "StreamLake",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "No",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 322,
+      "completion_tokens": 2,
+      "total_tokens": 324,
+      "cost": 8.49402e-05,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 8.49402e-05,
+        "upstream_inference_prompt_cost": 8.28828e-05,
+        "upstream_inference_completions_cost": 2.0574e-06
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

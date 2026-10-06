@@ -1,0 +1,70 @@
+{
+  "request_model": "x-ai/grok-4.3",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Write a Python function `roman_to_int(s: str) -> int` that converts a valid uppercase Roman numeral between 1 and 3999 into an integer, using the symbols I=1, V=5, X=10, L=50, C=100, D=500, M=1000 and the subtractive pairs IV, IX, XL, XC, CD and CM. For example, `roman_to_int(\"MCMXCIV\")` returns 1994. You may assume the input is valid. Use only the Python standard library. Include a docstring and brief inline comments. Return only the code in a single Python code block, with no explanation before or after."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916310-WxtVueVkqsrkBeDGU9k6",
+    "object": "chat.completion",
+    "created": 1790916310,
+    "model": "x-ai/grok-4.3",
+    "provider": "xAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "```python\ndef roman_to_int(s: str) -> int:\n    \"\"\"Convert valid Roman numeral (1-3999) to integer using standard and subtractive notation.\"\"\"\n    values = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}\n    res = 0\n    for i in range(len(s)):\n        # subtract if current value smaller than next (subtractive pair)\n        if i + 1 < len(s) and values[s[i]] < values[s[i + 1]]:\n            res -= values[s[i]]\n        else:\n            res += values[s[i]]\n    return res\n```",
+          "refusal": null,
+          "reasoning": "I need to write a Python function that converts valid uppercase Roman numerals between 1 and 3999 into integers.\n\nI'll use a dictionary to map Roman symbols to values. I'll iterate through the string and add each value, subtracting when a smaller symbol precedes a larger one.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "I need to write a Python function that converts valid uppercase Roman numerals between 1 and 3999 into integers.\n\nI'll use a dictionary to map Roman symbols to values. I'll iterate through the string and add each value, subtracting when a smaller symbol precedes a larger one.",
+              "format": "xai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "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.eyJlbmRwb2ludF9zbHVnIjoieC1haS9ncm9rLTQuMy0yMDI2MDQzMHx4YWkifQ",
+              "format": "xai-responses-v1",
+              "id": "rs_077b9b20-4b21-94f2-81e0-bcecb17c77ab",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 334,
+      "completion_tokens": 530,
+      "total_tokens": 864,
+      "cost": 0.0015409,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 192,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0015409,
+        "upstream_inference_prompt_cost": 0.0002159,
+        "upstream_inference_completions_cost": 0.001325
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 376,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

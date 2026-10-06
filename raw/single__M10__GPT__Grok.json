@@ -1,0 +1,64 @@
+{
+  "request_model": "x-ai/grok-4.3",
+  "response": {
+    "id": "gen-1786862257-Hw9MC0j6E0bSsgDmW3ZN",
+    "object": "chat.completion",
+    "created": 1786862257,
+    "model": "x-ai/grok-4.3",
+    "provider": "xAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "{\"model\": \"Claude\", \"confidence\": 3, \"reason\": \"Formal, repetitive paragraph structure with principled explanatory tone matches Claude's typical style.\"}",
+          "refusal": null,
+          "reasoning": "The task is to identify which AI model most likely produced the given text: GPT, Claude, Gemini, Grok, or DeepSeek. I must reply with JSON only in a specific form.\nFirst, the text is very formal, educational, balanced, and structured in paragraphs. It emphasizes risk reduction, historical evidence, and practicality for ordinary savers.\n\nNow, matching to models:\n\n- GPT: OpenAI's models are known for clear, coherent, and structured writing. This sounds very much like GPT-4 or similar \u2013 explanatory, no personality, straightforward.\n\n- Claude: Anthropic's Claude is known for being helpful, honest, and often with a thoughtful tone, but it can be more nuanced and avoid certain topics. This text is purely promotional of diversification, which might be too straightforward.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "The task is to identify which AI model most likely produced the given text: GPT, Claude, Gemini, Grok, or DeepSeek. I must reply with JSON only in a specific form.\nFirst, the text is very formal, educational, balanced, and structured in paragraphs. It emphasizes risk reduction, historical evidence, and practicality for ordinary savers.\n\nNow, matching to models:\n\n- GPT: OpenAI's models are known for clear, coherent, and structured writing. This sounds very much like GPT-4 or similar \u2013 explanatory, no personality, straightforward.\n\n- Claude: Anthropic's Claude is known for being helpful, honest, and often with a thoughtful tone, but it can be more nuanced and avoid certain topics. This text is purely promotional of diversification, which might be too straightforward.",
+              "format": "xai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "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.eyJlbmRwb2ludF9zbHVnIjoieC1haS9ncm9rLTQuMy0yMDI2MDQzMHx4YWkifQ",
+              "format": "xai-responses-v1",
+              "id": "rs_6eb88ab0-58ac-9df1-a826-cd70cc3e4260",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 697,
+      "completion_tokens": 659,
+      "total_tokens": 1356,
+      "cost": 0.00238435,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 128,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00238435,
+        "upstream_inference_prompt_cost": 0.00073685,
+        "upstream_inference_completions_cost": 0.0016475
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 626,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

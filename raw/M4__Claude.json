@@ -1,0 +1,49 @@
+{
+  "request_model": "anthropic/claude-opus-4.7",
+  "response": {
+    "id": "gen-1786846171-ar8LpqdoVE94xB7wyiYw",
+    "object": "chat.completion",
+    "created": 1786846171,
+    "model": "anthropic/claude-opus-4.7",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"A\": {\"model\": \"GPT\", \"confidence\": 3, \"reason\": \"Polished, flowing prose with concrete figures and natural transitions typical of GPT.\"},\n  \"B\": {\"model\": \"DeepSeek\", \"confidence\": 3, \"reason\": \"Slightly stiff phrasing with formal business vocabulary and occasional awkward tense usage.\"},\n  \"C\": {\"model\": \"Grok\", \"confidence\": 2, \"reason\": \"Compact, single-sentence-per-paragraph structure with dense clause chaining.\"},\n  \"D\": {\"model\": \"Claude\", \"confidence\": 4, \"reason\": \"Expansive, elaborate prose with vivid metaphors and long flowing sentences characteristic of Claude.\"},\n  \"E\": {\"model\": \"Gemini\", \"confidence\": 3, \"reason\": \"Clean, structured, textbook-like exposition with balanced paragraphs typical of Gemini.\"}\n}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 4719,
+      "completion_tokens": 306,
+      "total_tokens": 5025,
+      "cost": 0.031245,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.031245,
+        "upstream_inference_prompt_cost": 0.023595,
+        "upstream_inference_completions_cost": 0.00765
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

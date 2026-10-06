@@ -1,0 +1,64 @@
+{
+  "request_model": "x-ai/grok-4.3",
+  "response": {
+    "id": "gen-1786862319-xObueE6CuCMyTCv0heWn",
+    "object": "chat.completion",
+    "created": 1786862319,
+    "model": "x-ai/grok-4.3",
+    "provider": "xAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "{\"model\": \"GPT\", \"confidence\": 3, \"reason\": \"Repetitive paragraph structure, long compound sentences, and generic corporate DEI phrasing match typical GPT output style.\"}",
+          "refusal": null,
+          "reasoning": "The task is to identify which AI model most likely produced the given text: GPT, Claude, Gemini, Grok, or DeepSeek. I must reply with JSON only in a specific form.\nFirst, the text is very positive, promotional about diversity and inclusion. It's structured in three paragraphs, each building on the previous theme.\n\nKey indicators:\n\n- Formal language, no humor, no directness.\n\n- Heavy on buzzwords: diversity, inclusion, varied teams, groupthink, etc.\n\n- Repetitive structure 3 paragraphs.\n\n- No counterarguments, very aligned with standard corporate DEI narratives.\n\nNow, matching to models:\n\n- GPT: Generic, balanced, but can be this style. Often produces safe, positive content.\n\n- Claude: Very articulate, nuanced, but Anthropic's models are safety-focused and might avoid controversy, producing long, flowing positive text.\n\n- Gemini: Google's model, often emphasizes positive, inclusive language, factual.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "The task is to identify which AI model most likely produced the given text: GPT, Claude, Gemini, Grok, or DeepSeek. I must reply with JSON only in a specific form.\nFirst, the text is very positive, promotional about diversity and inclusion. It's structured in three paragraphs, each building on the previous theme.\n\nKey indicators:\n\n- Formal language, no humor, no directness.\n\n- Heavy on buzzwords: diversity, inclusion, varied teams, groupthink, etc.\n\n- Repetitive structure 3 paragraphs.\n\n- No counterarguments, very aligned with standard corporate DEI narratives.\n\nNow, matching to models:\n\n- GPT: Generic, balanced, but can be this style. Often produces safe, positive content.\n\n- Claude: Very articulate, nuanced, but Anthropic's models are safety-focused and might avoid controversy, producing long, flowing positive text.\n\n- Gemini: Google's model, often emphasizes positive, inclusive language, factual.",
+              "format": "xai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "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.eyJlbmRwb2ludF9zbHVnIjoieC1haS9ncm9rLTQuMy0yMDI2MDQzMHx4YWkifQ",
+              "format": "xai-responses-v1",
+              "id": "rs_225cea7b-fdce-9c5f-8f1e-1cce6db2b224",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 616,
+      "completion_tokens": 875,
+      "total_tokens": 1491,
+      "cost": 0.0028231,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 128,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0028231,
+        "upstream_inference_prompt_cost": 0.0006356,
+        "upstream_inference_completions_cost": 0.0021875
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 837,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

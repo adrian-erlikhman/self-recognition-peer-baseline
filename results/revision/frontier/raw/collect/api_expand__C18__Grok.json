@@ -1,0 +1,70 @@
+{
+  "request_model": "x-ai/grok-4.3",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Write a Python function `shortest_paths(graph: dict[str, list[tuple[str, int]]], source: str) -> dict[str, int]` that implements Dijkstra's algorithm with the `heapq` module. `graph` maps each node to a list of (neighbor, weight) pairs with non-negative integer weights. Return a dictionary mapping every node reachable from `source`, including `source` itself with distance 0, to the length of its shortest path. Nodes that appear only as neighbors must still be handled. Use only the Python standard library. Include a docstring and brief inline comments. Return only the code in a single Python code block, with no explanation before or after."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916315-XE0p06QB9RzM2EUQ9H2J",
+    "object": "chat.completion",
+    "created": 1790916315,
+    "model": "x-ai/grok-4.3",
+    "provider": "xAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "```python\nimport heapq\n\ndef shortest_paths(graph: dict[str, list[tuple[str, int]]], source: str) -> dict[str, int]:\n    \"\"\"Compute shortest path distances from source using Dijkstra's algorithm.\"\"\"\n    # Collect all nodes including those appearing only as neighbors\n    nodes = set(graph.keys())\n    for neighbors in graph.values():\n        for neigh, _ in neighbors:\n            nodes.add(neigh)\n    # Initialize distances\n    dist = {node: float('inf') for node in nodes}\n    dist[source] = 0\n    # Priority queue for Dijkstra\n    pq = []\n    heapq.heappush(pq, (0, source))\n    while pq:\n        d, u = heapq.heappop(pq)\n        if d > dist[u]:\n            continue\n        if u in graph:\n            for v, w in graph[u]:\n                if dist[v] > dist[u] + w:\n                    dist[v] = dist[u] + w\n                    heapq.heappush(pq, (dist[v], v))\n    # Return only reachable nodes\n    return {k: v for k, v in dist.items() if v < float('inf')}\n```",
+          "refusal": null,
+          "reasoning": "I need to implement Dijkstra's algorithm using Python's `heapq` module. The function will take a graph dictionary and a source node, then return the shortest distances to all reachable nodes.\n\nI will gather every node from the graph keys and all neighbor lists to ensure isolated nodes are included. Then I will initialize distances, build the heap, and run Dijkstra's algorithm.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "I need to implement Dijkstra's algorithm using Python's `heapq` module. The function will take a graph dictionary and a source node, then return the shortest distances to all reachable nodes.\n\nI will gather every node from the graph keys and all neighbor lists to ensure isolated nodes are included. Then I will initialize distances, build the heap, and run Dijkstra's algorithm.",
+              "format": "xai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "anJxEOYbJpmgQRUdtK5gZqiOyw2rOoTpDfgN/auNbhGmNe32UCTliSmTMy/z7qxYzlHp4AOoyD2//ECv/+fZAHjKMU2oo27fFzvtN04SLvHNqHr8xtQUVtkEeOTq1yvG/Yw4UqerPsf/vA4TyGJfLKAZAXzgDvsxljPtUUN5JOn+f7PRoB2zNmVURVnDvC14u3nFTMa91uYtzvVrmJoAztnqr+dQCBENMp7rwQIRWmlDFfxqQDhn3motpkOalKDutK0Jzm5hYzkyXo6r6wbbQ1f8TxGmIzLdrawB+QFWscVjgPSrsmABzRYOL+Ll7Y7zgVnI+Kxz4lnnw93D9GPcrxX5vnJxGR+JLB5gcbMvCGLF3oDLDmiyfFWwJ8VFkgamTg542dDKD45uBvGy845tiIZSJ1L5qIOp1Uh/Yv80+ZbQ6q5VwiIjrupIPNw//yb9+53q0P9KKlKZA9ZtahwYyVrLJnMZTGT6Zwy2vmP7Dy2wl/FpYgzBtngP76GrL5v+lemRZrn4fHDLBYquWbM+wHEtvmOIY0RIjpdFPrCdrCVOw0+yYxWpUxFezSvh0xlTWeeBzzAFim/FdtVtTp49HVIMMHyxLJZslA+Pm/PtNNBYYnq/MBI5N/Qwp+F4cdZDdmpcndgbD5js1EV6y46ixO0Di2vvpA7iRwZalwABls/tHS8kAxC4PqudWsNPUeUvyHzWtangb4IBjcvFktaJJleG5pQMWKENrBGisLCJmH7CT+Qe1VGvVYzEi323qkNu9hcNkyB95CoMubIWcigIH4k420hIh7SdiZTYmOr//Z7BlCGmCJKwMDGiZWh4uJug+nKbSJbJNndD5vdZBcl+5SM2B6gv2H6SidbdzCMxk4xmHkK+GvexRW1z5qI9yAZGJ1fuC9jvOi1rql9sNFOQDTXbUjhC220TD6/QxO6djFZwbghxaN/3BdZvnIxYD6r92hA1EFcZf+OKkrDPxlc2dgwnYNBrUg19d9OqH8gASSYlsa4i57Vqr4zrX60fDdiGzRheYleupwNIuSoTwj/OvNqzT1OHubySvMKb5GoFqYl+Q5CdmKu4rl3m9LadbRQt+nWNqRZLYkBohRO29RAXG7SJCDTipVvOsvqcRpwy3FvfYZYICIAuBgvk1Jx5Vzd8oAs1rVxmZT3s9OgZXtIRVNptaWnX5FROsYlNYdZg/TRqAjo+7TKrtP+Z7shUiU4lr3I9d/FQAjDaubaYqCURHmc+qRXXSuFn28Dvl0h+PI2k28FPmhKSdBBFoZ7qhuIZlWXORGsEOjGf/hM5otwfeHKDq1A4RELKhI3xmfuUfySx7ojPaYYHQtYtTjSKaxx6/cqdyNcTmCDyAXoqJTdWT5uAuxxyWDoGdRyh0OUAFCB3Z0OfPts+qR7nEwuU1JCQuFGQyVuw62kqR0ybIy/rA6RskUnyUinTpBT1rLOp/aVjVZVrxZ448pXbAQBqCU+piYmpCNt+vMLzkyp1HkfcE0BJSTOUGRaa9OlmRV9CnDcD7ofx/iCaL64fYsJETEduXz7lc14CLM5zZvBBMK5kuqB2aAgXWhpUJ25IEtQ/JtMeYATnqPoNhY1Ubmt3pEr0w3+0YvuB5gmreeI/0Gf22IoAsfkjh+bULqxwSNm9x2fE5nJ5qvkDsjH0Fg9SX6Bd5v+cksl8eKe+D7R7R5744cD7SA0E7UhRdMDYZ/LNgC/aQ0AggW8k9FKuHxMulWlSEmmavZfaXQT+HXjN9YYV7hRW0Ox+t4ohZSSHlx5YTiZf56BQ7OXIBBLTdKfFv7htC/KC7SgfuDa9bCF3OZl4eDY1b2Fx3K6V8dNWq2xyImNrJftsgI+9HJtQiUw7wtLsoPrauw8zwvNRb58tFAcsh/f0rPzV3BMMDsLo/5chNTmd5Pw8MSgak06hGod3J7XAxkmpeGpIAO9Q4oShKKeNsTJ6lmIBeUU0j4gEC0+djiwuhvc/1+de8JyDuRBgQwN/BumpUbhl0zExh/g4GPwYdfHjslazriWwtviZs5nvif/BfybsCrC3WWO7sydNU/P1mNGw1rqXXOV9XaAVcusmduPmwrpCUPnWKSrn8GhZ5m3IYMoerGgdVp7bRF6i01BiYRmf2ebZ4nAX0GPMr10AdqPAaczYt75O8D4/LxurK3TzC7qBUPyf6pnphMiYD82nTMTxSeLLbIu44+bPVzwnrTuhHQB99+A6AMzg8Rsc01Cwtcr3h7M7ZiiZEptX9GsHtUSAAdjbqOGqPk/wq3j0FyB+IqIZqWrOYgTRTP+j3ND3OqxNq0oogdwMSDvmd8d9N69L1hBySYhtgw6B38jroPYud9725GIKkfuqB3k0kSYkbhQiw2mNLlo82y10BO79J+/r96JmKovm4yGugf4QvUmJ+m0uw8JBJb4R20K1QV0qXsr27SoKVmQCn/kV/BLgzS+TFHNxyVDB3W8WMahDU/6bKdi0yPH1qdfHl7QJ4J+fY1sHIek5DOO0xSysmc0iMFlG1n3SnW33WcdoFceHvyGBAZWJZ1Q8ajbWaHFI6XUeh767ReFwqftfzHAYbR7O5QblO5UGGaGlluEwtwmY02xDFtg9zjwPKE+GhWwkUia8mEAyQcH005juRJYbQpy8HOy7b/S0SIm2guvHXaxGi5F2OPfgUAEmCWE6C/9q5n0DZDAMIl1BtS8A4KyffBxnPScDMGmfgrTymAHoPRfnB1wWXVC1QOvDPNo5JJHsEDBY9RIiyV8zgG8cmufR+jpbritz3spymhms1fCqcmBvoLBLzOj2rEeNm6AYp3KYPWgMlBjHq4ufB0H2wxWxv7bTBA/KPSpV/zj/kg42Jhg2Vp8/a2NXOyLPHMdy4wWdznfLfJF0B/c0tgaEfREPFicFLdhUfbFXLYA6PGWYSdkAwmR2yq8vvrKbCrKeEbVXahYo46ONKSsmm6WKCrVLzZi3rn7IOI2bxJVYErxQ1prBWfJ7o+G+vyZsE3XOSSpSiUsGpShSfFKRxOVeU8WsdJ2ZVUx0cN6jil4p3D9c2my/VJFQvREgr+LUzgziXBZFSaYx2bbMrn2JCXZBKvKMQ1dBNDhowoiKUQWAikrxRQXW3Zfojha/uOREEimU1S3tOKumDdIfxQKhW/hY7del0S9dlAq1V7Vqfk+zLG3S1Ta/IjZKZ43+NEA87+mIYr37j5NGFRloKP/uu7L4CB/TFv1PsgE03DUjRr8rYhdl+txSV9qYyv/Mj57ZKTHj+YiRGiRdYmYSsWYMnx7b0EDlBsfkmnEAT/bDHipRqxVgL+EqHHA/QIXrUZN1ysnZK0dEnPMBoBG5CkB187p5HlJOY8ECTlZA3w2VygrMx3DdRN4vXSgTdAn6DDztd7w5x15bBMk6A3EJ6RxEGyNOfc0Kgsv16WLTVRKpGsnkvwdcmChLOLBAvw+MyVUbRVv5RhA9txSYYi0myK/jL/AvtwkU8zr7c8FaSDxR5yUI8soYev1piCzKnI+FXdFiOPdHrnFfhpuAIurRJuN3kvFzvE3ijFUoB6oT0aMXlggL+SGy9bOkp82EIDkne2p/bL/SPAjypuvcA1mbWrFcKZ2oarmr4tl9El7X9idHRHQvTAYE6i9VHDmzp1BNOu1ccTzTZ+ov2OSVyo2w8R/dLsDbRn/oV9J2I7ROGQCE9CPm7s+nVQ5iVHNOlILIWH5IEnxcAsFWvzTfK/QTStbNH9f5gKHF6R+tKHH3fvw+XIblyA.eyJlbmRwb2ludF9zbHVnIjoieC1haS9ncm9rLTQuMy0yMDI2MDQzMHx4YWkifQ",
+              "format": "xai-responses-v1",
+              "id": "rs_2d5e4ec4-17e3-9584-8db4-fbfbea5d245d",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 332,
+      "completion_tokens": 907,
+      "total_tokens": 1239,
+      "cost": 0.0025481,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 128,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0025481,
+        "upstream_inference_prompt_cost": 0.0002806,
+        "upstream_inference_completions_cost": 0.0022675
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 659,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

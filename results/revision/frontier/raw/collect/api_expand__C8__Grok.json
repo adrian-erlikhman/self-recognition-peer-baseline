@@ -1,0 +1,70 @@
+{
+  "request_model": "x-ai/grok-4.3",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Write a Python function `merge_intervals(intervals: list[tuple[int, int]]) -> list[tuple[int, int]]` that takes closed intervals (start, end) with start <= end, in any order, and returns the minimal list of merged intervals sorted by start. Intervals that overlap or touch at an endpoint are merged, so (1, 3) and (3, 5) become (1, 5). Return an empty list for empty input and do not modify the input list. Use only the Python standard library. Include a docstring and brief inline comments. Return only the code in a single Python code block, with no explanation before or after."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916304-dr8ZYaEnG3UJHq6EYm4L",
+    "object": "chat.completion",
+    "created": 1790916304,
+    "model": "x-ai/grok-4.3",
+    "provider": "xAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "```python\ndef merge_intervals(intervals: list[tuple[int, int]]) -> list[tuple[int, int]]:\n    \"\"\"Merge overlapping or adjacent closed intervals, return sorted list.\"\"\"\n    if not intervals:\n        return []\n    # Work on a sorted copy to preserve input order and avoid mutation\n    sorted_ints = sorted(intervals)\n    merged = [sorted_ints[0]]\n    for curr in sorted_ints[1:]:\n        prev = merged[-1]\n        if curr[0] <= prev[1]:  # overlap or touch at endpoint\n            merged[-1] = (prev[0], max(prev[1], curr[1]))\n        else:\n            merged.append(curr)\n    return merged\n```",
+          "refusal": null,
+          "reasoning": "I need to write a Python function that merges overlapping or touching closed intervals.\n\nI'll copy the input list first to avoid modifying it. Then I'll sort the copy and merge overlapping or touching intervals.\n\nI'll sort a copy of the intervals by start time. Then I'll iterate through the sorted list and merge each interval with the previous one if they overlap or touch at an endpoint.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "I need to write a Python function that merges overlapping or touching closed intervals.\n\nI'll copy the input list first to avoid modifying it. Then I'll sort the copy and merge overlapping or touching intervals.\n\nI'll sort a copy of the intervals by start time. Then I'll iterate through the sorted list and merge each interval with the previous one if they overlap or touch at an endpoint.",
+              "format": "xai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "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.eyJlbmRwb2ludF9zbHVnIjoieC1haS9ncm9rLTQuMy0yMDI2MDQzMHx4YWkifQ",
+              "format": "xai-responses-v1",
+              "id": "rs_21c8a7ce-cda6-9933-8785-f08a92acd67a",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 331,
+      "completion_tokens": 671,
+      "total_tokens": 1002,
+      "cost": 0.00188965,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 192,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00188965,
+        "upstream_inference_prompt_cost": 0.00021215,
+        "upstream_inference_completions_cost": 0.0016775
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 521,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

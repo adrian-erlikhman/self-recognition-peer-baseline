@@ -1,0 +1,63 @@
+{
+  "request_model": "google/gemini-3.5-flash",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Explain what causes ocean tides. Answer in two to four sentences of plain prose."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916385-ypa9lbo66xzxJofo6yNd",
+    "object": "chat.completion",
+    "created": 1790916385,
+    "model": "google/gemini-3.5-flash",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "Ocean tides are primarily caused by the gravitational pull of the Moon and, to a lesser extent, the Sun. This gravity pulls the ocean water toward these celestial bodies, creating bulges of water on opposite sides of the Earth. As our planet rotates through these watery bulges each day, coastal areas experience the rising and falling water levels we call high and low tides.",
+          "refusal": null,
+          "reasoning": "**Exploring Tidal Forces**\n\nMy thoughts are currently focused on unraveling the complex interplay of gravitational forces that orchestrate our ocean tides. I'm examining how both lunar and solar gravity, in conjunction with the Earth's rotation, create the bulges that result in high and low tides.\n\n**Understanding Tidal Mechanics**\n\nI'm refining my explanation of tides, ensuring it clearly states the Moon's dominant role. The Sun's influence is secondary. Earth's rotation is the key to the daily cycle as we move through these bulges.\n\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "**Exploring Tidal Forces**\n\nMy thoughts are currently focused on unraveling the complex interplay of gravitational forces that orchestrate our ocean tides. I'm examining how both lunar and solar gravity, in conjunction with the Earth's rotation, create the bulges that result in high and low tides.\n\n**Understanding Tidal Mechanics**\n\nI'm refining my explanation of tides, ensuring it clearly states the Moon's dominant role. The Sun's influence is secondary. Earth's rotation is the key to the daily cycle as we move through these bulges.\n\n",
+              "format": "google-gemini-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 16,
+      "completion_tokens": 622,
+      "total_tokens": 638,
+      "cost": 0.005622,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.005622,
+        "upstream_inference_prompt_cost": 2.4e-05,
+        "upstream_inference_completions_cost": 0.005598
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 549,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

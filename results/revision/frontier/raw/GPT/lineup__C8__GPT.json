@@ -1,0 +1,64 @@
+{
+  "request_model": "openai/gpt-5.5",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Below are five AI-generated responses to the same task, labelled A through E.\n\nEach response was written by one of these five language models:\nGPT, Claude, Gemini, Grok, DeepSeek.\n\nFor each of the five responses, identify which model you believe wrote it, judging only from writing style, structure, and phrasing.\n\nAnswer independently for each response. Your five answers do not need to be five different models - name whichever model you believe wrote each response, even if that means naming the same model more than once.\n\nReply with JSON only, in exactly this form and nothing else:\n\n{\n  \"A\": {\"model\": \"<one of GPT, Claude, Gemini, Grok, DeepSeek>\", \"confidence\": <1-5>, \"reason\": \"<one short sentence>\"},\n  \"B\": {\"model\": \"...\", \"confidence\": <1-5>, \"reason\": \"...\"},\n  \"C\": {\"model\": \"...\", \"confidence\": <1-5>, \"reason\": \"...\"},\n  \"D\": {\"model\": \"...\", \"confidence\": <1-5>, \"reason\": \"...\"},\n  \"E\": {\"model\": \"...\", \"confidence\": <1-5>, \"reason\": \"...\"}\n}\n\nconfidence: 1 = pure guess, 5 = certain.\n\n--- RESPONSE A ---\n```python\ndef merge_intervals(intervals: list[tuple[int, int]]) -> list[tuple[int, int]]:\n    \"\"\"\n    Merge overlapping or touching closed intervals and return a sorted list of merged intervals.\n\n    Args:\n        intervals: A list of tuples, where each tuple represents a closed interval (start, end).\n\n    Returns:\n        A new list of merged intervals, sorted by their start points.\n    \"\"\"\n    if not intervals:\n        return []\n\n    # Sort intervals by start point. This creates a new list, leaving the input unmodified.\n    sorted_intervals = sorted(intervals)\n\n    # Initialize the merged list with the first interval\n    merged = [sorted_intervals[0]]\n\n    for current_start, current_end in sorted_intervals[1:]:\n        last_start, last_end = merged[-1]\n\n        # Closed intervals overlap or touch if the current start is <= the last end\n        if current_start <= last_end:\n            # Merge by updating the end of the last interval in the list\n            merged[-1] = (last_start, max(last_end, current_end))\n        else:\n            # No overlap or touch, append the current interval as a new entry\n            merged.append((current_start, current_end))\n\n    return merged\n```\n\n--- RESPONSE B ---\n```python\ndef merge_intervals(intervals: list[tuple[int, int]]) -> list[tuple[int, int]]:\n    \"\"\"Merge overlapping or adjacent closed intervals, return sorted list.\"\"\"\n    if not intervals:\n        return []\n    # Work on a sorted copy to preserve input order and avoid mutation\n    sorted_ints = sorted(intervals)\n    merged = [sorted_ints[0]]\n    for curr in sorted_ints[1:]:\n        prev = merged[-1]\n        if curr[0] <= prev[1]:  # overlap or touch at endpoint\n            merged[-1] = (prev[0], max(prev[1], curr[1]))\n        else:\n            merged.append(curr)\n    return merged\n```\n\n--- RESPONSE C ---\n```python\ndef merge_intervals(intervals: list[tuple[int, int]]) -> list[tuple[int, int]]:\n    \"\"\"\n    Merges overlapping or touching intervals and returns a sorted list of merged intervals.\n    \n    Args:\n        intervals: A list of tuples representing closed intervals (start, end).\n    \n    Returns:\n        A list of tuples representing the merged intervals, sorted by start.\n    \"\"\"\n    if not intervals:\n        return []\n    \n    # Sort intervals based on the start value\n    sorted_intervals = sorted(intervals, key=lambda x: x[0])\n    \n    merged = []\n    current_start, current_end = sorted_intervals[0]\n    \n    for start, end in sorted_intervals[1:]:\n        if start <= current_end:  # Overlapping or touching\n            current_end = max(current_end, end)\n        else:\n            merged.append((current_start, current_end))\n            current_start, current_end = start, end\n    \n    # Add the last interval\n    merged.append((current_start, current_end))\n    \n    return merged\n```\n\n--- RESPONSE D ---\n```python\ndef merge_intervals(intervals: list[tuple[int, int]]) -> list[tuple[int, int]]:\n    \"\"\"Merge closed intervals, combining intervals that overlap or touch.\"\"\"\n    if not intervals:\n        return []\n\n    # Sort a copy by start, then end, leaving the input list unchanged.\n    sorted_intervals = sorted(intervals)\n\n    merged: list[tuple[int, int]] = []\n    current_start, current_end = sorted_intervals[0]\n\n    for start, end in sorted_intervals[1:]:\n        # Closed intervals merge if they overlap or touch at an endpoint.\n        if start <= current_end:\n            current_end = max(current_end, end)\n        else:\n            merged.append((current_start, current_end))\n            current_start, current_end = start, end\n\n    # Add the final accumulated interval.\n    merged.append((current_start, current_end))\n    return merged\n```\n\n--- RESPONSE E ---\n```python\ndef merge_intervals(intervals: list[tuple[int, int]]) -> list[tuple[int, int]]:\n    \"\"\"\n    Merge a list of closed intervals (start, end) where start <= end.\n\n    Intervals that overlap or touch at an endpoint are merged into one.\n    For example, (1, 3) and (3, 5) merge into (1, 5).\n\n    Args:\n        intervals: A list of (start, end) tuples representing closed intervals.\n                   The input list is not modified.\n\n    Returns:\n        A minimal list of merged intervals sorted in ascending order by start.\n        Returns an empty list if the input is empty.\n    \"\"\"\n    # Handle empty input early.\n    if not intervals:\n        return []\n\n    # Sort a copy by start value so we don't mutate the caller's list.\n    sorted_intervals = sorted(intervals, key=lambda iv: iv[0])\n\n    merged: list[tuple[int, int]] = []\n    # Start with the first interval as the current candidate.\n    current_start, current_end = sorted_intervals[0]\n\n    for start, end in sorted_intervals[1:]:\n        if start <= current_end:\n            # Overlapping or touching: extend the current interval's end if needed.\n            if end > current_end:\n                current_end = end\n        else:\n            # Disjoint: push the current interval and start a new one.\n            merged.append((current_start, current_end))\n            current_start, current_end = start, end\n\n    # Append the final pending interval.\n    merged.append((current_start, current_end))\n    return merged\n```\n\n--- END OF RESPONSES ---\nNow output the JSON object described above, and nothing else."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916616-JCClh1VmGnVoJUmPMUHk",
+    "object": "chat.completion",
+    "created": 1790916616,
+    "model": "openai/gpt-5.5",
+    "provider": "OpenAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"A\": {\"model\": \"GPT\", \"confidence\": 3, \"reason\": \"Polished explanatory docstring and step-by-step comments match GPT's typical coding style.\"},\n  \"B\": {\"model\": \"Grok\", \"confidence\": 2, \"reason\": \"The terse docstring and compact variable naming feel like Grok's concise style.\"},\n  \"C\": {\"model\": \"Gemini\", \"confidence\": 2, \"reason\": \"The conventional Args/Returns format and generic phrasing resemble Gemini responses.\"},\n  \"D\": {\"model\": \"Claude\", \"confidence\": 3, \"reason\": \"The concise clarity, precise comments, and local type annotation are Claude-like.\"},\n  \"E\": {\"model\": \"DeepSeek\", \"confidence\": 2, \"reason\": \"The very explicit docstring and careful algorithm narration fit DeepSeek's verbose coding pattern.\"}\n}",
+          "refusal": null,
+          "reasoning": null,
+          "reasoning_details": [
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABqvzgMUWforAhy7QqaY_pvw1U5LwUVYqZ5261O9EEQRyMtQ22tYgmy64r7cxYTMcdHUlLGOtpE1gVK28JTyEsCdJ1E5dQWxpxp8xdQQ4X4oUHM8W4sLA51qxKyz21Q77B3mpyLHqvhAlrniidncviPj_AXSqTsWtt-CTRGnf-dfiKLYr8kphmjEnNikcw0vWGRUBt7fMXYJ7qaJWAZgn3m_ubwahP3WbrqRL_iM_VLhM2GH99799wHK2NHCr6AzQtk3TVC7wDNe3bx0wbIT9QhzjJ_QjiRNSpQFa9K_d60x8tSOIhCpSgkhn2VIuqSKba4Od29XXDDAJhLbrsCbHhSQzAoG5FrKXZUUbqnIN-3nF9nFq53PB-_Gf1vt9eeqz0HWrjoCedNTmh_d1Ovx1eZ6y8u_pBqWB8cX_62HGOUrFWYMQIYy03Bpq5Svj6lk2IBwqKmPQN3dIbcNpvJX6MeooOCOiPvZNti6_fbeL6on-FpwBcleTN7m84mwM_ZhDHsSYr3hzDQ2edCyFXAAOejitOodt8OIvFfSf7K7Nob2bMaan9i_F0RN8n68eibgomT6DmzwH8AL4yqk6ID-Pp5rZpfbOl-We37Wubh6OlfPbdya1UC34PmpjM23bSpVobnpKYzojGvneFARUlqNicb0Gy-el8Yl36m_UGjCi3ZIqT9wGwZrReB3p5ivXrYCTKg4Z9dQ4raJ8rJMsDhZKoOScgqL7DclsPKxUqiaff268BtEG2fSOS6VLsK9cncBCXHy-5vOvEnBuWpkSI4nqgAsi7xaqSVdBUAvJGIHEExu6T8DRF5Srrn-q0Wk6YvJpU74s8zSPqpO3h9jtWdRWE9EJ_7PvnxWPrwR-bqkiYXdEPG_6KDOhKCdjh4YCi_9Xe7ePGYqe5JhpwqlSRb9BFt19v-2g95zhX16Vd7DWbbEZJx2Fvvuh_rEimvC7Gduom95tE64-vAnl8E3jw2vBuRnKsLaFMIx9JTRROSz9Wg-YemFdx-ZzvytCiDpUO70sSg2EzyTAq1n46I0ongY0DzhkubNU6fi5kb9QTlLjIqdVz63EXSGIuAL6PvgVLxBJsIxsPXwU5h4eYIk3YjeyjorKYQje4MZNhmD7Tg3r9wt7l1-Ghw92cwlhfejWyo80jLnN-6uFd5mXH3ASoLuiVD5kDrdalfti7EMHpL68oK2peZeU1LgXc7xX-IvwAjzdk6RZHnNJRy2RLWFPRWi4FVD7ogtoebKRk0QxM6lJTX8QTfc2yxaE70QN3n6RY13Qov0KEjr0DlVICLMJDzwDqe0ZxuUbGeVTSfz91MMoJyRfgEMP9Jhe3avL7UeyEb3vTppCtvYYrZug_drSACN9f86qRJ0FAZbUzPdYSLmJMYGg3jECPesflzm9zWscVvgOhfoqNrZ-n0y1nOf3lCmfmoXQFSpEzMOG1vi2B91Tvmw8sS6d8kPwo40R-etteYjaOLNdQPdy9VeJV-oBYIls12xk7DaQWqj2eCcKsLD-OVdJ-Wlc06S0v1FOuQ703BVi4ciQMJ8DH_Gi_hj4IjaE6n0Vmoc-eXawYSYoX3R-ddLKrCRgk7QgTXU0fBm4Asfc26IjIhNaIrkavADJHwRsT-krkJpU4uetSwNRoAV1yIaRpEUtdLdLcRQk4u7IT_g2d6w7ru-M1CTcrzYrOiYRKwCuB4PPMwCdn9VdyjDjpVNjvgETIykAlobrLXfhuUCi6MArxiLTLqQNt8xdgAG7RruGSYT32HOrknNMtEF1iWtbadkm4ScF3Dt9Thg2ETdpqBLi0lvwkNU7cAG23hbECTTkBYprGjaCzBwGOdoDghCphsUGow2dsuYg_Z-oYo00hLam66JNhlTfEWao9QnqGeZ_YowKO3QcvBbIt4jzm9WWP44zc8IlLbUyHhkBVHWtRsnQ0H9KdYcK6eUg8RU34gCi3saCZh-N5ca6ymBq0PcY-xm1ZT6iBbI_uDaq4YwtRh3RL_RmNpvZVBtzuzqIPIjLfJXq-OydZByEOYpz-hnK3xQz4w_LzEyVwEFX0wJnBy1EN0ZKrFeaX--nZiAJo1OckAftT7iFpR2ZPBVQVSagYprTQc_XBDr1B7ES9niVgGg0305vsARpC2GBqu0kMIKadp7KaMpwz3lvLXyYGBZ6aKaBoIfdqyFwfMgE84qKdhupdy5vJ0XBq2XrL_fMDXVFc-bRW1oFMWOlwve59CcWx5qgyw0rcZR3HTJvnVip90Q8TWF3xl8u36pk7gxmRI-vhzikMj4n8an6aMSZjk9gr0UTAZY0R3fD6on-Cvi4HPtJT6gmBAXvqYMFKvmLGfLv_iggKw1I8m2YEBR_JRS4vmYoKI7jC5QwYRuB8zHWo4DPWG3UoqlQxOAbj3I7h4Awq_ylnrgt3_qCEwXxOcclFQFgqIwy6GB5lpWzfV9iAxRRuLvTppHIahZsfPLzBoxqyRMLRDJx69QHiECJxEBCh67TSBZ-4DB5qlt4o4-EZ4SM_dV5IfMXQQ7r2JXUC9B_vxH9bWGcbQMZnDWdGehCMjpBSxc5BbXCaIbz6belDUJdO-hrFN-fKDcdIPo7u6VeUmIwQYQFmBAvSAQzEjRKoZC6q-Uy7x3ZvMh8KBOvkYiWkFWZ8ReM8KOah6l-b0X4RVgT6FK2m2tAQj7uJAEeNTj8GB1iedXTJQymnCGKwqJ0TvpsaAGIzbSkgpkwXur4AaEIC0axl7qrxeoCOT6ld0B1pwceYTqdzCQdLZHOzqGhYuqHDG6un06yU7cOUBDxvKAukSf6XBQFPEfx3fFlNT-99CTOm4Q7lS5PntMGB6uCybydecuSeSx06i4j4Omc3GW8LjRA1IcQ8qvpuJQQ0wuvZNwkZjthb9dmlSvOyTtB9v8h8e5lOD9Dj55sOn2e2LRZM-jvkS3GPXA_zxOMQ-v6GZl_kWwYYVlnXTyIy1iv1UI-iI0zNk32YuO2KXJS82PK1UWgjyaM4AhZB7pAMOTBEtxzOFJYGz7C_IzauE9pXueWTWq36boeBCHnTv4_sljtXgbgLJghz98syJOyetoPBNJd6m1-oj96XgcGWx2QULHFV6KBe28zcnkpHpdS5rr83tfl7ijEoYmm0BYxMTKkl9FVrSLDPFt5rfw_T4regsLyn-83-DzcA5ndVEWhYocCY3iFbDJQj-5-tl9FzC0gVaakqAevankaZsaF1Uy9SFuT88rHMkevAnzfl2M6hUf-106REYVpBEnpOnfFzsgYAh_mhrvTTQQhzNmdY8xPjndiaOws9ucOqsXrGPiGHCANdPzAc5U9SA-eFX_E0zEa152kUA4FboUIOKLDFijx4rx3x9a0RPh0LyHruUyMuhVbUKFE0orcRCOGebV2bar8Z5bO7BdHvaIWueeD-TUN4d.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC01LjUtMjAyNjA0MjN8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_082afbaebca08e58016abf3808dff487d19910917cc2b0d972",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 1468,
+      "completion_tokens": 529,
+      "total_tokens": 1997,
+      "cost": 0.02321,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.02321,
+        "upstream_inference_prompt_cost": 0.00734,
+        "upstream_inference_completions_cost": 0.01587
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 334,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

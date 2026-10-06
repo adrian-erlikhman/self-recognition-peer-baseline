@@ -1,0 +1,57 @@
+{
+  "request_model": "google/gemini-3.5-flash",
+  "response": {
+    "id": "gen-1786846602-px38ikpHXFqWKYGC7c7j",
+    "object": "chat.completion",
+    "created": 1786846602,
+    "model": "google/gemini-3.5-flash",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "provisioned",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "```json\n{\n  \"model\": \"Claude\",\n  \"confidence\": 4,\n  \"reason\": \"The text exhibits Claude's characteristic highly sophisticated, academic prose style, featuring complex sentence structures and vocabulary like 'scaffolded' and 'epistemic'.\"\n}\n```",
+          "refusal": null,
+          "reasoning": "**Determining Model Identity**\n\nI'm currently analyzing the text to pinpoint its origin among GPT, Claude, Gemini, Grok, or DeepSeek. My focus is on identifying linguistic patterns and stylistic cues that will allow for a confident attribution, aiming for a clear JSON output with a confidence score.\n\n**Refining Attribution Logic**\n\nI'm now focusing on stylistic nuances, particularly examining sentence complexity and vocabulary choice. The presence of densely academic language, coupled with occasional unusual punctuation in lists, suggests a potential affinity with models known for sophisticated, perhaps slightly idiosyncratic, academic output. This is crucial for accurate identification.\n\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "**Determining Model Identity**\n\nI'm currently analyzing the text to pinpoint its origin among GPT, Claude, Gemini, Grok, or DeepSeek. My focus is on identifying linguistic patterns and stylistic cues that will allow for a confident attribution, aiming for a clear JSON output with a confidence score.\n\n**Refining Attribution Logic**\n\nI'm now focusing on stylistic nuances, particularly examining sentence complexity and vocabulary choice. The presence of densely academic language, coupled with occasional unusual punctuation in lists, suggests a potential affinity with models known for sophisticated, perhaps slightly idiosyncratic, academic output. This is crucial for accurate identification.\n\n",
+              "format": "google-gemini-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 746,
+      "completion_tokens": 590,
+      "total_tokens": 1336,
+      "cost": 0.006429,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.006429,
+        "upstream_inference_prompt_cost": 0.001119,
+        "upstream_inference_completions_cost": 0.00531
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 528,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

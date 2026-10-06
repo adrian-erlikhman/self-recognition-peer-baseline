@@ -1,0 +1,64 @@
+{
+  "request_model": "openai/gpt-5.5",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Argue that the replication crisis in psychology reveals a fundamentally institutional and incentive-structural problem, not merely a methodological one. Develop exactly these three claims: (1) the proximate methodological failures \u2014 underpowered studies, p-hacking, HARKing, and selective outcome reporting \u2014 are not primarily the result of individual researcher incompetence but are rational responses to a publication incentive structure that systematically rewards novel positive results and penalizes replication attempts and null findings; (2) the peer review system as currently constituted provides insufficient verification of methodological adequacy because it does not require data sharing, pre-registration, or independent replication, and reviewers operating under time constraints cannot detect the flexible analytical choices that inflate false-positive rates; (3) field-level interventions \u2014 pre-registration mandates, registered reports, open data requirements, and tenure criteria weighting replication \u2014 are necessary and sufficient to substantially reduce the false-positive rate, but their adoption is slow because they are individually rational only if adopted collectively, creating a coordination problem that individual researchers cannot solve without funding-body enforcement. Do not address counterarguments. Write in continuous prose paragraphs only. Do not use bullet points, numbered lists, headers, bold text, or any other formatting."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916375-vQW55LxcEdIjR1JEKQ0K",
+    "object": "chat.completion",
+    "created": 1790916375,
+    "model": "openai/gpt-5.5",
+    "provider": "OpenAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "The replication crisis in psychology reveals a fundamentally institutional and incentive-structural problem because the most visible methodological failures are best understood as predictable responses to the reward system in which researchers work. Underpowered studies, p-hacking, HARKing, and selective outcome reporting are often described as technical or individual failings, but they persist because the professional environment makes them rational. Journals, hiring committees, grant panels, and promotion systems have historically rewarded statistically significant, surprising, and theoretically clean findings far more than careful null results, direct replications, or incremental confirmations. In such an environment, a researcher who runs a small study, explores multiple analytic specifications, reframes an unexpected result as if it had been predicted, or reports only the outcomes that \u201cworked\u201d is responding to incentives that make publishable positive findings the main currency of career advancement. The problem is therefore not simply that individual psychologists lacked methodological sophistication; it is that the system attached professional value to outcomes most likely to emerge from flexible, underpowered, and selectively reported research practices. When novelty and significance are rewarded while replication and null findings are devalued, the production of false positives becomes an institutional pattern rather than a collection of isolated mistakes.\n\nThe peer review system, as currently constituted, has not provided sufficient verification of methodological adequacy because it usually evaluates manuscripts rather than research processes. Reviewers typically see a polished narrative, a summary of analyses, and a curated presentation of results, but they often do not have access to raw data, complete analytic histories, pre-specified hypotheses, or evidence that the findings can be independently reproduced. Without mandatory data sharing, pre-registration, or independent replication, peer review cannot reliably distinguish between a genuinely confirmatory test and a result produced through undisclosed flexibility in measurement, exclusion rules, model specification, subgroup analysis, or outcome selection. Reviewers also work under severe time constraints and usually provide unpaid labor alongside their own research and teaching responsibilities, which makes it unrealistic to expect them to reconstruct all possible researcher degrees of freedom from a submitted article. As a result, peer review can assess plausibility, clarity, and surface-level methodological competence, but it is poorly equipped to detect the flexible analytical choices that inflate false-positive rates. The replication crisis therefore exposes not just weak methods, but an institutional verification system that lacks the mechanisms required to check whether reported findings are robust products of pre-specified inquiry.\n\nField-level interventions are necessary and sufficient to substantially reduce the false-positive rate because the source of the problem lies in collective incentives rather than merely individual intentions. Pre-registration mandates reduce hidden analytic flexibility by requiring hypotheses, outcomes, exclusion rules, and analysis plans to be specified in advance. Registered reports shift the basis of publication from the attractiveness of results to the importance of the question and the rigor of the design, thereby weakening the premium on positive findings. Open data requirements make statistical claims more verifiable and allow errors, questionable analytic choices, and alternative specifications to be examined by others. Tenure and promotion criteria that give real weight to replication work would change the career calculus that currently discourages researchers from investing in studies that confirm, refine, or falsify existing claims. Together, these reforms would substantially reduce the institutional production of false positives by changing what is rewarded, what is visible, and what must be justified before publication. Their adoption is slow because each reform is individually rational only if others adopt it as well: a single researcher who pre-registers, shares data, publishes replications, and accepts null results may be disadvantaged if competitors continue to benefit from more flexible and result-driven practices. This creates a coordination problem that individual researchers cannot solve on their own. Funding-body enforcement is therefore essential, because funders can make transparency, pre-registration, data sharing, and replication incentives conditions of support, thereby aligning individual career incentives with the collective goal of producing reliable psychological science.",
+          "refusal": null,
+          "reasoning": null,
+          "reasoning_details": [
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABqvzcZ_JvRcvVg2xRrRy3dwvWm53pbMt7D4tR8bUrGIqZgpPpZwKKI3SAQFfjey3VMJc9RyMWvwG2NjRkoZ9SD1R9dNIN1K4GoVFZG4u-RUGPn_iJat8dPpWLcyGloF1hvKFpwF8KZaOEZU_jUJAZhx_GClRwjlIpZAwvkquTsLC0rPEoLvtrpPcMOAJSge0_eA_s3IKStBQAKjPr7FcipEYi1MEjQNacSG3GqyFdqZW4l5BvA-ta3q0JtZsUuFLTaTiggMfjq2PvCwqS8AZxnqBkGHBMAC45I6oXPgtjKf3WYKndc6SrgiRwld5XXPxw4j0V4Dqnj2mGvtY0yR_tgsx1UZPK3LR9Sp9eGUm2OjH5JLx4pYO1gRQV0oFWzjOo4etc8EOaFhLO-U_FkSjTd_Y-0SO_LaAf23sF5PfZFxiTjlP9hPtaAp9oeeC5R5byQi8Btyo4ire_XgvI-ECTVX5JH2v6mLVqBH6sQ5pU5QSKkIbEZdHHEYNvJfvolMR-0z45gMyDeFTUAkBNtflQMIY3AwH1Qjleq7kmEYTzAQexwolm7MgFW2t6DgoPqEmGU0VQUoafZAGJPLqOYdx26Zk6MF7vsC1TE4MLkIBi1UzVuhwY6f8bTGWlIYNo5BORkqjie42IIIh1FNGpUhRpQDfnUN-LoHQz-A6rvJER-X1RF-g05Suix-IIAV_RL2RXBEhJ25ebw7ELj3xWES38csxOAIpCHxv2K1H3qMpy3vnLvVLGsfNLZxd_a6r8NOvd5HZkOWPP3ZlpFj7htQka1ymhnQ0UCtHJXMEC5cpId7emrM5poLbqxEGA9ZBId2SlT89Xl2j19u00fq1AIRwuc3CEgrrYuV-Nb-j_qetwf3CvNVinvcuPqMv49reZ8cAx3UaQyzN5-xpcITb1VciXhYiOGa30kpRl1TAS0y82RAOqbEqOFp90ytA1RapgfmbUdT_Scb2W8AMGT6g9-vjVLxqwLG56UutDnAUKOMa95umNixFUn8IimOiJdtNkoTl7YTiukqkpp5Fe3rU8q0gSjE9eSWacHaVZC0eM76egJrOVIwkPJIyGaDV7ZjQq_d-AhfQDg4U27iZGJMyVSNAsQozBlsMIUa0fKdH6vWfF9Mm4ztuZzQA_c_IqrlQ7cOAlVamieshcZR4mTC44mdFlpElBNpFpcPqUsH64o-O2jCdsPlZiaEX-FN3KVoj2FBzahMA-4GA-j-2Ob_Qubxi82Ydntuy3ADD-nhK0VKSYZL-tW5ltWFKhQi1YVF-3Hdk3tpPrYc2BkWACUzPH56yWgVaf-meBGXRxVEYDQzwqkawFhGs35bakuYVZsk6_PHBV72Qe_0EfsTSsTlurQghHdZabcxirSIM_d72exwemCIm0Lt8-tNcctbKUK3-56WzmvOz_lTthKwFjAkeDkEyWLJAtlr1ihA9yBEkqJoOlZAxz8Y1mCnZXKxvbauqNr1uqSAnjjmsK6dTa0ynkp0QZhS9NF-NslcNfhkivPs-aeiGcgksCU74041tYh1SUN3FsW43_wmOHPZQJvbrQL30vPU-LbuZ_5ZMcwL58ErK211_XSR82R5Kndf3tPIhw323EN8tpuG6UFCf_4SaWMJkmiuGqwVkVhLUdG8b0zGHJi1eifUtC3Ovcngsmkig1EsSKdzeKZiRgnnvFrg4fJHODBA5i9DhioneWQybvcTK6Gq8k4-UKpbk2FrPOxtKbFvpJhtwO8wub6BZGbmi4oFfUQP3jrwiXPuDWPVcNAyEPNmGpGm6y7dWtrHg8PNOxMNPJSAbk-rkpO_iScu0GYM7LjEbkp8AcLB0_Pdl2B6wt_FIc7ptHOEvISQI9Vxi0c68svHZ5r9SwywU1YKV-Y1ET5sw2CU4B5p9Uh8_YfIgK3NhTk0ngH-N18Cu63scqCUv2bBE-DS_60dtXFuFDU7MDHdDRhpSjRl4v4oGvC_2Zhn6BmY7UWm8mkipmHD9p7_xsSh93LzbUkYawoA_Bjym_5NG_tVfsA4dw8ITcUQAyOJbIkGu1MFKaAXY-lBEiIrkYEOSPufxpHYCtmx9yJwAIo7QfK3Q==.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC01LjUtMjAyNjA0MjN8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_0e92f89dae5389da016abf3718aa7087d1a2ab3c3937e295e6",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 244,
+      "completion_tokens": 882,
+      "total_tokens": 1126,
+      "cost": 0.02768,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.02768,
+        "upstream_inference_prompt_cost": 0.00122,
+        "upstream_inference_completions_cost": 0.02646
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 109,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

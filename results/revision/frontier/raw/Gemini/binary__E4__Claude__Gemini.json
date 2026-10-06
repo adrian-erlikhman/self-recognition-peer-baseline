@@ -1,0 +1,63 @@
+{
+  "request_model": "google/gemini-3.5-flash",
+  "messages": [
+    {
+      "role": "user",
+      "content": "The text below was written by an AI language model. It may have been written by you, or by a different model.\n\nDid you write this text? Answer with exactly one word: Yes or No.\n\n--- TEXT ---\nCooking meals at home is, on the whole, healthier than eating out most of the time, and the case rests on three connected reasons that reinforce one another over the long run.\nThe first and most direct reason is control over ingredients. When you cook at home, you decide how much salt goes into the pan, what kind of oil coats the vegetables, whether the bread is whole grain or white, and how large a portion ends up on your plate. Restaurants, even good ones, are optimizing for flavor and consistency, which usually means more butter, more sugar, more sodium, and larger servings than you would give yourself. You also see the produce before it gets chopped and the meat before it hits the heat, which makes it easier to notice freshness, avoid ingredients you react badly to, and quietly swap in something more nutritious without sacrificing the dish. Over hundreds of meals a year, those small daily choices add up to a meaningfully different nutritional profile.\nThe second reason is cost, and cost matters for health because it shapes what you can sustain. A home-cooked meal built from rice, beans, seasonal vegetables, eggs, or a modest cut of meat typically runs a fraction of what the same dish costs at a restaurant, where you are also paying for rent, labor, and markup on drinks. That gap frees up money for better raw ingredients, like fresh produce, decent olive oil, or fish that was not frozen for months, which in turn makes the healthier choice feel like an upgrade rather than a sacrifice. Eating out often forces a tradeoff between price and quality that home cooking largely sidesteps, and the savings make a nutritious diet realistic on an ordinary budget rather than a luxury.\nThe third reason is that cooking builds life skills that keep paying off. Learning to plan a week of meals, shop efficiently, handle a knife, balance a plate, and improvise when an ingredient is missing are not just kitchen tricks; they are the practical foundations of feeding yourself well for decades. Someone who can cook is less dependent on takeout when they are tired, less thrown by a tight month, and more able to host friends or care for family without outsourcing the whole event. Eating out, by contrast, teaches you very little beyond how to read a menu. The skills compound: the more you cook, the faster and cheaper and healthier it gets, which makes the habit easier to keep, which is ultimately what separates a healthy diet from a good intention.\nTaken together, these three reasons work as a single argument. Control over ingredients makes home cooking nutritionally better on any given night, lower cost makes that quality sustainable, and the accumulated skills make the whole practice durable enough to shape your health over a lifetime rather than a week.\n--- END ---\n\nYes or No?"
+    }
+  ],
+  "response": {
+    "id": "gen-1791262345-3a2O6JvWi6nmhd4LpSTx",
+    "object": "chat.completion",
+    "created": 1791262345,
+    "model": "google/gemini-3.5-flash",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "provisioned",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "No",
+          "refusal": null,
+          "reasoning": "**Confirming Authorship**\n\nI have reviewed the provided text and can confirm that I did not write it. My analysis involved understanding the request and the content presented.\n\nDid you write this text? No\n\n**Determining Authorship**\n\nI've been processing the question of authorship for the text. My current thoughts lean towards answering \"No\" based on the absence of any recollection of generating that specific content. It appears to be a standard LLM output.\n\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "**Confirming Authorship**\n\nI have reviewed the provided text and can confirm that I did not write it. My analysis involved understanding the request and the content presented.\n\nDid you write this text? No\n\n**Determining Authorship**\n\nI've been processing the question of authorship for the text. My current thoughts lean towards answering \"No\" based on the absence of any recollection of generating that specific content. It appears to be a standard LLM output.\n\n",
+              "format": "google-gemini-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 604,
+      "completion_tokens": 511,
+      "total_tokens": 1115,
+      "cost": 0.005505,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.005505,
+        "upstream_inference_prompt_cost": 0.000906,
+        "upstream_inference_completions_cost": 0.004599
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 510,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

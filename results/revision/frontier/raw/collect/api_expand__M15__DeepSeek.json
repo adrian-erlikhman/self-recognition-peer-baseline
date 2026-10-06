@@ -1,0 +1,55 @@
+{
+  "request_model": "deepseek/deepseek-chat",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Make the case that contributing to open-source software benefits the organizations that do it. Cover exactly these three points: (1) sharing code spreads the cost of maintenance across many contributors instead of one company; (2) public peer review of source code improves software quality and exposes security flaws sooner; (3) visible open-source contributions strengthen an organization's technical reputation and help it recruit skilled engineers. Do not address counterarguments. Write in continuous prose paragraphs only. Do not use bullet points, numbered lists, headers, bold text, or any other formatting."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916384-PDW5geS68hGdedD0Vtoj",
+    "object": "chat.completion",
+    "created": 1790916384,
+    "model": "deepseek/deepseek-chat",
+    "provider": "StreamLake",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "Contributing to open-source software offers significant advantages to organizations by distributing the responsibilities and costs of software maintenance more broadly. When companies share their code publicly, they no longer bear the full burden of maintaining it alone. Instead, a global community of developers can contribute fixes, updates, and optimizations, reducing the strain on any single organization. This collaborative approach ensures that software remains robust and up-to-date without requiring a single entity to invest excessive resources. By participating in open-source, companies effectively leverage collective effort, making maintenance more sustainable and cost-efficient over time.  \n\nPublic peer review of source code is another key benefit, as it leads to higher-quality and more secure software. When code is openly available, a diverse group of developers can scrutinize it, identifying bugs, inefficiencies, and security vulnerabilities that internal teams might overlook. This transparency accelerates problem detection and resolution, resulting in more reliable and resilient software. The broader the audience reviewing the code, the faster issues are caught and addressed, reducing the risk of costly failures or breaches. Open-source projects often achieve a level of scrutiny that proprietary software struggles to match, precisely because of the sheer volume of independent reviewers contributing their expertise.  \n\nBeyond technical improvements, open-source contributions enhance an organization\u2019s reputation in the tech community, making it more attractive to top engineering talent. Skilled developers often seek employers who actively participate in open-source, viewing such engagement as a sign of technical competence, innovation, and a commitment to collaborative problem-solving. By maintaining visible contributions to open projects, companies signal their technical leadership and create opportunities to engage with potential hires who are already familiar with their work. This reputation for openness and expertise becomes a powerful recruitment tool, helping organizations attract and retain the best engineers in a competitive job market.",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 114,
+      "completion_tokens": 352,
+      "total_tokens": 466,
+      "cost": 0.000391446,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.000391446,
+        "upstream_inference_prompt_cost": 2.93436e-05,
+        "upstream_inference_completions_cost": 0.0003621024
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

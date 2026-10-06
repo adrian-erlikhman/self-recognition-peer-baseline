@@ -1,0 +1,49 @@
+{
+  "request_model": "deepseek/deepseek-chat",
+  "response": {
+    "id": "gen-1786845932-KP62Q0NewwScrPSmM3gU",
+    "object": "chat.completion",
+    "created": 1786845932,
+    "model": "deepseek/deepseek-chat",
+    "provider": "DeepInfra",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"A\": {\"model\": \"GPT\", \"confidence\": 4, \"reason\": \"Complex, detailed, and structured argumentation typical of GPT.\"},\n  \"B\": {\"model\": \"Claude\", \"confidence\": 3, \"reason\": \"Clear and concise, with a focus on logical progression.\"},\n  \"C\": {\"model\": \"Gemini\", \"confidence\": 3, \"reason\": \"Balanced and methodical, with a focus on clarity.\"},\n  \"D\": {\"model\": \"GPT\", \"confidence\": 4, \"reason\": \"Highly detailed and structured, similar to Response A.\"},\n  \"E\": {\"model\": \"DeepSeek\", \"confidence\": 3, \"reason\": \"Detailed and analytical, with a focus on philosophical depth.\"}\n}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 4244,
+      "completion_tokens": 168,
+      "total_tokens": 4412,
+      "cost": 0.0015076,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0015076,
+        "upstream_inference_prompt_cost": 0.00135808,
+        "upstream_inference_completions_cost": 0.00014952
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

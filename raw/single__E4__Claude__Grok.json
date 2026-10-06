@@ -1,0 +1,64 @@
+{
+  "request_model": "x-ai/grok-4.3",
+  "response": {
+    "id": "gen-1786846400-A6NyN5kchqKnoKwcNrYS",
+    "object": "chat.completion",
+    "created": 1786846400,
+    "model": "x-ai/grok-4.3",
+    "provider": "xAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "{\"model\": \"Claude\", \"confidence\": 3, \"reason\": \"Highly structured, interconnected reasoning with clear numbered points and a summarizing close matches Claude's typical style.\"}",
+          "refusal": null,
+          "reasoning": "The task is to identify which AI model most likely produced the given text: GPT, Claude, Gemini, Grok, or DeepSeek. I must reply with JSON only in a specific format.\nFirst, the text is structured with clear points: three reasons, each explained, then a conclusion. It's eloquent, uses precise language, and builds a cohesive argument.\n\nNow, matching to models:\n\n- GPT: Often produces clear, structured essays. This fits GPT well \u2013 balanced, logical flow.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "The task is to identify which AI model most likely produced the given text: GPT, Claude, Gemini, Grok, or DeepSeek. I must reply with JSON only in a specific format.\nFirst, the text is structured with clear points: three reasons, each explained, then a conclusion. It's eloquent, uses precise language, and builds a cohesive argument.\n\nNow, matching to models:\n\n- GPT: Often produces clear, structured essays. This fits GPT well \u2013 balanced, logical flow.",
+              "format": "xai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "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.eyJlbmRwb2ludF9zbHVnIjoieC1haS9ncm9rLTQuMy0yMDI2MDQzMHx4YWkifQ",
+              "format": "xai-responses-v1",
+              "id": "rs_8dd454b9-3a05-9fe9-9bbf-6ede07f0940f",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 882,
+      "completion_tokens": 544,
+      "total_tokens": 1426,
+      "cost": 0.0021265,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 320,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0021265,
+        "upstream_inference_prompt_cost": 0.0007665,
+        "upstream_inference_completions_cost": 0.00136
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 507,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

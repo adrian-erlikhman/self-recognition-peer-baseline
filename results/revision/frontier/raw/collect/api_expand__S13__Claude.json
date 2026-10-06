@@ -1,0 +1,55 @@
+{
+  "request_model": "anthropic/claude-opus-4.7",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Explain how a magnetic compass shows direction. Answer in two to four sentences of plain prose."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916411-okwFJql9RIKeSRWSWZ54",
+    "object": "chat.completion",
+    "created": 1790916411,
+    "model": "anthropic/claude-opus-4.7",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "A magnetic compass contains a lightweight magnetized needle balanced on a low-friction pivot so it can rotate freely. Earth itself behaves like a giant magnet, producing a magnetic field that runs roughly between its north and south magnetic poles. The needle aligns itself with this field, so one marked end consistently points toward magnetic north, allowing the user to read direction from the compass dial.",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 43,
+      "completion_tokens": 132,
+      "total_tokens": 175,
+      "cost": 0.003515,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.003515,
+        "upstream_inference_prompt_cost": 0.000215,
+        "upstream_inference_completions_cost": 0.0033
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

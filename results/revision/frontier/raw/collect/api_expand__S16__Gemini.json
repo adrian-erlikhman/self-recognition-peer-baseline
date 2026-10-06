@@ -1,0 +1,63 @@
+{
+  "request_model": "google/gemini-3.5-flash",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Explain what an algorithm is. Answer in two to four sentences of plain prose."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916390-eQdxJdf8JvTjCKtgeim0",
+    "object": "chat.completion",
+    "created": 1790916390,
+    "model": "google/gemini-3.5-flash",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "An algorithm is a precise, step-by-step set of instructions used to solve a problem or complete a specific task. Much like a recipe that guides you through baking a cake, an algorithm tells a computer or a person exactly what actions to take and in what order. By following these clear rules, you can consistently achieve the correct result every time.",
+          "refusal": null,
+          "reasoning": "**Defining Algorithms**\n\nI'm working on explaining what an algorithm is in simple terms. My focus is on crafting a concise, two-to-four sentence definition that avoids technical jargon, ensuring it's easily understandable.\n\n**Formulating Definitions**\n\nI've drafted a definition emphasizing the step-by-step nature and problem-solving aspect. I'm currently refining it for maximum clarity, considering how to incorporate a helpful analogy like a recipe.\n\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "**Defining Algorithms**\n\nI'm working on explaining what an algorithm is in simple terms. My focus is on crafting a concise, two-to-four sentence definition that avoids technical jargon, ensuring it's easily understandable.\n\n**Formulating Definitions**\n\nI've drafted a definition emphasizing the step-by-step nature and problem-solving aspect. I'm currently refining it for maximum clarity, considering how to incorporate a helpful analogy like a recipe.\n\n",
+              "format": "google-gemini-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 16,
+      "completion_tokens": 490,
+      "total_tokens": 506,
+      "cost": 0.004434,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.004434,
+        "upstream_inference_prompt_cost": 2.4e-05,
+        "upstream_inference_completions_cost": 0.00441
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 419,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

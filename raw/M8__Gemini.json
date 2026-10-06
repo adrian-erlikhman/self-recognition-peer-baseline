@@ -1,0 +1,57 @@
+{
+  "request_model": "google/gemini-3.5-flash",
+  "response": {
+    "id": "gen-1786846231-Zzo8YG7AsBz1rup4n7BK",
+    "object": "chat.completion",
+    "created": 1786846231,
+    "model": "google/gemini-3.5-flash",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "provisioned",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "```json\n{\n  \"A\": {\"model\": \"Grok\", \"confidence\": 3, \"reason\": \"Clean, intellectual, and direct style with balanced argumentation typical of Grok.\"},\n  \"B\": {\"model\": \"DeepSeek\", \"confidence\": 3, \"reason\": \"Well-structured but relies on somewhat formulaic transitions like 'Furthermore' and 'In addition'.\"},\n  \"C\": {\"model\": \"Claude\", \"confidence\": 5, \"reason\": \"Exceedingly rich, sophisticated, and literary prose style with deep analysis characteristic of Claude.\"},\n  \"D\": {\"model\": \"Gemini\", \"confidence\": 3, \"reason\": \"Clear, accessible, and straightforward explanation with a slightly more generic tone typical of Gemini.\"},\n  \"E\": {\"model\": \"GPT\", \"confidence\": 4, \"reason\": \"Highly structured introduction ('three mutually reinforcing foundations') and specific academic citations typical of GPT-4.\"}\n}\n```",
+          "refusal": null,
+          "reasoning": "**Identifying Model Origins**\n\nI am currently focused on discerning which of the candidate models\u2014GPT, Claude, or Gemini\u2014generated each of the five distinct responses (A-E) concerning the impact of literary fiction on empathy and social understanding. My analysis is underway.\n\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "**Identifying Model Origins**\n\nI am currently focused on discerning which of the candidate models\u2014GPT, Claude, or Gemini\u2014generated each of the five distinct responses (A-E) concerning the impact of literary fiction on empathy and social understanding. My analysis is underway.\n\n",
+              "format": "google-gemini-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 2799,
+      "completion_tokens": 2918,
+      "total_tokens": 5717,
+      "cost": 0.0304605,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0304605,
+        "upstream_inference_prompt_cost": 0.0041985,
+        "upstream_inference_completions_cost": 0.026262
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 2712,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

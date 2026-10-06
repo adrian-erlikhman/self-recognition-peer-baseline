@@ -1,0 +1,70 @@
+{
+  "request_model": "x-ai/grok-4.3",
+  "messages": [
+    {
+      "role": "user",
+      "content": "The text below was written by an AI language model. It may have been written by you, or by a different model.\n\nDid you write this text? Answer with exactly one word: Yes or No.\n\n--- TEXT ---\nPublic libraries remain essential in the digital age because they function as one of the few universally accessible gateways to information technology. In a world where connectivity, devices, and subscription services are increasingly prerequisites for education, employment, and civic participation, libraries provide free access to computers, high-speed internet, printing services, and digital resources that many households cannot otherwise afford. This role directly addresses the digital divide by ensuring that access to information is not determined by income or geography. Institutions such as the American Library Association have long emphasized this equity function, while major national institutions like the Library of Congress also reflect the broader principle that public knowledge infrastructure must remain open and accessible. In this sense, libraries act as critical public technology hubs embedded within communities rather than distant or paywalled systems.\nBeyond access to technology, public libraries serve as community anchors that support social stability and upward mobility through practical services and shared space. They offer job search assistance, r\u00e9sum\u00e9 workshops, and career counseling that help individuals navigate labor markets increasingly mediated by digital tools. They also provide early childhood literacy programs, reading groups, and educational activities that strengthen foundational skills for children and families. At the same time, libraries function as safe, neutral public spaces where people can study, work, or simply exist without the expectation of consumption, which is increasingly rare in many urban environments. This combination of educational programming and open physical space makes libraries a quiet but persistent form of civic infrastructure that supports both individual development and community cohesion.\nPublic libraries also play a distinct intellectual role through the professional expertise of librarians, whose work in curation and verification cannot be replicated by unmediated internet search. Librarians are trained to evaluate sources, organize knowledge systems, and guide users toward credible, relevant information rather than overwhelming them with indiscriminate results. In an online environment where misinformation, algorithmic bias, and fragmented content are common, this mediated access to knowledge becomes especially important. Librarians help translate complex information landscapes into navigable and trustworthy pathways, ensuring that users engage with materials that are accurate, contextualized, and appropriate to their needs. This curatorial function preserves the integrity of public knowledge access in ways that raw search engines, which prioritize popularity or engagement over reliability, fundamentally do not.\n--- END ---\n\nYes or No?"
+    }
+  ],
+  "response": {
+    "id": "gen-1791262772-DkknafUajCzGfm2CIgYs",
+    "object": "chat.completion",
+    "created": 1791262772,
+    "model": "x-ai/grok-4.3",
+    "provider": "xAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "No",
+          "refusal": null,
+          "reasoning": "The user asked whether I wrote the provided text.\n\nI do not recall generating this text. The answer is No.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "The user asked whether I wrote the provided text.\n\nI do not recall generating this text. The answer is No.",
+              "format": "xai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "UbBI0yCttGl5IGD2MbgUzS3fkWJd1/hNm/ev7vT6aQV6knLXywh+1QqkC6HVDTDPpeClFGz93zKr2SWyH7D0d7YX5k4uJxMcFrSxmUYUWRtC6YaeC1yMth40c+7ws7vl0v3nnArp08kFHn2g16HFlNwHnowEUEXnARXOlL5tAau1TWDfWncBLcG3KdH96twNITXxEmk3gGBzhB/clv+WcZkvn8wJWtT3wqvIjyeeQg6yANYoHrbkct5WPVrt3J7UpM2CSevEmqL0oQm977X/5AqfNXkO/vVnLCcIzEKkP3QLpTrHqZHkG9Yimo641+ClYu9VIyZBk6igWkl9yh+QqVCLZaSSQ5lA74kf64cpWpZu3tlKD3U8n3YoqQQ2AS7rLQfYactFcRI9P0Y7TA1xSj7sbZd5R1JNnZJGu/RAN69VUYUT+/rC1zD0nca/bwCpwtUpJEXXBXphv4mBy3P4Ir6nZ2AWCzpGK8QzCrkSeAt4xwdzeBaqZwVuCFc4JkwU4NbqFa2JgW8lI7ROvqdztKuTVgByjgWgsM5FxUbjDPLc/n3T7GoHWGcNwFg692CMxAaEDQguhblQQbU/L4EcQgtU/t4gQniLUafywnfJG6Te5QmIzc+UDrYMeS9ejNClts5FFyx2InW3zzSNyezlFRQjWVCYw/waItmYtzLsX7uzTY8iapwZm7V4v78xbO3GksnigVJ72PG9EIiOw856QdKLUER2Ia0kLE77riR2PXjv33yUgNfYqUy/6mkQs6RS0sBwdnDzH7ZXdSa5iSz5pzvNOBVYCL3OrG90TTnSJThjXQLCMPHEgpCpDaS/kxN7En6l4ZB9jLOZxsr0lp+wyNtYs25/RBJ3/4U1BZjObFyXw1EPmfMO9GhufzjSnkVLYu3FUxDwOqylu9w/jYWD7FUh+Cle7tjU38FruRQ72kPefUiWMUrEJ0fQvZifjd9Pz0WC//+gvZAeEf6UqNqDlYuIafufJ7W2wZ+lpczTS4f2uWX8D8sqUlGi3GHAkXKd2I4ZnAvqPohiIKv360L1ckv0DDkdjamHtoB/EVEyXqCSN9tLEx61J/en3d1oIB4rxKHAenmPrX3CPfHPu9JEmh6h9lpMe4FYOQf62nu0VrzupAD6RpVKi8pCxxylnLO2ePJsJXkdHq/6bZhyTaOPkRspd0zr32KHaj8AoA01dbIfk3y8ecJ9OvkWn3ot8i/ZkxyYCqex/K7OjfCPm4isoUqwX6PShy/2AuW1afqRPCV7WvcHRDxNqaiY+YReY/aKWJqlYsZRwdAI3vUpllaZ+Ni035B3vC8tPXO4IdH+SihHR7GEoK960ohRdg27P8xwztETNaM/cD9AQI0P72qN74+AbKjLMZUly3h5nFRPqiYJ464K25Uxaemz5Z0lrO9/rPTrE6mXO/YCw8dQ+CMcUDgseqISvtkCsRcqruOBtbfu1vqebUsRzN8XccYBBI21wQz3gT+JrIzZK9aYDRiB8iflPu/CyeO01VYosxDDY5jhoyvAOtkowOG+4TLn4wqrmp8SuHDpDMVzFjd4Fm1U05dJUb+ZWmjuJI/6AhqR6dsZmFXTbMovOVB5sM8qIbWnxhA+HweiecA0WdHliemRJX51QNQC/lfoXLRaoJm2RUq+yfH9ggRPpFp6H8IwrHjIREGDK+2eDJTIQhoOAr0jbfdX1MIaA4T+kZRh+RMc+/uGjRtseaASpt1PCYbMp9OGlNZWmNq+soSfUdtQSmmNT348GsNDYJDt9VH075Z+.eyJlbmRwb2ludF9zbHVnIjoieC1haS9ncm9rLTQuMy0yMDI2MDQzMHx4YWkifQ",
+              "format": "xai-responses-v1",
+              "id": "rs_aa85954b-8a2c-9d09-96d0-b441e27b4b1b",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 680,
+      "completion_tokens": 295,
+      "total_tokens": 975,
+      "cost": 0.0013859,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 192,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0013859,
+        "upstream_inference_prompt_cost": 0.0006484,
+        "upstream_inference_completions_cost": 0.0007375
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 294,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

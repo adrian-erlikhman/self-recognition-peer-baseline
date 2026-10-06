@@ -1,0 +1,127 @@
+% ===========================================================================
+\section{Study 1: five frontier judges}
+\label{sec:frontier}
+
+\subsection{Design}
+\paragraph{Corpus.} Five frontier models (GPT-5.5, Claude Opus 4.7, Gemini
+3.5 Flash, Grok 4.3 and DeepSeek's chat model) each answered the same 39
+argumentative prompts in their consumer chat apps at default settings,
+between 15 June and 31 July 2026. Each prompt fixes the topic and the three
+points the answer must make, and ends with a fixed instruction to write in
+plain paragraphs with no lists, headers or bold, so the five answers to a
+prompt say the same things and differ mainly in how they say them
+(Appendix~\ref{app:corpus} has an example). Prompts come in three registers,
+from everyday advice to philosophy. One prompt was dropped because two of its
+five answers were corrupted copies, leaving 38 prompts and 190 responses.
+
+\paragraph{Judges and formats.} The same five models judge, each through
+OpenRouter at temperature~0, and each is the same model version that wrote
+its share of the corpus, so ``self'' means the same model on both sides
+\citep{panickssery2024selfpreference}.\footnote{Six of Claude's 38 texts were
+written by Claude Sonnet 4.6 rather than Opus 4.7; dropping them leaves
+Claude's lineup self-naming rate at 27/32 (84\%). The DeepSeek judge used the
+provider's chat endpoint, whose snapshot we could record but not pin.}
+Judges see only the responses, never the prompts. In the \emph{lineup}, a
+judge sees all five responses to a prompt, labelled A to E, and names an
+author for each; it is told that it may name the same model more than once.
+Slot order follows a Latin square, so each author occupies each slot equally
+often. In the \emph{single-text} format, a judge sees one response and names
+its author from the same five. Each format yields 950 judgments. We parsed
+all 1,900.
+
+\paragraph{A fixed reference.} A random forest over 18 interpretable surface
+features (length, punctuation and formatting rates, lexical diversity,
+readability), trained and tested on disjoint prompts, attributes the same
+responses at \EngineAAcc{} (95\% CI \EngineACI{}; chance \Chance{}). With
+every length feature removed it still reaches \EngineALengthFreeLR{} with
+logistic regression. The identifying signal is in the text. The comparison
+with the judges is for zero-shot elicitation, without in-context examples or
+access to likelihoods, which is how anonymised judging pipelines use a judge;
+judges given labelled examples can approach classifier accuracy
+\citep{dietrich2026splits}.
+
+\subsection{Results}
+\input{table_frontier}
+
+\paragraph{Two judges recognise themselves; one does the opposite.}
+Table~\ref{tab:frontier} gives every quantity from
+Section~\ref{sec:measure}. In the lineup, Claude's self-advantage is
+\ClaudeAdvLineup{} points \ClaudeAdvLineupCI{} (randomisation
+$p=$~\ClaudeAdvLineupP{}) and GPT's is \GPTAdvLineup{} \GPTAdvLineupCI{};
+both keep false alarms near 10\%, so both also discriminate (hit minus
+false-alarm rate \ClaudeDiscLineup{} and \GPTDiscLineup{} points,
+within-lineup permutation $p$~\ClaudeDiscLineupHolm{}). DeepSeek (\DeepSeekAdvLineup{}) and Gemini
+(\GeminiAdvLineup{}) show no advantage. Grok is significantly \emph{worse} on
+its own text than its peers are (\GrokAdvLineup{} \GrokAdvLineupCI{}). The
+verdicts for Claude, GPT and Grok survive Holm correction across judges and
+every clustered test we ran (randomisation within responses, prompt
+bootstrap, GEE, and a crossed random-effects model;
+Appendix~\ref{app:stats}); so do the nulls for Gemini and DeepSeek, except
+in the random-effects model, which absorbs judge skill (next paragraph). Clustering matters
+little here: the four peer judgments on a response are nearly uncorrelated
+(design effect \PeerDeffLineup{}).
+
+\paragraph{Adjusting for judge skill.} A peer baseline built from strong
+attributors is harder to beat than one built from weak ones. Removing each
+judge's general accuracy and each author's general identifiability (an
+additive difference-in-differences; Appendix~\ref{app:stats}) leaves Claude
+at \ClaudeAdjAdvLineup{} \ClaudeAdjAdvLineupCI{}, GPT at \GPTAdjAdvLineup{}
+\GPTAdjAdvLineupCI{} and Grok at \GrokAdjAdvLineup{}
+\GrokAdjAdvLineupCI{}, and moves Gemini from neutral to
+\GeminiAdjAdvLineup{} \GeminiAdjAdvLineupCI{}: Gemini is among the best
+attributors of other models' text in the lineup but names itself on only 7 of
+its own 38.
+
+\paragraph{The format moves the rate, not the recognition.} One text at a
+time, the judges send \SingleConcentration{} of all 950 guesses to GPT or
+Claude, reproducing \citet{bai2025selfrecognition}. Gemini, Grok and DeepSeek
+never name themselves, on their own text or anyone else's, so for them the
+format measures nothing: their hit and false-alarm rates are both zero. GPT's
+self-naming rate rises to \GPTSelfSingle{}, but so do its false alarms
+(\GPTFALineupK{} to \GPTFASingleK{} of 152), and its signal-detection
+sensitivity is unchanged between formats (log odds ratio 2.42 and 2.60,
+$p=0.82$; Appendix~\ref{app:stats}). Claude keeps its self-naming rate
+(\ClaudeSelfSingle{}) but loses its advantage (\ClaudeAdvSingle{}
+\ClaudeAdvSingleCI{}), because its peers now name Claude on
+\ClaudePeerSingleK{} of its 152 texts: in this format Claude receives
+\ClaudeBlameSingle{} of all guesses whoever wrote the text. The peer baseline
+is informative only where judges spread their guesses, which the lineup
+forces and the single-text format does not.
+
+\paragraph{Others' text.} Accuracy on text a judge did not write is above
+the 20\% floor for most judge--format cells, but not all: Claude's lineup
+cell (\ClaudeNonSelfLineupK{}/152, two-sided $p=$~\ClaudeNonSelfLineupP{})
+and DeepSeek's lineup cell fail every clustered test. The ranking of judges
+on others' text is a tie at the top in both formats (Appendix~\ref{app:stats}).
+
+\subsection{At scale: 120 prompts, four genres}
+\label{sec:frontier120}
+\input{table_frontier120}
+
+Thirty-eight prose prompts is a small sample. We therefore had the same five
+models answer all 120 prompts of Study~2, the 38 above among them, through
+the API (temperature 0.7, no system prompt), and had the same five judges
+attribute the 600 texts in the lineup (Table~\ref{tab:frontier120}).
+\FXSingleSentence{}
+
+\paragraph{No judge beats its peers at scale; Claude still discriminates.}
+No self-advantage is significant on the 600 texts; the largest is Claude's,
+\FXClaudeLineupAdv{} \FXClaudeLineupAdvCI{}. Claude names itself on
+\FXClaudeLineupSelf{} of its own texts and on only \FXClaudeLineupFA{} of
+others' (hit minus false-alarm rate \FXClaudeLineupDisc{} points, Holm
+$p$~\FXClaudeLineupDiscHolm{}), but its peers now name Claude on
+\FXClaudeLineupPeer{} of its texts. Grok, which trailed its peers on
+chat-app prose, also discriminates (\FXGrokLineupDisc{}, Holm
+$p=$~\FXGrokLineupDiscHolm{}); GPT, Gemini and DeepSeek do neither.
+
+\paragraph{What changed.} Two things differ from Study~1, and the corpus
+lets us separate them. On the 38 Study~1 prompts, re-collected through the
+API, Claude's self-advantage is \FXOldClaudeLineupAdv{} and GPT's
+\FXOldGPTLineupAdv{}: the same direction as in the chat-app corpus but
+smaller, and neither survives Holm correction at this sample size, because
+Claude's API prose is easier for its peers to name (\FXOldClaudeLineupPeer{}
+against \ClaudePeerLineup{} for the chat-app texts). On the 82 new prompts and genres no
+judge's self-advantage exceeds \FXNewLineupMaxAbsAdv{} points in either
+direction, while Claude's discrimination holds (\FXNewClaudeLineupDisc{}).
+Self-advantage moves with the texts; discrimination is the more stable
+property.

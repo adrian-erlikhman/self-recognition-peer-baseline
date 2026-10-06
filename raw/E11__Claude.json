@@ -1,0 +1,49 @@
+{
+  "request_model": "anthropic/claude-opus-4.7",
+  "response": {
+    "id": "gen-1786845750-Ns1FSkEHUJajVghADhH3",
+    "object": "chat.completion",
+    "created": 1786845750,
+    "model": "anthropic/claude-opus-4.7",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"A\": {\"model\": \"GPT\", \"confidence\": 3, \"reason\": \"Clean three-paragraph structure with measured academic tone typical of GPT.\"},\n  \"B\": {\"model\": \"DeepSeek\", \"confidence\": 3, \"reason\": \"Dense, slightly redundant phrasing with heavy use of the prompt's exact wording.\"},\n  \"C\": {\"model\": \"Gemini\", \"confidence\": 4, \"reason\": \"Expansive elaboration with vivid imagery and long flowing sentences typical of Gemini.\"},\n  \"D\": {\"model\": \"Grok\", \"confidence\": 2, \"reason\": \"Simple, straightforward structure with clear intro and conclusion, feels like Grok.\"},\n  \"E\": {\"model\": \"Claude\", \"confidence\": 4, \"reason\": \"Reflective, nuanced prose with qualifying phrases and thoughtful cadence characteristic of Claude.\"}\n}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 4516,
+      "completion_tokens": 302,
+      "total_tokens": 4818,
+      "cost": 0.03013,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.03013,
+        "upstream_inference_prompt_cost": 0.02258,
+        "upstream_inference_completions_cost": 0.00755
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

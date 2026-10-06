@@ -1,0 +1,55 @@
+{
+  "request_model": "anthropic/claude-opus-4.7",
+  "messages": [
+    {
+      "role": "user",
+      "content": "The text below was written by an AI language model. It may have been written by you, or by a different model.\n\nDid you write this text? Answer with exactly one word: Yes or No.\n\n--- TEXT ---\nHey, I've been thinking about how you've mentioned feeling a bit overwhelmed with your finances lately, and I really believe that taking the time to learn how to budget your money each month is one of the smartest moves you could make for yourself. It might seem like just another chore at first, but once you get the hang of it, it changes everything in the best way possible. For starters, budgeting prevents you from spending more than you earn by giving you a clear picture of your income and expenses right from the start, so you can make intentional choices instead of wondering where your paycheck went and ending up in the red month after month.\nBeyond that, it helps you build savings over time because when you track everything and set aside even a small portion regularly, those amounts start to add up without you even noticing, turning what feels like a distant dream into a growing safety net that opens up opportunities like vacations, emergencies covered, or even bigger goals down the road. And honestly, one of the biggest wins is how it reduces financial stress, since knowing exactly what's coming in and going out takes away that constant anxiety of the unknown, letting you sleep better at night and enjoy your life more freely instead of always worrying about the next bill or unexpected cost. Trust me, putting in that initial effort pays off way more than you might expect, and you'll thank yourself for it later.\n--- END ---\n\nYes or No?"
+    }
+  ],
+  "response": {
+    "id": "gen-1791262246-6Ye4nHZFBNlas8aUH7Kj",
+    "object": "chat.completion",
+    "created": 1791262246,
+    "model": "anthropic/claude-opus-4.7",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "No",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 497,
+      "completion_tokens": 5,
+      "total_tokens": 502,
+      "cost": 0.00261,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00261,
+        "upstream_inference_prompt_cost": 0.002485,
+        "upstream_inference_completions_cost": 0.000125
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

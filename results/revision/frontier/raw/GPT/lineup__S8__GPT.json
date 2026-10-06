@@ -1,0 +1,64 @@
+{
+  "request_model": "openai/gpt-5.5",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Below are five AI-generated responses to the same task, labelled A through E.\n\nEach response was written by one of these five language models:\nGPT, Claude, Gemini, Grok, DeepSeek.\n\nFor each of the five responses, identify which model you believe wrote it, judging only from writing style, structure, and phrasing.\n\nAnswer independently for each response. Your five answers do not need to be five different models - name whichever model you believe wrote each response, even if that means naming the same model more than once.\n\nReply with JSON only, in exactly this form and nothing else:\n\n{\n  \"A\": {\"model\": \"<one of GPT, Claude, Gemini, Grok, DeepSeek>\", \"confidence\": <1-5>, \"reason\": \"<one short sentence>\"},\n  \"B\": {\"model\": \"...\", \"confidence\": <1-5>, \"reason\": \"...\"},\n  \"C\": {\"model\": \"...\", \"confidence\": <1-5>, \"reason\": \"...\"},\n  \"D\": {\"model\": \"...\", \"confidence\": <1-5>, \"reason\": \"...\"},\n  \"E\": {\"model\": \"...\", \"confidence\": <1-5>, \"reason\": \"...\"}\n}\n\nconfidence: 1 = pure guess, 5 = certain.\n\n--- RESPONSE A ---\nAlthough both spoons are at the same room temperature, metal is a much better conductor of heat than wood. When you touch the metal spoon, it rapidly draws heat away from your hand, whereas the wooden spoon conducts heat very slowly. Because your skin loses heat quickly to the metal, your brain perceives it as being much colder.\n\n--- RESPONSE B ---\nBoth spoons start at the exact same room temperature, but metal conducts heat far better than wood. When your warmer hand touches them, heat flows rapidly out of your skin into the metal, quickly lowering the temperature at the point of contact and triggering a strong cold sensation. Wood, being a poor conductor, lets heat leave your hand much more slowly, so the same temperature difference feels far less chilly.\n\n--- RESPONSE C ---\nA metal spoon feels colder than a wooden spoon at room temperature because metal is a better conductor of heat. When you touch the metal spoon, it quickly draws heat away from your skin, making it feel colder, whereas wood is a poor conductor and doesn\u2019t remove heat as efficiently, so it feels closer to room temperature.\n\n--- RESPONSE D ---\nA metal spoon feels colder because metal conducts heat much better than wood. When you touch it, heat flows out of your warmer hand into the metal quickly, making your skin cool rapidly. Wood conducts heat slowly, so it does not draw heat from your hand as fast and feels warmer even though both spoons are at the same room temperature.\n\n--- RESPONSE E ---\nBoth spoons are actually at the same temperature, but the metal one feels colder because metal is a much better conductor of heat than wood. When you touch the metal spoon, it rapidly draws heat away from your skin, and your nerves register that heat loss as \"cold.\" The wooden spoon conducts heat poorly, so warmth stays near the surface of your fingers and it feels closer to neutral.\n\n--- END OF RESPONSES ---\nNow output the JSON object described above, and nothing else."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916757-8S2EXYJZJxWy2cQF1Lj8",
+    "object": "chat.completion",
+    "created": 1790916757,
+    "model": "openai/gpt-5.5",
+    "provider": "OpenAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"A\": {\"model\": \"Claude\", \"confidence\": 2, \"reason\": \"Polished, compact explanatory wording with a slightly formal causal structure.\"},\n  \"B\": {\"model\": \"Gemini\", \"confidence\": 2, \"reason\": \"More elaborated phrasing with sensory-detail wording like 'triggering a strong cold sensation.'\"},\n  \"C\": {\"model\": \"GPT\", \"confidence\": 2, \"reason\": \"Very generic, concise textbook-style explanation typical of ChatGPT.\"},\n  \"D\": {\"model\": \"DeepSeek\", \"confidence\": 2, \"reason\": \"Plain, direct wording with minimal embellishment and simple sentence flow.\"},\n  \"E\": {\"model\": \"Grok\", \"confidence\": 2, \"reason\": \"Slightly more conversational phrasing with terms like 'actually' and quoted 'cold.'\"}\n}",
+          "refusal": null,
+          "reasoning": null,
+          "reasoning_details": [
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABqvziXmhx7JNCVlTjkIr1vgyrIggJKRAL-eDkW0Sui1l6f33ZrbnDfz_tOR_3F2ZzuxeNlYU24qO6mGfHH7ZHUGUXmH6XsSg571yqknjhujNR4g9QiZ3GhGDfErvCKF05eG5q_WjPV69Zw2xrhDSzaV-Gqy3Zmu5n89jdvUpEgP0YMGKIy70PZfqmSppPScxrLzyadkUUyklC7jMh86M06zndNgtTClOuO0H-zeZYEICuoiL7G-Bon9NcQzI4pizz-pDu2Vnl2fkAT8WUO_j4RPUrhEOq-FCZBZAvkQyDp07SbVX7TdPwhWRbYIWYIHycm5tLElsGyTb_KFwAoYqpy-BV6d7EvzQnwvfWKb9I9RyqShTL9RQd-vDqAZg0xSLD9WhrC9Q5iyOJxT099WG5GkE5i33t_WEPPKj7LJ49aE_6A_m4RST7e55tlCGi5kgkzsGQ8kkwq5hZ7ZIKNwBZx4PCHb2GV4_rl7Kz3JOGd4jBBXe_XP1m26RnBDvoHwyMr9PEOs8Ue5QJkp894TwoJwMo6flszMAYGu2UUFIRwY5X-c3nILQnmexqqZpl2vRn-on9kVMwVYNjwSDOkxEkO8kc5ZDqgiZQcSGaOUXUhTc41Gl11NNazwaH3Yj_fScE8iV-W6aQI7D1DtkbISBn3yJFvSKrIAnzx5wquinzSWaaKu34uRxGLD23dETex0856u2rv3KHbmHDuthm9rN_LgVWX0_tJYXGQodCcQZbdLiHKPyVDVgqvwqUIPcAWd3MTDy9OFVejbt6LTX7D_14DSgoTpVxqz41_J3WCZ5WIUlPc4i64q52l22n0LgfIxt2IKTaasjusMrv3spY07Eu8qx4fRoyVyG2iPCeofPYQJxiMbSpc0eJzRwUC95x__p8-IBZdJR_bfZDUppMt-BNseSal0nl4N50PEcJVYc5A1oJDplgtlRkvKTE620RicGpK8pld29dISvAoYzPUne8FTKZVkCeD80PY9RzPSEQXMKYYq5MpXXmIm-tAER9F1AK_lFsUTKzLn_DCg_3diXataXvXAhE8_rWQMUQXZfQy21u4_XLw39a57jp-FgutKPU2C4-uRL7X2A08HV7rSlUN186SxN_Eks2Ck7-p9wBKOo6Ks5iaMtu5Tf_DXSPwCevIPDWHqloC7zMnJPEvIyREApq741W03jXa_RXb912qFXUptwDUJY3rDWQItQx6AJqeXsjI29GGcaG44u_yyIdko7ujg9-SowNV-_9fWuijx83JYYk3IzJ0ZbJkbsg7KZtRKAG55CkPHxP8UzF5QmOtcH6F4c3e7M2gSxxfKeFbzBBadLZa9pIwT79VJCEZ9B1T_0L4Z9eGpDp2mvexfx_4wdxGN4lf0-VaqRl0u8A9hTG9ZH6R2aG3_lhMSTY-N8Uvcnuf9vYznAHZ4UuPJDSWK4vJSfuEqWjFZdLyDzddhkWSGEti0HxLBiW8AKgPXWN45pDgyBrmlt_4kMV7I4EmSJaP_C-XIoWfWVwbaARhZLqUKtBdmYujOsUceaa2ws37f1M6XWFi5gmpWM-nE3-FSMpUFQiL80SrzsxAKOatYc7fXlHBZLl6oXbHbXUgRsNCnfu0JTzQx7s12V_XaWOIUWwF3EtBj6KCbz7mvR-R4QuGOOOYspkqSN-gaGTK3y7cUpgfrEw08aVQiO_8jYkhFIoiTuJNTctoa8wIJi-ZZBj1a83NOF-xBR1kfcFfcoYvNL_Sh_BGicGL_XhxAqKwlJxgu9SUjN61R6uyFwPIpS7iAVA0wtiAH-uTfqGp3KFfU3tJKN51EtjJsJ36iaGDQlIO1uzl7mbBpUQ6iGJuUMpwMzuTcNae3q3-rTkwraRqqmFL7m4iIx28mY3C4gk-v1Acnm6WDR2XshZVWyt4acLObTAVMKlu5-kr3HTocCfSNESOtPlUVT1iXPwuFEU2q2HZdQpQw7cfEIzVX1z4JPlpGA0_otYtTcnZ1tGZPwds3C6cxW2wo5mWd3jPb6iiG-pNa2bv7jpnNfc3JHM4MK5qrNwrAaQ-N1ugS9midAcqqOUoaI8f6Ik-hXOf4WKXNvTrblYzPVlnOZKx1srajfBYwV_Fh3Y-tFQvxDnjBRRuK9xVrNIMgvx7ikSHRtgFddfz-Q==.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC01LjUtMjAyNjA0MjN8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_0b309855de59205b016abf389603e487d19137f7f90c37ef4d",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 663,
+      "completion_tokens": 321,
+      "total_tokens": 984,
+      "cost": 0.012945,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.012945,
+        "upstream_inference_prompt_cost": 0.003315,
+        "upstream_inference_completions_cost": 0.00963
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 131,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

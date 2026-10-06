@@ -1,0 +1,63 @@
+{
+  "request_model": "google/gemini-3.5-flash",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Write a Python function `valid_brackets(s: str) -> bool` that returns True if every bracket in `s` is correctly matched and nested, considering the three bracket types (), [] and {}, and ignoring all other characters. For example, `valid_brackets(\"a[b(c)]{}\")` returns True and `valid_brackets(\"([)]\")` returns False. Use only the Python standard library. Include a docstring and brief inline comments. Return only the code in a single Python code block, with no explanation before or after."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916304-skwnxYG2CtMGnxAbQBen",
+    "object": "chat.completion",
+    "created": 1790916304,
+    "model": "google/gemini-3.5-flash",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "```python\ndef valid_brackets(s: str) -> bool:\n    \"\"\"Returns True if every bracket in s is correctly matched and nested,\n\n    considering (), [], and {}, and ignoring all other characters.\n    \"\"\"\n    # Map each closing bracket to its corresponding opening bracket\n    bracket_map = {\")\": \"(\", \"]\": \"[\", \"}\": \"{\"}\n    opening_brackets = set(bracket_map.values())\n    stack = []\n\n    for char in s:\n        if char in opening_brackets:\n            # Push opening brackets onto the stack\n            stack.append(char)\n        elif char in bracket_map:\n            # For closing brackets, check if they match the most recent unmatched opening bracket\n            if not stack or stack[-1] != bracket_map[char]:\n                return False\n            stack.pop()\n\n    # If the stack is empty, all brackets were properly closed and nested\n    return len(stack) == 0\n```",
+          "refusal": null,
+          "reasoning": "**Developing Bracket Validation Logic**\n\nI'm currently refining the core logic for validating bracket sequences. My focus is on efficiently tracking opening brackets and ensuring they are correctly closed by their corresponding types, while also handling nested structures. The aim is to create a robust and clean implementation.\n\n**Refining Bracket Matching**\n\nI'm currently implementing the stack-based algorithm to ensure each opening bracket has a corresponding, correctly placed closing bracket. My current focus is on handling the edge cases of an empty stack when encountering a closing bracket and ensuring the stack is empty at the end.\n\n**Finalizing Bracket Checks**\n\nI've successfully implemented and tested the core bracket matching logic. My current focus is on ensuring the final state of the stack correctly indicates whether all opened brackets were properly closed, verifying the algorithm\u2019s completeness.\n\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "**Developing Bracket Validation Logic**\n\nI'm currently refining the core logic for validating bracket sequences. My focus is on efficiently tracking opening brackets and ensuring they are correctly closed by their corresponding types, while also handling nested structures. The aim is to create a robust and clean implementation.\n\n**Refining Bracket Matching**\n\nI'm currently implementing the stack-based algorithm to ensure each opening bracket has a corresponding, correctly placed closing bracket. My current focus is on handling the edge cases of an empty stack when encountering a closing bracket and ensuring the stack is empty at the end.\n\n**Finalizing Bracket Checks**\n\nI've successfully implemented and tested the core bracket matching logic. My current focus is on ensuring the final state of the stack correctly indicates whether all opened brackets were properly closed, verifying the algorithm\u2019s completeness.\n\n",
+              "format": "google-gemini-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 112,
+      "completion_tokens": 1060,
+      "total_tokens": 1172,
+      "cost": 0.009708,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.009708,
+        "upstream_inference_prompt_cost": 0.000168,
+        "upstream_inference_completions_cost": 0.00954
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 848,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

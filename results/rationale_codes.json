@@ -1,0 +1,4619 @@
+{
+  "n_reasons": 1900,
+  "categories": [
+    "length",
+    "format_punct",
+    "structure",
+    "syntax",
+    "lexical",
+    "tone",
+    "hedging",
+    "rhetoric",
+    "brand_prior",
+    "self_reference",
+    "content"
+  ],
+  "codebook": {
+    "length": "Amount of text or elaboration in the response as a whole (long, lengthy, expansive, extensive, verbose, concise, brief, short/compact paragraphs). Sentence length is syntax, not length.",
+    "format_punct": "Specific punctuation marks (em-dash, semicolon, colon, commas, parentheses) or visual formatting (lists, bullets, enumeration, headers, bold, markdown).",
+    "structure": "Organisation of the document: overall structure, N-paragraph or three-part layout, topic sentences, thesis, introduction, conclusion/summary, transitions and signposting, formulaic essay format, logical flow or progression.",
+    "syntax": "Sentence-level construction: sentence length or complexity, clauses, run-ons, parallelism, cadence, pacing, rhythm, 'flowing' sentences or prose.",
+    "lexical": "Word choice: vocabulary, diction, phrasing, wording, terminology, jargon, cliches, spelling, named transition words, or any quoted word or phrase from the text.",
+    "tone": "Tone, voice or register: formal, academic, conversational, essayistic, literary, corporate, direct, plain, neutral, calm, reflective, assertive, persuasive, educational, narrative.",
+    "hedging": "Hedging or even-handedness: hedged claims, qualifications, caveats, nuance, measured, careful, concessions, balanced prose/tone/argument (but not 'balanced structure', which is structure).",
+    "rhetoric": "Rhetorical flourish or figurative language: metaphors, imagery, vivid or colourful language, flourishes, ornate, elaborate or overwrought phrasing, rhetorical contrasts.",
+    "brand_prior": "Appeal to what a named model typically or characteristically writes: 'typical of GPT', 'characteristic of Claude', 'Claude-like', 'GPT-style', 'hallmark/signature/classic X', 'resembles X', 'Grok's persona', 'without typical GPT cliches'. Merely stating the conclusion ('suggests Claude') is not a brand prior.",
+    "self_reference": "The judge refers to itself or its own writing ('my style', 'as I would write', 'this is how I write').",
+    "content": "What is said and how good it is: detail, depth, examples, evidence, references, statistics, specificity, focus or emphasis, analysis, insight, clarity, polish, elegance, sophistication (of the prose, not the vocabulary)."
+  },
+  "lexicon": {
+    "length": [
+      "\\b(?:lengthy|verbose|wordy|long-winded|succinct|terse|brevity)\\b",
+      "\\bconcise(?:ness)?\\b",
+      "\\bbrief\\b",
+      "\\b(?:expansive|extensive|exhaustive)\\b",
+      "\\belaboration\\b",
+      "(?<!sentence )\\blength\\b",
+      "\\bword count\\b",
+      "\\b(?:long|longer|longest|short|shorter|shortest|compact)\\b(?!-term)(?![\\s,-]+(?:[\\w-]+[\\s,-]+){0,3}?(?:sentence|clause))"
+    ],
+    "format_punct": [
+      "\\bpunctuat",
+      "em[- ]?dash",
+      "\\bdash(?:es)?\\b",
+      "\\bsemicolon",
+      "\\bcolons?\\b",
+      "\\bcommas?\\b",
+      "\\bparenthe",
+      "\\bbullet",
+      "\\blist(?:s|ing)?\\b",
+      "\\bnumbered\\b",
+      "\\benumerat",
+      "\\bheaders?\\b",
+      "\\bheadings?\\b",
+      "\\bbold\\b",
+      "\\bmarkdown\\b",
+      "\\bformatting\\b"
+    ],
+    "structure": [
+      "\\bstructur(?!al terminology)",
+      "\\borgani[sz]",
+      "\\b[\\w]+[- ]paragraph\\b",
+      "\\b(?:tri-?part|tripartite|three-part|three-pronged|three-reason)",
+      "\\btopic sentence",
+      "\\bthesis\\b",
+      "\\bintroduct",
+      "\\bintro\\b",
+      "\\bopen(?:er|ing)\\b",
+      "\\bconclu(?:sion|ding|des)\\b",
+      "\\bsummar",
+      "\\btransition",
+      "\\bsignpost",
+      "\\broadmap\\b",
+      "\\bformulaic\\b",
+      "\\bframework\\b",
+      "\\bprogression\\b",
+      "\\bformat\\b",
+      "\\bsection",
+      "\\blogical(?:ly)?\\b",
+      "\\bflow\\b",
+      "\\bcohesive\\b",
+      "\\bcoherent\\b",
+      "\\bmethodical\\b",
+      "\\bsystematic\\b"
+    ],
+    "syntax": [
+      "(?<!topic )\\bsentences?\\b",
+      "\\bclause",
+      "\\brun-on\\b",
+      "\\bsyntax",
+      "\\bsyntactic",
+      "\\bcadence\\b",
+      "\\bpacing\\b",
+      "\\brhythm",
+      "\\bflowing\\b",
+      "\\bparallel(?:ism)?\\b(?!\\s+topic)",
+      "\\bchoppy\\b",
+      "\\bcompound\\b",
+      "\\bnested\\b",
+      "\\bsubordinat",
+      "not[- ]x[- ]but",
+      "not merely"
+    ],
+    "lexical": [
+      "\\bvocabular",
+      "\\bword choice",
+      "\\blexic",
+      "\\bdiction\\b",
+      "\\bjargon",
+      "\\bterminolog",
+      "\\bphras(?:e|es|ing)\\b",
+      "\\bwording\\b",
+      "\\bwords?\\b(?! count)",
+      "\\bterms? (?:like|such)",
+      "\\bclich",
+      "\\bbuzzword",
+      "\\bidiom",
+      "\\bspelling\\b",
+      "\\bdelve",
+      "\\btransition(?:al)? (?:words|phrases|markers)",
+      "(?:(?<=\\s)|(?<=\\()|^)['\\\"\u2018\u201c]\\w[^'\\\"\u2019\u201d]{2,}['\\\"\u2019\u201d]"
+    ],
+    "tone": [
+      "\\btone\\b",
+      "\\bvoice\\b",
+      "\\bregister\\b",
+      "\\bformal(?:ity)?\\b",
+      "\\binformal\\b",
+      "\\bacademic(?:ally)?\\b(?!\\s+vocabulary)",
+      "\\bconversational\\b",
+      "\\bcasual\\b",
+      "\\bchatty\\b",
+      "\\bcolloquial",
+      "\\bessay(?:istic|-like)\\b",
+      "\\bliterary\\b(?!\\s+flourish)",
+      "\\bcorporate\\b",
+      "\\bdirect\\b",
+      "\\bstraightforward\\b",
+      "\\bplain\\b",
+      "\\bcalm\\b",
+      "\\breflective\\b",
+      "\\bpersuasive\\b",
+      "\\bassertive\\b",
+      "\\bconfident\\b",
+      "\\bprofessional\\b",
+      "\\bhuman-?like\\b",
+      "\\bnaturalistic\\b",
+      "\\bwarm(?:th)?\\b",
+      "\\bpunchy\\b(?!\\s+metaphor)",
+      "\\bclassroom\\b",
+      "\\beducational\\b",
+      "\\btextbook\\b",
+      "\\bnarrative\\b",
+      "\\bdry\\b",
+      "\\bneutral\\b",
+      "\\benthusias",
+      "\\bupbeat\\b",
+      "\\bengaging\\b",
+      "\\bplayful",
+      "\\bwitty\\b",
+      "\\bwry\\b",
+      "\\bhumou?r",
+      "\\bcrisp\\b",
+      "\\bpersona(?:lity)?\\b",
+      "\\bsimpler?\\b",
+      "\\bphilosophical (?:tone|voice|style|prose|register)"
+    ],
+    "hedging": [
+      "\\bhedg",
+      "\\bqualif",
+      "\\bcaveat",
+      "\\bnuanc\\w*\\b(?!\\s+(?:\\w+\\s+)?(?:sentences?|contrasts?|transitions?))",
+      "\\bmeasured\\b",
+      "\\bcautious",
+      "\\bcareful(?:ly)?\\b(?!\\s+examples)",
+      "\\bconcession",
+      "\\bcounter-?argument",
+      "\\beven-?handed",
+      "\\bboth sides\\b",
+      "\\bbalanced\\b(?![\\s,-]+(?:[\\w-]+[\\s,-]+){0,2}?(?:structure|paragraph|sentence|syntax|syntactic|tri|three|clause|essay|format|organi))"
+    ],
+    "rhetoric": [
+      "\\bmetaphor",
+      "\\bimagery\\b",
+      "\\bvivid",
+      "\\bflourish",
+      "\\brhetoric(?!ally balanced)",
+      "\\banalog(?:y|ies)\\b",
+      "\\bfigurative",
+      "\\bflorid\\b",
+      "\\bornate\\b",
+      "\\bflowery\\b",
+      "\\bembellish",
+      "\\boverwrought\\b",
+      "\\bcolou?rful\\b",
+      "\\bdramatic\\b(?!\\s+(?:\\w+\\s+)?tone)",
+      "\\bpoetic",
+      "\\blyrical",
+      "\\baphoris",
+      "\\belaborate\\b(?!\\s+(?:academic\\s+)?(?:vocabulary|structure))"
+    ],
+    "brand_prior": [
+      "\\b(?:typical|typically|characteristic|reminiscent|hallmark|signature|classic|common)\\b[^.]{0,40}?\\b(?:chatgpt|gpt(?:-?\\d+(?:\\.\\d+)?)?|claude(?: \\d(?:\\.\\d)?)?(?: sonnet| opus)?|gemini|grok|deepseek|openai|anthropic)\\b",
+      "\\b(?:chatgpt|gpt(?:-?\\d+(?:\\.\\d+)?)?|claude(?: \\d(?:\\.\\d)?)?(?: sonnet| opus)?|gemini|grok|deepseek|openai|anthropic)[- ]?(?:like|style|esque)\\b",
+      "\\b(?:chatgpt|gpt(?:-?\\d+(?:\\.\\d+)?)?|claude(?: \\d(?:\\.\\d)?)?(?: sonnet| opus)?|gemini|grok|deepseek|openai|anthropic)['\u2019]s\\b[^.]{0,40}?\\b(?:style|persona|output|writing|voice|tendenc|signature|characteristic|capabilit|typical|habit)",
+      "\\b(?:resembl\\w*|familiar|known for|tends? to|consistent with)\\b[^.]{0,30}?\\b(?:chatgpt|gpt(?:-?\\d+(?:\\.\\d+)?)?|claude(?: \\d(?:\\.\\d)?)?(?: sonnet| opus)?|gemini|grok|deepseek|openai|anthropic)\\b"
+    ],
+    "self_reference": [
+      "\\bmy (?:own )?(?:style|writing|voice|outputs?|responses?|phrasing|habits?)\\b",
+      "\\bI (?:would|often|usually|typically|tend to) (?:write|phrase|use|structure)",
+      "\\bas I would\\b",
+      "\\blike (?:I|me) (?:would|do)\\b",
+      "\\bmyself\\b",
+      "\\bmine\\b",
+      "\\bmy own\\b"
+    ],
+    "content": [
+      "\\bdetail",
+      "\\bexamples?\\b",
+      "\\bexample-",
+      "\\bspecific(?:s|ity)?\\b",
+      "\\bconcrete\\b",
+      "\\bevidence",
+      "\\bempirical\\b",
+      "\\bstatistic",
+      "\\bdata\\b",
+      "\\bcitation",
+      "\\bcites?\\b",
+      "\\breferences?\\b",
+      "\\bresearch\\b",
+      "\\bstud(?:y|ies)\\b",
+      "\\bdepth\\b",
+      "\\bdeep\\b",
+      "\\bin-depth\\b",
+      "\\bcomprehensive",
+      "\\bthorough",
+      "\\bcoverage\\b",
+      "\\binsight",
+      "\\banaly(?:sis|tic|tical)\\b",
+      "\\bargued\\b",
+      "\\breasoning\\b",
+      "\\bsynthesis\\b",
+      "\\bpractical\\b",
+      "\\bfocus",
+      "\\bemphasi[sz]",
+      "\\bpolish",
+      "(?<!rhetorically )\\belegan",
+      "\\beloquen",
+      "\\bsophisticat\\w*\\b(?!\\s+(?:\\w+\\s+)?(?:vocabulary|punctuation|diction|word))",
+      "\\bclarity\\b",
+      "\\bclear\\b(?![\\s,-]+(?:[\\w-]+[\\s,-]+){0,2}?(?:structure|topic|transition|thesis|paragraph|three|sectional|logical))",
+      "\\bthoughtful\\b(?!\\s+pacing)",
+      "\\bcomplex\\b(?![\\s,]+(?:\\w+[\\s,]+)?(?:sentence|prose))",
+      "\\bquality\\b",
+      "\\bframing\\b",
+      "\\baccessib",
+      "\\bhelpful\\b",
+      "\\bexploration\\b",
+      "\\bsubstan",
+      "\\bphilosophical(?:ly)? (?:depth|deep|argument)",
+      "\\binformative\\b",
+      "\\bcapabilit"
+    ]
+  },
+  "lexicon_v0": {
+    "length": [
+      "\\b(?:lengthy|verbose|wordy|long-winded|succinct|terse|brevity)\\b",
+      "\\bconcise(?:ness)?\\b",
+      "\\bbrief\\b",
+      "\\b(?:expansive|extensive|exhaustive)\\b",
+      "\\belaboration\\b",
+      "(?<!sentence )\\blength\\b",
+      "\\bword count\\b",
+      "\\b(?:long|longer|longest|short|shorter|shortest|compact)\\b(?![\\s,-]+(?:[\\w-]+[\\s,-]+){0,3}?(?:sentence|clause))"
+    ],
+    "format_punct": [
+      "\\bpunctuat",
+      "em[- ]?dash",
+      "\\bdash(?:es)?\\b",
+      "\\bsemicolon",
+      "\\bcolons?\\b",
+      "\\bcommas?\\b",
+      "\\bparenthe",
+      "\\bbullet",
+      "\\blist(?:s|ing)?\\b",
+      "\\bnumbered\\b",
+      "\\benumerat",
+      "\\bheaders?\\b",
+      "\\bheadings?\\b",
+      "\\bbold\\b",
+      "\\bmarkdown\\b",
+      "\\bformatting\\b"
+    ],
+    "structure": [
+      "\\bstructur",
+      "\\borgani[sz]",
+      "\\b[\\w]+[- ]paragraph\\b",
+      "\\b(?:tri-?part|tripartite|three-part|three-pronged|three-reason)",
+      "\\btopic sentence",
+      "\\bthesis\\b",
+      "\\bintroduct",
+      "\\bintro\\b",
+      "\\bopen(?:er|ing)\\b",
+      "\\bconclu(?:sion|ding|des)\\b",
+      "\\bsummar",
+      "\\btransition",
+      "\\bsignpost",
+      "\\broadmap\\b",
+      "\\bformulaic\\b",
+      "\\bframework\\b",
+      "\\bprogression\\b",
+      "\\bformat\\b",
+      "\\bsection",
+      "\\blogical(?:ly)?\\b",
+      "\\bflow\\b",
+      "\\bcohesive\\b",
+      "\\bcoherent\\b",
+      "\\bmethodical\\b",
+      "\\bsystematic\\b"
+    ],
+    "syntax": [
+      "(?<!topic )\\bsentences?\\b",
+      "\\bclause",
+      "\\brun-on\\b",
+      "\\bsyntax",
+      "\\bsyntactic",
+      "\\bcadence\\b",
+      "\\bpacing\\b",
+      "\\brhythm",
+      "\\bflowing\\b",
+      "\\bparallel(?:ism)?\\b(?!\\s+topic)",
+      "\\bchoppy\\b",
+      "\\bcompound\\b",
+      "\\bnested\\b",
+      "\\bsubordinat",
+      "not[- ]x[- ]but",
+      "not merely"
+    ],
+    "lexical": [
+      "\\bvocabular",
+      "\\bword choice",
+      "\\blexic",
+      "\\bdiction\\b",
+      "\\bjargon",
+      "\\bterminolog",
+      "\\bphras(?:e|es|ing)\\b",
+      "\\bwording\\b",
+      "\\bwords?\\b(?! count)",
+      "\\bterms? (?:like|such)",
+      "\\bclich",
+      "\\bbuzzword",
+      "\\bidiom",
+      "\\bspelling\\b",
+      "\\bdelve",
+      "\\btransition(?:al)? (?:words|phrases|markers)",
+      "(?:(?<=\\s)|(?<=\\()|^)['\\\"\u2018\u201c]\\w[^'\\\"\u2019\u201d]{2,}['\\\"\u2019\u201d]"
+    ],
+    "tone": [
+      "\\btone\\b",
+      "\\bvoice\\b",
+      "\\bregister\\b",
+      "\\bformal(?:ity)?\\b",
+      "\\binformal\\b",
+      "\\bacademic(?:ally)?\\b",
+      "\\bconversational\\b",
+      "\\bcasual\\b",
+      "\\bchatty\\b",
+      "\\bcolloquial",
+      "\\bessay(?:istic|-like)\\b",
+      "\\bliterary\\b",
+      "\\bcorporate\\b",
+      "\\bdirect\\b",
+      "\\bstraightforward\\b",
+      "\\bplain\\b",
+      "\\bcalm\\b",
+      "\\breflective\\b",
+      "\\bpersuasive\\b",
+      "\\bassertive\\b",
+      "\\bconfident\\b",
+      "\\bprofessional\\b",
+      "\\bhuman-?like\\b",
+      "\\bnatural(?:istic)?\\b",
+      "\\bwarm(?:th)?\\b",
+      "\\bpunchy\\b",
+      "\\bclassroom\\b",
+      "\\beducational\\b",
+      "\\btextbook\\b",
+      "\\bnarrative\\b",
+      "\\bdry\\b",
+      "\\bneutral\\b",
+      "\\benthusias",
+      "\\bupbeat\\b",
+      "\\bengaging\\b",
+      "\\bplayful",
+      "\\bwitty\\b",
+      "\\bwry\\b",
+      "\\bhumou?r",
+      "\\bcrisp\\b",
+      "\\bpersona(?:lity)?\\b",
+      "\\bsimpler?\\b",
+      "\\bphilosophical (?:tone|voice|style|prose|register)"
+    ],
+    "hedging": [
+      "\\bhedg",
+      "\\bqualif",
+      "\\bcaveat",
+      "\\bnuanc",
+      "\\bmeasured\\b",
+      "\\bcautious",
+      "\\bcareful(?:ly)?\\b",
+      "\\bconcession",
+      "\\bcounter-?argument",
+      "\\beven-?handed",
+      "\\bboth sides\\b",
+      "\\bbalanced\\b(?![\\s,-]+(?:[\\w-]+[\\s,-]+){0,2}?(?:structure|paragraph|sentence|syntax|syntactic|tri|three|clause|essay|format|organi))"
+    ],
+    "rhetoric": [
+      "\\bmetaphor",
+      "\\bimagery\\b",
+      "\\bvivid",
+      "\\bflourish",
+      "\\brhetoric",
+      "\\banalog(?:y|ies)\\b",
+      "\\bfigurative",
+      "\\bflorid\\b",
+      "\\bornate\\b",
+      "\\bflowery\\b",
+      "\\bembellish",
+      "\\boverwrought\\b",
+      "\\bcolou?rful\\b",
+      "\\bdramatic\\b",
+      "\\bpoetic",
+      "\\blyrical",
+      "\\baphoris",
+      "\\belaborate\\b(?!\\s+(?:academic\\s+)?(?:vocabulary|structure))"
+    ],
+    "brand_prior": [
+      "\\b(?:typical|typically|characteristic|reminiscent|hallmark|signature|classic|common)\\b[^.]{0,40}?\\b(?:chatgpt|gpt(?:-?\\d+(?:\\.\\d+)?)?|claude(?: \\d(?:\\.\\d)?)?(?: sonnet| opus)?|gemini|grok|deepseek|openai|anthropic)\\b",
+      "\\b(?:chatgpt|gpt(?:-?\\d+(?:\\.\\d+)?)?|claude(?: \\d(?:\\.\\d)?)?(?: sonnet| opus)?|gemini|grok|deepseek|openai|anthropic)[- ]?(?:like|style|esque)\\b",
+      "\\b(?:chatgpt|gpt(?:-?\\d+(?:\\.\\d+)?)?|claude(?: \\d(?:\\.\\d)?)?(?: sonnet| opus)?|gemini|grok|deepseek|openai|anthropic)['\u2019]s\\b[^.]{0,40}?\\b(?:style|persona|output|writing|voice|tendenc|signature|characteristic|capabilit|typical|habit)",
+      "\\b(?:resembl\\w*|familiar|known for|tends? to|consistent with)\\b[^.]{0,30}?\\b(?:chatgpt|gpt(?:-?\\d+(?:\\.\\d+)?)?|claude(?: \\d(?:\\.\\d)?)?(?: sonnet| opus)?|gemini|grok|deepseek|openai|anthropic)\\b"
+    ],
+    "self_reference": [
+      "\\bmy (?:own )?(?:style|writing|voice|outputs?|responses?|phrasing|habits?)\\b",
+      "\\bI (?:would|often|usually|typically|tend to) (?:write|phrase|use|structure)",
+      "\\bas I would\\b",
+      "\\blike (?:I|me) (?:would|do)\\b",
+      "\\bmyself\\b",
+      "\\bmine\\b",
+      "\\bmy own\\b"
+    ],
+    "content": [
+      "\\bdetail",
+      "\\bexamples?\\b",
+      "\\bexample-",
+      "\\bspecific(?:s|ity)?\\b",
+      "\\bconcrete\\b",
+      "\\bevidence",
+      "\\bempirical\\b",
+      "\\bstatistic",
+      "\\bdata\\b",
+      "\\bcitation",
+      "\\bcites?\\b",
+      "\\breferences?\\b",
+      "\\bresearch\\b",
+      "\\bstud(?:y|ies)\\b",
+      "\\bdepth\\b",
+      "\\bdeep\\b",
+      "\\bin-depth\\b",
+      "\\bcomprehensive",
+      "\\bthorough",
+      "\\bcoverage\\b",
+      "\\binsight",
+      "\\banaly(?:sis|tic|tical)\\b",
+      "\\bargued\\b",
+      "\\breasoning\\b",
+      "\\bsynthesis\\b",
+      "\\bpractical\\b",
+      "\\bfocus",
+      "\\bemphasi[sz]",
+      "\\bpolish",
+      "\\belegan",
+      "\\beloquen",
+      "\\bsophisticat\\w*\\b(?!\\s+(?:\\w+\\s+)?(?:vocabulary|punctuation|diction|word))",
+      "\\bclarity\\b",
+      "\\bclear\\b(?![\\s,-]+(?:[\\w-]+[\\s,-]+){0,2}?(?:structure|topic|transition|thesis|paragraph|three|sectional|logical))",
+      "\\bthoughtful\\b",
+      "\\bcomplex\\b(?![\\s,]+(?:\\w+[\\s,]+)?(?:sentence|prose))",
+      "\\bquality\\b",
+      "\\bframing\\b",
+      "\\baccessib",
+      "\\bhelpful\\b",
+      "\\bexploration\\b",
+      "\\bsubstan",
+      "\\bphilosophical(?:ly)? (?:depth|deep|argument)",
+      "\\binformative\\b",
+      "\\bcapabilit"
+    ]
+  },
+  "validation": {
+    "n": {
+      "tune": 100,
+      "holdout": 50
+    },
+    "annotator": "Claude (LLM; same agent that wrote the lexicon)",
+    "annotator2": "Claude, separate blind instance: saw only the codebook and the 150 reasons, not the lexicon or annotator 1 labels",
+    "v0": {
+      "tune": {
+        "length": {
+          "hand_n": 15,
+          "rule_n": 17,
+          "tp": 15,
+          "fp": 2,
+          "fn": 0,
+          "precision": 0.8823529411764706,
+          "recall": 1.0,
+          "f1": 0.9375,
+          "kappa": 0.9256505576208178
+        },
+        "format_punct": {
+          "hand_n": 2,
+          "rule_n": 2,
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "kappa": 1.0
+        },
+        "structure": {
+          "hand_n": 60,
+          "rule_n": 62,
+          "tp": 60,
+          "fp": 2,
+          "fn": 0,
+          "precision": 0.967741935483871,
+          "recall": 1.0,
+          "f1": 0.9836065573770492,
+          "kappa": 0.9579831932773109
+        },
+        "syntax": {
+          "hand_n": 20,
+          "rule_n": 19,
+          "tp": 19,
+          "fp": 0,
+          "fn": 1,
+          "precision": 1.0,
+          "recall": 0.95,
+          "f1": 0.9743589743589743,
+          "kappa": 0.9681528662420382
+        },
+        "lexical": {
+          "hand_n": 45,
+          "rule_n": 45,
+          "tp": 45,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "kappa": 1.0
+        },
+        "tone": {
+          "hand_n": 57,
+          "rule_n": 63,
+          "tp": 57,
+          "fp": 6,
+          "fn": 0,
+          "precision": 0.9047619047619048,
+          "recall": 1.0,
+          "f1": 0.9500000000000001,
+          "kappa": 0.8754669987546699
+        },
+        "hedging": {
+          "hand_n": 26,
+          "rule_n": 28,
+          "tp": 25,
+          "fp": 3,
+          "fn": 1,
+          "precision": 0.8928571428571429,
+          "recall": 0.9615384615384616,
+          "f1": 0.9259259259259259,
+          "kappa": 0.8985801217038538
+        },
+        "rhetoric": {
+          "hand_n": 11,
+          "rule_n": 13,
+          "tp": 11,
+          "fp": 2,
+          "fn": 0,
+          "precision": 0.8461538461538461,
+          "recall": 1.0,
+          "f1": 0.9166666666666666,
+          "kappa": 0.9053926206244086
+        },
+        "brand_prior": {
+          "hand_n": 72,
+          "rule_n": 72,
+          "tp": 72,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "kappa": 1.0
+        },
+        "self_reference": {
+          "hand_n": 0,
+          "rule_n": 0,
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "kappa": null
+        },
+        "content": {
+          "hand_n": 61,
+          "rule_n": 61,
+          "tp": 58,
+          "fp": 3,
+          "fn": 3,
+          "precision": 0.9508196721311475,
+          "recall": 0.9508196721311475,
+          "f1": 0.9508196721311475,
+          "kappa": 0.8738965952080705
+        },
+        "other": {
+          "hand_n": 0,
+          "rule_n": 0,
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "kappa": null
+        },
+        "_micro": {
+          "tp": 364,
+          "fp": 18,
+          "fn": 5,
+          "precision": 0.9528795811518325,
+          "recall": 0.986449864498645,
+          "f1": 0.9693741677762983
+        },
+        "_exact_match": 0.81
+      },
+      "holdout": {
+        "length": {
+          "hand_n": 8,
+          "rule_n": 8,
+          "tp": 8,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "kappa": 1.0
+        },
+        "format_punct": {
+          "hand_n": 3,
+          "rule_n": 3,
+          "tp": 3,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "kappa": 1.0
+        },
+        "structure": {
+          "hand_n": 39,
+          "rule_n": 43,
+          "tp": 39,
+          "fp": 4,
+          "fn": 0,
+          "precision": 0.9069767441860465,
+          "recall": 1.0,
+          "f1": 0.951219512195122,
+          "kappa": 0.7319034852546918
+        },
+        "syntax": {
+          "hand_n": 10,
+          "rule_n": 10,
+          "tp": 10,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "kappa": 1.0
+        },
+        "lexical": {
+          "hand_n": 21,
+          "rule_n": 21,
+          "tp": 21,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "kappa": 1.0
+        },
+        "tone": {
+          "hand_n": 27,
+          "rule_n": 30,
+          "tp": 27,
+          "fp": 3,
+          "fn": 0,
+          "precision": 0.9,
+          "recall": 1.0,
+          "f1": 0.9473684210526316,
+          "kappa": 0.8780487804878048
+        },
+        "hedging": {
+          "hand_n": 13,
+          "rule_n": 14,
+          "tp": 13,
+          "fp": 1,
+          "fn": 0,
+          "precision": 0.9285714285714286,
+          "recall": 1.0,
+          "f1": 0.962962962962963,
+          "kappa": 0.9492900608519269
+        },
+        "rhetoric": {
+          "hand_n": 5,
+          "rule_n": 6,
+          "tp": 5,
+          "fp": 1,
+          "fn": 0,
+          "precision": 0.8333333333333334,
+          "recall": 1.0,
+          "f1": 0.9090909090909091,
+          "kappa": 0.8979591836734693
+        },
+        "brand_prior": {
+          "hand_n": 37,
+          "rule_n": 36,
+          "tp": 36,
+          "fp": 0,
+          "fn": 1,
+          "precision": 1.0,
+          "recall": 0.972972972972973,
+          "f1": 0.9863013698630138,
+          "kappa": 0.9492900608519269
+        },
+        "self_reference": {
+          "hand_n": 0,
+          "rule_n": 0,
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "kappa": null
+        },
+        "content": {
+          "hand_n": 26,
+          "rule_n": 31,
+          "tp": 26,
+          "fp": 5,
+          "fn": 0,
+          "precision": 0.8387096774193549,
+          "recall": 1.0,
+          "f1": 0.9122807017543859,
+          "kappa": 0.7980613893376414
+        },
+        "other": {
+          "hand_n": 0,
+          "rule_n": 0,
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "kappa": null
+        },
+        "_micro": {
+          "tp": 188,
+          "fp": 14,
+          "fn": 1,
+          "precision": 0.9306930693069307,
+          "recall": 0.9947089947089947,
+          "f1": 0.9616368286445013
+        },
+        "_exact_match": 0.74
+      },
+      "all": {
+        "length": {
+          "hand_n": 23,
+          "rule_n": 25,
+          "tp": 23,
+          "fp": 2,
+          "fn": 0,
+          "precision": 0.92,
+          "recall": 1.0,
+          "f1": 0.9583333333333334,
+          "kappa": 0.9504132231404959
+        },
+        "format_punct": {
+          "hand_n": 5,
+          "rule_n": 5,
+          "tp": 5,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "kappa": 1.0
+        },
+        "structure": {
+          "hand_n": 99,
+          "rule_n": 105,
+          "tp": 99,
+          "fp": 6,
+          "fn": 0,
+          "precision": 0.9428571428571428,
+          "recall": 1.0,
+          "f1": 0.9705882352941176,
+          "kappa": 0.9082568807339448
+        },
+        "syntax": {
+          "hand_n": 30,
+          "rule_n": 29,
+          "tp": 29,
+          "fp": 0,
+          "fn": 1,
+          "precision": 1.0,
+          "recall": 0.9666666666666667,
+          "f1": 0.983050847457627,
+          "kappa": 0.9789029535864977
+        },
+        "lexical": {
+          "hand_n": 66,
+          "rule_n": 66,
+          "tp": 66,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "kappa": 1.0
+        },
+        "tone": {
+          "hand_n": 84,
+          "rule_n": 93,
+          "tp": 84,
+          "fp": 9,
+          "fn": 0,
+          "precision": 0.9032258064516129,
+          "recall": 1.0,
+          "f1": 0.9491525423728813,
+          "kappa": 0.8764415156507412
+        },
+        "hedging": {
+          "hand_n": 39,
+          "rule_n": 42,
+          "tp": 38,
+          "fp": 4,
+          "fn": 1,
+          "precision": 0.9047619047619048,
+          "recall": 0.9743589743589743,
+          "f1": 0.9382716049382716,
+          "kappa": 0.9154834347532116
+        },
+        "rhetoric": {
+          "hand_n": 16,
+          "rule_n": 19,
+          "tp": 16,
+          "fp": 3,
+          "fn": 0,
+          "precision": 0.8421052631578947,
+          "recall": 1.0,
+          "f1": 0.9142857142857143,
+          "kappa": 0.903059026281775
+        },
+        "brand_prior": {
+          "hand_n": 109,
+          "rule_n": 108,
+          "tp": 108,
+          "fp": 0,
+          "fn": 1,
+          "precision": 1.0,
+          "recall": 0.9908256880733946,
+          "f1": 0.9953917050691244,
+          "kappa": 0.9833444370419719
+        },
+        "self_reference": {
+          "hand_n": 0,
+          "rule_n": 0,
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "kappa": null
+        },
+        "content": {
+          "hand_n": 87,
+          "rule_n": 92,
+          "tp": 84,
+          "fp": 8,
+          "fn": 3,
+          "precision": 0.9130434782608695,
+          "recall": 0.9655172413793104,
+          "f1": 0.9385474860335196,
+          "kappa": 0.8478140564471499
+        },
+        "other": {
+          "hand_n": 0,
+          "rule_n": 0,
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "kappa": null
+        },
+        "_micro": {
+          "tp": 552,
+          "fp": 32,
+          "fn": 6,
+          "precision": 0.9452054794520548,
+          "recall": 0.989247311827957,
+          "f1": 0.9667250437828371
+        },
+        "_exact_match": 0.7866666666666666
+      }
+    },
+    "final": {
+      "tune": {
+        "length": {
+          "hand_n": 15,
+          "rule_n": 16,
+          "tp": 15,
+          "fp": 1,
+          "fn": 0,
+          "precision": 0.9375,
+          "recall": 1.0,
+          "f1": 0.967741935483871,
+          "kappa": 0.9618320610687022
+        },
+        "format_punct": {
+          "hand_n": 2,
+          "rule_n": 2,
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "kappa": 1.0
+        },
+        "structure": {
+          "hand_n": 60,
+          "rule_n": 61,
+          "tp": 60,
+          "fp": 1,
+          "fn": 0,
+          "precision": 0.9836065573770492,
+          "recall": 1.0,
+          "f1": 0.9917355371900827,
+          "kappa": 0.9790794979079498
+        },
+        "syntax": {
+          "hand_n": 20,
+          "rule_n": 19,
+          "tp": 19,
+          "fp": 0,
+          "fn": 1,
+          "precision": 1.0,
+          "recall": 0.95,
+          "f1": 0.9743589743589743,
+          "kappa": 0.9681528662420382
+        },
+        "lexical": {
+          "hand_n": 45,
+          "rule_n": 45,
+          "tp": 45,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "kappa": 1.0
+        },
+        "tone": {
+          "hand_n": 57,
+          "rule_n": 59,
+          "tp": 57,
+          "fp": 2,
+          "fn": 0,
+          "precision": 0.9661016949152542,
+          "recall": 1.0,
+          "f1": 0.9827586206896551,
+          "kappa": 0.9589659417316372
+        },
+        "hedging": {
+          "hand_n": 26,
+          "rule_n": 25,
+          "tp": 25,
+          "fp": 0,
+          "fn": 1,
+          "precision": 1.0,
+          "recall": 0.9615384615384616,
+          "f1": 0.9803921568627451,
+          "kappa": 0.9736842105263158
+        },
+        "rhetoric": {
+          "hand_n": 11,
+          "rule_n": 11,
+          "tp": 11,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "kappa": 1.0
+        },
+        "brand_prior": {
+          "hand_n": 72,
+          "rule_n": 72,
+          "tp": 72,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "kappa": 1.0
+        },
+        "self_reference": {
+          "hand_n": 0,
+          "rule_n": 0,
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "kappa": null
+        },
+        "content": {
+          "hand_n": 61,
+          "rule_n": 59,
+          "tp": 58,
+          "fp": 1,
+          "fn": 3,
+          "precision": 0.9830508474576272,
+          "recall": 0.9508196721311475,
+          "f1": 0.9666666666666667,
+          "kappa": 0.9167013744273219
+        },
+        "other": {
+          "hand_n": 0,
+          "rule_n": 0,
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "kappa": null
+        },
+        "_micro": {
+          "tp": 364,
+          "fp": 5,
+          "fn": 5,
+          "precision": 0.986449864498645,
+          "recall": 0.986449864498645,
+          "f1": 0.986449864498645
+        },
+        "_exact_match": 0.91
+      },
+      "holdout": {
+        "length": {
+          "hand_n": 8,
+          "rule_n": 8,
+          "tp": 8,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "kappa": 1.0
+        },
+        "format_punct": {
+          "hand_n": 3,
+          "rule_n": 3,
+          "tp": 3,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "kappa": 1.0
+        },
+        "structure": {
+          "hand_n": 39,
+          "rule_n": 43,
+          "tp": 39,
+          "fp": 4,
+          "fn": 0,
+          "precision": 0.9069767441860465,
+          "recall": 1.0,
+          "f1": 0.951219512195122,
+          "kappa": 0.7319034852546918
+        },
+        "syntax": {
+          "hand_n": 10,
+          "rule_n": 10,
+          "tp": 10,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "kappa": 1.0
+        },
+        "lexical": {
+          "hand_n": 21,
+          "rule_n": 21,
+          "tp": 21,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "kappa": 1.0
+        },
+        "tone": {
+          "hand_n": 27,
+          "rule_n": 30,
+          "tp": 27,
+          "fp": 3,
+          "fn": 0,
+          "precision": 0.9,
+          "recall": 1.0,
+          "f1": 0.9473684210526316,
+          "kappa": 0.8780487804878048
+        },
+        "hedging": {
+          "hand_n": 13,
+          "rule_n": 14,
+          "tp": 13,
+          "fp": 1,
+          "fn": 0,
+          "precision": 0.9285714285714286,
+          "recall": 1.0,
+          "f1": 0.962962962962963,
+          "kappa": 0.9492900608519269
+        },
+        "rhetoric": {
+          "hand_n": 5,
+          "rule_n": 6,
+          "tp": 5,
+          "fp": 1,
+          "fn": 0,
+          "precision": 0.8333333333333334,
+          "recall": 1.0,
+          "f1": 0.9090909090909091,
+          "kappa": 0.8979591836734693
+        },
+        "brand_prior": {
+          "hand_n": 37,
+          "rule_n": 36,
+          "tp": 36,
+          "fp": 0,
+          "fn": 1,
+          "precision": 1.0,
+          "recall": 0.972972972972973,
+          "f1": 0.9863013698630138,
+          "kappa": 0.9492900608519269
+        },
+        "self_reference": {
+          "hand_n": 0,
+          "rule_n": 0,
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "kappa": null
+        },
+        "content": {
+          "hand_n": 26,
+          "rule_n": 31,
+          "tp": 26,
+          "fp": 5,
+          "fn": 0,
+          "precision": 0.8387096774193549,
+          "recall": 1.0,
+          "f1": 0.9122807017543859,
+          "kappa": 0.7980613893376414
+        },
+        "other": {
+          "hand_n": 0,
+          "rule_n": 0,
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "kappa": null
+        },
+        "_micro": {
+          "tp": 188,
+          "fp": 14,
+          "fn": 1,
+          "precision": 0.9306930693069307,
+          "recall": 0.9947089947089947,
+          "f1": 0.9616368286445013
+        },
+        "_exact_match": 0.74
+      },
+      "all": {
+        "length": {
+          "hand_n": 23,
+          "rule_n": 24,
+          "tp": 23,
+          "fp": 1,
+          "fn": 0,
+          "precision": 0.9583333333333334,
+          "recall": 1.0,
+          "f1": 0.9787234042553191,
+          "kappa": 0.9747729566094852
+        },
+        "format_punct": {
+          "hand_n": 5,
+          "rule_n": 5,
+          "tp": 5,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "kappa": 1.0
+        },
+        "structure": {
+          "hand_n": 99,
+          "rule_n": 104,
+          "tp": 99,
+          "fp": 5,
+          "fn": 0,
+          "precision": 0.9519230769230769,
+          "recall": 1.0,
+          "f1": 0.9753694581280787,
+          "kappa": 0.923919659160073
+        },
+        "syntax": {
+          "hand_n": 30,
+          "rule_n": 29,
+          "tp": 29,
+          "fp": 0,
+          "fn": 1,
+          "precision": 1.0,
+          "recall": 0.9666666666666667,
+          "f1": 0.983050847457627,
+          "kappa": 0.9789029535864977
+        },
+        "lexical": {
+          "hand_n": 66,
+          "rule_n": 66,
+          "tp": 66,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "kappa": 1.0
+        },
+        "tone": {
+          "hand_n": 84,
+          "rule_n": 89,
+          "tp": 84,
+          "fp": 5,
+          "fn": 0,
+          "precision": 0.9438202247191011,
+          "recall": 1.0,
+          "f1": 0.9710982658959537,
+          "kappa": 0.9318057828696127
+        },
+        "hedging": {
+          "hand_n": 39,
+          "rule_n": 39,
+          "tp": 38,
+          "fp": 1,
+          "fn": 1,
+          "precision": 0.9743589743589743,
+          "recall": 0.9743589743589743,
+          "f1": 0.9743589743589743,
+          "kappa": 0.9653499653499654
+        },
+        "rhetoric": {
+          "hand_n": 16,
+          "rule_n": 17,
+          "tp": 16,
+          "fp": 1,
+          "fn": 0,
+          "precision": 0.9411764705882353,
+          "recall": 1.0,
+          "f1": 0.9696969696969697,
+          "kappa": 0.9659555152065363
+        },
+        "brand_prior": {
+          "hand_n": 109,
+          "rule_n": 108,
+          "tp": 108,
+          "fp": 0,
+          "fn": 1,
+          "precision": 1.0,
+          "recall": 0.9908256880733946,
+          "f1": 0.9953917050691244,
+          "kappa": 0.9833444370419719
+        },
+        "self_reference": {
+          "hand_n": 0,
+          "rule_n": 0,
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "kappa": null
+        },
+        "content": {
+          "hand_n": 87,
+          "rule_n": 90,
+          "tp": 84,
+          "fp": 6,
+          "fn": 3,
+          "precision": 0.9333333333333333,
+          "recall": 0.9655172413793104,
+          "f1": 0.9491525423728815,
+          "kappa": 0.8760330578512395
+        },
+        "other": {
+          "hand_n": 0,
+          "rule_n": 0,
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "kappa": null
+        },
+        "_micro": {
+          "tp": 552,
+          "fp": 19,
+          "fn": 6,
+          "precision": 0.9667250437828371,
+          "recall": 0.989247311827957,
+          "f1": 0.9778565101860053
+        },
+        "_exact_match": 0.8533333333333334
+      }
+    },
+    "final_vs_a2": {
+      "tune": {
+        "length": {
+          "hand_n": 17,
+          "rule_n": 16,
+          "tp": 16,
+          "fp": 0,
+          "fn": 1,
+          "precision": 1.0,
+          "recall": 0.9411764705882353,
+          "f1": 0.9696969696969697,
+          "kappa": 0.9637155297532656
+        },
+        "format_punct": {
+          "hand_n": 2,
+          "rule_n": 2,
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "kappa": 1.0
+        },
+        "structure": {
+          "hand_n": 61,
+          "rule_n": 61,
+          "tp": 60,
+          "fp": 1,
+          "fn": 1,
+          "precision": 0.9836065573770492,
+          "recall": 0.9836065573770492,
+          "f1": 0.9836065573770492,
+          "kappa": 0.9579655317360235
+        },
+        "syntax": {
+          "hand_n": 23,
+          "rule_n": 19,
+          "tp": 19,
+          "fp": 0,
+          "fn": 4,
+          "precision": 1.0,
+          "recall": 0.8260869565217391,
+          "f1": 0.9047619047619047,
+          "kappa": 0.8797354179194227
+        },
+        "lexical": {
+          "hand_n": 43,
+          "rule_n": 45,
+          "tp": 43,
+          "fp": 2,
+          "fn": 0,
+          "precision": 0.9555555555555556,
+          "recall": 1.0,
+          "f1": 0.9772727272727273,
+          "kappa": 0.9594320486815415
+        },
+        "tone": {
+          "hand_n": 60,
+          "rule_n": 59,
+          "tp": 56,
+          "fp": 3,
+          "fn": 4,
+          "precision": 0.9491525423728814,
+          "recall": 0.9333333333333333,
+          "f1": 0.9411764705882353,
+          "kappa": 0.8547717842323652
+        },
+        "hedging": {
+          "hand_n": 29,
+          "rule_n": 25,
+          "tp": 25,
+          "fp": 0,
+          "fn": 4,
+          "precision": 1.0,
+          "recall": 0.8620689655172413,
+          "f1": 0.9259259259259259,
+          "kappa": 0.8987341772151898
+        },
+        "rhetoric": {
+          "hand_n": 11,
+          "rule_n": 11,
+          "tp": 11,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "kappa": 1.0
+        },
+        "brand_prior": {
+          "hand_n": 72,
+          "rule_n": 72,
+          "tp": 72,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "kappa": 1.0
+        },
+        "self_reference": {
+          "hand_n": 0,
+          "rule_n": 0,
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "kappa": null
+        },
+        "content": {
+          "hand_n": 64,
+          "rule_n": 59,
+          "tp": 58,
+          "fp": 1,
+          "fn": 6,
+          "precision": 0.9830508474576272,
+          "recall": 0.90625,
+          "f1": 0.943089430894309,
+          "kappa": 0.85256950294861
+        },
+        "other": {
+          "hand_n": 0,
+          "rule_n": 0,
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "kappa": null
+        },
+        "_micro": {
+          "tp": 362,
+          "fp": 7,
+          "fn": 20,
+          "precision": 0.981029810298103,
+          "recall": 0.9476439790575916,
+          "f1": 0.9640479360852197
+        },
+        "_exact_match": 0.79
+      },
+      "holdout": {
+        "length": {
+          "hand_n": 8,
+          "rule_n": 8,
+          "tp": 8,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "kappa": 1.0
+        },
+        "format_punct": {
+          "hand_n": 3,
+          "rule_n": 3,
+          "tp": 3,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "kappa": 1.0
+        },
+        "structure": {
+          "hand_n": 39,
+          "rule_n": 43,
+          "tp": 39,
+          "fp": 4,
+          "fn": 0,
+          "precision": 0.9069767441860465,
+          "recall": 1.0,
+          "f1": 0.951219512195122,
+          "kappa": 0.7319034852546918
+        },
+        "syntax": {
+          "hand_n": 11,
+          "rule_n": 10,
+          "tp": 10,
+          "fp": 0,
+          "fn": 1,
+          "precision": 1.0,
+          "recall": 0.9090909090909091,
+          "f1": 0.9523809523809523,
+          "kappa": 0.9397590361445782
+        },
+        "lexical": {
+          "hand_n": 20,
+          "rule_n": 21,
+          "tp": 20,
+          "fp": 1,
+          "fn": 0,
+          "precision": 0.9523809523809523,
+          "recall": 1.0,
+          "f1": 0.975609756097561,
+          "kappa": 0.9586776859504131
+        },
+        "tone": {
+          "hand_n": 29,
+          "rule_n": 30,
+          "tp": 28,
+          "fp": 2,
+          "fn": 1,
+          "precision": 0.9333333333333333,
+          "recall": 0.9655172413793104,
+          "f1": 0.9491525423728815,
+          "kappa": 0.8760330578512395
+        },
+        "hedging": {
+          "hand_n": 15,
+          "rule_n": 14,
+          "tp": 14,
+          "fp": 0,
+          "fn": 1,
+          "precision": 1.0,
+          "recall": 0.9333333333333333,
+          "f1": 0.9655172413793104,
+          "kappa": 0.9514563106796116
+        },
+        "rhetoric": {
+          "hand_n": 7,
+          "rule_n": 6,
+          "tp": 6,
+          "fp": 0,
+          "fn": 1,
+          "precision": 1.0,
+          "recall": 0.8571428571428571,
+          "f1": 0.923076923076923,
+          "kappa": 0.9116607773851589
+        },
+        "brand_prior": {
+          "hand_n": 37,
+          "rule_n": 36,
+          "tp": 36,
+          "fp": 0,
+          "fn": 1,
+          "precision": 1.0,
+          "recall": 0.972972972972973,
+          "f1": 0.9863013698630138,
+          "kappa": 0.9492900608519269
+        },
+        "self_reference": {
+          "hand_n": 0,
+          "rule_n": 0,
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "kappa": null
+        },
+        "content": {
+          "hand_n": 28,
+          "rule_n": 31,
+          "tp": 28,
+          "fp": 3,
+          "fn": 0,
+          "precision": 0.9032258064516129,
+          "recall": 1.0,
+          "f1": 0.9491525423728813,
+          "kappa": 0.8764415156507412
+        },
+        "other": {
+          "hand_n": 0,
+          "rule_n": 0,
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "kappa": null
+        },
+        "_micro": {
+          "tp": 192,
+          "fp": 10,
+          "fn": 5,
+          "precision": 0.9504950495049505,
+          "recall": 0.9746192893401016,
+          "f1": 0.9624060150375939
+        },
+        "_exact_match": 0.76
+      },
+      "all": {
+        "length": {
+          "hand_n": 25,
+          "rule_n": 24,
+          "tp": 24,
+          "fp": 0,
+          "fn": 1,
+          "precision": 1.0,
+          "recall": 0.96,
+          "f1": 0.9795918367346939,
+          "kappa": 0.9756097560975608
+        },
+        "format_punct": {
+          "hand_n": 5,
+          "rule_n": 5,
+          "tp": 5,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "kappa": 1.0
+        },
+        "structure": {
+          "hand_n": 100,
+          "rule_n": 104,
+          "tp": 99,
+          "fp": 5,
+          "fn": 1,
+          "precision": 0.9519230769230769,
+          "recall": 0.99,
+          "f1": 0.9705882352941176,
+          "kappa": 0.9081632653061223
+        },
+        "syntax": {
+          "hand_n": 34,
+          "rule_n": 29,
+          "tp": 29,
+          "fp": 0,
+          "fn": 5,
+          "precision": 1.0,
+          "recall": 0.8529411764705882,
+          "f1": 0.9206349206349206,
+          "kappa": 0.8997058036908264
+        },
+        "lexical": {
+          "hand_n": 63,
+          "rule_n": 66,
+          "tp": 63,
+          "fp": 3,
+          "fn": 0,
+          "precision": 0.9545454545454546,
+          "recall": 1.0,
+          "f1": 0.9767441860465117,
+          "kappa": 0.9592169657422512
+        },
+        "tone": {
+          "hand_n": 89,
+          "rule_n": 89,
+          "tp": 84,
+          "fp": 5,
+          "fn": 5,
+          "precision": 0.9438202247191011,
+          "recall": 0.9438202247191011,
+          "f1": 0.9438202247191011,
+          "kappa": 0.861853011604347
+        },
+        "hedging": {
+          "hand_n": 44,
+          "rule_n": 39,
+          "tp": 39,
+          "fp": 0,
+          "fn": 5,
+          "precision": 1.0,
+          "recall": 0.8863636363636364,
+          "f1": 0.9397590361445783,
+          "kappa": 0.916833000665336
+        },
+        "rhetoric": {
+          "hand_n": 18,
+          "rule_n": 17,
+          "tp": 17,
+          "fp": 0,
+          "fn": 1,
+          "precision": 1.0,
+          "recall": 0.9444444444444444,
+          "f1": 0.9714285714285714,
+          "kappa": 0.967658473479948
+        },
+        "brand_prior": {
+          "hand_n": 109,
+          "rule_n": 108,
+          "tp": 108,
+          "fp": 0,
+          "fn": 1,
+          "precision": 1.0,
+          "recall": 0.9908256880733946,
+          "f1": 0.9953917050691244,
+          "kappa": 0.9833444370419719
+        },
+        "self_reference": {
+          "hand_n": 0,
+          "rule_n": 0,
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "kappa": null
+        },
+        "content": {
+          "hand_n": 92,
+          "rule_n": 90,
+          "tp": 86,
+          "fp": 4,
+          "fn": 6,
+          "precision": 0.9555555555555556,
+          "recall": 0.9347826086956522,
+          "f1": 0.945054945054945,
+          "kappa": 0.8603351955307263
+        },
+        "other": {
+          "hand_n": 0,
+          "rule_n": 0,
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "kappa": null
+        },
+        "_micro": {
+          "tp": 554,
+          "fp": 17,
+          "fn": 25,
+          "precision": 0.9702276707530648,
+          "recall": 0.9568221070811744,
+          "f1": 0.9634782608695652
+        },
+        "_exact_match": 0.78
+      }
+    },
+    "a1_vs_a2": {
+      "length": {
+        "hand_n": 23,
+        "rule_n": 25,
+        "tp": 23,
+        "fp": 2,
+        "fn": 0,
+        "precision": 0.92,
+        "recall": 1.0,
+        "f1": 0.9583333333333334,
+        "kappa": 0.9504132231404959
+      },
+      "format_punct": {
+        "hand_n": 5,
+        "rule_n": 5,
+        "tp": 5,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "kappa": 1.0
+      },
+      "structure": {
+        "hand_n": 99,
+        "rule_n": 100,
+        "tp": 99,
+        "fp": 1,
+        "fn": 0,
+        "precision": 0.99,
+        "recall": 1.0,
+        "f1": 0.9949748743718593,
+        "kappa": 0.9850746268656716
+      },
+      "syntax": {
+        "hand_n": 30,
+        "rule_n": 34,
+        "tp": 30,
+        "fp": 4,
+        "fn": 0,
+        "precision": 0.8823529411764706,
+        "recall": 1.0,
+        "f1": 0.9375,
+        "kappa": 0.9206349206349208
+      },
+      "lexical": {
+        "hand_n": 66,
+        "rule_n": 63,
+        "tp": 63,
+        "fp": 0,
+        "fn": 3,
+        "precision": 1.0,
+        "recall": 0.9545454545454546,
+        "f1": 0.9767441860465117,
+        "kappa": 0.9592169657422512
+      },
+      "tone": {
+        "hand_n": 84,
+        "rule_n": 89,
+        "tp": 83,
+        "fp": 6,
+        "fn": 1,
+        "precision": 0.9325842696629213,
+        "recall": 0.9880952380952381,
+        "f1": 0.9595375722543353,
+        "kappa": 0.9045280960174578
+      },
+      "hedging": {
+        "hand_n": 39,
+        "rule_n": 44,
+        "tp": 39,
+        "fp": 5,
+        "fn": 0,
+        "precision": 0.8863636363636364,
+        "recall": 1.0,
+        "f1": 0.9397590361445783,
+        "kappa": 0.916833000665336
+      },
+      "rhetoric": {
+        "hand_n": 16,
+        "rule_n": 18,
+        "tp": 16,
+        "fp": 2,
+        "fn": 0,
+        "precision": 0.8888888888888888,
+        "recall": 1.0,
+        "f1": 0.9411764705882353,
+        "kappa": 0.93368700265252
+      },
+      "brand_prior": {
+        "hand_n": 109,
+        "rule_n": 109,
+        "tp": 109,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "kappa": 1.0
+      },
+      "self_reference": {
+        "hand_n": 0,
+        "rule_n": 0,
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null,
+        "f1": null,
+        "kappa": null
+      },
+      "content": {
+        "hand_n": 87,
+        "rule_n": 92,
+        "tp": 86,
+        "fp": 6,
+        "fn": 1,
+        "precision": 0.9347826086956522,
+        "recall": 0.9885057471264368,
+        "f1": 0.9608938547486033,
+        "kappa": 0.9031543995572773
+      },
+      "other": {
+        "hand_n": 0,
+        "rule_n": 0,
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null,
+        "f1": null,
+        "kappa": null
+      },
+      "_micro": {
+        "tp": 553,
+        "fp": 26,
+        "fn": 5,
+        "precision": 0.9550949913644214,
+        "recall": 0.9910394265232975,
+        "f1": 0.9727352682497801
+      },
+      "_exact_match": 0.82
+    }
+  },
+  "distribution": {
+    "lineup": {
+      "GPT": {
+        "n": 190,
+        "length": {
+          "k": 49,
+          "share": 0.2578947368421053
+        },
+        "format_punct": {
+          "k": 2,
+          "share": 0.010526315789473684
+        },
+        "structure": {
+          "k": 81,
+          "share": 0.4263157894736842
+        },
+        "syntax": {
+          "k": 24,
+          "share": 0.12631578947368421
+        },
+        "lexical": {
+          "k": 78,
+          "share": 0.4105263157894737
+        },
+        "tone": {
+          "k": 109,
+          "share": 0.5736842105263158
+        },
+        "hedging": {
+          "k": 49,
+          "share": 0.2578947368421053
+        },
+        "rhetoric": {
+          "k": 41,
+          "share": 0.21578947368421053
+        },
+        "brand_prior": {
+          "k": 125,
+          "share": 0.6578947368421053
+        },
+        "self_reference": {
+          "k": 0,
+          "share": 0.0
+        },
+        "content": {
+          "k": 90,
+          "share": 0.47368421052631576
+        },
+        "other": {
+          "k": 0,
+          "share": 0.0
+        }
+      },
+      "Claude": {
+        "n": 190,
+        "length": {
+          "k": 37,
+          "share": 0.19473684210526315
+        },
+        "format_punct": {
+          "k": 13,
+          "share": 0.06842105263157895
+        },
+        "structure": {
+          "k": 91,
+          "share": 0.4789473684210526
+        },
+        "syntax": {
+          "k": 54,
+          "share": 0.28421052631578947
+        },
+        "lexical": {
+          "k": 92,
+          "share": 0.4842105263157895
+        },
+        "tone": {
+          "k": 110,
+          "share": 0.5789473684210527
+        },
+        "hedging": {
+          "k": 41,
+          "share": 0.21578947368421053
+        },
+        "rhetoric": {
+          "k": 43,
+          "share": 0.22631578947368422
+        },
+        "brand_prior": {
+          "k": 102,
+          "share": 0.5368421052631579
+        },
+        "self_reference": {
+          "k": 0,
+          "share": 0.0
+        },
+        "content": {
+          "k": 74,
+          "share": 0.3894736842105263
+        },
+        "other": {
+          "k": 0,
+          "share": 0.0
+        }
+      },
+      "Gemini": {
+        "n": 190,
+        "length": {
+          "k": 24,
+          "share": 0.12631578947368421
+        },
+        "format_punct": {
+          "k": 8,
+          "share": 0.042105263157894736
+        },
+        "structure": {
+          "k": 112,
+          "share": 0.5894736842105263
+        },
+        "syntax": {
+          "k": 31,
+          "share": 0.1631578947368421
+        },
+        "lexical": {
+          "k": 110,
+          "share": 0.5789473684210527
+        },
+        "tone": {
+          "k": 107,
+          "share": 0.5631578947368421
+        },
+        "hedging": {
+          "k": 14,
+          "share": 0.07368421052631578
+        },
+        "rhetoric": {
+          "k": 24,
+          "share": 0.12631578947368421
+        },
+        "brand_prior": {
+          "k": 107,
+          "share": 0.5631578947368421
+        },
+        "self_reference": {
+          "k": 0,
+          "share": 0.0
+        },
+        "content": {
+          "k": 90,
+          "share": 0.47368421052631576
+        },
+        "other": {
+          "k": 0,
+          "share": 0.0
+        }
+      },
+      "Grok": {
+        "n": 190,
+        "length": {
+          "k": 64,
+          "share": 0.3368421052631579
+        },
+        "format_punct": {
+          "k": 9,
+          "share": 0.04736842105263158
+        },
+        "structure": {
+          "k": 109,
+          "share": 0.5736842105263158
+        },
+        "syntax": {
+          "k": 50,
+          "share": 0.2631578947368421
+        },
+        "lexical": {
+          "k": 89,
+          "share": 0.46842105263157896
+        },
+        "tone": {
+          "k": 115,
+          "share": 0.6052631578947368
+        },
+        "hedging": {
+          "k": 25,
+          "share": 0.13157894736842105
+        },
+        "rhetoric": {
+          "k": 38,
+          "share": 0.2
+        },
+        "brand_prior": {
+          "k": 70,
+          "share": 0.3684210526315789
+        },
+        "self_reference": {
+          "k": 0,
+          "share": 0.0
+        },
+        "content": {
+          "k": 84,
+          "share": 0.4421052631578947
+        },
+        "other": {
+          "k": 0,
+          "share": 0.0
+        }
+      },
+      "DeepSeek": {
+        "n": 190,
+        "length": {
+          "k": 44,
+          "share": 0.23157894736842105
+        },
+        "format_punct": {
+          "k": 2,
+          "share": 0.010526315789473684
+        },
+        "structure": {
+          "k": 72,
+          "share": 0.37894736842105264
+        },
+        "syntax": {
+          "k": 1,
+          "share": 0.005263157894736842
+        },
+        "lexical": {
+          "k": 13,
+          "share": 0.06842105263157895
+        },
+        "tone": {
+          "k": 86,
+          "share": 0.45263157894736844
+        },
+        "hedging": {
+          "k": 53,
+          "share": 0.2789473684210526
+        },
+        "rhetoric": {
+          "k": 4,
+          "share": 0.021052631578947368
+        },
+        "brand_prior": {
+          "k": 30,
+          "share": 0.15789473684210525
+        },
+        "self_reference": {
+          "k": 0,
+          "share": 0.0
+        },
+        "content": {
+          "k": 158,
+          "share": 0.8315789473684211
+        },
+        "other": {
+          "k": 0,
+          "share": 0.0
+        }
+      },
+      "_all": {
+        "n": 950,
+        "length": {
+          "k": 218,
+          "share": 0.2294736842105263
+        },
+        "format_punct": {
+          "k": 34,
+          "share": 0.035789473684210524
+        },
+        "structure": {
+          "k": 465,
+          "share": 0.48947368421052634
+        },
+        "syntax": {
+          "k": 160,
+          "share": 0.16842105263157894
+        },
+        "lexical": {
+          "k": 382,
+          "share": 0.40210526315789474
+        },
+        "tone": {
+          "k": 527,
+          "share": 0.5547368421052632
+        },
+        "hedging": {
+          "k": 182,
+          "share": 0.19157894736842104
+        },
+        "rhetoric": {
+          "k": 150,
+          "share": 0.15789473684210525
+        },
+        "brand_prior": {
+          "k": 434,
+          "share": 0.4568421052631579
+        },
+        "self_reference": {
+          "k": 0,
+          "share": 0.0
+        },
+        "content": {
+          "k": 496,
+          "share": 0.5221052631578947
+        },
+        "other": {
+          "k": 0,
+          "share": 0.0
+        }
+      },
+      "_chi2_across_judges": {
+        "length": {
+          "chi2": 25.992003810096758,
+          "p": 3.176230989847498e-05
+        },
+        "format_punct": {
+          "chi2": 13.848574364243515,
+          "p": 0.007794360560247138
+        },
+        "structure": {
+          "chi2": 25.400731626205523,
+          "p": 4.1786247533700564e-05
+        },
+        "syntax": {
+          "chi2": 68.92009493670886,
+          "p": 3.8364615592946046e-14
+        },
+        "lexical": {
+          "chi2": 121.56966669124697,
+          "p": 2.46810808203342e-25
+        },
+        "tone": {
+          "chi2": 10.764800086129165,
+          "p": 0.02933846474014379
+        },
+        "hedging": {
+          "chi2": 36.94625686813187,
+          "p": 1.8478128622667128e-07
+        },
+        "rhetoric": {
+          "chi2": 42.195833333333326,
+          "p": 1.5192965214475976e-08
+        },
+        "brand_prior": {
+          "chi2": 118.92392741042404,
+          "p": 9.067332213807128e-25
+        },
+        "content": {
+          "chi2": 94.77049879209893,
+          "p": 1.275148157175036e-19
+        }
+      },
+      "_mean_cues_per_reason": 3.208421052631579
+    },
+    "single": {
+      "GPT": {
+        "n": 190,
+        "length": {
+          "k": 12,
+          "share": 0.06315789473684211
+        },
+        "format_punct": {
+          "k": 2,
+          "share": 0.010526315789473684
+        },
+        "structure": {
+          "k": 151,
+          "share": 0.7947368421052632
+        },
+        "syntax": {
+          "k": 27,
+          "share": 0.14210526315789473
+        },
+        "lexical": {
+          "k": 124,
+          "share": 0.6526315789473685
+        },
+        "tone": {
+          "k": 112,
+          "share": 0.5894736842105263
+        },
+        "hedging": {
+          "k": 67,
+          "share": 0.3526315789473684
+        },
+        "rhetoric": {
+          "k": 16,
+          "share": 0.08421052631578947
+        },
+        "brand_prior": {
+          "k": 187,
+          "share": 0.9842105263157894
+        },
+        "self_reference": {
+          "k": 0,
+          "share": 0.0
+        },
+        "content": {
+          "k": 182,
+          "share": 0.9578947368421052
+        },
+        "other": {
+          "k": 0,
+          "share": 0.0
+        }
+      },
+      "Claude": {
+        "n": 190,
+        "length": {
+          "k": 5,
+          "share": 0.02631578947368421
+        },
+        "format_punct": {
+          "k": 5,
+          "share": 0.02631578947368421
+        },
+        "structure": {
+          "k": 176,
+          "share": 0.9263157894736842
+        },
+        "syntax": {
+          "k": 28,
+          "share": 0.14736842105263157
+        },
+        "lexical": {
+          "k": 89,
+          "share": 0.46842105263157896
+        },
+        "tone": {
+          "k": 132,
+          "share": 0.6947368421052632
+        },
+        "hedging": {
+          "k": 101,
+          "share": 0.531578947368421
+        },
+        "rhetoric": {
+          "k": 5,
+          "share": 0.02631578947368421
+        },
+        "brand_prior": {
+          "k": 181,
+          "share": 0.9526315789473684
+        },
+        "self_reference": {
+          "k": 0,
+          "share": 0.0
+        },
+        "content": {
+          "k": 73,
+          "share": 0.38421052631578945
+        },
+        "other": {
+          "k": 0,
+          "share": 0.0
+        }
+      },
+      "Gemini": {
+        "n": 190,
+        "length": {
+          "k": 1,
+          "share": 0.005263157894736842
+        },
+        "format_punct": {
+          "k": 13,
+          "share": 0.06842105263157895
+        },
+        "structure": {
+          "k": 176,
+          "share": 0.9263157894736842
+        },
+        "syntax": {
+          "k": 59,
+          "share": 0.3105263157894737
+        },
+        "lexical": {
+          "k": 169,
+          "share": 0.8894736842105263
+        },
+        "tone": {
+          "k": 119,
+          "share": 0.6263157894736842
+        },
+        "hedging": {
+          "k": 31,
+          "share": 0.1631578947368421
+        },
+        "rhetoric": {
+          "k": 5,
+          "share": 0.02631578947368421
+        },
+        "brand_prior": {
+          "k": 190,
+          "share": 1.0
+        },
+        "self_reference": {
+          "k": 0,
+          "share": 0.0
+        },
+        "content": {
+          "k": 128,
+          "share": 0.6736842105263158
+        },
+        "other": {
+          "k": 0,
+          "share": 0.0
+        }
+      },
+      "Grok": {
+        "n": 190,
+        "length": {
+          "k": 23,
+          "share": 0.12105263157894737
+        },
+        "format_punct": {
+          "k": 10,
+          "share": 0.05263157894736842
+        },
+        "structure": {
+          "k": 161,
+          "share": 0.8473684210526315
+        },
+        "syntax": {
+          "k": 65,
+          "share": 0.34210526315789475
+        },
+        "lexical": {
+          "k": 80,
+          "share": 0.42105263157894735
+        },
+        "tone": {
+          "k": 153,
+          "share": 0.8052631578947368
+        },
+        "hedging": {
+          "k": 43,
+          "share": 0.22631578947368422
+        },
+        "rhetoric": {
+          "k": 36,
+          "share": 0.18947368421052632
+        },
+        "brand_prior": {
+          "k": 188,
+          "share": 0.9894736842105263
+        },
+        "self_reference": {
+          "k": 0,
+          "share": 0.0
+        },
+        "content": {
+          "k": 112,
+          "share": 0.5894736842105263
+        },
+        "other": {
+          "k": 0,
+          "share": 0.0
+        }
+      },
+      "DeepSeek": {
+        "n": 190,
+        "length": {
+          "k": 1,
+          "share": 0.005263157894736842
+        },
+        "format_punct": {
+          "k": 3,
+          "share": 0.015789473684210527
+        },
+        "structure": {
+          "k": 131,
+          "share": 0.6894736842105263
+        },
+        "syntax": {
+          "k": 5,
+          "share": 0.02631578947368421
+        },
+        "lexical": {
+          "k": 7,
+          "share": 0.03684210526315789
+        },
+        "tone": {
+          "k": 114,
+          "share": 0.6
+        },
+        "hedging": {
+          "k": 44,
+          "share": 0.23157894736842105
+        },
+        "rhetoric": {
+          "k": 0,
+          "share": 0.0
+        },
+        "brand_prior": {
+          "k": 160,
+          "share": 0.8421052631578947
+        },
+        "self_reference": {
+          "k": 0,
+          "share": 0.0
+        },
+        "content": {
+          "k": 153,
+          "share": 0.8052631578947368
+        },
+        "other": {
+          "k": 0,
+          "share": 0.0
+        }
+      },
+      "_all": {
+        "n": 950,
+        "length": {
+          "k": 42,
+          "share": 0.04421052631578947
+        },
+        "format_punct": {
+          "k": 33,
+          "share": 0.034736842105263156
+        },
+        "structure": {
+          "k": 795,
+          "share": 0.8368421052631579
+        },
+        "syntax": {
+          "k": 184,
+          "share": 0.1936842105263158
+        },
+        "lexical": {
+          "k": 469,
+          "share": 0.4936842105263158
+        },
+        "tone": {
+          "k": 630,
+          "share": 0.6631578947368421
+        },
+        "hedging": {
+          "k": 286,
+          "share": 0.30105263157894735
+        },
+        "rhetoric": {
+          "k": 62,
+          "share": 0.06526315789473684
+        },
+        "brand_prior": {
+          "k": 906,
+          "share": 0.9536842105263158
+        },
+        "self_reference": {
+          "k": 0,
+          "share": 0.0
+        },
+        "content": {
+          "k": 648,
+          "share": 0.6821052631578948
+        },
+        "other": {
+          "k": 0,
+          "share": 0.0
+        }
+      },
+      "_chi2_across_judges": {
+        "length": {
+          "chi2": 43.245227606461086,
+          "p": 9.2036675419343e-09
+        },
+        "format_punct": {
+          "chi2": 14.00152010839034,
+          "p": 0.007290205746443027
+        },
+        "structure": {
+          "chi2": 55.12274294988841,
+          "p": 3.062157415050048e-11
+        },
+        "syntax": {
+          "chi2": 83.33664434101487,
+          "p": 3.4180875055704795e-17
+        },
+        "lexical": {
+          "chi2": 301.41230290484026,
+          "p": 5.372213037249886e-64
+        },
+        "tone": {
+          "chi2": 27.189980158730158,
+          "p": 1.8195945657162302e-05
+        },
+        "hedging": {
+          "chi2": 76.95888448900497,
+          "p": 7.672935985399992e-16
+        },
+        "rhetoric": {
+          "chi2": 71.88498982853821,
+          "p": 9.076094625539642e-15
+        },
+        "brand_prior": {
+          "chi2": 72.30333132651015,
+          "p": 7.404732612144582e-15
+        },
+        "content": {
+          "chi2": 165.27522279453848,
+          "p": 1.0797991812312614e-34
+        }
+      },
+      "_mean_cues_per_reason": 4.268421052631579
+    }
+  },
+  "cue_vs_correct": {
+    "lineup": {
+      "judge_fe": {
+        "formula": "correct ~ cue_length + cue_format_punct + cue_structure + cue_syntax + cue_lexical + cue_tone + cue_hedging + cue_rhetoric + cue_brand_prior + cue_content + C(judge)",
+        "n": 950,
+        "n_clusters": 38,
+        "terms": {
+          "length": {
+            "k_cited": 218,
+            "acc_when_cited": 0.2981651376146789,
+            "acc_when_not": 0.3483606557377049,
+            "OR": 0.8615481598711349,
+            "ci95": [
+              0.6396714325201711,
+              1.160385150940647
+            ],
+            "p": 0.32665276874294624
+          },
+          "format_punct": {
+            "k_cited": 34,
+            "acc_when_cited": 0.4411764705882353,
+            "acc_when_not": 0.3329694323144105,
+            "OR": 1.3920959224420426,
+            "ci95": [
+              0.6867264149836555,
+              2.821984148266505
+            ],
+            "p": 0.3588482321020753
+          },
+          "structure": {
+            "k_cited": 465,
+            "acc_when_cited": 0.3311827956989247,
+            "acc_when_not": 0.3422680412371134,
+            "OR": 0.9105915636951541,
+            "ci95": [
+              0.6795778500573686,
+              1.2201354058299407
+            ],
+            "p": 0.5304410140659103
+          },
+          "syntax": {
+            "k_cited": 160,
+            "acc_when_cited": 0.3625,
+            "acc_when_not": 0.33164556962025316,
+            "OR": 1.1248925173265767,
+            "ci95": [
+              0.7885238145123752,
+              1.6047494726837621
+            ],
+            "p": 0.5161811662153425
+          },
+          "lexical": {
+            "k_cited": 382,
+            "acc_when_cited": 0.3193717277486911,
+            "acc_when_not": 0.3485915492957746,
+            "OR": 0.8382584007588466,
+            "ci95": [
+              0.6191883970606532,
+              1.134835778219448
+            ],
+            "p": 0.2536417560872528
+          },
+          "tone": {
+            "k_cited": 527,
+            "acc_when_cited": 0.32447817836812143,
+            "acc_when_not": 0.35224586288416077,
+            "OR": 0.8526389831194573,
+            "ci95": [
+              0.6671241689043264,
+              1.0897420141875294
+            ],
+            "p": 0.20285571123223745
+          },
+          "hedging": {
+            "k_cited": 182,
+            "acc_when_cited": 0.4725274725274725,
+            "acc_when_not": 0.3046875,
+            "OR": 1.9580135774973695,
+            "ci95": [
+              1.40321708419205,
+              2.7321625519343633
+            ],
+            "p": 7.721002930452396e-05
+          },
+          "rhetoric": {
+            "k_cited": 150,
+            "acc_when_cited": 0.28,
+            "acc_when_not": 0.3475,
+            "OR": 0.6304628864781768,
+            "ci95": [
+              0.41457080280819425,
+              0.958783031834238
+            ],
+            "p": 0.031024954338423696
+          },
+          "brand_prior": {
+            "k_cited": 434,
+            "acc_when_cited": 0.3709677419354839,
+            "acc_when_not": 0.3081395348837209,
+            "OR": 1.0058152891669212,
+            "ci95": [
+              0.7277138195333969,
+              1.3901953883060882
+            ],
+            "p": 0.9719882368984623
+          },
+          "content": {
+            "k_cited": 496,
+            "acc_when_cited": 0.3629032258064516,
+            "acc_when_not": 0.30837004405286345,
+            "OR": 1.4165884757747917,
+            "ci95": [
+              1.0991136239111428,
+              1.8257647490139566
+            ],
+            "p": 0.007146908198311616
+          }
+        },
+        "excluded_sparse": [
+          "self_reference"
+        ]
+      },
+      "judge_and_author_fe": {
+        "formula": "correct ~ cue_length + cue_format_punct + cue_structure + cue_syntax + cue_lexical + cue_tone + cue_hedging + cue_rhetoric + cue_brand_prior + cue_content + C(judge) + C(true_author)",
+        "n": 950,
+        "n_clusters": 38,
+        "terms": {
+          "length": {
+            "k_cited": 218,
+            "acc_when_cited": 0.2981651376146789,
+            "acc_when_not": 0.3483606557377049,
+            "OR": 1.1985642650759394,
+            "ci95": [
+              0.8797955898978029,
+              1.6328296186207267
+            ],
+            "p": 0.25090570771955123
+          },
+          "format_punct": {
+            "k_cited": 34,
+            "acc_when_cited": 0.4411764705882353,
+            "acc_when_not": 0.3329694323144105,
+            "OR": 1.1915210151052043,
+            "ci95": [
+              0.5647091450024231,
+              2.514077099692169
+            ],
+            "p": 0.6455400455111895
+          },
+          "structure": {
+            "k_cited": 465,
+            "acc_when_cited": 0.3311827956989247,
+            "acc_when_not": 0.3422680412371134,
+            "OR": 0.9817105468419328,
+            "ci95": [
+              0.7088063114292631,
+              1.3596882282796474
+            ],
+            "p": 0.9115572991251667
+          },
+          "syntax": {
+            "k_cited": 160,
+            "acc_when_cited": 0.3625,
+            "acc_when_not": 0.33164556962025316,
+            "OR": 1.2877908465261843,
+            "ci95": [
+              0.8711238465832614,
+              1.903753721013671
+            ],
+            "p": 0.20473415396367822
+          },
+          "lexical": {
+            "k_cited": 382,
+            "acc_when_cited": 0.3193717277486911,
+            "acc_when_not": 0.3485915492957746,
+            "OR": 0.812343264316348,
+            "ci95": [
+              0.5990916994140592,
+              1.101503458862067
+            ],
+            "p": 0.18099100997432527
+          },
+          "tone": {
+            "k_cited": 527,
+            "acc_when_cited": 0.32447817836812143,
+            "acc_when_not": 0.35224586288416077,
+            "OR": 0.7004335802987258,
+            "ci95": [
+              0.5180692994272647,
+              0.9469914564566306
+            ],
+            "p": 0.020672099242894572
+          },
+          "hedging": {
+            "k_cited": 182,
+            "acc_when_cited": 0.4725274725274725,
+            "acc_when_not": 0.3046875,
+            "OR": 1.5389352328932682,
+            "ci95": [
+              1.0805860509020142,
+              2.1917011135423334
+            ],
+            "p": 0.016867988155880163
+          },
+          "rhetoric": {
+            "k_cited": 150,
+            "acc_when_cited": 0.28,
+            "acc_when_not": 0.3475,
+            "OR": 0.5864920699259285,
+            "ci95": [
+              0.3968887075278298,
+              0.8666735575032223
+            ],
+            "p": 0.007402838681569602
+          },
+          "brand_prior": {
+            "k_cited": 434,
+            "acc_when_cited": 0.3709677419354839,
+            "acc_when_not": 0.3081395348837209,
+            "OR": 0.9751987809596679,
+            "ci95": [
+              0.6731472678909111,
+              1.4127854449516115
+            ],
+            "p": 0.8943590068238405
+          },
+          "content": {
+            "k_cited": 496,
+            "acc_when_cited": 0.3629032258064516,
+            "acc_when_not": 0.30837004405286345,
+            "OR": 1.1134382314745872,
+            "ci95": [
+              0.8383041149316051,
+              1.478872253192272
+            ],
+            "p": 0.4580792228556262
+          }
+        },
+        "excluded_sparse": [
+          "self_reference"
+        ]
+      }
+    },
+    "single": {
+      "judge_fe": {
+        "formula": "correct ~ cue_length + cue_format_punct + cue_structure + cue_syntax + cue_lexical + cue_tone + cue_hedging + cue_rhetoric + cue_brand_prior + cue_content + C(judge)",
+        "n": 950,
+        "n_clusters": 38,
+        "terms": {
+          "length": {
+            "k_cited": 42,
+            "acc_when_cited": 0.21428571428571427,
+            "acc_when_not": 0.31057268722466963,
+            "OR": 0.5532399718337707,
+            "ci95": [
+              0.3018908835028402,
+              1.0138579306643816
+            ],
+            "p": 0.05543751285879245
+          },
+          "format_punct": {
+            "k_cited": 33,
+            "acc_when_cited": 0.5757575757575758,
+            "acc_when_not": 0.2966194111232279,
+            "OR": 4.319434100348901,
+            "ci95": [
+              2.0531553963574294,
+              9.08723761501824
+            ],
+            "p": 0.00011539419887901597
+          },
+          "structure": {
+            "k_cited": 795,
+            "acc_when_cited": 0.31572327044025156,
+            "acc_when_not": 0.25806451612903225,
+            "OR": 1.3563338984814073,
+            "ci95": [
+              0.8819408650167823,
+              2.0859013536409456
+            ],
+            "p": 0.1651713933623974
+          },
+          "syntax": {
+            "k_cited": 184,
+            "acc_when_cited": 0.266304347826087,
+            "acc_when_not": 0.31592689295039167,
+            "OR": 0.8471128717207281,
+            "ci95": [
+              0.5614606468011836,
+              1.2780953064534997
+            ],
+            "p": 0.42913178347867065
+          },
+          "lexical": {
+            "k_cited": 469,
+            "acc_when_cited": 0.326226012793177,
+            "acc_when_not": 0.2869022869022869,
+            "OR": 1.1777342932079031,
+            "ci95": [
+              0.8559632591357318,
+              1.6204644890931825
+            ],
+            "p": 0.31501835715928905
+          },
+          "tone": {
+            "k_cited": 630,
+            "acc_when_cited": 0.31587301587301586,
+            "acc_when_not": 0.2875,
+            "OR": 1.0097907116696676,
+            "ci95": [
+              0.7662556632402606,
+              1.3307272367324903
+            ],
+            "p": 0.9448358360908293
+          },
+          "hedging": {
+            "k_cited": 286,
+            "acc_when_cited": 0.43006993006993005,
+            "acc_when_not": 0.25301204819277107,
+            "OR": 1.9158277712841651,
+            "ci95": [
+              1.4657124434167705,
+              2.504171992063785
+            ],
+            "p": 1.9538304863968918e-06
+          },
+          "rhetoric": {
+            "k_cited": 62,
+            "acc_when_cited": 0.24193548387096775,
+            "acc_when_not": 0.3108108108108108,
+            "OR": 0.8392297555180209,
+            "ci95": [
+              0.45985194658732664,
+              1.5315942180383666
+            ],
+            "p": 0.5679745747324231
+          },
+          "brand_prior": {
+            "k_cited": 906,
+            "acc_when_cited": 0.3079470198675497,
+            "acc_when_not": 0.2727272727272727,
+            "OR": 0.9604116783548222,
+            "ci95": [
+              0.4751403361831575,
+              1.9413013833554278
+            ],
+            "p": 0.9104300735284644
+          },
+          "content": {
+            "k_cited": 648,
+            "acc_when_cited": 0.29475308641975306,
+            "acc_when_not": 0.33112582781456956,
+            "OR": 0.7179539583160263,
+            "ci95": [
+              0.5183262446017654,
+              0.9944661140160503
+            ],
+            "p": 0.046223418351464984
+          }
+        },
+        "excluded_sparse": [
+          "self_reference"
+        ]
+      },
+      "judge_and_author_fe": {
+        "formula": "correct ~ cue_length + cue_format_punct + cue_structure + cue_syntax + cue_lexical + cue_tone + cue_hedging + cue_rhetoric + cue_brand_prior + cue_content + C(judge) + C(true_author)",
+        "n": 950,
+        "n_clusters": 38,
+        "terms": {
+          "length": {
+            "k_cited": 42,
+            "acc_when_cited": 0.21428571428571427,
+            "acc_when_not": 0.31057268722466963,
+            "OR": 0.7922201161582519,
+            "ci95": [
+              0.31419203612696184,
+              1.9975449415661901
+            ],
+            "p": 0.6215822330371081
+          },
+          "format_punct": {
+            "k_cited": 33,
+            "acc_when_cited": 0.5757575757575758,
+            "acc_when_not": 0.2966194111232279,
+            "OR": 3.5724735270736288,
+            "ci95": [
+              0.7569446474912457,
+              16.86063458397002
+            ],
+            "p": 0.10778309652402601
+          },
+          "structure": {
+            "k_cited": 795,
+            "acc_when_cited": 0.31572327044025156,
+            "acc_when_not": 0.25806451612903225,
+            "OR": 1.785372281388332,
+            "ci95": [
+              0.7460479710458952,
+              4.272586089445562
+            ],
+            "p": 0.1929427365586056
+          },
+          "syntax": {
+            "k_cited": 184,
+            "acc_when_cited": 0.266304347826087,
+            "acc_when_not": 0.31592689295039167,
+            "OR": 1.2303725943918618,
+            "ci95": [
+              0.46588168513604367,
+              3.2493587306152762
+            ],
+            "p": 0.6756481311411575
+          },
+          "lexical": {
+            "k_cited": 469,
+            "acc_when_cited": 0.326226012793177,
+            "acc_when_not": 0.2869022869022869,
+            "OR": 1.9800781717490437,
+            "ci95": [
+              1.0589488728030734,
+              3.702454072082616
+            ],
+            "p": 0.03240862744565974
+          },
+          "tone": {
+            "k_cited": 630,
+            "acc_when_cited": 0.31587301587301586,
+            "acc_when_not": 0.2875,
+            "OR": 0.7474476613999912,
+            "ci95": [
+              0.4293177013857369,
+              1.301316029432363
+            ],
+            "p": 0.30349557184372566
+          },
+          "hedging": {
+            "k_cited": 286,
+            "acc_when_cited": 0.43006993006993005,
+            "acc_when_not": 0.25301204819277107,
+            "OR": 0.8123174772604725,
+            "ci95": [
+              0.5024703851970402,
+              1.3132309949054193
+            ],
+            "p": 0.3963621894976649
+          },
+          "rhetoric": {
+            "k_cited": 62,
+            "acc_when_cited": 0.24193548387096775,
+            "acc_when_not": 0.3108108108108108,
+            "OR": 1.9508421307442787,
+            "ci95": [
+              0.5199317975817597,
+              7.319777395396586
+            ],
+            "p": 0.32192571712085627
+          },
+          "brand_prior": {
+            "k_cited": 906,
+            "acc_when_cited": 0.3079470198675497,
+            "acc_when_not": 0.2727272727272727,
+            "OR": 0.9460959624347793,
+            "ci95": [
+              0.13751153353938475,
+              6.509254511942637
+            ],
+            "p": 0.9550937794939304
+          },
+          "content": {
+            "k_cited": 648,
+            "acc_when_cited": 0.29475308641975306,
+            "acc_when_not": 0.33112582781456956,
+            "OR": 0.7764331753758027,
+            "ci95": [
+              0.4085293987046584,
+              1.4756550635905996
+            ],
+            "p": 0.4399103940049479
+          }
+        },
+        "excluded_sparse": [
+          "self_reference"
+        ]
+      }
+    },
+    "pooled": {
+      "judge_fe": {
+        "formula": "correct ~ cue_length + cue_format_punct + cue_structure + cue_syntax + cue_lexical + cue_tone + cue_hedging + cue_rhetoric + cue_brand_prior + cue_content + C(judge) + C(condition)",
+        "n": 1900,
+        "n_clusters": 38,
+        "terms": {
+          "length": {
+            "k_cited": 260,
+            "acc_when_cited": 0.2846153846153846,
+            "acc_when_not": 0.3274390243902439,
+            "OR": 0.8243283557687608,
+            "ci95": [
+              0.622010910918956,
+              1.0924522804921755
+            ],
+            "p": 0.17877314234134467
+          },
+          "format_punct": {
+            "k_cited": 67,
+            "acc_when_cited": 0.5074626865671642,
+            "acc_when_not": 0.314784506273868,
+            "OR": 2.4112447876473144,
+            "ci95": [
+              1.3893570600263747,
+              4.184742420242907
+            ],
+            "p": 0.0017537548864401014
+          },
+          "structure": {
+            "k_cited": 1260,
+            "acc_when_cited": 0.32142857142857145,
+            "acc_when_not": 0.321875,
+            "OR": 1.0538391728154108,
+            "ci95": [
+              0.7893178035395048,
+              1.4070086816490839
+            ],
+            "p": 0.7221335636819015
+          },
+          "syntax": {
+            "k_cited": 344,
+            "acc_when_cited": 0.311046511627907,
+            "acc_when_not": 0.32390745501285345,
+            "OR": 0.9399309275350806,
+            "ci95": [
+              0.6832195229846612,
+              1.2930985119943528
+            ],
+            "p": 0.7034769815559654
+          },
+          "lexical": {
+            "k_cited": 851,
+            "acc_when_cited": 0.32314923619271446,
+            "acc_when_not": 0.3203050524308866,
+            "OR": 0.9379624794716347,
+            "ci95": [
+              0.7567462895010857,
+              1.1625740688819257
+            ],
+            "p": 0.5587430818822212
+          },
+          "tone": {
+            "k_cited": 1157,
+            "acc_when_cited": 0.3197925669835782,
+            "acc_when_not": 0.3243606998654105,
+            "OR": 1.0109401880463316,
+            "ci95": [
+              0.808418274555417,
+              1.2641971315767109
+            ],
+            "p": 0.924001931982086
+          },
+          "hedging": {
+            "k_cited": 468,
+            "acc_when_cited": 0.4465811965811966,
+            "acc_when_not": 0.2807262569832402,
+            "OR": 2.0243754735724444,
+            "ci95": [
+              1.6490188692131282,
+              2.485172325503571
+            ],
+            "p": 1.5816180195849785e-11
+          },
+          "rhetoric": {
+            "k_cited": 212,
+            "acc_when_cited": 0.2688679245283019,
+            "acc_when_not": 0.3281990521327014,
+            "OR": 0.7404998884422184,
+            "ci95": [
+              0.5119851786296699,
+              1.07100773161163
+            ],
+            "p": 0.11057351408199893
+          },
+          "brand_prior": {
+            "k_cited": 1340,
+            "acc_when_cited": 0.3283582089552239,
+            "acc_when_not": 0.3053571428571429,
+            "OR": 1.041087040249905,
+            "ci95": [
+              0.7713650621523216,
+              1.4051222677262987
+            ],
+            "p": 0.7924070674806689
+          },
+          "content": {
+            "k_cited": 1144,
+            "acc_when_cited": 0.3243006993006993,
+            "acc_when_not": 0.31746031746031744,
+            "OR": 1.0669922039869748,
+            "ci95": [
+              0.8855232634904228,
+              1.2856492994678903
+            ],
+            "p": 0.4953995315837344
+          }
+        },
+        "excluded_sparse": [
+          "self_reference"
+        ]
+      },
+      "judge_and_author_fe": {
+        "formula": "correct ~ cue_length + cue_format_punct + cue_structure + cue_syntax + cue_lexical + cue_tone + cue_hedging + cue_rhetoric + cue_brand_prior + cue_content + C(judge) + C(condition) + C(true_author)",
+        "n": 1900,
+        "n_clusters": 38,
+        "terms": {
+          "length": {
+            "k_cited": 260,
+            "acc_when_cited": 0.2846153846153846,
+            "acc_when_not": 0.3274390243902439,
+            "OR": 1.6987221072256276,
+            "ci95": [
+              1.195264187397178,
+              2.41424182871313
+            ],
+            "p": 0.0031316179048214987
+          },
+          "format_punct": {
+            "k_cited": 67,
+            "acc_when_cited": 0.5074626865671642,
+            "acc_when_not": 0.314784506273868,
+            "OR": 1.7232226620705446,
+            "ci95": [
+              0.9434128580528368,
+              3.147610632742918
+            ],
+            "p": 0.07665170669445263
+          },
+          "structure": {
+            "k_cited": 1260,
+            "acc_when_cited": 0.32142857142857145,
+            "acc_when_not": 0.321875,
+            "OR": 1.0348335399322235,
+            "ci95": [
+              0.7013944224340252,
+              1.5267878117028888
+            ],
+            "p": 0.8630026942675814
+          },
+          "syntax": {
+            "k_cited": 344,
+            "acc_when_cited": 0.311046511627907,
+            "acc_when_not": 0.32390745501285345,
+            "OR": 1.3491687764040836,
+            "ci95": [
+              0.9621050109363648,
+              1.8919518831443725
+            ],
+            "p": 0.08255855814354483
+          },
+          "lexical": {
+            "k_cited": 851,
+            "acc_when_cited": 0.32314923619271446,
+            "acc_when_not": 0.3203050524308866,
+            "OR": 1.0797713260464397,
+            "ci95": [
+              0.859359949832211,
+              1.3567145138422247
+            ],
+            "p": 0.5099938476355406
+          },
+          "tone": {
+            "k_cited": 1157,
+            "acc_when_cited": 0.3197925669835782,
+            "acc_when_not": 0.3243606998654105,
+            "OR": 0.719818637962874,
+            "ci95": [
+              0.5312089576929019,
+              0.9753955840825057
+            ],
+            "p": 0.0339503002693888
+          },
+          "hedging": {
+            "k_cited": 468,
+            "acc_when_cited": 0.4465811965811966,
+            "acc_when_not": 0.2807262569832402,
+            "OR": 1.264619785892313,
+            "ci95": [
+              0.9962203449653863,
+              1.6053307995089037
+            ],
+            "p": 0.05374923813889484
+          },
+          "rhetoric": {
+            "k_cited": 212,
+            "acc_when_cited": 0.2688679245283019,
+            "acc_when_not": 0.3281990521327014,
+            "OR": 0.7104865067467933,
+            "ci95": [
+              0.489868003942947,
+              1.0304634558823975
+            ],
+            "p": 0.07158039484512216
+          },
+          "brand_prior": {
+            "k_cited": 1340,
+            "acc_when_cited": 0.3283582089552239,
+            "acc_when_not": 0.3053571428571429,
+            "OR": 0.9819256641284746,
+            "ci95": [
+              0.6345729935159685,
+              1.519412297286621
+            ],
+            "p": 0.9347361308136851
+          },
+          "content": {
+            "k_cited": 1144,
+            "acc_when_cited": 0.3243006993006993,
+            "acc_when_not": 0.31746031746031744,
+            "OR": 0.8852642583649367,
+            "ci95": [
+              0.7163799038965383,
+              1.093962578899484
+            ],
+            "p": 0.2591424784257378
+          }
+        },
+        "excluded_sparse": [
+          "self_reference"
+        ]
+      }
+    }
+  },
+  "self_vs_peer": {
+    "Claude_lineup": {
+      "n_self_hits": 33,
+      "n_peer_hits": 82,
+      "n_self_false_alarms": 14,
+      "cues": {
+        "length": {
+          "self_hit_k": 3,
+          "self_hit_share": 0.09090909090909091,
+          "peer_hit_k": 11,
+          "peer_hit_share": 0.13414634146341464,
+          "self_fa_k": 4,
+          "self_fa_share": 0.2857142857142857,
+          "fisher_p": 0.7540782706582685
+        },
+        "format_punct": {
+          "self_hit_k": 4,
+          "self_hit_share": 0.12121212121212122,
+          "peer_hit_k": 1,
+          "peer_hit_share": 0.012195121951219513,
+          "self_fa_k": 0,
+          "self_fa_share": 0.0,
+          "fisher_p": 0.023409344362747494
+        },
+        "structure": {
+          "self_hit_k": 6,
+          "self_hit_share": 0.18181818181818182,
+          "peer_hit_k": 24,
+          "peer_hit_share": 0.2926829268292683,
+          "self_fa_k": 5,
+          "self_fa_share": 0.35714285714285715,
+          "fisher_p": 0.25016780916666126
+        },
+        "syntax": {
+          "self_hit_k": 15,
+          "self_hit_share": 0.45454545454545453,
+          "peer_hit_k": 16,
+          "peer_hit_share": 0.1951219512195122,
+          "self_fa_k": 3,
+          "self_fa_share": 0.21428571428571427,
+          "fisher_p": 0.009529673811008246
+        },
+        "lexical": {
+          "self_hit_k": 13,
+          "self_hit_share": 0.3939393939393939,
+          "peer_hit_k": 35,
+          "peer_hit_share": 0.4268292682926829,
+          "self_fa_k": 4,
+          "self_fa_share": 0.2857142857142857,
+          "fisher_p": 0.8356181309431997
+        },
+        "tone": {
+          "self_hit_k": 21,
+          "self_hit_share": 0.6363636363636364,
+          "peer_hit_k": 41,
+          "peer_hit_share": 0.5,
+          "self_fa_k": 7,
+          "self_fa_share": 0.5,
+          "fisher_p": 0.21792151788464667
+        },
+        "hedging": {
+          "self_hit_k": 16,
+          "self_hit_share": 0.48484848484848486,
+          "peer_hit_k": 40,
+          "peer_hit_share": 0.4878048780487805,
+          "self_fa_k": 7,
+          "self_fa_share": 0.5,
+          "fisher_p": 1.0
+        },
+        "rhetoric": {
+          "self_hit_k": 5,
+          "self_hit_share": 0.15151515151515152,
+          "peer_hit_k": 23,
+          "peer_hit_share": 0.2804878048780488,
+          "self_fa_k": 5,
+          "self_fa_share": 0.35714285714285715,
+          "fisher_p": 0.22889950595440636
+        },
+        "brand_prior": {
+          "self_hit_k": 20,
+          "self_hit_share": 0.6060606060606061,
+          "peer_hit_k": 46,
+          "peer_hit_share": 0.5609756097560976,
+          "self_fa_k": 9,
+          "self_fa_share": 0.6428571428571429,
+          "fisher_p": 0.682849309352104
+        },
+        "self_reference": {
+          "self_hit_k": 0,
+          "self_hit_share": 0.0,
+          "peer_hit_k": 0,
+          "peer_hit_share": 0.0,
+          "self_fa_k": 0,
+          "self_fa_share": 0.0,
+          "fisher_p": 1.0
+        },
+        "content": {
+          "self_hit_k": 22,
+          "self_hit_share": 0.6666666666666666,
+          "peer_hit_k": 65,
+          "peer_hit_share": 0.7926829268292683,
+          "self_fa_k": 6,
+          "self_fa_share": 0.42857142857142855,
+          "fisher_p": 0.15976516494529375
+        },
+        "other": {
+          "self_hit_k": 0,
+          "self_hit_share": 0.0,
+          "peer_hit_k": 0,
+          "peer_hit_share": 0.0,
+          "self_fa_k": 0,
+          "self_fa_share": 0.0,
+          "fisher_p": 1.0
+        },
+        "quotes_text": {
+          "self_hit_k": 10,
+          "self_hit_share": 0.30303030303030304,
+          "peer_hit_k": 13,
+          "peer_hit_share": 0.15853658536585366,
+          "self_fa_k": 2,
+          "self_fa_share": 0.14285714285714285,
+          "fisher_p": 0.12000731459506564
+        }
+      }
+    },
+    "Claude_single": {
+      "n_self_hits": 33,
+      "n_peer_hits": 125,
+      "n_self_false_alarms": 13,
+      "cues": {
+        "length": {
+          "self_hit_k": 0,
+          "self_hit_share": 0.0,
+          "peer_hit_k": 8,
+          "peer_hit_share": 0.064,
+          "self_fa_k": 1,
+          "self_fa_share": 0.07692307692307693,
+          "fisher_p": 0.20600294660833568
+        },
+        "format_punct": {
+          "self_hit_k": 4,
+          "self_hit_share": 0.12121212121212122,
+          "peer_hit_k": 13,
+          "peer_hit_share": 0.104,
+          "self_fa_k": 0,
+          "self_fa_share": 0.0,
+          "fisher_p": 0.7565219995093865
+        },
+        "structure": {
+          "self_hit_k": 23,
+          "self_hit_share": 0.696969696969697,
+          "peer_hit_k": 101,
+          "peer_hit_share": 0.808,
+          "self_fa_k": 12,
+          "self_fa_share": 0.9230769230769231,
+          "fisher_p": 0.23216078939332635
+        },
+        "syntax": {
+          "self_hit_k": 12,
+          "self_hit_share": 0.36363636363636365,
+          "peer_hit_k": 32,
+          "peer_hit_share": 0.256,
+          "self_fa_k": 2,
+          "self_fa_share": 0.15384615384615385,
+          "fisher_p": 0.274843423497676
+        },
+        "lexical": {
+          "self_hit_k": 16,
+          "self_hit_share": 0.48484848484848486,
+          "peer_hit_k": 65,
+          "peer_hit_share": 0.52,
+          "self_fa_k": 5,
+          "self_fa_share": 0.38461538461538464,
+          "fisher_p": 0.8451035361532341
+        },
+        "tone": {
+          "self_hit_k": 23,
+          "self_hit_share": 0.696969696969697,
+          "peer_hit_k": 94,
+          "peer_hit_share": 0.752,
+          "self_fa_k": 9,
+          "self_fa_share": 0.6923076923076923,
+          "fisher_p": 0.5112391699657628
+        },
+        "hedging": {
+          "self_hit_k": 31,
+          "self_hit_share": 0.9393939393939394,
+          "peer_hit_k": 56,
+          "peer_hit_share": 0.448,
+          "self_fa_k": 12,
+          "self_fa_share": 0.9230769230769231,
+          "fisher_p": 9.745326844474134e-08
+        },
+        "rhetoric": {
+          "self_hit_k": 0,
+          "self_hit_share": 0.0,
+          "peer_hit_k": 15,
+          "peer_hit_share": 0.12,
+          "self_fa_k": 2,
+          "self_fa_share": 0.15384615384615385,
+          "fisher_p": 0.04188601270209063
+        },
+        "brand_prior": {
+          "self_hit_k": 30,
+          "self_hit_share": 0.9090909090909091,
+          "peer_hit_k": 123,
+          "peer_hit_share": 0.984,
+          "self_fa_k": 12,
+          "self_fa_share": 0.9230769230769231,
+          "fisher_p": 0.061885063255699375
+        },
+        "self_reference": {
+          "self_hit_k": 0,
+          "self_hit_share": 0.0,
+          "peer_hit_k": 0,
+          "peer_hit_share": 0.0,
+          "self_fa_k": 0,
+          "self_fa_share": 0.0,
+          "fisher_p": 1.0
+        },
+        "content": {
+          "self_hit_k": 17,
+          "self_hit_share": 0.5151515151515151,
+          "peer_hit_k": 108,
+          "peer_hit_share": 0.864,
+          "self_fa_k": 6,
+          "self_fa_share": 0.46153846153846156,
+          "fisher_p": 4.8467635156241006e-05
+        },
+        "other": {
+          "self_hit_k": 0,
+          "self_hit_share": 0.0,
+          "peer_hit_k": 0,
+          "peer_hit_share": 0.0,
+          "self_fa_k": 0,
+          "self_fa_share": 0.0,
+          "fisher_p": 1.0
+        },
+        "quotes_text": {
+          "self_hit_k": 12,
+          "self_hit_share": 0.36363636363636365,
+          "peer_hit_k": 16,
+          "peer_hit_share": 0.128,
+          "self_fa_k": 2,
+          "self_fa_share": 0.15384615384615385,
+          "fisher_p": 0.003714255348660397
+        }
+      }
+    },
+    "Claude_pooled": {
+      "n_self_hits": 66,
+      "n_peer_hits": 207,
+      "n_self_false_alarms": 27,
+      "cues": {
+        "length": {
+          "self_hit_k": 3,
+          "self_hit_share": 0.045454545454545456,
+          "peer_hit_k": 19,
+          "peer_hit_share": 0.09178743961352658,
+          "self_fa_k": 5,
+          "self_fa_share": 0.18518518518518517,
+          "fisher_p": 0.30354335431688084
+        },
+        "format_punct": {
+          "self_hit_k": 8,
+          "self_hit_share": 0.12121212121212122,
+          "peer_hit_k": 14,
+          "peer_hit_share": 0.06763285024154589,
+          "self_fa_k": 0,
+          "self_fa_share": 0.0,
+          "fisher_p": 0.19349476861254553
+        },
+        "structure": {
+          "self_hit_k": 29,
+          "self_hit_share": 0.4393939393939394,
+          "peer_hit_k": 125,
+          "peer_hit_share": 0.6038647342995169,
+          "self_fa_k": 17,
+          "self_fa_share": 0.6296296296296297,
+          "fisher_p": 0.022602394760507218
+        },
+        "syntax": {
+          "self_hit_k": 27,
+          "self_hit_share": 0.4090909090909091,
+          "peer_hit_k": 48,
+          "peer_hit_share": 0.2318840579710145,
+          "self_fa_k": 5,
+          "self_fa_share": 0.18518518518518517,
+          "fisher_p": 0.006922747903016928
+        },
+        "lexical": {
+          "self_hit_k": 29,
+          "self_hit_share": 0.4393939393939394,
+          "peer_hit_k": 100,
+          "peer_hit_share": 0.4830917874396135,
+          "self_fa_k": 9,
+          "self_fa_share": 0.3333333333333333,
+          "fisher_p": 0.5730270861979028
+        },
+        "tone": {
+          "self_hit_k": 44,
+          "self_hit_share": 0.6666666666666666,
+          "peer_hit_k": 135,
+          "peer_hit_share": 0.6521739130434783,
+          "self_fa_k": 16,
+          "self_fa_share": 0.5925925925925926,
+          "fisher_p": 0.8824783910630032
+        },
+        "hedging": {
+          "self_hit_k": 47,
+          "self_hit_share": 0.7121212121212122,
+          "peer_hit_k": 96,
+          "peer_hit_share": 0.463768115942029,
+          "self_fa_k": 19,
+          "self_fa_share": 0.7037037037037037,
+          "fisher_p": 0.0006157475538890997
+        },
+        "rhetoric": {
+          "self_hit_k": 5,
+          "self_hit_share": 0.07575757575757576,
+          "peer_hit_k": 38,
+          "peer_hit_share": 0.18357487922705315,
+          "self_fa_k": 7,
+          "self_fa_share": 0.25925925925925924,
+          "fisher_p": 0.05055593544157917
+        },
+        "brand_prior": {
+          "self_hit_k": 50,
+          "self_hit_share": 0.7575757575757576,
+          "peer_hit_k": 169,
+          "peer_hit_share": 0.8164251207729468,
+          "self_fa_k": 21,
+          "self_fa_share": 0.7777777777777778,
+          "fisher_p": 0.29268527724915594
+        },
+        "self_reference": {
+          "self_hit_k": 0,
+          "self_hit_share": 0.0,
+          "peer_hit_k": 0,
+          "peer_hit_share": 0.0,
+          "self_fa_k": 0,
+          "self_fa_share": 0.0,
+          "fisher_p": 1.0
+        },
+        "content": {
+          "self_hit_k": 39,
+          "self_hit_share": 0.5909090909090909,
+          "peer_hit_k": 173,
+          "peer_hit_share": 0.8357487922705314,
+          "self_fa_k": 12,
+          "self_fa_share": 0.4444444444444444,
+          "fisher_p": 7.540690337307988e-05
+        },
+        "other": {
+          "self_hit_k": 0,
+          "self_hit_share": 0.0,
+          "peer_hit_k": 0,
+          "peer_hit_share": 0.0,
+          "self_fa_k": 0,
+          "self_fa_share": 0.0,
+          "fisher_p": 1.0
+        },
+        "quotes_text": {
+          "self_hit_k": 22,
+          "self_hit_share": 0.3333333333333333,
+          "peer_hit_k": 29,
+          "peer_hit_share": 0.14009661835748793,
+          "self_fa_k": 4,
+          "self_fa_share": 0.14814814814814814,
+          "fisher_p": 0.0009267035845273863
+        }
+      }
+    },
+    "GPT_lineup": {
+      "n_self_hits": 22,
+      "n_peer_hits": 46,
+      "n_self_false_alarms": 16,
+      "cues": {
+        "length": {
+          "self_hit_k": 3,
+          "self_hit_share": 0.13636363636363635,
+          "peer_hit_k": 2,
+          "peer_hit_share": 0.043478260869565216,
+          "self_fa_k": 8,
+          "self_fa_share": 0.5,
+          "fisher_p": 0.319209242250287
+        },
+        "format_punct": {
+          "self_hit_k": 0,
+          "self_hit_share": 0.0,
+          "peer_hit_k": 3,
+          "peer_hit_share": 0.06521739130434782,
+          "self_fa_k": 0,
+          "self_fa_share": 0.0,
+          "fisher_p": 0.5456540825285339
+        },
+        "structure": {
+          "self_hit_k": 20,
+          "self_hit_share": 0.9090909090909091,
+          "peer_hit_k": 44,
+          "peer_hit_share": 0.9565217391304348,
+          "self_fa_k": 15,
+          "self_fa_share": 0.9375,
+          "fisher_p": 0.5899236847437024
+        },
+        "syntax": {
+          "self_hit_k": 1,
+          "self_hit_share": 0.045454545454545456,
+          "peer_hit_k": 0,
+          "peer_hit_share": 0.0,
+          "self_fa_k": 0,
+          "self_fa_share": 0.0,
+          "fisher_p": 0.3235294117647059
+        },
+        "lexical": {
+          "self_hit_k": 3,
+          "self_hit_share": 0.13636363636363635,
+          "peer_hit_k": 17,
+          "peer_hit_share": 0.3695652173913043,
+          "self_fa_k": 6,
+          "self_fa_share": 0.375,
+          "fisher_p": 0.08590898467305913
+        },
+        "tone": {
+          "self_hit_k": 7,
+          "self_hit_share": 0.3181818181818182,
+          "peer_hit_k": 27,
+          "peer_hit_share": 0.5869565217391305,
+          "self_fa_k": 4,
+          "self_fa_share": 0.25,
+          "fisher_p": 0.06839250604147401
+        },
+        "hedging": {
+          "self_hit_k": 12,
+          "self_hit_share": 0.5454545454545454,
+          "peer_hit_k": 7,
+          "peer_hit_share": 0.15217391304347827,
+          "self_fa_k": 3,
+          "self_fa_share": 0.1875,
+          "fisher_p": 0.0013095744249878737
+        },
+        "rhetoric": {
+          "self_hit_k": 0,
+          "self_hit_share": 0.0,
+          "peer_hit_k": 0,
+          "peer_hit_share": 0.0,
+          "self_fa_k": 0,
+          "self_fa_share": 0.0,
+          "fisher_p": 1.0
+        },
+        "brand_prior": {
+          "self_hit_k": 17,
+          "self_hit_share": 0.7727272727272727,
+          "peer_hit_k": 27,
+          "peer_hit_share": 0.5869565217391305,
+          "self_fa_k": 16,
+          "self_fa_share": 1.0,
+          "fisher_p": 0.17838058180185173
+        },
+        "self_reference": {
+          "self_hit_k": 0,
+          "self_hit_share": 0.0,
+          "peer_hit_k": 0,
+          "peer_hit_share": 0.0,
+          "self_fa_k": 0,
+          "self_fa_share": 0.0,
+          "fisher_p": 1.0
+        },
+        "content": {
+          "self_hit_k": 12,
+          "self_hit_share": 0.5454545454545454,
+          "peer_hit_k": 12,
+          "peer_hit_share": 0.2608695652173913,
+          "self_fa_k": 14,
+          "self_fa_share": 0.875,
+          "fisher_p": 0.030601393705046227
+        },
+        "other": {
+          "self_hit_k": 0,
+          "self_hit_share": 0.0,
+          "peer_hit_k": 0,
+          "peer_hit_share": 0.0,
+          "self_fa_k": 0,
+          "self_fa_share": 0.0,
+          "fisher_p": 1.0
+        },
+        "quotes_text": {
+          "self_hit_k": 0,
+          "self_hit_share": 0.0,
+          "peer_hit_k": 3,
+          "peer_hit_share": 0.06521739130434782,
+          "self_fa_k": 1,
+          "self_fa_share": 0.0625,
+          "fisher_p": 0.5456540825285339
+        }
+      }
+    },
+    "GPT_single": {
+      "n_self_hits": 36,
+      "n_peer_hits": 93,
+      "n_self_false_alarms": 79,
+      "cues": {
+        "length": {
+          "self_hit_k": 0,
+          "self_hit_share": 0.0,
+          "peer_hit_k": 1,
+          "peer_hit_share": 0.010752688172043012,
+          "self_fa_k": 0,
+          "self_fa_share": 0.0,
+          "fisher_p": 1.0
+        },
+        "format_punct": {
+          "self_hit_k": 0,
+          "self_hit_share": 0.0,
+          "peer_hit_k": 2,
+          "peer_hit_share": 0.021505376344086023,
+          "self_fa_k": 0,
+          "self_fa_share": 0.0,
+          "fisher_p": 1.0
+        },
+        "structure": {
+          "self_hit_k": 36,
+          "self_hit_share": 1.0,
+          "peer_hit_k": 87,
+          "peer_hit_share": 0.9354838709677419,
+          "self_fa_k": 75,
+          "self_fa_share": 0.9493670886075949,
+          "fisher_p": 0.18481299212598426
+        },
+        "syntax": {
+          "self_hit_k": 0,
+          "self_hit_share": 0.0,
+          "peer_hit_k": 4,
+          "peer_hit_share": 0.043010752688172046,
+          "self_fa_k": 6,
+          "self_fa_share": 0.0759493670886076,
+          "fisher_p": 0.5756729536714887
+        },
+        "lexical": {
+          "self_hit_k": 33,
+          "self_hit_share": 0.9166666666666666,
+          "peer_hit_k": 37,
+          "peer_hit_share": 0.3978494623655914,
+          "self_fa_k": 64,
+          "self_fa_share": 0.810126582278481,
+          "fisher_p": 3.6052362663304904e-08
+        },
+        "tone": {
+          "self_hit_k": 19,
+          "self_hit_share": 0.5277777777777778,
+          "peer_hit_k": 60,
+          "peer_hit_share": 0.6451612903225806,
+          "self_fa_k": 45,
+          "self_fa_share": 0.569620253164557,
+          "fisher_p": 0.23329906186193028
+        },
+        "hedging": {
+          "self_hit_k": 8,
+          "self_hit_share": 0.2222222222222222,
+          "peer_hit_k": 25,
+          "peer_hit_share": 0.26881720430107525,
+          "self_fa_k": 9,
+          "self_fa_share": 0.11392405063291139,
+          "fisher_p": 0.6580811822707459
+        },
+        "rhetoric": {
+          "self_hit_k": 0,
+          "self_hit_share": 0.0,
+          "peer_hit_k": 0,
+          "peer_hit_share": 0.0,
+          "self_fa_k": 2,
+          "self_fa_share": 0.02531645569620253,
+          "fisher_p": 1.0
+        },
+        "brand_prior": {
+          "self_hit_k": 36,
+          "self_hit_share": 1.0,
+          "peer_hit_k": 86,
+          "peer_hit_share": 0.9247311827956989,
+          "self_fa_k": 78,
+          "self_fa_share": 0.9873417721518988,
+          "fisher_p": 0.1892932981540949
+        },
+        "self_reference": {
+          "self_hit_k": 0,
+          "self_hit_share": 0.0,
+          "peer_hit_k": 0,
+          "peer_hit_share": 0.0,
+          "self_fa_k": 0,
+          "self_fa_share": 0.0,
+          "fisher_p": 1.0
+        },
+        "content": {
+          "self_hit_k": 34,
+          "self_hit_share": 0.9444444444444444,
+          "peer_hit_k": 32,
+          "peer_hit_share": 0.34408602150537637,
+          "self_fa_k": 77,
+          "self_fa_share": 0.9746835443037974,
+          "fisher_p": 1.3637394068185117e-10
+        },
+        "other": {
+          "self_hit_k": 0,
+          "self_hit_share": 0.0,
+          "peer_hit_k": 0,
+          "peer_hit_share": 0.0,
+          "self_fa_k": 0,
+          "self_fa_share": 0.0,
+          "fisher_p": 1.0
+        },
+        "quotes_text": {
+          "self_hit_k": 1,
+          "self_hit_share": 0.027777777777777776,
+          "peer_hit_k": 3,
+          "peer_hit_share": 0.03225806451612903,
+          "self_fa_k": 20,
+          "self_fa_share": 0.25316455696202533,
+          "fisher_p": 1.0
+        }
+      }
+    },
+    "GPT_pooled": {
+      "n_self_hits": 58,
+      "n_peer_hits": 139,
+      "n_self_false_alarms": 95,
+      "cues": {
+        "length": {
+          "self_hit_k": 3,
+          "self_hit_share": 0.05172413793103448,
+          "peer_hit_k": 3,
+          "peer_hit_share": 0.02158273381294964,
+          "self_fa_k": 8,
+          "self_fa_share": 0.08421052631578947,
+          "fisher_p": 0.36235579506821136
+        },
+        "format_punct": {
+          "self_hit_k": 0,
+          "self_hit_share": 0.0,
+          "peer_hit_k": 5,
+          "peer_hit_share": 0.03597122302158273,
+          "self_fa_k": 0,
+          "self_fa_share": 0.0,
+          "fisher_p": 0.324171483909074
+        },
+        "structure": {
+          "self_hit_k": 56,
+          "self_hit_share": 0.9655172413793104,
+          "peer_hit_k": 131,
+          "peer_hit_share": 0.9424460431654677,
+          "self_fa_k": 90,
+          "self_fa_share": 0.9473684210526315,
+          "fisher_p": 0.7262892251298223
+        },
+        "syntax": {
+          "self_hit_k": 1,
+          "self_hit_share": 0.017241379310344827,
+          "peer_hit_k": 4,
+          "peer_hit_share": 0.02877697841726619,
+          "self_fa_k": 6,
+          "self_fa_share": 0.06315789473684211,
+          "fisher_p": 1.0
+        },
+        "lexical": {
+          "self_hit_k": 36,
+          "self_hit_share": 0.6206896551724138,
+          "peer_hit_k": 54,
+          "peer_hit_share": 0.38848920863309355,
+          "self_fa_k": 70,
+          "self_fa_share": 0.7368421052631579,
+          "fisher_p": 0.004510141516200105
+        },
+        "tone": {
+          "self_hit_k": 26,
+          "self_hit_share": 0.4482758620689655,
+          "peer_hit_k": 87,
+          "peer_hit_share": 0.6258992805755396,
+          "self_fa_k": 49,
+          "self_fa_share": 0.5157894736842106,
+          "fisher_p": 0.026917714152906055
+        },
+        "hedging": {
+          "self_hit_k": 20,
+          "self_hit_share": 0.3448275862068966,
+          "peer_hit_k": 32,
+          "peer_hit_share": 0.2302158273381295,
+          "self_fa_k": 12,
+          "self_fa_share": 0.12631578947368421,
+          "fisher_p": 0.11156926418591481
+        },
+        "rhetoric": {
+          "self_hit_k": 0,
+          "self_hit_share": 0.0,
+          "peer_hit_k": 0,
+          "peer_hit_share": 0.0,
+          "self_fa_k": 2,
+          "self_fa_share": 0.021052631578947368,
+          "fisher_p": 1.0
+        },
+        "brand_prior": {
+          "self_hit_k": 53,
+          "self_hit_share": 0.9137931034482759,
+          "peer_hit_k": 113,
+          "peer_hit_share": 0.8129496402877698,
+          "self_fa_k": 94,
+          "self_fa_share": 0.9894736842105263,
+          "fisher_p": 0.0881838941044994
+        },
+        "self_reference": {
+          "self_hit_k": 0,
+          "self_hit_share": 0.0,
+          "peer_hit_k": 0,
+          "peer_hit_share": 0.0,
+          "self_fa_k": 0,
+          "self_fa_share": 0.0,
+          "fisher_p": 1.0
+        },
+        "content": {
+          "self_hit_k": 46,
+          "self_hit_share": 0.7931034482758621,
+          "peer_hit_k": 44,
+          "peer_hit_share": 0.31654676258992803,
+          "self_fa_k": 91,
+          "self_fa_share": 0.9578947368421052,
+          "fisher_p": 8.483642607937723e-10
+        },
+        "other": {
+          "self_hit_k": 0,
+          "self_hit_share": 0.0,
+          "peer_hit_k": 0,
+          "peer_hit_share": 0.0,
+          "self_fa_k": 0,
+          "self_fa_share": 0.0,
+          "fisher_p": 1.0
+        },
+        "quotes_text": {
+          "self_hit_k": 1,
+          "self_hit_share": 0.017241379310344827,
+          "peer_hit_k": 6,
+          "peer_hit_share": 0.04316546762589928,
+          "self_fa_k": 21,
+          "self_fa_share": 0.22105263157894736,
+          "fisher_p": 0.6759897637031198
+        }
+      }
+    },
+    "self_reference_total": 0,
+    "familiarity_words_total": 51,
+    "familiarity_words_by_judge": {
+      "GPT": 42,
+      "Claude": 6,
+      "Gemini": 1,
+      "Grok": 2,
+      "DeepSeek": 0
+    }
+  },
+  "faithfulness": {
+    "length_long__lineup": {
+      "n_claims": 72,
+      "n_negated": 1,
+      "as_stated": {
+        "direction": "high",
+        "n": 71,
+        "extreme_of_5_k": 47,
+        "extreme_of_5_share": 0.6619718309859155,
+        "binom_p_vs_0.2": 4.020892328694452e-17,
+        "top2_of_5_k": 60,
+        "top2_of_5_share": 0.8450704225352113,
+        "corpus_quintile_k": 40,
+        "corpus_quintile_share": 0.5633802816901409,
+        "opposite_extreme_k": 1
+      },
+      "negated": {
+        "direction": "low",
+        "n": 1,
+        "extreme_of_5_k": 0,
+        "extreme_of_5_share": 0.0,
+        "binom_p_vs_0.2": 1.0,
+        "top2_of_5_k": 1,
+        "top2_of_5_share": 1.0,
+        "corpus_quintile_k": 0,
+        "corpus_quintile_share": 0.0,
+        "opposite_extreme_k": 0
+      }
+    },
+    "length_long__single": {
+      "n_claims": 26,
+      "n_negated": 0,
+      "as_stated": {
+        "direction": "high",
+        "n": 26,
+        "extreme_of_5_k": 12,
+        "extreme_of_5_share": 0.46153846153846156,
+        "binom_p_vs_0.2": 0.00234302529082822,
+        "top2_of_5_k": 17,
+        "top2_of_5_share": 0.6538461538461539,
+        "corpus_quintile_k": 12,
+        "corpus_quintile_share": 0.46153846153846156,
+        "opposite_extreme_k": 5
+      }
+    },
+    "length_short__lineup": {
+      "n_claims": 98,
+      "n_negated": 0,
+      "as_stated": {
+        "direction": "low",
+        "n": 98,
+        "extreme_of_5_k": 57,
+        "extreme_of_5_share": 0.5816326530612245,
+        "binom_p_vs_0.2": 1.2919731452481953e-16,
+        "top2_of_5_k": 88,
+        "top2_of_5_share": 0.8979591836734694,
+        "corpus_quintile_k": 52,
+        "corpus_quintile_share": 0.5306122448979592,
+        "opposite_extreme_k": 1
+      }
+    },
+    "length_short__single": {
+      "n_claims": 0,
+      "n_negated": 0
+    },
+    "paragraphs_long__lineup": {
+      "n_claims": 24,
+      "n_negated": 0,
+      "as_stated": {
+        "direction": "high",
+        "n": 24,
+        "extreme_of_5_k": 9,
+        "extreme_of_5_share": 0.375,
+        "binom_p_vs_0.2": 0.040897354511708756,
+        "top2_of_5_k": 20,
+        "top2_of_5_share": 0.8333333333333334,
+        "corpus_quintile_k": 10,
+        "corpus_quintile_share": 0.4166666666666667,
+        "opposite_extreme_k": 1
+      }
+    },
+    "paragraphs_long__single": {
+      "n_claims": 12,
+      "n_negated": 0,
+      "as_stated": {
+        "direction": "high",
+        "n": 12,
+        "extreme_of_5_k": 3,
+        "extreme_of_5_share": 0.25,
+        "binom_p_vs_0.2": 0.7165321584640004,
+        "top2_of_5_k": 8,
+        "top2_of_5_share": 0.6666666666666666,
+        "corpus_quintile_k": 4,
+        "corpus_quintile_share": 0.3333333333333333,
+        "opposite_extreme_k": 0
+      }
+    },
+    "paragraphs_short__lineup": {
+      "n_claims": 14,
+      "n_negated": 0,
+      "as_stated": {
+        "direction": "low",
+        "n": 14,
+        "extreme_of_5_k": 9,
+        "extreme_of_5_share": 0.6428571428571429,
+        "binom_p_vs_0.2": 0.00038192955392000034,
+        "top2_of_5_k": 11,
+        "top2_of_5_share": 0.7857142857142857,
+        "corpus_quintile_k": 2,
+        "corpus_quintile_share": 0.14285714285714285,
+        "opposite_extreme_k": 2
+      }
+    },
+    "paragraphs_short__single": {
+      "n_claims": 0,
+      "n_negated": 0
+    },
+    "sentences_long__lineup": {
+      "n_claims": 87,
+      "n_negated": 1,
+      "as_stated": {
+        "direction": "high",
+        "n": 86,
+        "extreme_of_5_k": 60,
+        "extreme_of_5_share": 0.6976744186046512,
+        "binom_p_vs_0.2": 2.8135377044209264e-23,
+        "top2_of_5_k": 78,
+        "top2_of_5_share": 0.9069767441860465,
+        "corpus_quintile_k": 56,
+        "corpus_quintile_share": 0.6511627906976745,
+        "opposite_extreme_k": 0
+      },
+      "negated": {
+        "direction": "low",
+        "n": 1,
+        "extreme_of_5_k": 0,
+        "extreme_of_5_share": 0.0,
+        "binom_p_vs_0.2": 1.0,
+        "top2_of_5_k": 0,
+        "top2_of_5_share": 0.0,
+        "corpus_quintile_k": 0,
+        "corpus_quintile_share": 0.0,
+        "opposite_extreme_k": 1
+      }
+    },
+    "sentences_long__single": {
+      "n_claims": 81,
+      "n_negated": 0,
+      "as_stated": {
+        "direction": "high",
+        "n": 81,
+        "extreme_of_5_k": 36,
+        "extreme_of_5_share": 0.4444444444444444,
+        "binom_p_vs_0.2": 8.559388578138404e-07,
+        "top2_of_5_k": 58,
+        "top2_of_5_share": 0.7160493827160493,
+        "corpus_quintile_k": 41,
+        "corpus_quintile_share": 0.5061728395061729,
+        "opposite_extreme_k": 6
+      }
+    },
+    "sentences_short__lineup": {
+      "n_claims": 7,
+      "n_negated": 0,
+      "as_stated": {
+        "direction": "low",
+        "n": 7,
+        "extreme_of_5_k": 5,
+        "extreme_of_5_share": 0.7142857142857143,
+        "binom_p_vs_0.2": 0.0046720000000000025,
+        "top2_of_5_k": 5,
+        "top2_of_5_share": 0.7142857142857143,
+        "corpus_quintile_k": 5,
+        "corpus_quintile_share": 0.7142857142857143,
+        "opposite_extreme_k": 0
+      }
+    },
+    "sentences_short__single": {
+      "n_claims": 1,
+      "n_negated": 0,
+      "as_stated": {
+        "direction": "low",
+        "n": 1,
+        "extreme_of_5_k": 0,
+        "extreme_of_5_share": 0.0,
+        "binom_p_vs_0.2": 1.0,
+        "top2_of_5_k": 0,
+        "top2_of_5_share": 0.0,
+        "corpus_quintile_k": 0,
+        "corpus_quintile_share": 0.0,
+        "opposite_extreme_k": 0
+      }
+    },
+    "emdash__lineup": {
+      "n_claims": 9,
+      "n_negated": 0,
+      "as_stated": {
+        "direction": "high",
+        "n": 9,
+        "extreme_of_5_k": 6,
+        "extreme_of_5_share": 0.6666666666666666,
+        "binom_p_vs_0.2": 0.0030663680000000016,
+        "top2_of_5_k": 6,
+        "top2_of_5_share": 0.6666666666666666,
+        "corpus_quintile_k": 8,
+        "corpus_quintile_share": 0.8888888888888888,
+        "opposite_extreme_k": 1
+      }
+    },
+    "emdash__single": {
+      "n_claims": 9,
+      "n_negated": 0,
+      "as_stated": {
+        "direction": "high",
+        "n": 9,
+        "extreme_of_5_k": 6,
+        "extreme_of_5_share": 0.6666666666666666,
+        "binom_p_vs_0.2": 0.0030663680000000016,
+        "top2_of_5_k": 9,
+        "top2_of_5_share": 1.0,
+        "corpus_quintile_k": 9,
+        "corpus_quintile_share": 1.0,
+        "opposite_extreme_k": 0
+      }
+    },
+    "semicolon__lineup": {
+      "n_claims": 2,
+      "n_negated": 0,
+      "as_stated": {
+        "direction": "high",
+        "n": 2,
+        "extreme_of_5_k": 2,
+        "extreme_of_5_share": 1.0,
+        "binom_p_vs_0.2": 0.04000000000000001,
+        "top2_of_5_k": 2,
+        "top2_of_5_share": 1.0,
+        "corpus_quintile_k": 2,
+        "corpus_quintile_share": 1.0,
+        "opposite_extreme_k": 0
+      }
+    },
+    "semicolon__single": {
+      "n_claims": 0,
+      "n_negated": 0
+    },
+    "colon__lineup": {
+      "n_claims": 0,
+      "n_negated": 0
+    },
+    "colon__single": {
+      "n_claims": 0,
+      "n_negated": 0
+    },
+    "hedging__lineup": {
+      "n_claims": 24,
+      "n_negated": 0,
+      "as_stated": {
+        "direction": "high",
+        "n": 24,
+        "extreme_of_5_k": 11,
+        "extreme_of_5_share": 0.4583333333333333,
+        "binom_p_vs_0.2": 0.0037883781293191923,
+        "top2_of_5_k": 14,
+        "top2_of_5_share": 0.5833333333333334,
+        "corpus_quintile_k": 11,
+        "corpus_quintile_share": 0.4583333333333333,
+        "opposite_extreme_k": 4
+      }
+    },
+    "hedging__single": {
+      "n_claims": 61,
+      "n_negated": 2,
+      "as_stated": {
+        "direction": "high",
+        "n": 59,
+        "extreme_of_5_k": 17,
+        "extreme_of_5_share": 0.288135593220339,
+        "binom_p_vs_0.2": 0.10250370224188128,
+        "top2_of_5_k": 28,
+        "top2_of_5_share": 0.4745762711864407,
+        "corpus_quintile_k": 14,
+        "corpus_quintile_share": 0.23728813559322035,
+        "opposite_extreme_k": 9
+      },
+      "negated": {
+        "direction": "low",
+        "n": 2,
+        "extreme_of_5_k": 0,
+        "extreme_of_5_share": 0.0,
+        "binom_p_vs_0.2": 1.0,
+        "top2_of_5_k": 0,
+        "top2_of_5_share": 0.0,
+        "corpus_quintile_k": 0,
+        "corpus_quintile_share": 0.0,
+        "opposite_extreme_k": 2
+      }
+    },
+    "sophisticated_vocab__lineup": {
+      "n_claims": 35,
+      "n_negated": 0,
+      "as_stated": {
+        "direction": "high",
+        "n": 35,
+        "extreme_of_5_k": 3,
+        "extreme_of_5_share": 0.08571428571428572,
+        "binom_p_vs_0.2": 0.13523299165314615,
+        "top2_of_5_k": 4,
+        "top2_of_5_share": 0.11428571428571428,
+        "corpus_quintile_k": 2,
+        "corpus_quintile_share": 0.05714285714285714,
+        "opposite_extreme_k": 7
+      }
+    },
+    "sophisticated_vocab__single": {
+      "n_claims": 141,
+      "n_negated": 4,
+      "as_stated": {
+        "direction": "high",
+        "n": 137,
+        "extreme_of_5_k": 20,
+        "extreme_of_5_share": 0.145985401459854,
+        "binom_p_vs_0.2": 0.13412742545068057,
+        "top2_of_5_k": 49,
+        "top2_of_5_share": 0.35766423357664234,
+        "corpus_quintile_k": 33,
+        "corpus_quintile_share": 0.24087591240875914,
+        "opposite_extreme_k": 27
+      },
+      "negated": {
+        "direction": "low",
+        "n": 4,
+        "extreme_of_5_k": 0,
+        "extreme_of_5_share": 0.0,
+        "binom_p_vs_0.2": 1.0,
+        "top2_of_5_k": 1,
+        "top2_of_5_share": 0.25,
+        "corpus_quintile_k": 0,
+        "corpus_quintile_share": 0.0,
+        "opposite_extreme_k": 2
+      }
+    },
+    "simple_vocab__lineup": {
+      "n_claims": 6,
+      "n_negated": 0,
+      "as_stated": {
+        "direction": "low",
+        "n": 6,
+        "extreme_of_5_k": 1,
+        "extreme_of_5_share": 0.16666666666666666,
+        "binom_p_vs_0.2": 1.0,
+        "top2_of_5_k": 5,
+        "top2_of_5_share": 0.8333333333333334,
+        "corpus_quintile_k": 3,
+        "corpus_quintile_share": 0.5,
+        "opposite_extreme_k": 1
+      }
+    },
+    "simple_vocab__single": {
+      "n_claims": 0,
+      "n_negated": 0
+    },
+    "paragraph_count__lineup": {
+      "n_claims": 44,
+      "exact_k": 31,
+      "exact_share": 0.7045454545454546,
+      "within_1_k": 33,
+      "claimed_counts": {
+        "3": 27,
+        "4": 3,
+        "5": 14
+      }
+    },
+    "paragraph_count__single": {
+      "n_claims": 102,
+      "exact_k": 60,
+      "exact_share": 0.5882352941176471,
+      "within_1_k": 66,
+      "claimed_counts": {
+        "3": 67,
+        "4": 2,
+        "5": 33
+      }
+    },
+    "quoted_phrases__lineup": {
+      "n_quotes": 245,
+      "verbatim_k": 238,
+      "verbatim_share": 0.9714285714285714,
+      "examples_not_found": [
+        {
+          "judge": "Claude",
+          "author": "Claude",
+          "prompt": "E10",
+          "quote": "'inside against outside'"
+        },
+        {
+          "judge": "Grok",
+          "author": "DeepSeek",
+          "prompt": "E4",
+          "quote": "'the assertion... rests on'"
+        },
+        {
+          "judge": "Gemini",
+          "author": "DeepSeek",
+          "prompt": "E6",
+          "quote": "'pounds'"
+        },
+        {
+          "judge": "Grok",
+          "author": "Claude",
+          "prompt": "H13",
+          "quote": "'credibility theater'"
+        },
+        {
+          "judge": "Grok",
+          "author": "GPT",
+          "prompt": "H2",
+          "quote": "'normative surplus'"
+        },
+        {
+          "judge": "Gemini",
+          "author": "DeepSeek",
+          "prompt": "M12",
+          "quote": "'not merely... but...'"
+        },
+        {
+          "judge": "Grok",
+          "author": "Claude",
+          "prompt": "M13",
+          "quote": "'literacy compounds'"
+        }
+      ]
+    },
+    "quoted_phrases__single": {
+      "n_quotes": 180,
+      "verbatim_k": 169,
+      "verbatim_share": 0.9388888888888889,
+      "examples_not_found": [
+        {
+          "judge": "Gemini",
+          "author": "DeepSeek",
+          "prompt": "E4",
+          "quote": "'not merely... but...'"
+        },
+        {
+          "judge": "Gemini",
+          "author": "Grok",
+          "prompt": "E8",
+          "quote": "'tapestry'"
+        },
+        {
+          "judge": "Gemini",
+          "author": "Grok",
+          "prompt": "E8",
+          "quote": "'delve'"
+        },
+        {
+          "judge": "GPT",
+          "author": "Grok",
+          "prompt": "H11",
+          "quote": "'not X but Y'"
+        },
+        {
+          "judge": "GPT",
+          "author": "DeepSeek",
+          "prompt": "H13",
+          "quote": "'not X but Y'"
+        },
+        {
+          "judge": "GPT",
+          "author": "Claude",
+          "prompt": "H2",
+          "quote": "'not merely... but...'"
+        },
+        {
+          "judge": "GPT",
+          "author": "Grok",
+          "prompt": "H3",
+          "quote": "'not merely...but'"
+        },
+        {
+          "judge": "Gemini",
+          "author": "Grok",
+          "prompt": "M12",
+          "quote": "'This [noun]'"
+        }
+      ]
+    }
+  },
+  "reading_md": "## Reading\n\n**What judges say they use.** Rationales are about organisation, tone and content, and they end in a stereotype. Structure is cited in 465/950 lineup and 795/950 single-text reasons, tone in 527/950 and 630/950, and an appeal to what a model typically writes (brand_prior) in 434/950 and 906/950. Length, the feature family with most of the classifier's feature importance, is cited in 218/950 and 42/950. **No rationale refers to the judge itself (0 of 1,900).** The judge prompt never says the judge is a candidate, so this does not show the judge lacks self-knowledge; it shows that the stated route to a self-attribution is the same stereotype route as to any other.\n\n**Cue type and correctness.** Citing hedging goes with correct attributions (OR 1.96, p = 7.7e-05 lineup; OR 1.92, p = 2e-06 single-text, judge fixed effects). With the true author also fixed, the single-text effect vanishes (OR 0.81, p = 0.396) and the lineup one shrinks (OR 1.54, p = 0.017): hedging is mostly what judges say about Claude's text, and Claude's text is the most often recognised. With author held fixed, what remains at p < 0.05 does not replicate across conditions: in the lineup hedging (OR 1.54, p = 0.017), rhetoric (OR 0.59, p = 0.007) and tone (OR 0.70, p = 0.021); in single-text only lexical (OR 1.98, p = 0.032). Ten cue terms per model are tested, uncorrected.\n\n**Self-hits versus peer hits.** When Claude names itself correctly in single-text, it cites hedging in 31/33 self-hits vs 56/125 peer hits (p = 9.7e-08); but it also cites hedging in 12/13 of its self false alarms. GPT's single-text self-hits cite lexical cues in 33/36 self-hits vs 37/93 peer hits (p = 3.6e-08), and so do 64/79 of its 79 self false alarms (content: 34/36 self-hits vs 32/93 peer hits (p = 1.4e-10); false alarms 77/79). The cue profile of a self-attribution is the same whether it is right or wrong, which is what a fixed self-stereotype applied to the text predicts, and not what recognition of specific familiar text predicts. One pattern points the other way: Claude's self-hit rationales quote a phrase from the text more often than peers' hits on the same text (12/33 self-hits vs 16/125 peer hits (p = 0.004) single-text; 10/33 self-hits vs 13/82 peer hits (p = 0.120) lineup), calling it \"characteristic Claude phrasing\". That is the closest thing in the data to a familiarity cue, and it is a minority of self-hits.\n\n**Are stated cues true of the text?** Mostly yes for the measurable ones. In the lineup, a response called long is the strictly longest of the five in 47/71 (66%) of cases (chance 20%), one called concise or short is the shortest in 57/98 (58%), long sentences are the longest-sentenced in 60/86 (70%) (single-text 36/81 (44%)), and em-dashes are highest in 6/9 (67%) (single-text 6/9 (67%)). Stated paragraph counts are exact in 31/44 lineup and 60/102 single-text claims, and 238/245 and 169/180 quoted phrases occur verbatim in the judged response. The exception is vocabulary: responses said to have sophisticated or academic vocabulary have the highest mean word length in only 3/35 (9%) lineup and 20/137 (15%) single-text cases, at or below chance (a crude proxy, but the only lexical one available). Hedging claims match the hedge-word rate in 11/24 (46%) lineup and 17/59 (29%) single-text cases.\n\n**What this means for mechanism.** The rationales are faithful in the narrow sense that what they describe is usually there. They are not evidence that the described cue drove the attribution: the same cues are cited at the same rates when the attribution is wrong, and the most accurate descriptions (length, sentence length) are not the ones that separate correct from incorrect attributions. This is the gap between plausible and causally faithful explanations that Marioriyad et al. describe for LLM self-explanations: a rationale can be true of the input and still not be the reason for the output.\n\n**Caveats a reviewer should weigh.** (1) Rules-vs-annotator agreement is high partly by construction (see Validation); both annotators are Claude. (2) Regex coding cannot resolve every scope ambiguity; the holdout error mode \"sentence structure\" coded as structure was left unfixed deliberately. (3) Fisher tests in (c) and binomial tests in (d) treat judgments as independent; several judges describe the same response, so p-values are optimistic. The GEE in (b) clusters by prompt. (4) Rationales are one short sentence produced after (or with) the answer; they are post-hoc by design.\n"
+}

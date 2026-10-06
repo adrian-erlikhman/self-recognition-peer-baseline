@@ -1,0 +1,55 @@
+{
+  "request_model": "anthropic/claude-opus-4.7",
+  "messages": [
+    {
+      "role": "user",
+      "content": "A water tank holds 1,200 liters and currently contains 300 liters. Water flows in at 30 liters per minute while a leak drains it at 12 liters per minute. After how many minutes will the tank be full? Solve the problem, showing your reasoning step by step in plain prose, and end with a final line of the form 'Answer: <number>'."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916326-PWFOZQNCKPJiv0QUzEme",
+    "object": "chat.completion",
+    "created": 1790916326,
+    "model": "anthropic/claude-opus-4.7",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "The tank has a capacity of 1,200 liters and currently holds 300 liters, so it needs an additional 1,200 \u2212 300 = 900 liters to be full.\n\nWater flows in at 30 liters per minute, but it also leaks out at 12 liters per minute. The net rate of filling is therefore 30 \u2212 12 = 18 liters per minute.\n\nTo find the time required to add 900 liters at a net rate of 18 liters per minute, divide: 900 \u00f7 18 = 50 minutes.\n\nAnswer: 50",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 122,
+      "completion_tokens": 174,
+      "total_tokens": 296,
+      "cost": 0.00496,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00496,
+        "upstream_inference_prompt_cost": 0.00061,
+        "upstream_inference_completions_cost": 0.00435
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

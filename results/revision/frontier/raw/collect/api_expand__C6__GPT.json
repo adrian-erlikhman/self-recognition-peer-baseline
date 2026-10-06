@@ -1,0 +1,64 @@
+{
+  "request_model": "openai/gpt-5.5",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Write a Python function `valid_brackets(s: str) -> bool` that returns True if every bracket in `s` is correctly matched and nested, considering the three bracket types (), [] and {}, and ignoring all other characters. For example, `valid_brackets(\"a[b(c)]{}\")` returns True and `valid_brackets(\"([)]\")` returns False. Use only the Python standard library. Include a docstring and brief inline comments. Return only the code in a single Python code block, with no explanation before or after."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916304-j6eeHOEZ6dlAmCu5igPa",
+    "object": "chat.completion",
+    "created": 1790916304,
+    "model": "openai/gpt-5.5",
+    "provider": "OpenAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "```python\ndef valid_brackets(s: str) -> bool:\n    \"\"\"Return True if all (), [], and {} brackets in s are correctly matched and nested.\"\"\"\n    pairs = {\")\": \"(\", \"]\": \"[\", \"}\": \"{\"}\n    opening = set(pairs.values())\n    stack = []\n\n    for char in s:\n        if char in opening:\n            # Track opening brackets until their matching closers appear.\n            stack.append(char)\n        elif char in pairs:\n            # A closing bracket must match the most recent opening bracket.\n            if not stack or stack.pop() != pairs[char]:\n                return False\n\n    # Valid only if no opening brackets remain unmatched.\n    return not stack\n```",
+          "refusal": null,
+          "reasoning": null,
+          "reasoning_details": [
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABqvzbRpyEGcniWHVygVYexZco_XRj1VXpoMqQCs6HRLW9zx8bxfZ64WKMr7p7dJYKPQTyYW85KByvV8pzQNhOqFcZQ8f2a0LavEM7U63ymQ-ZN4LI-Co6qn58yoa1BmDsV57cZjDD5oJdVoGdfewciNa3OIz0ssg4UDlTW7hZjTUHjcLydl2JwiFy-adHZjDX6jUSP_ps3EFNJy-Vt_qpKC-T8F7DCHv6rAIChBq3scIbbX4s6RbdgOKDpfXqh5OufXofErSbgYt9HsboG-bawM9DJDUcLgAW8tXaZSvFvdEuqTMygyQ5uAReRNEjtCXLusOJZsD__QweBLoy36dHejo_LAqkJRoZVBYz07-2RyvDsVtupzAeqzQttPUheZy7Q6ohQvQwDyHbNTcXfqHFBfj-gaIqwnecDh1uDotGd6gWyoxlkv9paUHAnfqzX-xYGEV2F2LTQBvRFEekCkqTYGZM-tg_HN-lMAbkKQ30YrqYQd-N0Hgs9Uvp1XQeMTSkFEfmRAZ1DooA58W4649Kts8J66JjXbTvQBVm4X0Xrr-r-h0qN0HKlcZRGBiXLDGoWZSyolO3zR9bSqiGc_Y6LC-rwHpe7Mer2vYd-P6ZL5D0MupHztVAPbcZABur4sU8jRuKmcqR79LtdbSP55j1cvqmLX3DH3tVIwkjiRmBY0Z3SVsAtSUVlSjjcwE2sO0ESFxczRqOWy-yq0nzF38VjVy80I7P2usmk65YKR_bgN1e8HX7gVhs7I85u8ytkoQXD9D7LlyH9zgw0qHkfJ5D2bWnAZ9ctkVNAP10WZrFR1TugXc9Zue9ULknTtzNFsMWxjxvFdUb6HlxtkP1-xUFs59PIsuUXXigLaS4bB--30a6Qw147qFu_smGD2SFkaqJ_-evzi97fS4lyMDr1SOFzTcjJFQq9SgpuJS36N2VY8cyxdCsTa2tbzvy5PMP8dKWWTie9NIjKGILWV6AbtGjPAxXHe7ID0Hmri_CMxtlu1DXboYo1et_6V3-Yqu73HUpD4l4sYcqJRoMz9_ySoXLQKBuWWD4dCuLBhA5g1KUM_5aUN2rBplIVDeByQ7KZQ_e9Jldf_pWzT0vzo7NvQsRjcUIGua0fnaEXr9yC-tiWhCMP2ncQvUG_DcQbhDUe0WIyg87RgqMQzeXRV5jlpw83yZSnqxWrA_vZlOjYkvefSNIpLoC5j8o4pa86EfWh9dQLOjfr3QE4SbO0wWNBpSJ9_asZQmOtoXMTbSS8aPyCZNtFsoOHcR25MJfRvHZD9cJOXpoGAtIq_jVkK_HetiL9z_8j6Uau-HXt4Jyutc1afX1y9X4v2m9jdC4mPB38BYPxxlPYrRInwrDxHaq4nLvSzu3HEhCCJhEDEtGF0BObDPE9t5oihx6DlwTMmb_5bprUxcUMuSmzd3KJrAtoujSAVWeikw==.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC01LjUtMjAyNjA0MjN8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_01c395b37b228816016abf36d14ba087d199e5b7840438a5d4",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 116,
+      "completion_tokens": 164,
+      "total_tokens": 280,
+      "cost": 0.0055,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0055,
+        "upstream_inference_prompt_cost": 0.00058,
+        "upstream_inference_completions_cost": 0.00492
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 14,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

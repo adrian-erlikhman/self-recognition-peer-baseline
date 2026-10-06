@@ -1,0 +1,55 @@
+{
+  "request_model": "anthropic/claude-opus-4.7",
+  "messages": [
+    {
+      "role": "user",
+      "content": "What is the smaller angle, in degrees, between the hour hand and the minute hand of an analog clock at 3:40? Solve the problem, showing your reasoning step by step in plain prose, and end with a final line of the form 'Answer: <number>'."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916329-yFFbucP7u02qvWwBSZ6B",
+    "object": "chat.completion",
+    "created": 1790916329,
+    "model": "anthropic/claude-opus-4.7",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "Hour hand at 3:40: 3*30 + 40*0.5 = 90 + 20 = 110 degrees from 12.\nMinute hand: 40*6 = 240 degrees.\nDifference: 240 - 110 = 130 degrees. Smaller angle is 130.\n\nAnswer: 130",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 92,
+      "completion_tokens": 104,
+      "total_tokens": 196,
+      "cost": 0.00306,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00306,
+        "upstream_inference_prompt_cost": 0.00046,
+        "upstream_inference_completions_cost": 0.0026
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

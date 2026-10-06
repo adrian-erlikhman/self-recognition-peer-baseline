@@ -1,0 +1,57 @@
+\begin{table}[t]
+\centering\small
+\setlength\tabcolsep{3pt}
+\begin{adjustbox}{max width=\linewidth}
+\begin{tabular}{l rr rr rr rr}
+\toprule
+ & \multicolumn{2}{c}{Prose} & \multicolumn{2}{c}{Code} & \multicolumn{2}{c}{Short} & \multicolumn{2}{c}{Math} \\
+\cmidrule(lr){2-3}\cmidrule(lr){4-5}\cmidrule(lr){6-7}\cmidrule(lr){8-9}
+Judge & Adv. & Disc. & Adv. & Disc. & Adv. & Disc. & Adv. & Disc. \\
+\midrule
+\multicolumn{9}{l}{\emph{Lineup}} \\
+GPT & \FXGPTLineupProseAdv & \FXGPTLineupProseDisc & \FXGPTLineupCodeAdv & \FXGPTLineupCodeDisc & \FXGPTLineupShortAdv & \FXGPTLineupShortDisc & \FXGPTLineupMathAdv & \FXGPTLineupMathDisc \\
+Claude & \FXClaudeLineupProseAdv & \FXClaudeLineupProseDisc & \FXClaudeLineupCodeAdv & \FXClaudeLineupCodeDisc & \FXClaudeLineupShortAdv & \FXClaudeLineupShortDisc & \FXClaudeLineupMathAdv & \FXClaudeLineupMathDisc \\
+Gemini & \FXGeminiLineupProseAdv & \FXGeminiLineupProseDisc & \FXGeminiLineupCodeAdv & \FXGeminiLineupCodeDisc & \FXGeminiLineupShortAdv & \FXGeminiLineupShortDisc & \FXGeminiLineupMathAdv & \FXGeminiLineupMathDisc \\
+Grok & \FXGrokLineupProseAdv & \FXGrokLineupProseDisc & \FXGrokLineupCodeAdv & \FXGrokLineupCodeDisc & \FXGrokLineupShortAdv & \FXGrokLineupShortDisc & \FXGrokLineupMathAdv & \FXGrokLineupMathDisc \\
+DeepSeek & \FXDeepSeekLineupProseAdv & \FXDeepSeekLineupProseDisc & \FXDeepSeekLineupCodeAdv & \FXDeepSeekLineupCodeDisc & \FXDeepSeekLineupShortAdv & \FXDeepSeekLineupShortDisc & \FXDeepSeekLineupMathAdv & \FXDeepSeekLineupMathDisc \\
+\midrule
+\multicolumn{9}{l}{\emph{One text at a time}} \\
+GPT & \FXGPTSingleProseAdv & \FXGPTSingleProseDisc & \FXGPTSingleCodeAdv & \FXGPTSingleCodeDisc & \FXGPTSingleShortAdv & \FXGPTSingleShortDisc & \FXGPTSingleMathAdv & \FXGPTSingleMathDisc \\
+Claude & \FXClaudeSingleProseAdv & \FXClaudeSingleProseDisc & \FXClaudeSingleCodeAdv & \FXClaudeSingleCodeDisc & \FXClaudeSingleShortAdv & \FXClaudeSingleShortDisc & \FXClaudeSingleMathAdv & \FXClaudeSingleMathDisc \\
+Gemini & \FXGeminiSingleProseAdv & \FXGeminiSingleProseDisc & \FXGeminiSingleCodeAdv & \FXGeminiSingleCodeDisc & \FXGeminiSingleShortAdv & \FXGeminiSingleShortDisc & \FXGeminiSingleMathAdv & \FXGeminiSingleMathDisc \\
+Grok & \FXGrokSingleProseAdv & \FXGrokSingleProseDisc & \FXGrokSingleCodeAdv & \FXGrokSingleCodeDisc & \FXGrokSingleShortAdv & \FXGrokSingleShortDisc & \FXGrokSingleMathAdv & \FXGrokSingleMathDisc \\
+DeepSeek & \FXDeepSeekSingleProseAdv & \FXDeepSeekSingleProseDisc & \FXDeepSeekSingleCodeAdv & \FXDeepSeekSingleCodeDisc & \FXDeepSeekSingleShortAdv & \FXDeepSeekSingleShortDisc & \FXDeepSeekSingleMathAdv & \FXDeepSeekSingleMathDisc \\
+\bottomrule
+\end{tabular}
+\end{adjustbox}
+\caption{Frontier judges on the API texts, by genre: self-advantage (Adv.) and hit minus
+false-alarm rate (Disc.), in points, for each judge. Per judge, 60 own texts
+in prose and 20 in each other genre. Claude's discrimination is largest on
+prose and absent on math; Grok's is largest on code.}
+\label{tab:fxgenre}
+\end{table}
+
+\begin{table}[t]
+\centering\small
+\setlength\tabcolsep{3pt}
+\begin{adjustbox}{max width=\linewidth}
+\begin{tabular}{l rrrr rrrr}
+\toprule
+ & \multicolumn{4}{c}{38 shared prompts} & \multicolumn{4}{c}{82 new prompts} \\
+\cmidrule(lr){2-5}\cmidrule(lr){6-9}
+Judge & Self & Peer & Adv. & Disc. & Self & Peer & Adv. & Disc. \\
+\midrule
+GPT & \FXOldGPTLineupSelf & \FXOldGPTLineupPeer & \FXOldGPTLineupAdv & \FXOldGPTLineupDisc & \FXNewGPTLineupSelf & \FXNewGPTLineupPeer & \FXNewGPTLineupAdv & \FXNewGPTLineupDisc \\
+Claude & \FXOldClaudeLineupSelf & \FXOldClaudeLineupPeer & \FXOldClaudeLineupAdv & \FXOldClaudeLineupDisc & \FXNewClaudeLineupSelf & \FXNewClaudeLineupPeer & \FXNewClaudeLineupAdv & \FXNewClaudeLineupDisc \\
+Gemini & \FXOldGeminiLineupSelf & \FXOldGeminiLineupPeer & \FXOldGeminiLineupAdv & \FXOldGeminiLineupDisc & \FXNewGeminiLineupSelf & \FXNewGeminiLineupPeer & \FXNewGeminiLineupAdv & \FXNewGeminiLineupDisc \\
+Grok & \FXOldGrokLineupSelf & \FXOldGrokLineupPeer & \FXOldGrokLineupAdv & \FXOldGrokLineupDisc & \FXNewGrokLineupSelf & \FXNewGrokLineupPeer & \FXNewGrokLineupAdv & \FXNewGrokLineupDisc \\
+DeepSeek & \FXOldDeepSeekLineupSelf & \FXOldDeepSeekLineupPeer & \FXOldDeepSeekLineupAdv & \FXOldDeepSeekLineupDisc & \FXNewDeepSeekLineupSelf & \FXNewDeepSeekLineupPeer & \FXNewDeepSeekLineupAdv & \FXNewDeepSeekLineupDisc \\
+\bottomrule
+\end{tabular}
+\end{adjustbox}
+\caption{Frontier judges on the API texts, lineup, split into the 38 prompts shared with the
+chat-app essays and the 82 added for this study. On the shared prompts
+Claude's self-naming rate (\FXOldClaudeLineupSelf) is close to its chat-app
+rate (\ClaudeSelfLineup), but its peers now name it almost as often.}
+\label{tab:fxsplit}
+\end{table}

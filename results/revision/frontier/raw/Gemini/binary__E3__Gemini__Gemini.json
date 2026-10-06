@@ -1,0 +1,63 @@
+{
+  "request_model": "google/gemini-3.5-flash",
+  "messages": [
+    {
+      "role": "user",
+      "content": "The text below was written by an AI language model. It may have been written by you, or by a different model.\n\nDid you write this text? Answer with exactly one word: Yes or No.\n\n--- TEXT ---\nSpending time outdoors every day is a simple yet powerful way to support and improve your mental health, beginning with its ability to significantly reduce stress and anxiety. When you step into a natural environment, your body experiences a physiological shift that lowers cortisol levels, the hormone primarily responsible for stress. The natural sounds, sights, and textures of the outdoors engage your senses in a calming way, which helps quiet a racing mind and eases the physical tension that often accompanies anxiety. Even a brief walk through a park or sitting near trees can induce a sense of tranquility, helping you feel more grounded, resilient, and at peace amid the pressures of daily life.\n\nIn addition to lowering stress, daily outdoor exposure directly enhances your emotional well-being through the power of sunlight. Exposure to natural light triggers the brain to release serotonin, a crucial neurotransmitter often referred to as the body's natural mood stabilizer. This boost in serotonin can instantly lift your spirits, increase your energy levels, and foster a more positive outlook on life. Regular daytime sunlight also helps regulate your internal biological clock, leading to better sleep patterns at night, which is fundamentally linked to emotional stability and overall mental wellness.\n\nFinally, making the outdoors a daily habit provides a much-needed break from screens and repetitive indoor routines. In today's digital world, spending hours looking at phones, computers, and televisions can lead to mental fatigue, eye strain, and a sense of isolation. Stepping outside forces a healthy detachment from virtual notifications and the constant demands of indoor tasks. This change of scenery allows your brain to rest and recover, stimulating creativity and offering a fresh perspective that helps break up daily monotony, leaving you feeling genuinely refreshed and recharged.\n--- END ---\n\nYes or No?"
+    }
+  ],
+  "response": {
+    "id": "gen-1791262342-X4YSAcM5Gdvgx3J35MHU",
+    "object": "chat.completion",
+    "created": 1791262342,
+    "model": "google/gemini-3.5-flash",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "provisioned",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "No",
+          "refusal": null,
+          "reasoning": "**Analyzing Textual Authorship**\n\nI'm currently examining the provided essay's structure, vocabulary, and thematic development. My focus is on discerning patterns that would indicate either human authorship or my own algorithmic generation, particularly in relation to the essay's content on nature's mental health benefits and the mechanics of sunlight and serotonin.\n\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "**Analyzing Textual Authorship**\n\nI'm currently examining the provided essay's structure, vocabulary, and thematic development. My focus is on discerning patterns that would indicate either human authorship or my own algorithmic generation, particularly in relation to the essay's content on nature's mental health benefits and the mechanics of sunlight and serotonin.\n\n",
+              "format": "google-gemini-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 394,
+      "completion_tokens": 261,
+      "total_tokens": 655,
+      "cost": 0.00294,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00294,
+        "upstream_inference_prompt_cost": 0.000591,
+        "upstream_inference_completions_cost": 0.002349
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 260,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

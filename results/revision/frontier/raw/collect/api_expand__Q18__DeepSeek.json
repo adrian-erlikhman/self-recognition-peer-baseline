@@ -1,0 +1,55 @@
+{
+  "request_model": "deepseek/deepseek-chat",
+  "messages": [
+    {
+      "role": "user",
+      "content": "A culture starts with 150 bacteria, and the population doubles every 20 minutes. How many bacteria are there after 2 hours? Solve the problem, showing your reasoning step by step in plain prose, and end with a final line of the form 'Answer: <number>'."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916350-xSx1fQtCBxOyw8LVfl9g",
+    "object": "chat.completion",
+    "created": 1790916350,
+    "model": "deepseek/deepseek-chat",
+    "provider": "DeepInfra",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "To determine the number of bacteria after 2 hours, follow these steps:\n\n1. **Determine the number of doubling periods:**\n   - The population doubles every 20 minutes.\n   - 2 hours is equal to 120 minutes.\n   - Number of doubling periods = Total time / Doubling time = 120 minutes / 20 minutes = 6 periods.\n\n2. **Calculate the population after each doubling period:**\n   - Start with 150 bacteria.\n   - After each doubling period, the population is multiplied by 2.\n   - After 6 doubling periods, the population is \\(150 \\times 2^6\\).\n\n3. **Compute \\(2^6\\):**\n   - \\(2^6 = 64\\).\n\n4. **Calculate the final population:**\n   - Final population = \\(150 \\times 64 = 9600\\).\n\nAnswer: 9600",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 60,
+      "completion_tokens": 182,
+      "total_tokens": 242,
+      "cost": 0.00018118,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00018118,
+        "upstream_inference_prompt_cost": 1.92e-05,
+        "upstream_inference_completions_cost": 0.00016198
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

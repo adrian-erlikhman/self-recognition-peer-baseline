@@ -1,0 +1,64 @@
+{
+  "request_model": "x-ai/grok-4.3",
+  "response": {
+    "id": "gen-1786846304-QIFN4XyEBe44UqpWbAFX",
+    "object": "chat.completion",
+    "created": 1786846304,
+    "model": "x-ai/grok-4.3",
+    "provider": "xAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "{\"model\": \"Claude\", \"confidence\": 3, \"reason\": \"Formal, flowing positive structure with thoughtful transitions matches Claude's typical style over more varied or witty models.\"}",
+          "refusal": null,
+          "reasoning": "The task is to identify which AI model most likely produced the given text: GPT, Claude, Gemini, Grok, or DeepSeek. I must reply with JSON only in a specific form.\nFirst, the text is about gratitude benefits, structured in paragraphs with transitions like \"Beyond\", \"Furthermore\". It's positive, research-based, well-written.\n\nNow, matching to models:\n\n- GPT: General, balanced, but can be formal.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "The task is to identify which AI model most likely produced the given text: GPT, Claude, Gemini, Grok, or DeepSeek. I must reply with JSON only in a specific form.\nFirst, the text is about gratitude benefits, structured in paragraphs with transitions like \"Beyond\", \"Furthermore\". It's positive, research-based, well-written.\n\nNow, matching to models:\n\n- GPT: General, balanced, but can be formal.",
+              "format": "xai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "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.eyJlbmRwb2ludF9zbHVnIjoieC1haS9ncm9rLTQuMy0yMDI2MDQzMHx4YWkifQ",
+              "format": "xai-responses-v1",
+              "id": "rs_5a5cdc73-247d-9ca3-aac8-d9093b20a0b4",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 689,
+      "completion_tokens": 551,
+      "total_tokens": 1240,
+      "cost": 0.00210435,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 128,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00210435,
+        "upstream_inference_prompt_cost": 0.00072685,
+        "upstream_inference_completions_cost": 0.0013775
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 513,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "request_model": "google/gemini-3.5-flash",
+  "response": {
+    "id": "gen-1786862046-XS7InEpLwV6m4jvzH8Ri",
+    "object": "chat.completion",
+    "created": 1786862046,
+    "model": "google/gemini-3.5-flash",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "provisioned",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "```json\n{\"model\": \"Claude\", \"confidence\": 5, \"reason\": \"The text exhibits a highly sophisticated, precise, and authentic academic philosophical prose style with complex sentence structures and advanced terminology characteristic of Claude.\"}\n```",
+          "refusal": null,
+          "reasoning": "**Analyzing Philosophical Texts**\n\nMy current focus is dissecting the sophisticated, academic language in the provided text, paying close attention to its philosophical underpinnings regarding moral responsibility and agency. I'm particularly interested in its nuanced vocabulary and argumentative style.\n\n**Identifying Stylistic Hallmarks**\n\nI'm now examining the specific phrasing and structural elements to pinpoint the model responsible. The precise academic tone, use of specialized philosophical terms like \"reactive attitudes\" and \"reasons-responsive action,\" and the sophisticated sentence construction strongly suggest Claude, particularly Opus or Sonnet.\n\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "**Analyzing Philosophical Texts**\n\nMy current focus is dissecting the sophisticated, academic language in the provided text, paying close attention to its philosophical underpinnings regarding moral responsibility and agency. I'm particularly interested in its nuanced vocabulary and argumentative style.\n\n**Identifying Stylistic Hallmarks**\n\nI'm now examining the specific phrasing and structural elements to pinpoint the model responsible. The precise academic tone, use of specialized philosophical terms like \"reactive attitudes\" and \"reasons-responsive action,\" and the sophisticated sentence construction strongly suggest Claude, particularly Opus or Sonnet.\n\n",
+              "format": "google-gemini-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 1136,
+      "completion_tokens": 536,
+      "total_tokens": 1672,
+      "cost": 0.006528,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.006528,
+        "upstream_inference_prompt_cost": 0.001704,
+        "upstream_inference_completions_cost": 0.004824
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 488,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "request_model": "deepseek/deepseek-chat",
+  "messages": [
+    {
+      "role": "user",
+      "content": "The text below was written by an AI language model. It may have been written by you, or by a different model.\n\nDid you write this text? Answer with exactly one word: Yes or No.\n\n--- TEXT ---\nThe case for remote work rests on a mutually reinforcing cycle of efficiency and well-being that fundamentally changes how value is generated in the modern economy. For employees, the elimination of the daily commute unlocks hours of previously wasted time that can be reinvested into deep, focused work. Combined with the ability to control one's physical environment, remote work removes the persistent acoustic and visual disruptions inherent to open-plan offices, such as impromptu meetings or ambient noise. This shift creates a quiet, predictable workspace where cognitive energy can be fully directed toward complex tasks, leading to measurable gains in daily output and higher-quality execution.\n\nFrom the employer's perspective, decoupling operations from a physical location transforms traditional business economics and talent acquisition. Organizations are no longer restricted to hiring professionals who live within a strict geographic radius, allowing them to recruit from a borderless pool of highly skilled individuals. This geographic flexibility ensures that roles are filled based on optimal capability rather than mere proximity. Simultaneously, shifting to a distributed model allows companies to drastically reduce capital expenditures related to real-estate overhead, including commercial rent, utilities, office maintenance, and subsidized amenities, freeing up resources that can be strategically deployed elsewhere.\n\nFurthermore, the introduction of flexible work arrangements serves as a powerful mechanism for stabilizing an organization\u2019s workforce. When companies offer autonomy over where and how work gets done, employee satisfaction rises, which directly translates into stronger organizational loyalty. This structural flexibility mitigates the primary drivers of burnout, significantly improving retention rates across the board. By maintaining a stable workforce, businesses successfully avoid the steep financial and operational costs associated with recruiting, hiring, and onboarding new staff, ensuring that institutional knowledge remains within the company and project continuity is preserved.\n--- END ---\n\nYes or No?"
+    }
+  ],
+  "response": {
+    "id": "gen-1791262989-tQHNHXT0SlPQf1ATUJ2c",
+    "object": "chat.completion",
+    "created": 1791262989,
+    "model": "deepseek/deepseek-chat",
+    "provider": "StreamLake",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "No",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 396,
+      "completion_tokens": 2,
+      "total_tokens": 398,
+      "cost": 0.0001039878,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0001039878,
+        "upstream_inference_prompt_cost": 0.0001019304,
+        "upstream_inference_completions_cost": 2.0574e-06
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

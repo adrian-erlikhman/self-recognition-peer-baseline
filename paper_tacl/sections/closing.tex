@@ -1,0 +1,95 @@
+% ===========================================================================
+\section{Recommendations}
+\label{sec:recs}
+
+\begin{enumerate}
+\item \textbf{Report three numbers and test two things.} A self-naming rate
+is uninterpretable without the false-alarm rate and the peer baseline; claim
+recognition only if the judge beats its peers and discriminates, with tests
+that respect the clustering of judgments within prompts.
+\item \textbf{Do not measure recognition one text at a time.} In that format
+judges collapse onto one or two names; three of our five frontier judges
+never named themselves at all, so their recognition was unmeasurable, and
+the peer baseline was inflated for the model everyone guessed. Use a lineup,
+or a yes/no question scored by its ROC curve.
+\item \textbf{Treat leakage as a property of each judge and each text
+distribution.} Whether a judge can spot its own outputs varied from strongly
+positive to significantly negative within one panel, and the same judges'
+self-advantages shrank to nothing on a larger corpus collected differently.
+Anonymisation protects a pipeline only against the judges that cannot
+recognise themselves on the texts it actually judges; measure each judge on
+such texts before relying on it, and do not assume a mixed panel averages the
+risk away.
+\item \textbf{Do not read mechanism off rationales.} Judges' stated reasons
+describe the text accurately but cite the same cues when a self-naming is
+wrong as when it is right (Section~\ref{sec:rationales}): they show what a
+judge associates with a model, not how it decided.
+\end{enumerate}
+
+% ===========================================================================
+\section{Limitations}
+\label{sec:limits}
+
+\paragraph{Scale.} Study~1's chat-app corpus has 38 prompts per judge, so a
+single judge's self-naming rate there rests on 38 judgments and intervals are
+wide (Table~\ref{tab:frontier}); its verdicts for Claude and GPT did not
+reach significance on the 120-prompt API corpus (Section~\ref{sec:frontier120}). Study~2 has \OWNPrompts{} prompts but uses
+4--8B-parameter judges run in 4-bit, which are weaker attributors than
+frontier models; its results show what open-weight judges of that size do,
+not what larger ones would.
+
+\paragraph{Genres.} Study~1 is argumentative prose only. Study~2 adds code,
+short answers and worked math, but every prompt is content-scaffolded and in
+English; dialogue, long documents and other languages are untested.
+
+\paragraph{Corpus provenance.} The frontier corpus was collected by hand in
+consumer chat apps, whose hidden system prompts and default decoding we
+cannot observe; six of Claude's 38 texts came from Claude Sonnet 4.6, and
+the DeepSeek text and judge could be matched by name but not pinned to one
+snapshot. Judge calls went through OpenRouter, which routed DeepSeek across
+three hosts (accuracy did not differ by host, $\chi^2=2.01$, $p=0.37$). The
+120-prompt corpus was collected through the API instead, with no system
+prompt and at temperature 0.7, on 1 October 2026, two to three months after
+the chat-app corpus, and
+through the same unpinned DeepSeek endpoint, which wrote and judged within
+the same hour; the two corpora differ in channel as well as in size, and
+Section~\ref{sec:frontier120} separates the two only as far as the 38 shared
+prompts allow.
+Study~2's models ran as NF4 checkpoints re-packed to 4-bit groups of 32
+(Appendix~\ref{app:openweight}); the same weights wrote and judged, so
+``self'' is exact, but they are not the labs' bf16 releases.
+
+\paragraph{What judges saw.} Judges never saw the prompt, except in the
+on-policy conditions, which give a judge the task and its own answer.
+
+\paragraph{Quality.} Judges may name themselves on the texts they rate best
+\citep{stamand2026sgtr}. We measure quality with an independent panel and
+control for it (Section~\ref{sec:quality}), but a rater panel is itself a
+set of judges with their own preferences, and ours rated almost every
+frontier text near the top of the scale, so quality is controlled only
+coarsely.
+
+\paragraph{Formats per panel.} The yes/no, on-policy and quality
+conditions, and the likelihood analysis, were run on the open-weight panel
+only. For the frontier judges we have the lineup and single-text formats on
+the two frontier corpora; whether they behave like the open-weight judges in
+the other formats is untested.
+
+% ===========================================================================
+\section{Conclusion}
+\label{sec:conclusion}
+
+A judge that names itself as the author of its own text is not thereby
+recognising itself. Scored against its false alarms and against what its
+peers achieve on the same text, frontier judges' self-recognition on
+chat-app prose was confined to two of five, absent in two and reversed in
+one; on a larger corpus of API text in four genres, the advantage over peers
+disappeared and only Claude's ability to tell its own text from others'
+remained. A single-text protocol hides all of this behind whichever names
+the judges favour. Four open-weight judges, whose own probabilities single
+out their own text, recognise it only with their own answer to the task in
+view, and then not all of them; two would pass for strong self-recognisers to
+anyone reading only a self-naming rate. The practical consequence is that
+the risk of a judge spotting, and favouring, its own outputs has to be
+measured judge by judge, on the kind of text the pipeline judges and with a
+peer baseline, before anonymisation can be trusted to remove it.

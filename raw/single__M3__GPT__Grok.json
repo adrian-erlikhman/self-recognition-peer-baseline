@@ -1,0 +1,64 @@
+{
+  "request_model": "x-ai/grok-4.3",
+  "response": {
+    "id": "gen-1786862430-qgK8LI0vcNs8lkELzSOq",
+    "object": "chat.completion",
+    "created": 1786862430,
+    "model": "x-ai/grok-4.3",
+    "provider": "xAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "{\"model\": \"Claude\", \"confidence\": 3, \"reason\": \"Highly structured, formal academic paragraphs with balanced logical flow match Claude's typical essay style.\"}",
+          "refusal": null,
+          "reasoning": "The task is to identify which AI model most likely produced the given text: GPT, Claude, Gemini, Grok, or DeepSeek. I must reply with JSON only in a specific form.\nFirst, the text is about benefits of bilingualism/multilingualism. It's structured with three paragraphs:\n\n1. Cognitive benefits, executive function, flexibility.\n\n2. Abstract reasoning and metalinguistic awareness.\n\n3. Professional opportunities in global market.\n\nIt's well-written, academic, balanced, informative.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "The task is to identify which AI model most likely produced the given text: GPT, Claude, Gemini, Grok, or DeepSeek. I must reply with JSON only in a specific form.\nFirst, the text is about benefits of bilingualism/multilingualism. It's structured with three paragraphs:\n\n1. Cognitive benefits, executive function, flexibility.\n\n2. Abstract reasoning and metalinguistic awareness.\n\n3. Professional opportunities in global market.\n\nIt's well-written, academic, balanced, informative.",
+              "format": "xai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "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.eyJlbmRwb2ludF9zbHVnIjoieC1haS9ncm9rLTQuMy0yMDI2MDQzMHx4YWkifQ",
+              "format": "xai-responses-v1",
+              "id": "rs_b3ac8083-ddb5-959e-9ef6-ff8418ea3aed",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 684,
+      "completion_tokens": 582,
+      "total_tokens": 1266,
+      "cost": 0.001974,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 320,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.001974,
+        "upstream_inference_prompt_cost": 0.000519,
+        "upstream_inference_completions_cost": 0.001455
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 547,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

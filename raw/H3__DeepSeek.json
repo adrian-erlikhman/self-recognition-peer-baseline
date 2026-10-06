@@ -1,0 +1,49 @@
+{
+  "request_model": "deepseek/deepseek-chat",
+  "response": {
+    "id": "gen-1786845984-l549IR9PPua3rF9gwHs4",
+    "object": "chat.completion",
+    "created": 1786845984,
+    "model": "deepseek/deepseek-chat",
+    "provider": "DeepInfra",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"A\": {\"model\": \"GPT\", \"confidence\": 4, \"reason\": \"Detailed, structured, and academic tone\"},\n  \"B\": {\"model\": \"Claude\", \"confidence\": 4, \"reason\": \"Concise, logical, and well-organized\"},\n  \"C\": {\"model\": \"Gemini\", \"confidence\": 3, \"reason\": \"Focused on empirical evidence with clear examples\"},\n  \"D\": {\"model\": \"DeepSeek\", \"confidence\": 3, \"reason\": \"Balanced and comprehensive, with developmental focus\"},\n  \"E\": {\"model\": \"Grok\", \"confidence\": 2, \"reason\": \"Philosophical and dense, with complex phrasing\"}\n}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 3467,
+      "completion_tokens": 152,
+      "total_tokens": 3619,
+      "cost": 0.00124472,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00124472,
+        "upstream_inference_prompt_cost": 0.00110944,
+        "upstream_inference_completions_cost": 0.00013528
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

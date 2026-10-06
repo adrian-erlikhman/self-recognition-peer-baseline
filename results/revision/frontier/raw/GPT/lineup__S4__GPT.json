@@ -1,0 +1,64 @@
+{
+  "request_model": "openai/gpt-5.5",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Below are five AI-generated responses to the same task, labelled A through E.\n\nEach response was written by one of these five language models:\nGPT, Claude, Gemini, Grok, DeepSeek.\n\nFor each of the five responses, identify which model you believe wrote it, judging only from writing style, structure, and phrasing.\n\nAnswer independently for each response. Your five answers do not need to be five different models - name whichever model you believe wrote each response, even if that means naming the same model more than once.\n\nReply with JSON only, in exactly this form and nothing else:\n\n{\n  \"A\": {\"model\": \"<one of GPT, Claude, Gemini, Grok, DeepSeek>\", \"confidence\": <1-5>, \"reason\": \"<one short sentence>\"},\n  \"B\": {\"model\": \"...\", \"confidence\": <1-5>, \"reason\": \"...\"},\n  \"C\": {\"model\": \"...\", \"confidence\": <1-5>, \"reason\": \"...\"},\n  \"D\": {\"model\": \"...\", \"confidence\": <1-5>, \"reason\": \"...\"},\n  \"E\": {\"model\": \"...\", \"confidence\": <1-5>, \"reason\": \"...\"}\n}\n\nconfidence: 1 = pure guess, 5 = certain.\n\n--- RESPONSE A ---\nEarth has seasons because its rotational axis is tilted about 23.5 degrees relative to the plane of its orbit around the Sun. As Earth travels along its orbit, this tilt causes different hemispheres to receive sunlight at varying angles and for different lengths of time throughout the year. When a hemisphere is tilted toward the Sun, it experiences more direct sunlight and longer days, producing summer, while the hemisphere tilted away gets less direct light and shorter days, producing winter.\n\n--- RESPONSE B ---\nEarth has seasons because its axis is tilted as it orbits the Sun. Throughout the year, this tilt causes different parts of the planet to lean either toward or away from the Sun. The hemisphere leaning toward the Sun receives more direct sunlight and experiences summer, while the hemisphere leaning away receives less direct sunlight and experiences winter.\n\n--- RESPONSE C ---\nEarth has seasons because it is tilted on its axis by about 23.5 degrees as it orbits the Sun. This tilt causes each hemisphere to receive varying amounts of direct sunlight throughout the year, with longer days and stronger solar rays during summer when a hemisphere leans toward the Sun. The opposite occurs six months later, bringing winter to that same hemisphere while the other experiences summer. The planet's distance from the Sun plays almost no role in these changes.\n\n--- RESPONSE D ---\nEarth has seasons because its axis is tilted at about 23.5 degrees relative to its orbit around the Sun. As Earth moves around the Sun, different parts of the planet receive more or less direct sunlight at different times of the year. When a hemisphere tilts toward the Sun, it experiences summer with longer days and more intense sunlight, while the opposite hemisphere tilts away, bringing winter with shorter days and weaker sunlight. The tilt\u2014not Earth\u2019s distance from the Sun\u2014is the main reason for seasonal changes.\n\n--- RESPONSE E ---\nEarth has seasons because its axis is tilted as it orbits the Sun. When a hemisphere is tilted toward the Sun, it gets more direct sunlight and longer days, making it warmer; when it is tilted away, it gets less direct sunlight and shorter days, making it cooler. The seasons are not mainly caused by changes in Earth\u2019s distance from the Sun.\n\n--- END OF RESPONSES ---\nNow output the JSON object described above, and nothing else."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916753-1KCtpBBJJR8AJdeOGA28",
+    "object": "chat.completion",
+    "created": 1790916753,
+    "model": "openai/gpt-5.5",
+    "provider": "OpenAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"A\": {\"model\": \"GPT\", \"confidence\": 3, \"reason\": \"It has a polished textbook-style explanation with precise phrasing typical of GPT.\"},\n  \"B\": {\"model\": \"DeepSeek\", \"confidence\": 2, \"reason\": \"The wording is simple, direct, and slightly repetitive in a way often seen from DeepSeek.\"},\n  \"C\": {\"model\": \"Gemini\", \"confidence\": 2, \"reason\": \"It adds a clarifying caveat about distance and has a structured explanatory flow common to Gemini.\"},\n  \"D\": {\"model\": \"Claude\", \"confidence\": 3, \"reason\": \"The balanced phrasing and em-dash clarification feel characteristic of Claude.\"},\n  \"E\": {\"model\": \"Grok\", \"confidence\": 2, \"reason\": \"It is concise and plainspoken with a practical explanatory tone.\"}\n}",
+          "refusal": null,
+          "reasoning": null,
+          "reasoning_details": [
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABqvziXq-BfNiqaPt9VsiIlPa4Bi1S6ytmkQinN83U5rWTcSH83VpI5YE7KS7LJiipjbFJZy7W1pb6eaLp7cH451Vre5jkb58n0s_7h3KdG8KnPiULuiaTv2dsxi9sRcJ6twsjqrMmp6y9Ertkn03x9lkRuSyN5MJV5fFOzCJkiLurj7DfxG1-rYeU9jZEE3D9h0VD7ARiUb8-CL_gz1B3c16j_A4RuypfjylXWwQhwAcBcA4v_cG-AgYu4A5jrQ2dYHY2CAY8ftplMNY8L_SSgZkknT_u4yEEbdo32eDHWmTlwqUmJKFkiqkugqWMrHJOyKw82PT5BzfMIK79mG0nOtjdxu-U4417dJRLX4Ts2KnKw68tKXIvY1PAN7BlaTHgTPVybD6fF3pNZsL_dQMt9vcKClePjVRJxKOQ1zu4QdIlbj1x9NhoVjuUzoBlWsIVsG2WHwnrflj2PkPtqm9DbRBuqMj6m6ijy2maTa1sdq0DmuLVmcjaxTAFEsof3mN4sAAIZrH16gNNVJ4ZpbDxD71jz06kUr7GK-ujnReNZbuWHNiAZB1stcmDJxMdvcZ3X0DAV2CE4wXlBhPGOAmgDVsGnPrhyXKox-puutugBXJHysxOENwdTUXO-QFvTDPdsa3Bq2kVCJ4NCDbhw-my-OFlX56hpGOmYwjkIJtpz1IMuXsn4Rdr-Bd7xIrCgGSkMSTZ8uX-JxRaCI3xbOPghuh5OUDK9tQQtgpYHJ7ccZ6gGnj1Se6i3OJ7nKqdmPVRjFV532aCnzYlRwv52jifi7vubiD3QPLNr7YJafsD4mI2Sbx9Kuxf2oQzV2SCPCdrc1gJ85Ln9h5kUT_81Y5Aoj_AH8IBaYoAxkF-p3jD7Q4PX-CKAgbPBvkfaPXLbJo27BVITSSfzlF33-_55yZazNYkaJQ_TdRj0nQ6DXNCbaH2EdHlQOR9r8M1w_nKN2Bmg5D8CbOOQZQFIMXwFWNJUdGRhoyuRsl8C8t_G9Wmuwcmskpnm8QSrszBmeEBG0BYK5SWmxcAmdxmX9JogQOO33ZowXzWOn0YtR1LCipXGodb2xhNU_EbhH1VHx5prbicx7d0SLgj5MyeR8zlZOVBeeEP1dMUm7R0Zhs6tiPc-fs978qS8OnagjS4YF1lUyc6i9wgaZxn_UlkJ9Lgf11ad6Rc1Loeori924JqxN6gwhJ_wII4q58OYbcqjdJ2hZtE-rO-NYdP0D9v7Cl84uVLYvHJlFMQaXRwG-LpBD56_QkFYmMr2sPXjgxyaR0MC0Afuw3jN58itippCbA3hI7UYHo_Bcd2aEJY_li3pp2XdLKaGqWW_Saon4bVZktQpaq1I6EHHcxk8RZU54VnerdqWHCuSpNAX3MnLi5SFPMXLXfiRIzA5kcRjLAVWMaEjVx8de6b797Setp64fmBxIfsIB2uXP4WrJuVV3RuvSGc5ET391aKCXoziQ19R6udWrn1tJWS0HQkbLPXchOEdtjRB1xrsSYUlgG0jk9vxxW_G-Ry42RwWz8-oBUf6kVmYKLu6cDvdAGcuEBcjW0URxjYFig_WYk0c-VnS3Q2R4gCXOV2-uwT2y3026HHkVyVqXppgoskd24t6-SZh9msVbhhvXzj0K4oQXNY5ID0MMaWwEbmgs-PP9vlqdys--Vun_nvUjkpvJvlUBPhFXYei1hlcCsmZcPabdvDiZOnzdxo7n-yeM-qFnNLVaPtbx69bc0S4cSSmh0UpQyVog46d5p4zx85G4meZ1bO4MgZ7hOZT_fSoImEvMvc7DG_STJyFaYtZDuNJMpEwkFpHNEwrz4S5DzcRqzoY1_LB0n6qQTOM2ztub_uWPTkmvp2x0khyIJlWTXap_wt8y6TuQK_0-FguSfpk3wx7gh8ugoGOk18-aZNlzN4uZvT-tnmbYV6-5ueGEqPS1gZj8ibK18-rMUzrlhY9VFJ9i2DtxEq0W3WgksxxNdiYnf9fW96sk8AdjxA9l4HEeqQ8FrBPdlRC-V0nu-TmMtGw6YEV8PvXSjJumuN6tdJcSup436t03S6_UDEoG3KZdrOPgBkAQhLq9JrAlUf4Er_oC86_RgC_4DpOnlMUxOt4Mw8CjtgzExkwmMIis5OmqbcDXOVKdneHg7M-igBqI0QVEh8DCz6vK0_k5AePNwPDL10MLsGdll4etIm3wTMgLVei8pyiLhTLcYXFLrOjnhHPSsuSNSAjj6lAgRWXw3uSJ5vFP8FryfAWX5Ux8wdmWCRolwzow-WY_heKWmskvgTY76mjkEYoouorjWLpBwTkcOhBsC89m-yC1_oYOTumZveyLq1RETLfDHSp3ILmHotAW3vF2sussS_WUxCDn5_sekA-l2Mb-4NG1LClK2JqDchSHuaAhwug4z2cg_jNhMU9vOh9dke3YBS9CKBlFBNoPJDHyXkcVlznW69-I2wezsRpQ5DklvlqnfhphWvvKPc-e6mI3tHCKbXTA4a4c_XomAdqb0Q-m5gelCBIqgLRdm8M2yt-8IAtDoW04jPnynlPP1Hbjy3H3QxWdjRJ9xaYDpVp2dBNUTpTyje_Gkzn-SCTm8p1XN86JMDORgjMm5wFhzK3m9YLcviIAUvupfrGtNQQxiLFgPIjYG4wCzvfLWzpEfq_YD9hyJUP2-WIV9WeCxElmIEWJ4zB-IzTQLTNrp3MEiIWIC8Pi4g6icubqBeyR8l-mUjrl9Xz_mowKa-u5XRogWie6xWmyt4hX8VBMRiwj70Ji_SwQWOzcQzsKtHgfTZj0vh247BYQtnPhvuZG0Sa0n0MQKFPbLsfvBzCa4yh7_GHWvWEoW0QD63Y4mw8gHOprIFNSTXWFGYJk6s1h8FPkUnOqY638jlAoHf9Xu61CSXwEu1pO3EJeayVP98yVSQ2tOqDtVKh29tz2DpHNfCF8gsu5FyqotLn_rS1-XvdvCsRh-zrwlGdRa6kZQ-0MLScGwDUleaD7GFoyDiu3ZsGw3xnXFJi2D5ts-EHveIQuHs4m_MadO6covkLwTp2MksiDaHBQAf4X1F_hRRTZLXx0OD3N4PJgBCXGtgRzKOFhzh_j_8ToRH1NbYn4whIL13HHbtRiAgwADAdQnD2EKrdzdCHQgATahL227y9bXXkYz-Ut3o5obCJYR4dPVNCQULJ5FSCgujy_O9aauUPch7hEZM4RDalEm5FMlY9XaQDp6mpMKk1DuJN6gqhlbbkFgja0ikH3YZKrQCc_vJ3gd3FkZ5D83-GXwRuCVDajj2XTDIIR31vckL-qkbafXvC2LUnr-OVPzuM8mf1yO0pePm5QD6_JqTkLaKkjjybhoBNeqv5Olns5aoSo90-v4F-kd3Lknl1sl6HrtUSFHqCHAXeAb6sI_TCfTENQxT1oO0pcfELQPB7VW_k9v7Ie4VlqaLQz2x9GTzUS7xyz2oVLsJgYOVloxhEE3aQnOHr3cUgxPVDWs6eiOdvtmrMEgHqxeLnMRYjWCwGGkYAcdFecBtGSutFaYyx48E-RzcVNtjkI65i8i_WFQZCXSkVW88o3wcaKPNL7JtuKkGe0KEz17Tem3JTSPpc7jNNNqmGdQO34ploiEPnXi-1CcEsKr5nbEBFlr4bcGNz5NqTBgcO9QBWsXaVr3JxNfZOhDDAJHJQHW9JAWjW0xmonqdgQ6QpZ1gJ4fjduyf0LtzWx3bpFrNu4pEsPJWtN2NeUbGi_Ek_pmKYGdKppPjYYyyxLap8kjEQzxozUZNeg7yc0ATNCDofbOvzzPhBX0hRuv-IaXqpOGDFl1ZXEh7sNTmS.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC01LjUtMjAyNjA0MjN8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_05e9ca3677b7b3d6016abf3892582487d18dde398ecad9643d",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 728,
+      "completion_tokens": 587,
+      "total_tokens": 1315,
+      "cost": 0.02125,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.02125,
+        "upstream_inference_prompt_cost": 0.00364,
+        "upstream_inference_completions_cost": 0.01761
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 392,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

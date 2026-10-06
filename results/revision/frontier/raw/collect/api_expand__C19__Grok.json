@@ -1,0 +1,70 @@
+{
+  "request_model": "x-ai/grok-4.3",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Write a Python function `topological_order(graph: dict[str, list[str]]) -> list[str]` that returns a topological ordering of a directed graph in which `graph[u]` lists the nodes `v` with an edge from `u` to `v`. Nodes that appear only as targets are part of the graph. Whenever several nodes are available, choose the alphabetically smallest first, so the output is unique. Raise ValueError if the graph contains a cycle. Use only the Python standard library. Include a docstring and brief inline comments. Return only the code in a single Python code block, with no explanation before or after."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916315-kELykcOQrp70plIBiaif",
+    "object": "chat.completion",
+    "created": 1790916315,
+    "model": "x-ai/grok-4.3",
+    "provider": "xAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "```python\nimport heapq\nfrom collections import defaultdict\n\ndef topological_order(graph: dict[str, list[str]]) -> list[str]:\n    \"\"\"Return a unique topological order of the graph, choosing the\n    alphabetically smallest node whenever multiple are ready.\n    Raise ValueError if the graph contains a cycle.\n    \"\"\"\n    # Collect every node that appears as a key or a target\n    nodes = set(graph.keys())\n    for targets in graph.values():\n        nodes.update(targets)\n\n    # Compute indegrees for all nodes\n    indegree = {n: 0 for n in nodes}\n    for u in graph:\n        for v in graph[u]:\n            indegree[v] += 1\n\n    # Min-heap of nodes with indegree zero (guarantees lex order)\n    ready = [n for n in nodes if indegree[n] == 0]\n    heapq.heapify(ready)\n\n    order: list[str] = []\n    while ready:\n        u = heapq.heappop(ready)\n        order.append(u)\n        for v in graph.get(u, []):\n            indegree[v] -= 1\n            if indegree[v] == 0:\n                heapq.heappush(ready, v)\n\n    if len(order) != len(nodes):\n        raise ValueError(\"Graph contains a cycle\")\n    return order\n```",
+          "refusal": null,
+          "reasoning": "I need to implement a topological sort function for a directed graph. It will return nodes in alphabetical order when multiple are available, raise ValueError on cycles, and use only the standard library.\n\nKahn's algorithm with a priority queue will handle the alphabetical ordering.\n\nI'll collect all nodes from both keys and values to handle isolated targets. A min-heap will manage the zero-indegree queue, and I'll use defaultdict for indegrees.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "I need to implement a topological sort function for a directed graph. It will return nodes in alphabetical order when multiple are available, raise ValueError on cycles, and use only the standard library.\n\nKahn's algorithm with a priority queue will handle the alphabetical ordering.\n\nI'll collect all nodes from both keys and values to handle isolated targets. A min-heap will manage the zero-indegree queue, and I'll use defaultdict for indegrees.",
+              "format": "xai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "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.eyJlbmRwb2ludF9zbHVnIjoieC1haS9ncm9rLTQuMy0yMDI2MDQzMHx4YWkifQ",
+              "format": "xai-responses-v1",
+              "id": "rs_3324e3dd-487c-944d-8c93-e67169883455",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 318,
+      "completion_tokens": 825,
+      "total_tokens": 1143,
+      "cost": 0.0022584,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 192,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0022584,
+        "upstream_inference_prompt_cost": 0.0001959,
+        "upstream_inference_completions_cost": 0.0020625
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 546,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

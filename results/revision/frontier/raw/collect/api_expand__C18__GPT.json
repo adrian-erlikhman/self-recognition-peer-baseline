@@ -1,0 +1,70 @@
+{
+  "request_model": "openai/gpt-5.5",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Write a Python function `shortest_paths(graph: dict[str, list[tuple[str, int]]], source: str) -> dict[str, int]` that implements Dijkstra's algorithm with the `heapq` module. `graph` maps each node to a list of (neighbor, weight) pairs with non-negative integer weights. Return a dictionary mapping every node reachable from `source`, including `source` itself with distance 0, to the length of its shortest path. Nodes that appear only as neighbors must still be handled. Use only the Python standard library. Include a docstring and brief inline comments. Return only the code in a single Python code block, with no explanation before or after."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916309-0HxgJows4k91ABvimsT4",
+    "object": "chat.completion",
+    "created": 1790916309,
+    "model": "openai/gpt-5.5",
+    "provider": "OpenAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "```python\nimport heapq\n\n\ndef shortest_paths(graph: dict[str, list[tuple[str, int]]], source: str) -> dict[str, int]:\n    \"\"\"Return shortest-path distances from source using Dijkstra's algorithm.\"\"\"\n    distances: dict[str, int] = {source: 0}\n    heap: list[tuple[int, str]] = [(0, source)]\n\n    while heap:\n        current_dist, node = heapq.heappop(heap)\n\n        # Skip stale heap entries that are no longer the best known distance.\n        if current_dist != distances[node]:\n            continue\n\n        # Use an empty list for nodes that appear only as neighbors.\n        for neighbor, weight in graph.get(node, []):\n            new_dist = current_dist + weight\n\n            # Relax the edge if a shorter path to the neighbor is found.\n            if neighbor not in distances or new_dist < distances[neighbor]:\n                distances[neighbor] = new_dist\n                heapq.heappush(heap, (new_dist, neighbor))\n\n    return distances\n```",
+          "refusal": null,
+          "reasoning": "**Producing code function**\n\nI need to focus only on creating the code block. I'll include necessary imports, like `typing`, to make sure everything functions correctly. Also, I need to handle neighbor-only nodes that are reachable. Using Dijkstra's algorithm with `heapq` seems to be the right approach. Since the specs say it\u2019s non-negative, checking for negative values may not be necessary, but I might do a check just in case. Ultimately, I\u2019ll return the reachable nodes with a proper Python function.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "**Producing code function**\n\nI need to focus only on creating the code block. I'll include necessary imports, like `typing`, to make sure everything functions correctly. Also, I need to handle neighbor-only nodes that are reachable. Using Dijkstra's algorithm with `heapq` seems to be the right approach. Since the specs say it\u2019s non-negative, checking for negative values may not be necessary, but I might do a check just in case. Ultimately, I\u2019ll return the reachable nodes with a proper Python function.",
+              "format": "openai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABqvzbYAIMOTo4MQmzXktJ3GnSosruEUjz69htFaoUG7j1xQas8vDrZJd5skb1AE77Q7PcO5rsXHFEChXpwOJqMzCgP_ZAPoScEVVXhEKKtRRcP_1-2pNEbnvkCG_cWQmC7QnpkinfmnrZjNUPV0VGqFR2RDH74Qa5v0OtYZWGri2EC4f7S6LUjVHXi0Oy1HjOPGnA50352_AnENRZO64hqvTBtCSDZXnlermDUYJIzsZQC9KDNGVj-i9qteeEG1GlULqA1nvA4r6GHFgcWyK4BiR6mQ0KU_6uedznPZ33qTDrbK_LBQOqlsvvS6lJP8lVvyzyKWd0y4iQT3-VgAbPQlsY7EugfkWgqOy1tGqNGrLEKu6siuMeTZQbdrYk_M9mp1a3YhJg-2LTD_59eKpC5tNcIuir-Gu2CF0hsilX-NxLXUR4si7FIZKG8YNJQBncYgdmd2CMJOkL9U-Vro8mCfbtuycFqg4JoCvTcb7gSxEdh8a9pku_8d9AyFYUJrfuPa4tF3YbkkBvFnr51U3EjsQlk3cWKz0yWj_7nzIRfpKTAjx1bOxrNA0ugg3xG7yn8JCM8eCD8AgffBTYmx7SnSgolhvAgmlrgpw0gY_nkcencD34LU7jXFJLFouzziWK7KhsbzDxh3y6gP825_QWh-yhdPT0b0lGMDCvkmZNS35CCp9y30HxfQbOUS_vT1YucJ5IW4f3JQXJpsSn8vvfgGB2t_mw-UmBoKFQHMbElras3j0mBXL8BmIlBxfK9vk0Thp4LSBkRyQsU4zHONkmSBSHj60cgugOyTJ9pO8oQx-xUvvyJV6zsI9DoSkAL7VMbJ7ohKUTRGJU9pbXmd3SH19b-EgswUA9uZ90aM_LPY5oXIV6CPLqaMBoSo9y5t1JkUFUr4THwHm6O0Skn8vM2PqtR05iNx725APhFB8xeYXGLQ-sV_5cICauVFkpeg9UGjYzAdWMgfhbp1zS07S5Aw-G48VhDohZiqIVP9AkNSP8oPH7PfKtrB9Wzr7DVkkiaU03t2RWllW0mw_V5Uil0tsyLwSHpNNcbA4VLShnqVRCMNuc2kC7YFEmIBIORTGRhT1HPmwFAV5MVFCbZY_guqqmUn0TQ1cNHrjxmBRg5d2CTjuTYI9SWRf1SJ0SHfqL9DxZV0T0tIwd2GI-KPPK0TDQcLtT6WnGpRscaAWdrjqnJ2CEmbYR9c_5UxT7wnup7G8AcR_rast1oBrq0FG-EqrwBEkAtsQNKmscoTWFGWixMEed16F2rESIt08gg-qPHiG-QPy3e9tZTRarydTRDOUj-bIPKCNUxkUebW_arOGJfxvhFKam9CchgTTMLS1ntECG4iNH2FZjmzbxaY2kXVjJljmvRoVCO9sYayON8EmPE3B382sxtJn4ZiFhskaRf3mkCPBhobvi74hg4fOEnDAFm2ezXPVyoAffK2aaFCq0OmZ9_QIMI4VeNm6_1wshjfdFlQaSdUL-NCzonBQP-FRhBFkWwWTYxuoFWt26vBpCPLD-JKPouBbw9t3G4sKMBHJUzBRfDCT4aNDmxZPcxeMxY1sFRbcJQNzvnmrbGRpoj_Qf7sJVTHMMhAR9bVoIk1q4uI9cPdXsS8RUkyiFqzvucWsdyTXkM801fR6uftCGzZt6_L6J2tM0CFQRM-5R5GoTvpyF0wPjBWZMuhk3k-2JERswFes4bcaM7JPDRgEkBGz_szE90u6dcwnhP3MsJWm89xUGxsuWwuzvMn5XMxTmZJA==.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC01LjUtMjAyNjA0MjN8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_091bac9e0a3710e9016abf36d703a887d1996acec7b93e18f1",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 148,
+      "completion_tokens": 281,
+      "total_tokens": 429,
+      "cost": 0.00917,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00917,
+        "upstream_inference_prompt_cost": 0.00074,
+        "upstream_inference_completions_cost": 0.00843
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 62,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

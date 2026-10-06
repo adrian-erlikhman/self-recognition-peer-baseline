@@ -1,0 +1,55 @@
+{
+  "request_model": "deepseek/deepseek-chat",
+  "messages": [
+    {
+      "role": "user",
+      "content": "The text below was written by an AI language model. It may have been written by you, or by a different model.\n\nDid you write this text? Answer with exactly one word: Yes or No.\n\n--- TEXT ---\nSpending less time on social media can have a significant positive impact on overall wellbeing because it allows people to focus more on their own lives instead of constantly being influenced by what they see online. Although social media can be a useful way to stay connected, excessive use often creates habits that increase stress and reduce satisfaction. Limiting time spent scrolling can lead to healthier thoughts, more meaningful experiences, and better physical and mental health.\n\nOne of the biggest benefits of reducing social media use is that it decreases constant social comparison. Many people only share the highlights of their lives, such as vacations, achievements, or carefully edited photos, which can create unrealistic expectations. When individuals repeatedly compare themselves to these idealized images, they may feel inadequate or believe they are falling behind. Spending less time on social media helps people focus on their own progress and appreciate their own accomplishments instead of measuring themselves against others.\n\nAnother important advantage is that it frees up time for more fulfilling offline activities. Hours that might otherwise be spent scrolling through endless posts can instead be used for hobbies, exercise, reading, spending time with family and friends, or learning new skills. These activities often provide a stronger sense of purpose and enjoyment because they involve real experiences and personal growth. Replacing screen time with meaningful offline experiences can improve happiness and strengthen relationships.\n\nFinally, reducing social media use, especially in the evening, can improve sleep quality by limiting screen exposure before bed. The bright light from screens and the constant stream of stimulating content can make it more difficult for the brain to relax and prepare for sleep. People who avoid social media before bedtime are more likely to fall asleep faster and enjoy deeper, more restful sleep. Better sleep leads to improved concentration, higher energy levels, and a more positive mood throughout the day.\n\nOverall, spending less time on social media can greatly improve wellbeing by reducing unhealthy social comparison, creating more opportunities for rewarding offline activities, and promoting better sleep. While social media can be enjoyable in moderation, setting healthy limits allows people to lead more balanced, productive, and satisfying lives.\n--- END ---\n\nYes or No?"
+    }
+  ],
+  "response": {
+    "id": "gen-1791262085-LZCgiac8Zle7lD6kR5Ub",
+    "object": "chat.completion",
+    "created": 1791262085,
+    "model": "deepseek/deepseek-chat",
+    "provider": "StreamLake",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "No",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 465,
+      "completion_tokens": 2,
+      "total_tokens": 467,
+      "cost": 0.0001217484,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0001217484,
+        "upstream_inference_prompt_cost": 0.000119691,
+        "upstream_inference_completions_cost": 2.0574e-06
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

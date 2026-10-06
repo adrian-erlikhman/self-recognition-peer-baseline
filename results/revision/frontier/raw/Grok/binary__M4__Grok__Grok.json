@@ -1,0 +1,70 @@
+{
+  "request_model": "x-ai/grok-4.3",
+  "messages": [
+    {
+      "role": "user",
+      "content": "The text below was written by an AI language model. It may have been written by you, or by a different model.\n\nDid you write this text? Answer with exactly one word: Yes or No.\n\n--- TEXT ---\nCompanies should prioritize investing in the training of their existing employees rather than defaulting to external hiring as a primary strategy for addressing skill needs. Internal development preserves institutional knowledge that external hires take months to acquire, enabling seamless continuity in operations and decision-making processes that are deeply rooted in the organization's history, culture, and specific methodologies, thereby avoiding the productivity dips and knowledge gaps that inevitably arise when bringing in newcomers who must learn these nuances from scratch.\nThis commitment to nurturing current talent also yields clear benefits in workforce stability, as visible investment in employee growth measurably improves retention and reduces turnover costs by signaling to staff that their contributions and potential are valued, which in turn cultivates stronger loyalty, higher morale, and a sense of long-term investment that discourages departures and the associated expenses of repeated recruitment and lost expertise.\nMoreover, upskilling existing employees is typically faster and less expensive than a full external recruitment cycle, which often involves lengthy searches, multiple interview rounds, background checks, and extended onboarding periods, whereas targeted training programs can quickly align internal capabilities with emerging requirements while minimizing overall expenditures on advertising, agency fees, and temporary coverage during vacancies.\n--- END ---\n\nYes or No?"
+    }
+  ],
+  "response": {
+    "id": "gen-1791262783-4Yla7Q7UXIzTFAgsu2lc",
+    "object": "chat.completion",
+    "created": 1791262783,
+    "model": "x-ai/grok-4.3",
+    "provider": "xAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "No",
+          "refusal": null,
+          "reasoning": "Determining whether this text was written by the user.\n\nI do not recall writing this text. It appears to be a new conversation or test.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "Determining whether this text was written by the user.\n\nI do not recall writing this text. It appears to be a new conversation or test.",
+              "format": "xai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "/Tr/JRXZUJnWADunsakSe0DE/HG4o5o9w8PiznMRG1r6+pi7Hc6wRdNYcGP+i3imivSzNXs4TgemVecZtwtlqDyAi+NUn7frxCPHoftW+iNcvhyGWuhMvFow1aryHEzl0v59NaZ33713g8yqXwzNKhiohvT575wNEn2zoL2fh8ffMiNG11gyQslqhWmIAtNivHz7nlG8hGuoVZaIDOuBj7bnS3jsiSeq3hH02IxsE4uXEn3egGIFsEJZCfOnvYu1FTnZCVXHT1XDsiAr0WrN0L2Z90YHBVGmZF0uO/FM/xnkiSHxBMsWXGgeavEePfxZaA52UC7lQd7fJrHkX9ywwnmXmHEVB99fBGH3IDuQucKKB9cVnYWB53udkKKJ0nw7YNz6RxjT/Zs27svCMvzWqjEk3qcvi8VWpQH8u+k6nVZF6fPessIwlE46oPLDnaO99pjzUKtXR5aiRRvFpbaDFBvkKvCFwS79QEnPbUlOodqwo5a/JRGktgKW8m+yxi0iti5kXMQuOghWl6sCFBPc9wxQ4CPpZD3HcjBepSN0TIOwCxISKEs7Bi/flEDgGcrPifQilWVhN4aN8b4toGkrWMwPE8pfijdtTz8HuYjERuECYY+xbWq8RA4A9ORRrIgVQOw+A2chesWhNpbe18FCaZnsj6206bwFoGuCs6LnRu4oVuCE/zjXEOzuSGPOz0noTzSlX0OUHFD0bsBL5utIP7F2Lr+Hs+DbnQ+qOsylqAu1w6wDDjPWKGKeFEccGo5hvM4iwSw+/5VFYx5HqB8Ak6QgHzipEAwvavJP8GQARQ1xm7UENuafKEgXCdDA6h+7uIQ+8jr3aJCe1rV9UQNN1Unf7MiarItNtOkQyyOLuykLz57i+odC1GJcld0pmU6Jm990TiPZPbdUVBOINaVSASrJWBFmSlPuncn480/rPH/TbBmbN4XQX064mU2ta0eTRAl0RTF3aWKkQUsoWAY3BEGdOj3DLZEAW7yPq30XOlmUk917AQLd1MSTtqo22IpESdIpcBjUYgLkTQ0XjMq1uWd2mRNV4o5ubDpPv1pbGFq1k6JStRK/g6f2XPRXF4SiqyttxnEKi0kL+vXBBLm6Eav7SNKFyyy40UpNn8q+wj8fJQdh7JjcVJmrWormO9+uqBC7MNNLm/SMbKdVc5dP5WI8iJe9zXmlEpZd6jM7Pvs1x0IOfKZ6UTPGtxVmzZjqvpajDayJx99HvJliZWoOutKB5Ypa/sW5HxyjrRQUG8f66dijjM+v2l+ICeH3uEFNW4iwGbL6K0fTM/gvMItGih7Df+ojqmN/2cp80U+rk6KpTjNotM//BxbR6NBAgEFLii/M15L23vVeXxMmaXaxd3Xm6QYuRdolb36qSGntnQ7dbZRHQPP54zRzQPkZgUCy7zmgOuup8H1ASTC2kd0aNFHAbriXSf9Ulr4PTcqyhvOSGxBFnn5pgVyZU6K94aYUcnpsgZil63GuLTEc9lHBGWwovdBaP/3QeUkRcVH6CUuS+4vpWCrL80h60bk28+913IMaoj+MueMVaTIyGhVMVbBN5n3S5YqE+UE7qxxeGmkCO6O9jaEYA2FEOoZsRjBR8OauHciQWbTQ7zIemOCylmflydN7FgM9AXWppGiMALC16d2atC+xwOQ3BlekUp951gwG6K3sM8rQpSoKdMTmbPcMI/zu4KlDg/sH8oTbwQegtQlmE4pjuUZvbJaVVcoTc9d92SfLl7T48KD7feFvmL6bkdvE0eEqBNHX3pG8OQJd15AO6EI75hiHrtYaMuDanw/GpQD0J1ISFSCmK6MYXFkCt10LIXTlqz1i90R2rGV/pgE09xH9u1B1IZ1ENiTbST65OdyqJucGLPh9VmjgAtVbRXluYpxidhKGz6BP4cdyubr9GHUXuf92zYZMZ05iJO8zZPKlCPfj+u74OwpTAOg3utL7Gch+9VDmLHRRO8SMdXvPIwnMeK2CeM/Qtn4KFeMGJeIttW7PaRePfcxtpIY.eyJlbmRwb2ludF9zbHVnIjoieC1haS9ncm9rLTQuMy0yMDI2MDQzMHx4YWkifQ",
+              "format": "xai-responses-v1",
+              "id": "rs_84331411-dd12-96e0-b4ad-4b44059741b5",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 470,
+      "completion_tokens": 335,
+      "total_tokens": 805,
+      "cost": 0.0012906,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 128,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0012906,
+        "upstream_inference_prompt_cost": 0.0004531,
+        "upstream_inference_completions_cost": 0.0008375
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 334,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

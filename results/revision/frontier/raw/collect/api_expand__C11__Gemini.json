@@ -1,0 +1,63 @@
+{
+  "request_model": "google/gemini-3.5-flash",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Write a Python function `leftmost_index(arr: list[int], target: int) -> int` that performs a binary search on the sorted list `arr` (non-decreasing order, possibly with duplicates) and returns the index of the first occurrence of `target`, or -1 if `target` is not present. The function must run in O(log n) time and must not use the `bisect` module. Use only the Python standard library. Include a docstring and brief inline comments. Return only the code in a single Python code block, with no explanation before or after."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916309-pfQ9ZzKy3RSZBU6Pabr3",
+    "object": "chat.completion",
+    "created": 1790916309,
+    "model": "google/gemini-3.5-flash",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "```python\ndef leftmost_index(arr: list[int], target: int) -> int:\n    \"\"\"Perform binary search to find the leftmost (first) index of target in arr.\n\n    Returns -1 if target is not in the array.\n    \"\"\"\n    low = 0\n    high = len(arr) - 1\n    result = -1\n\n    while low <= high:\n        mid = (low + high) // 2\n\n        if arr[mid] == target:\n            result = mid  # Record candidate index\n            high = mid - 1  # Continue searching in the left half\n        elif arr[mid] < target:\n            low = mid + 1  # Search the right half\n        else:\n            high = mid - 1  # Search the left half\n\n    return result\n```",
+          "refusal": null,
+          "reasoning": "**Developing Binary Search Logic**\n\nI'm currently refining the binary search algorithm to efficiently locate the leftmost index of the target in a sorted array, even with duplicate values present. My focus is on ensuring the search correctly narrows down to the very first instance when a match is found, and handles cases where the target isn't in the list by returning -1.\n\n**Searching for Leftmost Target**\n\nI'm continuing to refine the binary search to find the leftmost instance of the target. My current thought is to record a match as a potential result and then aggressively search the left subarray. This ensures I capture the earliest occurrence.\n\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "**Developing Binary Search Logic**\n\nI'm currently refining the binary search algorithm to efficiently locate the leftmost index of the target in a sorted array, even with duplicate values present. My focus is on ensuring the search correctly narrows down to the very first instance when a match is found, and handles cases where the target isn't in the list by returning -1.\n\n**Searching for Leftmost Target**\n\nI'm continuing to refine the binary search to find the leftmost instance of the target. My current thought is to record a match as a potential result and then aggressively search the left subarray. This ensures I capture the earliest occurrence.\n\n",
+              "format": "google-gemini-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 124,
+      "completion_tokens": 940,
+      "total_tokens": 1064,
+      "cost": 0.008646,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.008646,
+        "upstream_inference_prompt_cost": 0.000186,
+        "upstream_inference_completions_cost": 0.00846
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 758,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

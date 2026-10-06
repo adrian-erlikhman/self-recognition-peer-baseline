@@ -1,0 +1,55 @@
+{
+  "request_model": "anthropic/claude-opus-4.7",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Convince someone that taking a basic first aid course is a smart use of a weekend. Use three reasons: it prepares you to help in common emergencies, it builds calm confidence in stressful moments, and the course is short and inexpensive. Write in continuous prose paragraphs only. Do not use bullet points, numbered lists, headers, bold text, or any other formatting."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916334-3sWpZM6ff4SKJkyDPSWk",
+    "object": "chat.completion",
+    "created": 1790916334,
+    "model": "anthropic/claude-opus-4.7",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "Spending a weekend learning basic first aid is one of the most practical investments you can make in yourself and the people around you. Emergencies rarely announce themselves, and the situations where first aid matters most are not exotic disasters but the ordinary mishaps of daily life. A child chokes on a grape at a family dinner, a coworker slices open a hand in the office kitchen, a parent slips on the stairs, a stranger collapses on a crowded sidewalk. In each of these moments, the minutes before professional help arrives are the ones that often determine the outcome. A basic course teaches you how to clear an airway, control bleeding, recognize a stroke, perform CPR, and respond to burns, fractures, and allergic reactions. These are not rare or specialized skills; they are the everyday tools of someone who is prepared to be useful when it counts.\n\nBeyond the technical knowledge, a first aid course gives you something harder to measure but just as valuable, which is the quiet confidence to act when others freeze. Panic is the natural response to seeing someone hurt, and panic is also what wastes precious time. When you have practiced putting your hands on a mannequin, rehearsed the steps of a response, and heard an instructor walk you through the logic of what to do first, you develop a kind of calm muscle memory. You stop asking yourself whether you are the right person to help, because you know you are. That composure is contagious, too. Bystanders look to whoever seems to know what they are doing, and your steadiness can turn a chaotic scene into a coordinated one, which makes a real difference for the person on the ground.\n\nPerhaps the best argument of all is how little the course actually asks of you. Most basic first aid and CPR certifications take only a day or two, often cost less than a nice dinner out, and are offered year-round by the Red Cross, community colleges, hospitals, and local fire departments. Compared to the countless weekends we spend on errands, screens, or activities we will not remember a month later, a few hours spent gaining lifelong, potentially life-saving skills is an extraordinary bargain. You walk out with a certification card, a refreshed sense of capability, and the knowledge that if the worst happens tomorrow, you will not be a bystander. That is a remarkably good return on a single Saturday.",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 129,
+      "completion_tokens": 736,
+      "total_tokens": 865,
+      "cost": 0.019045,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.019045,
+        "upstream_inference_prompt_cost": 0.000645,
+        "upstream_inference_completions_cost": 0.0184
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

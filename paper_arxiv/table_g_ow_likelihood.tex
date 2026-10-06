@@ -1,0 +1,18 @@
+\begin{table}[t]
+\centering\small
+\setlength\tabcolsep{4pt}
+\begin{tabular}{l rr rr ccc r}
+\toprule
+ & \multicolumn{2}{c}{With prompt} & \multicolumn{2}{c}{Without prompt} & \multicolumn{3}{c}{Claims follow likelihood? $z$ ($p$)} & Self-pref. \\
+\cmidrule(lr){2-3}\cmidrule(lr){4-5}\cmidrule(lr){6-8}
+Judge & Relative & Raw & Relative & Raw & Lineup & Single & Yes/no & (1--9) \\
+\midrule
+Qwen & 100.0\% & 100.0\% & 96.7\% & 60.0\% & +0.11 (0.19) & $-$0.71 (0.01) & +0.15 (0.24) & +0.04 \\
+Llama & 100.0\% & 98.3\% & 100.0\% & 82.5\% & +0.03 (0.76) & -- & +0.02 (0.96) & +0.01 \\
+Mistral & 100.0\% & 100.0\% & 99.2\% & 86.7\% & $-$0.05 (0.68) & $-$0.32 (0.18) & -- & +0.11 \\
+Phi & 100.0\% & 97.5\% & 90.8\% & 58.3\% & $-$0.16 (0.25) & +0.77 (0.57) & +1.05 (0.55) & +0.02 \\
+\bottomrule
+\end{tabular}
+\caption{What the open-weight judges' probabilities contain. Left: the share of the 120 prompts on which the text a judge finds most likely is its own (chance 25\%), measured relative to the other judges or on its own, with and without the prompt. Middle: whether the other models' texts a judge claims are more likely under it than those it does not claim (standardised difference, with uncorrected $p$; -- where the judge claims all or almost none). Right: self-preference in quality ratings, in points on the 1--9 scale.}
+\label{tab:owlik}
+\end{table}

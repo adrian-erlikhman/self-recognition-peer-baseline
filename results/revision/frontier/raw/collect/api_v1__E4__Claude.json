@@ -1,0 +1,55 @@
+{
+  "request_model": "anthropic/claude-opus-4.7",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Argue that cooking meals at home is healthier than eating out most of the time. Use three reasons: you control what goes into the food, home cooking is cheaper, and it builds useful life skills. Write in continuous prose paragraphs only. Do not use bullet points, numbered lists, headers, bold text, or any other formatting."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916421-IWRmkazOAKS4xYwYFZlC",
+    "object": "chat.completion",
+    "created": 1790916421,
+    "model": "anthropic/claude-opus-4.7",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "Cooking meals at home is, in most cases, a healthier choice than regularly eating out, and the reasons for this extend well beyond the plate itself. When you prepare food in your own kitchen, you make countless small decisions that shape not only your physical well-being but also your finances and your personal development. Restaurants, by contrast, are designed to deliver flavor and convenience at scale, which often means that nutrition, cost, and skill-building take a back seat to speed and profit. Taking the time to cook for yourself most days of the week turns an ordinary necessity into an opportunity to look after your body, your wallet, and your capacity to care for yourself and others.\n\nThe most immediate benefit of home cooking is that you have complete control over what goes into your food. In a restaurant kitchen, dishes are often prepared with generous amounts of salt, butter, oil, and sugar because those ingredients make food taste richer and keep customers coming back. Portion sizes tend to be larger than what a person actually needs, and hidden additives, preservatives, and refined ingredients can appear even in meals that seem wholesome on the menu. When you cook at home, you choose the quality of the produce, the type of oil, the amount of salt, and the freshness of the proteins. You can adjust recipes to accommodate allergies, dietary goals, or simple preferences, and you know exactly what you are putting into your body. Over months and years, this level of control translates into meaningful differences in weight, energy, cholesterol, blood pressure, and overall health.\n\nBeyond nutrition, cooking at home is significantly cheaper than eating out, and that financial advantage has its own health implications. A meal prepared from basic groceries typically costs a fraction of what the same dish would cost in a restaurant, where you are paying not only for ingredients but also for labor, rent, utilities, and profit margins. Buying staples like rice, beans, vegetables, and seasonal produce in bulk stretches a modest grocery budget across many meals, while a few restaurant visits each week can quietly consume hundreds of dollars a month. The money saved can be redirected toward higher-quality ingredients, regular medical care, gym memberships, or simply the peace of mind that comes with financial stability, all of which contribute to a healthier life in the broader sense.\n\nFinally, cooking at home builds practical life skills that pay dividends for a lifetime. Learning to plan meals, shop efficiently, handle a knife, balance flavors, and manage the timing of multiple dishes develops a kind of everyday competence that few other activities offer. These skills grow with practice, and they make a person more self-reliant, more resourceful, and better equipped to feed family members, host friends, and adapt to changing circumstances. Someone who can cook is less dependent on takeout when money is tight, better able to recover from illness or stress through nourishing meals, and more likely to pass healthy habits on to children or roommates. Eating out occasionally remains one of life's genuine pleasures, but making home cooking the default rather than the exception is a quiet investment in health, savings, and self-sufficiency that compounds in value over the years.",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 115,
+      "completion_tokens": 1013,
+      "total_tokens": 1128,
+      "cost": 0.0259,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0259,
+        "upstream_inference_prompt_cost": 0.000575,
+        "upstream_inference_completions_cost": 0.025325
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

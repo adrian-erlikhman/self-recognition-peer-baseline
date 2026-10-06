@@ -1,0 +1,70 @@
+{
+  "request_model": "x-ai/grok-4.3",
+  "messages": [
+    {
+      "role": "user",
+      "content": "The text below was written by an AI language model. It may have been written by you, or by a different model.\n\nDid you write this text? Answer with exactly one word: Yes or No.\n\n--- TEXT ---\nTaking short breaks during an extended work session is one of the most effective strategies for increasing overall productivity. Rather than slowing progress, brief pauses actively prevent mental fatigue from accumulating throughout the day. When the brain is forced to focus continuously without rest, cognitive capacity gradually diminishes, leading to slower processing times and a higher likelihood of simple errors. Allowing the mind a few minutes to disengage resets focus, ensuring that the time spent actually working is sharp, efficient, and high quality.\n\nStepping away from a challenging task also creates space for subconscious problem solving. When stuck on a difficult issue, hyper-fixating often results in tunnel vision and frustration. Distracting the conscious mind with a short walk or a quick rest allows the brain to process information in the background, frequently yielding fresh perspectives and creative breakthroughs upon return. What felt like an insurmountable bottleneck during continuous effort often resolves quickly once the mind has had room to breathe.\n\nFurthermore, integrating regular breaks throughout the day helps sustain high levels of motivation across the entire work period. Approaching a massive block of unbroken time can feel daunting, which frequently leads to burnout, procrastination, or dwindling effort as the hours drag on. Knowing that a brief rest is always just around the corner turns a long day into a series of manageable sprints. This steady rhythm preserves energy, maintains a positive mindset, and ultimately allows for accomplishing far more overall.\n--- END ---\n\nYes or No?"
+    }
+  ],
+  "response": {
+    "id": "gen-1791262638-vhDpYHvWcNgFOmnagxt7",
+    "object": "chat.completion",
+    "created": 1791262638,
+    "model": "x-ai/grok-4.3",
+    "provider": "xAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "No",
+          "refusal": null,
+          "reasoning": "The user is asking whether I wrote the provided text.\n\nI do not have memory of writing this specific passage. It appears to be generated content rather than something I produced.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "The user is asking whether I wrote the provided text.\n\nI do not have memory of writing this specific passage. It appears to be generated content rather than something I produced.",
+              "format": "xai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "qtMU//nu3tmyHYE0/OEoqwAKmMVH8V5DSdzNkalFuTg1xVr6WqvINVJOadz7NfeaNVeB4qikX5jPOtaEluxdyJGCXx33wmNi4Xldi/TwbjqiYLE7McUiflroh+DHYcMyV05lAvTqVEU9gVXRa2Q8R3+WJ0ygiLqaUspuQEkAIMEALYTLQRigLkaJgVojnUcKDrRXtTeVvVPj9xrbRAKeEP045t8PruUt6QSTQXDC9QOmFzgHPsB/WMKumbJtsZv2qmtPof9zMLYzZciYd91y5pBFWQCUH0n7jjDoAeP64y+MHps9uNOoIjEdiVfULfIhz1iKvJQzVmyg2Urbw/1qmAZthiSIQ/Hb6htZvi2n0zHyjuf6iLtX6Au3h7V2VOh5OaXLD3mkWJvoqHEG+Zp2mjRO+woUFVHGHfnuVJQ0Fuu84gnNbaMu6mhjQlyXIsB9TYnJXtdZ5zQsWnueNGfo/Ka6VDMrUQvewSQZM3wmp5Vl7FqvjeqAT8GK260reeiJXPjsR1kWdB2aGgcAOfAwbPmQpsUh5zSlWjbOgggsujzcBD4bnLtdxltbgo7nW6bV4FD2Uj44L+EnYi9aoK+w6tT2zLDhyepPzRrLacbbK0+QCqyKdnPrWRP7/rrRFPocbr5FEz8C5gD3ruO3Okfa/qen8rBzYTY//EfkIdL8t4yeWeXkNeuyJVQFIGxvIYG41X4wx7t9H1omRTAkTg86YL+4iS0a/UShaEEmaiqC3wDY7Q5oPp+EAZJ+5AHHpsZxu6bj1S+zmfJH1yuvl+eDmY+M+PqXqx/1w9SwqftROR/SKTU2cLHZkCvqgRe3a6/rd9UYDAQqfnwgs5HeqFlwTUfLoTulE0tx6JmCjkZB6OX1+sq+NTiHlslTq2x+y0EcCOg+AGnOEpheLSC4U+Ge7pbCTYNC0x2bbCuIJgeGoOKYonUkIzyZFO5PH6wT5/UFx1ko5GWdXd7H8iLkbcMNzubSUXp2E8zfF612awYG1nfaOU7OO4UwL+WxT2JhyQn6xmUYT2mXO1O/oKXs0/0kphRMDo7QNuTxuUbFdo4oJbWkaPxEpKv8jDktKilaL5/EvTFYAb00m117CrUfxjtBtYs/yKZKQnYDR2CMCnDXfrK0tMDGlOvDxFmLHgLhOK98H7Q8xSCA56MPmDk4O7eLwgzzCLDny9ZHvpGS4fO5R0y6VfCTH/GAYaMSc87Md64/XFQw4uGFDFhiPi09gD4+MQkzoT4eVfb643JdXdT1lKM/JPz5oHfFvSZCQ2PH4eLu4C4T7Q9FP6lM6pOBWjqho+VrE7r9motgBa3uIvJZ9PGIZR4DAZolyP0nWPexpksrNssIE8uABdcHiweZEDa4Qkbivu2qWgVjqxBgsbSxcdmJmDis3oR3OWuUNXkAuTPXQ6RdsdETn4rEzRfAgWlnJKj37y+kWWRzeJC3HW0+PusMYxNpw19VtllMHBZjrClsBrlQxoKAUk5d/AVI0I2dL+vze2QK+SBfDXC4jKMcRs68amRlk8tseGqcvF7b0qkOABXMxs2/kRobWjgtpijHrmVG06q/ileHFSdQsclUF4DuXuUZjl1vDH4+Ye4DrOCITCRvMLbeJS71D5yzs1oW7aq9lFWOn7HoQ57/c3TfyxtXtH5n8qttNQDHYpKVNxI/v3EULyb8A1j9Ci7RfqutOl8hCR5c+JUe2CxuQnnrJkLOQxFuuuQaUKOBDVtQAh79v7PAnp+83KnAqFwPNBp6V0cPPZqLphqM5lu1kFVXa0cctIuznhgkYcAp1O2qXuxV34SsrYmiAl1LMrD+TJGsBes+l7npTebScRgU/9OEgjnnv5OFX6bOecY.eyJlbmRwb2ludF9zbHVnIjoieC1haS9ncm9rLTQuMy0yMDI2MDQzMHx4YWkifQ",
+              "format": "xai-responses-v1",
+              "id": "rs_51f536fe-8b52-9eff-9c60-d7dc7d29ab3c",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 517,
+      "completion_tokens": 295,
+      "total_tokens": 812,
+      "cost": 0.00124935,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 128,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00124935,
+        "upstream_inference_prompt_cost": 0.00051185,
+        "upstream_inference_completions_cost": 0.0007375
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 294,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

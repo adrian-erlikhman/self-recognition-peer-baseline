@@ -1,0 +1,49 @@
+{
+  "request_model": "anthropic/claude-opus-4.7",
+  "response": {
+    "id": "gen-1786846002-XSPem2qH9ULuljhH4w6p",
+    "object": "chat.completion",
+    "created": 1786846002,
+    "model": "anthropic/claude-opus-4.7",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"A\": {\"model\": \"Claude\", \"confidence\": 3, \"reason\": \"Rich literary prose with elegant phrasing and extended elaboration typical of Claude.\"},\n  \"B\": {\"model\": \"DeepSeek\", \"confidence\": 3, \"reason\": \"Clear structured prose with methodical topic sentences and somewhat formulaic transitions.\"},\n  \"C\": {\"model\": \"GPT\", \"confidence\": 3, \"reason\": \"Sophisticated analytic voice with specific examples like Rothko and Hume's ideal critic, tightly argued.\"},\n  \"D\": {\"model\": \"Gemini\", \"confidence\": 3, \"reason\": \"Direct reference to Kant's universal voice with clean textbook-like exposition typical of Gemini.\"},\n  \"E\": {\"model\": \"Grok\", \"confidence\": 3, \"reason\": \"Dense, run-on sentences with abstract phrasing and less concrete examples suggests Grok.\"}\n}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 6834,
+      "completion_tokens": 312,
+      "total_tokens": 7146,
+      "cost": 0.04197,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.04197,
+        "upstream_inference_prompt_cost": 0.03417,
+        "upstream_inference_completions_cost": 0.0078
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

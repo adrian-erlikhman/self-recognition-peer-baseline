@@ -1,0 +1,55 @@
+{
+  "request_model": "deepseek/deepseek-chat",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Write a Python function `edit_distance(a: str, b: str) -> int` that returns the Levenshtein distance between `a` and `b`, the minimum number of single-character insertions, deletions and substitutions needed to turn `a` into `b`. For example, `edit_distance(\"kitten\", \"sitting\")` returns 3. Use only the Python standard library. Include a docstring and brief inline comments. Return only the code in a single Python code block, with no explanation before or after."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916313-RyBJ5kblKHE1cHN7ydYp",
+    "object": "chat.completion",
+    "created": 1790916313,
+    "model": "deepseek/deepseek-chat",
+    "provider": "StreamLake",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "```python\ndef edit_distance(a: str, b: str) -> int:\n    \"\"\"\n    Calculate the Levenshtein distance between two strings a and b.\n    The Levenshtein distance is the minimum number of single-character edits\n    (insertions, deletions, or substitutions) required to change one string into the other.\n    \"\"\"\n    m = len(a)\n    n = len(b)\n    \n    # Create a (m+1) x (n+1) matrix initialized with zeros\n    dp = [[0] * (n + 1) for _ in range(m + 1)]\n    \n    # Initialize the first row and column with incremental values\n    for i in range(m + 1):\n        dp[i][0] = i\n    for j in range(n + 1):\n        dp[0][j] = j\n    \n    # Fill the matrix\n    for i in range(1, m + 1):\n        for j in range(1, n + 1):\n            if a[i-1] == b[j-1]:\n                cost = 0\n            else:\n                cost = 1\n            # Minimum of deletion, insertion, or substitution\n            dp[i][j] = min(\n                dp[i-1][j] + 1,      # Deletion\n                dp[i][j-1] + 1,      # Insertion\n                dp[i-1][j-1] + cost  # Substitution\n            )\n    \n    return dp[m][n]\n```",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 113,
+      "completion_tokens": 322,
+      "total_tokens": 435,
+      "cost": 0.0003603276,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0003603276,
+        "upstream_inference_prompt_cost": 2.90862e-05,
+        "upstream_inference_completions_cost": 0.0003312414
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

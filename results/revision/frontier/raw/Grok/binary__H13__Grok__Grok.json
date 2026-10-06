@@ -1,0 +1,70 @@
+{
+  "request_model": "x-ai/grok-4.3",
+  "messages": [
+    {
+      "role": "user",
+      "content": "The text below was written by an AI language model. It may have been written by you, or by a different model.\n\nDid you write this text? Answer with exactly one word: Yes or No.\n\n--- TEXT ---\nThe replication crisis in psychology reveals a fundamentally institutional and incentive-structural problem, not merely a methodological one. The proximate methodological failures such as underpowered studies, p-hacking, HARKing, and selective outcome reporting are not primarily the result of individual researcher incompetence but are rational responses to a publication incentive structure that systematically rewards novel positive results and penalizes replication attempts and null findings. In this environment, careers advance through frequent publications in high-impact journals that prioritize surprising and statistically significant outcomes, creating strong pressures for researchers to design studies with small samples that maximize the chance of detecting effects while engaging in flexible data analysis practices to achieve the coveted p less than 0.05 threshold. Null results or replication efforts, which are essential for verifying knowledge but offer little in terms of professional reward, are routinely sidelined or left unpublished, reinforcing a cycle where questionable research practices become adaptive strategies for survival and success within the existing reward system rather than aberrations born of personal failing.\nThe peer review system as currently constituted provides insufficient verification of methodological adequacy because it does not require data sharing, pre-registration, or independent replication, and reviewers operating under time constraints cannot detect the flexible analytical choices that inflate false-positive rates. Manuscripts are evaluated primarily on the basis of the reported narrative and statistical outcomes without routine access to raw data or detailed analysis plans, allowing researchers to present post-hoc adjustments as if they were pre-planned while overburdened reviewers, facing tight deadlines and limited compensation, lack the resources or mandate to scrutinize the full decision tree of analytical possibilities that could have produced the positive findings. This structural limitation means that even well-intentioned peer review serves more as a gatekeeper for narrative appeal than as a robust safeguard against practices that systematically bias the literature toward false positives, underscoring how the crisis stems from systemic features of the review process itself rather than isolated lapses in rigor.\nField-level interventions such as pre-registration mandates, registered reports, open data requirements, and tenure criteria weighting replication are necessary and sufficient to substantially reduce the false-positive rate, but their adoption is slow because they are individually rational only if adopted collectively, creating a coordination problem that individual researchers cannot solve without funding-body enforcement. These reforms align incentives by making transparent practices the norm, ensuring that studies are evaluated on their methodological soundness before results are known and that data are available for verification and reanalysis, which collectively curbs the flexibility that drives spurious findings. Yet because individual researchers face immediate career risks if they unilaterally adopt these standards while others continue under the old system that favors flashy positives, widespread uptake requires coordinated action from journals, universities, and especially funding agencies to enforce them as conditions for support and advancement, thereby resolving the collective action barrier that perpetuates the institutional roots of the replication crisis.\n--- END ---\n\nYes or No?"
+    }
+  ],
+  "response": {
+    "id": "gen-1791262702-NaRiBhMbZeDiVTOK8pMg",
+    "object": "chat.completion",
+    "created": 1791262702,
+    "model": "x-ai/grok-4.3",
+    "provider": "xAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "No",
+          "refusal": null,
+          "reasoning": "I need to determine whether I wrote the provided text.\n\nThe text does not sound like something I generated. It appears to be an academic analysis of the psychology replication crisis, likely written by another model or a human. I will answer No.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "I need to determine whether I wrote the provided text.\n\nThe text does not sound like something I generated. It appears to be an academic analysis of the psychology replication crisis, likely written by another model or a human. I will answer No.",
+              "format": "xai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "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.eyJlbmRwb2ludF9zbHVnIjoieC1haS9ncm9rLTQuMy0yMDI2MDQzMHx4YWkifQ",
+              "format": "xai-responses-v1",
+              "id": "rs_95dadb28-f750-9a10-8793-3f57495d1297",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 786,
+      "completion_tokens": 436,
+      "total_tokens": 1222,
+      "cost": 0.0018709,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 192,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0018709,
+        "upstream_inference_prompt_cost": 0.0007809,
+        "upstream_inference_completions_cost": 0.00109
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 435,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

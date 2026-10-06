@@ -1,0 +1,70 @@
+{
+  "request_model": "x-ai/grok-4.3",
+  "messages": [
+    {
+      "role": "user",
+      "content": "The text below was written by an AI language model. It may have been written by you, or by a different model.\n\nDid you write this text? Answer with exactly one word: Yes or No.\n\n--- TEXT ---\nSpending time outdoors every day offers profound benefits for mental health by creating a natural sanctuary from the pressures of daily life. One of the most significant advantages is how it reduces stress and anxiety, as immersing oneself in green spaces allows the mind to unwind through the gentle rhythms of nature, such as the rustling of leaves or the sound of birdsong, which have been shown to lower cortisol levels and calm the nervous system, fostering a sense of peace that indoor environments rarely provide.\nThis daily connection with the outdoors also improves mood through sunlight exposure, which stimulates the production of serotonin and vitamin D, essential chemicals that combat feelings of sadness and lethargy while promoting a more positive outlook and better emotional balance overall. By stepping outside regularly, individuals can harness these natural mood enhancers without relying on artificial interventions, leading to sustained feelings of well-being and resilience against seasonal dips in energy.\nFurthermore, venturing outdoors provides a vital break from screens and indoor routines, interrupting the cycle of constant digital stimulation and sedentary habits that often contribute to mental fatigue and restlessness, allowing the brain to reset and recharge through physical movement and fresh perspectives that spark creativity and mindfulness. Over time, making this a consistent practice builds healthier patterns that enhance focus, reduce burnout, and cultivate a deeper appreciation for the present moment, ultimately supporting long-term mental vitality.\n--- END ---\n\nYes or No?"
+    }
+  ],
+  "response": {
+    "id": "gen-1791262649-agzvvN4SDDmcFS2p1wMo",
+    "object": "chat.completion",
+    "created": 1791262649,
+    "model": "x-ai/grok-4.3",
+    "provider": "xAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "No",
+          "refusal": null,
+          "reasoning": "I am evaluating whether I wrote the provided text.\n\nThe text is generic and appears to be a new query. I cannot confirm it was written by me.\n\nThe text is likely from a different model or a new query. I will answer No.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "I am evaluating whether I wrote the provided text.\n\nThe text is generic and appears to be a new query. I cannot confirm it was written by me.\n\nThe text is likely from a different model or a new query. I will answer No.",
+              "format": "xai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "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.eyJlbmRwb2ludF9zbHVnIjoieC1haS9ncm9rLTQuMy0yMDI2MDQzMHx4YWkifQ",
+              "format": "xai-responses-v1",
+              "id": "rs_387c6aeb-9a52-951f-a729-8c41f7221ea9",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 505,
+      "completion_tokens": 396,
+      "total_tokens": 901,
+      "cost": 0.00141965,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 192,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00141965,
+        "upstream_inference_prompt_cost": 0.00042965,
+        "upstream_inference_completions_cost": 0.00099
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 395,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "request_model": "openai/gpt-5.5",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Write a Python function `count_n_queens(n: int) -> int` that returns the number of ways to place `n` queens on an n-by-n chessboard so that no two queens share a row, column or diagonal, using backtracking. For example, `count_n_queens(8)` returns 92. Return 1 for `n` equal to 0 and raise ValueError for negative `n`. Use only the Python standard library. Include a docstring and brief inline comments. Return only the code in a single Python code block, with no explanation before or after."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916310-24Ve3uMMuA3eumTwPETU",
+    "object": "chat.completion",
+    "created": 1790916310,
+    "model": "openai/gpt-5.5",
+    "provider": "OpenAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "```python\ndef count_n_queens(n: int) -> int:\n    \"\"\"Return the number of valid ways to place n queens on an n-by-n board.\"\"\"\n    if n < 0:\n        raise ValueError(\"n must be non-negative\")\n\n    # A 0-by-0 board has exactly one arrangement: the empty placement.\n    if n == 0:\n        return 1\n\n    count = 0\n\n    def backtrack(row: int, columns: set[int], diag_down: set[int], diag_up: set[int]) -> None:\n        \"\"\"Place queens row by row while tracking attacked columns and diagonals.\"\"\"\n        nonlocal count\n\n        # All rows have been filled with non-attacking queens.\n        if row == n:\n            count += 1\n            return\n\n        for col in range(n):\n            # Diagonals are identified by row - col and row + col.\n            if col in columns or (row - col) in diag_down or (row + col) in diag_up:\n                continue\n\n            # Place a queen and mark its attacked lines.\n            columns.add(col)\n            diag_down.add(row - col)\n            diag_up.add(row + col)\n\n            backtrack(row + 1, columns, diag_down, diag_up)\n\n            # Remove the queen and try the next column.\n            columns.remove(col)\n            diag_down.remove(row - col)\n            diag_up.remove(row + col)\n\n    backtrack(0, set(), set(), set())\n    return count\n```",
+          "refusal": null,
+          "reasoning": null,
+          "reasoning_details": [
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABqvzbXYdcA_7aIkIDBSmKTjHXWJcbcJx_yl8c77QTPKjkfxsACvgUeCGutL04MXM9tflMH0NUM9ErklU56JyrDNnA6Igpa7CqSpt-Ssq4M0ca90oqL9ue8kijsiRrBEVotpvI8MY2vSp5V1CB1eAY9-v70e6XaaMqqbd_O1GTfInW53Y4FO51OQV1w-7DuIxXgbb9rVZ3UPKAPC9g7iFA9S8SUlkp3dcoexL6bDzCgdFmNy6nSKudBxRqgAkB4OcC-htV0R2wpMViypfzIoZkuZUogPbvpRKmEDmKbg_xTadIynbCqgR8-ZY6JWGFHVqpznsoRAnx3aFAh-cFTjJ5knW6YnHGyDcDv-7GLjFLbsu6XzxWvcLikXMK8d7B7KOKb9f3aRSclbVgOi5U1alJm014vi9ol5ro-h_ZGD2GEm8rD0earp2vfiu8RgyqOF3scjsRlJ1m0EiKs2nGmGFOfEE_Flx39ow8GKp5iOeKw38JMpZya5kG9c3yjSeTfnWUBEgnTeCV8aMLXp6nSmZLwsSPmcdor-9a_poSyIlRRXLu1PcSG1iPXb7VxZXS0Rjhd0JyFi4hK9_0rW4FpNjri5a6t0nj9SfOSt6BVGLtUIRzOSCodJ3GQkoyS8MxuHV6Kih5TH-0EAnH-_oONBdC9oAw_PCBsTdYUHZX9R8knRMJe1xc3xlTkx3pugYoXahrnYUdx1eA3lBLVLeYuW5uQE_fEdZdyVBfEVSdYz-u5TA_cKpYDE2u3HBkalzF35JGFNPAPj3qqX9J0DpBjyeOJjGpALzMKmJ5Qc-Sm64kWtxq9wbtQ3oCCH12dgAhfaKN_gQlMDY_3vkIxno_-buN5heVs_VbW_pdoeSJEVwhR9ZXe3O6dfqPgfeXlrPxAqr9gnjX8WaX_nJx9P42BAHYrxiV6Pq-ytg_gFqKZoIkxFwmj40AcZ6A9rO_lKm48Yye0WzTR0LVq8JLd7HX8zi-ptce7nHMmjIFjoxeDHZLEUcbikEydKFNHXmalu9SPXd-LFKx9J1BYgL7E9ipOXrXqa7eKLrHzTCW_6wDM3YbLjBDEZh87ZCU4YM5wj1_iEHxGz_wntsLnP4suwGebfO6tdr7AUQwdo3qcefRcU4_m5fJZ_bGSONVIg2KqsH3razqvlvxfbqoiMiaj8jukPmH_PTIIBZKLN3L5Hdoqfw7UZ8Hl9xH_8rLY7SBMG5bckD7Jm5gT_CI_55KfnRXlkVZOzSaMk-hyCRZj8mtW028XOaf1L0AoQCf3iwLK2FsC3I_gMl3XG_SAT8O_tRzBESEA1NOuYwRwWDsChyLArAGQ_eZ7qO5UFYBFhL_JL8tR-ztyJXTChn_AeBsbJOZ5273i-X-7kXY48NHVQTPN5j2D1kV_JpMxvrheV9SYv9Lg-Wu6dUWcwEjLzrZHQGZzmkC0lT1BunHAv4cOTUomz2RJpF6so22PW2x7caeqpwvCQGS2ZCzm3IYFXj7b0wIBkPcEnvFakbIXGLXrBi9azCuCh65vQXXk1kir0_gMOpw_hQLR7o_Z9Ahxea6wELCkv820ogbaO4KTAcN2eYAeW5BRDo9q2BFL2TXNz5iVdKCP5apkINNl.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC01LjUtMjAyNjA0MjN8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_0d6f3e0368493b97016abf36d6e29887d188d17b9ce7c8f5a4",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 129,
+      "completion_tokens": 364,
+      "total_tokens": 493,
+      "cost": 0.011565,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.011565,
+        "upstream_inference_prompt_cost": 0.000645,
+        "upstream_inference_completions_cost": 0.01092
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 46,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

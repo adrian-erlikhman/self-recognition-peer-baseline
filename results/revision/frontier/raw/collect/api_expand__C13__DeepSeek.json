@@ -1,0 +1,55 @@
+{
+  "request_model": "deepseek/deepseek-chat",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Write a Python function `max_subarray_sum(nums: list[int]) -> int` that returns the largest sum of any non-empty contiguous subarray of `nums`, using Kadane's algorithm in O(n) time. If all numbers are negative, return the largest single element. Raise ValueError if `nums` is empty. Use only the Python standard library. Include a docstring and brief inline comments. Return only the code in a single Python code block, with no explanation before or after."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916311-g1SL1wxJHVADXxWe8fL9",
+    "object": "chat.completion",
+    "created": 1790916311,
+    "model": "deepseek/deepseek-chat",
+    "provider": "DeepInfra",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "```python\ndef max_subarray_sum(nums: list[int]) -> int:\n    \"\"\"\n    Returns the largest sum of any non-empty contiguous subarray of `nums` using Kadane's algorithm.\n    If all numbers are negative, returns the largest single element.\n    \n    :param nums: List of integers\n    :return: Maximum sum of a contiguous subarray\n    :raises ValueError: If `nums` is empty\n    \"\"\"\n    if not nums:\n        raise ValueError(\"Input list cannot be empty\")\n    \n    max_current = max_global = nums[0]\n    all_negative = True\n    \n    for num in nums[1:]:\n        if num >= 0:\n            all_negative = False\n        max_current = max(num, max_current + num)\n        max_global = max(max_global, max_current)\n    \n    if all_negative:\n        return max(nums)\n    \n    return max_global\n```",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 102,
+      "completion_tokens": 195,
+      "total_tokens": 297,
+      "cost": 0.00020619,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00020619,
+        "upstream_inference_prompt_cost": 3.264e-05,
+        "upstream_inference_completions_cost": 0.00017355
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

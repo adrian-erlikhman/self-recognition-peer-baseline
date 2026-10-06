@@ -1,0 +1,70 @@
+{
+  "request_model": "openai/gpt-5.5",
+  "messages": [
+    {
+      "role": "user",
+      "content": "A water tank holds 1,200 liters and currently contains 300 liters. Water flows in at 30 liters per minute while a leak drains it at 12 liters per minute. After how many minutes will the tank be full? Solve the problem, showing your reasoning step by step in plain prose, and end with a final line of the form 'Answer: <number>'."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916319-pGMJVER252h9MTcHSDn0",
+    "object": "chat.completion",
+    "created": 1790916319,
+    "model": "openai/gpt-5.5",
+    "provider": "OpenAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "The tank can hold 1,200 liters, and it currently contains 300 liters.\n\nSo, the amount of water needed to fill the tank is:\n\n1,200 \u2212 300 = 900 liters.\n\nWater flows in at 30 liters per minute, but the leak drains 12 liters per minute.\n\nSo, the net rate of filling is:\n\n30 \u2212 12 = 18 liters per minute.\n\nNow divide the amount of water needed by the net filling rate:\n\n900 \u00f7 18 = 50 minutes.\n\nAnswer: 50",
+          "refusal": null,
+          "reasoning": "**Calculating tank fill time**\n\nI need to provide a clear answer, following each step to ensure everything is straightforward. To fill the tank with 900 liters and given a net flow rate of 18 liters per minute, I calculate the time required. It seems I should ensure the tank is filled within 50 minutes while also assuming that there\u2019s a leak continuing. It's important that I clarify this process accurately for better understanding!",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "**Calculating tank fill time**\n\nI need to provide a clear answer, following each step to ensure everything is straightforward. To fill the tank with 900 liters and given a net flow rate of 18 liters per minute, I calculate the time required. It seems I should ensure the tank is filled within 50 minutes while also assuming that there\u2019s a leak continuing. It's important that I clarify this process accurately for better understanding!",
+              "format": "openai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABqvzbiZ42N1tdL74jpUwjF0-NdlwAzd3xGPHqqUK2eh74pw-QaPEwmBq5GRGPy_4mHh2Cj_BEv-qzUFdvo4DvKJK-XdB7456JcJuPad9ucoDavsKiAHFSfOR3cROGYb0Qx5YP1vzGVv1iW_-Xq0jp8Q0uUcr26IFW88PXlt2zGPIgMBnumRKnNyrrE_UlRLiJm3VSdYQFU-TfI1euasaF28peHnw0UC3ujOiTsQkjik514v7qlb_IDDmYRt9GL2zeqpKcfjXFIdzmfTHEFTXd6qGIIxQM4wWWLqFTn4oM9kuEqPtSYJd4VTWN58GEocV8ai8czafj6H3U0MR656AXWMikWi8P85ak4hcCQybyCTlIfxSqJnWBjH4NOsCR_1IAuosbfiMebs8I88t5lG2VSurlGGiH_vKCsYMBZhD0TPhdn0vuKl4QkOI9SyYUJ4E6gEt6P6jIhc3ldl7AQrk83-fz3udCTYs6B_Ym3zAGWBdCqIBjdgPcGooqc_-njfeJV0lDovOBj3svH52-jNxT0rGg4l7fmlAzqdsN3NelgrRIroSMbDmQpq7QwbGlwi9hCuJpH7CztMb2U_z8p6fRTpY72UFIeuaT1VVvy950I3T-p61IKHW4_fGLIZkxB6jURTRStGq4HFJdkuA_rSqk5Fl7VhP4s-uohPRwueMBU_GWZg2vcL0R47f3KaBhmMhhaZuszimXizgSvITOLnVOz3DYccOKKuJ5WJajO4vS0WkHVJyvkSOFU3lt1_wX3GKb9Hiv0mM6Pam_YKa3_g5qEuStoxSRCPTAZdgUnyBCvggwHPH-qsb6AL0rucvaUWqQrq25fvE3ntAqV1SoG0a_o_47PgSfioKCbCr-EnvZDVvJbWaOA3TMe8TnPa4yrvwwvmy8p9TereAwnQoEUCMGDoV_ZPHAw2Ju6kV0hOUs3yLGNpp9Lg8YTjM9YPnXiiN3rot79DRpctFnaZqDH271O1yBrYHWJaFYKXETxyg7iXHpjPgBjvi0y2Dy3Wp1d8cTAzvoW6P5MWm5fuL84xtSddhl7hga0uGnqcRRQNyaFhnV6KK1CVsMWCTmeWIBgAssCK47r-QkokhPCeORwZN0KOLuQ9od7Jf_S-TD7dctoMyW1k0PlqckNqtKUXqtzy52LUTb3EpUaHCkNarw5mr1xDFocKRBFrjr6Ig4lLz_XjcmOQ10X8qFo9lhESHiZwoF46QGquPUczjiFbJ8ZjlJkUQ_NCIAQxFEZ8NcoKh49hRsZnhwuz0SG_VRGae3bHFl3uksrVCRwYWsG3wscf8L0rVfsNKWdqfyZuo5SsZjZW1NGQ1rpXDeNfnp9y-R10Bh1ittoDYJLm6Wi9xiqLogRB9Hkc2RqEwBFcmLw2ZrAM8cuBiaCp8uqwovw_Xtyysp-67FgsKJxz1zQRkmwe1BLwR4Omh3purtlof29aXTNOHz2ZRja7Z6-ccX1KMWzn9ZovcbWmN7wHCrxdohTGNmR1mP9TGvUSsw2MX53xOxK7VwsLG4mJwPDZbw5Gj7tYFfcMNVmYXBJDcFhQSpbqfvK2OkRHY02EmiBmPvB5cmi8dwG41ToYDR8CcIWnm066DHUnavH.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC01LjUtMjAyNjA0MjN8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_0312fab8a9317c07016abf36e0b9e087d1bd14321b7e431ddb",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 82,
+      "completion_tokens": 159,
+      "total_tokens": 241,
+      "cost": 0.00518,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00518,
+        "upstream_inference_prompt_cost": 0.00041,
+        "upstream_inference_completions_cost": 0.00477
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 44,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

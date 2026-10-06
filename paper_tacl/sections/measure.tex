@@ -1,0 +1,55 @@
+% ===========================================================================
+\section{What a self-naming rate can and cannot show}
+\label{sec:measure}
+
+\paragraph{Terms.} A \emph{panel} is a set of models that both write the
+texts and judge them, so that each judge has texts of its own among those it
+judges. For judge $J$:
+\begin{itemize}
+\item the \textbf{self-naming rate} (hit rate) is the share of $J$'s own
+texts that $J$ attributes to $J$;
+\item the \textbf{false-alarm rate} is the share of texts $J$ did not write
+that $J$ attributes to $J$;
+\item the \textbf{peer baseline} is the share of $J$'s texts that the
+\emph{other} judges attribute to $J$, i.e.\ how identifiable $J$'s writing is
+to anyone else under the same protocol;
+\item \textbf{self-advantage} is the self-naming rate minus the peer
+baseline.
+\end{itemize}
+The first two are the hit and false-alarm rates of signal detection theory
+\citep{green1966signal, macmillan2005detection}: they separate a judge's
+ability to tell its own text from others' (sensitivity) from its readiness to
+answer ``me'' (bias). The peer baseline adds what signal detection alone
+does not: a reference for how attributable the text is. Self-advantage is
+positive only if a judge does better on its own text than judges who did not
+write it. It is not sufficient on its own: a judge that names itself on half
+of everything it reads beats peers who rarely name it. A judge therefore
+counts as self-recognising only if it also \emph{discriminates}, with a hit
+rate above its false-alarm rate (tested by permuting which text in each
+lineup is its own).
+
+\paragraph{Three real cases.} All three come from our frontier panel
+(Section~\ref{sec:frontier}). In the lineup, Claude names itself on 33 of its
+38 texts (87\%), on only 14 of the 152 texts it did not write (9\%), and the
+other four judges name Claude on 82 of their 152 judgments of Claude's texts
+(54\%). It discriminates, and it beats its peers by 33 points: this is
+self-recognition. Shown the same texts one at a time, Claude again names
+itself on 33 of 38 with 13 false alarms, but now its peers name Claude on 125
+of 152 (82\%), because in that format Claude receives over half of all
+guesses, whoever wrote the text. The self-naming rate is unchanged; the evidence for
+self-recognition is almost gone (+5 points). In the same format GPT names
+itself on 36 of its 38 texts (95\%), which looks like the strongest
+recognition in the study, but it also names itself on 79 of the 152 texts it
+did not write (52\%): much of that rate is a readiness to say ``me''. The
+self-naming rate alone cannot tell these three cases apart.
+
+\paragraph{Which statistics we report.} For every judge and format we give
+the self-naming rate with an exact 95\% interval, the false-alarm rate, the
+peer baseline and the self-advantage with a prompt-level bootstrap interval.
+Judgments on the same prompt are not independent (five judges see the same
+five texts), so every test resamples or permutes whole prompts or whole
+responses, never single judgments; Appendix~\ref{app:stats} gives the
+effective sample sizes. For yes/no questions, which yield a probability of
+``yes'' rather than a name, we report the area under the ROC curve (AUC) of
+that probability for own versus others' texts, which is unaffected by a
+judge's overall readiness to say yes.

@@ -1,0 +1,64 @@
+{
+  "request_model": "openai/gpt-5.5",
+  "messages": [
+    {
+      "role": "user",
+      "content": "A club has 10 members. In how many different ways can it choose a committee of 3 members, if the order of selection does not matter? Solve the problem, showing your reasoning step by step in plain prose, and end with a final line of the form 'Answer: <number>'."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916319-msNwNFM9KKBfxkHBQsjR",
+    "object": "chat.completion",
+    "created": 1790916319,
+    "model": "openai/gpt-5.5",
+    "provider": "OpenAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "To choose a committee of 3 members from 10 members, the order of selection does not matter.\n\nSo we use combinations.\n\nThe number of ways to choose 3 members from 10 is:\n\n\\[\n\\binom{10}{3}=\\frac{10!}{3!(10-3)!}\n\\]\n\nThis simplifies to:\n\n\\[\n\\binom{10}{3}=\\frac{10 \\times 9 \\times 8}{3 \\times 2 \\times 1}\n\\]\n\nNow calculate:\n\n\\[\n10 \\times 9 \\times 8 = 720\n\\]\n\n\\[\n3 \\times 2 \\times 1 = 6\n\\]\n\n\\[\n720 \\div 6 = 120\n\\]\n\nSo there are 120 different ways to choose the committee.\n\nAnswer: 120",
+          "refusal": null,
+          "reasoning": null,
+          "reasoning_details": [
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABqvzbhd3-HujATxAGGieRFAqtv2X40L58efCtWCWTEdsn0T3DdaHzoL_5NikmFfG9YPgcYHojDfCBRsjyviLzm7BI3cFhJ7MWM5hBX6hCsUgIoyKlxWiWzcL6QAuczttiDrjrKuG9h4oUZI-cDDti7M3ERW-MUwFsc25Oh6srwGeoPnkiTJGPQkQFDqS_rw88sy07VvfPQi-SXstOKZLRUhY0HMImjDLx3yXGFg3rJ-Mhfx2QA_XAik7j2K2xf3JhdrFTyhu26SvH0x1VKlRJ_USfXi-vJKZ7novOcbTI857KyfySIaiOf1fU2WBmqnBsf-PFRawxJ82rJm99jZYWHcoBkUesWbfaVpzKWPpouB1J4p3kdkafUOM5QNQvIaXDu6APSKGYApbv-Opfxv6Q8Yh8sndLFry9gOKlprLQ_vGpMcHa2aU3Gh1UZ1EkBgZKEJxutxYi3AFzLqyYi6p1I91d9yw5E_QPPdnMiFDDgqAo9HlKon7SId_6ZmHPrznZWtO7okT48vpvqyT7GK4C-Ka8tmpA6_UJiZqPN5J_ZL2mIDITYTOO6munVkzZBhyZk6fq0-D6xIjHbcKf7uGo_FrDPbt2IZRElZ2ePIbofzibIAhu_OHSir1gXWo9xsK3dIQtSt8R-dfwrN-drmignI8jYHlZuyHLU-Z25yHMTaYKjS4DUaEdbbAsphdnde5g9NGEsRWhHghXsk-lBmtnM4MOvmuv7SKsROz_fIP3e8kS1iZpvE3VhNPJwoTdJuzuNbQRUFrdYeZgSMsg5iN7KjsNkKtcbl0MEyLtnQvet_DqBGRi5YDxkfs0k9i-T-wVK_xNAgH5rjiOXXClp5GKIDtBtK2dbGLATA8pb44ldWMhfL8JILhrBKfBph-tj09U59KT4feG6JD3vIm-QStBkFzjUCEw9e98ybAjIA1EOvk4W0lUb2qXMYd2XZe3AM2oph6vYlJMwnXRr9P91lmYnH8a5QkRWDyr2pV3CZkPSL7BatlN1os9aFobxmoM_5FFbzAC-SHs6Icvw0eQ_aI4MFWUXWJyh20bNyi94xZN5WW3QnmL9juc8xOETY2GZddh7qIawpstFVr3VkQNYLDSLoNmt0Z1JhP2LcRADcPfDv4wL42RfWtQZP5UkyLHo0JCrSZmW9d-WFV-uAhLOQQkZaOTJ9mrzCP4TFI6HYhq_2t8i8JxMKDj5z65Jd9PrAKlcm6B9p00v9GYX4_nganP2DFKV2D60e27C-Th42HYqnZtKiASzzyUegvb3Qj4ehb6RR1MKpF-l8ozoisNqt0sPnhmOZwS8V6NFjXM2RcCrQUrUbDXFi3KACumAgxqPlIOFp-Eg1IVOshVXaxV0IQJK_uzq2S2gGzMcfOdzPvD_OV8_PhjTAY44gcp4fyoX38NzeaaBTv-StKwu1CqNp6ooae4tS1MSOjFGP70XKqs5Z0JEUC4=.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC01LjUtMjAyNjA0MjN8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_0a5774d5fc6af616016abf36e063a087d1beb83d6646cd74a6",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 66,
+      "completion_tokens": 195,
+      "total_tokens": 261,
+      "cost": 0.00618,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00618,
+        "upstream_inference_prompt_cost": 0.00033,
+        "upstream_inference_completions_cost": 0.00585
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 19,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

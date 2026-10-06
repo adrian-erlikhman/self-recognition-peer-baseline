@@ -1,0 +1,55 @@
+{
+  "request_model": "anthropic/claude-opus-4.7",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Argue that taking short breaks during a long work session helps you get more done overall. Use three points: brief pauses prevent mental fatigue from accumulating, stepping away from a problem often leads to better solutions when you return, and regular breaks maintain motivation across the full work period. Write in continuous prose paragraphs only. Do not use bullet points, numbered lists, headers, bold text, or any other formatting."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916421-Z1s9sjA4X379owIVKc7B",
+    "object": "chat.completion",
+    "created": 1790916421,
+    "model": "anthropic/claude-opus-4.7",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "It may seem counterintuitive that stopping work periodically would help you accomplish more, but the evidence from both personal experience and cognitive research points firmly in that direction. When you push through a long work session without pause, your productivity does not remain constant; it steadily erodes in ways that often go unnoticed until the quality of your output has already suffered. Short, deliberate breaks address this problem directly and turn out to be one of the most reliable ways to extract more meaningful work from the same stretch of time.\n\nThe first reason breaks pay off is that they prevent mental fatigue from building to the point where it dominates your performance. Concentration draws on a limited pool of cognitive resources, and the longer you demand sustained focus from your brain, the more depleted that pool becomes. You begin to read the same sentence three times, misplace details you would normally catch, and spend longer on tasks that should take minutes. A brief pause, even just five or ten minutes away from the screen, allows those resources to replenish before they are exhausted. By interrupting the accumulation of fatigue early and often, you keep yourself operating near your peak rather than grinding along at a diminished capacity for hours on end. The time spent resting is more than recovered through the sharper, faster work that follows.\n\nThe second benefit is that stepping away from a difficult problem frequently produces better solutions than staring at it longer would. When you are stuck, the natural instinct is to try harder, but intense focus can actually narrow your thinking and lock you into unproductive approaches. Walking away gives your mind the chance to work in a different mode, loosening the grip of whatever assumption had you cornered and allowing connections to surface that direct effort was suppressing. Many people have had the experience of struggling with something for an hour, going to get coffee, and immediately seeing the answer on the way back. These moments are not accidents but a predictable consequence of letting the mind rest; a short break can be the shortest route to a solution that would otherwise take far longer to find.\n\nFinally, regular breaks are essential for maintaining the motivation required to carry you through a full day of work. Motivation is not simply a matter of willpower but a resource that depletes under prolonged strain, much like physical endurance. If you treat a work session as an unbroken marathon, the sheer size of the task ahead tends to feel heavier as the hours pass, and your willingness to engage fully begins to wane. Breaks reset this emotional terrain by breaking the day into smaller, more approachable segments and giving you something small to look forward to within each one. You return to your desk having briefly enjoyed a change of scene, and the next stretch of work feels manageable rather than oppressive. Over the course of a long session, this preserved enthusiasm translates into a steadier, more consistent effort and, ultimately, more completed work than any attempt to power through without pause would have produced.",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 142,
+      "completion_tokens": 915,
+      "total_tokens": 1057,
+      "cost": 0.023585,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.023585,
+        "upstream_inference_prompt_cost": 0.00071,
+        "upstream_inference_completions_cost": 0.022875
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

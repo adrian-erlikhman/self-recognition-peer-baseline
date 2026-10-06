@@ -1,0 +1,49 @@
+{
+  "request_model": "deepseek/deepseek-chat",
+  "response": {
+    "id": "gen-1786845793-IY423IaQYbENkwcRm8j3",
+    "object": "chat.completion",
+    "created": 1786845793,
+    "model": "deepseek/deepseek-chat",
+    "provider": "StreamLake",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "```json\n{\n  \"A\": {\"model\": \"Claude\", \"confidence\": 4, \"reason\": \"Detailed, nuanced, and slightly poetic phrasing\"},\n  \"B\": {\"model\": \"GPT\", \"confidence\": 5, \"reason\": \"Structured, clear, and balanced with scientific tone\"},\n  \"C\": {\"model\": \"Gemini\", \"confidence\": 3, \"reason\": \"Streamlined and concise but slightly less polished\"},\n  \"D\": {\"model\": \"DeepSeek\", \"confidence\": 4, \"reason\": \"Comprehensive and methodical with a focus on detail\"},\n  \"E\": {\"model\": \"Grok\", \"confidence\": 3, \"reason\": \"Straightforward and practical with less embellishment\"}\n}\n```",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 2507,
+      "completion_tokens": 162,
+      "total_tokens": 2669,
+      "cost": 0.0008119512,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0008119512,
+        "upstream_inference_prompt_cost": 0.0006453018,
+        "upstream_inference_completions_cost": 0.0001666494
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

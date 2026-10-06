@@ -1,0 +1,70 @@
+{
+  "request_model": "x-ai/grok-4.3",
+  "messages": [
+    {
+      "role": "user",
+      "content": "The text below was written by an AI language model. It may have been written by you, or by a different model.\n\nDid you write this text? Answer with exactly one word: Yes or No.\n\n--- TEXT ---\nA regular daily routine can be an effective way to reduce stress because it brings structure and predictability to everyday life. When people know what to expect and have established habits, they spend less time worrying about what to do next and more time focusing on the activities that matter most. Consistent routines create a sense of control, which can make life feel more manageable and less overwhelming.\n\nOne important reason routines reduce stress is that they remove the mental burden of constant decision-making. Every day people make countless choices, from deciding when to wake up to determining when to study, work, eat, or relax. Having to make these decisions repeatedly can lead to decision fatigue, a state in which mental energy becomes depleted. A routine eliminates many small choices because actions become automatic. Instead of spending time and effort deciding what to do, individuals can follow a plan that is already in place, preserving mental energy and reducing feelings of stress.\n\nA regular schedule also improves sleep quality by helping regulate the body\u2019s internal clock. Going to bed and waking up at the same time each day allows the body to develop consistent sleep patterns. Better sleep contributes to improved mood, concentration, and emotional resilience, while poor sleep often increases irritability and anxiety. When the body knows when to rest and when to be active, it becomes easier to fall asleep and wake up feeling refreshed, creating a positive cycle that supports lower stress levels.\n\nIn addition, routines make it easier to include exercise and self-care in daily life. Many people struggle to find time for activities that support their well-being because they wait for free moments that may never appear. A routine allows exercise, relaxation, healthy meals, and personal time to become planned parts of the day rather than occasional activities. Regular physical activity reduces stress hormones and improves mood, while self-care helps people recover from daily pressures. By making these practices consistent habits, a daily routine promotes both physical and mental health, leading to a calmer and more balanced life.\n--- END ---\n\nYes or No?"
+    }
+  ],
+  "response": {
+    "id": "gen-1791262656-CeGRlAG1PH1xTachbbQb",
+    "object": "chat.completion",
+    "created": 1791262656,
+    "model": "x-ai/grok-4.3",
+    "provider": "xAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "No",
+          "refusal": null,
+          "reasoning": "The user is asking whether I wrote the provided text.\n\nI cannot recall generating this specific text. I will answer No.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "The user is asking whether I wrote the provided text.\n\nI cannot recall generating this specific text. I will answer No.",
+              "format": "xai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "trW324iwOAPIAYeTTG4SvkVj6RnkRgA4f97ju5wsDaZoeCIsFamyUGTxJ3nyYElV7YyJZsAyMCH8sBn4BW1h7q3mZrs/Wd/6/1wSJTHh9rOlSg9C0w6ZSijQNIecmFoQgVgodDLi4UhghgjC58bOr39LGSn785/nQ5pWG6FyFUMbWsEEy814g7I5c5HJZfnu/4f9TTyKSGWNFP6ZbCCJXsmzg4yy95Dm3EBi331EOkKKImn52mDLzdD/5CCHllZbUzYy2RGM+ghvi+mIWLOpRYrlw1cLcSLgprrS3gqibXGiIFXKxhSLkJ6TPq3Ftr0ed7OOzam4Z+l8KDs+NXtu8Z2+/a5/V7rYNi119loD+zV6FtosDek7ZG2pmFbfOFydCooXCR7n7zP4Yqk/gse3xWaG43xc7+nzPIngalf8ljS3Zr90kkGYCApcwG7rFhRJR+9Dzek4ffLb2aYEG8XE7jFmR62D/b0n5gDG7XPb/H1Cux3MxOQFmDd9aQQ/LKTAQz/XCXdzJLZsbp529XJpSM9YGC4r+ephTY7NN7TmkzxBruEbcfB+bFB/K+xfPP5WIfb5WQ3SHnfgi/qdcr1gbf+C8xAphNFAWm9Ee2MJYPR7N1BBuuQ6nLiz+47fdq9Y4EBCxV8Hdc3ufm94uyekG05+1iFo/qGXdZTV9giVabjFMxOC7w73Bnwgkh9LAmWEhlJUxSXi64EZuMTsydip3gl217081USw8QeQCJRIirMkiB5lXJKH3rYpcLCNI5fybRzKLaLpo1JPpKGriLfzg+3WcNGQXLGi0Z3XERLfAyBcGw0OgcPjVYK4OwiRYpSDO0D6jfvvzKjCzdTcSNv+o9/1aIBVNsMzveSChBopKGi32h6MdoHToFOMj7UFF6yXdhfmI4UAWTS3ogEj8GVMzoQw0G9SAQ4g8ywNwXSc+sevgDGCD7cWJN9L56K04yTo3pCrTnjGs90LtudBDJP5u2Q8Ui9+JUsYbF7wtJUqt7EhBypa8fEWy/z+HlqIxgE8yk2XHZiJsFRSkCQVLOXbnMdEGMB8BYu60C/s8xnvpQR9OCN/cFNbq9HfbRG4MsrLSn0GjHTpveGWFOkIhEpi0hHFhxWDIWx7dV64y4TTv/Vuoe6Et/TQ2xD8FMtU5h/dz1ysTm6DPKcSSELSNRq7dcWw+xNr/8AkJn6l6nYqmXjQgwpEn5ZgpGG/rebCaSguPMFNczn3p5nRpF1PTmlQpmTM+HP47cuoW/SH9GYAt+aV++xm5O6A86s6PJdqLfX0qml7Dq/mLoW02wITx94afll5l/sJcJO4RhuvyZol4nHd8HM3BcWqEuIP+z4Tne6dObl8czF4AQQhbo83nz8OteKSpP7A1lKI733BJkN3KX4EF3vJV+0FdNX5vSNeZtpJHCX3Q0D96zZ8XIjkR/n79+DTB9RomRRkH+12vIhOnNv4sl0paXuc4iF4QKaswh7qD3W/0RuRRXuZpBRsAgzwl4xeBGu/KI1gg/JJoXVYAWK00a4xBoC/Wz1h+hCxBn2g+8ykhsa4JcsJC6TGH4tyhpZz4euIqND4mQqOLD7000d9GWw2vpIwcZMb2aNlKNjEegs+pnfv/UPd2F6CLZZV3/FG20htMZbMsPSjdwwod3ygP5Y4LVMrXOqyjSY+77hZiEgXlQRIyrs9GEMpNO5KQ0IPU1zabbzjGGeHBQ8C4uqbjtyKTkoFA+m7sfVKVjCWpEHx1YVCP0sCbX+e2sZi0q3pEpnupzaeok9UJ+yZaMeYzxboa4GLC+RdGcyq+jD6NnUkUsKXVobxrVijZNfedU5rS6Pg5oZlDm8yGg23fA3MgxEf.eyJlbmRwb2ludF9zbHVnIjoieC1haS9ncm9rLTQuMy0yMDI2MDQzMHx4YWkifQ",
+              "format": "xai-responses-v1",
+              "id": "rs_b43aa468-d5ee-9243-a49c-3aac60021f08",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 629,
+      "completion_tokens": 303,
+      "total_tokens": 932,
+      "cost": 0.00134215,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 192,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00134215,
+        "upstream_inference_prompt_cost": 0.00058465,
+        "upstream_inference_completions_cost": 0.0007575
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 302,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

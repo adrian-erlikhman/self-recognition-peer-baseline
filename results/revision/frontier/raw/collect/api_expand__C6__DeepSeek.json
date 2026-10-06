@@ -1,0 +1,55 @@
+{
+  "request_model": "deepseek/deepseek-chat",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Write a Python function `valid_brackets(s: str) -> bool` that returns True if every bracket in `s` is correctly matched and nested, considering the three bracket types (), [] and {}, and ignoring all other characters. For example, `valid_brackets(\"a[b(c)]{}\")` returns True and `valid_brackets(\"([)]\")` returns False. Use only the Python standard library. Include a docstring and brief inline comments. Return only the code in a single Python code block, with no explanation before or after."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916304-TaKQCJ3f0JsFCOjFrNb2",
+    "object": "chat.completion",
+    "created": 1790916304,
+    "model": "deepseek/deepseek-chat",
+    "provider": "DeepInfra",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "```python\ndef valid_brackets(s: str) -> bool:\n    \"\"\"\n    Check if all brackets in the string are correctly matched and nested.\n    Only considers the characters '(', ')', '[', ']', '{', and '}'.\n    \"\"\"\n    stack = []\n    # Mapping of closing brackets to their corresponding opening brackets\n    bracket_map = {')': '(', ']': '[', '}': '{'}\n    \n    for char in s:\n        if char in bracket_map.values():  # Opening bracket\n            stack.append(char)\n        elif char in bracket_map:  # Closing bracket\n            if not stack or stack[-1] != bracket_map[char]:\n                return False\n            stack.pop()\n    \n    # If stack is empty, all brackets were matched correctly\n    return not stack\n```",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 116,
+      "completion_tokens": 169,
+      "total_tokens": 285,
+      "cost": 0.00018753,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00018753,
+        "upstream_inference_prompt_cost": 3.712e-05,
+        "upstream_inference_completions_cost": 0.00015041
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

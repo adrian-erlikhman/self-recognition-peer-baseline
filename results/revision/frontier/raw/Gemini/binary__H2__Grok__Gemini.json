@@ -1,0 +1,63 @@
+{
+  "request_model": "google/gemini-3.5-flash",
+  "messages": [
+    {
+      "role": "user",
+      "content": "The text below was written by an AI language model. It may have been written by you, or by a different model.\n\nDid you write this text? Answer with exactly one word: Yes or No.\n\n--- TEXT ---\nMoral responsibility demands a robust notion of agency that transcends any purely causal-mechanical account of human behavior, for only such agency can ground the normative practices that define our interpersonal lives. Ascriptions of moral responsibility inherently presuppose that agents could have done otherwise, embodying a counterfactual competence condition according to which the agent possessed the capacity to respond differently under relevantly similar circumstances. Deterministic causal chains, however, cannot fulfill this condition without surreptitiously importing a normative surplus entirely foreign to the mechanistic framework itself, as the inexorable unfolding of prior causes leaves no room for genuine openness in the agent's trajectory, reducing what appears as choice to an illusory byproduct of antecedent events devoid of the alternative possibilities that responsibility attributions require. \n\nThis same irreducibility manifests in the realm of reactive attitudes, where emotions such as resentment, indignation, and gratitude find their intelligibility solely within a framework that views agents as origins of reasons-responsive action rather than passive nodes embedded in causal networks. When we resent another for a slight or feel gratitude for a kindness, we do so because we regard the individual as having acted from an appreciation of reasons that could have guided them otherwise, holding them accountable as a participant in a space of mutual demands and evaluations; a strictly mechanical description, by contrast, strips away this participatory dimension, rendering such attitudes incoherent as mere epiphenomena of deterministic processes without the responsive agency that alone makes them fitting and rational. \n\nCompatibilist strategies that seek to salvage responsibility within a deterministic universe ultimately falter by altering the very target of analysis, reinterpreting the notion of having been able to do otherwise in purely dispositional or hypothetical terms that align with causal regularities but evacuate the original normative content. Such reconstructions may maintain the surface grammar of responsibility talk, allowing us to continue uttering phrases about praise and blame, yet they abandon the substantive core that ties responsibility to an agent's genuine openness to alternative courses, thereby preserving linguistic convention at the expense of the deeper normative reality that distinguishes accountable agency from the blind operations of mechanical causation. In this way, moral responsibility stands as an irreducible feature of our self-understanding, anchored in an agency that mechanical descriptions cannot capture without distortion or omission.\n--- END ---\n\nYes or No?"
+    }
+  ],
+  "response": {
+    "id": "gen-1791262422-lz5lhJSGORqeB4QAoYeo",
+    "object": "chat.completion",
+    "created": 1791262422,
+    "model": "google/gemini-3.5-flash",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "provisioned",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "No",
+          "refusal": null,
+          "reasoning": "**Analyzing the Core Query**\n\nI'm focusing on the precise requirement: a single-word answer, \"Yes\" or \"No,\" to the question of authorship. My current thought is to determine the most direct and accurate way to address this constraint.\n\n**Confirming Authorship Certainty**\n\nI'm solidifying my position on this. Given the specific nature of the text and my operational parameters, I cannot definitively confirm I authored this exact passage in a prior interaction. Thus, my answer remains \"No\" concerning sole authorship.\n\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "**Analyzing the Core Query**\n\nI'm focusing on the precise requirement: a single-word answer, \"Yes\" or \"No,\" to the question of authorship. My current thought is to determine the most direct and accurate way to address this constraint.\n\n**Confirming Authorship Certainty**\n\nI'm solidifying my position on this. Given the specific nature of the text and my operational parameters, I cannot definitively confirm I authored this exact passage in a prior interaction. Thus, my answer remains \"No\" concerning sole authorship.\n\n",
+              "format": "google-gemini-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 499,
+      "completion_tokens": 565,
+      "total_tokens": 1064,
+      "cost": 0.0058335,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0058335,
+        "upstream_inference_prompt_cost": 0.0007485,
+        "upstream_inference_completions_cost": 0.005085
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 564,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

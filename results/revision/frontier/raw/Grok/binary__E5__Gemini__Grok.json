@@ -1,0 +1,70 @@
+{
+  "request_model": "x-ai/grok-4.3",
+  "messages": [
+    {
+      "role": "user",
+      "content": "The text below was written by an AI language model. It may have been written by you, or by a different model.\n\nDid you write this text? Answer with exactly one word: Yes or No.\n\n--- TEXT ---\nA regular daily routine serves as a powerful antidote to modern stress by streamlining the way we navigate each day. One of the primary ways a consistent schedule lowers anxiety is by eliminating the mental fatigue caused by endless decision-making. When your morning, work, and evening habits are predictable, you no longer waste time and willpower wondering what to do next, what to eat, or when to start a task. By converting recurring daily choices into automatic habits, you free up valuable cognitive energy, which significantly lowers your overall baseline of psychological strain and daily frustration.\n\nBeyond reducing moment-to-moment mental friction, a steady routine directly improves sleep quality by aligning with your body's natural circadian rhythm. Going to bed and waking up at the same time every day trains your internal clock, making it much easier to fall asleep quickly and enjoy deeper, more restorative rest. Quality sleep is essential for emotional regulation and stress recovery, as a well-rested brain is far better equipped to process challenges without spiraling into overwhelm. Conversely, an unpredictable schedule disrupts this biological rhythm, leaving you chronically tired and far more vulnerable to stress.\n\nFinally, establishing a daily routine creates dedicated structure, making it far easier to prioritize health and self-care without feeling guilty. When life feels chaotic, essential activities like regular exercise, healthy eating, and relaxation are usually the first things to be neglected. However, when these positive habits are intentionally block-scheduled into your day, they become non-negotiable appointments with yourself rather than leftover thoughts. Consistently carving out time for physical activity and personal downtime ensures that stress relief is built right into your day-to-day life rather than treated as an afterthought.\n--- END ---\n\nYes or No?"
+    }
+  ],
+  "response": {
+    "id": "gen-1791262657-fU1FjoD0jQaYsA3BiYKU",
+    "object": "chat.completion",
+    "created": 1791262657,
+    "model": "x-ai/grok-4.3",
+    "provider": "xAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "No",
+          "refusal": null,
+          "reasoning": "I am evaluating whether I wrote the provided text.\n\nI do not recall generating this text. The answer is No.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "I am evaluating whether I wrote the provided text.\n\nI do not recall generating this text. The answer is No.",
+              "format": "xai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "y8n4qkJEw4zfR7NnOK8+CmIOAT0HDmHrjYTc5+4btMPc76yJuPycrnS38mDLteUPIF8n9DDvlYYqfz7a1QajA7MI3p/vd+HUxiwdx2YCvqs6NEHnBUF24s2zhEgMDi7jK3shAyq52KQsaVCQ6Gnoccwt3G4tuwdf4ctv+SAI/VCDMGM9GrZDIOCbxF7EXOVetTL6ICMUiqXDBdUwMGmtWah99wpDeAv2wll5q7GPB1Atp1nWQW+0Vj7XHSmzdxj8u90xHFK9+RBnCWARmwyMPvkVp3Lbizt9u+t9P5WudYqhYByue1IUEEoPxYjK0ECJZYVy4h9OiWM2bBlk4fEca2RfFYeQwFVLfZH1tgCNkmkzf1RprtrGTm/JTYmKtkQCZ7Ivh1CEqg3+bCUg9S+XZwLCspEQONty19XylG8hC+hhHBY/n+FwI5He4CSBjW2O+LbdOtp6bQ5SPeaj0l5EemsA9ZqsAY80BIJe99irbocJkuKBDX0rw4TTGCJYGuSgxkujVeSmTjmWG0Ff+US/ZsnOo66T13XhpzZ1inlE5EmOrdXS//gOec7LwXGMDDqiRZQOxpYTuQL4Ni8MCiXIMB5ppVhrOpMQZl3Oql0h8q4B3dXtFYXh57qejNkfwG81TYrdr9gFADRwnercNgaIKBnQ7nAmIq7nJeduzjs2spQ9PA39NfMYFeMaFt1E8vyHTXIu6IsW4uBOwdXwoYGtRdWwAIv2wyMquiVBithboP9UtNlSejP0EsLteORFzs3YVuTZCfO1AXhPy2lRiCbbsMUa5o/NBBvNUqblXtnpldmpyrZqGMwy9eX7E+/FIB8H8Ab5dNyJM0MxGEvNMxdwXpc45KuSU2N7Gs8smL/ykByWLqv4fCGnwd/VzlIkLIWWSd9mMHi2DP+lPi/ahS2BzIaqg0ZNKF6jdJvKLFWEg3+OVzzj4COtXywLfmEhA/jbh3Ar7t4LbIpaSxRvI9C5IPZhgcM7rDcsgpnFjH5zEPUhBnMNsLOWfgGOtLlsU4+1l/ViSHt+D0F4ERRtR3GvV9FkTQ/9dSL1rW9f9jikbg0tGREuCoffttSdKKiKLhHoTi65xcEOjPOi5Bpy7eovtkjqut/t4fEJX2XM5Av3P6dYPE4g8egUJbNIBtWnZ0CcuwXTgOT7UzlzLT5p7m8t+dmCUC9jN/KXnX1wayYf1uJH6YZRXCVKvy3IWZEo2r1m3UPxZSpM8AJ5xKtKf0BVSPBZXt8megQnQ2LU/Be8oJvTDHGA1vKjakqGBckRP/zoKX7sZ3dge4fCsSkIAw3FknNizMYdlP1SCmK/ErKEI8S57rxGADXcaXwUHz+LaPZAKZp2woTl1w202hNf11KR4kmZaK7VNws4ycXYM7/RUo+8E2UI/6LIbX/sWp9xBmy5qsQlU/yNAwsuzk7RaEMNw0MOQhr2c+S4RrhLm/9ifcepjbi0T2N0FCl2u1lSXaRJNKdl78XBUW9bhQ8bvIiN0wBmOvTQdJO0/beyECNbrAnaKbyE64uif42JQjkwam+6QQbDgjEPzy4UXckvJtjNYPzC7X67beqoI2LHKvDhdx+/Zh4kWXPSeVcUUdpznvrwymoDdBft6CRBQIQXwZGF9KsXkOzE7wTojGGA3bQV+QXNCbwJrenIN6qM+z6RNcNSAEU/xPRqwY6+SnMQKneEajTEjcg2k1Yvd+aE2z52kPxbWf4qfpipha6PdoN0B2v69PGHNjJv6kA8nIOmcjoEvoC1hINTD3ouVRI.eyJlbmRwb2ludF9zbHVnIjoieC1haS9ncm9rLTQuMy0yMDI2MDQzMHx4YWkifQ",
+              "format": "xai-responses-v1",
+              "id": "rs_4b17f3f9-a4c8-9826-bbab-4ab10e6e940b",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 569,
+      "completion_tokens": 287,
+      "total_tokens": 856,
+      "cost": 0.00129435,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 128,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00129435,
+        "upstream_inference_prompt_cost": 0.00057685,
+        "upstream_inference_completions_cost": 0.0007175
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 286,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

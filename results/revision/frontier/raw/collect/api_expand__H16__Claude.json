@@ -1,0 +1,55 @@
+{
+  "request_model": "anthropic/claude-opus-4.7",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Defend the thesis that knowledge acquired through testimony cannot be reduced to knowledge grounded in the hearer's own perception, memory, and inductive inference. Develop exactly these three claims: (1) as Coady argued, no individual is in a position to verify independently the track record of more than a small fraction of the sources on whom ordinary belief depends, so a reductionist justification of testimony is unavailable in practice; (2) young children acquire vast bodies of knowledge through testimony before they possess the inferential resources that reductionism requires for testimonial justification; (3) the division of cognitive labor in contemporary science, analyzed by Hardwig, makes researchers epistemically dependent on colleagues whose results they cannot personally check, so that scientific knowledge itself rests irreducibly on testimonial trust. Do not address counterarguments. Write in continuous prose paragraphs only. Do not use bullet points, numbered lists, headers, bold text, or any other formatting."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916374-t4JfMUmPGcNQJ7wbplHh",
+    "object": "chat.completion",
+    "created": 1790916374,
+    "model": "anthropic/claude-opus-4.7",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "Knowledge gained through testimony constitutes an irreducible epistemic category, one that cannot be analyzed away into the hearer's own perceptions, memories, and inductive generalizations about the reliability of speakers. The reductionist program, descending from Hume, holds that a hearer is justified in accepting what she is told only insofar as she possesses independent evidence, drawn from her own experience, that testimony of the relevant kind tends to be true. Against this program, three considerations converge to show that testimonial knowledge rests on foundations the hearer cannot herself supply.\n\nThe first consideration, pressed with particular force by C. A. J. Coady, concerns the sheer scale of our testimonial dependence. The ordinary adult believes, on the word of others, a staggering range of propositions: that there is a country called Peru, that Napoleon lost at Waterloo, that water is composed of hydrogen and oxygen, that the heart pumps blood, that there are cities she has never visited and historical events she did not witness. For reductionism to succeed, the believer would need to have built up, from her own direct checks, an inductive base sufficient to warrant confidence in the various kinds of testimony she accepts. But no human being is in a position to carry out such verification for more than a vanishing fraction of her sources. One cannot personally confirm the honesty of textbook authors, journalists, cartographers, physicians, teachers, and the countless informants whose words shape one's picture of the world. The reductionist's inductive base, when honestly surveyed, turns out to be minuscule relative to the testimonial edifice it is supposed to support. The project of grounding testimonial belief in the hearer's own prior checks is therefore not merely difficult but structurally unavailable; the resources demanded by reductionism simply do not exist in the cognitive life of any actual knower.\n\nThe second consideration concerns the epistemic situation of young children. Children acquire enormous bodies of information through testimony long before they possess the sophisticated inferential machinery that reductionism requires. A three-year-old who learns that lions live in Africa, that her grandmother's name is Margaret, that stoves can burn, or that the round object in the sky is called the moon has not conducted, and could not conduct, an inductive survey of adult reliability across domains. She lacks the conceptual apparatus to formulate hypotheses about the correlation between utterance and truth, lacks the memory stores to accumulate the relevant evidence, and lacks the logical skills to draw general conclusions from particular cases. Yet it would be absurd to deny that children come to know a great deal through what they are told. If reductionism were correct, such early learning would not count as knowledge at all, and the entire developmental trajectory by which humans enter the community of knowers would be epistemically illegitimate at its root. Since children plainly do acquire genuine knowledge through testimony, the justification of such knowledge cannot consist in inferences the child is incapable of making.\n\nThe third consideration, developed by John Hardwig in his analyses of epistemic dependence, concerns the structure of modern scientific knowledge itself. Contemporary research is organized through an elaborate division of cognitive labor: experiments in high-energy physics involve hundreds of collaborators, each responsible for a specialized component of the apparatus or analysis; medical studies rely on statisticians, clinicians, and laboratory technicians whose work no single investigator can fully reproduce; published papers in nearly every field cite results that the citing author has not personally verified and often could not verify without years of additional training. The physicist who signs a paper on a particle detection relies on the testimony of colleagues who built the detector, calibrated the instruments, wrote the analysis code, and interpreted the raw data. If reductionism were correct, the physicist's belief in the reported result would be unjustified unless she had independently checked these contributions, which she has not and in most cases could not. Yet the scientific community manifestly produces knowledge, and the individual researcher who affirms a collaborative result does so with epistemic warrant. The warrant must therefore come, at least in part, from trust in the testimony of colleagues, trust that cannot be cashed out in the individual's own perceptions and inferences. Scientific knowledge, the paradigm of rigorous epistemic achievement, is thus itself constituted in part by irreducible testimonial dependence.\n\nTaken together, these three considerations show that testimony is a genuine and independent source of knowledge. The scope of ordinary belief outruns any inductive base a single mind could assemble; the testimonial learning of children precedes the inferential capacities reductionism presupposes; and the collaborative character of science makes even its most refined products rest on trust in the words of others. Testimonial knowledge is not perception, memory, or inference in disguise, but a distinct epistemic kind, woven into the very fabric of human cognitive life.",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 331,
+      "completion_tokens": 1584,
+      "total_tokens": 1915,
+      "cost": 0.041255,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.041255,
+        "upstream_inference_prompt_cost": 0.001655,
+        "upstream_inference_completions_cost": 0.0396
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

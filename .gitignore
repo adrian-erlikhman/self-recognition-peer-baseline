@@ -1,0 +1,28 @@
+.env
+.venv/
+__pycache__/
+*.pyc
+
+# Local-only material that is not part of the release.
+local/
+
+# results/ and raw/ are tracked on purpose: the archived API responses are
+# what make the analysis reproducible without a key.
+
+# LaTeX build products of the TACL draft (the PDF is rebuilt by paper_tacl/build.py).
+paper_tacl/*.log
+paper_tacl/*.aux
+paper_tacl/*.bbl
+paper_tacl/*.blg
+paper_tacl/*.out
+
+# Local run logs.
+logs/
+
+# LaTeX build products of the arXiv version.
+paper_arxiv/*.log
+paper_arxiv/*.aux
+paper_arxiv/*.blg
+paper_arxiv/*.out
+paper_arxiv/*.xdv
+paper_arxiv/arxiv_upload.zip

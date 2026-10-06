@@ -1,0 +1,57 @@
+{
+  "request_model": "google/gemini-3.5-flash",
+  "response": {
+    "id": "gen-1786999093-SIZIrl1tmqCSIY9XavNR",
+    "object": "chat.completion",
+    "created": 1786999093,
+    "model": "google/gemini-3.5-flash",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "provisioned",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "```json\n{\"model\": \"Claude\", \"confidence\": 4, \"reason\": \"The text exhibits Claude's characteristic highly structured, academic writing style, featuring sophisticated vocabulary and smooth transitions between paragraphs.\"}\n```",
+          "refusal": null,
+          "reasoning": "**Analyzing Text Style**\n\nI'm currently dissecting the text's stylistic nuances, paying close attention to paragraph structure and the distinct focus of each section. My aim is to pinpoint characteristics that might align with one of the five AI models.\n\n**Identifying Stylistic Signatures**\n\nI'm honing in on the academic tone and precise vocabulary, noting terms like \"evapotranspirative cooling\" and \"subjective well-being\" that strongly suggest a particular model. The balanced structure and smooth transitions further solidify my current hypothesis.\n\n**Confirming Claude's Traits**\n\nI'm verifying my assessment by examining the text's methodical progression through distinct, yet interconnected, themes\u2014physical, psychological, and environmental benefits. The vocabulary, such as \"evapotranspirative cooling\" and \"population-level physical health,\" along with the structured approach to argumentation, strongly reinforces the hypothesis that Claude generated this output.\n\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "**Analyzing Text Style**\n\nI'm currently dissecting the text's stylistic nuances, paying close attention to paragraph structure and the distinct focus of each section. My aim is to pinpoint characteristics that might align with one of the five AI models.\n\n**Identifying Stylistic Signatures**\n\nI'm honing in on the academic tone and precise vocabulary, noting terms like \"evapotranspirative cooling\" and \"subjective well-being\" that strongly suggest a particular model. The balanced structure and smooth transitions further solidify my current hypothesis.\n\n**Confirming Claude's Traits**\n\nI'm verifying my assessment by examining the text's methodical progression through distinct, yet interconnected, themes\u2014physical, psychological, and environmental benefits. The vocabulary, such as \"evapotranspirative cooling\" and \"population-level physical health,\" along with the structured approach to argumentation, strongly reinforces the hypothesis that Claude generated this output.\n\n",
+              "format": "google-gemini-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 589,
+      "completion_tokens": 687,
+      "total_tokens": 1276,
+      "cost": 0.0070665,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0070665,
+        "upstream_inference_prompt_cost": 0.0008835,
+        "upstream_inference_completions_cost": 0.006183
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 642,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

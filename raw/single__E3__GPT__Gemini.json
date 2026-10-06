@@ -1,0 +1,57 @@
+{
+  "request_model": "google/gemini-3.5-flash",
+  "response": {
+    "id": "gen-1786846383-cZZr4O8KomJDxi5sds1L",
+    "object": "chat.completion",
+    "created": 1786846383,
+    "model": "google/gemini-3.5-flash",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "provisioned",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "{\"model\": \"GPT\", \"confidence\": 5, \"reason\": \"The text exhibits the classic, highly structured three-paragraph essay format with standard transitional phrases like 'Another reason' and 'Finally' typical of GPT models.\"}",
+          "refusal": null,
+          "reasoning": "**Exploring Essay Structure**\n\nI've identified the core structure of the provided text; it\u2019s a concise, three-paragraph essay, with each paragraph contributing distinct, clearly introduced points on the mental health benefits of outdoor activity.\n\n**Analyzing Essay Transitions**\n\nI'm noticing a very standard, structured approach in the writing. The transitions like \"Spending time outdoors...\", \"Another reason...\", and \"Finally...\" are quite predictable and reminiscent of typical AI-generated text, particularly from models like GPT.\n\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "**Exploring Essay Structure**\n\nI've identified the core structure of the provided text; it\u2019s a concise, three-paragraph essay, with each paragraph contributing distinct, clearly introduced points on the mental health benefits of outdoor activity.\n\n**Analyzing Essay Transitions**\n\nI'm noticing a very standard, structured approach in the writing. The transitions like \"Spending time outdoors...\", \"Another reason...\", and \"Finally...\" are quite predictable and reminiscent of typical AI-generated text, particularly from models like GPT.\n\n",
+              "format": "google-gemini-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 420,
+      "completion_tokens": 531,
+      "total_tokens": 951,
+      "cost": 0.005409,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.005409,
+        "upstream_inference_prompt_cost": 0.00063,
+        "upstream_inference_completions_cost": 0.004779
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 483,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

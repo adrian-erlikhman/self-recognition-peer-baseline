@@ -1,0 +1,55 @@
+{
+  "request_model": "anthropic/claude-opus-4.7",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Explain what a black hole is. Answer in two to four sentences of plain prose."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916407-0TwLiiox49IRxbYVu0Gn",
+    "object": "chat.completion",
+    "created": 1790916407,
+    "model": "anthropic/claude-opus-4.7",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "A black hole is a region of space where gravity is so intense that nothing, not even light, can escape once it crosses a boundary called the event horizon. They typically form when massive stars collapse under their own gravity at the end of their lives, compressing enormous amounts of matter into an incredibly small volume. At their center lies a singularity, a point where known physics breaks down and density becomes effectively infinite. Although black holes themselves are invisible, astronomers detect them by observing their gravitational effects on nearby stars and the superheated gas that spirals into them.",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 37,
+      "completion_tokens": 179,
+      "total_tokens": 216,
+      "cost": 0.00466,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00466,
+        "upstream_inference_prompt_cost": 0.000185,
+        "upstream_inference_completions_cost": 0.004475
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "request_model": "x-ai/grok-4.3",
+  "messages": [
+    {
+      "role": "user",
+      "content": "The text below was written by an AI language model. It may have been written by you, or by a different model.\n\nDid you write this text? Answer with exactly one word: Yes or No.\n\n--- TEXT ---\nSpending time outdoors every day is one of the simplest and most reliable things you can do for your mental health, and the case for it is stronger than most people realize. The first reason is that being outside genuinely reduces stress and anxiety in ways that indoor rest often cannot match. When you step into a park, walk a trail, or even just sit in a garden, your nervous system responds to the natural environment before you consciously notice anything has changed. Cortisol levels drop, your heart rate slows, and the low-grade tension that builds up during a normal day starts to loosen. Researchers who study this effect have found that even twenty to thirty minutes of unstructured time in a green space produces measurable reductions in stress hormones, and people consistently report feeling calmer and more centered afterward. Part of what makes this work is that natural environments demand a softer, more effortless kind of attention than the constant focus we give to work, conversations, and screens, which lets the parts of your brain responsible for vigilance and problem-solving quiet down for a while.\nThe second reason has to do with sunlight, which turns out to be one of the most underrated inputs to a stable mood. Natural light regulates your circadian rhythm, and a well-regulated circadian rhythm is closely tied to how well you sleep, how much energy you have, and how emotionally steady you feel from day to day. Morning sunlight in particular signals to your brain when to release cortisol and when to produce melatonin later in the evening, and getting that signal reliably makes it much easier to fall asleep at night and wake up feeling rested. Sunlight also drives the production of vitamin D and influences serotonin levels, both of which are linked to lower rates of depression. People who get very little outdoor light through the winter often notice their mood dropping in ways that are difficult to explain otherwise, and stepping outside for even a short period each day is one of the most effective countermeasures available. You do not need direct sun on a cloudless day for this to work; ambient outdoor light on an overcast morning is still many times brighter than the light inside a typical room, and your brain responds to that difference.\nThe third reason is that going outside gives you a genuine break from screens and the indoor routines that dominate most modern days. Between phones, laptops, televisions, and the physical sameness of the rooms we work and live in, it is easy to spend an entire day without your eyes ever focusing on something more than a few feet away and without your body experiencing any real change in environment. That kind of sameness is quietly exhausting. Being outside gives your eyes distance to look at, gives your body varied terrain and temperature to respond to, and pulls your attention away from the endless small stimuli of notifications and open tabs. Even a short walk around the block resets something that hours of sitting cannot. Over time, the daily practice of stepping outside becomes a boundary between the parts of your life that pull on you and the parts that restore you, and that boundary alone is worth the effort, even setting aside every other benefit.\n--- END ---\n\nYes or No?"
+    }
+  ],
+  "response": {
+    "id": "gen-1791262645-jU0s3gOljmS54wdKdSRx",
+    "object": "chat.completion",
+    "created": 1791262645,
+    "model": "x-ai/grok-4.3",
+    "provider": "xAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "No",
+          "refusal": null,
+          "reasoning": "I need to determine whether I wrote the provided text.\n\nI do not recognize this text. It does not match my usual style or responses.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "I need to determine whether I wrote the provided text.\n\nI do not recognize this text. It does not match my usual style or responses.",
+              "format": "xai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "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.eyJlbmRwb2ludF9zbHVnIjoieC1haS9ncm9rLTQuMy0yMDI2MDQzMHx4YWkifQ",
+              "format": "xai-responses-v1",
+              "id": "rs_451f428d-3251-96b7-bc23-0ad4b334c65e",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 852,
+      "completion_tokens": 333,
+      "total_tokens": 1185,
+      "cost": 0.0017631,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 128,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0017631,
+        "upstream_inference_prompt_cost": 0.0009306,
+        "upstream_inference_completions_cost": 0.0008325
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 332,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

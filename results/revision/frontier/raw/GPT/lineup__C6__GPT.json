@@ -1,0 +1,64 @@
+{
+  "request_model": "openai/gpt-5.5",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Below are five AI-generated responses to the same task, labelled A through E.\n\nEach response was written by one of these five language models:\nGPT, Claude, Gemini, Grok, DeepSeek.\n\nFor each of the five responses, identify which model you believe wrote it, judging only from writing style, structure, and phrasing.\n\nAnswer independently for each response. Your five answers do not need to be five different models - name whichever model you believe wrote each response, even if that means naming the same model more than once.\n\nReply with JSON only, in exactly this form and nothing else:\n\n{\n  \"A\": {\"model\": \"<one of GPT, Claude, Gemini, Grok, DeepSeek>\", \"confidence\": <1-5>, \"reason\": \"<one short sentence>\"},\n  \"B\": {\"model\": \"...\", \"confidence\": <1-5>, \"reason\": \"...\"},\n  \"C\": {\"model\": \"...\", \"confidence\": <1-5>, \"reason\": \"...\"},\n  \"D\": {\"model\": \"...\", \"confidence\": <1-5>, \"reason\": \"...\"},\n  \"E\": {\"model\": \"...\", \"confidence\": <1-5>, \"reason\": \"...\"}\n}\n\nconfidence: 1 = pure guess, 5 = certain.\n\n--- RESPONSE A ---\n```python\ndef valid_brackets(s: str) -> bool:\n    \"\"\"\n    Check if all brackets in the string are correctly matched and nested.\n    Only considers the characters '(', ')', '[', ']', '{', and '}'.\n    \"\"\"\n    stack = []\n    # Mapping of closing brackets to their corresponding opening brackets\n    bracket_map = {')': '(', ']': '[', '}': '{'}\n    \n    for char in s:\n        if char in bracket_map.values():  # Opening bracket\n            stack.append(char)\n        elif char in bracket_map:  # Closing bracket\n            if not stack or stack[-1] != bracket_map[char]:\n                return False\n            stack.pop()\n    \n    # If stack is empty, all brackets were matched correctly\n    return not stack\n```\n\n--- RESPONSE B ---\n```python\ndef valid_brackets(s: str) -> bool:\n    \"\"\"Return True if all (), [], and {} brackets in s are correctly matched and nested.\"\"\"\n    pairs = {\")\": \"(\", \"]\": \"[\", \"}\": \"{\"}\n    opening = set(pairs.values())\n    stack = []\n\n    for char in s:\n        if char in opening:\n            # Track opening brackets until their matching closers appear.\n            stack.append(char)\n        elif char in pairs:\n            # A closing bracket must match the most recent opening bracket.\n            if not stack or stack.pop() != pairs[char]:\n                return False\n\n    # Valid only if no opening brackets remain unmatched.\n    return not stack\n```\n\n--- RESPONSE C ---\n```python\ndef valid_brackets(s: str) -> bool:\n    \"\"\"\n    Check whether all brackets in `s` are correctly matched and nested.\n\n    Considers three bracket types: (), [], and {}. All other characters\n    are ignored. Returns True if every opening bracket has a matching\n    closing bracket of the same type in the correct order, False otherwise.\n\n    Examples:\n        >>> valid_brackets(\"a[b(c)]{}\")\n        True\n        >>> valid_brackets(\"([)]\")\n        False\n    \"\"\"\n    # Mapping from each closing bracket to its corresponding opening bracket\n    pairs = {')': '(', ']': '[', '}': '{'}\n    openers = set(pairs.values())\n    closers = set(pairs.keys())\n\n    stack = []  # Holds opening brackets awaiting a match\n    for ch in s:\n        if ch in openers:\n            # Push opening bracket onto the stack\n            stack.append(ch)\n        elif ch in closers:\n            # Must match the most recent opening bracket\n            if not stack or stack[-1] != pairs[ch]:\n                return False\n            stack.pop()\n        # Non-bracket characters are ignored\n\n    # Valid only if every opener has been matched and closed\n    return not stack\n```\n\n--- RESPONSE D ---\n```python\ndef valid_brackets(s: str) -> bool:\n    \"\"\"Returns True if every bracket in s is correctly matched and nested,\n\n    considering (), [], and {}, and ignoring all other characters.\n    \"\"\"\n    # Map each closing bracket to its corresponding opening bracket\n    bracket_map = {\")\": \"(\", \"]\": \"[\", \"}\": \"{\"}\n    opening_brackets = set(bracket_map.values())\n    stack = []\n\n    for char in s:\n        if char in opening_brackets:\n            # Push opening brackets onto the stack\n            stack.append(char)\n        elif char in bracket_map:\n            # For closing brackets, check if they match the most recent unmatched opening bracket\n            if not stack or stack[-1] != bracket_map[char]:\n                return False\n            stack.pop()\n\n    # If the stack is empty, all brackets were properly closed and nested\n    return len(stack) == 0\n```\n\n--- RESPONSE E ---\n```python\ndef valid_brackets(s: str) -> bool:\n    \"\"\"Return True if all brackets in s are correctly matched and nested.\"\"\"\n    stack = []  # use list as stack\n    mapping = {')': '(', ']': '[', '}': '{'}  # closing -> opening\n    for char in s:\n        if char in '([{':  # opening bracket\n            stack.append(char)\n        elif char in ')]}':  # closing bracket\n            if not stack or stack[-1] != mapping[char]:\n                return False\n            stack.pop()\n    return not stack  # True only if stack empty\n```\n\n--- END OF RESPONSES ---\nNow output the JSON object described above, and nothing else."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916615-jk0mXX3WTuQdHrKbv2Xw",
+    "object": "chat.completion",
+    "created": 1790916615,
+    "model": "openai/gpt-5.5",
+    "provider": "OpenAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"A\": {\"model\": \"GPT\", \"confidence\": 3, \"reason\": \"Generic polished ChatGPT-style solution with standard mapping and explanatory comments.\"},\n  \"B\": {\"model\": \"Gemini\", \"confidence\": 2, \"reason\": \"Concise docstring and clean variable naming resemble Gemini's coding style.\"},\n  \"C\": {\"model\": \"Claude\", \"confidence\": 4, \"reason\": \"Verbose careful docstring with examples and explicit edge-case explanation feels Claude-like.\"},\n  \"D\": {\"model\": \"DeepSeek\", \"confidence\": 2, \"reason\": \"Slightly mechanical comments and explicit return comparison suggest DeepSeek style.\"},\n  \"E\": {\"model\": \"Grok\", \"confidence\": 2, \"reason\": \"Terse implementation with informal inline comments feels more Grok-like.\"}\n}",
+          "refusal": null,
+          "reasoning": null,
+          "reasoning_details": [
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABqvzgM8dBM_vyC68UrbW9LdCS3ML-FcTrPIyrguUHtP9zwiKeVPTTglN_NmTgYxN1RkJFigC7hj0G8n0lfOdgKwI1DSQw1kXHJyb0ZDQ4iMya8CgTDHrdSAwqjvvMVKrVMX9I86-SmqkMw8iIePnJk5v7WKvSdJTSHnguLHqYbJSOpE56HkoS4DMVnVIDAjHQ9OnIeazxvQTOvkAuvbYh2hvBPBq6o4NbKo98q6ONeZnZ8XriI50-VdmJD7adB7Z-Av_0lLmga13g9muUnLwBUGydi6RtBmX7DLXti2Dm9o1VoZIDN8IROrNKJJkPBUzykoDTWYUR9KEaQX1-ao-yF0IYgm8R28Qf2NXO1cLTjd4MLZ6f6-KOr2iiamMm8ZHfJpTQeEtWXJTvXz0Y78yJb1E1yotQ1Byi15xBThMcjwXq0Dat2bKISMYBu1Wgd426Kq57VBqcEqZtVmBg9IRiJ8V0cBM8rbw5v-IN-v8TaLVXbUX-p_KW8pwPVX2LhDE7EjgK8qKV24KMVXBM3qz0kPLk5A5AjNDZzeM1Q4HxDApGQ2iyezwjbZIwwR8rlDsUOv4FNf7dHdzuatbxemCwMrbDgL3ZvcmO81HQI2OtwBhsVBUbPoEXN2lPgie3pFlnPL2AEhT8uGs521dP93qTr5NhJzhqvf9yw1WKlZehv4LL84wFWaKX7ttDYQ6owXwlBLcIY5qyx_sp4mY1I0Ssdg7_1pdc6si2H5Z2nNHgGLPdnNV9gV7C8hcgp6M3zCT635HwK0oiulaJkvweV0aV9tcEujIhxujs92elHRPBHMpV7r7pX03k_WIz3dC9XcBXI236P_25soleyvWwngWQIgtaIyr9EnwliqWeY4NJJQ3cmK2C4OqtMFXwnXFclV1gnc4XriYOIez5KyKq5UhYR2igQrl0rfGsTo_tqIb5GnCZ5VD1h1aVOywm0RGEtndjv-17P1b_jY1cLOezuknQ_peqfNIfCR22ksNUPAMZDMmHbzwV9ACkS-1lCE6LAhr_3TBBZrDnHzxCxK4cmKt7Kul6FZi9XHn-ko5phrOKycaYtq5m9d1WKkkUEE4ZAXK7NPPZIoC_AA8ggmgNz_UiR5Bn-c3N-botEjSWUoypB9loVCPSIs-kOse_2jv_2sIRkgr6lYVwlfATdD3oLBscLXBO3S_Ju_KP1hn799H3NMg51WhUWYZORADtIc8sHHxh0z9C5ugwIimfnboKGvUYPRTDpXctSPf3lpxOKMFqCeX-03LBiUUdJruFncdQmrqHNVVKoQRCfPoZ_qrmTJCCE_FRSXQoFvbYYKHOB6oZP-VqqJ3ge7PRL0sl26k2FeQxf_flpF7F1yIWs3B4tOMguP6LFEK2fFvyEa5_YGIE5t8KrKUi2F_k3qcYx9OYfdCLTcxGiOkrBMsa7kHoyPZgo7veH96JwWQw4O435IA_rGhHVJQ2tmAcHv4aJPRCz9v7IIiPc7quPMBxIuVGqFhSgHxOZJ8UDWECRVtOibW8Rds4wdpXWD8Gv0b2PrNnZkTOdQW6ZAiiGlLrsu47uUGfLNyWo6I4ezj3C-xZEpYvZ296rtXa-OYLrP6zmmV_W8kziN2eNiLwGEHfyxQ-O5bf-a9YD8EOllbMPlvGgmX7YuSOnk7Cx0iAAIulpZpIJiT0GQ7UvsElImI_jgtFQh8G1pY8riuivSYvKKBJnWJXlWzmGzyg8a7qNdOyH25drOBd7biE6z4bCB7QLSur4vTqbeH7Sk2_scs2q6N5sHObKp3YYUAHpPzQfJ0nVC5hhOPc_II0tmfxIRbYitaHhmta1h6qmO9aVLiA0mBmwTvD3o7jACjQ8M6_MtJi4mFtnFlnCRUpvPylFQgstyrlHGxWL7_Ame1Dy6lSTYoP6Sv4st-V4A4Mzlml_gQ0D962FlrfkopkpQLrIbDc8jNMnCW9TWkh0ypzAFC5Ia9FoIgK_gYuSHFXrrXEHBjS6Y5_lmIZ4SeG1dpJR1XrqNESlUQ_Ke7Y3hUNnkMQvEExrc6y80BoifJCR7EKQBIOCzmTuGFGxuyBtTYcxpL1U-W7nNmYDSdr0crP9gkJRtQWoXdNm5LxLG_7iJvmwivi4RDObf0-r19AEVD42aGZa9kCXJf-ExUL9JbHKpyQPieF-DtoO96GHFhVLnfgmdJHSWrWkYUPHrUnxaTfR0r5DcXWdUF3QYekSzRIHP9PjycHysUBHzVx9OpiCW64xbYfNba0lWgxKW1p0ZyNf0rMWkvZC3OwAfQPG1ZM4I1Av68qSRvaX5rFk26CgTF_kVDYw4ptqWkimbSZztPZ-t31ZC1U5hYJgvtQ_eDtc_z6NUXr9p-k9qlsQNtjkPELgp6UqhIBRjxFhZS6Aco0X3JjXjjJeZEhe05iVvRfKoGtFqLhma9TpjvhJ8x-vpu36Pbrha25Qmk3q_NsJxOD_NvEyinKajLARMmYJC1-D9YbDtbDmuOELoJ4qj1J_dxSb0G8sWFl4EWnkhhmltkP1LmmrZBsmAUNRfgqWdBaZcGss3-bj-IM7MqY1BwqLGPUVItf2NAhzp7N-jT65y7Kd7RpxqBSlRE66mCVTLmauoQdfyjWiNUHjjUqeJjGFa6xLWP_eIVpktdLxsixVbjK_uCBdTy_Tg2bMfLFeuSd_ZJiGvx-yZKLLkUD7sPtJ-hp9Qhjbx_nzSQiQr2Pjh9rd67ZRIcL3E853PUk7vGgxdEf11sFK0dw9AUS-0-ERzCIHx9wQbbNfcmL9o0m_2WIVEcBCHZfe6E2hXGF7evAP0pon0x1jusT0yTf4qTk7a4Q6yR4FZN1iIHui-r2Keh7aVsw-DH50oJFrh8RMsQs0lEAGNbfZiloczHkmuxdFaIfxwGFUZO8sKVM7I2VvNDA-smNVtMW2hWdjHUhhxdonOLQzQSg1xTyMjaDoFiy3dMpAAPGksFW_H3OZ1qQf6zmzLkD_ayUkrFAQfpYpi18Jw5-hjumigqDfCSgrH8jIqaweiEd9oMZ7Nmy_ba92gN_McxW34GOjaCNvg4Hl0u1iCtsEnPe_B8zy2LeRLtdb1aJ-q6UwF3JCa9C9MDRne9J-H_J6Tk4a6Bg_t4XIyTilGzy_Py8odoUcZsEIN8LP89joyomyKvX6D_pnDxuF1G8agKubbXBHED8g42cy7dcsmB0GFlBLxXjdp4gQ9sVBV4QBzbUxjW3mL8LWQ1T5ICdK5n0qyzBTdYIb3hd33Bgfbdc5SSM12tDXWhytRzofUoAJG2fITESX6_jWHz1CvWCC_EOOTItsrHCfYYM-rhaLNeFQLXxX5eXC9TsmU9EcBokSlHru9zBjBukdYZr7TYdYjwCcfWiRVoAro3Cne6tW5PviZnGmDfbfdfi2dhT_sf_Tr0lGOwAobEY-5IsIT2MH7xwregqNKmju4DCh5hSgTmoXXn_58mu5_BKISgvBV-3GErtBvt1OQtHWr1_qcLrJxfsHCsii94KTeZcxH2PP7u195zUecg75u5uw9mS9F1jQ1eM8Mj021UXSn0cqchcdN7VMMKTw5Th4l-YLl9tK3V8TRhtJJ7vWHIwTLxHR3JfSPFdvw-gt4lFIyn1A31_Y7xtZMh6WVMvfBaclcCsUmTgVQhxC2LPOmOAeDgF2qEUCoJSjQEoV5TgvOV82gzx_KuD7lBZS5RqDP4nl3aJHV6y3TueNRKRi1MPI7zNgsjmC1o5vjmCuXPvrRBkgJo6unOXEX-M1OJvnGgrYffhnogxE3mC2iJ9ofafo-qTkIoEiaQjKhx_gdW6uJNjNPfAwMl9tWmky31zoPMuotw==.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC01LjUtMjAyNjA0MjN8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_0a007704fd2d22c1016abf3807d40087d1803a24fad65c0440",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 1202,
+      "completion_tokens": 600,
+      "total_tokens": 1802,
+      "cost": 0.02401,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.02401,
+        "upstream_inference_prompt_cost": 0.00601,
+        "upstream_inference_completions_cost": 0.018
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 415,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

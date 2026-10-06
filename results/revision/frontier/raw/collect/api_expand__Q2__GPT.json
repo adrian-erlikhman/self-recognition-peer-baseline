@@ -1,0 +1,70 @@
+{
+  "request_model": "openai/gpt-5.5",
+  "messages": [
+    {
+      "role": "user",
+      "content": "A train travels at 72 kilometers per hour for 2.5 hours and then at 90 kilometers per hour for 1.5 hours. How many kilometers does it travel in total? Solve the problem, showing your reasoning step by step in plain prose, and end with a final line of the form 'Answer: <number>'."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916316-Z8hRr3zWBxgkRLVIiq4d",
+    "object": "chat.completion",
+    "created": 1790916316,
+    "model": "openai/gpt-5.5",
+    "provider": "OpenAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "First, calculate the distance traveled during the first part of the trip.\n\nThe train travels at 72 kilometers per hour for 2.5 hours, so the distance is:\n\n72 \u00d7 2.5 = 180 kilometers\n\nNext, calculate the distance traveled during the second part of the trip.\n\nThe train travels at 90 kilometers per hour for 1.5 hours, so the distance is:\n\n90 \u00d7 1.5 = 135 kilometers\n\nNow add the two distances together:\n\n180 + 135 = 315 kilometers\n\nAnswer: 315",
+          "refusal": null,
+          "reasoning": "**Calculating final answer**\n\nI need to compute some numbers step by step. First, I\u2019ll multiply 72 by 2.5, which equals 180. Then, I\u2019ll multiply 90 by 1.5, which gives me 135. Adding these two results together: 180 plus 135 equals 315. It sounds straightforward, but I want to be sure I\u2019ve done it correctly! Ok, the total is 315. I\u2019ve made sure to comply with the request.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "**Calculating final answer**\n\nI need to compute some numbers step by step. First, I\u2019ll multiply 72 by 2.5, which equals 180. Then, I\u2019ll multiply 90 by 1.5, which gives me 135. Adding these two results together: 180 plus 135 equals 315. It sounds straightforward, but I want to be sure I\u2019ve done it correctly! Ok, the total is 315. I\u2019ve made sure to comply with the request.",
+              "format": "openai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABqvzbeYwVhdDOgIKpbSva3fBxVTYsGLK-0oP-ALEv73mxeXnP2WDjKhJBKaw5x6QC7tyYp_l2ZdwrJWaksTrOvFjlc1o_45-hzfVWe4_Pryp5llD7Fg2CC_m3vEDhMDI7bRvbn10a0vbMwfL3ZXNb4lwEWeJsI_D-nfkau7PKG2An6oKXWaD_SX8azB-ycrre3N0kdSJT1AmZ0_rBrxaIbyoz9n5z2xNThk5NRGOyR50MIxnAeE1mTDk3SZ7iFdXo1UXohDB2LRqBRc3w6yFq_MaiWwSU3WcXOGkM7iaDSUdekqu50GOaXliocZtla0HkbKw6uabpGtwKteO1AsYLdUzKTdbyCEDliTGmuYdGjCwU-FMhyZL67iuWxuGl1l7RZhCAQvAjFvs4HaDY7YRR0T9AB_RNkMr-OXJO6GYtgSEn_Ws981ZRVukOzgRGTVQUowkvagSf0lUq7oEPIxY5FqugYnCCvHHGIQPSt_fX-03IdDFNDRv52fDJiJqYjchXkTRuTLmkt-_kHqekIQj5jUA1MApcIKzWqPD3n4ypnVvIoegjg9vAnnJFcQ_0cCYPg0ibxBCNGKY1VZ0m2o4064waFVWDybbSFvv5qWjmxdr5O04HFJrTDrDfF45cvRm7KEbSJxPvr6uaNM5IqRSy6MPIt78OPXM9l6shnC3fLn2ypMcZQtmiJd6tqJs-trP45_llxfmDTtcuOTKRUlZctVlWxMix9cFnium-G9Al-dKO2t73Rgh9sUCqhvHbgXXgUOqnAHAv8CTZeFy5KTDlbUxRmkrGA72Otb67O-1A3HzuT7rtvSOLI9NNlzMSVgUhE0OvUcLVnH_lZ6B_DuJbUY8BgJRMa6Bk0FGX0EuGTu4uNCdixV4dG8aPQSqA49hzdoKyHE0XfO7Jv60oYpv46f9Wj76r41_j05SIhgafW5oBIluKSeCxFlAgVfvE70E9sKd2L7ai_fIJGofPHDDgcEBlnGIC3KkWE1rKG-6KjQeFcnxyqoRgchPyxc-9I-3t37TMbZD_Zfi2RB05j42JUZGJjyNegd0g4a84JETzgAoASQVT1F0k5PrGdRJYphz3Q7Sy_EXnGcXMKaX4A0m5xkW_P9WwRwlcDyb7MJ-BQoqr7r6rL7AtFj2J4UBGBH2ub0jMWP8IVbFynUOks-_mXRYYxOJ0RAfQaSOT7hS8DrLtv7KpNqEZvF6W4mmBoG4b13T6e96O0Qz7spTk9XlkQC-AcXnyG0DCAK8WwPgNetB38eYE2QhPzpji4z71KLBSh6zPCA62afDdUDhAq6_2lZUl5wKPYZpAuZg5egU9ikOWfkF1fcyDmuoRkpOkPas9i7Ris1WvygmEWqQrj_Tjr4KhMK20hmK1gkJ6gKBvEdopMYB9HKQfh0o4gnvhl9-hV5YazdCGeWgsEYzSHT585WU3QI943fzS7zoJjifyMtG4GDC4hQAm6hhlM2bv32GSw3gSa-mH1_5anzkz0xmS0WgahdTTe1LNScF9zGHWxtAJHCS0XnDJRzYOqAsg87TabVFDs.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC01LjUtMjAyNjA0MjN8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_03fe01417fe98dc5016abf36dd561887d1808f1206d0ed20b5",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 74,
+      "completion_tokens": 161,
+      "total_tokens": 235,
+      "cost": 0.0052,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0052,
+        "upstream_inference_prompt_cost": 0.00037,
+        "upstream_inference_completions_cost": 0.00483
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 43,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

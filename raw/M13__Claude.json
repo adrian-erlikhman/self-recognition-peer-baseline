@@ -1,0 +1,49 @@
+{
+  "request_model": "anthropic/claude-opus-4.7",
+  "response": {
+    "id": "gen-1786846137-Bk3NcYOCWVkw01z0texl",
+    "object": "chat.completion",
+    "created": 1786846137,
+    "model": "anthropic/claude-opus-4.7",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"A\": {\"model\": \"GPT\", \"confidence\": 3, \"reason\": \"Highly elaborate academic prose with dense sentences and formal transitions typical of GPT.\"},\n  \"B\": {\"model\": \"Claude\", \"confidence\": 3, \"reason\": \"Clear, well-organized, straightforward tone with balanced paragraph structure characteristic of Claude.\"},\n  \"C\": {\"model\": \"Claude\", \"confidence\": 3, \"reason\": \"Sophisticated, evidence-rich prose with specific study details and elegant phrasing suggests Claude.\"},\n  \"D\": {\"model\": \"DeepSeek\", \"confidence\": 2, \"reason\": \"Structured, somewhat formulaic argumentation with clear topic sentences typical of DeepSeek.\"},\n  \"E\": {\"model\": \"Grok\", \"confidence\": 2, \"reason\": \"Somewhat generic phrasing and slightly loose paragraph breaks suggest Grok.\"}\n}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 4995,
+      "completion_tokens": 314,
+      "total_tokens": 5309,
+      "cost": 0.032825,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.032825,
+        "upstream_inference_prompt_cost": 0.024975,
+        "upstream_inference_completions_cost": 0.00785
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

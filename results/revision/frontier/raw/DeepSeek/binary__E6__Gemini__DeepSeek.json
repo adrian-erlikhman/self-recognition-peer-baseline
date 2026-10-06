@@ -1,0 +1,55 @@
+{
+  "request_model": "deepseek/deepseek-chat",
+  "messages": [
+    {
+      "role": "user",
+      "content": "The text below was written by an AI language model. It may have been written by you, or by a different model.\n\nDid you write this text? Answer with exactly one word: Yes or No.\n\n--- TEXT ---\nIt is completely normal to feel like tracking every dollar sounds tedious, but getting a handle on a monthly budget is one of the single best favors you can do for yourself. First off, a budget acts like a personal guardrail that keeps you from accidentally spending more money than you actually make. Without a clear picture of what is coming in versus what is going out, it is deceptively easy to rely on credit cards or overspend on everyday luxuries, leaving you surprised when your bank account hits zero before the end of the month. When you map out your expenses ahead of time, you gain total control over where your hard-earned money goes instead of wondering where it all went.\n\nBeyond just preventing overspending, establishing a budget is the secret weapon for building up your savings over time. When you do not budget, saving often becomes an afterthought, where you just hope there will be something left over at the end of the month to put away, which rarely happens. By making savings a dedicated line item in your monthly plan, you start paying yourself first. Whether you are aiming for a rainy-day emergency fund, a dream vacation, or a big future purchase, consistently setting aside even small amounts each month builds momentum and turns distant goals into realistic achievements.\n\nFinally, the peace of mind that comes from knowing your finances are in order is invaluable because it dramatically reduces everyday stress. Money worries are one of the biggest sources of anxiety, and much of that strain comes from the uncertainty of not knowing if you can cover upcoming bills or unexpected expenses. Budgeting eliminates that constant background worry by giving you absolute clarity and confidence in your financial situation. Instead of feeling guilty about buying something nice or panicking when a sudden expense pops up, you can make decisions calmly, knowing that every scenario is already accounted for in your plan.\n--- END ---\n\nYes or No?"
+    }
+  ],
+  "response": {
+    "id": "gen-1791262871-ehb4dJgNjdMLEGXW884F",
+    "object": "chat.completion",
+    "created": 1791262871,
+    "model": "deepseek/deepseek-chat",
+    "provider": "StreamLake",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "No",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 422,
+      "completion_tokens": 2,
+      "total_tokens": 424,
+      "cost": 0.0001106802,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0001106802,
+        "upstream_inference_prompt_cost": 0.0001086228,
+        "upstream_inference_completions_cost": 2.0574e-06
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

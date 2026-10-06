@@ -1,0 +1,64 @@
+{
+  "request_model": "openai/gpt-5.5",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Write a Python function `top_k_words(text: str, k: int) -> list[tuple[str, int]]` that lowercases `text`, extracts words as maximal runs of the letters a to z and apostrophes, and returns the `k` most frequent words as (word, count) pairs, sorted by count descending and then alphabetically for ties. If there are fewer than `k` distinct words, return all of them. Use only the Python standard library. Include a docstring and brief inline comments. Return only the code in a single Python code block, with no explanation before or after."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916306-gIZR5x26SiL7ZcLkSLEg",
+    "object": "chat.completion",
+    "created": 1790916306,
+    "model": "openai/gpt-5.5",
+    "provider": "OpenAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "```python\nimport re\nfrom collections import Counter\n\n\ndef top_k_words(text: str, k: int) -> list[tuple[str, int]]:\n    \"\"\"Return the k most frequent words in text, sorted by frequency then alphabetically.\"\"\"\n    if k <= 0:\n        return []\n\n    # Lowercase text and extract maximal runs of a-z letters and apostrophes.\n    words = re.findall(r\"[a-z']+\", text.lower())\n\n    # Count word frequencies.\n    counts = Counter(words)\n\n    # Sort by count descending, then word alphabetically, and take the top k.\n    return sorted(counts.items(), key=lambda item: (-item[1], item[0]))[:k]\n```",
+          "refusal": null,
+          "reasoning": null,
+          "reasoning_details": [
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABqvzbUXArht3Oc7dv0XPlWK7Jy3ERb6sYBUtAvGzW_NEVy8XE3nOlbhDB0gEQ6rE2o5JAfUykuWp3RgXvpUAa9TNUy-tu1cF1EbL7BfR4WMOOSF0UvBs5dCSSLqi-YZdaPOWHE9YLmHxVHrhNkUeKUUicJhF0Bb6z6Rg0vSoEQ-kv-uvWOieHvY1zyC-90crCvUdHZRCPFQK-056jLRXrI-yPkyJMxBLdt8UNgpRa-mIBraayie5DULsiDH32QdMnQtdY8MzNUSvlcegmtdK6qJsH2Lgmvt5b9rSXO5gUWdqRNsN_wfTf58dYUqc95uEGlye6GORokXiLZdkXvVGBlMj6B9ihIq2Q-KgPNXvn9QC4TYGIZT7NRZNlTafzM--ZyvvP0BgJWHUWIzGTefuChHdFzk7ID9TVD5Et-8xbr73v4vVZp7c7glbw38n7CtnRJuAn-BCrfOPQEArH4Q3WZ02xnklveJ_eIl0LSm43iUfbt3GpanC0uk-74euBRwVfNpWIhcWuedEYUf6M4d6nsJRbKG1iCe_rpSyk_OFt_HO2nXfzxiDgKTTAv8LGTjbGRALzojhKdDDxBieeT8shMS5Qhrm7u776Vfan7_hcdffMSWuqfZhf341qSSztgTm4XFvJvKMlkjPHnU2ZRr6i8nPjjVcw1QwgFVRKJiFDKwgulhP1Ks72JafrFoydE85VjyITHzNnFnQB6hx4aw5OY7Z3VgYhnSOL22blQ5LcJSASMvOyuR2zjrav1Dl6vhBA6grfyAk_UgMuVUNAtuVFoE4wFgYyTd8uQDZYzbSKMMjZWvhSll5ZNINqgU-yrmJHZftMNUGFpnb2S9SCE0hHr7GUv3a5Ll4iiNEgvYqaA804wsDbYM7D8swtXp7O57771dG-eQg-3LxtB4b8YAxvRlQvV2KxTSQr6YJ6VJ5KZTkxn0zV_uH9c5-oaB7RRmULUcSnbV4BHD4Ix30xvR1PwxYPwlGuXMp-_nMn0CAxP9rdTwZoq-ysOx6zJj9anacYrHe7hLXpIyr2qgV2L_oHCfhko_qEOh6svDQo_hoBSCVdvRxaLUEgHfqUF_D44zOvumk7GeTdjxXIcbr6HwrBUm7A9mVyqQpz_M-ITLt0ton_57FejvjCG7YtFnjpbtwf0lXrfvu9vOPFzJUQ_C1F_c8H-vRjWIUGPKBtuLzWov4KRg2NBLd4nlVQWgxfZ75pmpLLwRvCx7bR0KA0hBujEQBNnv5IUYJDdAZ1L_AzEIaVptoe9pNXxc2rTsJlSdqBrLJhb-5PYBh-ZYRyJ9Vf2Q7yYjGxGJCn_F86hQ_p5F_o2FQX7U2Nxbg6fccMvmUjBdA7DtyqTfZttrapEeK_2sUfhQ0zmyxu04WtSzqObeLEJEGA7lDGBUcotwh4zDNqco9VhXONWRTXP1-_JsP0Ypd6T3FjHxXTq23-5k7tb4zXAS-lEka4lzzhcl9HT2UJMrd5wps2wO-G3AidWjZZCnWlCUUMR2MUpTtqrQNfKzw48wywjWFe2r0CytDWbrBy8-7c1-5l8-K2svFuPiTj7K-cZT0vRFe0vZhLVNFete441MJ-A8ae9yySw_rfzJl2jX3kAi_M2F-XtHh9zfE-OXRkagC48kelBDf6midmdzaims90S3lDP76DnM3Oyx5lpvHX--g-ywQqHFVSQzwmAwsgKAO000WJDWmjJEJ0DzWhFhO_7d-ozCv1MA0MXhAFplgv-.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC01LjUtMjAyNjA0MjN8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_0c4a60ddf6e1e0f7016abf36d39ad487d18a30159b9a73b90b",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 131,
+      "completion_tokens": 224,
+      "total_tokens": 355,
+      "cost": 0.007375,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.007375,
+        "upstream_inference_prompt_cost": 0.000655,
+        "upstream_inference_completions_cost": 0.00672
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 73,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

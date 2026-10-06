@@ -1,0 +1,70 @@
+{
+  "request_model": "openai/gpt-5.5",
+  "messages": [
+    {
+      "role": "user",
+      "content": "A shirt is priced at $40. It is discounted by 25 percent, and then an 8 percent sales tax is applied to the discounted price. What is the final price in dollars? Solve the problem, showing your reasoning step by step in plain prose, and end with a final line of the form 'Answer: <number>'."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916316-ScIyDgyxnGpohVas5B0J",
+    "object": "chat.completion",
+    "created": 1790916316,
+    "model": "openai/gpt-5.5",
+    "provider": "OpenAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "The shirt starts at $40.\n\nA 25% discount means you pay 75% of the original price:\n\n$40 \u00d7 0.75 = $30\n\nSo the discounted price is $30.\n\nThen an 8% sales tax is applied to the discounted price:\n\n$30 \u00d7 0.08 = $2.40\n\nAdd the tax to the discounted price:\n\n$30 + $2.40 = $32.40\n\nAnswer: 32.40",
+          "refusal": null,
+          "reasoning": "**Calculating total cost**\n\nI need to figure out the total cost step by step. First, I calculate 40 times 0.75, which gives me 30. Then, I need to add an 8% tax, which equals 2.4. So, I arrive at a total of 32.4. I should also make sure to format it correctly in dollars, which would be 32.40. Just double-checking to keep everything clear and precise for the final answer!",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "**Calculating total cost**\n\nI need to figure out the total cost step by step. First, I calculate 40 times 0.75, which gives me 30. Then, I need to add an 8% tax, which equals 2.4. So, I arrive at a total of 32.4. I should also make sure to format it correctly in dollars, which would be 32.40. Just double-checking to keep everything clear and precise for the final answer!",
+              "format": "openai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABqvzbfkPZ59ayrYuDn3iQrnsaAjJNlv_haJ-PJG32dsNcMTxAxZySiSf-Ds691otVSbtWwCqBr4gi9Hzf1OH9XO2C1wiQ87eIC4lw-1rWmIqGudoJpJcE0Lxo9hlIIKvxEy0Rngj4PhKgJ8AyH0LtnXhY1cBhGJgwQximbievrAwVkbAIQEGaIB8n-2vJtykDaVD2xZ2MmeHUCoTO6qWXYlUe3iC-34FG8UNnFBgvj5-R8tk8umV9DlfGizuegE_Q63vYaFTYxBj2_D9ZikNXNZtP6zJk9dvxscghQ04UBYo3Pq9rdiq78_j1xmiiAjKXTECLvjRpwhUSp2WfwP5N0Ls8DiVpdSRHG1Dz86mQfEUBubXRGo6f1d9jnnOixGIss9Ojwj1oyr4PIo9uFeHRMDhzgPd1flm56gKMRaKc6R5ob5tl-ycSlRJKgUreh4fGZQY7f3sJIxdsQKgv9MuUlvowx5NgDQJDMJ11nfcQXcOxjV_-yUeQYWk3TNzQF1G_CuXswAUHAF9pZj1-hzpOQ79orH0hWBGiqHXHcwOz3Kz2_SXdBWTEEyCiQwdIEqRwPljur7E4FVNgxUzIekVOlMZwYuntiqOQZrAmfs3QeiVYwROO7EWp_56zVituwdDd8OtCnIk9a4PbfgvrYcjWtk8_5hafiLnHZ0YXl5WitY5Lj2HSjdXFqQ_jJ4iwJJNUMeEL0Dly3ygSxXq9bJb_C4wmR3qMBgpcIO6w-S9FpF7zO_fWxC73dWEupNq_L8h1QbLcy-1wU1FNp3RzwUYNGRgQ1m8Wbdho6XowEGWAx1yf8Fcw6yi7imkwzcj9EKs4X3fYI_bHMAMqbkEnr-l11g1pFpmGwmJNe-J4ho8Aboxch70u0L442XSCT9D4DD295o-Qh7nQDusWejCRLV9avqcsbkE6bC5DTwCLCfWi2R-Kzk1Lj0Sbzh2iuaJDDOslLxEbcMmRSgHIr5eyAzDsr5d50pQTmOdkfnf4shC0QJv72Af1rqhI5HAy98LVSL84CHcEDLhY0ELhm9pwCDaqlCjhC-FMe3SWrVOgcSxm4J6ZfGnRPl44B-oBJ2n0YTteF0EpLrPHA8DpMWcMfIP_Keky5CDwmjNiFSl1ZOk_QzMCHudIWyoaIy8EfL6TBog26jL74bCpyOpjTkezmoAaVtYoJDzr0kFfap1BJRUP8acpV0L9vQP3AVP4b-C1JsQaAgGRhWpYRbnCkHC0stAMnsiMFI1UqYSQ0AYrHDHPcEPb_HbhT145PPU46z78HDeBH2GqWm2zjXENY5lviv4jBlCSgPApuOtSSRjhFHke5mdd_Ft3yQQE81eh-v3H84leHVxiSCD5W8jcZnKOXtyEzwO90FhtMfOyqyAamCKZsa9igGsHsYLmMda1PJMs29e_ds4MZO8jLDubOTyOYT_a8c8d8-4Wm-qYsvjju3FHWGpvCgc4r-hN3402PpUhLF7GuJRcpXtDJ5OC2C3iDTQsngt3czxcCqsoII9tjyZ_wSg_M9mj2IK4lk1YUwazFHO_xPYDQguiF2AcK8PFDjkx_wShz_8jzBuEde3sQb3Sy1H1uYAqrNWD4GCFWI61CT-HEP3B-.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC01LjUtMjAyNjA0MjN8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_00e25c94b8b6e0b8016abf36dd837487d18de8f7ea0578ab38",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 74,
+      "completion_tokens": 166,
+      "total_tokens": 240,
+      "cost": 0.00535,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00535,
+        "upstream_inference_prompt_cost": 0.00037,
+        "upstream_inference_completions_cost": 0.00498
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 64,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

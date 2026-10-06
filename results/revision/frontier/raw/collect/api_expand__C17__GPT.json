@@ -1,0 +1,64 @@
+{
+  "request_model": "openai/gpt-5.5",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Write a Python function `edit_distance(a: str, b: str) -> int` that returns the Levenshtein distance between `a` and `b`, the minimum number of single-character insertions, deletions and substitutions needed to turn `a` into `b`. For example, `edit_distance(\"kitten\", \"sitting\")` returns 3. Use only the Python standard library. Include a docstring and brief inline comments. Return only the code in a single Python code block, with no explanation before or after."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916309-fzksfueo0RjPlnBTPoBI",
+    "object": "chat.completion",
+    "created": 1790916309,
+    "model": "openai/gpt-5.5",
+    "provider": "OpenAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "```python\ndef edit_distance(a: str, b: str) -> int:\n    \"\"\"Return the Levenshtein distance between strings a and b.\"\"\"\n    # Ensure b is the shorter string to minimize memory usage.\n    if len(a) < len(b):\n        a, b = b, a\n\n    # Previous row: distance from empty prefix of a to prefixes of b.\n    previous = list(range(len(b) + 1))\n\n    for i, char_a in enumerate(a, start=1):\n        # Current row starts with deleting all characters from a's prefix.\n        current = [i]\n\n        for j, char_b in enumerate(b, start=1):\n            # Costs for the three allowed operations.\n            insertion = current[j - 1] + 1\n            deletion = previous[j] + 1\n            substitution = previous[j - 1] + (char_a != char_b)\n\n            current.append(min(insertion, deletion, substitution))\n\n        previous = current\n\n    return previous[-1]\n```",
+          "refusal": null,
+          "reasoning": null,
+          "reasoning_details": [
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABqvzbXYUf0Bf_r5SaKDw0L3pg3GZBhSwxg7cUB9YEu3m3npAsYMpG4wMpOTQSuhPKFQRVUp2nAHp5EV-7TKL8T8pN4ooFGj2PlynyjBZebHhZ-XGYfl34WlB89NO4V9rHhPHMShzHANMGS-nINPzCu6BWREVSM6z4lSVDWzPWiTeUoVb5vztdGO38CSHIATpjHGaewPmBhcaG288OFH6YQ5QZbUZgptidi8P3-ILTuzYh-19FOWreJeprzyB-CZBBXuPUGrXVwlmZ7qnIO3ySCJau94Vnis7lt--1Fvhd8H0Pck6LI00FwJ3fcBEV-fIpbqhYW4J8dQeuV_StlIMDkj4mRuwwHiNy4uEdTscpSX8NsIakjWzNJfpxOWf44xLp5hqUsIu6BVSvVgemVVsGCdp0xW6TutdFCGEWIp51cGupHLcANRuZsz3F09pmwg4s68Au-Pab31QGFuq2nTROSndMtgtVQpBPqt7Euez7lnno3xWb8aNSZdHuDqQCYTPtBdmfN6vXTHUEQSSQVYyCt009699ZyJUTixPZzaHrK2yjnRXNmlPkbk_syQjHox1KyR2EddBjSFCl5Nm7_zutmL-4RfixsJN5q1KK_0qqc7UOLdvpoasNGpAqVYXJitKti35TV4T9VW8zIfkaeROE-dcGDWRmZJXCgivwjSVBDc53sRcfdFESQvQtKM3LYrSF5WdtqdhUqlaWEq_dlezlYrpuj7ZCzLLRxa-V0Eo_1E4G7p5rG4u-eQKh1zK1QOjw4pMQQTMYyjU7aAoNqFh7Lguz0jBehrN0pFdOuzLrwKUrsEGwaNdHLo0giPrx9wDQ-ZLcFI1ub4XydzCFYTpXgD1AYDl-sNJ8sbSYCsh66cGsxbYRDLz0cN_8Vird9bAUcAVo_epO6Imf7rBkhN3iwa1JL7QNbxenHcRNvJkt5dCvEJV9L_fAGkvv3tafwRU1iHid2ZijJJWIFhfKt96rFH16fQBOhvvG-BCjZCBRzyZPWNfpczdDKs24xnAqq1CROHOQXfbRnERyL0NMHUn1rLYvhru1a4vxtQdlaWtEzIEYo5AldaUjHEdsjilWB_mVwz6twzTrhNNNNpsAueXJNU068T8vCyXRCsk91ssZTF2Wm4YCkxpjRzKRnUb3DkfiMKyVaJQIiF0dq7uMDmQaPGvA8T8MjOYt1c2xUI47dBQwK05URulSGzoTVBmmX4XiOzne6bseXZm_dxARH_UMRxLlGTwTizxfmebxsxfwdoeJuR_it1KkX_H-AqoPgXMnaAnv7uALMfoG7lruEwuhxsQaLVRWro8oyTQNEEf3du97YPqedzhVWBjh2O56DofeN_nu53D74LLR4vO6mVNeV3YGXVGPp0n8GJTCHtTB1M0LgovmbdsVIydPbYbQkb-W4NCtF.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC01LjUtMjAyNjA0MjN8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_00f1f2141f579e66016abf36d6a92487d1b1e2d45ca7ce5715",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 116,
+      "completion_tokens": 231,
+      "total_tokens": 347,
+      "cost": 0.00751,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00751,
+        "upstream_inference_prompt_cost": 0.00058,
+        "upstream_inference_completions_cost": 0.00693
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 14,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

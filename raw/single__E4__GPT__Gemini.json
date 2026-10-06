@@ -1,0 +1,57 @@
+{
+  "request_model": "google/gemini-3.5-flash",
+  "response": {
+    "id": "gen-1786846409-7RwdpO5NNLv8FxcrtId7",
+    "object": "chat.completion",
+    "created": 1786846409,
+    "model": "google/gemini-3.5-flash",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "provisioned",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "{\"model\": \"GPT\", \"confidence\": 4, \"reason\": \"The text follows a highly structured, formulaic three-paragraph essay format with standard transitional phrases typical of GPT-generated content.\"}",
+          "refusal": null,
+          "reasoning": "**Analyzing Text Structure**\n\nI'm currently examining the structural elements of the provided text. My focus is on the paragraph transitions and topic sentences to discern patterns that might align with specific AI model outputs.\n\n**Identifying Text Patterns**\n\nI've been analyzing the text for characteristic phrasing and structural patterns. The use of clear topic sentences, balanced arguments, and a typical three-paragraph essay format strongly suggests an AI-generated origin, likely from models like GPT or Claude.\n\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "**Analyzing Text Structure**\n\nI'm currently examining the structural elements of the provided text. My focus is on the paragraph transitions and topic sentences to discern patterns that might align with specific AI model outputs.\n\n**Identifying Text Patterns**\n\nI've been analyzing the text for characteristic phrasing and structural patterns. The use of clear topic sentences, balanced arguments, and a typical three-paragraph essay format strongly suggests an AI-generated origin, likely from models like GPT or Claude.\n\n",
+              "format": "google-gemini-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 406,
+      "completion_tokens": 568,
+      "total_tokens": 974,
+      "cost": 0.005721,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.005721,
+        "upstream_inference_prompt_cost": 0.000609,
+        "upstream_inference_completions_cost": 0.005112
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 526,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "request_model": "deepseek/deepseek-chat",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Write a Python function `run_length_encode(s: str) -> str` that compresses a string by replacing each maximal run of a repeated character with the character followed by the length of the run. For example, `run_length_encode(\"aaabcc\")` returns \"a3b1c2\", and the empty string returns the empty string. Use only the Python standard library. Include a docstring and brief inline comments. Return only the code in a single Python code block, with no explanation before or after."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916304-w0BNgeoRlZHLbl0LhRQE",
+    "object": "chat.completion",
+    "created": 1790916304,
+    "model": "deepseek/deepseek-chat",
+    "provider": "DeepInfra",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "```python\ndef run_length_encode(s: str) -> str:\n    \"\"\"\n    Compresses the input string by replacing each maximal run of a repeated character\n    with the character followed by the length of the run.\n    \n    :param s: The input string to compress\n    :return: The compressed string\n    \"\"\"\n    if not s:\n        return \"\"\n    \n    compressed = []\n    count = 1\n    \n    for i in range(1, len(s)):\n        if s[i] == s[i - 1]:\n            count += 1\n        else:\n            compressed.append(s[i - 1] + str(count))\n            count = 1\n    \n    # Append the last character and its count\n    compressed.append(s[-1] + str(count))\n    \n    return \"\".join(compressed)\n```",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 108,
+      "completion_tokens": 169,
+      "total_tokens": 277,
+      "cost": 0.00018497,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00018497,
+        "upstream_inference_prompt_cost": 3.456e-05,
+        "upstream_inference_completions_cost": 0.00015041
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

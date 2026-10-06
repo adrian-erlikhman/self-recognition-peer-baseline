@@ -1,0 +1,57 @@
+{
+  "request_model": "google/gemini-3.5-flash",
+  "response": {
+    "id": "gen-1786846389-qjckDEuyiLTffsAbsl2h",
+    "object": "chat.completion",
+    "created": 1786846389,
+    "model": "google/gemini-3.5-flash",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "provisioned",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "{\"model\": \"GPT\", \"confidence\": 4, \"reason\": \"The text exhibits a highly structured three-paragraph essay format with formulaic transitions like 'In addition to...' and 'Finally,' which are characteristic of GPT models.\"}",
+          "refusal": null,
+          "reasoning": "**Analyzing Text Structure**\n\nI'm currently examining the structural elements of the text, specifically focusing on how the three paragraphs are organized and the distinct starting phrases of each. This will help me differentiate potential AI sources.\n\n**Identifying Textual Hallmarks**\n\nI'm now zeroing in on specific linguistic markers. The consistent use of transitional phrases like \"In addition to\" and \"Finally,\" coupled with a balanced, informative tone and academic yet accessible vocabulary, strongly suggests an OpenAI model, likely GPT-3.5 or GPT-4.\n\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "**Analyzing Text Structure**\n\nI'm currently examining the structural elements of the text, specifically focusing on how the three paragraphs are organized and the distinct starting phrases of each. This will help me differentiate potential AI sources.\n\n**Identifying Textual Hallmarks**\n\nI'm now zeroing in on specific linguistic markers. The consistent use of transitional phrases like \"In addition to\" and \"Finally,\" coupled with a balanced, informative tone and academic yet accessible vocabulary, strongly suggests an OpenAI model, likely GPT-3.5 or GPT-4.\n\n",
+              "format": "google-gemini-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 493,
+      "completion_tokens": 587,
+      "total_tokens": 1080,
+      "cost": 0.0060225,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0060225,
+        "upstream_inference_prompt_cost": 0.0007395,
+        "upstream_inference_completions_cost": 0.005283
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 538,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

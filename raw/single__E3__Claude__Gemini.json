@@ -1,0 +1,57 @@
+{
+  "request_model": "google/gemini-3.5-flash",
+  "response": {
+    "id": "gen-1786846362-BmVgsXOhIy3yHXs57ABt",
+    "object": "chat.completion",
+    "created": 1786846362,
+    "model": "google/gemini-3.5-flash",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "provisioned",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "{\"model\": \"Claude\", \"confidence\": 5, \"reason\": \"The text features Claude's signature essayistic flow, sophisticated vocabulary, and highly structured yet natural prose without any markdown bolding or typical GPT-isms.\"}",
+          "refusal": null,
+          "reasoning": "**Analyzing Text Characteristics**\n\nI'm currently examining the provided text's stylistic nuances, specifically its structural cues like paragraph openers and overall thematic development, to discern potential AI authorship among the models GPT, Claude, Gemini, Grok, and DeepSeek.\n\n**Identifying Stylistic Signatures**\n\nI'm focusing on identifying distinctive linguistic patterns. The structured approach with clear enumerations like \"The first reason is...\" and the absence of typical AI boilerplate phrases suggest a strong resemblance to Claude's output. The calm, articulate tone also aligns with this model's characteristic style.\n\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "**Analyzing Text Characteristics**\n\nI'm currently examining the provided text's stylistic nuances, specifically its structural cues like paragraph openers and overall thematic development, to discern potential AI authorship among the models GPT, Claude, Gemini, Grok, and DeepSeek.\n\n**Identifying Stylistic Signatures**\n\nI'm focusing on identifying distinctive linguistic patterns. The structured approach with clear enumerations like \"The first reason is...\" and the absence of typical AI boilerplate phrases suggest a strong resemblance to Claude's output. The calm, articulate tone also aligns with this model's characteristic style.\n\n",
+              "format": "google-gemini-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 766,
+      "completion_tokens": 621,
+      "total_tokens": 1387,
+      "cost": 0.006738,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.006738,
+        "upstream_inference_prompt_cost": 0.001149,
+        "upstream_inference_completions_cost": 0.005589
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 573,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

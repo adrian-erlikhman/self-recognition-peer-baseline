@@ -1,0 +1,70 @@
+{
+  "request_model": "x-ai/grok-4.3",
+  "messages": [
+    {
+      "role": "user",
+      "content": "A culture starts with 150 bacteria, and the population doubles every 20 minutes. How many bacteria are there after 2 hours? Solve the problem, showing your reasoning step by step in plain prose, and end with a final line of the form 'Answer: <number>'."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916337-cQklq2XJ2B15VIoBJm0D",
+    "object": "chat.completion",
+    "created": 1790916337,
+    "model": "x-ai/grok-4.3",
+    "provider": "xAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "The population doubles every 20 minutes starting from an initial count of 150 bacteria. Convert the elapsed time of 2 hours into minutes to obtain 120 minutes. Divide the total elapsed time by the length of each doubling interval to find the number of doublings, which is 120 / 20 = 6. The final population is therefore obtained by multiplying the initial count by 2 raised to the sixth power. Since 2^6 equals 64, the calculation is 150 multiplied by 64, which equals 9600.\n\nAnswer: 9600",
+          "refusal": null,
+          "reasoning": "The culture starts with 150 bacteria. The population doubles every 20 minutes.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "The culture starts with 150 bacteria. The population doubles every 20 minutes.",
+              "format": "xai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "EyA9BWKD1hKX5eGiq4wl4ybXb8PvMCaJflfyIPtr95EPvR6xHhU4xOLCiMYNWK9j3Fx6rIXEZ/wY7h3tVDaBGIHR0ceQnkTXWdwnNJnrLuQnoVi/dqOvk8duvGPnjzJq/fet/SnlzjrQF723qDJE3hgBZ8TWbqbV6GOhS2+rV2kMNHV/ROKP1SWMyxZUyCZ8nruFq+05FprSlAiIA9M9IZB7K+x80PlMtEw5ONlP2bp5JQ1plYK30uMwHwGlACTfM+bxkAsRSIqnGBTeqlkQfeF3y1SL+1KZmh37o9MO8WXQ718XMHc+dJNnlpBVRMnl1Zs4gzX7b3L2Glwf9L8cg9wIyxXVFqqYAsb5zfARBL2VWN5qaAxhF/+k1ViKNq87VKJYhqhJ8BzU14WbpBys3LO9HtKAllZViifGFCAAbAddjjfyuvfESJtFFEVRmuZA9FO9hLtXNweRYLEZN5OS3bOc6qExgODnm4UdBOYqrAZwHIabbM3NnQyjD9lVwoeWNCg+EBxdZshTAZvRAh8dAij9LFerA1zaLUtY++LtU0EgP4XA1fei7BcEl2hrD2hxQOhKwOIvbdTVbjCdbiFVUcTi1LNhCnS598u9LKorSpZwhv2wNthbvcAtIl0l2hCIEInoTISn6htx6JmkXdxWpXnVrmYbdsALV3pB0Sktkay0GHI5P/7J6tZqsu4rp82vgEzCxJR76zcEqs1DKqTJhNAbtKs/WPvRtzlhEMgiEVuQuRTZiU6qxIM4lRbdrIKNjTIHcsDapZn5zxZQBMUP2DzUZd9AC+Aj2G51mcw0hCqpkviIHXUcdEHV3Z3EE8sxsF6wDOS1c39BR70YoSZrtnOXS5BYw6/QaanWA0RAfk8aBRKCgPvSk/ZL2ypz4MQ0UfjZXAQ9WpsZb+khYrCRrZNnBu66ftCWo0Fx62nBbLFpCPn9lVLr/PEIHH7fnMOfvJFP8KXl6WSD5gfTjUc45HSVuxLZHy8mw/hj8oIP+05NftnGDBzsfq8Njqs4MhnKfzC1LZJr7Lq+yMNbXL4CjsCW//9xQwEEq+75MTFfOzrUd6GqQriVzdf7mzG8yFw6bcr8E15ojv16LCjnMxTD03cBIa/HHScr2Y3KDJ3ubq6gcmItRrI93rD50ykXin9LIr91nJPIUatcrdYzMjegR+9s5Ey5nDvfItztJptaXngTViCVUPKAUNoxodle4zzGTEDorJ3z3/oJf1V1t49m8GPLx3XQ8toZqFIKOqmy4rAL6HIC9VtIv83xhYnJ2aWgorD+laKZUoDtMmaKD+COoZqfCh6Ukb33XrX8npKYIc7HlfB3CZ96xUJkt7QAm6KovGTuS2YGdSoSMcgR4QPb1s9a12Ohlu4t0mTQf7sOML6cFaDuJn5DPfj3/Poml7xkAASWCPWGh6ZHrw.eyJlbmRwb2ludF9zbHVnIjoieC1haS9ncm9rLTQuMy0yMDI2MDQzMHx4YWkifQ",
+              "format": "xai-responses-v1",
+              "id": "rs_9c8c0541-1cdd-9884-8f83-25d3a3bf3784",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 248,
+      "completion_tokens": 396,
+      "total_tokens": 644,
+      "cost": 0.0011656,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 128,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0011656,
+        "upstream_inference_prompt_cost": 0.0001756,
+        "upstream_inference_completions_cost": 0.00099
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 282,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

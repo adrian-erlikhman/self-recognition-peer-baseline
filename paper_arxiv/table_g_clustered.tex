@@ -1,0 +1,25 @@
+\begin{table}[t]
+\centering\small
+\setlength\tabcolsep{4pt}
+\begin{adjustbox}{max width=\linewidth}
+\begin{tabular}{ll r rrr rr}
+\toprule
+Format & Judge & Self-adv. & Fisher & Randomisation & Bootstrap & GEE OR ($p$) & Random-effects OR ($p$) \\
+\midrule
+Lineup & GPT & +27.6 & $0.002$ & $0.002$ & $6.0\times10^{-4}$ & 3.17 ($0.002$) & 2.38 ($0.009$) \\
+ & Claude & +32.9 & $1.6\times10^{-4}$ & $3.0\times10^{-4}$ & $2.0\times10^{-4}$ & 5.63 ($3.6\times10^{-4}$) & 6.09 ($1.0\times10^{-4}$) \\
+ & Gemini & $-$9.9 & $0.303$ & $0.309$ & $0.191$ & 0.57 ($0.227$) & 0.41 ($0.029$) \\
+ & Grok & $-$23.7 & $0.001$ & $0.002$ & $2.0\times10^{-4}$ & 0.14 ($0.008$) & 0.16 ($0.004$) \\
+ & DeepSeek & $-$0.7 & $1.000$ & $1.000$ & $0.923$ & 0.96 ($0.934$) & 1.38 ($0.420$) \\
+\midrule
+Single & GPT & +33.6 & $2.6\times10^{-5}$ & $4.1\times10^{-5}$ & $2.0\times10^{-4}$ & 11.42 ($5.6\times10^{-4}$) & 4.04 ($0.033$) \\
+ & Claude & +4.6 & $0.631$ & $0.651$ & $0.445$ & 1.43 ($0.478$) & 0.16 ($2.0\times10^{-4}$) \\
+ & Gemini & $-$1.3 & $1.000$ & $1.000$ & $0.265$ & -- & -- \\
+ & Grok & $-$0.7 & $1.000$ & $1.000$ & $0.714$ & -- & -- \\
+ & DeepSeek & $-$0.7 & $1.000$ & $1.000$ & $0.722$ & -- & -- \\
+\bottomrule
+\end{tabular}
+\end{adjustbox}
+\caption{Frontier judges, chat-app essays: the self-advantage test under five analyses (uncorrected two-sided $p$). Fisher's exact test treats the 152 peer judgments as independent and is shown only for comparison; the exact within-response randomisation test is the one the paper reports. GEE: logistic regression of correctness on a self indicator over the 190 judgments of the judge's texts, exchangeable working correlation within prompt, bias-reduced sandwich $p$. Random effects: all 950 judgments, author fixed effects, a self term per judge, crossed random intercepts for prompt and judge; it absorbs each judge's general skill. -- where a judge never names itself and the estimate is the prior.}
+\label{tab:clustered}
+\end{table}

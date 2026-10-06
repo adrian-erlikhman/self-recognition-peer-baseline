@@ -1,0 +1,63 @@
+{
+  "request_model": "google/gemini-3.5-flash",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Explain how a magnetic compass shows direction. Answer in two to four sentences of plain prose."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916389-zVGMASFbl7vQQDXz4jee",
+    "object": "chat.completion",
+    "created": 1790916389,
+    "model": "google/gemini-3.5-flash",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "provisioned",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "A magnetic compass works because its needle is a tiny magnet that is free to spin. This needle aligns itself with the Earth's natural magnetic field, which behaves like a giant bar magnet. Because the needle's north pole is attracted to the Earth's magnetic North Pole, it always points north, allowing you to easily find the other directions.",
+          "refusal": null,
+          "reasoning": "**Explaining Compass Mechanics**\n\nMy current focus is on articulating how a magnetic compass functions. I'm distilling the core principle: the Earth's magnetic field aligning a magnetized needle. My goal is to present this clearly, without overly technical terms, in two to four accessible sentences.\n\n**Clarifying Compass Functionality**\n\nI'm refining the explanation of how a magnetic compass operates. The essence lies in the magnetized needle aligning with the Earth's magnetic field. I aim to convey this simply, avoiding jargon, within a concise, expert-level summary.\n\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "**Explaining Compass Mechanics**\n\nMy current focus is on articulating how a magnetic compass functions. I'm distilling the core principle: the Earth's magnetic field aligning a magnetized needle. My goal is to present this clearly, without overly technical terms, in two to four accessible sentences.\n\n**Clarifying Compass Functionality**\n\nI'm refining the explanation of how a magnetic compass operates. The essence lies in the magnetized needle aligning with the Earth's magnetic field. I aim to convey this simply, avoiding jargon, within a concise, expert-level summary.\n\n",
+              "format": "google-gemini-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 18,
+      "completion_tokens": 654,
+      "total_tokens": 672,
+      "cost": 0.005913,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.005913,
+        "upstream_inference_prompt_cost": 2.7e-05,
+        "upstream_inference_completions_cost": 0.005886
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 584,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

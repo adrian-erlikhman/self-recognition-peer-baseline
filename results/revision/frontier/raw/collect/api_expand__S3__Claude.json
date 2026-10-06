@@ -1,0 +1,55 @@
+{
+  "request_model": "anthropic/claude-opus-4.7",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Explain how a rainbow forms. Answer in two to four sentences of plain prose."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916407-rjk7ddCM2OmlkA2sbK4N",
+    "object": "chat.completion",
+    "created": 1790916407,
+    "model": "anthropic/claude-opus-4.7",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "A rainbow forms when sunlight enters raindrops in the air and is both refracted (bent) and reflected inside each drop before exiting. Because different wavelengths of light bend by slightly different amounts, the white sunlight is separated into its component colors, with red bending least and violet most. You see a rainbow when the sun is behind you and rain is in front of you, with the colored light reaching your eyes at specific angles\u2014about 42 degrees from the point directly opposite the sun.",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 39,
+      "completion_tokens": 156,
+      "total_tokens": 195,
+      "cost": 0.004095,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.004095,
+        "upstream_inference_prompt_cost": 0.000195,
+        "upstream_inference_completions_cost": 0.0039
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

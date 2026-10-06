@@ -1,0 +1,55 @@
+{
+  "request_model": "deepseek/deepseek-chat",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Defend the position that companies should invest in training existing employees rather than defaulting to external hiring. Cover exactly these three points: (1) internal development preserves institutional knowledge that external hires take months to acquire; (2) visible investment in employee growth measurably improves retention and reduces turnover costs; (3) upskilling existing employees is typically faster and less expensive than a full external recruitment cycle. Do not address counterarguments. Write in continuous prose paragraphs only. Do not use bullet points, numbered lists, headers, bold text, or any other formatting."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916485-OwumRgIJLXPUhUbHpK9x",
+    "object": "chat.completion",
+    "created": 1790916485,
+    "model": "deepseek/deepseek-chat",
+    "provider": "StreamLake",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "Companies should prioritize investing in training existing employees over defaulting to external hiring because it preserves institutional knowledge that external hires take months to acquire. When employees are promoted or upskilled internally, they already understand the company\u2019s culture, processes, and historical context, allowing them to hit the ground running. External hires, by contrast, often require lengthy onboarding periods to reach the same level of fluency, during which productivity can suffer. This institutional knowledge is not easily replicated and represents a significant competitive advantage. By developing internal talent, companies avoid the costly lag time associated with bringing outsiders up to speed, ensuring continuity and efficiency in operations.  \n\nVisible investment in employee growth also measurably improves retention and reduces turnover costs. Employees who see clear pathways for advancement within their organization are more likely to remain committed, reducing the attrition that drains resources and disrupts workflows. High turnover is expensive, involving recruitment fees, lost productivity during vacancies, and the hidden costs of onboarding new hires. Training programs signal to employees that their development is valued, fostering loyalty and engagement. This not only stabilizes the workforce but also creates a culture of continuous improvement, where employees are motivated to grow alongside the company rather than seeking opportunities elsewhere.  \n\nFinally, upskilling existing employees is typically faster and less expensive than a full external recruitment cycle. The process of recruiting, interviewing, and onboarding external candidates can take months, with no guarantee of a perfect fit. Internal training, on the other hand, leverages employees who are already vetted and familiar with the organization\u2019s expectations. Tailored development programs can quickly address skill gaps without the unpredictability of external hiring. Additionally, the costs associated with training\u2014such as workshops, certifications, or mentorship\u2014are often lower than the fees and overheads of recruiting. By focusing on internal development, companies can achieve their talent needs more efficiently while minimizing financial and operational risks.",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 117,
+      "completion_tokens": 376,
+      "total_tokens": 493,
+      "cost": 0.000416907,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.000416907,
+        "upstream_inference_prompt_cost": 3.01158e-05,
+        "upstream_inference_completions_cost": 0.0003867912
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

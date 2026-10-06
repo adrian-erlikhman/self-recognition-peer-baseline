@@ -1,0 +1,70 @@
+{
+  "request_model": "x-ai/grok-4.3",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Explain how an airplane wing generates lift. Answer in two to four sentences of plain prose."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916385-T7gvbHGGT0hhHbtATpRc",
+    "object": "chat.completion",
+    "created": 1790916385,
+    "model": "x-ai/grok-4.3",
+    "provider": "xAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "An airplane wing generates lift through its airfoil shape, which is curved on the top and flatter underneath. As the plane moves forward, air flows faster over the curved upper surface than the flatter lower one, creating lower pressure above the wing that effectively sucks it upward. The wing also pushes air downward as it passes through, and by Newton's third law the air pushes back with an equal upward force on the wing.",
+          "refusal": null,
+          "reasoning": "I will explain how an airplane wing generates lift.\n\nThe wing's curved shape makes air flow faster over the top than the bottom. This creates lower pressure above and higher pressure below, which pushes the wing upward. The wing also tilts slightly to push air downward. Newton's third law then sends an equal upward force back.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "I will explain how an airplane wing generates lift.\n\nThe wing's curved shape makes air flow faster over the top than the bottom. This creates lower pressure above and higher pressure below, which pushes the wing upward. The wing also tilts slightly to push air downward. Newton's third law then sends an equal upward force back.",
+              "format": "xai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "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.eyJlbmRwb2ludF9zbHVnIjoieC1haS9ncm9rLTQuMy0yMDI2MDQzMHx4YWkifQ",
+              "format": "xai-responses-v1",
+              "id": "rs_3643d1a6-2c98-945a-9322-5c49d106c2b8",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 210,
+      "completion_tokens": 394,
+      "total_tokens": 604,
+      "cost": 0.0011131,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 128,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0011131,
+        "upstream_inference_prompt_cost": 0.0001281,
+        "upstream_inference_completions_cost": 0.000985
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 313,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

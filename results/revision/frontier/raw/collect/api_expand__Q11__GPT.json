@@ -1,0 +1,64 @@
+{
+  "request_model": "openai/gpt-5.5",
+  "messages": [
+    {
+      "role": "user",
+      "content": "The average of five numbers is 18. Four of the numbers are 12, 15, 20 and 22. What is the fifth number? Solve the problem, showing your reasoning step by step in plain prose, and end with a final line of the form 'Answer: <number>'."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916319-6IrYa0Q3UQfnlXQSsLTk",
+    "object": "chat.completion",
+    "created": 1790916319,
+    "model": "openai/gpt-5.5",
+    "provider": "OpenAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "The average of five numbers is 18.\n\nThat means the total of all five numbers is \\(5 \\times 18 = 90\\).\n\nFour of the numbers are 12, 15, 20, and 22.\n\nTheir sum is \\(12 + 15 + 20 + 22 = 69\\).\n\nSo the fifth number must be the difference between the total and 69:\n\n\\(90 - 69 = 21\\).\n\nAnswer: 21",
+          "refusal": null,
+          "reasoning": null,
+          "reasoning_details": [
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABqvzbhra3T0q1y3sH6u811doB9p9uNCg8b5kqfc425IzeWWS9wkwmlWPjobziBfNhL33kbkbi4kIyMWKooIJ8Zy-P1vj3NjQyA7V0C-dc-i5BvcA33TVQ6iQAanBs7rqLJnebSUugpTfB27pV9cM0w3EqwEBaG3ve4s_1PzB7xVqogrWnlepz6jT6ZR0NDUcY1rlOnAh6HGLSe2o-sW5Ti21-3_tbHGW-9d7t55AkPAiTZuAZB6mn2Lrc3EjYFRU_elzk0XFcvDFRFEtpj_7xq30mAuHwZAPbD4DnU1ov6C8qHxwXxxY4QilNomCS3tIQfg7hwb934hZ7jyxH14ZrE9I7J4buXFoMf2xmzxCQU2m7Rh5_LW6JMBbWcyoax7HGpzU91qUc1wpupckWuxqjOY4wQknXW5mi8g4csNZe-uJhwd1fsDZuOy7WePNOtp71Iq6KElt1cAKrm3avweYZdSGx8vSP2pdrTuXPFb25y6S0xm43wj4TNb_7KYhbEcJG6PRa2wsin130aHu47_KpyUaXXgoab5pus-bz6XwM1uiBRHdpgHpMfU2w-7CHnFn0xnwMtKbShytbt4VJFIwqlgW6MlM_oxVxH_GbjwJhS1maGFkJrG-BdVY_E6vnFfUJMG3-Q9tHZ_Fdb4eNyIv3wm7Lqqqgy_4S3QZidFebWytfvgh4YRnNgYvQnmU7uqDgzavC3RuBIUJ8iSaN9YEpuAN7y-E5EPs7RMqnpJT-8oGllLp4rL-JrixyOs9x6uLb10cLlYgGLWqe6Q9cTZJwbxMb1VDPJgn-2pqRqkjJ3oFxp1VtHj3-XI6lP2wADTtDPzjcwL6HviWp3vQ4mcx6KrFQD9XJG1wks2MxCNYih4q5dKtd7q6a8CtZXSvCzKF8J4-vvdNool2UJX_kgB-mZCPiRMzixux2Zf6y5uNpU7EpK0j1O5UKPcPrGRyRy_kraKFDpL4t7oeI-Wg3KIrvTuPnHuGtfxCInbDLqTjtq3YVRYtV3FPPwr015kvHb9QgtELvriiPIuailS7tG6yVqoxXQLqAfK5S5qWkgk-W6uS-KfRDxECKpakgEj9Zu7gPuklOj1g-hppb9G5mKKmboNIQpb4OtSK28BN7iaILv9yjtKyiPxruljTGT432H_9CGH1NdJ4TgjpYZ5BxPQWMUq912Xl1-I51rzyn0kV006XG59EnPNPKSbgCjqhtPKAzrvDQ_dEFjTWKiErI4L018rFg2q0nZ1uzppRTnHmo1AXf_89Cm1jifoKGlGP136SnbaWUER4lOioy1Df0NyaGW4HiKNY67nADjcw_palFq8ybmuc9vJ-samnQ0ILPzB3zCqHfpl4YcJvwXiRCLL8hDT2yF5Cf-ARqRWa0L99YdnDwVrPC2MMnzQB-BZnEPkvhP32174YESb0XKoHfIZAwCyyX8er9S7z_ZlW3hG2ISmqH1KI8=.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC01LjUtMjAyNjA0MjN8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_0318c8798b495327016abf36e0981087d18560a2131fb0fd6e",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 67,
+      "completion_tokens": 119,
+      "total_tokens": 186,
+      "cost": 0.003905,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.003905,
+        "upstream_inference_prompt_cost": 0.000335,
+        "upstream_inference_completions_cost": 0.00357
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 18,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

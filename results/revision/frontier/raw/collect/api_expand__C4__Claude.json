@@ -1,0 +1,55 @@
+{
+  "request_model": "anthropic/claude-opus-4.7",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Write a Python function `second_largest(nums: list[int]) -> int | None` that returns the second largest distinct value in `nums`, or None if `nums` contains fewer than two distinct values. For example, `second_largest([4, 1, 4, 3])` returns 3. Do not modify the input list. Use only the Python standard library. Include a docstring and brief inline comments. Return only the code in a single Python code block, with no explanation before or after."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916304-uSmTPwO6n0MXh25jN6XL",
+    "object": "chat.completion",
+    "created": 1790916304,
+    "model": "anthropic/claude-opus-4.7",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "```python\ndef second_largest(nums: list[int]) -> int | None:\n    \"\"\"Return the second largest distinct value in nums, or None if fewer than two distinct values exist.\n\n    The input list is not modified.\n\n    Examples:\n        >>> second_largest([4, 1, 4, 3])\n        3\n        >>> second_largest([5, 5, 5])\n        >>> second_largest([])\n    \"\"\"\n    # Track the largest and second largest distinct values seen so far.\n    largest = None\n    second = None\n\n    for n in nums:\n        # Skip values equal to the current largest to ensure distinctness.\n        if largest is None or n > largest:\n            # New maximum found; previous largest becomes second largest.\n            second = largest\n            largest = n\n        elif n != largest and (second is None or n > second):\n            # Update second largest when n is strictly between second and largest.\n            second = n\n\n    return second\n```",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 154,
+      "completion_tokens": 289,
+      "total_tokens": 443,
+      "cost": 0.007995,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.007995,
+        "upstream_inference_prompt_cost": 0.00077,
+        "upstream_inference_completions_cost": 0.007225
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

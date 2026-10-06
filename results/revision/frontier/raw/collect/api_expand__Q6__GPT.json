@@ -1,0 +1,70 @@
+{
+  "request_model": "openai/gpt-5.5",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Two fair six-sided dice are rolled. What is the probability that the two numbers shown add up to 8? Give the probability as a decimal rounded to four decimal places. Solve the problem, showing your reasoning step by step in plain prose, and end with a final line of the form 'Answer: <number>'."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916316-QanVp9kyGNcZznM5C3Bq",
+    "object": "chat.completion",
+    "created": 1790916316,
+    "model": "openai/gpt-5.5",
+    "provider": "OpenAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "When two fair six-sided dice are rolled, there are 6 possible outcomes for the first die and 6 possible outcomes for the second die.\n\nSo the total number of equally likely outcomes is:\n\n6 \u00d7 6 = 36\n\nNow count the outcomes where the two numbers add up to 8:\n\n- 2 + 6 = 8\n- 3 + 5 = 8\n- 4 + 4 = 8\n- 5 + 3 = 8\n- 6 + 2 = 8\n\nThere are 5 favorable outcomes.\n\nSo the probability is:\n\n5 / 36 = 0.138888...\n\nRounded to four decimal places, this is 0.1389.\n\nAnswer: 0.1389",
+          "refusal": null,
+          "reasoning": "**Ensuring clarity in answers**\n\nI need to provide a simple answer that\u2019s easy to understand. It\u2019s important to follow a step-by-step approach so that everything is organized and clear. I\u2019ll aim for plain prose to make sure the final message is straightforward and gets straight to the point. The goal is to ensure that the user receives the information in the most helpful way possible without any confusion.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "**Ensuring clarity in answers**\n\nI need to provide a simple answer that\u2019s easy to understand. It\u2019s important to follow a step-by-step approach so that everything is organized and clear. I\u2019ll aim for plain prose to make sure the final message is straightforward and gets straight to the point. The goal is to ensure that the user receives the information in the most helpful way possible without any confusion.",
+              "format": "openai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABqvzbfB1gOpbxBGELDbVhXf3zHwO45xWz864J2edOH4A1ZCj8IqfjnBe6TMJGUmQelZ_CwjGqQz-uhUoaEpCarsJCUDE5XXslInCfw-tsqtAKjyBFk4IAy1zh-4c6PkMgFpizHM8ksxXB2_M266UhK3uLvOOeg-Xy-Zb8EXfVmsKou2KJNBADZazONYtPS36CQNSX4lnrozcZQJgkQznn0EuktjwOp7v_imrdWzmfbmAmBdYFxt2YJwpn8gE8UUllx3SQZ7qAoZoAGR1Sr0B1r3i0oG99_ILeHpX15AHvLehsx8ROodnQmQ0JwoIzuaN-OhCr_0sZatTjsp4ud5_z6vSfRWHdQA-HmSGnY8aL9AS6IxvpLSAMaF84CQ7d0pje6QVkNhssAMNJtK9gTI0_1hsZYvyRkISJKFN8vrqcGY0E7hvqHhkgi3obpCRpWEJtocirCqx6pJsftw_Vd2totVH5r89BHkJX3E6n3FOQjmAi2XUWwpTIV41hucDH1yKalXVi4OckPFoe3wWie6ESt1fKiQg2WvVPnL7Fm6pZNs2c7IGfVfcncCEXnvIX6BZlsVPDmCU8t2w418jQN3U57B2Jx_KoTyncwIAzAQWEk3sXzmoQcMEdGeeJqetrMg2v5j4V9ZxiOOMbOPmEYre6sIWS9vAqKcfksj0iHPTLGTmN5vSETnTakh0KvGxab2UcGPVikdvYY9gRO1hpmxiswVUahb2dg3yaC1I5PmuLEbieqjhnMuiIONxERok3SRdsCEnkVpXkCyWfV_5NTSD2yHQFCdu6QIXCDbKpgPBTCWaLOmRm1fzTWdm09aboenWpsS3NwmBHh6Qd33L5d62MQJDnZ-qrKIqUOUcz10tSSI4PzBKRS_Rqk8j-vswvQEJLj95m0fQym_lVgewfOKrXsTKCqEPkJv7FOU-4jGzxqAZ7JQn2djodHGPROOP2NyiBHOoxJANk8c7oaqKfBneQeoZUg7N0sVWTp4LDfYAyQzI8Wq2C5ug4OYwODGvg2hjaYHw6kz8crLoSR0zvwTUJWRTxo8qk9VpnBNpr8xPuZVJQUPjaFdVAphQksx4Dfr0pizI4u94J5b4WVpxGgZ2zIL3wpxdhA9MFJSZTdzuMo0svjI0-KeKt92AP5WZGzYWlqC7OI9FbShWnl8IUwooV-PAWOGXXFt3zjOaRxQdNMlQCK3OsLJaODBaJnR0JP4fg7kX2PO2oi7xquFUdR_xHjib51G7k_qNtJePTQzEBNkCW9lEN5cA_ajbdB4P6bdabty6LzFYuHzEEdHYmC9LnrZgc2kFrN9gVThNPMzkz8NUzWX3rbZpNcn5r2OE0E8QYDSoxkRlIprEZ1e7d0x1_kpPepNjABAFDJ2pISCPzbJlUlxqLMc_iFF3k9RaQiIkQwCjIAkG8kBKrQPmxp-_tI_g4Iem6N7thggRAjF9NSJfiwS5w=.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC01LjUtMjAyNjA0MjN8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_0ddc0aad9e5ca927016abf36dec6f087d1a3b671f5cff08fb1",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 70,
+      "completion_tokens": 180,
+      "total_tokens": 250,
+      "cost": 0.00575,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00575,
+        "upstream_inference_prompt_cost": 0.00035,
+        "upstream_inference_completions_cost": 0.0054
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 19,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

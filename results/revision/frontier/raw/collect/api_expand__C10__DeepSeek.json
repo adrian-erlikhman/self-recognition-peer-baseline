@@ -1,0 +1,55 @@
+{
+  "request_model": "deepseek/deepseek-chat",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Write a Python function `top_k_words(text: str, k: int) -> list[tuple[str, int]]` that lowercases `text`, extracts words as maximal runs of the letters a to z and apostrophes, and returns the `k` most frequent words as (word, count) pairs, sorted by count descending and then alphabetically for ties. If there are fewer than `k` distinct words, return all of them. Use only the Python standard library. Include a docstring and brief inline comments. Return only the code in a single Python code block, with no explanation before or after."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916308-MpKuAncp5IAw4OlGDLGe",
+    "object": "chat.completion",
+    "created": 1790916308,
+    "model": "deepseek/deepseek-chat",
+    "provider": "DeepInfra",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "```python\nimport re\nfrom collections import Counter\n\ndef top_k_words(text: str, k: int) -> list[tuple[str, int]]:\n    \"\"\"\n    Extract words from the text (lowercased) and return the top k most frequent words.\n    \n    Args:\n        text (str): The input text.\n        k (int): The number of top words to return.\n    \n    Returns:\n        list[tuple[str, int]]: List of (word, count) pairs, sorted by count descending and alphabetically for ties.\n    \"\"\"\n    # Lowercase the text and find all words consisting of letters and apostrophes\n    words = re.findall(r\"[a-z']+\", text.lower())\n    \n    # Count the frequency of each word\n    word_counts = Counter(words)\n    \n    # Sort by count descending, then alphabetically ascending\n    sorted_words = sorted(word_counts.items(), key=lambda x: (-x[1], x[0]))\n    \n    # Return the top k words\n    return sorted_words[:k]\n```",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 127,
+      "completion_tokens": 217,
+      "total_tokens": 344,
+      "cost": 0.00023377,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00023377,
+        "upstream_inference_prompt_cost": 4.064e-05,
+        "upstream_inference_completions_cost": 0.00019313
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

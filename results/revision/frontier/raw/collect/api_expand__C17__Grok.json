@@ -1,0 +1,70 @@
+{
+  "request_model": "x-ai/grok-4.3",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Write a Python function `edit_distance(a: str, b: str) -> int` that returns the Levenshtein distance between `a` and `b`, the minimum number of single-character insertions, deletions and substitutions needed to turn `a` into `b`. For example, `edit_distance(\"kitten\", \"sitting\")` returns 3. Use only the Python standard library. Include a docstring and brief inline comments. Return only the code in a single Python code block, with no explanation before or after."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916314-Ss5mpHodSrvkjWpKu0BZ",
+    "object": "chat.completion",
+    "created": 1790916314,
+    "model": "x-ai/grok-4.3",
+    "provider": "xAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "```python\ndef edit_distance(a: str, b: str) -> int:\n    \"\"\"Return the Levenshtein edit distance between strings a and b.\"\"\"\n    m, n = len(a), len(b)\n    # DP table: dp[i][j] = distance for a[:i] and b[:j]\n    dp = [[0] * (n + 1) for _ in range(m + 1)]\n    for i in range(m + 1):\n        dp[i][0] = i  # deletions\n    for j in range(n + 1):\n        dp[0][j] = j  # insertions\n    for i in range(1, m + 1):\n        for j in range(1, n + 1):\n            if a[i-1] == b[j-1]:\n                dp[i][j] = dp[i-1][j-1]\n            else:\n                dp[i][j] = 1 + min(dp[i-1][j],   # delete\n                                   dp[i][j-1],   # insert\n                                   dp[i-1][j-1]) # substitute\n    return dp[m][n]\n```",
+          "refusal": null,
+          "reasoning": "I need to implement a Levenshtein distance function using only the Python standard library.\n\nI'll use a 2D dynamic programming table to compute the edit distance.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "I need to implement a Levenshtein distance function using only the Python standard library.\n\nI'll use a 2D dynamic programming table to compute the edit distance.",
+              "format": "xai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "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.eyJlbmRwb2ludF9zbHVnIjoieC1haS9ncm9rLTQuMy0yMDI2MDQzMHx4YWkifQ",
+              "format": "xai-responses-v1",
+              "id": "rs_5f92c263-5495-9b61-bee5-c6eb39e6eaa8",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 299,
+      "completion_tokens": 799,
+      "total_tokens": 1098,
+      "cost": 0.00223685,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 128,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00223685,
+        "upstream_inference_prompt_cost": 0.00023935,
+        "upstream_inference_completions_cost": 0.0019975
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 554,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

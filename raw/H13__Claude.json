@@ -1,0 +1,49 @@
+{
+  "request_model": "anthropic/claude-opus-4.7",
+  "response": {
+    "id": "gen-1786845955-qHIb8O2rhVGxPOVqpBZm",
+    "object": "chat.completion",
+    "created": 1786845955,
+    "model": "anthropic/claude-opus-4.7",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"A\": {\"model\": \"GPT\", \"confidence\": 3, \"reason\": \"Clean structured prose with tidy tripartite organization and formal vocabulary typical of GPT.\"},\n  \"B\": {\"model\": \"DeepSeek\", \"confidence\": 3, \"reason\": \"Dense, long paragraphs with slightly repetitive phrasing and comprehensive coverage suggests DeepSeek.\"},\n  \"C\": {\"model\": \"Claude\", \"confidence\": 4, \"reason\": \"Elaborate rhetorical flourishes like 'credibility theater' and expansive analytical detail feel Claude-like.\"},\n  \"D\": {\"model\": \"Grok\", \"confidence\": 3, \"reason\": \"Systematic, exhaustive enumeration with formal academic tone and less stylistic flair suggests Grok.\"},\n  \"E\": {\"model\": \"Gemini\", \"confidence\": 3, \"reason\": \"Literary opening framing and vivid phrasing like 'garden of forking paths' and 'plausibility filter' suggest Gemini.\"}\n}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 8373,
+      "completion_tokens": 344,
+      "total_tokens": 8717,
+      "cost": 0.050465,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.050465,
+        "upstream_inference_prompt_cost": 0.041865,
+        "upstream_inference_completions_cost": 0.0086
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

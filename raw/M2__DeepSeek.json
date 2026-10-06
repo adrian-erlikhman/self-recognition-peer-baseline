@@ -1,0 +1,49 @@
+{
+  "request_model": "deepseek/deepseek-chat",
+  "response": {
+    "id": "gen-1786846150-Mx5K226Y2Un1Onpt1o2G",
+    "object": "chat.completion",
+    "created": 1786846150,
+    "model": "deepseek/deepseek-chat",
+    "provider": "StreamLake",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "```json\n{\n  \"A\": {\"model\": \"GPT\", \"confidence\": 4, \"reason\": \"Structured and detailed with a formal tone\"},\n  \"B\": {\"model\": \"Claude\", \"confidence\": 5, \"reason\": \"Eloquent and nuanced with a strong argumentative flow\"},\n  \"C\": {\"model\": \"Gemini\", \"confidence\": 3, \"reason\": \"Balanced and informative but slightly less distinctive\"},\n  \"D\": {\"model\": \"DeepSeek\", \"confidence\": 2, \"reason\": \"Concise and straightforward with less stylistic flair\"},\n  \"E\": {\"model\": \"Grok\", \"confidence\": 4, \"reason\": \"Engaging and detailed with a conversational tone\"}\n}\n```",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 3051,
+      "completion_tokens": 159,
+      "total_tokens": 3210,
+      "cost": 0.0009488907,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0009488907,
+        "upstream_inference_prompt_cost": 0.0007853274,
+        "upstream_inference_completions_cost": 0.0001635633
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

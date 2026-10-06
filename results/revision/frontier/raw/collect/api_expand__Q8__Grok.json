@@ -1,0 +1,70 @@
+{
+  "request_model": "x-ai/grok-4.3",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Working alone, Ana can paint a fence in 6 hours and Ben can paint the same fence in 4 hours. How many hours does it take them to paint the fence if they work together at their usual rates? Solve the problem, showing your reasoning step by step in plain prose, and end with a final line of the form 'Answer: <number>'."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916329-CjVTyPbd8jLKmewAHIwp",
+    "object": "chat.completion",
+    "created": 1790916329,
+    "model": "x-ai/grok-4.3",
+    "provider": "xAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "Ana works at a rate of one sixth of the fence per hour, while Ben works at a rate of one fourth of the fence per hour. Adding these rates together gives a combined rate of five twelfths of the fence per hour. The time required to complete one full fence at this combined rate is the reciprocal of five twelfths, which equals twelve fifths hours.  \nAnswer: 12/5",
+          "refusal": null,
+          "reasoning": "Ana paints the fence in 6 hours alone. Ben paints it in 4 hours alone.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "Ana paints the fence in 6 hours alone. Ben paints it in 4 hours alone.",
+              "format": "xai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "14/uM8rjUZZBafORtqnRMoaWbO3yhi8/i3uT/04I567rdagYNbd8aNN4bJpWH0ehRBcy1seQn1/YR1VKlfpPXR0CIEm48tpqxCsAe0rRp7xrij6EFTmUV7yf4J6BgthAO3IsDHIpHyYuWOGr50rd1z8nZaR+RgeVKcEOxtX1haOxK/hdRMZICr++oDU5gIZWbsHmsnBYDIwV16GgOTlSu3aqoTV57ERkIi+Sgj1600XxiEeENhVmQqjre5c5Pt9jcfJbQFtl9n2uWR8gu0nqLzK91XnAAWrMtHXyx1Za5aCGppn5HaajkD+IuJsYPQM7Rq7K0mNYiuHnBivp2m5zkDeBX5VYCcwQvlXggdJ7oIe1OYW3xZdUYcV3Wb3vn/IrT7pupI7wBwEZ0xU+UIKdnZP9oexnguN10MAbCVRx+xyl0F5l1168KSgofzu/98APaWszwEvpa10CYxfxdESCgBsV+DBMC2V81sTsC19Fb6qeeSa8sLqlI6Njx9Il5WK5vfix4JYe+q+ulELdCduQixKsAYmSCH/6K/g1cCxYUsJHkOVCx8Y9uTB+RBe1p8FT1NVbhOd8hp7LTx9OQ6CVd+48abEjTWZvQtPk9L8byi5CVmTVTQJZzp2gvbzTkI6aiP5UM5nHpOqsayHC6kPxeVVtR5MH748fhzRYpjO4umPLVYhj1fDyiimOefRbDo5N2tmmV7wL8upnl+dVPAnJTtyrMGGiiAAejnpA4NOHdWuARUqaGG8RpHlEqllb9MkwPk1s4pYvzj2EdWyxf5yTkCut9VUtHFvZnCLPcNTKurEqL7I7u7tiL94lxXctMzVhv+ZrimKuFMOLMAoIxF4kZEqykFqL7dHz2G55uGtHz9FIxkmoorvn6pH2rPy37N/E5wP+9pUBsK7iBop9YnRrkVUaMwNOMcvwg7ZegiVXs29hH5gvWPiZK09lQmqFQ9ZWlov5amejiGfPDuLpRi6CygjHwmak2UWHyYn0KMzKtm8DvFNfRdBt4KZIqXaMxYYPAI3fFjDB/rBI3emWW8ow91C0d49RHzTUChCCG8OqaQlbVctscb/+jZZvSpIu++ueQSc9vqJaDrzYFTUg30mbRou/PbCDZQ618pvgfAy2Q571BwnJ1zZxPr7Vd4NbJaCVI9CJi2fnKp3v/IEecyB1AaPZgAmesobjgQd3tTeGU5jdU0qaBwMR44FegD/5nROR7tueupqCFuiV3fQOgm2M9SxMdX/qFMGHRXCVjRmj8OYyJik/bbrmKLztrAJ65uo6ZmJEsl0FJW0iD9CLNZbCUTeQ6JzueOmXM1tUjcjufDHNsCXvgzm1NbEyblVxg8xPAFSA/P+rCKsYmzOAjabg1l4Ifr97axrFiUwjZQyV8Fw7iHASdDf8yTHHO0jUYKJctw2ztPgduaMPu0nM77bki2j2pCzafecrzv+CdcQ7PGb2eiRl6Zn92pA8Wfitl9CWFEFV9wcobrpdL7w9/+6WVKs/V3428y9OT1uzga78DF5X42XxoyPRo/QIH99+qvz7rSv4PUi8D8lVqAeUiJ2ti0UqwHw.eyJlbmRwb2ludF9zbHVnIjoieC1haS9ncm9rLTQuMy0yMDI2MDQzMHx4YWkifQ",
+              "format": "xai-responses-v1",
+              "id": "rs_6264620b-4682-9f13-947b-c744547ebbde",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 265,
+      "completion_tokens": 413,
+      "total_tokens": 678,
+      "cost": 0.00122935,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 128,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00122935,
+        "upstream_inference_prompt_cost": 0.00019685,
+        "upstream_inference_completions_cost": 0.0010325
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 330,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

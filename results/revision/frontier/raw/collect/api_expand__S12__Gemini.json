@@ -1,0 +1,63 @@
+{
+  "request_model": "google/gemini-3.5-flash",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Explain the difference between weather and climate. Answer in two to four sentences of plain prose."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916389-TAPlVoMF3AgKvZskQei5",
+    "object": "chat.completion",
+    "created": 1790916389,
+    "model": "google/gemini-3.5-flash",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "provisioned",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "Weather refers to the day-to-day conditions of the atmosphere, such as temperature, rain, and wind, at a specific time and place. In contrast, climate is the average of these weather patterns over a much longer period, usually thirty years or more. A simple way to remember the difference is that weather tells you what to wear today, while climate tells you what types of clothes to buy.",
+          "refusal": null,
+          "reasoning": "**Clarifying Weather and Climate**\n\nI'm currently distilling the core distinctions between weather and climate. My focus is on capturing the essence of short-term atmospheric conditions versus long-term patterns in a concise, expert-level manner.\n\n**Defining Weather and Climate**\n\nI'm refining the definitions, emphasizing weather as immediate atmospheric states and climate as statistically significant long-term averages. The goal is a crisp, expert-level distinction that highlights this temporal divergence in atmospheric behavior.\n\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "**Clarifying Weather and Climate**\n\nI'm currently distilling the core distinctions between weather and climate. My focus is on capturing the essence of short-term atmospheric conditions versus long-term patterns in a concise, expert-level manner.\n\n**Defining Weather and Climate**\n\nI'm refining the definitions, emphasizing weather as immediate atmospheric states and climate as statistically significant long-term averages. The goal is a crisp, expert-level distinction that highlights this temporal divergence in atmospheric behavior.\n\n",
+              "format": "google-gemini-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 18,
+      "completion_tokens": 605,
+      "total_tokens": 623,
+      "cost": 0.005472,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.005472,
+        "upstream_inference_prompt_cost": 2.7e-05,
+        "upstream_inference_completions_cost": 0.005445
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 524,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

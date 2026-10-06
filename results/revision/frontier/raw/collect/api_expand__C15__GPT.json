@@ -1,0 +1,70 @@
+{
+  "request_model": "openai/gpt-5.5",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Write a Python function `parse_duration(s: str) -> int` that converts a duration string made of an optional hours part, an optional minutes part and an optional seconds part, in that order, such as \"1h30m15s\", \"45m\" or \"2h5s\", into a total number of seconds. Each part is a non-negative integer followed by the letter h, m or s. Raise ValueError if the string is empty, contains any other characters, or lists the parts out of order. Use only the Python standard library. Include a docstring and brief inline comments. Return only the code in a single Python code block, with no explanation before or after."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916308-DLJlu1lsAGgcC4QQzKyS",
+    "object": "chat.completion",
+    "created": 1790916308,
+    "model": "openai/gpt-5.5",
+    "provider": "OpenAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "```python\nimport re\n\n\ndef parse_duration(s: str) -> int:\n    \"\"\"Convert a duration string like '1h30m15s' into total seconds.\n\n    The string may contain optional hours, minutes, and seconds parts, in that\n    order. Each part must be a non-negative integer followed by 'h', 'm', or\n    's'. Raises ValueError for empty strings, invalid characters, or out-of-order\n    parts.\n    \"\"\"\n    if not s:\n        raise ValueError(\"duration string is empty\")\n\n    # Match optional h, m, and s parts in the required order.\n    match = re.fullmatch(r\"(?:(\\d+)h)?(?:(\\d+)m)?(?:(\\d+)s)?\", s)\n    if not match:\n        raise ValueError(\"invalid duration string\")\n\n    hours, minutes, seconds = match.groups()\n\n    # Convert missing parts to zero and compute total seconds.\n    return (\n        int(hours or 0) * 3600\n        + int(minutes or 0) * 60\n        + int(seconds or 0)\n    )\n```",
+          "refusal": null,
+          "reasoning": "**Developing the validation function**\n\nI need to implement a function to parse duration input. It should validate time components in hours, minutes, and seconds, ensuring they're non-negative integers. Patterns like \"1h2h\" or out-of-order components should be invalid. I plan to use regular expressions to match valid formats while rejecting empty or incorrectly ordered entries. I\u2019ll include docstrings and comments for clarity, as well as type annotations. Finally, I\u2019ll ensure the function properly handles edge cases, like \"0s\" being valid.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "**Developing the validation function**\n\nI need to implement a function to parse duration input. It should validate time components in hours, minutes, and seconds, ensuring they're non-negative integers. Patterns like \"1h2h\" or out-of-order components should be invalid. I plan to use regular expressions to match valid formats while rejecting empty or incorrectly ordered entries. I\u2019ll include docstrings and comments for clarity, as well as type annotations. Finally, I\u2019ll ensure the function properly handles edge cases, like \"0s\" being valid.",
+              "format": "openai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABqvzbauG1IJoDr3h-4FUFdz9ERnzrLQMYTgV7C8sP-wxrW9hwB0z_pLCBFmIPcSdGf_cBdBOqMAbrwneXCrSphCCc1LWeNSp3er-_dMUJ73hBKV6-4D--LrC7ybOyT7lkvMqNVnx4LG0ksE7TfQsCr2SP_Crwu1VjUAj7935DV8mI9nwb2tLtZ-w3S3NOuIwzJ_Y8GVLVpB_cTycAE-Kcw3uASck6q8iYIMYzRGWTn7ZTMvWVkC7_dtts3QRyFkn4AWuLy1u0kaJAQTGr1bctRJ8_RWKNHqxBBxPb0cuG3kJsLru57ZKZoYaAVB01wYB9qtqHwGrMr7fuPFO4iOIrgg8B6wqKcyxT3JsJvQkII8Z-YAVDVt_b-mCVhy6HIS2y3wK3l7uqxw2NdEmUnLNzCpKTFUxSppyLLnNXieJrOpjWc84hjLzdKrd2aJpGz5CxvY1r39JDSzKGdl6T_iPoo4myUNVbB1V1NNnE0o6X02u6IWjrrN9b5TR2BGy-zdz88QZQfUnWuNnDMo7wokTxfhFmNMNwrnDkVGbFVm6K_HnLyp3x3Kfzzonw1MfH06N_M7gktUtlo27WI-H4RHXwcMgkJe2ijpN2Zy0FohiDDkXrCT1u_hUQSohMiQrjpHkw5pV3FHrdTc2K3odSpp-D92MzwTLVk4QvP0rh-ngAox43J3dVpw2gv_dY2buU53xfZIbNq_fXnkpcCNv1fk3czFd_NWKpzGFePdR_femibUsDhv-gV1LM2vQZ6BPsmb2QSSRDbEOPJvTGsSTftFVrhB056FlpyX_UOTYBy24cG4qTNykEzThaI2eSWmtq640SvxHsq4Aw_DcOGN_l42NVgoQDwbH8rPYbnUm0Z40QDZLL5e1rIoL_-vRJvuNBfoH_uT0jJ_rxyH_bvHZ_MvaV7M6R4WNpaGxwq2Da-ehYUep2yUdbYw_L20BW4haO55HsH005ei8SPHdlzh0J5t47LTfoPayOIIhqCkPyxk83prW8r1EeyhG2PL-UcR7JuuuChAnFyH9eCPiAX6XKiWZKFmkiCbX0DBfvb5Cw60fZnOYHUn2lM0zov8mMNyD5Ci2ccnms0IliCqVvWk2Oql1dIXjZ-FpelBXB5iABL51_Zb8CgMSQescA3ER4JrF2fr3XpfeNOhrChCW6UN4rrMaDvFcoXoM_8uAJK-hOX1MqoJXOR-QM4tnnBFFKPydl7PPNVihGr4aPQVkB186b3YwEl72-LG6f4UlAhQ57Pctci6DNtlODjHNMihq6L79Ar19jposDgmJd5Br0WnLTZbhDkNSj3B7WLME8QazKGlfV6tiBVQVOrw1tj0rl4WswYOCoeBlXslradizQENAQieLB9c-E_BH_dnkhRsNgfXPhVAi-nrfEwXbkU9l8fFkkHF7YKlT6ysNT4OWcMj-XvRVx_p-iK9hItHGlnOgutj_hq5ycfbfyoa5xUiuWtjGwj5AUniytz5fXgXYWlsSCdhw0OJdSSpAoil90C70seAUDSm-GXNMmuWf3Vv-0kjiwAkVjsFB3HfNkE4LPMR6aiGWar6sH-GjbHYoNPYWJqHa3Bo9lw1Gmego6_6QcLtgvnowFxeXE6G94AB8eaQShUdzv2Rlfd2UkplWJaM1jXOBBEzgFdYVcb7pdQtR831X5Di7_MSwG9aLSjkV67qwpLVQZyVd7QTfyR3JBaw_wkx7uHUT7x4lWPDIjWmTDC2tYNLRBHb6pCigu86K5lIF5zUPznwqNiwXTNPfAt1-vHXCybWsy0KxPrdhTDHUE9RUz9UiJQ_oJqk30lvruXXAIbbsV68sp1ItdH6L4QENoAwwpAtYRi_IGzNfeBM8IhXysR6QCEepyfeHRCNtcdBDhLDL3qCm1sKYnfnOVVSgnmBWxziijQNPia2H2ITTgbbmYPZjUp-DUsIDbkw0SeJuadePbfp4gjuJcLdPAmCtG7hN_yFAr3veqzDgZ87hQm4dYLHkmLlmbXzJmmj2GGpYzOuhHMAYQJR9LG7ryVb8he_ol678CIkQlUk3_8CZzWjM0kgPg_A9rCgMqE5JBl2Be5m6MvyV4eRcTmc5stNHJ13Q_bnHQQv1wzJgVVOwPpmoVwXnemP7v7xlP-dxO8SSAUXOmtfnPLrMBtpDmynXzJPJ0WOCz1nks7mtc64xuZKpEDNbYG-box7XTup05z7yVIqYaVQktCrkblz4_xVBGnc6qLn_WpK8U0CgdQn0xSax4zYgEoC9R9SiooquvVa8WzUt-kcdqZc5fAkrkr3MdFt-pahVfG2hlfgPuonRcN_RadjTwvbZtQrTi6F-fKvoNnB938zWFx48FHObxubgiKEtKH3KQI0sYIfQ0Pa84b5Onz5bMOOAArd2TiMAOSgXPHhXzLjBBPxNLPwrjYnqQy5Bj-2QpLA67ZpWAYfYn0XiAh-9ZcnPCy7MnpQjmOQQXJyjLvSgth05__0cIG_akSV8wr7pM-ULxDR5jTcl_7YliwiUs3V863nvGKWJAkyr-KwB9jEkIjWhu2anSTkg5nFGMuHvzVsylqBEJjIh_sWKWPAVUTJUvFMbQ_6Ypz4Cnt-mH0vi5c4jp6rliI5-9acCznz2OSMDbf29JYBeEkPBz8sIWsPJht8Sz7Hc3CWLo9_ru2oN45h-b5XMi0d1AGh78eG_xixrA=.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC01LjUtMjAyNjA0MjN8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_07513c9312dfc069016abf36d4d05c87d1bec3ed8ff7892f8c",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 147,
+      "completion_tokens": 480,
+      "total_tokens": 627,
+      "cost": 0.015135,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.015135,
+        "upstream_inference_prompt_cost": 0.000735,
+        "upstream_inference_completions_cost": 0.0144
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 240,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

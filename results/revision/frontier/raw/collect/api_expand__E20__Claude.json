@@ -1,0 +1,55 @@
+{
+  "request_model": "anthropic/claude-opus-4.7",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Convince a friend that playing board games with family and friends is time well spent. Give three reasons: it builds conversation and connection around the table, it teaches good sportsmanship in winning and losing, and it is cheap entertainment that can be enjoyed again and again. Write in continuous prose paragraphs only. Do not use bullet points, numbered lists, headers, bold text, or any other formatting."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916334-qqIwlWdulppoUiuaMbls",
+    "object": "chat.completion",
+    "created": 1790916334,
+    "model": "anthropic/claude-opus-4.7",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "Listen, I know your evenings fill up fast and the easy thing is to collapse on the couch and scroll until you fall asleep, but hear me out on this one. Pulling out a board game with your family or a few friends is one of the best uses of a free hour or two that I can think of, and I think if you tried it more often you'd come to agree. There's something about sitting across a table from the people you care about, with a board and some pieces between you, that opens up a kind of connection you just can't manufacture any other way. You talk. You tease each other about questionable strategies. Old stories come up out of nowhere, inside jokes get recycled, and somewhere between turns you end up actually learning what's going on in each other's lives. No one is half-watching a screen or waiting for a notification. Everyone is right there, in the same moment, and that shared attention is rarer than it used to be and more valuable because of it.\n\nBeyond the conversation, playing games is quietly one of the best ways to practice being a decent human being in miniature. Every game has winners and losers, and how you handle both says a lot about you. Sitting down regularly to play teaches you, and especially teaches kids, how to lose gracefully when the dice don't cooperate, how to win without rubbing anyone's nose in it, how to follow rules you didn't make, and how to be patient while someone else takes their turn. Those are small lessons on any given night, but they add up, and they transfer out into the rest of life in ways you don't always notice until later. A family that plays together learns how to disagree, compete, and still like each other at the end of the evening, which is a skill a lot of adults never quite master.\n\nAnd then there's the simple practical argument, which is that board games are an absurdly good deal. A movie night out for a family of four these days can run you a small fortune once you add up tickets and snacks, and it's over in two hours with nothing to show for it. A good board game might cost you twenty or thirty dollars once, and you can play it dozens, even hundreds of times. The cost per hour of entertainment drops to almost nothing, and unlike most purchases it tends to appreciate in sentimental value the more you use it. The worn corners and the handwritten house rules on the inside of the lid become part of the fun. So the next time someone suggests pulling a game off the shelf, say yes. It's cheaper than going out, better for your relationships than another streaming binge, and quietly good for your character on top of it. That's a hard combination to beat.",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 137,
+      "completion_tokens": 780,
+      "total_tokens": 917,
+      "cost": 0.020185,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.020185,
+        "upstream_inference_prompt_cost": 0.000685,
+        "upstream_inference_completions_cost": 0.0195
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

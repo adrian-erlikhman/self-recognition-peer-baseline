@@ -1,0 +1,55 @@
+{
+  "request_model": "deepseek/deepseek-chat",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Argue that spending less time on social media improves wellbeing. Make three points: it reduces constant social comparison, it frees up time for more fulfilling offline activities, and it improves sleep quality by reducing evening screen exposure. Write in continuous prose paragraphs only. Do not use bullet points, numbered lists, headers, bold text, or any other formatting."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916432-KlrjnVgj73iqYWDUVOPu",
+    "object": "chat.completion",
+    "created": 1790916432,
+    "model": "deepseek/deepseek-chat",
+    "provider": "StreamLake",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "Spending less time on social media can significantly improve overall wellbeing by addressing several key aspects of daily life. One of the most immediate benefits is the reduction of constant social comparison, which often leads to feelings of inadequacy or dissatisfaction. Social media platforms are designed to showcase curated highlights of others\u2019 lives, creating an unrealistic benchmark for personal success or happiness. By stepping away from these platforms, individuals can focus more on their own progress and achievements, fostering a healthier sense of self-worth and reducing the negative emotional toll of perpetual comparison.  \n\nAnother advantage of reducing social media use is the liberation of time for more meaningful offline activities. Scrolling through feeds often consumes hours that could otherwise be spent on hobbies, exercise, or face-to-face interactions with loved ones. These real-world engagements are far more fulfilling, as they provide genuine connection, personal growth, and a sense of accomplishment. Whether it\u2019s reading a book, learning a new skill, or simply enjoying nature, these activities contribute to a more balanced and satisfying life, free from the passive consumption that dominates social media use.  \n\nFinally, cutting back on social media, particularly in the evening, can lead to better sleep quality. The blue light emitted by screens disrupts the production of melatonin, the hormone responsible for regulating sleep, making it harder to fall asleep and reducing overall sleep quality. Additionally, the stimulating nature of social media content\u2014whether it\u2019s engaging in debates or absorbing emotionally charged posts\u2014can keep the mind active when it should be winding down. By reducing screen time before bed, individuals create a calmer nighttime routine, leading to more restful sleep and improved mental and physical health the following day. Together, these benefits highlight how limiting social media use can create a happier, healthier, and more balanced life.",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 74,
+      "completion_tokens": 356,
+      "total_tokens": 430,
+      "cost": 0.0003852648,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0003852648,
+        "upstream_inference_prompt_cost": 1.90476e-05,
+        "upstream_inference_completions_cost": 0.0003662172
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

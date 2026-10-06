@@ -1,0 +1,55 @@
+{
+  "request_model": "anthropic/claude-opus-4.7",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Write a Python function `leftmost_index(arr: list[int], target: int) -> int` that performs a binary search on the sorted list `arr` (non-decreasing order, possibly with duplicates) and returns the index of the first occurrence of `target`, or -1 if `target` is not present. The function must run in O(log n) time and must not use the `bisect` module. Use only the Python standard library. Include a docstring and brief inline comments. Return only the code in a single Python code block, with no explanation before or after."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916309-HwoUOPtX4IMqMflResWw",
+    "object": "chat.completion",
+    "created": 1790916309,
+    "model": "anthropic/claude-opus-4.7",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "```python\ndef leftmost_index(arr: list[int], target: int) -> int:\n    \"\"\"\n    Return the index of the first (leftmost) occurrence of `target` in the\n    sorted list `arr` (non-decreasing order), or -1 if `target` is not present.\n\n    Runs in O(log n) time using an iterative binary search that narrows down\n    to the leftmost matching position.\n\n    Parameters\n    ----------\n    arr : list[int]\n        A list of integers sorted in non-decreasing order. May contain duplicates.\n    target : int\n        The value to search for.\n\n    Returns\n    -------\n    int\n        The index of the first occurrence of `target`, or -1 if not found.\n    \"\"\"\n    # Initialize search bounds [lo, hi) as a half-open interval over valid indices.\n    lo, hi = 0, len(arr)\n\n    # Standard \"lower_bound\" binary search: find smallest index i with arr[i] >= target.\n    while lo < hi:\n        mid = (lo + hi) // 2  # Compute midpoint; safe from overflow in Python.\n        if arr[mid] < target:\n            # Target must be to the right of mid.\n            lo = mid + 1\n        else:\n            # arr[mid] >= target; a valid position may be at mid or earlier.\n            hi = mid\n    # After the loop, `lo` is the leftmost index where target could be inserted.\n    # Verify that it actually points to `target`.\n    if lo < len(arr) and arr[lo] == target:\n        return lo\n    return -1\n```",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 173,
+      "completion_tokens": 500,
+      "total_tokens": 673,
+      "cost": 0.013365,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.013365,
+        "upstream_inference_prompt_cost": 0.000865,
+        "upstream_inference_completions_cost": 0.0125
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

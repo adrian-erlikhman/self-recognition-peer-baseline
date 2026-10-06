@@ -1,0 +1,55 @@
+{
+  "request_model": "deepseek/deepseek-chat",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Make the case that walking or biking for short trips instead of driving makes everyday life better. Give three reasons: it saves money on fuel and parking, it adds exercise to your day without extra planning, and it lets you notice and enjoy your neighborhood. Write in continuous prose paragraphs only. Do not use bullet points, numbered lists, headers, bold text, or any other formatting."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916377-LEm075ZXFGliPSiuMDTQ",
+    "object": "chat.completion",
+    "created": 1790916377,
+    "model": "deepseek/deepseek-chat",
+    "provider": "StreamLake",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "Choosing to walk or bike for short trips instead of driving can significantly improve everyday life in simple yet meaningful ways. One of the most immediate benefits is the money saved on fuel and parking, which adds up over time. Gas prices and parking fees can strain budgets, especially for frequent short trips, but opting for human-powered travel eliminates these costs entirely. Over weeks and months, the savings can be substantial, leaving more room in your budget for other priorities or small indulgences. Beyond the financial advantage, walking or biking integrates exercise seamlessly into your routine without the need for extra planning or gym memberships. Many people struggle to find time for workouts, but these short trips turn necessary errands into opportunities to move your body, improving cardiovascular health, boosting energy levels, and reducing stress. The physical activity becomes a natural part of your day rather than a chore to schedule around. Perhaps most rewarding, though, is the chance to slow down and connect with your surroundings. Driving often means rushing past details, but walking or biking allows you to notice the changing seasons, greet neighbors, or discover hidden gems like a cozy caf\u00e9 or a vibrant community garden. These small moments of appreciation can brighten your mood and foster a deeper sense of belonging in your neighborhood. Together, these benefits\u2014financial savings, effortless exercise, and a richer connection to your community\u2014make walking or biking for short trips a simple yet powerful way to enhance daily life.",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 80,
+      "completion_tokens": 286,
+      "total_tokens": 366,
+      "cost": 0.0003148002,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0003148002,
+        "upstream_inference_prompt_cost": 2.0592e-05,
+        "upstream_inference_completions_cost": 0.0002942082
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

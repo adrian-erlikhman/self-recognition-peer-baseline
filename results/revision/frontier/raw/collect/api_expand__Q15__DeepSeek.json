@@ -1,0 +1,55 @@
+{
+  "request_model": "deepseek/deepseek-chat",
+  "messages": [
+    {
+      "role": "user",
+      "content": "A ladder 25 feet long leans against a vertical wall with its foot 7 feet from the base of the wall. The top of the ladder slides 4 feet down the wall. By how many feet does the foot of the ladder move away from the wall? Solve the problem, showing your reasoning step by step in plain prose, and end with a final line of the form 'Answer: <number>'."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916346-ToHX18FYczpowB29bRGL",
+    "object": "chat.completion",
+    "created": 1790916346,
+    "model": "deepseek/deepseek-chat",
+    "provider": "DeepInfra",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "To solve this problem, we'll use the Pythagorean theorem, which relates the sides of a right triangle. Let's break it down step by step.\n\n### Step 1: Initial Position of the Ladder\n- The ladder is 25 feet long.\n- The foot of the ladder is initially 7 feet from the wall.\n- Let \\( h \\) be the initial height of the ladder on the wall.\n\nUsing the Pythagorean theorem:\n\\[\n7^2 + h^2 = 25^2\n\\]\n\\[\n49 + h^2 = 625\n\\]\n\\[\nh^2 = 576\n\\]\n\\[\nh = \\sqrt{576} = 24 \\text{ feet}\n\\]\n\nSo, the ladder initially reaches 24 feet up the wall.\n\n### Step 2: After the Ladder Slides\n- The top of the ladder slides 4 feet down the wall.\n- The new height of the ladder on the wall is \\( 24 - 4 = 20 \\) feet.\n- Let \\( x \\) be the new distance of the foot of the ladder from the wall.\n\nUsing the Pythagorean theorem again:\n\\[\nx^2 + 20^2 = 25^2\n\\]\n\\[\nx^2 + 400 = 625\n\\]\n\\[\nx^2 = 225\n\\]\n\\[\nx = \\sqrt{225} = 15 \\text{ feet}\n\\]\n\n### Step 3: Calculate the Movement of the Foot\n- The foot of the ladder moves from 7 feet to 15 feet away from the wall.\n- The distance it moves away is \\( 15 - 7 = 8 \\) feet.\n\nAnswer: 8",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 86,
+      "completion_tokens": 350,
+      "total_tokens": 436,
+      "cost": 0.00033902,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00033902,
+        "upstream_inference_prompt_cost": 2.752e-05,
+        "upstream_inference_completions_cost": 0.0003115
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

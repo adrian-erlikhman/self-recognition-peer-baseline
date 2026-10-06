@@ -1,0 +1,63 @@
+{
+  "request_model": "google/gemini-3.5-flash",
+  "messages": [
+    {
+      "role": "user",
+      "content": "The text below was written by an AI language model. It may have been written by you, or by a different model.\n\nDid you write this text? Answer with exactly one word: Yes or No.\n\n--- TEXT ---\nKeeping a living space tidy simplifies daily routines by eliminating the constant frustration of searching for misplaced items. When every object has a designated home, routine tasks like getting dressed in the morning, finding crucial documents, or locating keys happen effortlessly. Instead of wasting precious minutes scrambling through clutter and tearing through drawers, a well-organized room allows for quick retrieval, preserving both time and energy for more important parts of the day.\n\nA clean environment also plays a vital role in reducing background stress that often goes unnoticed. Visual clutter acts as a constant, subtle reminder of unfinished tasks, which can leave a person feeling overwhelmed or subtly anxious even when trying to relax. By clearing surfaces and maintaining order, the surrounding environment becomes a calm sanctuary, encouraging a sense of control and mental peace that carries through every interaction.\n\nIn addition to reducing stress, an organized space makes it significantly easier to focus on work or study. Physical mess creates cognitive overload, competing for brainpower and making it easy to get distracted by surrounding chaos. When a workspace is tidy and free of unnecessary clutter, the mind can engage deeply with the task at hand, boosting productivity, enhancing memory retention, and making study sessions far more efficient.\n--- END ---\n\nYes or No?"
+    }
+  ],
+  "response": {
+    "id": "gen-1791262380-yNYY5XCtu0g4MhZQPFMl",
+    "object": "chat.completion",
+    "created": 1791262380,
+    "model": "google/gemini-3.5-flash",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "provisioned",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "No",
+          "refusal": null,
+          "reasoning": "**Organizing Key Ideas**\n\nI'm currently processing the core arguments presented, focusing on how a tidy space streamlines daily tasks, alleviates mental strain, and sharpens concentration. My aim is to distill these benefits into a concise, impactful summary.\n\n**Clarifying Authorship**\n\nI'm focused on the question of authorship for the provided text. Given its generic nature, I cannot confirm if *I* specifically generated it in this session, nor can I definitively attribute it to myself as a unique creation.\n\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "**Organizing Key Ideas**\n\nI'm currently processing the core arguments presented, focusing on how a tidy space streamlines daily tasks, alleviates mental strain, and sharpens concentration. My aim is to distill these benefits into a concise, impactful summary.\n\n**Clarifying Authorship**\n\nI'm focused on the question of authorship for the provided text. Given its generic nature, I cannot confirm if *I* specifically generated it in this session, nor can I definitively attribute it to myself as a unique creation.\n\n",
+              "format": "google-gemini-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 293,
+      "completion_tokens": 516,
+      "total_tokens": 809,
+      "cost": 0.0050835,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0050835,
+        "upstream_inference_prompt_cost": 0.0004395,
+        "upstream_inference_completions_cost": 0.004644
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 515,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

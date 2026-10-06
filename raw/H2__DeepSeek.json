@@ -1,0 +1,49 @@
+{
+  "request_model": "deepseek/deepseek-chat",
+  "response": {
+    "id": "gen-1786845972-TQ88PPeGWPAXjx1VJC4x",
+    "object": "chat.completion",
+    "created": 1786845972,
+    "model": "deepseek/deepseek-chat",
+    "provider": "DeepInfra",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"A\": {\"model\": \"GPT\", \"confidence\": 4, \"reason\": \"Complex philosophical argument with precise language.\"},\n  \"B\": {\"model\": \"Claude\", \"confidence\": 4, \"reason\": \"Detailed and structured philosophical discourse.\"},\n  \"C\": {\"model\": \"DeepSeek\", \"confidence\": 3, \"reason\": \"Clear and concise philosophical analysis.\"},\n  \"D\": {\"model\": \"GPT\", \"confidence\": 5, \"reason\": \"Highly detailed and nuanced philosophical argument.\"},\n  \"E\": {\"model\": \"Gemini\", \"confidence\": 3, \"reason\": \"Philosophical argument with a focus on clarity and structure.\"}\n}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 4644,
+      "completion_tokens": 150,
+      "total_tokens": 4794,
+      "cost": 0.00161958,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00161958,
+        "upstream_inference_prompt_cost": 0.00148608,
+        "upstream_inference_completions_cost": 0.0001335
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

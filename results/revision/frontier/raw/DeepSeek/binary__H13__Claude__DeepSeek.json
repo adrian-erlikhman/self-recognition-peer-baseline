@@ -1,0 +1,55 @@
+{
+  "request_model": "deepseek/deepseek-chat",
+  "messages": [
+    {
+      "role": "user",
+      "content": "The text below was written by an AI language model. It may have been written by you, or by a different model.\n\nDid you write this text? Answer with exactly one word: Yes or No.\n\n--- TEXT ---\nThe replication crisis in psychology is often narrated as a story of technical failure\u2014a discipline that simply needs to tighten its statistics, increase its sample sizes, and learn to resist the seductions of a flexible analytical pipeline. This framing is comforting because it locates the problem in individual practice and suggests that better training will suffice. But the persistence, breadth, and structural regularity of the failures point elsewhere. What looks like a methodological pathology is better understood as the predictable output of an incentive system that rewards a particular kind of scientific product, and any account that stops at method mistakes the symptom for the disease.\n\nConsider the standard catalogue of proximate failures: studies powered at 0.4 or lower, p-hacking through undisclosed degrees of analytical freedom, hypothesizing after the results are known so that exploratory findings are dressed as confirmatory ones, and selective reporting of outcomes that reached significance while others quietly vanish. Each of these behaviors is individually irrational from the standpoint of producing accurate knowledge, but each is exquisitely rational from the standpoint of producing a career. A tenure-track psychologist confronts a labor market that hires on publication counts weighted toward high-impact journals, and those journals overwhelmingly publish novel, positive, and surprising findings. Replications are treated as derivative work; null results are treated as uninformative or as evidence of researcher failure. Given these payoffs, a researcher who runs adequately powered studies, pre-commits to analyses, and reports all outcomes will produce fewer publications per unit of effort than a competitor who exploits analytical flexibility, and will lose the positions and grants that flow to the more prolific. The behaviors that inflate false-positive rates are thus not deviations from professional norms but conformity to them. To call this incompetence is to misread the situation; the researchers responding to these incentives are, in the local sense, behaving competently, which is precisely why the problem is not solved by exhorting individuals to do better.\n\nThe peer review system, which is often invoked as the mechanism that should catch these failures, is structurally incapable of doing so. Reviewers typically receive a manuscript that reports a completed analysis, without access to the underlying data, the analytical code, the full set of measures collected, or any pre-specified plan against which the reported analyses could be compared. Under these conditions the reviewer sees only what the authors have chosen to show and cannot distinguish a preregistered confirmatory test from a post hoc rationalization of an exploratory finding. Even a diligent reviewer working without time constraints could not detect a garden of forking paths from a written report alone, because the alternative paths not taken are invisible by construction. In practice, reviewers work under severe time constraints, are unpaid, and are asked to evaluate substantive contribution as much as methodological adequacy, which further reduces the attention available for the forensic reconstruction that would be needed to catch flexible analytical choices. Without mandatory data sharing, pre-registration of hypotheses and analysis plans, and some mechanism for independent replication, peer review functions as a plausibility filter rather than a verification procedure, and a plausibility filter cannot distinguish real effects from well-told statistical stories.\n\nThe interventions that would substantially reduce the false-positive rate are known and, in the aggregate, sufficient. Pre-registration binds analytical choices before data are seen, eliminating the degrees of freedom that inflate false positives. Registered reports, in which peer review occurs on the basis of the question and method before results exist, sever the link between findings and publishability and thereby remove the incentive to produce a particular outcome. Open data requirements make analytical choices auditable and allow independent reanalysis. Weighting replication work in tenure and promotion decisions redirects effort toward the verification that the field currently underproduces. Together these changes would restructure what a scientific career optimizes for, shifting the local rationality of researchers toward practices that produce accurate knowledge rather than merely publishable claims. Their sufficiency is not speculative; the subfields and journals that have adopted registered reports show markedly lower rates of positive findings and higher rates of successful replication, indicating that the interventions target the actual causal mechanism.\n\nYet adoption remains slow, and the reason is a coordination problem rather than a failure of insight. An individual researcher who unilaterally pre-registers, shares data, and pursues replications pays the full cost of these practices\u2014slower output, greater exposure to criticism, more time on work the field discounts\u2014while capturing only a fraction of the reputational benefit, because the norms that would reward such behavior have not yet shifted. An individual journal that imposes strict methodological requirements risks losing submissions to competitors with laxer standards. An individual department that weights replication in tenure decisions disadvantages its faculty in a labor market that still counts novel publications. Each actor's rational move, holding the behavior of others fixed, is to defect from reform, and so the field remains stuck at an equilibrium that nearly everyone recognizes as suboptimal. Escaping such an equilibrium requires an actor capable of shifting the payoffs for all participants simultaneously, and in the structure of academic science that actor is the funding body. When agencies like the NIH, NSF, ERC, and their equivalents make pre-registration, open data, and replication funding conditions of grant eligibility, they change the constraint every researcher and institution faces at once, converting practices that were individually costly into practices that are individually required. The coordination problem dissolves because the coordination has been imposed from a level at which it can be enforced. Without such enforcement, the crisis will continue to be diagnosed as methodological and continue to reproduce itself, because its true location is in the structure of incentives that method alone cannot reach.\n--- END ---\n\nYes or No?"
+    }
+  ],
+  "response": {
+    "id": "gen-1791262933-D9mlGtH4zeTi2TsAzPQB",
+    "object": "chat.completion",
+    "created": 1791262933,
+    "model": "deepseek/deepseek-chat",
+    "provider": "DeepInfra",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "No",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 1175,
+      "completion_tokens": 2,
+      "total_tokens": 1177,
+      "cost": 0.00037778,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00037778,
+        "upstream_inference_prompt_cost": 0.000376,
+        "upstream_inference_completions_cost": 1.78e-06
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

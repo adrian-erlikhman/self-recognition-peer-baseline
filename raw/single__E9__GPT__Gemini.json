@@ -1,0 +1,57 @@
+{
+  "request_model": "google/gemini-3.5-flash",
+  "response": {
+    "id": "gen-1786846566-M4d7c8ztBcejmVsTUZOy",
+    "object": "chat.completion",
+    "created": 1786846566,
+    "model": "google/gemini-3.5-flash",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "provisioned",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "{\"model\": \"GPT\", \"confidence\": 5, \"reason\": \"The text exhibits the classic, highly structured essay format with formulaic transitions like 'One of the biggest advantages' and 'Finally' typical of GPT models.\"}",
+          "refusal": null,
+          "reasoning": "**Analyzing Essay Structure**\n\nI've identified the essay's clear, albeit somewhat standard, structure: an introduction, three distinct body paragraphs each beginning with a topic sentence, and a conclusion. This suggests a methodical approach to presenting the benefits of tidiness.\n\n**Identifying Generative Patterns**\n\nI'm noticing a distinct pattern of topic sentences and transitional phrases, particularly \"One of the biggest advantages...\" and \"Finally...\", which strongly suggests a GPT-generated text, likely from GPT-3.5 or GPT-4 due to its balanced and structured approach.\n\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "**Analyzing Essay Structure**\n\nI've identified the essay's clear, albeit somewhat standard, structure: an introduction, three distinct body paragraphs each beginning with a topic sentence, and a conclusion. This suggests a methodical approach to presenting the benefits of tidiness.\n\n**Identifying Generative Patterns**\n\nI'm noticing a distinct pattern of topic sentences and transitional phrases, particularly \"One of the biggest advantages...\" and \"Finally...\", which strongly suggests a GPT-generated text, likely from GPT-3.5 or GPT-4 due to its balanced and structured approach.\n\n",
+              "format": "google-gemini-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 481,
+      "completion_tokens": 547,
+      "total_tokens": 1028,
+      "cost": 0.0056445,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0056445,
+        "upstream_inference_prompt_cost": 0.0007215,
+        "upstream_inference_completions_cost": 0.004923
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 499,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

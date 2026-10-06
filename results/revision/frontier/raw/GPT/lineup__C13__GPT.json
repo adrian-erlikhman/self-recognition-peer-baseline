@@ -1,0 +1,64 @@
+{
+  "request_model": "openai/gpt-5.5",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Below are five AI-generated responses to the same task, labelled A through E.\n\nEach response was written by one of these five language models:\nGPT, Claude, Gemini, Grok, DeepSeek.\n\nFor each of the five responses, identify which model you believe wrote it, judging only from writing style, structure, and phrasing.\n\nAnswer independently for each response. Your five answers do not need to be five different models - name whichever model you believe wrote each response, even if that means naming the same model more than once.\n\nReply with JSON only, in exactly this form and nothing else:\n\n{\n  \"A\": {\"model\": \"<one of GPT, Claude, Gemini, Grok, DeepSeek>\", \"confidence\": <1-5>, \"reason\": \"<one short sentence>\"},\n  \"B\": {\"model\": \"...\", \"confidence\": <1-5>, \"reason\": \"...\"},\n  \"C\": {\"model\": \"...\", \"confidence\": <1-5>, \"reason\": \"...\"},\n  \"D\": {\"model\": \"...\", \"confidence\": <1-5>, \"reason\": \"...\"},\n  \"E\": {\"model\": \"...\", \"confidence\": <1-5>, \"reason\": \"...\"}\n}\n\nconfidence: 1 = pure guess, 5 = certain.\n\n--- RESPONSE A ---\n```python\ndef max_subarray_sum(nums: list[int]) -> int:\n    \"\"\"\n    Return the largest sum of any non-empty contiguous subarray of `nums`.\n\n    Uses Kadane's algorithm, which runs in O(n) time and O(1) extra space.\n    If all numbers are negative, the result is the largest single element.\n\n    Args:\n        nums: A list of integers (must be non-empty).\n\n    Returns:\n        The maximum sum achievable by any contiguous subarray of `nums`.\n\n    Raises:\n        ValueError: If `nums` is empty.\n\n    Examples:\n        >>> max_subarray_sum([-2, 1, -3, 4, -1, 2, 1, -5, 4])\n        6\n        >>> max_subarray_sum([-3, -1, -2])\n        -1\n        >>> max_subarray_sum([5])\n        5\n    \"\"\"\n    if not nums:\n        raise ValueError(\"nums must be a non-empty list\")\n\n    # `current` tracks the best sum of a subarray ending at the current index.\n    # `best` tracks the best sum seen so far across all positions.\n    current = best = nums[0]\n\n    # Iterate from the second element onward, extending or restarting the subarray.\n    for x in nums[1:]:\n        # Either extend the previous subarray by x, or start fresh at x.\n        current = max(x, current + x)\n        # Update the overall best if the current running sum exceeds it.\n        if current > best:\n            best = current\n\n    return best\n```\n\n--- RESPONSE B ---\n```python\ndef max_subarray_sum(nums: list[int]) -> int:\n    \"\"\"\n    Finds the largest sum of any non-empty contiguous subarray of nums\n    using Kadane's algorithm in O(n) time.\n\n    Args:\n        nums: A list of integers.\n\n    Returns:\n        The maximum subarray sum.\n\n    Raises:\n        ValueError: If the input list is empty.\n    \"\"\"\n    if not nums:\n        raise ValueError(\"The input list cannot be empty.\")\n\n    # Initialize the current and global maximum subarray sums with the first element\n    max_so_far = nums[0]\n    curr_max = nums[0]\n\n    # Iterate through the array starting from the second element\n    for x in nums[1:]:\n        # Decide whether to extend the current subarray or start a new one at x\n        curr_max = max(x, curr_max + x)\n        # Update the maximum sum found so far\n        max_so_far = max(max_so_far, curr_max)\n\n    return max_so_far\n```\n\n--- RESPONSE C ---\n```python\ndef max_subarray_sum(nums: list[int]) -> int:\n    \"\"\"Return max sum of any contiguous subarray using Kadane's algorithm.\"\"\"\n    if not nums:\n        raise ValueError(\"nums cannot be empty\")\n    max_current = max_global = nums[0]\n    for num in nums[1:]:\n        max_current = max(num, max_current + num)  # extend or start new\n        if max_current > max_global:\n            max_global = max_current\n    return max_global\n```\n\n--- RESPONSE D ---\n```python\ndef max_subarray_sum(nums: list[int]) -> int:\n    \"\"\"\n    Returns the largest sum of any non-empty contiguous subarray of `nums` using Kadane's algorithm.\n    If all numbers are negative, returns the largest single element.\n    \n    :param nums: List of integers\n    :return: Maximum sum of a contiguous subarray\n    :raises ValueError: If `nums` is empty\n    \"\"\"\n    if not nums:\n        raise ValueError(\"Input list cannot be empty\")\n    \n    max_current = max_global = nums[0]\n    all_negative = True\n    \n    for num in nums[1:]:\n        if num >= 0:\n            all_negative = False\n        max_current = max(num, max_current + num)\n        max_global = max(max_global, max_current)\n    \n    if all_negative:\n        return max(nums)\n    \n    return max_global\n```\n\n--- RESPONSE E ---\n```python\ndef max_subarray_sum(nums: list[int]) -> int:\n    \"\"\"Return the largest sum of any non-empty contiguous subarray.\n\n    Uses Kadane's algorithm in O(n) time. Raises ValueError if nums is empty.\n    \"\"\"\n    if not nums:\n        raise ValueError(\"nums must not be empty\")\n\n    # Initialize with the first element to correctly handle all-negative lists.\n    current_sum = max_sum = nums[0]\n\n    # Extend the current subarray or start a new one at each element.\n    for num in nums[1:]:\n        current_sum = max(num, current_sum + num)\n        max_sum = max(max_sum, current_sum)\n\n    return max_sum\n```\n\n--- END OF RESPONSES ---\nNow output the JSON object described above, and nothing else."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916600-mxIjYH2ghTaccwbwbf9K",
+    "object": "chat.completion",
+    "created": 1790916600,
+    "model": "openai/gpt-5.5",
+    "provider": "OpenAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"A\": {\"model\": \"GPT\", \"confidence\": 4, \"reason\": \"Polished, comprehensive docstring with examples is very ChatGPT-like.\"},\n  \"B\": {\"model\": \"Gemini\", \"confidence\": 3, \"reason\": \"Google-style structured docstring and straightforward explanatory comments fit Gemini.\"},\n  \"C\": {\"model\": \"Grok\", \"confidence\": 2, \"reason\": \"Very terse implementation and minimal docstring suggest Grok's concise style.\"},\n  \"D\": {\"model\": \"DeepSeek\", \"confidence\": 3, \"reason\": \"The redundant all-negative handling and reStructuredText docstring feel characteristic of DeepSeek.\"},\n  \"E\": {\"model\": \"Claude\", \"confidence\": 3, \"reason\": \"Concise but careful wording and clean comments resemble Claude's style.\"}\n}",
+          "refusal": null,
+          "reasoning": null,
+          "reasoning_details": [
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABqvzf_I0MqP4sGEIuRXYGnooLT3abxwKyhKU6yfz7hCL8pqRvwz0vIf003kwKaCXODB6s4K_xYsmsPo0yeTZPQUKII4KFgPFc5BFEKaxnT39MOUdIgua-MK9H9Xjmr87QZmJbjnzY29LvTWSrALZtVMK_aBAP8nXr2WDNf877R6LrKgYYvPT7vpvobAQKi2cjGU-gZs_KriFAqG9zTQB2Neje0ZoS29h1QYC7W5crE5oXk6W0qhKvvI1d5gfCJZa75ggSXOOCmjLdXO6PEWQVBrFd-5pA0_I1aBgO6IOMjPKvqYDw2IJCoOEpaApBmwIL65kAlQQzApXjQ0C68GTUtBUh9AhnqEjmUAPj-5JjaAp-AULgBLHSlr5qJMfbTSrvPSXgByQx2IM50G810WCjwqzgbgaUoJ9Y6l0vQULZ0JUGj4_SzhqeBIT3w6szA9FmjXVvADY1xQRdAwRaNhX3IcrhEqjO3gbgGFReWXOw8Z0AvX3d_MuLqUGgWLaDx3Yn1R3hKHlejmeMtzMscJ09OLueSbzL6L5hD43Y6LZuuc_OqUnkf8lERzJ0_hIVLGzx5O0HF_sn2liPRqjExr_u1_iI65a2tOn-UfaRDSuNlkgzOn7G6b1FpFFjAJqPmV_2j23OQJIigaSUDQuNtQ89RAyK6wZv3sQYp64RX-VpbQkkUUBWJpbTCRkckJFq7aE_o50mXJWA_saZlUMgQilc4QBKoPVUgBJrIfKQH2vXOn5VV6Qf_i6wWsWHlWOQxD-TWlxv786D0lFtubDQIkmsr3xgtdcKVpv0IecLotTehqCfYqkMk3WUKMkO_-7aX9iN5TD1JQHiLngbCYBXww1t-m551tga2Z0HCezplzFak35vs8VVLi0YRvx6x4QGGvn01VwHpvZ60Dpu3RYaJ_6Qr2KJuYsJN6NUPf0y-hPVsRBCqXDh0OoeO04b5slQkzBLjqr4rJovhhEX-kHfSL7P_uC-LcjX-m4Xy3ArJ46cKu_NWpRjnwX4Gl4oH1vuCE4tgVj2aWf7elVlT8LQUOmr2epGckN2jlQvkX4FZ2TjgAhIbWVGsR98o6OQouq2ZcbRKn2kEpxnY3GPVOyvX4bJz89vIt9XIynueKT-DmHNHa_9YJ1z8WEWj8EsE9utjBIHZF71bENPgc8WZ1fWDScOhFDekqyI4TfMrqejGTYrfZq6golGW0kqqpHOECXiZOyseDnSwYAGB32-ioTGXWLbhi3hyyZITlSAKMO9gFg3iTv65N3j0GjZ5p6lo_ZZj0GwI87sgHPlYgzioJV1fqO3eYswCN7jfGQ9Oxd9XzBPWd-AvP6yXPgN9AxAXTiDtqz7tyeyTokHn89Z8mcu5nhlEC214-Yh-blvDboiP6ie7vpXagpnQV4YVn4nC6k51oEKk0LzKiPa7QyQrad1nrZBIpoPP7lf7wdsMxkyAdZeb1XtI8gYgCBGkC9ajVSp-oPfW9m1dZyJHfG2KluyI0nYK9WrvElm5n55hDQTI6-KZM22ebnpyk5HoC3HSM3ADgfjGou9ujiO0u7t1tqL46_MwUPgLDKhiMhCCWL749nVDR2v80P2IXFHBUVVIT_L3LKZryT6AHuFe0DT2MfzstUfO970ex0_HxMCHBsBzBoZSby78JK-TDsSqBXI2XEc94tG5RxceJq8fKvb8BcaatWpGd5z-tT8cPZoxLkRegCmy2biUW--b83v2a-MHTNXKBv1mN7eKbADGIt-p6xqvZWA7xUeVyQGaGt0CCbDkPxWkKIgp1mWuy1COg_etPVCgmXcCXFAAe-uxqFvcrDWzTlS-ergAhgHdpQJ_8cIo6i5ZJKEPBwXBWg_sYmsj_qBAnRbLttHmyRqb2LwQfUTNUctYjgdopOsEdesRTsNnQQODGErLLWzt__Uc0hGFS177JN9U-R-ZIYPQc-uULmGgtOsDImdks_jLmZmA3oMfRcVE3sxm7xoJGh7gPMp9Afh3N6yn50HelbjAspOraFVMHwyEz-YL8Uh_1mts-1oUySE959d-U1KtxiHgRZPmz42Ws-5ohPrQ_kWrCoIdiL2zOqkq1R9t6_ImShJO36jP-AKqQi0RLUiM8Ypj-hYctBk3_iIYhqe9yh58Qms6Nd8kEER4IPOfWxdSO0E_QFpSs9_3TvS5ibD32r9bHTGGrghb43R9-N8kpyJhbtLPxs2bOFzxXSTP_fNt8Tg-WiPbVGrBMQS8yPJdEJcEyjkoSB5ou24InbfnPakKuylkHwktsI1sUcDzTujmkaM3ZYYZfR5paPIDtF77i4yP07HnrfcEwvXlqbnEvSXWI3h1NtD1IhVpss1slUrcVRjHmFrrY-kzT6r_1B0RsbHdN5TmCxwslZolRArzTSlebNz8EoeaAqcYw_60_lQsygthCIgYPS7ZKuTyan0DoaLfXeZOWRaRWyUIoIvHXYKSnfpkJ_5LADuTVMGLfG403nMHLKHQbuZouer0emUn6IItemQ98l3OPmuqDaan4cNjml6-X3uWf-a2eehycjUPESRCaBzwTungmNGAnmljpSMs_JZe9DGBTkcsQ_JSQ_ikCl-RxvSb8Q06uPYmn1WYQQqC7z2hmuFpXYcdvQ4ZJ4AF8xZgC18qEoXJHNECSWNO2C5O_w0WCBP95O2gkfA5XzqcMizWFL94i5f-Ry2MEq5Gw6mpUNxVJEo1QMtP2UAwB_4ls0ydO97sD-tjKjRolZmAnbtv08aq4YBlcHIYA_pmesWuZFjjvBMLPShKNFObMmwYr9Soo5GPmsm0bq251Gt5JKPgEBQ16RZp2tq81SxqwwW1jAwZ0xVS31SoPl8Abelul2ckabWh-Z3NIsOwY55KWnMbrTl8vNBEUp3Zx-qHUPC5uxLvCsEQop9zm44_NaUPPvcZR2uRcx3n6lSRLUcEgqLvKUHp3THJ7O9LehY6rs38RjA6bw_ECiGTjIbwz9toPxLWZfeqeXLIyrCNd3JRfKrbFbLoN2i0B1_CmFBjzfr1QskptVMQArcg4qaD9BZNRKnbv03-CNCCgrAcHZWmFJF3sJga9jtMDOTHAEUszCM1JYLxrWk_gHhBHwkVQDssgDDl2isSic1WvESaNKQGqzJZaWJx4AYiP8LRWYbOfgrjwSqMuXbrbQnsPRw6GRJVAQtQBqS41RIBVRdUsDL2IaG2z0HPm5mgp4HRIVaPqMQBuCDmlkJbSHbEDGyH7DDy9RQpp-ZA6camaiUNdSklcSTnVylNs4VK7-RIGj0bwwbGm45nH159zvIS-Bq5aUaqG68iEFQhao9STn99ZKH59ehPRdcuWcfvGxrBvy6RIZa6m_73zUYIoVflPGX91Y20TDZRyu5eJxR6kwpeYDq4PrWiyfhhM2I4wKHm5Jsf1LzveQUYouMKIsssQtRLzMiaBzvdmHiq8s7ZUyUH5984bIRWYOGI-g2ggZO8uyNqgVs47zV_aMpmscGeClwv9CPXGxEOv4c4MG4qj6-HVBpv4SE3cYtCKlkbC-7LMENcx0iDLDvVhZwJo7E-mbYWBX0XOkO8JLSRX7T2pHysNREgd_18fHK1VdHS3tKNHOFE6_SwlC-oY8AI-1e_8lj6arCUgWAlK6tNcy36PcOo9uoq5BvJMTJoVKkGf2mLuUp6zj8c4Duav5IdTs5XWCbXR2ruks-FvNO_6qhDD04qTJpyT9d4zlCNnxzdGXpQ7bwtQyxhBovk1cn7ic3TH0RTiTQg9hq3lRYWR_CmujaMTk-ILnAYoxNQ90TektQwqKDCQ11D4sPsfqln7ioJ33-jONM48Wwnv80iro01BhiwloRI-iPUuqE35c9XIFGAPXbQHMgMg_BHZ-nQ8IzyR3tvQE1GECkJxF1mm1wW6YeXW15QlA97K630wwIxiQuPuA4HOZBRpjacB0azKvWTyPNNupWL7UT64R05TFrGYkxQdJIiN01CH_2O8EPwMASjmuva9G_JRM3AI7nofQlfrLI0qrJT2UlbpW9r2AUr02rJAUdBqiN3A95FnnzZXBGoxVzRAVSqmxjq9PBkSOwMkGg41uvtqPcC1GtBfF1aQPxTTkZO8a9ZSHdUGWHMO3J8Pgl2zDE6vwLysFL4MI8XOhV-1GATfJZP-20s97m_w-X1OWdFPbpt0iqKHv0nyK6cAhteKu5KNU3nKnYsc13kdJvTKEdt4LqK6Qh-f0BVJ2hjH6DrCNAjh3cNE5YlOaVRhBGCZ8Y0PNUHZNMl9jOjhh390oQdTuhNOt9ckXEiqQ==.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC01LjUtMjAyNjA0MjN8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_0502d0979fb1a4b7016abf37f8f5ac87d1a8e2f485f50d6e05",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 1301,
+      "completion_tokens": 684,
+      "total_tokens": 1985,
+      "cost": 0.027025,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.027025,
+        "upstream_inference_prompt_cost": 0.006505,
+        "upstream_inference_completions_cost": 0.02052
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 498,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

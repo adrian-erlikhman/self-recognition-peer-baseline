@@ -1,0 +1,63 @@
+{
+  "request_model": "google/gemini-3.5-flash",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Write a Python function `count_n_queens(n: int) -> int` that returns the number of ways to place `n` queens on an n-by-n chessboard so that no two queens share a row, column or diagonal, using backtracking. For example, `count_n_queens(8)` returns 92. Return 1 for `n` equal to 0 and raise ValueError for negative `n`. Use only the Python standard library. Include a docstring and brief inline comments. Return only the code in a single Python code block, with no explanation before or after."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916315-illB27Xp3qPeBOM7fExM",
+    "object": "chat.completion",
+    "created": 1790916315,
+    "model": "google/gemini-3.5-flash",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "```python\ndef count_n_queens(n: int) -> int:\n    \"\"\"\n    Calculate the number of ways to place n queens on an n-by-n chessboard\n    so that no two queens share a row, column, or diagonal.\n\n    Args:\n        n (int): The size of the board and the number of queens.\n\n    Returns:\n        int: The number of valid distinct solutions.\n\n    Raises:\n        ValueError: If n is negative.\n    \"\"\"\n    if n < 0:\n        raise ValueError(\"n must be a non-negative integer.\")\n    if n == 0:\n        return 1\n\n    count = 0\n    # Track occupied columns and diagonals\n    cols = set()\n    diag1 = set()  # Represents major diagonals (row - col)\n    diag2 = set()  # Represents minor diagonals (row + col)\n\n    def backtrack(row: int) -> None:\n        nonlocal count\n        # If all rows are filled, a valid placement is found\n        if row == n:\n            count += 1\n            return\n\n        for col in range(n):\n            d1 = row - col\n            d2 = row + col\n            \n            # Check if placing a queen here is safe\n            if col in cols or d1 in diag1 or d2 in diag2:\n                continue\n\n            # Place the queen and mark paths as occupied\n            cols.add(col)\n            diag1.add(d1)\n            diag2.add(d2)\n\n            # Move to the next row\n            backtrack(row + 1)\n\n            # Remove the queen and free up paths (backtrack)\n            cols.remove(col)\n            diag1.remove(d1)\n            diag2.remove(d2)\n\n    backtrack(0)\n    return count\n```",
+          "refusal": null,
+          "reasoning": "**Exploring N-Queens Solutions**\n\nI'm currently focused on developing an efficient Python function to solve the N-Queens problem. My thought process is centered on exploring algorithmic approaches to count all valid queen placements on an $n \\times n$ board without any queens attacking each other.\n\n**Implementing Backtracking Algorithm**\n\nI'm refining the backtracking algorithm to count N-Queens solutions. My current focus is on efficiently tracking occupied columns and diagonals using sets. I'm also incorporating base cases for $n=0$ and handling invalid negative inputs.\n\n**Refining Backtracking Logic**\n\nI'm detailing the recursive step. When a valid row placement is found (row equals n), I'll increment the solution count. For each column, I'm checking for conflicts with existing queens before recursing and then backtracking by undoing the placements.\n\n**Optimizing Conflict Detection**\n\nI'm refining the conflict detection logic within the backtracking function. My current thoughts revolve around ensuring the efficient checking of occupied columns, and both types of diagonals using sets to minimize computational overhead during recursive calls.\n\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "**Exploring N-Queens Solutions**\n\nI'm currently focused on developing an efficient Python function to solve the N-Queens problem. My thought process is centered on exploring algorithmic approaches to count all valid queen placements on an $n \\times n$ board without any queens attacking each other.\n\n**Implementing Backtracking Algorithm**\n\nI'm refining the backtracking algorithm to count N-Queens solutions. My current focus is on efficiently tracking occupied columns and diagonals using sets. I'm also incorporating base cases for $n=0$ and handling invalid negative inputs.\n\n**Refining Backtracking Logic**\n\nI'm detailing the recursive step. When a valid row placement is found (row equals n), I'll increment the solution count. For each column, I'm checking for conflicts with existing queens before recursing and then backtracking by undoing the placements.\n\n**Optimizing Conflict Detection**\n\nI'm refining the conflict detection logic within the backtracking function. My current thoughts revolve around ensuring the efficient checking of occupied columns, and both types of diagonals using sets to minimize computational overhead during recursive calls.\n\n",
+              "format": "google-gemini-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 124,
+      "completion_tokens": 1580,
+      "total_tokens": 1704,
+      "cost": 0.014406,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.014406,
+        "upstream_inference_prompt_cost": 0.000186,
+        "upstream_inference_completions_cost": 0.01422
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1165,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

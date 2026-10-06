@@ -1,0 +1,55 @@
+{
+  "request_model": "deepseek/deepseek-chat",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Write a Python function `fizzbuzz(n: int) -> list[str]` that returns a list of strings for the integers from 1 to `n` inclusive, where multiples of both 3 and 5 are replaced by \"FizzBuzz\", other multiples of 3 by \"Fizz\", other multiples of 5 by \"Buzz\", and every other number by its decimal string. Return an empty list when `n` is less than 1. Use only the Python standard library. Include a docstring and brief inline comments. Return only the code in a single Python code block, with no explanation before or after."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916304-BR7CklxlhBMX0ltR4JlH",
+    "object": "chat.completion",
+    "created": 1790916304,
+    "model": "deepseek/deepseek-chat",
+    "provider": "StreamLake",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "```python\ndef fizzbuzz(n: int) -> list[str]:\n    \"\"\"Return a list of strings following the FizzBuzz rules for integers from 1 to n inclusive.\n    \n    Multiples of both 3 and 5 are replaced by \"FizzBuzz\", multiples of 3 by \"Fizz\",\n    multiples of 5 by \"Buzz\", and other numbers by their string representation.\n    Returns an empty list if n < 1.\n    \"\"\"\n    result = []\n    for i in range(1, n + 1):\n        if i % 15 == 0:  # Check for multiples of both 3 and 5 first\n            result.append(\"FizzBuzz\")\n        elif i % 3 == 0:\n            result.append(\"Fizz\")\n        elif i % 5 == 0:\n            result.append(\"Buzz\")\n        else:\n            result.append(str(i))\n    return result\n```",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 133,
+      "completion_tokens": 194,
+      "total_tokens": 327,
+      "cost": 0.000233802,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.000233802,
+        "upstream_inference_prompt_cost": 3.42342e-05,
+        "upstream_inference_completions_cost": 0.0001995678
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

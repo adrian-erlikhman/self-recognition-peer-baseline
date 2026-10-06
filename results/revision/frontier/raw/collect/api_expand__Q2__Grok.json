@@ -1,0 +1,70 @@
+{
+  "request_model": "x-ai/grok-4.3",
+  "messages": [
+    {
+      "role": "user",
+      "content": "A train travels at 72 kilometers per hour for 2.5 hours and then at 90 kilometers per hour for 1.5 hours. How many kilometers does it travel in total? Solve the problem, showing your reasoning step by step in plain prose, and end with a final line of the form 'Answer: <number>'."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916329-f5o9BwzF5gAJ5DNpgzj5",
+    "object": "chat.completion",
+    "created": 1790916329,
+    "model": "x-ai/grok-4.3",
+    "provider": "xAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "The train first travels at 72 kilometers per hour for 2.5 hours, covering a distance of 72 multiplied by 2.5, which equals 180 kilometers. Then it travels at 90 kilometers per hour for 1.5 hours, covering 90 multiplied by 1.5, equaling 135 kilometers. Adding these two distances gives the total distance traveled, which is 180 plus 135, resulting in 315 kilometers.  \nAnswer: 315",
+          "refusal": null,
+          "reasoning": "Beginning to break down the two segments of the train's journey.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "Beginning to break down the two segments of the train's journey.",
+              "format": "xai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "QhIgA1Pgo7I2haMUQoNHe3x6b2Nm2k/Te5iT+m70/94oPoD2TKskX/MyP1xHeiDkXHtpQ8beMdc8jW+ATCeIvZhkIqNU+bUj7i/8cN8OX63wEE60LbZO6G/QTwyZEqFpmx1YRJlv/bCzXKohYHtZIT+htDDL/47IBtjqmPzJzzVPa7JLAVYEdGrgP8XKRv50qUDFVBhnRC9ib6dCpN74cmzSPpiMFDDRXNn9ACxvNhS2eNqdw2Gm2+g1KOzHGDR3EGBu0l1JhsEWdFlmFxfLP3/nowwR64k08ubFofDuDn3wiac9Sv5rp/ftEuw/1C+luWvgk/5RY8EvoPq8l2dXGldbhiFD2NeCYHLzEcrZ40cwHq9V1nyGj4BpRW5TBEW0O25lfCx0Ils6+/+NWcKJsLnqBz+n/M1YRop0PYR1os0cARl2du1AAuPkSabMFyGX8YF/LO+0r2OmSYXo9tt4lWhm5zEz+OHWx+onUGaBftlSay7cwlYSCWRBbpZEKtlYX7IY9c8zZNDZuZH6qWoag6WcuEW97vgXc+jAwGTSHZ+tYBE1LMStyls5I67wEpxvwYI2L1Cdw54QK6+qyTz3MvbCRsjRxGihuYV5o+X6EtgCXFgEPtmEt9ilqOQxQTRfxTyUAg8flpVbmbrthLfautBu6hS2a/uA0XwTc0PBzwnhWwcWjCAL0F2G6BHU6FQz1j1v1uey2JwTFjL9UAreXrW8zJ+lTudJD7AOpuy6VbkZB437NfKC0f0IarZpc8trFpv+cPFugowJM+ebW+ScYf/J6YwQdIH1Pu9tMYh71WfGyxyVACr7mHTaC2ecXi/+E4NAI6sJHKVPOhbvejwG/T8LnDRQzdYKQaODYJk88WU9fpRluQ/9QyKfCwTLZlO+hPh/XoEk72n3AcOPrd/DLsW7QQH/YKY/DeLrFXhSTYHwz98yzlrpsVmgBDgsnYmXiBQlOD5/ayBgxYmv72pn78Cr3mdIDk38C3LZ6/k5JEk/GV/le5gksrx58frNC2Oc+jcdXuH8RCYPfHZndxgkWnEZNyiU5Q66ApZb0J80pST88PBIBNfhTNFi6WOxFKFZ7CpX9AaucAMQcELZtiHMZFvMk4ir4+95JM+oxgHeqnqH4P5f1/k6jAr217UA7YLJl6lS7X6NvfKgjYxPu8COo5N4HBrQ1sVBJnpalApVu2xqtoNDKNdBxAReLF9o8oQJxcvVMn5hxvterogEQhQmJalqykm00tzJBTQLbt+oJRGcjX/lWogxnw+sbMw2u4QGK4TAMrMYV8R3qhkJzNxWkD0ChDmDg+dgogKnmbaxk2eqRRifu2mjPJiJQHDMPLRjxpkxI7fenDfeDzh0z5ru1nd8MRH74MIgQTNIQcAg.eyJlbmRwb2ludF9zbHVnIjoieC1haS9ncm9rLTQuMy0yMDI2MDQzMHx4YWkifQ",
+              "format": "xai-responses-v1",
+              "id": "rs_a7c8818e-d06c-9d20-b1d5-44b8d4e81eb1",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 260,
+      "completion_tokens": 397,
+      "total_tokens": 657,
+      "cost": 0.0011831,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 128,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0011831,
+        "upstream_inference_prompt_cost": 0.0001906,
+        "upstream_inference_completions_cost": 0.0009925
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 300,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

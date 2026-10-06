@@ -1,0 +1,70 @@
+{
+  "request_model": "x-ai/grok-4.3",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Write a Python function `fizzbuzz(n: int) -> list[str]` that returns a list of strings for the integers from 1 to `n` inclusive, where multiples of both 3 and 5 are replaced by \"FizzBuzz\", other multiples of 3 by \"Fizz\", other multiples of 5 by \"Buzz\", and every other number by its decimal string. Return an empty list when `n` is less than 1. Use only the Python standard library. Include a docstring and brief inline comments. Return only the code in a single Python code block, with no explanation before or after."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916304-v43RhvAOcdsTDsBGhZNe",
+    "object": "chat.completion",
+    "created": 1790916304,
+    "model": "x-ai/grok-4.3",
+    "provider": "xAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "```python\ndef fizzbuzz(n: int) -> list[str]:\n    \"\"\"Return FizzBuzz list for 1 to n (or [] if n < 1).\"\"\"\n    if n < 1:\n        return []  # empty for invalid input\n    result = []\n    for i in range(1, n + 1):\n        if i % 3 == 0 and i % 5 == 0:\n            result.append(\"FizzBuzz\")  # multiple of both\n        elif i % 3 == 0:\n            result.append(\"Fizz\")  # multiple of 3 only\n        elif i % 5 == 0:\n            result.append(\"Buzz\")  # multiple of 5 only\n        else:\n            result.append(str(i))  # plain number\n    return result\n```",
+          "refusal": null,
+          "reasoning": "I need to write a Python function that returns a list of strings from 1 to n, replacing multiples of 3 with \"Fizz\", multiples of 5 with \"Buzz\", and multiples of both with \"FizzBuzz\".",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "I need to write a Python function that returns a list of strings from 1 to n, replacing multiples of 3 with \"Fizz\", multiples of 5 with \"Buzz\", and multiples of both with \"FizzBuzz\".",
+              "format": "xai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "atwrL1/O+ktSOIcDDyLFkI1/hAUuF7UnIzwhrl+HyTUaaLMzRqPbjf7dNdpsAoxh6I9qOAMgtKj3YjCen2GANI985rXlFxnRMZcVCmz8sAL9ezhIFDyHQnyV60/E6eC0EfVIUKXAHTxy97nh4wHpuFtnIEtLTuBMI1OlCe/6XXpQz4DHQPpECy3QD5nxqsAMrjxxlk+ay8HP+RobN4G3Z3JMGTKPPgmAWS61MUn380mbSJpLnMYOxaD5gZJbTNm2hV//QJz/ZWxd1zAk8F58uYNR40GM5OTwuREVcxv1fIOkq89UrMEknPKP495hPIowZ4FK6+oTHuazAnyNEcT8A+1FFeRvv6/cHYrJqx/2RwfK72BILwTxekxB+CckOz0Rvhld0GFvSOLYUGfpxZqZQ+myWl78SPLmUewInYfVQTmWPyG4VJESxDFlte7UyeqBQrkGqzMDLF/zCA9kBAogGd0DtvPbupXyxt2WOw/1KJaY6Gfer+P/zSGyWYyhasuBG6NqvglshYiwI5OMgIrSGW71W5y71n5Hr6Nwc/9uBv4HQEJym3cIu74A/TSxNJnly9C1wKbNz9MEr9ChB699+7PjTZpbn9OAfjR2Hghnjzcb786GwzuDVRwyREiAHQWuMONHQWhDH2OlT/oBMyLD3iD4a8lLh4kqAaXb2E+7QvmLqn4XXs516qk0jiAbMELgwOYywfBHGagHPmqBYvMTJW4OqIpuRbEWW4A9RYjeuYUy43xtbAhfAvpqek+Munbq+3YNQl86qcA+r+6AZMifrAFxUUvt2YqUbBTPOKd/GXOamHzh51h3CSiFz/3GM81lh9s07/RF3ZFU5qUzOgQUotc7X4Y5oBPfh7X0EHLWCyXN0w02dXSTX24bj694JFYww6AVv2WwbpsTBvQQttAUFoJmbk5hhsxCpZF9fvID8q7+F1R5P7kY987cvj/4u66M5E1VHFJdHb2EGZ7cF3qy2I+FXBla4yWD2a9glFAXVMGu0h80i1SG5XQsAI7VV+kE0Q6Ng+00iBQCg5+dFH+xyr6aDyCofG7l5ZytpMJEFgMfAxLZM1w3swhiqrpgHKiH+FERy8GYH23qNFD+57m8n66cZhakTmihGYCiBNcAD2Zinm41saGjf0TswqDWLef7hu1za6CWjZgcje5ccCFWrVGBDYckVmLc8ZFwnV7PoOtbvGQxagEzMmzWBvxha0YCoxUgWDBPf7nAPessAfJdvlqTWjWVc4m5hUxKmmSC6/T7mdVpI4/eZXjF2xTdD9zbFbgmCcPf0d4W1LmJ3S2xO3FTFsJRGVAscHGAD++90QNcQ7xN927c2r5xWpEaXw6VJMJw4eFnb5QW45rrBW4uyWQhBOzqruEtHO/DQECtEVSxME9EEgt/tNM7ncIuNh8P/zOIQ7LS0HtuzO+xEdaoP7zW1sllaRqoqE/W9XdTEzSMwErrrp+oQhAcmzR+sTCiah1VnQ+n/DNnPoPHkmcI5rppSDx556N05AmbuG5F71pTV0kV4n9V0MpmhGHOys2JYoF6L8Dxgr1hgmJyhSKrFki+fj0RSIuKnQ23AjO3xQqs3T03Rm9cDgbMcyDNms0yyncQyMqtUAxtN0KASIPGx2UDfJqUu64VxZ5r7hewOfs7C7NNcu1R5f93wX+Ty1VUOaMbvRpMIqejhkN436wlVI+VTB1N6QTHgBJVXOlJidmc8PORJuh0hSvMNnQxKYXuCyDlL8gYTwbrOjkDDz949GHglS0.eyJlbmRwb2ludF9zbHVnIjoieC1haS9ncm9rLTQuMy0yMDI2MDQzMHx4YWkifQ",
+              "format": "xai-responses-v1",
+              "id": "rs_1a33d6a2-a701-9dbc-8b9f-b51eb20cac24",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 319,
+      "completion_tokens": 516,
+      "total_tokens": 835,
+      "cost": 0.00155435,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 128,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00155435,
+        "upstream_inference_prompt_cost": 0.00026435,
+        "upstream_inference_completions_cost": 0.00129
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 346,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

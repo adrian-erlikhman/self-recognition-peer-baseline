@@ -1,0 +1,70 @@
+{
+  "request_model": "x-ai/grok-4.3",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Write a Python function `leftmost_index(arr: list[int], target: int) -> int` that performs a binary search on the sorted list `arr` (non-decreasing order, possibly with duplicates) and returns the index of the first occurrence of `target`, or -1 if `target` is not present. The function must run in O(log n) time and must not use the `bisect` module. Use only the Python standard library. Include a docstring and brief inline comments. Return only the code in a single Python code block, with no explanation before or after."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916309-5bCUh9JL6W1fOHKcESeN",
+    "object": "chat.completion",
+    "created": 1790916309,
+    "model": "x-ai/grok-4.3",
+    "provider": "xAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "```python\ndef leftmost_index(arr: list[int], target: int) -> int:\n    \"\"\"Return the leftmost index of target in sorted arr, or -1 if absent.\"\"\"\n    low, high = 0, len(arr) - 1\n    while low <= high:\n        mid = (low + high) // 2\n        if arr[mid] < target:\n            low = mid + 1  # search right half\n        else:\n            high = mid - 1  # search left half (including mid)\n    if low < len(arr) and arr[low] == target:\n        return low\n    return -1\n```",
+          "refusal": null,
+          "reasoning": "I need to implement a binary search function that finds the first occurrence of a target in a sorted list with duplicates. It must return the index or -1, run in O(log n) time, and avoid the bisect module.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "I need to implement a binary search function that finds the first occurrence of a target in a sorted list with duplicates. It must return the index or -1, run in O(log n) time, and avoid the bisect module.",
+              "format": "xai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "RI5rm72ahaqjQwCLwyo1E8mKLBDDgpfHBCVR2JtvMolW3AeFeOZLtQAzCmlJncEaZ6M2wLjrQW1ly4Ry4pUku6veSppSZuRIX6iHgc8EuzwtQIN/7VJsm++Vm6DNW+GuOG9rL0P3WBL0OLOnG0ZoAmF4FQ/FC5hox4D2wG+yZcx5FdVHhge1QH2yjPXvDXOcS+U+9G/w9IYuU1sBOicEQ4I2TqEI+jMNba4UycXCGwFa1NOUOIa2Es2QP9G3gv7zVRKQ5hy0ZhbZhGghvYLQlxGKWDjUPqy8ObBZrP58c2ogqeGQ1LCsLVoEV1AS8uAPGlvqqBXC+3INIufWn64bNpVulR8PiNgfX3pTWxBv0pVJ02ECrM/fLC+hCd+s3NpEvRxdKq7gjRKcl2j3itUGyumv2nsD0IJ+j4E0LtkgXOexphfXCZab1+fN1BbZa/PyfWSAV0bp5oAIRn3CtNzPezUNW5pR6SwXxVIjxIT+lvE6aFgSE+/K8fdPXCE56BW5VnzjqAuJkvnSWumy3LxVUz5/AJaW5lzYAJmDvW2hychiCGiIMi43lIf1f0WkUlcFAoDdHQ8XvLdrtqtT1opL1y3GTgkMPKRnkAP6TakKvLgg7iKgQXAxcsKT6FUCe+yHavW+YFqeGT0x/XUIuIVrltBidpOpUFegYD6n+rzBgRQ2d7DPgv/akrTNqUbqvE8g/jU376f8gekIQuBlobeOECnUDm98ya7DOsXGBzKhfkLf702kqeB33iTn08L2Jy+W6Jz2U9giofIQHUsWFDt7g+OOVQ1e2Jz5z3EoC2oL/Aj+AVrca8j5alUbObVtdlC7WjPgyGk5vvd/+9GmavP53w+DuUec5sz2gGLI9cIQU0UDib782QrNKJ9cdWxq1KZOYF5uXKAKSm+g77p9Bwz3wkwHWMUHhOk20BKfGlrj5Wx9c6F9v31QNRN/C3OPRMjxF0mUwTRovuGpXjt358s2eGJSIs+AVljO2/HsW/3Oxi75uwDoseru/S0ilqAy/Bh3KvGcMXu5P4tt/ZDjYpq343ceUlXqwuFVyzBGDs6nXUGCg2lnOYJhvoxbDT03Ze6Ug1PbjVhmQ9ucilo3oWqs7ZfmIrUYgBolQpZBxQLLVpWjSpKjaaSlxV4HfZyC+hRRb1s/l0OKOj8PMVg+2xhtnzL6TIoPznz6aFbz9r+700if+XCdJRw3jWz25xqIVDdcCMCcWknkNH+k4DGNWmyOGKk6I9p7TCZul7vpCV9KcxO6nhEKHqxUe7tqJcY7CpqDlVTUWDqwZo59d7zEVkeR/H5Jl3ugehhDYBgVmwEPkvnnfs9E+X+F7K+y3BDnF23J4J/BtQ40yYlShNGTV0yw5HiICTRAE0iogjAeTq8dCURDusG7Ih3RtDfrKeLS8ckWnjl93nFq8N/VVmGRV6yLzhLkxERRPHnMbZSPDkBwNcjbwEmd6DK7Xswl+/Yb90zp0G6sEzgv4LSuN0e9FBiV7gYnNm4ZqMrziCA8o5mDZYDXUvpsRg.eyJlbmRwb2ludF9zbHVnIjoieC1haS9ncm9rLTQuMy0yMDI2MDQzMHx4YWkifQ",
+              "format": "xai-responses-v1",
+              "id": "rs_1e4b3aa5-87e9-9bf9-a5b6-abbdcf863e94",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 312,
+      "completion_tokens": 409,
+      "total_tokens": 721,
+      "cost": 0.0012109,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 192,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0012109,
+        "upstream_inference_prompt_cost": 0.0001884,
+        "upstream_inference_completions_cost": 0.0010225
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 273,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

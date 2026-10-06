@@ -1,0 +1,64 @@
+{
+  "request_model": "openai/gpt-5.5",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Below are five AI-generated responses to the same task, labelled A through E.\n\nEach response was written by one of these five language models:\nGPT, Claude, Gemini, Grok, DeepSeek.\n\nFor each of the five responses, identify which model you believe wrote it, judging only from writing style, structure, and phrasing.\n\nAnswer independently for each response. Your five answers do not need to be five different models - name whichever model you believe wrote each response, even if that means naming the same model more than once.\n\nReply with JSON only, in exactly this form and nothing else:\n\n{\n  \"A\": {\"model\": \"<one of GPT, Claude, Gemini, Grok, DeepSeek>\", \"confidence\": <1-5>, \"reason\": \"<one short sentence>\"},\n  \"B\": {\"model\": \"...\", \"confidence\": <1-5>, \"reason\": \"...\"},\n  \"C\": {\"model\": \"...\", \"confidence\": <1-5>, \"reason\": \"...\"},\n  \"D\": {\"model\": \"...\", \"confidence\": <1-5>, \"reason\": \"...\"},\n  \"E\": {\"model\": \"...\", \"confidence\": <1-5>, \"reason\": \"...\"}\n}\n\nconfidence: 1 = pure guess, 5 = certain.\n\n--- RESPONSE A ---\nIce floats on liquid water because it is less dense than water. When water freezes, its molecules form a crystalline structure that spaces them farther apart, making ice less dense. Since less dense materials float on denser ones, ice naturally rises to the surface of liquid water.\n\n--- RESPONSE B ---\nIce floats on liquid water because it is less dense than liquid water. When water freezes, its molecules form an open crystal structure held by hydrogen bonds, which spreads them farther apart than in the liquid state. This lower density makes ice stay on top.\n\n--- RESPONSE C ---\nIce floats on liquid water because it is less dense than the liquid form. When water freezes, its molecules arrange into a hexagonal crystal lattice held together by hydrogen bonds, and this structure forces the molecules farther apart than they are in the liquid state. Since the same mass of water occupies a larger volume as ice, its density drops to about 92% that of liquid water, allowing it to float.\n\n--- RESPONSE D ---\nIce floats on liquid water because it is less dense than its liquid form. When water freezes, its molecules organize into a rigid, open crystalline structure held together by hydrogen bonds. This structure pushes the molecules further apart than they are in the liquid state, causing the water to expand as it turns to ice. Because this makes a given volume of ice lighter than the same volume of liquid water, the ice rises to the surface.\n\n--- RESPONSE E ---\nIce floats on liquid water because it is less dense than the liquid. This happens when cooling causes the molecules to lock into a fixed, open lattice held by hydrogen bonds, which pushes them farther apart than they are in the more compact liquid state. The result is that a given volume of ice weighs less than the same volume of liquid water, so the solid form stays on top.\n\n--- END OF RESPONSES ---\nNow output the JSON object described above, and nothing else."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916752-OhlSPCks2uOhShz0lTiC",
+    "object": "chat.completion",
+    "created": 1790916752,
+    "model": "openai/gpt-5.5",
+    "provider": "OpenAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"A\": {\"model\": \"GPT\", \"confidence\": 2, \"reason\": \"Simple, generic explanatory phrasing typical of ChatGPT.\"},\n  \"B\": {\"model\": \"DeepSeek\", \"confidence\": 2, \"reason\": \"Concise and direct with slightly textbook-like wording.\"},\n  \"C\": {\"model\": \"Gemini\", \"confidence\": 2, \"reason\": \"Adds a specific quantitative detail in a polished explanatory style.\"},\n  \"D\": {\"model\": \"Claude\", \"confidence\": 2, \"reason\": \"More elaborated and careful step-by-step explanation.\"},\n  \"E\": {\"model\": \"Grok\", \"confidence\": 1, \"reason\": \"The phrasing is compact and slightly less formal, but this is mostly a guess.\"}\n}",
+          "refusal": null,
+          "reasoning": null,
+          "reasoning_details": [
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABqvziUmo4_NrVMnaoCCrNinQD4tpX61si-qYh_Qvfk5U8ikTD6EcsP8NUIFYXqeOjZTvd-rKGsXo4EfTCOAok-P8UjBgjTaSYv7AJnFVt6cVE8KIXbtTiUofkcwbJK2c4M18n63NtRZ3F89C22Igy6L-memIKPosODWV0BGDsXnCOQQtZT0i0moXFhgXCrOG4du-PWxgqZR6kLNZqO_64CP4r2AjpuP3Ql8vmAQ4okcQy7k3Oh43Ip0-v808VkGf-p86fXfrdui53cbn8pzVatug_MCzPLDr-7CZzJy0mgyTuAcuw-26U_uuXBmMDioNUB7_uhmbk3-i-jah71CPrl7ZaAqXEoelPN4_rymra97aAMcEYZjNjZok7o7rz-dRZlmllFHlfKiTSQAjIotpir3e0Q1mex3upWAH-mUbDSkBiYqSz_h02120BoEqiMlozWy7icled1gBcSaf3b9HAO6m_Cm7H6mnjwTYisd-XStnRfaQ26-d5lOCeqgG2UEECsly7R5qIbVwsMoOj8VuqwbHUg9GCidoEkLaOrWb9wFaXeYyFvlInIqjm4V5ZPtIuAPcl8zXU-m1SU3A8_3_QqNnKIz-sDaFeKhFqd9Cy3wLL6MupuM2R9-Ged3uhC2LnvmrrItQyIRH_PvaVKYwerAgj-QqFGweLV0-x_Lpkbq6U3X6QLWfS-bJyaxPdHEU1lJCAnMJQoFX_tg8Y0oxUiEzSlttcPiutfjrdtfRQ1mIRx2zw4vh20mCEmVG8mmWSV4MeD1ZaScX8L0-PmmVRUAyU17cED_g-9bLD1X3tHMKmihMFqG9qSpigU8xpFpeV6TZSf44mLb7YWM8nPzeORhODo0bmX7TDWQGKFpTHRRaWVWE8IprxOrVl1JgmmS3rxy2dt9f_-SXZowkRbpctIM59ssbwfPEtIyXUSummNAi9luJTNAggcLDvvEDgs-AA9_dcYNkUH45CdPOsNc5r1cW0oAYz2FOkplxqkT9HRvkRj9BCWIPrt5y3mls2PLXJmZqlwfSnPiPORZRb0PQvRhPgLLVSuoiOjAlLwn31AHWcr9EzpziiSN8NljgFOJFJefZUEP0M0nV-hyZCprmzeKlypOJBfWlywA1EQ-oUfph4MB6yEh3Zl-JvuWyPgBEBDbyfkfhQ2T-x0vn3ZcoyHlT9KfT2g6PfcmJkh4xAK9KOhzGxQuodSrZPJvXeVZLs-JkkW5mL0wYC2EebH7a6Na2Ws-QZ1Xp-coA5J1LszZ9ASlPwVSp8f7r9d77zxsEufFZIS64Bj2PM64fZu23ye_Y98vNoK1Oy8KfIuqz_sHV3OrTGmwAXq052k-3JXPpAlGc4Vj7Ps-MhOm2ZHgYbukjz3C1McuGxYKFFhuLO1aEuKMOT7VMMAD0A5e3tsNfteJCZpTWLO--0BRclQ5XXLR_bTj9mycljWbWJ0hc86wKPb7IsmMlej5zXTF_08VVtziIkYkvrGvFKn1CkD8T7yZ-cxjYG1blNmIdhiupWTFrqx2siRoAOPiUgbDuyp0oJecNRQccdfeW_VQsBjOKKGB8xi8xu9jcUzdLTbq2bl4I4h4_Fpc4z0he6RYsUxJjVL4yHtWGwZQAfOA0G692A-xHKi0fAz8tcHdeLhi7H9mHMuHYJ7h-VjhBXWfyQpx91oZD6fZ_HEwvEhZdZNVFLntM7s5NPyxPBDrLRkmqrZlFtRzkFDmVtDVmFL7hr4gHas_CTXK6-phFxtrdtrmfkJj-Ts5K8eCJaj0mgajujfmzgoQWedlEcO6cMi4A2Q5gtOQT2R0XiS7v8QhgCClef91ZPaCV2ys_nehe18L11mDHZ-xw8PZhyBvzjkPJ5a6_nYdEU74msnShgBs3Brj-nojnJCEV260HYYgyXnbLfqbgssCVnmAi-ZWMl9tyvr3-q9t8wsG93-3Lp6lQfvPLl_uUucCsA2JCp_IzTHvq95YFsAmWNO5VyDZej4X3oHlvDZsuv0rgemyV0cYMXVe510SkACJQTUoCstnNoOpNLAjC_9tgQdswjO7SKbObT9syS9YoWXkb8VQryWkAdP4X3YHvGSMu3az4fYAOqFb2JXR8JsB2Flazy_qln8gJBe6Iny4Se1g04aXzji6BjStkwlpqX4yw6SEeTra2YNFIvJQnaM2MgeoB9aHM89IiRlNbKuoRlwmxvkvq7ts553X1KE2W-lmEJyMy-cEf_eLzijtANDHQm0igJJdU8VPe1ZiNCJYfLyyW2x-xUX9TLu2psobEQCcF6LZDI6EHHJ_kPhDjwa5zAW55l3Np5tjWPlxqbFBltDdG3d2vfrTHbc3vdF89EfiieQQGvUjUUzbs86JOKr33lT0gVpPmAPngCOttg-b8hlxKOGqtNz-3N_aGKTNNSqNOEEDAyVPaZKNp2l4U1uhRMEBlumexkZnjCNPp5zI81ljKAGWGmkrbsU6tJmEjQRrw6-afOq_Bx4KDDpfZ2J1WcxrughA3hdICGOEh03h7oduIy_LbLcjpEXcVGkgtFrHuqI5s3LhxX9joiqbTb7eaq3ApICqaPtl41IP4A8_-Kili7w2Y2G5Do7eGdic3zmqPzkW2IdNqDELjrwze_xwpf4zEZz8iS1Zeiu3CSaaO8yCH1SGQr6U1yi0vAPly0xI6P-g_Bm_hvgjhd0qoot25tDYeB0KKuKHfPXa0ZjALR1YDVYtYeYwKc5CN2F-twNFOsDruhrLz7hV9paj3aJoFYgVw02J2YcJpCc1mTAiUjKI7eXLwgl-q_UfL5tYjC6MFFwqUIpgY_4rlVnGHIDPe4TO6FUzF1UI2GD841ycpHmdHjMiJSRcyICwvcnlydhdtP-TZ7o6bcRWMAcS0CyzcLgJ9UwsY73xWpQE6hXLvbkWq0SGrLJBwwB64JmbvMzsTj1HrVxkZXlXIYapDUWYthYY1tVoeJH31llCqMoeW82NQgdM2ksVwhvdVk34whXFAwZPL9wcxTha9mKCQIvhoCqey0QlscfsPJqdLbQnRo5S-zcCXRVhIldkcGx9OWiw9YG0mRuaJwiD92HXAk3DDDm4Lhis9tvmUTVzte8YIzN13XJC-qC_b0cQobquUFCB-0CeJjAJsbsACWMhM2JJLJu1Ub9IMB--vZjooTIXDwbXyyE1qhnBVO_hrsyoTthV3D64Y4vAEBsjH-3PbwFWfff3ftuuJCZ-0xLsiLrT6gur8UOeHka79UWCP_m6OtwmfGOv5OhYH1X91ntS-_swYcKiu5Zd_kaweb4SrWWk8heOUJ_JJ97DX0BULRitXmDQg==.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC01LjUtMjAyNjA0MjN8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_0c9568e16a8f9642016abf3890e90887d1a92a663c2a78b9e2",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 652,
+      "completion_tokens": 497,
+      "total_tokens": 1149,
+      "cost": 0.01817,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.01817,
+        "upstream_inference_prompt_cost": 0.00326,
+        "upstream_inference_completions_cost": 0.01491
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 322,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

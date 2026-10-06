@@ -1,0 +1,1175 @@
+prompt_id,genre,tier,model,model_version,source,word_count,text
+C1,code,Easy,Gemini,google/gemini-3.5-flash,api_expand,83,"```python
+def is_palindrome(s: str) -> bool:
+    """"""Determine if a string is a palindrome.
+
+    The comparison is case-insensitive and ignores non-alphanumeric characters.
+    An empty string is considered a palindrome.
+
+    Args:
+        s: The input string to check.
+
+    Returns:
+        True if s is a palindrome under the given conditions, False otherwise.
+    """"""
+    # Filter the string: keep only alphanumeric characters and convert to lowercase
+    cleaned = """".join(char.lower() for char in s if char.isalnum())
+
+    # Compare the cleaned string with its reverse
+    return cleaned == cleaned[::-1]
+```"
+C2,code,Easy,Gemini,google/gemini-3.5-flash,api_expand,135,"```python
+def fizzbuzz(n: int) -> list[str]:
+    """"""Generates a list of FizzBuzz strings from 1 to n inclusive.
+
+    Args:
+        n (int): The upper limit of the range (inclusive).
+
+    Returns:
+        list[str]: A list of strings representing the FizzBuzz sequence.
+                   Returns an empty list if n is less than 1.
+    """"""
+    # Return an empty list if n is less than 1
+    if n < 1:
+        return []
+
+    result = []
+    for i in range(1, n + 1):
+        # Check for multiples of both 3 and 5 first
+        if i % 15 == 0:
+            result.append(""FizzBuzz"")
+        # Check for multiples of 3
+        elif i % 3 == 0:
+            result.append(""Fizz"")
+        # Check for multiples of 5
+        elif i % 5 == 0:
+            result.append(""Buzz"")
+        # For all other numbers, append the string representation of the number
+        else:
+            result.append(str(i))
+
+    return result
+```"
+C3,code,Easy,Gemini,google/gemini-3.5-flash,api_expand,140,"```python
+def sieve_primes(n: int) -> list[int]:
+    """"""Returns all prime numbers less than or equal to n in increasing order
+
+    using the Sieve of Eratosthenes.
+
+    Args:
+        n (int): The upper limit (inclusive) for finding prime numbers.
+
+    Returns:
+        list[int]: A list of prime numbers up to n.
+    """"""
+    if n < 2:
+        return []
+
+    # Initialize a boolean list representing the primality of numbers from 0 to n
+    is_prime = [True] * (n + 1)
+    is_prime[0] = is_prime[1] = False
+
+    # Iterate up to the square root of n
+    for p in range(2, int(n**0.5) + 1):
+        if is_prime[p]:
+            # Mark multiples of p as non-prime starting from p*p
+            for i in range(p * p, n + 1, p):
+                is_prime[i] = False
+
+    # Collect and return all numbers that are marked as prime
+    return [i for i, prime in enumerate(is_prime) if prime]
+```"
+C4,code,Easy,Gemini,google/gemini-3.5-flash,api_expand,81,"```python
+def second_largest(nums: list[int]) -> int | None:
+    """"""
+    Returns the second largest distinct value in nums,
+    or None if nums contains fewer than two distinct values.
+    """"""
+    # Convert to a set to extract distinct values without modifying the input list
+    unique_nums = set(nums)
+
+    # If there are fewer than two distinct values, we cannot have a second largest
+    if len(unique_nums) < 2:
+        return None
+
+    # Sort the unique elements and return the second to last element
+    return sorted(unique_nums)[-2]
+```"
+C5,code,Easy,Gemini,google/gemini-3.5-flash,api_expand,82,"```python
+import itertools
+
+
+def run_length_encode(s: str) -> str:
+    """"""Compresses a string using run-length encoding.
+
+    Each maximal run of a repeated character is replaced by the character
+    followed by the count of its consecutive occurrences.
+
+    Args:
+        s: The input string to compress.
+
+    Returns:
+        The run-length encoded string.
+    """"""
+    # Use groupby to group consecutive identical characters
+    # For each group, concatenate the character and the length of the group
+    return """".join(
+        f""{char}{sum(1 for _ in group)}"" for char, group in itertools.groupby(s)
+    )
+```"
+C6,code,Easy,Gemini,google/gemini-3.5-flash,api_expand,115,"```python
+def valid_brackets(s: str) -> bool:
+    """"""Returns True if every bracket in s is correctly matched and nested,
+
+    considering (), [], and {}, and ignoring all other characters.
+    """"""
+    # Map each closing bracket to its corresponding opening bracket
+    bracket_map = {"")"": ""("", ""]"": ""["", ""}"": ""{""}
+    opening_brackets = set(bracket_map.values())
+    stack = []
+
+    for char in s:
+        if char in opening_brackets:
+            # Push opening brackets onto the stack
+            stack.append(char)
+        elif char in bracket_map:
+            # For closing brackets, check if they match the most recent unmatched opening bracket
+            if not stack or stack[-1] != bracket_map[char]:
+                return False
+            stack.pop()
+
+    # If the stack is empty, all brackets were properly closed and nested
+    return len(stack) == 0
+```"
+C7,code,Easy,Gemini,google/gemini-3.5-flash,api_expand,103,"```python
+def flatten(nested: list) -> list:
+    """"""
+    Flattens a nested list to a single flat list of non-list elements.
+    
+    Only objects of type 'list' are recursively flattened. Other iterables 
+    such as tuples, strings, and sets are kept as single elements.
+
+    :param nested: The nested list to flatten.
+    :return: A new flat list containing all non-list elements in left-to-right order.
+    """"""
+    flat_list = []
+    
+    for item in nested:
+        # Check if the item is strictly of type 'list'
+        if isinstance(item, list):
+            # Recursively flatten the nested list and extend the result
+            flat_list.extend(flatten(item))
+        else:
+            # Append non-list items as they are
+            flat_list.append(item)
+            
+    return flat_list
+```"
+C8,code,Medium,Gemini,google/gemini-3.5-flash,api_expand,151,"```python
+def merge_intervals(intervals: list[tuple[int, int]]) -> list[tuple[int, int]]:
+    """"""
+    Merge overlapping or touching closed intervals and return a sorted list of merged intervals.
+
+    Args:
+        intervals: A list of tuples, where each tuple represents a closed interval (start, end).
+
+    Returns:
+        A new list of merged intervals, sorted by their start points.
+    """"""
+    if not intervals:
+        return []
+
+    # Sort intervals by start point. This creates a new list, leaving the input unmodified.
+    sorted_intervals = sorted(intervals)
+
+    # Initialize the merged list with the first interval
+    merged = [sorted_intervals[0]]
+
+    for current_start, current_end in sorted_intervals[1:]:
+        last_start, last_end = merged[-1]
+
+        # Closed intervals overlap or touch if the current start is <= the last end
+        if current_start <= last_end:
+            # Merge by updating the end of the last interval in the list
+            merged[-1] = (last_start, max(last_end, current_end))
+        else:
+            # No overlap or touch, append the current interval as a new entry
+            merged.append((current_start, current_end))
+
+    return merged
+```"
+C9,code,Medium,Gemini,google/gemini-3.5-flash,api_expand,78,"```python
+def rotate_matrix(matrix: list[list[int]]) -> list[list[int]]:
+    """"""Rotates an n-by-n square matrix 90 degrees clockwise.
+
+    Args:
+        matrix: A list of lists of integers representing the square matrix.
+
+    Returns:
+        A new list of lists representing the rotated matrix.
+    """"""
+    # Handle the case of an empty matrix
+    if not matrix or not matrix[0]:
+        return []
+
+    # Reversing the rows of the matrix first, then zipping them,
+    # effectively performs a 90-degree clockwise rotation.
+    return [list(row) for row in zip(*matrix[::-1])]
+```"
+C10,code,Medium,Gemini,google/gemini-3.5-flash,api_expand,150,"```python
+import re
+from collections import Counter
+
+def top_k_words(text: str, k: int) -> list[tuple[str, int]]:
+    """"""
+    Extracts words from the text, lowercases them, and returns the top k
+    most frequent words sorted by count (descending) and then alphabetically (ascending).
+    
+    Words are defined as maximal runs of the letters a-z and apostrophes.
+    Runs containing no letters (only apostrophes) are excluded.
+    """"""
+    # Lowercase the entire input text
+    lowered_text = text.lower()
+    
+    # Extract maximal runs of letters a-z and apostrophes
+    raw_runs = re.findall(r""[a-z']+"", lowered_text)
+    
+    # Filter out runs that consist solely of apostrophes
+    words = [word for word in raw_runs if any(char.isalpha() for char in word)]
+    
+    # Count the occurrence of each word
+    word_counts = Counter(words)
+    
+    # Sort by frequency descending, then alphabetically ascending for ties
+    sorted_words = sorted(word_counts.items(), key=lambda item: (-item[1], item[0]))
+    
+    # Return the top k elements (or all if fewer than k distinct words exist)
+    return sorted_words[:max(0, k)]
+```"
+C11,code,Medium,Gemini,google/gemini-3.5-flash,api_expand,104,"```python
+def leftmost_index(arr: list[int], target: int) -> int:
+    """"""Perform binary search to find the leftmost (first) index of target in arr.
+
+    Returns -1 if target is not in the array.
+    """"""
+    low = 0
+    high = len(arr) - 1
+    result = -1
+
+    while low <= high:
+        mid = (low + high) // 2
+
+        if arr[mid] == target:
+            result = mid  # Record candidate index
+            high = mid - 1  # Continue searching in the left half
+        elif arr[mid] < target:
+            low = mid + 1  # Search the right half
+        else:
+            high = mid - 1  # Search the left half
+
+    return result
+```"
+C12,code,Medium,Gemini,google/gemini-3.5-flash,api_expand,114,"```python
+def roman_to_int(s: str) -> int:
+    """"""Converts a valid uppercase Roman numeral (1 to 3999) into an integer.
+
+    Args:
+        s (str): The Roman numeral string to convert.
+
+    Returns:
+        int: The integer representation of the Roman numeral.
+    """"""
+    # Map Roman numeral symbols to their integer values
+    roman_map = {
+        ""I"": 1,
+        ""V"": 5,
+        ""X"": 10,
+        ""L"": 50,
+        ""C"": 100,
+        ""D"": 500,
+        ""M"": 1000,
+    }
+
+    total = 0
+    n = len(s)
+
+    for i in range(n):
+        current_val = roman_map[s[i]]
+
+        # If the current value is less than the next value, subtract it (subtractive principle)
+        if i + 1 < n and current_val < roman_map[s[i + 1]]:
+            total -= current_val
+        else:
+            total += current_val
+
+    return total
+```"
+C13,code,Medium,Gemini,google/gemini-3.5-flash,api_expand,123,"```python
+def max_subarray_sum(nums: list[int]) -> int:
+    """"""
+    Finds the largest sum of any non-empty contiguous subarray of nums
+    using Kadane's algorithm in O(n) time.
+
+    Args:
+        nums: A list of integers.
+
+    Returns:
+        The maximum subarray sum.
+
+    Raises:
+        ValueError: If the input list is empty.
+    """"""
+    if not nums:
+        raise ValueError(""The input list cannot be empty."")
+
+    # Initialize the current and global maximum subarray sums with the first element
+    max_so_far = nums[0]
+    curr_max = nums[0]
+
+    # Iterate through the array starting from the second element
+    for x in nums[1:]:
+        # Decide whether to extend the current subarray or start a new one at x
+        curr_max = max(x, curr_max + x)
+        # Update the maximum sum found so far
+        max_so_far = max(max_so_far, curr_max)
+
+    return max_so_far
+```"
+C14,code,Medium,Gemini,google/gemini-3.5-flash,api_expand,125,"```python
+def moving_average(values: list[float], window: int) -> list[float]:
+    """"""Computes the moving average of a list of floats over a specified window.
+
+    Args:
+        values: The list of float values to process.
+        window: The size of the moving window.
+
+    Returns:
+        A list of moving averages of length len(values) - window + 1.
+
+    Raises:
+        ValueError: If window is less than 1.
+    """"""
+    if window < 1:
+        raise ValueError(""Window size must be at least 1."")
+
+    n = len(values)
+    if window > n:
+        return []
+
+    # Calculate the sum of the initial window
+    current_sum = sum(values[:window])
+    averages = [current_sum / window]
+
+    # Slide the window across the list in O(1) per step
+    for i in range(window, n):
+        current_sum += values[i] - values[i - window]
+        averages.append(current_sum / window)
+
+    return averages
+```"
+C15,code,Medium,Gemini,google/gemini-3.5-flash,api_expand,196,"```python
+import re
+
+def parse_duration(s: str) -> int:
+    """"""
+    Convert a duration string into the total number of seconds.
+    
+    The string must consist of an optional hours part, an optional minutes part,
+    and an optional seconds part, in that exact order (e.g., ""1h30m15s"", ""45m"", ""2h5s"").
+    Each part is a non-negative integer followed by 'h', 'm', or 's'.
+    
+    Raises ValueError if the string is empty, contains invalid characters,
+    or has parts out of order.
+    """"""
+    if not s:
+        raise ValueError(""Duration string cannot be empty."")
+        
+    # Regex to match optional hours, minutes, and seconds in strict order.
+    # ^ and $ ensure the entire string must match the pattern.
+    pattern = r'^(?:(?P<h>\d+)h)?(?:(?P<m>\d+)m)?(?:(?P<s>\d+)s)?$'
+    match = re.match(pattern, s)
+    
+    # If it doesn't match, or if it matches an empty match (which shouldn't
+    # happen since we checked for empty s, but as a safeguard).
+    if not match or match.group(0) == """":
+        raise ValueError(f""Invalid duration format: '{s}'"")
+        
+    # Extract values, defaulting to 0 if a part is missing
+    hours = int(match.group('h') or 0)
+    minutes = int(match.group('m') or 0)
+    seconds = int(match.group('s') or 0)
+    
+    # Calculate and return the total seconds
+    return hours * 3600 + minutes * 60 + seconds
+```"
+C16,code,Hard,Gemini,google/gemini-3.5-flash,api_expand,202,"```python
+def longest_common_subsequence(a: str, b: str) -> int:
+    """"""
+    Computes the length of the longest common subsequence (LCS) of two strings.
+
+    This function uses dynamic programming with a space-optimized approach,
+    requiring only O(min(len(a), len(b))) extra memory.
+
+    Args:
+        a (str): The first input string.
+        b (str): The second input string.
+
+    Returns:
+        int: The length of the longest common subsequence.
+    """"""
+    # Ensure that 'b' is the shorter string to minimize space complexity to O(min(len(a), len(b)))
+    if len(a) < len(b):
+        a, b = b, a
+
+    m, n = len(a), len(b)
+    
+    # dp[j] will store the LCS length of a[0..i-1] and b[0..j-1]
+    dp = [0] * (n + 1)
+
+    for char_a in a:
+        # prev stores the value of dp[i-1][j-1] from the previous row
+        prev = 0
+        for j in range(1, n + 1):
+            # Temporarily save the current dp[j] before it gets overwritten
+            temp = dp[j]
+            if char_a == b[j - 1]:
+                # If characters match, diagonal value (prev) + 1
+                dp[j] = prev + 1
+            else:
+                # If they don't match, take the maximum of top (dp[j]) and left (dp[j-1])
+                dp[j] = max(dp[j], dp[j - 1])
+            # Update prev for the next column in the current row
+            prev = temp
+
+    return dp[n]
+```"
+C17,code,Hard,Gemini,google/gemini-3.5-flash,api_expand,179,"```python
+def edit_distance(a: str, b: str) -> int:
+    """"""Calculates the Levenshtein distance between two strings a and b.
+
+    The Levenshtein distance is the minimum number of single-character
+    insertions, deletions, and substitutions required to transform a into b.
+    """"""
+    # Ensure 'b' is the shorter string to optimize space complexity
+    if len(a) < len(b):
+        a, b = b, a
+
+    # If the shorter string is empty, the distance is the length of the longer string
+    if not b:
+        return len(a)
+
+    # dp array to store the distances of the current row
+    dp = list(range(len(b) + 1))
+
+    for i, char_a in enumerate(a, 1):
+        # prev stores the diagonal value dp[i-1][j-1]
+        prev = dp[0]
+        dp[0] = i
+        for j, char_b in enumerate(b, 1):
+            temp = dp[j]
+            # Cost is 0 if characters match, otherwise 1
+            cost = 0 if char_a == char_b else 1
+            # Compute the minimum of deletion, insertion, and substitution
+            dp[j] = min(
+                dp[j] + 1,  # Deletion
+                dp[j - 1] + 1,  # Insertion
+                prev + cost,  # Substitution / Match
+            )
+            prev = temp
+
+    return dp[-1]
+```"
+C18,code,Hard,Gemini,google/gemini-3.5-flash,api_expand,170,"```python
+import heapq
+
+def shortest_paths(graph: dict[str, list[tuple[str, int]]], source: str) -> dict[str, int]:
+    """"""
+    Computes the shortest path from a source node to all reachable nodes
+    in a graph with non-negative edge weights using Dijkstra's algorithm.
+
+    :param graph: A dictionary mapping each node to a list of (neighbor, weight) tuples.
+    :param source: The starting node.
+    :return: A dictionary mapping reachable nodes to their shortest distance from source.
+    """"""
+    # Dictionary to store the shortest known distance to each node
+    distances = {source: 0}
+    
+    # Priority queue storing (distance, node) tuples, initialized with the source
+    priority_queue = [(0, source)]
+    
+    while priority_queue:
+        current_distance, current_node = heapq.heappop(priority_queue)
+        
+        # If we found a shorter path to this node already, skip processing
+        if current_distance > distances[current_node]:
+            continue
+            
+        # Explore neighbors. Use .get() to handle nodes that only appear as neighbors
+        for neighbor, weight in graph.get(current_node, []):
+            distance = current_distance + weight
+            
+            # If a shorter path to the neighbor is found
+            if distance < distances.get(neighbor, float('inf')):
+                distances[neighbor] = distance
+                heapq.heappush(priority_queue, (distance, neighbor))
+                
+    return distances
+```"
+C19,code,Hard,Gemini,google/gemini-3.5-flash,api_expand,208,"```python
+import heapq
+
+def topological_order(graph: dict[str, list[str]]) -> list[str]:
+    """"""
+    Returns a topological ordering of a directed graph.
+    
+    If multiple nodes are available to be visited, the lexicographically
+    smallest node is chosen first. Raises ValueError if the graph has a cycle.
+    
+    :param graph: A dictionary mapping each node to its list of target nodes.
+    :return: A list of nodes in topological order.
+    :raises ValueError: If the graph contains a cycle.
+    """"""
+    # Identify all unique nodes in the graph (both sources and targets)
+    all_nodes = set(graph.keys())
+    for targets in graph.values():
+        all_nodes.update(targets)
+        
+    # Calculate the in-degree of each node
+    in_degree = {node: 0 for node in all_nodes}
+    for u, targets in graph.items():
+        for v in targets:
+            in_degree[v] += 1
+            
+    # Initialize a priority queue (min-heap) with all nodes having in-degree 0.
+    # This ensures we always choose the alphabetically smallest node first.
+    zero_in_degree = [node for node in all_nodes if in_degree[node] == 0]
+    heapq.heapify(zero_in_degree)
+    
+    order = []
+    while zero_in_degree:
+        u = heapq.heappop(zero_in_degree)
+        order.append(u)
+        
+        # Decrement the in-degree of neighbor nodes
+        for v in graph.get(u, []):
+            in_degree[v] -= 1
+            if in_degree[v] == 0:
+                heapq.heappush(zero_in_degree, v)
+                
+    # If the order does not contain all nodes, there is a cycle
+    if len(order) < len(all_nodes):
+        raise ValueError(""Graph contains a cycle"")
+        
+    return order
+```"
+C20,code,Hard,Gemini,google/gemini-3.5-flash,api_expand,207,"```python
+def count_n_queens(n: int) -> int:
+    """"""
+    Calculate the number of ways to place n queens on an n-by-n chessboard
+    so that no two queens share a row, column, or diagonal.
+
+    Args:
+        n (int): The size of the board and the number of queens.
+
+    Returns:
+        int: The number of valid distinct solutions.
+
+    Raises:
+        ValueError: If n is negative.
+    """"""
+    if n < 0:
+        raise ValueError(""n must be a non-negative integer."")
+    if n == 0:
+        return 1
+
+    count = 0
+    # Track occupied columns and diagonals
+    cols = set()
+    diag1 = set()  # Represents major diagonals (row - col)
+    diag2 = set()  # Represents minor diagonals (row + col)
+
+    def backtrack(row: int) -> None:
+        nonlocal count
+        # If all rows are filled, a valid placement is found
+        if row == n:
+            count += 1
+            return
+
+        for col in range(n):
+            d1 = row - col
+            d2 = row + col
+            
+            # Check if placing a queen here is safe
+            if col in cols or d1 in diag1 or d2 in diag2:
+                continue
+
+            # Place the queen and mark paths as occupied
+            cols.add(col)
+            diag1.add(d1)
+            diag2.add(d2)
+
+            # Move to the next row
+            backtrack(row + 1)
+
+            # Remove the queen and free up paths (backtrack)
+            cols.remove(col)
+            diag1.remove(d1)
+            diag2.remove(d2)
+
+    backtrack(0)
+    return count
+```"
+Q1,math,Easy,Gemini,google/gemini-3.5-flash,api_expand,124,"To find the total amount of money Maria spends, we need to calculate the cost of the notebooks and the pens separately and then add them together.
+
+First, we calculate the cost of the notebooks. Maria buys 4 notebooks, and each notebook costs $3.00. Multiplying the number of notebooks by the price of one notebook, we get:
+4 * $3.00 = $12.00.
+
+Next, we calculate the cost of the pens. Maria buys 6 pens, and each pen costs $1.25. Multiplying the number of pens by the price of one pen, we get:
+6 * $1.25 = $7.50.
+
+Finally, we add the cost of the notebooks and the cost of the pens to find the total amount spent:
+$12.00 + $7.50 = $19.50.
+
+Answer: 19.50"
+Q2,math,Easy,Gemini,google/gemini-3.5-flash,api_expand,148,"To find the total distance the train travels, we can calculate the distance covered during each of the two parts of its journey and then add them together.
+
+In the first part of the journey, the train travels at a speed of 72 kilometers per hour for 2.5 hours. To find the distance traveled in this leg, we multiply the speed by the time:
+72 kilometers per hour * 2.5 hours = 180 kilometers.
+
+In the second part of the journey, the train travels at a speed of 90 kilometers per hour for 1.5 hours. To find the distance traveled in this leg, we again multiply the speed by the time:
+90 kilometers per hour * 1.5 hours = 135 kilometers.
+
+To find the total distance traveled, we add the distances from both parts of the journey together:
+180 kilometers + 135 kilometers = 315 kilometers.
+
+Answer: 315"
+Q3,math,Easy,Gemini,google/gemini-3.5-flash,api_expand,201,"To find the area of the rectangle, we first need to determine its dimensions (length and width). 
+
+Let the width of the rectangle be represented by $w$ (in centimeters). Since the length is 5 centimeters more than the width, we can represent the length as $w + 5$.
+
+The perimeter of a rectangle is calculated using the formula:
+$$\text{Perimeter} = 2 \times (\text{length} + \text{width})$$
+
+We are given that the perimeter is 46 centimeters. Substituting our expressions for length and width into the formula, we get:
+$$2 \times ((w + 5) + w) = 46$$
+
+Simplify the expression inside the parentheses:
+$$2 \times (2w + 5) = 46$$
+
+To solve for $w$, we first divide both sides of the equation by 2:
+$$2w + 5 = 23$$
+
+Next, subtract 5 from both sides:
+$$2w = 18$$
+
+Divide by 2:
+$$w = 9$$
+
+So, the width of the rectangle is 9 centimeters. 
+
+Now, we can find the length by adding 5 to the width:
+$$\text{Length} = 9 + 5 = 14\text{ centimeters}$$
+
+The area of a rectangle is found by multiplying its length by its width:
+$$\text{Area} = \text{length} \times \text{width}$$
+$$\text{Area} = 14 \times 9 = 126\text{ square centimeters}$$
+
+Answer: 126"
+Q4,math,Medium,Gemini,google/gemini-3.5-flash,api_expand,378,"To find the sum of all integers from 1 to 200 inclusive that are divisible by 3 or by 5, we can use the Principle of Inclusion-Exclusion. This principle states that to find the sum of the numbers in the combined group (divisible by 3 or 5), we find the sum of the numbers divisible by 3, add the sum of the numbers divisible by 5, and then subtract the sum of the numbers divisible by both 3 and 5 (which are the multiples of 15), as they have been counted twice.
+
+**Step 1: Find the sum of integers divisible by 3**
+The integers from 1 to 200 that are divisible by 3 form an arithmetic progression: $3, 6, 9, \dots, 198$.
+To find the number of terms ($n$) in this sequence, we divide 200 by 3 and round down:
+$$n = \lfloor 200 / 3 \rfloor = 66$$
+We can find the sum of these 66 terms using the formula for the sum of an arithmetic progression, $S_n = \frac{n}{2}(a + l)$, where $a$ is the first term and $l$ is the last term:
+$$\text{Sum}_3 = \frac{66}{2}(3 + 198) = 33 \times 201 = 6,633$$
+
+**Step 2: Find the sum of integers divisible by 5**
+The integers from 1 to 200 that are divisible by 5 form the sequence: $5, 10, 15, \dots, 200$.
+The number of terms is:
+$$n = 200 / 5 = 40$$
+Using the sum formula:
+$$\text{Sum}_5 = \frac{40}{2}(5 + 200) = 20 \times 205 = 4,100$$
+
+**Step 3: Find the sum of integers divisible by both 3 and 5 (divisible by 15)**
+The integers from 1 to 200 that are divisible by 15 form the sequence: $15, 30, 45, \dots, 195$.
+The number of terms is:
+$$n = \lfloor 200 / 15 \rfloor = 13$$
+Using the sum formula:
+$$\text{Sum}_{15} = \frac{13}{2}(15 + 195) = \frac{13}{2} \times 210 = 13 \times 105 = 1,365$$
+
+**Step 4: Combine the sums using the Principle of Inclusion-Exclusion**
+Now, we add the sum of multiples of 3 and multiples of 5, and then subtract the sum of multiples of 15:
+$$\text{Total Sum} = \text{Sum}_3 + \text{Sum}_5 - \text{Sum}_{15}$$
+$$\text{Total Sum} = 6,633 + 4,100 - 1,365$$
+$$\text{Total Sum} = 10,733 - 1,365 = 9,368$$
+
+Answer: 9368"
+Q5,math,Easy,Gemini,google/gemini-3.5-flash,api_expand,142,"To find the final price of the shirt, we will calculate the price after the discount first, and then apply the sales tax to that discounted amount.
+
+First, we calculate the discount on the shirt. The original price of the shirt is $40, and the discount is 25 percent. To find the amount of the discount, we multiply $40 by 0.25:
+$$\$40 \times 0.25 = \$10$$
+
+Subtracting this discount from the original price gives us the discounted price of the shirt:
+$$\$40 - \$10 = \$30$$
+
+Next, we calculate the 8 percent sales tax on the discounted price of $30. To find the amount of the tax, we multiply $30 by 0.08:
+$$\$30 \times 0.08 = \$2.40$$
+
+Finally, we add the sales tax to the discounted price to find the final price of the shirt:
+$$\$30 + \$2.40 = \$32.40$$
+
+Answer: 32.40"
+Q6,math,Medium,Gemini,google/gemini-3.5-flash,api_expand,163,"To find the probability that the two numbers shown on two fair six-sided dice add up to 8, we first need to determine the total number of possible outcomes. 
+
+Each die has 6 faces, numbered 1 through 6. When two dice are rolled, the total number of possible outcomes is:
+$$6 \times 6 = 36$$
+
+Next, we identify the specific outcomes (pairs of numbers) that add up to exactly 8. Since the maximum value on any single die is 6, the possible pairs $(d_1, d_2)$ are:
+* $(2, 6)$
+* $(3, 5)$
+* $(4, 4)$
+* $(5, 3)$
+* $(6, 2)$
+
+Counting these pairs, we find there are exactly 5 favorable outcomes.
+
+The probability of rolling a sum of 8 is the number of favorable outcomes divided by the total number of possible outcomes:
+$$\text{Probability} = \frac{5}{36}$$
+
+To convert this fraction into a decimal, we perform the division:
+$$\frac{5}{36} \approx 0.138888...$$
+
+Rounding this value to four decimal places, we get 0.1389.
+
+Answer: 0.1389"
+Q7,math,Medium,Gemini,google/gemini-3.5-flash,api_expand,207,"To find the amount of money in the account after 3 years, we can calculate the balance year by year, applying the 4 percent annual interest rate to the balance at the end of each preceding year.
+
+In the first year, the initial deposit is $5,000. The interest earned during this year is 4 percent of $5,000, which is calculated as:
+$0.04 \times 5,000 = 200$ dollars.
+Adding this interest to the initial deposit, the balance at the end of the first year is:
+$5,000 + 200 = 5,200$ dollars.
+
+In the second year, the interest is earned on the new balance of $5,200. The interest earned during the second year is:
+$0.04 \times 5,200 = 208$ dollars.
+Adding this interest to the first year's ending balance, the balance at the end of the second year is:
+$5,200 + 208 = 5,408$ dollars.
+
+In the third year, the interest is earned on the balance of $5,408. The interest earned during the third year is:
+$0.04 \times 5,408 = 216.32$ dollars.
+Adding this interest to the second year's ending balance, the balance at the end of the third year is:
+$5,408 + 216.32 = 5,624.32$ dollars.
+
+Thus, after 3 years, there are $5,624.32 in the account.
+
+Answer: 5624.32"
+Q8,math,Medium,Gemini,google/gemini-3.5-flash,api_expand,154,"To find out how long it takes Ana and Ben to paint the fence together, we first determine their individual rates of work.
+
+Ana can paint the fence in 6 hours, which means her rate of work is $\frac{1}{6}$ of the fence per hour. 
+
+Ben can paint the fence in 4 hours, which means his rate of work is $\frac{1}{4}$ of the fence per hour.
+
+When they work together, their individual rates of work are added. Therefore, their combined rate of work is:
+$$\frac{1}{6} + \frac{1}{4}$$
+
+To add these fractions, we find a common denominator, which is 12:
+$$\frac{2}{12} + \frac{3}{12} = \frac{5}{12}$$
+
+This means that together, they can paint $\frac{5}{12}$ of the fence in one hour.
+
+To find the total time it takes them to paint the entire fence, we take the reciprocal of their combined rate:
+$$\text{Time} = \frac{1}{\frac{5}{12}} = \frac{12}{5} \text{ hours}$$
+
+Dividing 12 by 5 gives 2.4 hours.
+
+Answer: 2.4"
+Q9,math,Easy,Gemini,google/gemini-3.5-flash,api_expand,193,"To find the number of different ways to choose a committee of 3 members from a club of 10 members when the order of selection does not matter, we use the mathematical concept of combinations. 
+
+The number of combinations of choosing $k$ items from a total of $n$ items is given by the formula:
+$$\binom{n}{k} = \frac{n!}{k!(n-k)!}$$
+
+In this problem, the total number of members $n$ is 10, and we want to choose a committee of $k = 3$ members. Plugging these values into the formula, we get:
+$$\binom{10}{3} = \frac{10!}{3!(10-3)!} = \frac{10!}{3! \times 7!}$$
+
+We can simplify this expression by expanding the factorials. Since $10! = 10 \times 9 \times 8 \times 7!$, we can cancel out the $7!$ in both the numerator and the denominator:
+$$\binom{10}{3} = \frac{10 \times 9 \times 8}{3 \times 2 \times 1}$$
+
+Now, we can perform the arithmetic. First, multiply the numbers in the numerator:
+$$10 \times 9 \times 8 = 720$$
+
+Next, multiply the numbers in the denominator:
+$$3 \times 2 \times 1 = 6$$
+
+Finally, divide the numerator by the denominator:
+$$\frac{720}{6} = 120$$
+
+There are 120 different ways to choose the committee.
+
+Answer: 120"
+Q10,math,Medium,Gemini,google/gemini-3.5-flash,api_expand,181,"To find out how many minutes it will take for the water tank to be full, we first need to determine how much more water is required to fill it. The tank has a total capacity of 1,200 liters and currently contains 300 liters. Subtracting the current amount from the total capacity, we find that the tank needs an additional 900 liters of water to be completely full (1,200 liters - 300 liters = 900 liters).
+
+Next, we calculate the net rate at which water is accumulating in the tank. Water is flowing in at a rate of 30 liters per minute, but it is simultaneously leaking out at a rate of 12 liters per minute. Subtracting the leak rate from the inflow rate gives us a net accumulation rate of 18 liters per minute (30 liters/minute - 12 liters/minute = 18 liters/minute).
+
+Finally, to find the time required to fill the remaining capacity, we divide the amount of water needed by the net rate of accumulation. Dividing 900 liters by 18 liters per minute gives us 50 minutes.
+
+Answer: 50"
+Q11,math,Easy,Gemini,google/gemini-3.5-flash,api_expand,167,"To find the fifth number, we can start by using the definition of an average. The average of a set of numbers is calculated by dividing the sum of the numbers by the total count of those numbers. 
+
+We are given that the average of five numbers is 18. This means that if we add all five numbers together and divide by 5, the result is 18. We can find the total sum of these five numbers by multiplying the average by the count of the numbers:
+$$\text{Total Sum} = 18 \times 5 = 90$$
+
+Next, we calculate the sum of the four numbers that we already know, which are 12, 15, 20, and 22:
+$$\text{Sum of the four numbers} = 12 + 15 + 20 + 22 = 69$$
+
+To find the fifth number, we subtract the sum of these four numbers from the total sum of all five numbers:
+$$\text{Fifth number} = 90 - 69 = 21$$
+
+Thus, the fifth number is 21.
+
+Answer: 21"
+Q12,math,Easy,Gemini,google/gemini-3.5-flash,api_expand,191,"To find the 25th term of an arithmetic sequence, we can use the standard formula for the $n$-th term, which is given by:
+
+$$a_n = a_1 + (n - 1)d$$
+
+In this formula, $a_n$ represents the term we want to find, $a_1$ is the first term of the sequence, $d$ is the common difference between consecutive terms, and $n$ is the position of the term in the sequence.
+
+From the problem, we are given the following values:
+- The first term, $a_1$, is 7.
+- The common difference, $d$, is 4.
+- The position of the term we want to find, $n$, is 25.
+
+Substituting these values into the formula, we get:
+
+$$a_{25} = 7 + (25 - 1) \times 4$$
+
+First, we subtract 1 from 25 to find the number of times the common difference is added to the first term:
+
+$$25 - 1 = 24$$
+
+Next, we multiply this result by the common difference of 4:
+
+$$24 \times 4 = 96$$
+
+Finally, we add this product to the first term of 7:
+
+$$7 + 96 = 103$$
+
+Therefore, the 25th term of the arithmetic sequence is 103.
+
+Answer: 103"
+Q13,math,Medium,Gemini,google/gemini-3.5-flash,api_expand,189,"To find the value of the car after 2 years, we can calculate its depreciation year by year.
+
+Initially, the car is purchased for $24,000.
+
+At the end of the first year, the car loses 15% of its initial value. 
+To find the amount of value lost, we calculate 15% of $24,000:
+$$0.15 \times 24,000 = 3,600$$
+So, the car loses $3,600 in value. We subtract this from the initial price to find the car's value at the end of the first year:
+$$24,000 - 3,600 = 20,400$$
+The car is worth $20,400 at the end of Year 1.
+
+At the end of the second year, the car loses 15% of its value from the end of the first year.
+To find the amount of value lost in the second year, we calculate 15% of $20,400:
+$$0.15 \times 20,400 = 3,060$$
+So, the car loses $3,060 in value during the second year. We subtract this from the Year 1 value to find the car's value at the end of the second year:
+$$20,400 - 3,060 = 17,340$$
+
+After 2 years, the value of the car is $17,340.
+
+Answer: 17340"
+Q14,math,Medium,Gemini,google/gemini-3.5-flash,api_expand,205,"To find the number of positive integers that divide 360 exactly, we need to find the number of positive divisors of 360. We can do this by using the prime factorization of 360.
+
+First, we break down 360 into its prime factors:
+* $360 = 36 \times 10$
+* Since $36 = 6^2 = (2 \times 3)^2 = 2^2 \times 3^2$, and $10 = 2 \times 5$, we can combine these terms.
+* This gives the prime factorization: $360 = 2^3 \times 3^2 \times 5^1$.
+
+Any positive divisor of 360 must be of the form $2^a \times 3^b \times 5^c$, where the exponents $a$, $b$, and $c$ are integers that satisfy the following conditions:
+* $a$ can be any integer from $0$ to $3$ (4 possible choices: 0, 1, 2, or 3).
+* $b$ can be any integer from $0$ to $2$ (3 possible choices: 0, 1, or 2).
+* $c$ can be any integer from $0$ to $1$ (2 possible choices: 0 or 1).
+
+To find the total number of divisors, we multiply the number of choices for each exponent together:
+$$\text{Number of divisors} = 4 \times 3 \times 2 = 24$$
+
+Thus, there are 24 positive integers that divide 360 exactly.
+
+Answer: 24"
+Q15,math,Hard,Gemini,google/gemini-3.5-flash,api_expand,305,"To find out how far the foot of the ladder moves away from the wall, we can model the ladder, the wall, and the ground as a right-angled triangle. The ladder acts as the hypotenuse, the wall represents the vertical side, and the ground represents the horizontal side.
+
+Initially, the ladder is $25$ feet long, and its foot is $7$ feet from the base of the wall. We can use the Pythagorean theorem ($a^2 + b^2 = c^2$) to find the initial height of the top of the ladder up the wall. 
+
+Let $x_1 = 7$ feet be the initial distance from the wall, $y_1$ be the initial height on the wall, and $L = 25$ feet be the length of the ladder.
+$$x_1^2 + y_1^2 = L^2$$
+$$7^2 + y_1^2 = 25^2$$
+$$49 + y_1^2 = 625$$
+$$y_1^2 = 625 - 49 = 576$$
+$$y_1 = \sqrt{576} = 24\text{ feet}$$
+
+So, the top of the ladder is initially $24$ feet up the wall.
+
+Next, the top of the ladder slides $4$ feet down the wall. This means the new height of the top of the ladder, $y_2$, is:
+$$y_2 = 24 - 4 = 20\text{ feet}$$
+
+Now, we find the new distance of the foot of the ladder from the wall, which we will call $x_2$. Using the Pythagorean theorem again with the same ladder length of $25$ feet:
+$$x_2^2 + y_2^2 = L^2$$
+$$x_2^2 + 20^2 = 25^2$$
+$$x_2^2 + 400 = 625$$
+$$x_2^2 = 625 - 400 = 225$$
+$$x_2 = \sqrt{225} = 15\text{ feet}$$
+
+The foot of the ladder is now $15$ feet from the wall. To find how far it moved, we subtract the initial distance from the new distance:
+$$15 - 7 = 8\text{ feet}$$
+
+The foot of the ladder moves $8$ feet away from the wall.
+
+Answer: 8"
+Q16,math,Hard,Gemini,google/gemini-3.5-flash,api_expand,286,"To solve this problem, we can set up an equation based on the amount of pure acid in each solution. 
+
+First, let $x$ represent the number of liters of the 60 percent acid solution that we need to add. 
+
+The amount of pure acid in this $x$ liters of 60 percent solution is $0.60x$ liters. 
+
+Next, we calculate the amount of pure acid in the existing 10 liters of the 20 percent solution. This is calculated as $10 \times 0.20$, which equals 2 liters of pure acid. 
+
+When we mix these two solutions together, the total volume of the new mixture will be the sum of the volumes of the two individual solutions, which is $x + 10$ liters. 
+
+We want the final mixture to be a 40 percent acid solution. Therefore, the total amount of pure acid in the final mixture must be 40 percent of the total volume, which we can write as $0.40(x + 10)$ liters. 
+
+Since the total amount of pure acid in the final mixture is the sum of the pure acid from the two starting solutions, we can set up the following equation:
+$$0.60x + 2 = 0.40(x + 10)$$
+
+Now, we solve for $x$ step by step:
+1. Distribute the $0.40$ on the right side of the equation:
+   $$0.60x + 2 = 0.40x + 4$$
+2. Subtract $0.40x$ from both sides to gather the variable terms on one side:
+   $$0.20x + 2 = 4$$
+3. Subtract 2 from both sides to isolate the variable term:
+   $$0.20x = 2$$
+4. Divide both sides by $0.20$ to find the value of $x$:
+   $$x = \frac{2}{0.20} = 10$$
+
+Thus, 10 liters of the 60 percent acid solution must be added.
+
+Answer: 10"
+Q17,math,Medium,Gemini,google/gemini-3.5-flash,api_expand,241,"To find out when the three lighthouses will next flash together, we need to find the least common multiple (LCM) of their individual flashing intervals. The intervals are 12, 18, and 30 seconds. The LCM represents the smallest positive integer that is a multiple of all three numbers, which will give us the exact number of seconds that must pass before they all flash at the same moment again.
+
+First, we find the prime factorization of each of the three intervals:
+* The prime factorization of 12 is $2 \times 2 \times 3$, which can be written as $2^2 \times 3$.
+* The prime factorization of 18 is $2 \times 3 \times 3$, which can be written as $2 \times 3^2$.
+* The prime factorization of 30 is $2 \times 3 \times 5$.
+
+To find the least common multiple, we take the highest power of each prime number that appears in any of the factorizations:
+* For the prime number 2, the highest power is $2^2$ (from 12).
+* For the prime number 3, the highest power is $3^2$ (from 18).
+* For the prime number 5, the highest power is $5^1$ (from 30).
+
+Next, we multiply these highest powers together to calculate the LCM:
+$$\text{LCM} = 2^2 \times 3^2 \times 5^1$$
+$$\text{LCM} = 4 \times 9 \times 5$$
+$$\text{LCM} = 36 \times 5$$
+$$\text{LCM} = 180$$
+
+Therefore, 180 seconds must pass before the three lighthouses next flash together.
+
+Answer: 180"
+Q18,math,Medium,Gemini,google/gemini-3.5-flash,api_expand,181,"To find the size of the bacterial population after 2 hours, we first need to determine how many times the population doubles during this period. 
+
+First, we convert the total time of 2 hours into minutes. Since there are 60 minutes in an hour, 2 hours is equal to 120 minutes (2 multiplied by 60).
+
+Next, we find the number of doubling periods. The population doubles every 20 minutes, so we divide the total time of 120 minutes by 20 minutes. This gives us 6 doubling periods.
+
+To find the final population, we use the formula for exponential growth, which is the initial population multiplied by 2 raised to the power of the number of doubling periods. 
+
+Starting with an initial population of 150 bacteria and doubling 6 times, the calculation is 150 multiplied by $2^6$. 
+
+First, we calculate $2^6$, which is 64 (2 × 2 × 2 × 2 × 2 × 2). 
+
+Finally, we multiply the initial population of 150 by 64:
+150 × 64 = 9,600.
+
+After 2 hours, there are 9,600 bacteria in the culture.
+
+Answer: 9600"
+Q19,math,Hard,Gemini,google/gemini-3.5-flash,api_expand,237,"To find the smaller angle between the hour hand and the minute hand of an analog clock at 3:40, we can determine the position of each hand in degrees, measuring clockwise from the 12 o'clock position (0 degrees).
+
+First, we calculate the position of the hour hand. A clock face is a full circle of $360^\circ$ divided into 12 hours, which means each hour mark represents $30^\circ$ ($360^\circ \div 12$). The hour hand also moves during the minutes; since it covers $30^\circ$ in 60 minutes, it moves at a rate of $0.5^\circ$ per minute ($30^\circ \div 60$). At 3:40, the hour hand has moved for 3 hours and 40 minutes. 
+* The 3 hours contribute $3 \times 30^\circ = 90^\circ$.
+* The 40 minutes contribute an additional $40 \times 0.5^\circ = 20^\circ$.
+* Adding these together, the hour hand is at $90^\circ + 20^\circ = 110^\circ$.
+
+Second, we calculate the position of the minute hand. The minute hand covers the full $360^\circ$ in 60 minutes, which means it moves at a rate of $6^\circ$ per minute ($360^\circ \div 60$). At 40 minutes, the position of the minute hand is:
+* $40 \times 6^\circ = 240^\circ$.
+
+Finally, we find the difference between the two positions to get the angle between the hands:
+* $240^\circ - 110^\circ = 130^\circ$.
+
+Since $130^\circ$ is less than $180^\circ$, it is the smaller of the two angles formed between the hands. 
+
+Answer: 130"
+Q20,math,Hard,Gemini,google/gemini-3.5-flash,api_expand,319,"To find the number of integers from 1 to 1000 inclusive that contain at least one digit 7, it is easiest to use the principle of complementary counting. This means we will first find the number of integers in this range that do *not* contain any digit 7, and then subtract this count from the total number of integers (which is 1000).
+
+Let us count the integers from 1 to 1000 that do not contain the digit 7 by breaking them down by their number of digits:
+
+1. **Single-digit numbers (1 to 9):**
+   The possible digits are 1, 2, 3, 4, 5, 6, 8, and 9. This gives us **8** numbers.
+
+2. **Two-digit numbers (10 to 99):**
+   For a two-digit number, the tens digit can be any digit from 1 to 9 except 7 (8 choices). The units digit can be any digit from 0 to 9 except 7 (9 choices). This gives us:
+   $$8 \times 9 = 72\text{ numbers}$$
+
+3. **Three-digit numbers (100 to 999):**
+   For a three-digit number, the hundreds digit can be any digit from 1 to 9 except 7 (8 choices). The tens digit can be any digit from 0 to 9 except 7 (9 choices). The units digit can also be any digit from 0 to 9 except 7 (9 choices). This gives us:
+   $$8 \times 9 \times 9 = 648\text{ numbers}$$
+
+4. **Four-digit numbers (1000):**
+   The only four-digit number in our range is 1000. Since 1000 does not contain the digit 7, this gives us **1** number.
+
+Now, we sum these counts to find the total number of integers from 1 to 1000 that do not contain the digit 7:
+$$8 + 72 + 648 + 1 = 729\text{ numbers}$$
+
+Finally, we subtract this value from the total number of integers in the range (1000) to find how many integers contain at least one digit 7:
+$$1000 - 729 = 271$$
+
+Answer: 271"
+E14,prose,Easy,Gemini,google/gemini-3.5-flash,api_expand,511,"While volunteering is traditionally viewed as a selfless act of giving, it is increasingly recognized as a powerful catalyst for personal growth and well-being. Engaging in service to others is not a one-way street; rather, it creates a symbiotic relationship where the giver receives as much as, if not more than, the recipient. By stepping outside of one's daily routine to support a cause, an individual opens the door to a wealth of personal benefits. Far from being merely a sacrifice of time, volunteering serves as a practical tool for self-improvement, a source of existential fulfillment, and a shield against the psychological challenges of modern life.
+
+One of the most tangible personal benefits of volunteering is the opportunity to develop new skills and expand one's professional network. When individuals step into volunteer roles, they are often exposed to tasks and responsibilities outside their usual professional domains, allowing them to cultivate valuable competencies such as project management, public speaking, and conflict resolution in a low-risk environment. Furthermore, volunteering brings together diverse groups of people who share common values but come from vastly different professional backgrounds. This environment fosters organic networking opportunities, allowing volunteers to connect with mentors, peers, and potential employers whom they might never have met otherwise, ultimately enhancing their career prospects and broadening their professional horizons.
+
+Beyond practical career advantages, volunteering offers a profound sense of purpose and meaning that is often difficult to find in the routine of daily employment or personal ambition. Engaging in altruistic work connects individuals to a cause larger than themselves, shifting their focus from personal worries to collective well-being. This shift in perspective helps people find significance in their efforts, as they can directly witness the positive impact of their actions on their community or the environment. This deeply felt sense of contribution acts as a powerful motivator, anchoring individuals to a clear mission and imbuing their lives with a renewed sense of direction and existential satisfaction.
+
+In addition to fostering purpose, volunteering plays a crucial role in improving mental health by actively reducing feelings of isolation and loneliness. In an increasingly digital and fragmented world, many people struggle with a lack of meaningful social connection, which can lead to anxiety and depression. Volunteering addresses this issue by placing individuals in cooperative, community-focused environments where they must interact and collaborate with others. These shared experiences build strong social bonds and create a supportive community of like-minded individuals, effectively dismantling the barriers of isolation and fostering a deep sense of belonging that nurtures long-term mental well-being.
+
+Ultimately, the act of volunteering transcends simple charity to become a transformative journey of self-discovery and holistic health. By dedicating time to help others, individuals not only acquire valuable skills and build robust professional networks, but they also discover a deeper sense of life purpose and cultivate vital social connections that protect their mental health. The true beauty of volunteering lies in this harmonious loop, proving that the most effective way to enrich one's own life is to dedicate a portion of it to enriching the lives of others."
+E15,prose,Easy,Gemini,google/gemini-3.5-flash,api_expand,613,"There is a common misconception that the window for learning a musical instrument slams shut once we reach adulthood. We often associate music lessons with childhood, believing that adult brains are too rigid and adult schedules too packed to accommodate such a demanding pursuit. However, picking up an instrument later in life is not only possible, but it is also one of the most enriching endeavors an adult can undertake. Far from being a futile exercise, adult music education offers profound cognitive, emotional, and psychological rewards that can revitalize a person’s daily life. By stepping into the role of a student, adults can unlock hidden potentials and find a unique sense of fulfillment that is rarely matched by other hobbies.
+
+One of the most immediate advantages of learning an instrument as an adult is the rigorous workout it provides for both the mind and the body. Playing music requires a complex orchestration of cognitive and physical faculties, serving as a powerful exercise for memory and hand coordination. When you read sheet music, your brain must quickly interpret symbols, translate them into specific pitches and rhythms, and then signal your hands to execute those notes. This process demands a high level of fine motor control and bilateral coordination, as each hand often performs entirely different tasks simultaneously. Over time, this constant loop of reading, remembering, and physical execution strengthens neural pathways, sharpens spatial-temporal reasoning, and keeps the adult brain remarkably agile. It is a form of mental gymnastics that keeps the mind sharp while simultaneously refining physical dexterity.
+
+Beyond these cognitive benefits, learning an instrument offers a much-needed creative outlet after a long day of work or school. Modern adult life is often dominated by routine, screens, and the pressure to perform professionally or academically. Engaging with music provides a sanctuary where one can decompress and process the stresses of the day. Unlike passive entertainment, playing an instrument is an active form of relaxation that engages the imagination. It allows adults to channel their emotions into sound, offering a non-verbal means of self-expression that can be incredibly therapeutic. Whether you are venting frustration through a powerful rhythm or finding peace in a gentle melody, the act of making music acts as a reset button for the mind, restoring emotional balance before the next day begins.
+
+Furthermore, the structured nature of musical practice provides a steady, deeply satisfying sense of progress that is often missing from our professional lives. In the workplace or in higher education, goals can be abstract, and success is often delayed or dependent on external validation. In contrast, practicing an instrument offers immediate feedback. When you sit down to practice a difficult passage, you might struggle initially, but with focused repetition, your fingers begin to find the right placement, and the melody starts to flow. This tangible arc of improvement, from stumbling through a scale to playing a complete song, fosters a powerful sense of personal achievement. This steady advancement builds self-confidence, proving to the adult learner that dedication and patience can still yield mastery, regardless of age.
+
+Ultimately, the decision to learn a musical instrument as an adult is an investment in one's overall well-being. It is a pursuit that defies the notion that learning is only for the young, proving instead that the adult mind is fully capable of growth and adaptation. By sharpening memory and physical coordination, providing a vital creative escape from daily stressors, and offering a clear, rewarding path of personal progress, music enriches life in ways that few other activities can. It is never too late to begin this journey, and the rewards of doing so will resonate through every aspect of an adult's life."
+E16,prose,Easy,Gemini,google/gemini-3.5-flash,api_expand,447,"Choosing to walk or ride a bicycle for short errands instead of automatically reaching for the car keys is one of the simplest yet most transformative changes a person can make to improve their daily routine. The most immediate and tangible benefit of this shift is the significant financial savings it brings. Short car trips are notoriously inefficient, consuming a disproportionate amount of fuel because the engine does not have time to reach its optimal operating temperature. By replacing these brief drives with foot or pedal power, you instantly cut down on gasoline consumption and reduce the wear and tear on your vehicle. Furthermore, choosing active transportation eliminates the constant, nagging expense of parking fees, whether at a meter, a parking garage, or a crowded shopping center. Over time, the money saved on fuel and parking accumulates into a substantial sum that can be redirected toward more rewarding experiences, making your financial life feel lighter and more manageable.
+
+In addition to the financial perks, opting for active transit effortlessly integrates physical activity into a busy schedule without the need for extra planning. Modern life often feels like a race against the clock, leaving little room for dedicated workouts or trips to the gym. When you choose to walk or bike to the local grocery store, post office, or coffee shop, your commute itself becomes your exercise. This seamless integration means you do not have to pack a gym bag, schedule a workout block, or pay for a fitness membership to stay active. Just a few short trips a week can help you meet recommended daily activity levels, boosting your cardiovascular health, strengthening your muscles, and releasing endorphins that naturally elevate your mood. It reframes exercise from a chore that must be scheduled into a natural, functional part of how you navigate your day.
+
+Beyond the physical and financial rewards, traveling at a slower pace allows you to truly notice and enjoy your neighborhood in a way that is impossible from behind a windshield. Driving often reduces the local environment to a blur of traffic lights and obstacles, isolating you from the world outside your car. Walking or cycling opens up your senses, allowing you to appreciate the changing seasons, admire the architecture of local homes, and greet neighbors passing by. You might discover a hidden community garden, a charming new cafe, or a scenic path you never knew existed. This deeper connection to your surroundings fosters a sense of belonging and community pride, turning mundane errands into pleasant journeys. Ultimately, embracing walking or biking for short trips transforms the daily grind into a series of mindful, healthy, and enriching moments that elevate your overall quality of life."
+E17,prose,Easy,Gemini,google/gemini-3.5-flash,api_expand,306,"Dedicating just one weekend to a basic first aid course is one of the most practical and impactful decisions you can make for yourself and those around you. The primary reason to enroll is that it thoroughly prepares you to handle common, everyday emergencies that can happen in the blink of an eye. Whether you are at home, in the office, or out in your community, accidents like choking, severe cuts, burns, or sudden cardiac events are unfortunately common. Having the knowledge to step in and provide immediate, correct assistance before professional medical help arrives can prevent injuries from worsening and can literally mean the difference between life and death for a family member, coworker, or stranger.
+
+Beyond the practical skills you acquire, this training builds a profound sense of calm confidence that is invaluable during high-stress situations. When an emergency strikes, panic and hesitation are natural reactions, but they can paralyze you when quick action is most critical. A first aid course replaces that fear of the unknown with structured, muscle-memory responses. By practicing scenarios in a controlled environment, you learn how to assess a situation logically, take control of the environment, and deliver care systematically, which keeps both you and the injured person calmer throughout the crisis.
+
+Finally, acquiring these life-saving skills requires a remarkably small investment of your time and money. A standard certification course typically takes only a single Saturday or Sunday to complete, meaning you can gain a lifetime of readiness without sacrificing your busy schedule. Furthermore, these classes are highly affordable, often subsidized by local community centers, schools, or employers, making them accessible to almost anyone. When you consider the immense value of being able to protect the people you care about, spending a few hours and a minimal fee on a weekend is an incredibly smart and efficient trade-off."
+E18,prose,Easy,Gemini,google/gemini-3.5-flash,api_expand,351,"Cultivating a small herb or vegetable garden at home is one of the most fulfilling pastimes a person can undertake, offering a unique blend of practical utility and personal satisfaction. One of the most immediate rewards of this hobby is the unparalleled convenience of having fresh, flavorful food right outside your back door. Instead of relying entirely on store-bought produce that may have traveled thousands of miles and lost its nutritional value, a home gardener can simply step outside to harvest crisp lettuce, fragrant basil, or ripe tomatoes at the peak of their flavor. This instant access not only elevates the quality and taste of daily meals but also fosters a deeper connection to the food we consume, transforming cooking from a routine chore into a creative celebration of homegrown ingredients.
+
+Beyond the culinary benefits, tending to a garden serves as a therapeutic escape from the relentless pressures of modern life. In a world dominated by screens, deadlines, and constant digital connectivity, spending a few quiet moments digging in the soil, watering delicate shoots, or pruning overgrown branches offers a much-needed mental break. This hands-on interaction with nature encourages mindfulness, grounding the gardener in the present moment and allowing the anxieties of the workday to fade away. The rhythmic, physical tasks of gardening act as a form of active meditation, restoring a sense of calm and balance to an otherwise chaotic routine.
+
+Finally, nurturing a garden is a profound lesson in patience, a virtue that is often lost in our culture of instant gratification. Plants do not adhere to high-speed demands; they require time, consistent care, and favorable conditions to thrive. Watching a tiny seed slowly break through the dark soil, develop its first true leaves, and eventually bear fruit teaches us to appreciate the slow, natural cycles of life. This gradual process instills a sense of quiet anticipation and resilience, helping gardeners learn that the most worthwhile outcomes in life often require time and steady effort. Ultimately, the journey from seed to harvest rewards the gardener not just with physical sustenance, but with a cultivated mind and a peaceful spirit."
+E19,prose,Easy,Gemini,google/gemini-3.5-flash,api_expand,458,"In an increasingly fast-paced world, maintaining control over one's daily responsibilities can feel like an overwhelming challenge, yet a tool as simple as a daily planner can transform this chaos into order. The most immediate benefit of committing your schedule to paper is that you drastically reduce the likelihood of forgetting important tasks and appointments. Human memory is notoriously fallible and easily overwhelmed by the sheer volume of details we encounter daily. When you write down a dentist appointment, a project deadline, or even a simple chore, you transfer that information from a fleeting thought into a permanent, physical record. This reliable external storage system ensures that critical commitments do not slip through the cracks, allowing you to navigate your day with the confidence that you are exactly where you need to be, doing exactly what needs to be done.
+
+Beyond merely serving as a memory aid, utilizing a daily planner acts as a powerful mechanism for mental decompression, clearing your head so you can truly relax. When you attempt to keep all your to-do lists and schedules stored in your brain, your mind remains in a state of constant, low-level anxiety, endlessly looping through tasks to ensure nothing is forgotten. This cognitive load prevents you from fully engaging in the present moment or enjoying your downtime. By transferring these thoughts onto the pages of a planner, you effectively close the open loops in your mind. Knowing that your responsibilities are safely documented and organized allows your brain to release its grip on them, fostering a sense of peace and enabling genuine relaxation during your off-hours.
+
+Finally, the physical act of checking completed tasks off your list provides a tangible representation of your productivity, showing you exactly how much you have achieved. It is easy to reach the end of a busy day feeling exhausted yet harboring the nagging suspicion that you accomplished very little. A planner combats this false perception by serving as a visual archive of your effort. Drawing a line through a completed chore or placing a checkmark next to a finished project delivers a satisfying feeling of momentum. Seeing a page filled with crossed-out tasks offers concrete proof of your hard work, transforming abstract busyness into visible progress and reinforcing your motivation to keep moving forward.
+
+Ultimately, a daily planner is far more than a simple book of dates; it is a comprehensive system for personal empowerment. By safeguarding your schedule against forgetfulness, unburdening your mind of cognitive stress, and reflecting your daily triumphs back to you, this practice keeps you firmly in the driver's seat of your own life. Embracing the habit of writing things down is a small investment of time that yields massive returns in clarity, productivity, and peace of mind."
+E20,prose,Easy,Gemini,google/gemini-3.5-flash,api_expand,339,"I was thinking about how we should plan our next get-together, and I really think we should set up a board game night. In a world where everyone is constantly glued to their phones or distracted by screens, sitting down around a table to play a game is one of the best ways to truly connect with the people you care about. Unlike watching a movie where everyone sits in silence, a board game naturally sparks conversation, laughter, and playful banter. It gives us a shared focus and a reason to talk, tell stories, and interact in a way that we rarely get to do in our busy daily lives, strengthening our relationships with every roll of the dice.
+
+Beyond just the social connection, playing board games is a fantastic, low-stakes way to practice and teach good sportsmanship. Whether you are playing with kids or just among competitive adults, games create a safe environment to experience both the thrill of victory and the sting of defeat. Learning to congratulate a winner graciously and accept a loss with a smile is a valuable life skill that translates far beyond the game board. It teaches us patience, resilience, and how to enjoy the process of playing rather than just focusing on the end result, which ultimately makes us better friends and family members.
+
+Finally, from a purely practical standpoint, board games are incredibly cheap entertainment that you can enjoy over and over again. While a night out at the movies, a concert, or a fancy dinner can easily drain your wallet in just a few hours, a single board game is a one-time investment that provides endless hours of fun. You can pull the same game off the shelf years down the road, and because every playthrough is different depending on who is playing and what strategies are used, it never gets old. It is an affordable, sustainable way to make lasting memories, and I really hope you will join me at the table for our first game night very soon."
+E21,prose,Easy,Gemini,google/gemini-3.5-flash,api_expand,366,"Learning how to swim is not merely a recreational pastime but a fundamental life skill that everyone should acquire. The most critical reason to learn how to swim is personal safety, as water is a constant presence in our daily lives and travel experiences. Whether relaxing by a backyard pool, hiking near a tranquil lake, or vacationing by the vast ocean, unexpected situations can arise at any moment. An accidental slip, a sudden current, or a capsize can quickly turn a pleasant day into a life-threatening emergency. Knowing how to float, tread water, and swim to safety drastically reduces the risk of drowning, transforming potential aquatic hazards into manageable environments and providing invaluable peace of mind.
+
+Beyond the vital safety benefits, swimming serves as an exceptional form of exercise that promotes lifelong physical health. Unlike many land-based activities that place high impact on the skeletal system, swimming is a low-impact workout because the buoyancy of water supports the majority of the body's weight. This makes it incredibly gentle on the joints, making it an ideal exercise for people of all ages, including those recovering from injuries or managing chronic conditions like arthritis. At the same time, moving through the resistance of water requires the engagement of almost every major muscle group, offering a comprehensive full-body workout. It simultaneously builds cardiovascular endurance, strengthens the core, and tones the limbs, all while shielding the body from the wear and tear associated with high-impact sports.
+
+Furthermore, mastering the ability to swim serves as a gateway to a vast world of recreational opportunities and adventure. Many of the most exciting and memorable travel experiences revolve around the water, yet they remain inaccessible to those who cannot swim. Learning to swim unlocks a wide array of thrilling activities, such as snorkeling over vibrant coral reefs, surfing ocean waves, kayaking, paddleboarding, and participating in various water sports. Even simple pleasures, like playing water polo or exploring coastal caves, require a baseline level of comfort and competence in the water. By learning to swim, individuals do not just protect themselves and improve their physical fitness; they also enrich their lives by gaining the freedom to fully participate in these joyful and adventurous experiences."
+M14,prose,Medium,Gemini,google/gemini-3.5-flash,api_expand,385,"Routine preventive maintenance stands as the cornerstone of fiscally responsible facility and asset management, offering far greater cost-effectiveness than a reactive approach that waits for systems to fail. The primary financial advantage of this proactive strategy lies in the power of scheduled inspections, which allow technicians to identify and rectify minor issues before they transform into catastrophic problems. Regular walk-throughs and diagnostic tests can detect microscopic cracks, minor fluid leaks, or slight misalignments in mechanical systems that would otherwise go unnoticed during daily operations. Resolving these small defects immediately requires minimal parts, basic labor, and very little time. Conversely, ignoring these early warning signs inevitably leads to severe structural degradation or major mechanical failure, forcing organizations to pay for expensive emergency repairs, structural rebuilds, or entire system replacements that could have been easily avoided.
+
+Furthermore, planned maintenance is essential for preserving operational continuity and protecting an organization from the devastating financial impact of sudden breakdowns. When critical equipment or building systems fail unexpectedly, the resulting unplanned downtime halts production, idles salaried workers, and disrupts supply chains, leading to immediate revenue loss and potential long-term damage to customer relationships. In contrast, routine maintenance is scheduled in advance during off-peak hours, nights, or weekends, ensuring that any disruption to daily operations is predictable and kept to an absolute minimum. By controlling the timing of these maintenance windows, businesses can optimize their labor resources, coordinate staff schedules around the temporary pause, and ensure that all necessary spare parts are already on site, thereby eliminating the emergency shipping fees and premium technician rates associated with urgent, unplanned repairs.
+
+Beyond the immediate savings in repair costs and the preservation of daily productivity, a consistent preventive maintenance program significantly extends the operational lifespan of physical assets. Buildings, manufacturing machinery, and HVAC systems represent massive capital investments that require careful stewardship to maximize their return on investment. Regular servicing, such as lubricating moving parts, replacing filters, and sealing building envelopes, prevents the compounding wear and tear that causes premature equipment retirement. When these assets are kept in optimal running condition through routine care, they last substantially longer than neglected systems. This extended longevity allows organizations to defer expensive capital expenditures, spreading the original purchase and installation costs over many more years of productive service and ultimately lowering the total cost of ownership."
+M15,prose,Medium,Gemini,google/gemini-3.5-flash,api_expand,316,"Contributing to open-source software offers substantial financial advantages to organizations by distributing the ongoing burden of software upkeep. When a company open-sources a tool or contributes to an existing project, it effectively transitions from being the sole custodian of that technology to sharing its stewardship with a global community. Instead of relying exclusively on internal engineering resources to write updates, patch bugs, and maintain compatibility with changing environments, the organization benefits from the collective labor of external developers. This collaborative ecosystem ensures that the long-term costs of maintenance, feature development, and code modernization are shared among many participants rather than being borne by a single enterprise.
+
+In addition to financial efficiency, the practice of opening source code to the public significantly enhances the reliability and security of the software. When code is made publicly accessible, it undergoes continuous peer review by a diverse and highly capable global network of developers. This constant scrutiny ensures that design flaws, inefficiencies, and bugs are identified and corrected far more rapidly than is possible within the confines of a closed, proprietary team. This collaborative model is especially effective for cybersecurity, as a multitude of independent observers can spot potential vulnerabilities and develop patches long before those flaws can be exploited by malicious actors, resulting in a demonstrably more secure and stable product.
+
+Beyond the immediate technical and financial benefits, visible contributions to the open-source community greatly enhance an organization's standing in the technology sector. By publicly showcasing their codebase, engineering practices, and innovative solutions, companies build a powerful technical reputation that commands respect within the industry. This high level of visibility serves as an exceptionally effective recruitment tool for attracting elite engineering talent. Skilled developers are naturally drawn to organizations where they can work on transparent, impactful projects and contribute to the broader developer community, making it much easier for active open-source contributors to recruit and retain top-tier technical professionals."
+M16,prose,Medium,Gemini,google/gemini-3.5-flash,api_expand,421,"The introduction of the standardized shipping container in the mid-twentieth century fundamentally reshaped the global economy, serving as a primary catalyst for modern globalization. Prior to this innovation, the process of loading and unloading cargo at ports, known as breakbulk shipping, was a notoriously slow, labor-intensive, and expensive endeavor. Longshoremen had to manually pack and unpack thousands of individual sacks, crates, and barrels of varying shapes and sizes into the holds of ships. Containerization completely revolutionized this bottleneck by shifting the industry from manual labor to mechanized automation. With standardized containers, massive cranes could rapidly hoist uniform boxes on and off vessels in a fraction of the time. This transition reduced the time ships spent docked at ports from weeks to mere hours, immensely increasing the efficiency of maritime transport and drastically lowering labor costs.
+
+Beyond the docks, the true genius of the shipping container lay in its standardization, which established a seamless bridge between different modes of transportation. Because every container conformed to identical dimensions, goods could be transferred directly from a cargo ship onto a flatbed train or a semi-truck without ever needing to be unpacked and repacked. This intermodal compatibility eliminated the logistical friction that had previously confined manufacturing and distribution to regional markets. Factories could now source components from one continent, assemble them in another, and sell the finished product in a third, all within a highly synchronized and cost-effective timeline. By facilitating this fluid movement across sea and land, the standardized container laid the structural foundation for modern integrated global supply chains, transforming how multinational corporations operate and making consumer goods cheaper and more accessible worldwide.
+
+Furthermore, the physical security offered by these steel enclosures brought about a dramatic decline in the risks associated with transporting goods over long distances. In the era of breakbulk shipping, cargo was highly vulnerable to theft, pilferage, and environmental damage as it sat exposed on docks or passed through multiple hands. Standardized containers, once loaded at the point of origin, were securely sealed and remained locked until they reached their final destination. This simple act of sealing cargo drastically curtailed transit theft and protected goods from harsh weather and rough handling. Consequently, the incidence of damaged or lost merchandise plummeted, which in turn led to a substantial reduction in cargo insurance premiums and overall handling costs. By securing the physical integrity of global trade, the standardized shipping container solidified its status as one of the most economically consequential innovations of the twentieth century, permanently lowering the barriers to international commerce."
+M17,prose,Medium,Gemini,google/gemini-3.5-flash,api_expand,329,"Citizen science projects make genuine and invaluable contributions to scientific research by expanding the physical and temporal boundaries of data collection beyond what professional research teams could ever achieve alone. By mobilizing vast networks of volunteer observers, these initiatives can monitor ecological trends across entire continents and over multiple decades. A prime example of this is found in long-running bird counts, where thousands of amateur ornithologists log sightings from their own backyards and local environments. This continuous, distributed monitoring provides researchers with high-resolution, long-term datasets that are essential for tracking species distribution, migration patterns, and the impacts of environmental change, demonstrating how collective public effort can yield irreplaceable scientific insights.
+
+In addition to field observation, citizen science has revolutionized data analysis through online platforms that leverage the collective cognitive power of the public to process massive datasets. Modern scientific instruments generate vast quantities of visual and auditory information, such as high-resolution galaxy photographs, that far exceed the processing capacity of small professional research groups. By inviting online volunteers to classify these images and audio files, projects can analyze complex data at unprecedented speeds. This crowdsourced classification not only accelerates the pace of discovery but also ensures that subtle patterns or anomalies, which might be missed by automated algorithms, are identified by human eyes, proving that public engagement is vital for managing the data deluge of modern science.
+
+Beyond the direct analytical and observational outputs, citizen science plays a crucial role in enhancing public scientific literacy and fostering a deeper understanding of the scientific method. When individuals actively participate in data collection and analysis, they move from passive consumers of information to active contributors to the scientific enterprise. This hands-on involvement demystifies the process of research, teaching participants firsthand how evidence is gathered, validated, and used to form scientific conclusions. By engaging with real-world scientific questions, volunteers develop critical thinking skills and a stronger appreciation for empirical evidence, ultimately strengthening the relationship between the scientific community and the broader public."
+M18,prose,Medium,Gemini,google/gemini-3.5-flash,api_expand,367,"Structured code review acts as a critical quality assurance gate that intercepts bugs, logical errors, and security vulnerabilities before they ever reach the production environment. When a peer examines code with a fresh set of eyes, they can identify edge cases and flaws that the original author, who is often too close to the implementation, might have easily overlooked. Catching these defects during the development phase is exponentially cheaper and less disruptive than resolving them after release. In production, a bug can lead to system downtime, compromised user data, and lost revenue, requiring emergency hotfixes, patches, and extensive regression testing. By resolving these issues during the review stage, engineering teams save valuable time, protect the organization's reputation, and maintain a stable, reliable product for their users.
+
+Beyond immediate bug detection, structured code review serves as a powerful mechanism for knowledge sharing and team resilience. When engineers regularly examine one another's code, they gain exposure to different parts of the system, learning about architectural patterns, third-party integrations, and business logic they might not interact with directly in their daily tasks. This collective familiarity dismantles information silos and significantly mitigates the risk associated with relying on a single expert for critical components of the application. If a key developer leaves the team or is temporarily unavailable, other team members can confidently step in to debug, update, or expand that area of the codebase because they have already engaged with it during the review process, ensuring business continuity.
+
+Finally, the practice of regular peer review is essential for establishing and enforcing consistent coding standards across the entire engineering organization. Without a collaborative review process, individual developers tend to write code in their own unique styles, leading to a fragmented and disjointed codebase that becomes increasingly difficult to read and understand. Structured reviews ensure that every contribution adheres to agreed-upon formatting, naming conventions, and architectural guidelines. This consistency makes the software far easier to maintain over time, as any engineer can open a file and immediately understand its structure and intent without having to decipher a colleague's idiosyncratic style. Ultimately, this uniform codebase accelerates future development velocity, simplifies onboarding for new team members, and lowers the long-term cost of software ownership."
+M19,prose,Medium,Gemini,google/gemini-3.5-flash,api_expand,405,"In high-stakes environments like aviation cockpits and operating rooms, the human brain is subjected to immense cognitive loads that can easily compromise performance. Even the most highly trained professionals are susceptible to cognitive slips when forced to rely solely on memory to execute complex, multi-step procedures. Written checklists serve as an indispensable external cognitive aid, systematically reducing the reliance on human memory for routine yet critical steps. During crises or prolonged shifts, when stress and fatigue inevitably impair working memory and decision-making capabilities, a physical or digital checklist ensures that foundational safety measures are never omitted. By externalizing the sequence of necessary actions, these tools free up valuable mental bandwidth, allowing pilots and surgeons to focus their intellectual energy on solving dynamic, unpredictable problems rather than struggling to recall basic protocol.
+
+Beyond supporting individual cognitive function, written checklists fundamentally transform team dynamics by standardizing communication in environments where hierarchy can otherwise silence vital voices. In both aviation and medicine, steep authority gradients have historically prevented junior staff from speaking up when they notice a potential hazard. The structured nature of a checklist levels this playing field by establishing a formalized, socially sanctioned pause during which every team member has a designated opportunity and duty to voice concerns. By mandating explicit verbal confirmation of key parameters, such as patient identity, surgical site, or aircraft weight and balance, the checklist ensures that all personnel share a unified mental model of the situation. This collective pause fosters a culture of shared responsibility, transforming a group of individual experts into a cohesive, highly communicative team capable of intercepting errors before they escalate into disasters.
+
+The theoretical benefits of these structured protocols are thoroughly substantiated by empirical evidence demonstrating substantial, measurable improvements in safety outcomes across various industries. A landmark example of this efficacy is the World Health Organization's Surgical Safety Checklist, which was introduced to standardize perioperative care globally. Following its widespread implementation, clinical studies documented dramatic reductions in both post-operative complications and mortality rates, proving that a simple, disciplined adherence to a written list of checks can save thousands of lives. Similar trends have been observed in aviation, where the rigorous application of pre-flight and emergency checklists has contributed to making commercial air travel the safest mode of transportation in history. These documented results confirm that written checklists are not merely bureaucratic exercises, but are instead highly effective, evidence-based interventions that consistently prevent catastrophic failures and save lives."
+M20,prose,Medium,Gemini,google/gemini-3.5-flash,api_expand,439,"Over the past several decades, steady advancements in meteorological science and computing power have transformed weather forecasting from a short-term guessing game into a highly reliable engine of economic value. One of the most direct beneficiaries of this technological evolution is the agricultural sector, where precise forecasting plays a critical role in securing the global food supply and maximizing yields. Modern farmers rely on highly accurate, localized forecasts to make critical operational decisions, such as determining the optimal days for planting seeds to avoid late-season frosts or heavy rains that could wash away crops. Furthermore, precise precipitation forecasts allow farmers to optimize irrigation schedules, conserving precious water resources while ensuring crops receive adequate moisture. During the critical harvesting window, having reliable advance knowledge of incoming rain or storms enables producers to gather their yields at peak quality, preventing devastating crop losses and saving billions of dollars in potential agricultural waste annually.
+
+Beyond the fields, the escalation in the accuracy and lead time of severe weather warnings has yielded immense economic and humanitarian benefits. With modern forecasting systems, meteorologists can now predict the paths and intensities of hurricanes, tornadoes, and major winter storms days in advance rather than mere hours. This extended lead time allows municipal authorities and emergency managers to coordinate orderly evacuations of vulnerable areas, drastically reducing the loss of human life, which represents an incalculable economic and social saving. Simultaneously, businesses and homeowners can take proactive measures to mitigate physical property damage, such as boarding up windows, clearing drainage systems, and securing outdoor equipment. By minimizing structural devastation and saving lives, advanced storm tracking significantly lowers the financial burden on insurance markets, federal disaster relief funds, and local economies tasked with post-disaster recovery.
+
+The logistical and utility sectors also derive substantial operational efficiencies and cost savings from advanced meteorological data. In the aviation industry, airlines utilize sophisticated, real-time wind and turbulence forecasts to optimize flight paths, which reduces fuel consumption and minimizes costly flight delays and cancellations. Similarly, maritime shipping companies rely on ocean state and storm track predictions to chart safer, more fuel-efficient routes across the globe, preventing cargo damage and ensuring timely deliveries. In the energy sector, electricity grid operators utilize highly accurate temperature and wind forecasts to anticipate consumer demand for heating and cooling, as well as to predict the output of renewable energy sources like wind and solar farms. This predictive capability allows operators to balance supply and demand dynamically, preventing costly blackouts, avoiding the over-generation of power, and keeping energy prices stable for consumers. Through these interconnected industries, modern weather forecasting serves as an indispensable pillar of global economic stability and growth."
+H14,prose,Hard,Gemini,google/gemini-3.5-flash,api_expand,518,"The reduction of causation to mere regular succession, a tradition tracing back to David Hume, fails to capture the true nature of causal relations because it cannot distinguish between genuine causal connections and mere correlation. According to regularity theories, for one event type to cause another is simply for events of the first type to be regularly followed by events of the second type. However, this definition is far too permissive, as it mistakenly classifies non-causal, regularly occurring sequences as causal. A classic illustration of this failure is the relationship between a falling barometer reading and the onset of a storm. Because a drop in the barometer is regularly followed by a storm, a pure regularity account must conclude that the falling barometer causes the storm. In reality, both events are joint effects of a common cause, namely, a drop in atmospheric pressure. Because the regularity account lacks any conceptual machinery to distinguish between a direct causal path and a correlation produced by a shared antecedent, it remains fundamentally inadequate as an analysis of causation.
+
+This profound limitation is overcome by the interventionist account of causation, most prominently developed by James Woodward, which replaces passive observation of regularities with the active concept of manipulation. Under Woodward's framework, a variable X causes a variable Y if and only if the value of Y would change under an ideal intervention on X. An ideal intervention is a hypothetical or actual manipulation that changes the value of X in such a way that X's value is determined entirely by the intervention itself, thereby severing X from its usual causal antecedents, while ensuring that the intervention has no direct influence on Y through any pathway other than X. This account successfully resolves the barometer puzzle: if an experimenter were to intervene and manually force the barometer needle down, the storm would not occur, showing that the correlation does not remain invariant under intervention. Conversely, if one were to intervene on the atmospheric pressure itself, the storm would still occur. By identifying causal relationships with those dependencies that remain invariant under such ideal interventions, the interventionist account successfully distinguishes genuine causal relationships from accidental or common-cause correlations.
+
+Furthermore, the interventionist framework provides a powerful explanation for the unique epistemic privilege accorded to randomized controlled trials in the natural and social sciences. The very design of a randomized controlled trial is intended to physically approximate the philosophical ideal of an intervention by randomly assigning the putative cause, such as a medical treatment, to subjects. This process of randomization effectively severs the putative cause from its ordinary, confounding antecedents, such as genetics, lifestyle, or socioeconomic status, which might otherwise produce a misleading correlation with the outcome. By ensuring that the treatment variable is dictated solely by a random mechanism, researchers simulate an ideal intervention, guaranteeing that any remaining correlation between the treatment and the outcome must be causal rather than spurious. The interventionist account thus illuminates why randomized controlled trials are uniquely capable of yielding causal knowledge, grounding their scientific authority in their ability to isolate invariant relationships through the deliberate disruption of natural regularities."
+H15,prose,Hard,Gemini,google/gemini-3.5-flash,api_expand,641,"The etiological framework, specifically the selected-effect account, provides the only adequate foundation for biological function because it successfully accounts for the inherent normativity of functional language, including the crucial concept of malfunction. According to the selected-effect view, the function of a biological trait is defined by the specific effect for which that trait was favored by natural selection in ancestral organisms. This historical grounding establishes an objective normative standard of what the trait is supposed to do, regardless of its current physical state or performance. By tying function to evolutionary history, the etiological account explains how a trait can fail to perform its function. For instance, a malformed or diseased heart that is incapable of pumping blood still possesses the function of pumping blood, because it is a member of a trait-kind that was selected for that specific effect. A purely dispositional or causal-role analysis, which defines function solely in terms of current causal contributions, cannot accommodate this distinction. If function is merely a current disposition, then a heart that cannot pump blood simply lacks the disposition to do so, meaning its failure to pump cannot be classified as a malfunction; it is merely behaving according to its current physical state. Thus, only the etiological account preserves the normative distinction between what a trait actually does and what it is biologically supposed to do.
+
+Furthermore, causal-role accounts, such as those modeled after Robert Cummins, are fundamentally incapable of distinguishing a trait’s genuine biological functions from its mere accidental effects without surrendering the objectivity of functional attribution. In a Cummins-style analysis, a function is identified as any causal contribution a component makes to a larger capacity of a containing system. Without the historical constraint of natural selection, however, there is no principled, mind-independent way to separate a trait's evolutionary purpose from its coincidental side effects. For example, the heart contributes to the capacity of the body to circulate blood, but it also contributes to the capacity of medical professionals to hear heartbeats through a stethoscope. Under a purely causal-role view, both of these contributions count as functions unless one artificially privileges certain system capacities over others. To make this distinction, causal-role theorists must relativize functional attributions to the specific explanatory interests of the investigator. Consequently, whether a trait has a function, and what that function is, becomes a subjective matter dependent on the cognitive goals of the scientist rather than an objective, mind-independent fact about the organism itself. The etiological account avoids this relativism by grounding functions in the objective, historical process of natural selection, ensuring that functional claims remain discoveries about nature rather than inventions of the observer.
+
+Finally, etiological accounts alone vindicate the unique explanatory force of functional claims in biological science by answering the fundamental question of why a trait is present in an organism. When biologists assert that the function of the kidney is to filter blood, they are not merely offering a mechanical description of what the kidney currently does; they are providing a teleological explanation for why kidneys exist in the organismal population. The etiological account directly addresses this historical question by showing that the current presence of the trait is a causal consequence of past selection for that very effect; kidneys exist today because ancestral kidneys filtered blood, thereby enhancing the fitness of those ancestors. In contrast, causal-role accounts are restricted to describing the current, synchronic operations of a system, answering the question of how a mechanism currently operates rather than why it exists. Citing a trait's current causal role cannot explain why the organism possesses that trait in the first place, as a current effect cannot causally explain its own pre-existing structural cause. By linking function to the selective history that brought the trait into being, the etiological account provides a robustly explanatory framework that justifies why functional language is indispensable to evolutionary biology."
+H16,prose,Hard,Gemini,google/gemini-3.5-flash,api_expand,672,"The epistemic status of testimony is fundamental to our understanding of human knowledge, as the vast majority of what we claim to know is received from the assertions of others rather than discovered through our own direct experience. The philosophical position of reductionism attempts to devalue testimony by asserting that testimonial knowledge must be justified through, and thus reduced to, the hearer’s own non-testimonial faculties of perception, memory, and inductive inference. However, this reductionist project fails because testimony constitutes an autonomous, irreducible source of justification. To demand that testimonial justification rest entirely on individual empirical verification is to ignore the inescapable social reality of our epistemic lives, the developmental trajectory of human cognition, and the collaborative structure of advanced scientific inquiry.
+
+The practical impossibility of the reductionist project is powerfully demonstrated by C.A.J. Coady’s critique of the requirement that hearers must possess an empirically verified track record of a speaker's reliability before accepting their testimony. Coady argues that no single individual is in a position to independently verify the track record of more than a tiny fraction of the sources upon which their ordinary beliefs depend. To establish the reliability of a witness or an authority without relying on testimony itself would require an individual to personally observe the facts in question, correlate them with the speaker’s assertions, and build a statistically significant database of accuracy. In reality, our reliance on maps, historical documents, news reports, and consumer labels is so pervasive that any attempt to personally verify these sources using only our own senses and memory would immediately collapse. Because we must rely on other testimonies to verify any single testimony, the database of pure, non-testimonial observations we possess is far too impoverished to justify our vast web of beliefs. Consequently, a reductionist justification of testimony is utterly unavailable in practice, leaving us with the choice of either embracing radical skepticism or recognizing testimony as an independent epistemic source.
+
+This irreducibility is further confirmed by observing how human beings first acquire knowledge, particularly during early childhood. Young children acquire vast bodies of knowledge through the testimony of parents, teachers, and caregivers long before they possess the sophisticated inferential resources that reductionism requires for testimonial justification. Before a child can perform the complex inductive reasoning necessary to evaluate a speaker’s reliability, detect biases, or calculate the probability of a claim’s truth, they must first acquire a language and a foundational framework of facts about the world. This foundational knowledge, such as the names of objects, the dangers of certain behaviors, and basic geographical facts, is accepted on trust. If children were required to possess independent, non-testimonial reasons to justify their trust in their parents' words, they could never begin the process of learning. The reductionist account cannot explain this primary acquisition of knowledge, as it mistakenly presupposes that the capacity for critical inductive evaluation precedes the acquisition of testimonial belief, whereas the developmental reality is precisely the reverse.
+
+The necessity of irreducible testimonial trust is not merely a feature of childhood development or everyday practical limitations; it also characterizes the very pinnacle of human intellectual achievement in contemporary science. As John Hardwig has analyzed, the modern division of cognitive labor means that scientific progress relies on highly collaborative research wherein no single scientist can personally verify every component of a project. In fields ranging from high-energy physics to complex medical trials, papers are frequently co-authored by dozens of specialists, each contributing data, mathematical models, or experimental results that require highly specific expertise to produce and interpret. A single researcher cannot possess the time, the specialized training, or the physical resources to independently check the work of all their collaborators. Consequently, scientific knowledge itself rests irreducibly on testimonial trust among researchers. If scientists refused to trust the testimony of their colleagues without independent verification, scientific progress would grind to a halt. The very structure of contemporary science thus demonstrates that our most rigorous and reliable knowledge is fundamentally social and cannot be reduced to the individualistic epistemic resources of perception, memory, and induction."
+H17,prose,Hard,Gemini,google/gemini-3.5-flash,api_expand,490,"Scientific practice frequently relies on models that are explicitly false, yet these deliberate distortions are precisely what enable epistemic access to the world. Idealizations such as frictionless planes in physics, infinite populations in evolutionary biology, and point masses in gravitational mechanics do not obscure reality; rather, they perform a crucial diagnostic function by isolating the genuine difference-making factors of a phenomenon. In any complex natural system, a multitude of minor, compounding forces obscures the primary causal mechanisms. By deliberately removing these complicating factors—factors that do not alter the core explanatory structure of the phenomenon—idealized models allow scientists to focus exclusively on the essential dynamics at play. For instance, assuming a population is infinite eliminates the statistical noise of genetic drift, thereby isolating the precise evolutionary pressure of natural selection. This distortion is not an epistemic deficiency but a cognitive tool that strips away irrelevant causal clutter to reveal the underlying causal architecture of the target system.
+
+The isolation of these difference-making factors is directly tied to the nature of scientific understanding itself, which is best conceptualized not as the possession of a mirror-like depiction of reality, but as the grasping of patterns of counterfactual dependence. To understand a phenomenon is to know how it would behave under a variety of hypothetical interventions, allowing scientists to answer what-if-things-had-been-different questions. An idealized model, despite its literally false assumptions, can represent these counterfactual relations with remarkable accuracy. Even though no real-world plane is perfectly frictionless and no physical object is a zero-dimensional point, the equations governing these idealized entities correctly map how changes in primary variables, such as force or mass, systematically alter the output of the system. Because the model preserves the correct mathematical and causal relations between the difference-making variables, it provides a reliable guide to the system's behavior across a wide range of counterfactual scenarios, thereby yielding genuine explanatory insight that a hyper-realistic but incomprehensible model would obscure.
+
+Beyond individual systems, the capacity of idealized models to provide understanding through falsehood is most vividly demonstrated in minimal-model explanations, as analyzed by Robert Batterman, which account for universal behavior across physically heterogeneous systems. In physics, vastly different materials, such as fluids near their critical points and magnets undergoing phase transitions, exhibit identical macroscopic behaviors described by the same scaling laws. A highly detailed, realistic model of any single system would fail to explain this universality, as it would attribute the behavior to the specific microscopic constituents of that particular system. Minimal models solve this explanatory puzzle by deliberately omitting the microscopic details that differ between these systems, focusing instead on the shared, large-scale features that drive the universal behavior. By stripping away the idiosyncratic physical details through mathematical techniques, these models show that the macroscopic phenomenon is stable under perturbations of microscopic details. Consequently, the falsity of the model's microscopic assumptions is not merely tolerable; it is mathematically and conceptually necessary to explain why diverse systems behave in the same way."
+H18,prose,Hard,Gemini,google/gemini-3.5-flash,api_expand,752,"The philosophical distinction between knowing how to perform an action and knowing that a proposition is true marks a fundamental division in epistemology. Intellectualist accounts attempt to reduce all practical knowledge, or know-how, to a subset of propositional knowledge, claiming that to do something skillfully is merely to possess and apply silent instructions or facts. However, this reductionist view fails to capture the unique, embodied, and dynamic nature of human agency. Practical knowledge must be understood as an autonomous and irreducible epistemic category. By examining the logical structure of intelligent action, the fluid adaptability of skilled coping, and the empirical realities of human cognition, it becomes clear that knowing-how operates on a level of understanding that cannot be translated into or explained by the possession of propositions.
+
+The logical impossibility of reducing practical knowledge to propositional knowledge is powerfully demonstrated by Gilbert Ryle’s famous regress argument. Ryle argues that if we assume every intelligent action must be preceded by the internal contemplation of a proposition or rule, we fall into a logical trap. For an agent to apply a proposition or rule successfully and intelligently to a concrete situation, the agent must know how to apply that rule. If this act of application is itself an intelligent performance, and if all intelligent performance requires the prior contemplation of a proposition, then the agent must first contemplate a second-order proposition governing the application of the first-order proposition. This second-order contemplation would then require a third-order proposition to govern its own application, and so on, indefinitely. Because human beings do in fact perform intelligent actions in finite time, the intellectualist premise that intelligent action is always mediated by propositional contemplation must be false. Consequently, there must be a form of intelligent performance, namely knowing-how, that is direct and does not depend on the prior contemplation of propositional truths.
+
+Beyond the logical constraints of Ryle's regress, the phenomenological reality of skilled performance reveals that practical knowledge involves a context-sensitive responsiveness to particular situations that inherently outstrips any finite set of propositions. When an expert, such as a jazz musician improvising a solo or a tennis player returning a high-speed serve, engages in their craft, they are not executing a pre-programmed sequence of verbalizable instructions. Rather, they are responding fluidly to a shifting, highly complex landscape of affordances and environmental demands. The sheer number of variables in any real-world situation is infinite, requiring instantaneous, micro-adjustments that cannot be captured by, nor derived from, a static list of rules. If an agent had to rely on articulating or endorsing a set of propositions to guide their behavior in these moments, their actions would be hopelessly rigid and slow. The expert's ability to navigate these nuances shows that practical mastery is a form of direct, embodied engagement with the world that transcends the limits of linguistic articulation and propositional representation.
+
+This conceptual independence of practical knowledge is further vindicated by empirical evidence from neuropsychology, which demonstrates that knowing-how and knowing-that are subserved by distinct cognitive and neural systems. The most striking evidence comes from studies of amnesic patients, such as the famous patient H.M., who suffered severe damage to the medial temporal lobes. While these patients completely lost the ability to form new declarative, propositional memories, meaning they could not retain any explicit memory of facts, events, or having practiced a task, they remained fully capable of acquiring new motor and procedural skills. For instance, when trained on complex motor tasks like mirror-drawing or puzzle-solving, these patients showed steady improvement over time, demonstrating clear practical knowledge of how to perform the tasks. Yet, when asked, they would sincerely deny ever having seen the apparatus or practiced the task before. This profound dissociation proves that practical knowledge can be acquired, retained, and executed entirely in the absence of corresponding propositional knowledge, showing that the two epistemic domains can come completely apart.
+
+In conclusion, the thesis that practical knowledge is irreducible to propositional knowledge is supported by a powerful triad of logical, phenomenological, and empirical arguments. Ryle's regress exposes the logical absurdity of requiring propositional mediation for all intelligent action, proving that know-how must be foundational. The dynamic nature of expertise demonstrates that real-time, context-sensitive responsiveness cannot be reduced to a finite set of articulable rules. Finally, the stark dissociations observed in neuropsychology confirm that the human brain processes procedural skills and declarative facts through separate pathways. Together, these points establish that knowing-how is a primary, irreducible form of knowledge that stands as a cornerstone of human intelligence and agency."
+H19,prose,Hard,Gemini,google/gemini-3.5-flash,api_expand,442,"The accelerating loss of global biodiversity poses a severe threat to the long-term stability and functioning of Earth's ecosystems. A foundational mechanism explaining how biodiversity preserves ecosystem function is the insurance hypothesis, which posits that species differ significantly in their physiological and behavioral responses to environmental fluctuations. In a highly biodiverse community, when changing conditions such as temperature shifts, drought, or disease suppress the productivity of one species, other species that are more resilient to those specific stressors can thrive and compensate for the loss. Consequently, species-rich ecosystems are able to maintain a more stable aggregate productivity over time, as the varied responses of diverse organisms ensure that the ecosystem as a whole continues to capture energy and cycle nutrients regardless of environmental volatility. When biodiversity is lost, this natural insurance policy is canceled, leaving ecosystems vulnerable to drastic declines in productivity during periods of environmental change.
+
+This destabilization is further compounded by the erosion of functional redundancy within simplified ecosystems. Functional redundancy occurs when several distinct species perform overlapping ecological roles, such as nutrient cycling, pollination, or decomposition, thereby sharing the responsibility for vital ecosystem processes. Under normal conditions, this overlap creates a robust buffer; if one species experiences a population crash or goes extinct, other functionally redundant species can step in to fill the ecological void, preventing a collapse of the entire process. However, as biodiversity declines and species are progressively removed from an ecosystem, this protective buffer steadily erodes. Once the redundant species are gone, the ecosystem is left with single points of failure, where the loss of just one more species can halt a critical ecological function entirely, leading to systemic instability and the degradation of ecosystem services.
+
+The consequences of biodiversity loss become even more severe when the species removed play disproportionately large roles in their environments, as the loss of keystone species can trigger catastrophic trophic cascades. Keystone species exert strong top-down control on their ecosystems, and their absence can cause a domino effect of ecological disruption that propagates through the entire community. A classic illustration of this phenomenon is the historical decline of sea otters in Pacific kelp forests. When sea otters were hunted to near extinction, the lack of predation allowed populations of sea urchins to multiply unchecked. These herbivorous urchins then overgrazed the kelp forests, transforming highly productive, biodiverse marine habitats into barren underwater deserts. This ecological collapse demonstrates that the extinction of a single critical species does not occur in isolation; rather, its effects ripple across multiple trophic levels, fundamentally altering the physical structure and biological composition of the entire ecosystem, and ultimately proving that biodiversity is indispensable for long-term ecological stability."
+S1,short,Easy,Gemini,google/gemini-3.5-flash,api_expand,67,"Sunlight reaching Earth's atmosphere contains all the colors of the rainbow, which travel as waves of different lengths. The gases in the air scatter this light in all directions, but they scatter shorter wavelengths, like blue, much more than longer wavelengths like red. Because this blue light is scattered everywhere across the sky, it is the primary color we see when we look up during the day."
+S2,short,Easy,Gemini,google/gemini-3.5-flash,api_expand,77,"Ice floats on liquid water because it is less dense than its liquid form. When water freezes, its molecules organize into a rigid, open crystalline structure held together by hydrogen bonds. This structure pushes the molecules further apart than they are in the liquid state, causing the water to expand as it turns to ice. Because this makes a given volume of ice lighter than the same volume of liquid water, the ice rises to the surface."
+S3,short,Easy,Gemini,google/gemini-3.5-flash,api_expand,59,"When sunlight passes through raindrops in the air, the water droplets act like tiny prisms. As the light enters each droplet, it bends, reflects off the back, and bends again as it exits, which splits the white light into its individual colors. This separated light then travels to our eyes, creating the colorful arc we see in the sky."
+S4,short,Medium,Gemini,google/gemini-3.5-flash,api_expand,58,"Earth has seasons because its axis is tilted as it orbits the Sun. Throughout the year, this tilt causes different parts of the planet to lean either toward or away from the Sun. The hemisphere leaning toward the Sun receives more direct sunlight and experiences summer, while the hemisphere leaning away receives less direct sunlight and experiences winter."
+S5,short,Medium,Gemini,google/gemini-3.5-flash,api_expand,64,"Ocean tides are primarily caused by the gravitational pull of the Moon and, to a lesser extent, the Sun. This gravity pulls the ocean water toward these celestial bodies, creating bulges of water on opposite sides of the Earth. As our planet rotates through these watery bulges each day, coastal areas experience the rising and falling water levels we call high and low tides."
+S6,short,Easy,Gemini,google/gemini-3.5-flash,api_expand,56,"Bread dough rises because yeast, a living microorganism, feeds on the sugars in the flour and releases carbon dioxide gas. This gas gets trapped inside the dough's stretchy network of gluten proteins, forming millions of tiny bubbles. As these bubbles expand, they push the dough upward and outward, causing it to inflate before it is baked."
+S7,short,Medium,Gemini,google/gemini-3.5-flash,api_expand,74,"A black hole is an area in space where gravity is so incredibly strong that nothing, not even light, can escape its pull. This extreme gravity usually forms when a massive star dies and collapses in on itself, squeezing a huge amount of matter into an unimaginably tiny space. Because no light can escape, these objects are invisible, but scientists can detect them by observing how their powerful pull affects nearby stars and gas."
+S8,short,Medium,Gemini,google/gemini-3.5-flash,api_expand,58,"Although both spoons are at the same room temperature, metal is a much better conductor of heat than wood. When you touch the metal spoon, it rapidly draws heat away from your hand, whereas the wooden spoon conducts heat very slowly. Because your skin loses heat quickly to the metal, your brain perceives it as being much colder."
+S9,short,Medium,Gemini,google/gemini-3.5-flash,api_expand,71,"A refrigerator keeps food cold by constantly removing heat from its interior and releasing it into the surrounding room. It achieves this by circulating a special liquid called a refrigerant through a closed loop of pipes. Inside the fridge, this liquid absorbs heat and turns into a gas, which is then pumped to coils on the outside where it releases the heat and cools back down to start the process again."
+S10,short,Easy,Gemini,google/gemini-3.5-flash,api_expand,58,"Photosynthesis is the process that allows plants to make their own food so they can grow and survive. By capturing sunlight, plants convert water and carbon dioxide into a sugar called glucose, which serves as their main source of energy. This vital process provides the plant with the fuel it needs to build new leaves, roots, and flowers."
+S11,short,Easy,Gemini,google/gemini-3.5-flash,api_expand,63,"As autumn brings shorter days and cooler temperatures, trees stop producing chlorophyll, the green pigment they use to make food. When the green fades, other pigments that were hidden inside the leaves all summer—like yellow and orange—finally show through. Some trees also produce new red and purple pigments during this transition, creating the bright fall colors we see before the leaves eventually drop."
+S12,short,Easy,Gemini,google/gemini-3.5-flash,api_expand,67,"Weather refers to the day-to-day conditions of the atmosphere, such as temperature, rain, and wind, at a specific time and place. In contrast, climate is the average of these weather patterns over a much longer period, usually thirty years or more. A simple way to remember the difference is that weather tells you what to wear today, while climate tells you what types of clothes to buy."
+S13,short,Easy,Gemini,google/gemini-3.5-flash,api_expand,58,"A magnetic compass works because its needle is a tiny magnet that is free to spin. This needle aligns itself with the Earth's natural magnetic field, which behaves like a giant bar magnet. Because the needle's north pole is attracted to the Earth's magnetic North Pole, it always points north, allowing you to easily find the other directions."
+S14,short,Medium,Gemini,google/gemini-3.5-flash,api_expand,64,"Inflation is the general rise in the prices of goods and services across an economy over time. As these prices go up, the purchasing power of your money goes down, meaning a dollar buys less than it did in the past. While mild inflation is a normal sign of a growing economy, high inflation can make it difficult for people to afford everyday necessities."
+S15,short,Easy,Gemini,google/gemini-3.5-flash,api_expand,69,"The Moon appears to go through phases because it orbits the Earth, which constantly changes our viewing angle of its sunlit side. While the Sun always illuminates exactly half of the Moon, the amount of that lit portion we can see from Earth changes as the Moon moves. Consequently, we see different fractions of the bright side over the course of a month, creating the appearance of changing shapes."
+S16,short,Easy,Gemini,google/gemini-3.5-flash,api_expand,61,"An algorithm is a precise, step-by-step set of instructions used to solve a problem or complete a specific task. Much like a recipe that guides you through baking a cake, an algorithm tells a computer or a person exactly what actions to take and in what order. By following these clear rules, you can consistently achieve the correct result every time."
+S17,short,Medium,Gemini,google/gemini-3.5-flash,api_expand,58,"Salt is spread on icy roads because it dissolves in moisture and lowers the freezing point of water. This prevents water from freezing at its normal temperature, which melts existing ice and stops new ice from forming. By keeping the road surface wet instead of frozen, the salt helps vehicles maintain traction and makes winter driving much safer."
+S18,short,Hard,Gemini,google/gemini-3.5-flash,api_expand,66,"As an airplane moves forward, its wings slice through the air and force the airflow downward. Because of the wing's tilted angle and curved shape, air flows faster over the top surface than underneath, which creates lower air pressure on top and higher pressure below. This pressure difference, combined with the physical reaction of the air being deflected downward, pushes the wing upward to create lift."
+S19,short,Medium,Gemini,google/gemini-3.5-flash,api_expand,62,"DNA acts as the ultimate instruction manual for a living cell, storing the genetic information needed to build and maintain an organism. It guides the cell in producing proteins, which are the molecular workers that perform almost all daily cellular tasks. Additionally, DNA copies itself so that this vital genetic blueprint can be passed down when cells divide or when organisms reproduce."
+S20,short,Hard,Gemini,google/gemini-3.5-flash,api_expand,59,"At high altitudes, the air pressure is lower because there is less atmosphere pressing down from above. Water boils when its internal vapor pressure matches this surrounding air pressure. Since there is less air pushing down on the water's surface, it requires less heat energy for the water molecules to escape as steam, resulting in a lower boiling temperature."

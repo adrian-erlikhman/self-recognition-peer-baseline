@@ -1,0 +1,70 @@
+{
+  "request_model": "openai/gpt-5.5",
+  "messages": [
+    {
+      "role": "user",
+      "content": "A car is bought for $24,000 and loses 15 percent of its value at the end of each year. What is its value in dollars after 2 years? Solve the problem, showing your reasoning step by step in plain prose, and end with a final line of the form 'Answer: <number>'."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916320-0Q3JTCGbdVtid43Wdew1",
+    "object": "chat.completion",
+    "created": 1790916320,
+    "model": "openai/gpt-5.5",
+    "provider": "OpenAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "The car starts with a value of $24,000.\n\nAt the end of the first year, it loses 15% of its value, so it keeps 85% of its value.\n\nSo after 1 year, its value is:\n\n$24,000 \u00d7 0.85 = $20,400\n\nAt the end of the second year, it again loses 15%, so it keeps 85% of $20,400.\n\n$20,400 \u00d7 0.85 = $17,340\n\nAnswer: 17340",
+          "refusal": null,
+          "reasoning": "**Calculating the result**\n\nI need to compute the expression 24000 multiplied by (0.85 squared). That gives me 24000 times 0.7225, which equals 17340. It seems straightforward enough. I should make sure to present this clearly, stating at the end: \"Answer: 17340.\" This way, it\u2019s easy for anyone reading to understand the calculation process I went through to arrive at that answer.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "**Calculating the result**\n\nI need to compute the expression 24000 multiplied by (0.85 squared). That gives me 24000 times 0.7225, which equals 17340. It seems straightforward enough. I should make sure to present this clearly, stating at the end: \"Answer: 17340.\" This way, it\u2019s easy for anyone reading to understand the calculation process I went through to arrive at that answer.",
+              "format": "openai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABqvzbisB4GhwyJHjdS1I8eL9nI0CpiemWP7jCOXPuWh_J-7yS-8yP4NIFR4TfZg25Xih_1jkI5jfTHzEsj63nghr8Mq9UkiTEkobclwKSyeNwHtWYIf5w3RvhezvIfd-kN3zUIHKlC6XJptKvetclM1NTXe2Cs2ut5sGe9QkkGGWiGeMrZhIISxd9fwqO37Xxi47gvtyFR86QiLmWsN8xT9qWcDsM5UJtJLWccGUWXVM92UvW9FJzKlHHNH918soyKOrq39vgTNcxCRfswVYW9cUuvTz8_f5E6ficIeSLR2_zNaI4U6B7TmKnmeMwVZZf76kPP3lJ_SBgNEbN2L-rEPbzcLhoEurdYtTncfVDTFIGC9jD3OCRCWdodFsjH1d7NOmnF1Mdyk3O0D1NKWWS4nuiptzrG710G__U3onp1UX1sNsKGkxhSg99VmORkCoqKk-IslzdWkyiRW4V6bU4sdZjiWLvOEw_lw0ZeZQ9GOwVWzDPrJFuVqknyzsIvJ2dVZMTTJanihfOJU6JS-QKE-5GjBjx8upPFLh52_ZfFcM86olA6TqdGKhN54a32wUdFEvVrV2-XVkMSI2iYQ1OUE3PecWtKjOxhcC0XtOA_e1bK1CI-MTxJ7ZAnM3HJJZskgLnDchzrpJRVMxpXItqL3jg5tcyw_Gu_jXM1UTcdGktUbC7UPV_bXcGLbR6JPHgeVsK_w8l_98AZ4yuToAmiJLJIVRX0aeDbVIrJ0G-8nUTdlYuEmI8NpYWuPoU_PFI9241E1UxsM8MvzgRGAhGw5GlAosFfIxbycE-zXyrlbsSKNMI6dv1W6HJjmA-PfD7Wtl2zx2FKUhZT-hvCD1Qk0cG9fNT8gDpDVZLYaLBY5uMRUIrVaRmigNVoWw2HhK3xzw2aHXJAycc0PefVFa5SUzfE6HjHTfuWq17JTG-lC8jPLFOzFVcCQLHQiZNwYb7WM7mwm6SqfxzPI7SFa5jQ6CMgnoIcQ5UbpeuEYsc7CY3oQI58Syyo320dRdHYgbfhKXjdeL-9vFy2cFGErji0GGE5ZxXXj6ejYOxWmfzEMijM5UIAxG4BVEImU1X9AiJ1doa3EBJm8RqoHWYxFiDipuLmgEm-XSE5ZsCmhTn3UdYnOcfmNZpmCIWvTUQm3bF7tFWgfpnQA4C2Cl0gh9s2By2Uy-MC4Do3orSCmJlHzI568-2ALri4srA2EmSSqtn8BPCJfWr86Ko6c3LXcKcJqScq51A0F3l9v_g9CLsXmC0nzREogRhxKP-4rdSE199lKsX_XP10TrTeBjDhri1dr8J_HLJ_L0OA2fUgbF_cLNKI0R84v3_37Q9jBab9_o_bCuuh0Ez999NthhZkUt5h8AGtaioLX8Wbq1Lu0zplA09UUgo-DyAgGlwSwgpMQ5Ri4NXnrgR4eCG9Q2W2BmV-YraZqr4hhVZIflnE7IErWvnRZdVrw1baouAiPMPa17KFWjwsecAqFx-Mv-ub84zBKuhw9OyHS4USpupwY1If25voi3w=.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC01LjUtMjAyNjA0MjN8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_02d12cc690597d62016abf36e0dbc087d19895e138b7e55ddd",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 70,
+      "completion_tokens": 161,
+      "total_tokens": 231,
+      "cost": 0.00518,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00518,
+        "upstream_inference_prompt_cost": 0.00035,
+        "upstream_inference_completions_cost": 0.00483
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 45,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

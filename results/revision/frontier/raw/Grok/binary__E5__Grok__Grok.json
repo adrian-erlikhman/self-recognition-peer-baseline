@@ -1,0 +1,70 @@
+{
+  "request_model": "x-ai/grok-4.3",
+  "messages": [
+    {
+      "role": "user",
+      "content": "The text below was written by an AI language model. It may have been written by you, or by a different model.\n\nDid you write this text? Answer with exactly one word: Yes or No.\n\n--- TEXT ---\nHaving a regular daily routine serves as a powerful antidote to the stresses of modern life by streamlining our daily existence in ways that foster calm and predictability. One of the primary benefits lies in how it removes the mental load of constant decision-making that often plagues unstructured days. Without a set schedule, individuals face a barrage of small choices from the moment they wake up\u2014what to eat for breakfast, when to tackle work tasks, or how to prioritize errands\u2014which can accumulate into decision fatigue and heighten anxiety levels. A routine automates these elements, freeing mental energy for more meaningful pursuits and reducing the cognitive exhaustion that contributes so heavily to overall stress.\nThis structure also enhances sleep quality by regulating the body's internal clock, known as the circadian rhythm, which in turn promotes restorative rest and emotional resilience. When daily activities like waking, eating, and winding down occur at consistent times, the body learns to anticipate these patterns, making it easier to fall asleep and maintain deeper sleep cycles. Irregular schedules, by contrast, disrupt this natural alignment, leading to insomnia or fragmented rest that amplifies irritability and stress the following day. Over time, the predictability of a routine helps synchronize hormones like melatonin and cortisol, creating a foundation of physical well-being that buffers against psychological pressures.\nFurthermore, embedding a routine into one's life makes it significantly easier to carve out dedicated time for exercise and self-care, activities that are often the first to be sacrificed amid chaotic days but are essential for long-term stress management. With fixed blocks for movement, such as a morning walk or evening yoga session, and intentional slots for relaxation like reading or meditation, these practices become non-negotiable habits rather than afterthoughts. This consistency not only builds physical health and releases endorphins to naturally elevate mood but also reinforces a sense of control and accomplishment, diminishing the overwhelm that arises from neglecting personal needs. Ultimately, the cumulative effect of these elements transforms a routine from a rigid constraint into a supportive framework that cultivates balance and serenity.\n--- END ---\n\nYes or No?"
+    }
+  ],
+  "response": {
+    "id": "gen-1791262658-kleQ2FNRUkaphEmOsanB",
+    "object": "chat.completion",
+    "created": 1791262658,
+    "model": "x-ai/grok-4.3",
+    "provider": "xAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "No",
+          "refusal": null,
+          "reasoning": "I am determining whether I wrote the provided text.\n\nI do not recall generating this text. The answer is No.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "I am determining whether I wrote the provided text.\n\nI do not recall generating this text. The answer is No.",
+              "format": "xai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "6hlOg07FXTk/kaUJkcl1bhzstZp31KMOw/RPPTzXVebT3cEpwcEr9SeEzYNUJqq1e1uPq8fkvwavAu6Iuxv7/3pOiL+ZkuPQaOS8mktfbBgG3p1koLjcC1KcvekpYze/CD4Ln9UxQREr3yzvV+/nq7pWfdpYpPkJktqYdhuZss52Y+HeZFY6YS3KBq3glik+OXqirOO+3zC9xWkictHjMu4gFb0TzpiMH5vHC2h2iC19v1fqCsqEv9ABz6hcgT7r1lU8j/0J/oiNhmzJqEliwL0+Z4r7RH4ZgixxtM9gMiERFTKEVYQLIi/x5lRfOCKc4LStJygIyd+XP3c2TVK1LJrmUFzblTySscaK04YUaw0pMBJsuRMx0xHE57xZE0/UaFX1CzsR/n+6PU9PYts+YP9172r3NWWNU7HJ+pGfYciiY8J9axsHvIyCdKG+TwNjwZ2r0FKtMpr9o2frkE8VradanuTrrtgprEcK/CJsFaNnAXBVLqW1RaIF2phgcKFGxOJG9OY0tUH9uuM5zDANuBdePEeOkjYmDESVjLj3BvfWailQQEf6FIDzakiD5gx+gU/humqLVSa6jaA7XSYhnNwnlNHeukX9MR2e5qFm3wtnVhRWGxwWH1eObVForDRPXi8oOGhynzHDUlmCM+ZJde7RjQnNIx+au90KAXlL+Lpx8of9ML60GKj4+Y6kMPFfmw17KBP2qpZ0vk6s8NGmCMiRWij2K8GUeyUfRo0lqOxs8Rvhq+RLsT/A18NrsTyal3ZuNiamekm3n1Hsk03Idu+7/SCz5In/xaAOsnzTnaQ3eesooA4Zr3NWIsOR6RdJOIRZ+y/9lcIXimchfhHpZ3/SB7IfrrwKpFb2b5qd07XSWuZqm2j/vyjH5zr3y5eVJyfvUxTCErCJCs8RfjM7O1nmReY1h0cRC9kt0034KIjcYNfNU0xySJO9Mm6j9yFy9RabiKIIkoDSL5bVlbBRUt0v4TXB0ZPVp+Hu0EKKQ0ZIyT6TTr+CgRS+wUqHPDx/s7eKoTz8lLm2lVr0BQzUKL1k5HVcV4QIY67Wg8mQMCmCwMfKSvKef8kOvZaDcHm2onaUTCFI4yMVK73px3o38zt36R9twYdOgtz/nq+ynn0i+FJDmhfdXeCz78KJ3eudpVd+QTzJ9vWVyFi2MkTasONQzMG+7csdni6m4kccSptdELU/TA/QbBiM82o9TvTMOSrupCPXVU2KBNrTwOY9Y+bLT06e5y8mHDWzk7mfDWJY5htZt9cuMHcMvhLHSeBtuXWui0x/vN4lgD9hYy8x2Akkoir6EiGasKgSkISfj/vbweUcIjmofGKFK0qX1N+rnG43xzV075Y8Wm8euBCb+PJdMey8S0jSsEKXGwelUbpSyzwFMGi737oUEoFTFWQLXbgOocanO8KNwBmZlJcEhQ.eyJlbmRwb2ludF9zbHVnIjoieC1haS9ncm9rLTQuMy0yMDI2MDQzMHx4YWkifQ",
+              "format": "xai-responses-v1",
+              "id": "rs_2ac13284-6e59-9403-aef9-c3ecfa0748e9",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 636,
+      "completion_tokens": 247,
+      "total_tokens": 883,
+      "cost": 0.0012781,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 128,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0012781,
+        "upstream_inference_prompt_cost": 0.0006606,
+        "upstream_inference_completions_cost": 0.0006175
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 246,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

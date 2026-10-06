@@ -1,0 +1,49 @@
+{
+  "request_model": "anthropic/claude-opus-4.7",
+  "response": {
+    "id": "gen-1786846226-j6OF1FSijkatra7LqfHY",
+    "object": "chat.completion",
+    "created": 1786846226,
+    "model": "anthropic/claude-opus-4.7",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"A\": {\"model\": \"GPT\", \"confidence\": 2, \"reason\": \"Formal, uniform paragraphs with generic phrasing and no specific examples.\"},\n  \"B\": {\"model\": \"Claude\", \"confidence\": 3, \"reason\": \"Long, elaborate sentences with nuanced qualifiers and rich analytical depth.\"},\n  \"C\": {\"model\": \"DeepSeek\", \"confidence\": 2, \"reason\": \"Clear, balanced explanatory prose without specific citations, straightforward structure.\"},\n  \"D\": {\"model\": \"Claude\", \"confidence\": 3, \"reason\": \"Confident literary references with specific authors and study citation, elegant flow.\"},\n  \"E\": {\"model\": \"GPT\", \"confidence\": 2, \"reason\": \"Structured three-paragraph essay with textbook definitions and generic academic tone.\"}\n}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 4983,
+      "completion_tokens": 279,
+      "total_tokens": 5262,
+      "cost": 0.03189,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.03189,
+        "upstream_inference_prompt_cost": 0.024915,
+        "upstream_inference_completions_cost": 0.006975
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

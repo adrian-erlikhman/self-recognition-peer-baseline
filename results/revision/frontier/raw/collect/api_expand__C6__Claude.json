@@ -1,0 +1,55 @@
+{
+  "request_model": "anthropic/claude-opus-4.7",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Write a Python function `valid_brackets(s: str) -> bool` that returns True if every bracket in `s` is correctly matched and nested, considering the three bracket types (), [] and {}, and ignoring all other characters. For example, `valid_brackets(\"a[b(c)]{}\")` returns True and `valid_brackets(\"([)]\")` returns False. Use only the Python standard library. Include a docstring and brief inline comments. Return only the code in a single Python code block, with no explanation before or after."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916304-r66f5dWc9wtjAb2pKBSa",
+    "object": "chat.completion",
+    "created": 1790916304,
+    "model": "anthropic/claude-opus-4.7",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "```python\ndef valid_brackets(s: str) -> bool:\n    \"\"\"\n    Check whether all brackets in `s` are correctly matched and nested.\n\n    Considers three bracket types: (), [], and {}. All other characters\n    are ignored. Returns True if every opening bracket has a matching\n    closing bracket of the same type in the correct order, False otherwise.\n\n    Examples:\n        >>> valid_brackets(\"a[b(c)]{}\")\n        True\n        >>> valid_brackets(\"([)]\")\n        False\n    \"\"\"\n    # Mapping from each closing bracket to its corresponding opening bracket\n    pairs = {')': '(', ']': '[', '}': '{'}\n    openers = set(pairs.values())\n    closers = set(pairs.keys())\n\n    stack = []  # Holds opening brackets awaiting a match\n    for ch in s:\n        if ch in openers:\n            # Push opening bracket onto the stack\n            stack.append(ch)\n        elif ch in closers:\n            # Must match the most recent opening bracket\n            if not stack or stack[-1] != pairs[ch]:\n                return False\n            stack.pop()\n        # Non-bracket characters are ignored\n\n    # Valid only if every opener has been matched and closed\n    return not stack\n```",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 172,
+      "completion_tokens": 414,
+      "total_tokens": 586,
+      "cost": 0.01121,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.01121,
+        "upstream_inference_prompt_cost": 0.00086,
+        "upstream_inference_completions_cost": 0.01035
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

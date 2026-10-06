@@ -1,0 +1,63 @@
+{
+  "request_model": "google/gemini-3.5-flash",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Write a Python function `topological_order(graph: dict[str, list[str]]) -> list[str]` that returns a topological ordering of a directed graph in which `graph[u]` lists the nodes `v` with an edge from `u` to `v`. Nodes that appear only as targets are part of the graph. Whenever several nodes are available, choose the alphabetically smallest first, so the output is unique. Raise ValueError if the graph contains a cycle. Use only the Python standard library. Include a docstring and brief inline comments. Return only the code in a single Python code block, with no explanation before or after."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916315-BHlyh4l17xXdBV2hUDFr",
+    "object": "chat.completion",
+    "created": 1790916315,
+    "model": "google/gemini-3.5-flash",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "```python\nimport heapq\n\ndef topological_order(graph: dict[str, list[str]]) -> list[str]:\n    \"\"\"\n    Returns a topological ordering of a directed graph.\n    \n    If multiple nodes are available to be visited, the lexicographically\n    smallest node is chosen first. Raises ValueError if the graph has a cycle.\n    \n    :param graph: A dictionary mapping each node to its list of target nodes.\n    :return: A list of nodes in topological order.\n    :raises ValueError: If the graph contains a cycle.\n    \"\"\"\n    # Identify all unique nodes in the graph (both sources and targets)\n    all_nodes = set(graph.keys())\n    for targets in graph.values():\n        all_nodes.update(targets)\n        \n    # Calculate the in-degree of each node\n    in_degree = {node: 0 for node in all_nodes}\n    for u, targets in graph.items():\n        for v in targets:\n            in_degree[v] += 1\n            \n    # Initialize a priority queue (min-heap) with all nodes having in-degree 0.\n    # This ensures we always choose the alphabetically smallest node first.\n    zero_in_degree = [node for node in all_nodes if in_degree[node] == 0]\n    heapq.heapify(zero_in_degree)\n    \n    order = []\n    while zero_in_degree:\n        u = heapq.heappop(zero_in_degree)\n        order.append(u)\n        \n        # Decrement the in-degree of neighbor nodes\n        for v in graph.get(u, []):\n            in_degree[v] -= 1\n            if in_degree[v] == 0:\n                heapq.heappush(zero_in_degree, v)\n                \n    # If the order does not contain all nodes, there is a cycle\n    if len(order) < len(all_nodes):\n        raise ValueError(\"Graph contains a cycle\")\n        \n    return order\n```",
+          "refusal": null,
+          "reasoning": "**Developing Topological Sort**\n\nI'm currently focusing on implementing the core logic for a topological sort algorithm in Python. The objective is to define a function that accepts a graph represented as a dictionary and returns a list of nodes in a valid topological order. My progress centers on refining the data structures and the traversal mechanism to ensure correctness for directed acyclic graphs.\n\n**Refining Topological Sort**\n\nI'm refining the topological sort implementation by incorporating lexographical tie-breaking using a min-heap. My focus is on correctly handling nodes that only appear as targets and ensuring robust cycle detection to raise a `ValueError`. The algorithm will strictly use the standard library, with clear documentation.\n\n**Processing Topological Sort**\n\nI'm currently implementing the core processing loop for the topological sort. This involves popping nodes from the min-heap, adding them to the output order, and decrementing the in-degree of their neighbors. I'm carefully tracking the in-degrees and pushing nodes with a new zero in-degree onto the heap, ensuring lexographical ordering.\n\n**Finalizing Topological Sort**\n\nI'm now meticulously integrating the cycle detection mechanism and ensuring all constraints, especially lexographical ordering via the min-heap and handling of target-only nodes, are met. The final code structure is nearly complete, ready for rigorous testing and documentation.\n\n**Validating Sort Logic**\n\nI'm mentally walking through various graph structures to confirm the topological sort's logic. This includes testing edge cases like empty or single-node graphs, simple chains, and branching structures, paying close attention to how nodes with zero in-degree are correctly added and ordered in the heap.\n\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "**Developing Topological Sort**\n\nI'm currently focusing on implementing the core logic for a topological sort algorithm in Python. The objective is to define a function that accepts a graph represented as a dictionary and returns a list of nodes in a valid topological order. My progress centers on refining the data structures and the traversal mechanism to ensure correctness for directed acyclic graphs.\n\n**Refining Topological Sort**\n\nI'm refining the topological sort implementation by incorporating lexographical tie-breaking using a min-heap. My focus is on correctly handling nodes that only appear as targets and ensuring robust cycle detection to raise a `ValueError`. The algorithm will strictly use the standard library, with clear documentation.\n\n**Processing Topological Sort**\n\nI'm currently implementing the core processing loop for the topological sort. This involves popping nodes from the min-heap, adding them to the output order, and decrementing the in-degree of their neighbors. I'm carefully tracking the in-degrees and pushing nodes with a new zero in-degree onto the heap, ensuring lexographical ordering.\n\n**Finalizing Topological Sort**\n\nI'm now meticulously integrating the cycle detection mechanism and ensuring all constraints, especially lexographical ordering via the min-heap and handling of target-only nodes, are met. The final code structure is nearly complete, ready for rigorous testing and documentation.\n\n**Validating Sort Logic**\n\nI'm mentally walking through various graph structures to confirm the topological sort's logic. This includes testing edge cases like empty or single-node graphs, simple chains, and branching structures, paying close attention to how nodes with zero in-degree are correctly added and ordered in the heap.\n\n",
+              "format": "google-gemini-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 131,
+      "completion_tokens": 1996,
+      "total_tokens": 2127,
+      "cost": 0.0181605,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0181605,
+        "upstream_inference_prompt_cost": 0.0001965,
+        "upstream_inference_completions_cost": 0.017964
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1530,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "request_model": "deepseek/deepseek-chat",
+  "response": {
+    "id": "gen-1786846265-jvZQFP5PM4hXCWhRJUZh",
+    "object": "chat.completion",
+    "created": 1786846265,
+    "model": "deepseek/deepseek-chat",
+    "provider": "Novita",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "```json\n{\"model\": \"Claude\", \"confidence\": 4, \"reason\": \"The text exhibits a thoughtful, nuanced analysis with a focus on emotional and physiological benefits, characteristic of Claude's writing style.\"}\n```",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 721,
+      "completion_tokens": 47,
+      "total_tokens": 768,
+      "cost": 0.0003495,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0003495,
+        "upstream_inference_prompt_cost": 0.0002884,
+        "upstream_inference_completions_cost": 6.11e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

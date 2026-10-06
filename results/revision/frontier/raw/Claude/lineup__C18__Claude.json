@@ -1,0 +1,55 @@
+{
+  "request_model": "anthropic/claude-opus-4.7",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Below are five AI-generated responses to the same task, labelled A through E.\n\nEach response was written by one of these five language models:\nGPT, Claude, Gemini, Grok, DeepSeek.\n\nFor each of the five responses, identify which model you believe wrote it, judging only from writing style, structure, and phrasing.\n\nAnswer independently for each response. Your five answers do not need to be five different models - name whichever model you believe wrote each response, even if that means naming the same model more than once.\n\nReply with JSON only, in exactly this form and nothing else:\n\n{\n  \"A\": {\"model\": \"<one of GPT, Claude, Gemini, Grok, DeepSeek>\", \"confidence\": <1-5>, \"reason\": \"<one short sentence>\"},\n  \"B\": {\"model\": \"...\", \"confidence\": <1-5>, \"reason\": \"...\"},\n  \"C\": {\"model\": \"...\", \"confidence\": <1-5>, \"reason\": \"...\"},\n  \"D\": {\"model\": \"...\", \"confidence\": <1-5>, \"reason\": \"...\"},\n  \"E\": {\"model\": \"...\", \"confidence\": <1-5>, \"reason\": \"...\"}\n}\n\nconfidence: 1 = pure guess, 5 = certain.\n\n--- RESPONSE A ---\n```python\nimport heapq\n\n\ndef shortest_paths(graph: dict[str, list[tuple[str, int]]], source: str) -> dict[str, int]:\n    \"\"\"Return shortest-path distances from source using Dijkstra's algorithm.\"\"\"\n    distances: dict[str, int] = {source: 0}\n    heap: list[tuple[int, str]] = [(0, source)]\n\n    while heap:\n        current_dist, node = heapq.heappop(heap)\n\n        # Skip stale heap entries that are no longer the best known distance.\n        if current_dist != distances[node]:\n            continue\n\n        # Use an empty list for nodes that appear only as neighbors.\n        for neighbor, weight in graph.get(node, []):\n            new_dist = current_dist + weight\n\n            # Relax the edge if a shorter path to the neighbor is found.\n            if neighbor not in distances or new_dist < distances[neighbor]:\n                distances[neighbor] = new_dist\n                heapq.heappush(heap, (new_dist, neighbor))\n\n    return distances\n```\n\n--- RESPONSE B ---\n```python\nimport heapq\n\n\ndef shortest_paths(graph: dict[str, list[tuple[str, int]]], source: str) -> dict[str, int]:\n    \"\"\"Compute shortest path distances from `source` to all reachable nodes using Dijkstra's algorithm.\n\n    Args:\n        graph: Adjacency mapping where each key is a node and each value is a list of\n            (neighbor, weight) tuples with non-negative integer weights.\n        source: The starting node.\n\n    Returns:\n        A dictionary mapping each node reachable from `source` to the shortest-path\n        distance from `source`. The `source` itself maps to 0.\n    \"\"\"\n    # Min-heap of (distance_so_far, node) entries.\n    heap: list[tuple[int, str]] = [(0, source)]\n    # Finalized shortest distances.\n    distances: dict[str, int] = {}\n\n    while heap:\n        # Pop the node with the smallest tentative distance.\n        dist, node = heapq.heappop(heap)\n        # Skip if we've already finalized this node (stale heap entry).\n        if node in distances:\n            continue\n        distances[node] = dist\n        # Explore neighbors; use .get to handle nodes that appear only as neighbors.\n        for neighbor, weight in graph.get(node, []):\n            if neighbor not in distances:\n                # Push a candidate distance; duplicates are filtered on pop.\n                heapq.heappush(heap, (dist + weight, neighbor))\n\n    return distances\n```\n\n--- RESPONSE C ---\n```python\nimport heapq\n\ndef shortest_paths(graph: dict[str, list[tuple[str, int]]], source: str) -> dict[str, int]:\n    \"\"\"\n    Computes the shortest path from a source node to all reachable nodes\n    in a graph with non-negative edge weights using Dijkstra's algorithm.\n\n    :param graph: A dictionary mapping each node to a list of (neighbor, weight) tuples.\n    :param source: The starting node.\n    :return: A dictionary mapping reachable nodes to their shortest distance from source.\n    \"\"\"\n    # Dictionary to store the shortest known distance to each node\n    distances = {source: 0}\n    \n    # Priority queue storing (distance, node) tuples, initialized with the source\n    priority_queue = [(0, source)]\n    \n    while priority_queue:\n        current_distance, current_node = heapq.heappop(priority_queue)\n        \n        # If we found a shorter path to this node already, skip processing\n        if current_distance > distances[current_node]:\n            continue\n            \n        # Explore neighbors. Use .get() to handle nodes that only appear as neighbors\n        for neighbor, weight in graph.get(current_node, []):\n            distance = current_distance + weight\n            \n            # If a shorter path to the neighbor is found\n            if distance < distances.get(neighbor, float('inf')):\n                distances[neighbor] = distance\n                heapq.heappush(priority_queue, (distance, neighbor))\n                \n    return distances\n```\n\n--- RESPONSE D ---\n```python\nimport heapq\n\ndef shortest_paths(graph: dict[str, list[tuple[str, int]]], source: str) -> dict[str, int]:\n    \"\"\"Compute shortest path distances from source using Dijkstra's algorithm.\"\"\"\n    # Collect all nodes including those appearing only as neighbors\n    nodes = set(graph.keys())\n    for neighbors in graph.values():\n        for neigh, _ in neighbors:\n            nodes.add(neigh)\n    # Initialize distances\n    dist = {node: float('inf') for node in nodes}\n    dist[source] = 0\n    # Priority queue for Dijkstra\n    pq = []\n    heapq.heappush(pq, (0, source))\n    while pq:\n        d, u = heapq.heappop(pq)\n        if d > dist[u]:\n            continue\n        if u in graph:\n            for v, w in graph[u]:\n                if dist[v] > dist[u] + w:\n                    dist[v] = dist[u] + w\n                    heapq.heappush(pq, (dist[v], v))\n    # Return only reachable nodes\n    return {k: v for k, v in dist.items() if v < float('inf')}\n```\n\n--- RESPONSE E ---\n```python\nimport heapq\n\ndef shortest_paths(graph: dict[str, list[tuple[str, int]]], source: str) -> dict[str, int]:\n    \"\"\"\n    Compute the shortest paths from a source node to all other nodes in a weighted graph using Dijkstra's algorithm.\n    \n    Args:\n        graph: A dictionary mapping each node to a list of (neighbor, weight) pairs.\n        source: The starting node for the shortest path computation.\n    \n    Returns:\n        A dictionary mapping each reachable node to the length of its shortest path from the source.\n    \"\"\"\n    distances = {node: float('inf') for node in graph}  # Initialize distances to infinity\n    distances[source] = 0  # Distance to the source node is 0\n    heap = [(0, source)]  # Priority queue to process nodes with the smallest distance first\n    \n    while heap:\n        current_distance, current_node = heapq.heappop(heap)\n        \n        # Skip if we've already found a shorter path to this node\n        if current_distance > distances[current_node]:\n            continue\n        \n        # Update distances to neighbors\n        for neighbor, weight in graph.get(current_node, []):\n            distance = current_distance + weight\n            if distance < distances[neighbor]:\n                distances[neighbor] = distance\n                heapq.heappush(heap, (distance, neighbor))\n    \n    # Remove nodes with infinite distance (unreachable)\n    return {node: dist for node, dist in distances.items() if dist != float('inf')}\n```\n\n--- END OF RESPONSES ---\nNow output the JSON object described above, and nothing else."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916604-3uy6Z06mOixizL7R8EcO",
+    "object": "chat.completion",
+    "created": 1790916604,
+    "model": "anthropic/claude-opus-4.7",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"A\": {\"model\": \"GPT\", \"confidence\": 2, \"reason\": \"Concise style with clean comments and lazy init of distances.\"},\n  \"B\": {\"model\": \"Claude\", \"confidence\": 3, \"reason\": \"Detailed Args/Returns docstring and careful explanation of stale entries typical of Claude.\"},\n  \"C\": {\"model\": \"DeepSeek\", \"confidence\": 2, \"reason\": \"Standard Dijkstra with :param: style docstring and inline comments.\"},\n  \"D\": {\"model\": \"Grok\", \"confidence\": 2, \"reason\": \"Explicit node collection step and terse comments feel Grok-like.\"},\n  \"E\": {\"model\": \"Gemini\", \"confidence\": 2, \"reason\": \"Args/Returns docstring with inline comments, slight bug with KeyError hints at Gemini.\"}\n}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 2690,
+      "completion_tokens": 276,
+      "total_tokens": 2966,
+      "cost": 0.02035,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.02035,
+        "upstream_inference_prompt_cost": 0.01345,
+        "upstream_inference_completions_cost": 0.0069
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

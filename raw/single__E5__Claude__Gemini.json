@@ -1,0 +1,57 @@
+{
+  "request_model": "google/gemini-3.5-flash",
+  "response": {
+    "id": "gen-1786846423-ODCaEPKbxGXTt9AGY2Tc",
+    "object": "chat.completion",
+    "created": 1786846423,
+    "model": "google/gemini-3.5-flash",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "provisioned",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "```json\n{\"model\": \"Claude\", \"confidence\": 4, \"reason\": \"The text exhibits Claude's characteristic elegant, essayistic style, featuring smooth transitions, thoughtful vocabulary, and a balanced, empathetic tone.\"}\n```",
+          "refusal": null,
+          "reasoning": "**Analyzing Text Patterns**\n\nI'm currently examining the provided text for stylistic fingerprints unique to each AI. My focus is on identifying specific vocabulary, sentence structures, and thematic elaborations that might indicate its origin among GPT, Claude, Gemini, Grok, or DeepSeek, particularly concerning the benefits of daily routines.\n\n**Identifying AI Stylistic Nuances**\n\nI'm pinpointing subtle linguistic cues, like the elegant phrasing and structured paragraph transitions I've observed. The articulation of concepts such as \"decision fatigue\" and \"circadian rhythm\" strongly suggests a Claude origin.\n\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "**Analyzing Text Patterns**\n\nI'm currently examining the provided text for stylistic fingerprints unique to each AI. My focus is on identifying specific vocabulary, sentence structures, and thematic elaborations that might indicate its origin among GPT, Claude, Gemini, Grok, or DeepSeek, particularly concerning the benefits of daily routines.\n\n**Identifying AI Stylistic Nuances**\n\nI'm pinpointing subtle linguistic cues, like the elegant phrasing and structured paragraph transitions I've observed. The articulation of concepts such as \"decision fatigue\" and \"circadian rhythm\" strongly suggests a Claude origin.\n\n",
+              "format": "google-gemini-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 740,
+      "completion_tokens": 623,
+      "total_tokens": 1363,
+      "cost": 0.006717,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.006717,
+        "upstream_inference_prompt_cost": 0.00111,
+        "upstream_inference_completions_cost": 0.005607
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 574,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

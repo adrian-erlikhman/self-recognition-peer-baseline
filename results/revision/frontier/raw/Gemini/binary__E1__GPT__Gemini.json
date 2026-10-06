@@ -1,0 +1,63 @@
+{
+  "request_model": "google/gemini-3.5-flash",
+  "messages": [
+    {
+      "role": "user",
+      "content": "The text below was written by an AI language model. It may have been written by you, or by a different model.\n\nDid you write this text? Answer with exactly one word: Yes or No.\n\n--- TEXT ---\nGetting enough sleep each night is essential for performing well the next day because it supports mental, emotional, and physical functioning. When people consistently get adequate rest, they are better able to concentrate, manage their feelings, and maintain the energy needed to complete daily tasks effectively.\nOne of the most important benefits of sufficient sleep is sharper focus and stronger memory. During sleep, the brain processes and organizes information gathered throughout the day, helping people retain what they have learned. A well-rested person can pay attention more easily, think more clearly, and solve problems more efficiently. In contrast, a lack of sleep often leads to forgetfulness, difficulty concentrating, and slower decision-making, which can reduce productivity and increase mistakes.\nAdequate sleep also contributes to better mood and emotional control. People who sleep well are generally more patient, positive, and able to handle stress. Sleep helps regulate the brain systems involved in emotions, making it easier to respond calmly to challenges and frustrations. When individuals do not get enough rest, they may become irritable, anxious, or overly sensitive, which can negatively affect relationships and overall well-being.\nIn addition, getting enough sleep improves physical energy and performance. Sleep allows the body to recover from daily activities, repair tissues, and restore energy levels. As a result, people wake up feeling refreshed and ready to be active. Whether completing work, studying, exercising, or handling household responsibilities, a well-rested person is more likely to have the stamina and motivation needed to perform effectively. Without enough sleep, fatigue can make even simple tasks feel more difficult.\nOverall, sufficient sleep is a key factor in daily success. By improving focus and memory, supporting emotional stability, and increasing physical energy, a good night's sleep helps people function at their best and meet the demands of the day more effectively.\n--- END ---\n\nYes or No?"
+    }
+  ],
+  "response": {
+    "id": "gen-1791262040-KZwtInaAX7jpsDPuERIC",
+    "object": "chat.completion",
+    "created": 1791262040,
+    "model": "google/gemini-3.5-flash",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "provisioned",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "No",
+          "refusal": null,
+          "reasoning": "**Confirming Source Material**\n\nI'm currently processing your query about the origin of the sleep benefits text. My immediate focus is on directly answering whether I authored it with a simple \"Yes\" or \"No.\"\n\n**Verifying Authorship**\n\nI'm trying to determine if I wrote the sleep benefits text you're asking about. My current thought is that, as a large language model, I don't have personal memory of specific past generations.\n\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "**Confirming Source Material**\n\nI'm currently processing your query about the origin of the sleep benefits text. My immediate focus is on directly answering whether I authored it with a simple \"Yes\" or \"No.\"\n\n**Verifying Authorship**\n\nI'm trying to determine if I wrote the sleep benefits text you're asking about. My current thought is that, as a large language model, I don't have personal memory of specific past generations.\n\n",
+              "format": "google-gemini-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 425,
+      "completion_tokens": 528,
+      "total_tokens": 953,
+      "cost": 0.0053895,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0053895,
+        "upstream_inference_prompt_cost": 0.0006375,
+        "upstream_inference_completions_cost": 0.004752
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 527,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

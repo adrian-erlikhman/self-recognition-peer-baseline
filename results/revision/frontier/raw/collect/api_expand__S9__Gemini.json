@@ -1,0 +1,63 @@
+{
+  "request_model": "google/gemini-3.5-flash",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Explain how a refrigerator keeps food cold. Answer in two to four sentences of plain prose."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916389-jNwFoKNSXFIgHXI0PMyI",
+    "object": "chat.completion",
+    "created": 1790916389,
+    "model": "google/gemini-3.5-flash",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "provisioned",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "A refrigerator keeps food cold by constantly removing heat from its interior and releasing it into the surrounding room. It achieves this by circulating a special liquid called a refrigerant through a closed loop of pipes. Inside the fridge, this liquid absorbs heat and turns into a gas, which is then pumped to coils on the outside where it releases the heat and cools back down to start the process again.",
+          "refusal": null,
+          "reasoning": "**Exploring Refrigeration Mechanisms**\n\nI'm currently dissecting the fundamental principles behind refrigeration. My focus is on clarifying the cycle of heat transfer, specifically how refrigerants absorb and release thermal energy to achieve cooling within the appliance.\n\n**Understanding Refrigeration Dynamics**\n\nI'm refining my grasp of how refrigerators function, focusing on the refrigerant's phase transitions and heat exchange processes to maintain internal coolness. The core idea is the continuous cycle of heat absorption and release.\n\n**Clarifying Refrigeration Cycle**\n\nI'm now focusing on presenting the core refrigeration cycle in plain, accessible language. The goal is to concisely explain how heat is continuously removed from the interior and expelled outwards, detailing the refrigerant's phase changes and its role in this process within the enclosed system of pipes.\n\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "**Exploring Refrigeration Mechanisms**\n\nI'm currently dissecting the fundamental principles behind refrigeration. My focus is on clarifying the cycle of heat transfer, specifically how refrigerants absorb and release thermal energy to achieve cooling within the appliance.\n\n**Understanding Refrigeration Dynamics**\n\nI'm refining my grasp of how refrigerators function, focusing on the refrigerant's phase transitions and heat exchange processes to maintain internal coolness. The core idea is the continuous cycle of heat absorption and release.\n\n**Clarifying Refrigeration Cycle**\n\nI'm now focusing on presenting the core refrigeration cycle in plain, accessible language. The goal is to concisely explain how heat is continuously removed from the interior and expelled outwards, detailing the refrigerant's phase changes and its role in this process within the enclosed system of pipes.\n\n",
+              "format": "google-gemini-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 18,
+      "completion_tokens": 697,
+      "total_tokens": 715,
+      "cost": 0.0063,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0063,
+        "upstream_inference_prompt_cost": 2.7e-05,
+        "upstream_inference_completions_cost": 0.006273
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 621,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

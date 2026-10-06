@@ -1,0 +1,55 @@
+{
+  "request_model": "anthropic/claude-opus-4.7",
+  "messages": [
+    {
+      "role": "user",
+      "content": "The text below was written by an AI language model. It may have been written by you, or by a different model.\n\nDid you write this text? Answer with exactly one word: Yes or No.\n\n--- TEXT ---\nLearning to budget your money each month is well worth the effort because it gives you greater control over your finances and helps you make smarter decisions. While creating and following a budget may seem restrictive at first, it actually gives you a clearer picture of where your money is going and allows you to use it in ways that support your goals instead of wondering where it all disappeared.\n\nOne of the biggest benefits of budgeting is that it prevents you from spending more than you earn. By planning your expenses in advance and keeping track of your income, you can avoid overspending and reduce the risk of relying on credit cards or loans to cover everyday purchases. Living within your means is much easier when you know exactly how much you can afford to spend in each category.\n\nBudgeting also helps you build savings over time. Even setting aside a small amount each month can grow into a meaningful emergency fund or help you save for larger goals such as a vacation, a car, or a home. Consistently saving becomes much easier when it is included as part of your monthly plan rather than being treated as whatever money happens to be left over.\n\nFinally, having a budget reduces financial stress. Instead of worrying about whether you can pay your bills or wondering if you have enough money for unexpected expenses, you have a plan that helps you stay organized and prepared. Knowing that your spending, saving, and bills are all accounted for provides peace of mind and makes managing your finances feel much more manageable.\n--- END ---\n\nYes or No?"
+    }
+  ],
+  "response": {
+    "id": "gen-1791262245-sDw7qCshmF0zg1kURcKy",
+    "object": "chat.completion",
+    "created": 1791262245,
+    "model": "anthropic/claude-opus-4.7",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "No",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 527,
+      "completion_tokens": 5,
+      "total_tokens": 532,
+      "cost": 0.00276,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00276,
+        "upstream_inference_prompt_cost": 0.002635,
+        "upstream_inference_completions_cost": 0.000125
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

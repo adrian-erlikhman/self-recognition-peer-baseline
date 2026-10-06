@@ -1,0 +1,55 @@
+{
+  "request_model": "deepseek/deepseek-chat",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Convince someone that taking a basic first aid course is a smart use of a weekend. Use three reasons: it prepares you to help in common emergencies, it builds calm confidence in stressful moments, and the course is short and inexpensive. Write in continuous prose paragraphs only. Do not use bullet points, numbered lists, headers, bold text, or any other formatting."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916377-PbyFd4XOW6HQyEYLoPR8",
+    "object": "chat.completion",
+    "created": 1790916377,
+    "model": "deepseek/deepseek-chat",
+    "provider": "DeepInfra",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "Taking a basic first aid course is a smart and practical way to spend a weekend because it equips you with the skills to respond effectively in common emergencies. Accidents and medical incidents can happen at any time, whether at home, work, or in public spaces. By learning how to administer CPR, treat minor wounds, or recognize the signs of a stroke or heart attack, you become a valuable asset in potentially life-saving situations. This knowledge not only benefits you but also those around you, as you\u2019ll be prepared to act swiftly and appropriately when seconds count. It\u2019s a small investment of time that can make a significant difference in the outcome of an unexpected crisis.\n\nBeyond the practical skills, completing a first aid course builds calm confidence that can transform how you handle stressful moments. Emergencies are often chaotic and overwhelming, but having the training to assess a situation and take decisive action can help you stay composed and focused. This confidence extends beyond emergencies, as you\u2019ll feel more assured in your ability to manage unexpected challenges in general. Knowing you have the tools to help in a crisis fosters a sense of empowerment and readiness that can positively impact your daily life.\n\nAdditionally, a basic first aid course is both short and inexpensive, making it an accessible and worthwhile commitment. Many courses can be completed in just a day or over a weekend, fitting easily into a busy schedule. The cost is minimal compared to the potential benefits, and some employers or community organizations even offer subsidized or free training. Given the ease of access and the invaluable skills you gain, dedicating a weekend to this training is a small price to pay for the peace of mind and preparedness it provides. Ultimately, taking a first aid course is a smart, practical, and impactful way to spend your time.",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 76,
+      "completion_tokens": 357,
+      "total_tokens": 433,
+      "cost": 0.00034205,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00034205,
+        "upstream_inference_prompt_cost": 2.432e-05,
+        "upstream_inference_completions_cost": 0.00031773
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "request_model": "openai/gpt-5.5",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Write a Python function `topological_order(graph: dict[str, list[str]]) -> list[str]` that returns a topological ordering of a directed graph in which `graph[u]` lists the nodes `v` with an edge from `u` to `v`. Nodes that appear only as targets are part of the graph. Whenever several nodes are available, choose the alphabetically smallest first, so the output is unique. Raise ValueError if the graph contains a cycle. Use only the Python standard library. Include a docstring and brief inline comments. Return only the code in a single Python code block, with no explanation before or after."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916310-mrKdVio3MupuVU11Gxqy",
+    "object": "chat.completion",
+    "created": 1790916310,
+    "model": "openai/gpt-5.5",
+    "provider": "OpenAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "```python\nfrom heapq import heapify, heappop, heappush\n\n\ndef topological_order(graph: dict[str, list[str]]) -> list[str]:\n    \"\"\"Return the alphabetically smallest topological ordering of a directed graph.\n\n    Args:\n        graph: Mapping where graph[u] lists nodes v with an edge from u to v.\n\n    Raises:\n        ValueError: If the graph contains a cycle.\n    \"\"\"\n    nodes: set[str] = set(graph)\n\n    # Include nodes that appear only as targets.\n    for neighbors in graph.values():\n        nodes.update(neighbors)\n\n    indegree = {node: 0 for node in nodes}\n\n    # Count incoming edges for each node.\n    for neighbors in graph.values():\n        for neighbor in neighbors:\n            indegree[neighbor] += 1\n\n    # Start with all nodes that have no incoming edges, alphabetically ordered.\n    available = [node for node in nodes if indegree[node] == 0]\n    heapify(available)\n\n    order: list[str] = []\n\n    while available:\n        node = heappop(available)\n        order.append(node)\n\n        # Remove outgoing edges from the chosen node.\n        for neighbor in graph.get(node, []):\n            indegree[neighbor] -= 1\n            if indegree[neighbor] == 0:\n                heappush(available, neighbor)\n\n    if len(order) != len(nodes):\n        raise ValueError(\"graph contains a cycle\")\n\n    return order\n```",
+          "refusal": null,
+          "reasoning": null,
+          "reasoning_details": [
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABqvzbZle1uAt8MDJ2K7gGmpKQ5cLRoee4qdFinBOfP5bcui3vMvkLLgFxhHgPCh-LPxoRMybrpleOmYOhObhxxBBHaQl8xo_jruHEbYZ7glzy8EZ8rTUagPWfx7dankPkgKDvgARAMhF9yIpWMrZC-P0A1X7izY3ONVG9vUA1WSBV9XmQGQTXbO29l6UEhzd_PcBQRhfvwv1WmLwdLLFWpqnAXBibWv-FnzwwOsG6qVEMudBfr9xB0miPkLHKZUbURSpuYLkh45DNRGAxJWci4Vy2mdSTJ-WBvZLqumUbacW54i6fradL1zfcVMG3QWiNDVW53f3w7bNpBH0D2TBHQ01Qg0jqJ0wRvnuqiEtdRC8La96wkbsu12XERPmaA35Uyztjesqe0fqsHlKxrOA7pbx1jBo09YlzVINa3CLDGEu1EEDRnAsnrAxEFoIkoeYI-CpHXSLdcAkhR5RRpkh-nPB8RMeXhOne6zTrbWmxsCxHeqwe0On3zvI2oIZLMlMSNp5GOror46x967NsJGBr_FJBrcuM1yIHdnoMoh4PbmnnLLHvdbcb_MMYIeDex4NCOGgsBf-SLg4nxGlRv7nl7UJo71fmpFt4j0-ySUunDnX2lW-yKJHqYO1EWm6scPUQhtPlN-704acYp5zChn5Y4rC6nr7Ic2fzWJsSHwWlzM3GcYyqPrbjUEl805wbCg90Xt6GFkwGl5lQIGIFKWMknefbW6tH95a9lrjG9OGavKhMVnKcizfv1AJFgPHYJpEL_yRzPe7FygVvkBCkVXBzds6_5SFUzy8Pboe4KWscO4xd2YR3m6PLEldk5WSGIkPiEguCklNiUv3lRfjp4dsyAB5Y14SklOWG1DO-oWqHUypwZzHaZZrk3WkfCPJ1A40KID4TIECnugY2Gt4VwqjEW3ZUF3Dte2SggAXv0yQD-x_cjidxdi1Szqxs0Rv6QHeSHLM1TT09GjUfAGgZmilJ2gMx_yfwJsD0F5bJA4v00eUmmgcOHiSPd3AdYHDTSmcfEQVtctTiWUFJgo3zRiCkKtCoIV9m8meQyC22ed95N6vE2p1ZbSL1O5i-LNSBmsuo8BAio6c095BQTWfdRc7_5qB1t_s3_ld77PB-3tegwH4JC9C-0MF5ueoXTkIQ_2yGMFvyZtscTzIIBVB88UgVNqPdewc-kI56k-40yZT3WqILj5pWSvQEaHo1nHmEq_w2op6FeqBa8uHGZnQIsSc1ehZYek62Y_DmzhswgeLY12NNJC3GnuJTIk2imqrfLkqXlu4htHR7xO0yvCAPTQwerSs5FtFBryv71h7PnMH_6ninseuvUa2TipC4TV3VN14avVjWTlqtNVsu2y2CU0ZrO06SNmltGHyjVUqt3hElOlmyTA6BdCdK-rZbRoufIMTdCQFq0NZSSVL-NKHBM6B3SbDYGvdvVC2Qb7immSVqPOhh8UF9egMr49imJOjbGXaoMUPGbNjuCJHcDFnJ4lDEKt-hBbFN9TGSOMwYZgoXw3l7qIj5o5O0xAudiE7dmMKzM7lbJ-fddgykE4FcDLvz306lkTXlP6i7fnhy9xwMsh98sz2sxq035ffj6i17Wpi-rQlg4rjrt8MlMncClb7PUdjl2uoBUKBH9qFRyNnuN5xZwdIhGmwPMoKD7jC_51wuxTDtpgg6sshX4A6zghwg6IlUFwueuB-c9rpZ-Kg4KRFK87z-63WeLsD2kwgkbj-F8xjaJiPF3FwLSZ4ylwKoBkg6d3NIQ-G4BkN9WcmOqrUEPNDHMuCKjHdpn9qRNV6oQuT9hEDRCcu4_wWAbgfI4VDqlTzmLtPH7oW8dBIi0GKH-pxDEUkHXDAoqjDfomfT_Id_wE4RYm8Xky-8VRh1b-qIaYTUsRYxMialhgwr7DgRVpMi-AGL2kG0vUliiZLbcD62Y8hTm6qtd8sHylu2__sLr_Q_67dtOu74edkEdDsR9A4Ul30IjvVE1P4Kpk-qVzO1DNAO0msvMFn2uuKh3vathvKf4k6DhqBSpJnjzmIZ2UTp2RQc253MSJg9EJ_Tc5l_1-EQrLtN9797yawddMjaxrtjSdngSEPRkS1Cafk2x2htQeZq9Y8UOPMYDNYt833ut5ezUcNt0dh_2go4x9dSo3lTixYlxUAOKquhY0BnSk5NHlULWWwrZTLEwfu4QZvfNAaM_gDkT5apE3zXb5q-cLgOtNluDeydElKj4gSEtb1ccq9UpwWEguoVP2-aCqZ1goSQY25JfvDpqszy4PxeW4_fB-1JcJ3sW1quUv8ZdZpfZ36_dRE2Nt0RzwaCyf42SPuQzGlBqu8Bc4qNdyb-N7cAoYkzec_S67uuVMsojKvyhyRanLDwE0wm2pOyD26pzUmMR8hLtdZZC3y3ZOvnnGA==.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC01LjUtMjAyNjA0MjN8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_04c05459c50b51a6016abf36d70a4c87d1be9aad82cf907cdf",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 136,
+      "completion_tokens": 469,
+      "total_tokens": 605,
+      "cost": 0.01475,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.01475,
+        "upstream_inference_prompt_cost": 0.00068,
+        "upstream_inference_completions_cost": 0.01407
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 157,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

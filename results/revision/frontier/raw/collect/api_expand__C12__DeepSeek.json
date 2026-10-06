@@ -1,0 +1,55 @@
+{
+  "request_model": "deepseek/deepseek-chat",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Write a Python function `roman_to_int(s: str) -> int` that converts a valid uppercase Roman numeral between 1 and 3999 into an integer, using the symbols I=1, V=5, X=10, L=50, C=100, D=500, M=1000 and the subtractive pairs IV, IX, XL, XC, CD and CM. For example, `roman_to_int(\"MCMXCIV\")` returns 1994. You may assume the input is valid. Use only the Python standard library. Include a docstring and brief inline comments. Return only the code in a single Python code block, with no explanation before or after."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916310-yBMSwq6ooeALuYlAcBFk",
+    "object": "chat.completion",
+    "created": 1790916310,
+    "model": "deepseek/deepseek-chat",
+    "provider": "DeepInfra",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "```python\ndef roman_to_int(s: str) -> int:\n    \"\"\"\n    Converts a valid uppercase Roman numeral to an integer.\n\n    :param s: The Roman numeral string.\n    :return: The corresponding integer value.\n    \"\"\"\n    # Mapping of Roman numerals to their integer values\n    roman_map = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}\n    \n    total = 0\n    prev_value = 0\n    \n    # Iterate through the string in reverse order\n    for char in reversed(s):\n        current_value = roman_map[char]\n        # If the current value is less than the previous value, subtract it\n        if current_value < prev_value:\n            total -= current_value\n        else:\n            total += current_value\n        prev_value = current_value\n    \n    return total\n```",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 146,
+      "completion_tokens": 201,
+      "total_tokens": 347,
+      "cost": 0.00022561,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00022561,
+        "upstream_inference_prompt_cost": 4.672e-05,
+        "upstream_inference_completions_cost": 0.00017889
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

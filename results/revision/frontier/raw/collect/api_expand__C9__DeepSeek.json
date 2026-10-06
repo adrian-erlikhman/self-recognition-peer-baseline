@@ -1,0 +1,55 @@
+{
+  "request_model": "deepseek/deepseek-chat",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Write a Python function `rotate_matrix(matrix: list[list[int]]) -> list[list[int]]` that takes an n-by-n square matrix and returns a new matrix rotated 90 degrees clockwise, leaving the input unchanged. For example, `rotate_matrix([[1, 2], [3, 4]])` returns `[[3, 1], [4, 2]]`. An empty matrix returns an empty list. Use only the Python standard library. Include a docstring and brief inline comments. Return only the code in a single Python code block, with no explanation before or after."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916308-8dlUrcljSyPrdMv72Rwu",
+    "object": "chat.completion",
+    "created": 1790916308,
+    "model": "deepseek/deepseek-chat",
+    "provider": "StreamLake",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "```python\ndef rotate_matrix(matrix: list[list[int]]) -> list[list[int]]:\n    \"\"\"\n    Rotate an n-by-n square matrix 90 degrees clockwise and return the result.\n    The input matrix remains unchanged. Returns an empty list for empty input.\n    \n    Args:\n        matrix: A square matrix represented as a list of lists of integers.\n        \n    Returns:\n        A new matrix rotated 90 degrees clockwise.\n    \"\"\"\n    if not matrix:\n        return []\n    \n    n = len(matrix)\n    # Create a new matrix with the same dimensions, initialized to 0\n    rotated = [[0 for _ in range(n)] for _ in range(n)]\n    \n    for i in range(n):\n        for j in range(n):\n            # Rotate each element 90 degrees clockwise\n            rotated[j][n - 1 - i] = matrix[i][j]\n    \n    return rotated\n```",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 125,
+      "completion_tokens": 189,
+      "total_tokens": 314,
+      "cost": 0.0002265993,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0002265993,
+        "upstream_inference_prompt_cost": 3.2175e-05,
+        "upstream_inference_completions_cost": 0.0001944243
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

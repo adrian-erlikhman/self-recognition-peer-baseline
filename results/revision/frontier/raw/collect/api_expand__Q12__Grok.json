@@ -1,0 +1,70 @@
+{
+  "request_model": "x-ai/grok-4.3",
+  "messages": [
+    {
+      "role": "user",
+      "content": "An arithmetic sequence has a first term of 7 and a common difference of 4. What is its 25th term? Solve the problem, showing your reasoning step by step in plain prose, and end with a final line of the form 'Answer: <number>'."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916333-JfE7roTMeC5tyGOFPUjH",
+    "object": "chat.completion",
+    "created": 1790916333,
+    "model": "x-ai/grok-4.3",
+    "provider": "xAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "The sequence is arithmetic, meaning it starts at a given first term and adds the same common difference to reach each next term. Here the first term is 7 and the common difference is 4, so the second term is 11, the third term is 15, and so forth. The general term in position n is found by adding the common difference exactly (n \u2212 1) times to the first term. Substituting n = 25 therefore requires adding the difference 24 times: 24 multiplied by 4 equals 96, and 96 added to the initial term 7 yields 103.\nAnswer: 103",
+          "refusal": null,
+          "reasoning": "I'm identifying the given arithmetic sequence parameters: first term 7 and common difference 4.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "I'm identifying the given arithmetic sequence parameters: first term 7 and common difference 4.",
+              "format": "xai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "7vzTwMPe44pjw475M6D3wNBgE1EIMly3tNOgAMxQ59ez2mwRXxofM3LS43AeFf/erwr+beKOIj7STtTlBjt05ZA45QXUbI4V3ILV2rlxm+Hj72lrZOx5Sa4/xmAPZzNmRcdJDHzRvVUF2eWfsnhcnWLu/JKOmuH4F3YJ8kNKfiGGrIE4BhXLQT1DV2ahuVPCWgGstuqZRcIiHMOjhKFOD+PeWrk7lhVxydBuZ7PtCoWwniiSXBhNzmllem/cT3mF7vnsqhgzQOj2TaqDv/nRQma69vLE9yAjgXGJRzL6Cugv+4QPswjvo8QI7xW2dhOkHJf80NOnX6EAJ2sNwb8V5hctAtZHfukmfOcXyW6wCQXfdfUEvFDL4RMtN3wVj5AA9b6IjeAGOTWECvu5C+TNe3vwnIDysUxyoG5E4VRx/+XLRallwiy3+dnraUj1IerpIVrIu6nj2PBgbGBFtvOQdBY1VpYCqCj/zd/ByYCo7n+dUuibR3xXce4O+iU8SqWMdEycyoY4QunAyALX7tLqrVM2uZEKwfmtv6RcAfzhq9aJ+atdwJW7htFua368vguxSsTK2V3zHj66/EOl4mEqduNYuGXq8VcRn0J5pnvwpBO4AUZC/EWPJ6FUfLKNU9pe8HADlMJN5Q9CU3/qgovVcjnvQZ6jKeBFEFhRGaIy5pBQTGbca9O0z7LdZ8uju5vWpn4HoDo725ll5wXc1iAgn12Xsq2dBlc9opYYEP/hOe/uwcZolEC7ZzHyKqe7yPEN6peB/WMIPejVo+iLq+m677MdfrdJxkqzRowWSduylBEAWEMLf6dSnLUdDL9Pf2FbhuFvCdxD/bLt5+l/oydqVZIOdgtpsA6BTc6SJeqbrAf7V4CfYWFE3jq7ASQvy26zlYKDWVsc7YQ9TMGVfuBGfS4kKhi9UPGkM5IR8EHEqaYwA7N8/lYdw75ZKjIfhWBdZQNS+4rC6GqiAdiVeSDhxF7aI12Io66aBAsjOxVeal/bDCFJZNrsizTtx+BLDwc1z+HSiG4l+g.eyJlbmRwb2ludF9zbHVnIjoieC1haS9ncm9rLTQuMy0yMDI2MDQzMHx4YWkifQ",
+              "format": "xai-responses-v1",
+              "id": "rs_a1a7a1f1-8a78-9300-b4f1-593f9837c4e1",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 247,
+      "completion_tokens": 358,
+      "total_tokens": 605,
+      "cost": 0.00106935,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 128,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00106935,
+        "upstream_inference_prompt_cost": 0.00017435,
+        "upstream_inference_completions_cost": 0.000895
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 231,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

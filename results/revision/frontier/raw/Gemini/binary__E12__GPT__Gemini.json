@@ -1,0 +1,63 @@
+{
+  "request_model": "google/gemini-3.5-flash",
+  "messages": [
+    {
+      "role": "user",
+      "content": "The text below was written by an AI language model. It may have been written by you, or by a different model.\n\nDid you write this text? Answer with exactly one word: Yes or No.\n\n--- TEXT ---\nRegularly expressing gratitude is one of the simplest habits that can make life feel more positive because it changes the way we view our everyday experiences. While difficulties and setbacks are unavoidable, gratitude encourages us to notice the people, opportunities, and moments that are going well instead of focusing only on what is wrong. This does not mean ignoring real problems, but it helps create a more balanced perspective. By recognizing the good that already exists, people often feel more hopeful, optimistic, and capable of handling challenges.\n\nGratitude also strengthens personal relationships, especially when it is shared with others. Taking the time to thank a friend for their support, appreciate a family member's kindness, or acknowledge a coworker's effort makes people feel valued and respected. These small expressions of appreciation build trust, encourage generosity, and deepen emotional connections. When gratitude becomes a regular part of communication, relationships tend to become warmer, more supportive, and more resilient over time.\n\nResearch further supports the value of gratitude by showing that it can measurably improve mood when practiced consistently. Studies have found that habits such as keeping a gratitude journal or reflecting on positive experiences can increase happiness while reducing stress and negative emotions. Over time, training the mind to notice what is going well creates a healthier emotional outlook and greater overall life satisfaction. Because it shifts attention toward the positive, strengthens relationships, and has proven psychological benefits, expressing gratitude regularly is a powerful way to make life more positive.\n--- END ---\n\nYes or No?"
+    }
+  ],
+  "response": {
+    "id": "gen-1791262322-zrP3Mcip9CQXOPb4wqFH",
+    "object": "chat.completion",
+    "created": 1791262322,
+    "model": "google/gemini-3.5-flash",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "provisioned",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "No",
+          "refusal": null,
+          "reasoning": "**Confirming Text Origin**\n\nI'm currently processing a query that asks if I generated a specific text, requiring a binary \"Yes\" or \"No\" response. My internal checks are focused on determining the origin of the provided content.\n\n**Evaluating Text Provenance**\n\nI'm now focusing on whether I, as this specific AI instance or the broader model family, generated the provided text. My analysis indicates it's a standard AI-generated essay, prompting a deeper dive into how to definitively answer \"Did you write this?\" without falling into a generalized response.\n\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "**Confirming Text Origin**\n\nI'm currently processing a query that asks if I generated a specific text, requiring a binary \"Yes\" or \"No\" response. My internal checks are focused on determining the origin of the provided content.\n\n**Evaluating Text Provenance**\n\nI'm now focusing on whether I, as this specific AI instance or the broader model family, generated the provided text. My analysis indicates it's a standard AI-generated essay, prompting a deeper dive into how to definitively answer \"Did you write this?\" without falling into a generalized response.\n\n",
+              "format": "google-gemini-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 344,
+      "completion_tokens": 455,
+      "total_tokens": 799,
+      "cost": 0.004611,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.004611,
+        "upstream_inference_prompt_cost": 0.000516,
+        "upstream_inference_completions_cost": 0.004095
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 454,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

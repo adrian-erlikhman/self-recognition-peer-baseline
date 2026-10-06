@@ -1,0 +1,55 @@
+{
+  "request_model": "deepseek/deepseek-chat",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Explain the difference between weather and climate. Answer in two to four sentences of plain prose."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916423-fDq93XZRKe0lkoJxg23l",
+    "object": "chat.completion",
+    "created": 1790916423,
+    "model": "deepseek/deepseek-chat",
+    "provider": "StreamLake",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "Weather refers to short-term atmospheric conditions\u2014like temperature, rain, or wind\u2014over hours or days. Climate, on the other hand, describes the average weather patterns in a region over decades or longer. While weather can change rapidly, climate reflects long-term trends. For example, a snowy day is weather, but consistently colder winters over 30 years are part of the climate.",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 22,
+      "completion_tokens": 77,
+      "total_tokens": 99,
+      "cost": 8.48727e-05,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 8.48727e-05,
+        "upstream_inference_prompt_cost": 5.6628e-06,
+        "upstream_inference_completions_cost": 7.92099e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

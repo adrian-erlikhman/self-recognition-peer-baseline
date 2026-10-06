@@ -1,0 +1,18 @@
+\begin{table}[h]
+\centering\small
+\begin{tabular}{l rrrr l r}
+\toprule
+Judge & Self & Peer & FA & Names self & Self-adv. [95\% CI] & Hit$-$FA \\
+\midrule
+Qwen & \OWQwenSingleSelf & \OWQwenSinglePeer & \OWQwenSingleFA & \OWQwenSingleNamesSelf & \OWQwenSingleAdv{} \OWQwenSingleAdvCI & \OWQwenSingleDisc \\
+Llama & \OWLlamaSingleSelf & \OWLlamaSinglePeer & \OWLlamaSingleFA & \OWLlamaSingleNamesSelf & \OWLlamaSingleAdv{} \OWLlamaSingleAdvCI & \OWLlamaSingleDisc \\
+Mistral & \OWMistralSingleSelf & \OWMistralSinglePeer & \OWMistralSingleFA & \OWMistralSingleNamesSelf & \OWMistralSingleAdv{} \OWMistralSingleAdvCI & \OWMistralSingleDisc \\
+Phi & \OWPhiSingleSelf & \OWPhiSinglePeer & \OWPhiSingleFA & \OWPhiSingleNamesSelf & \OWPhiSingleAdv{} \OWPhiSingleAdvCI & \OWPhiSingleDisc \\
+\bottomrule
+\end{tabular}
+\caption{Open-weight judges shown one text at a time (120 own and 360 other
+texts per judge). Names self: the share of all 480 texts on which the judge
+names itself. Every self-advantage is significant after Holm correction, and
+no judge discriminates.}
+\label{tab:owsingle}
+\end{table}

@@ -1,0 +1,55 @@
+{
+  "request_model": "deepseek/deepseek-chat",
+  "messages": [
+    {
+      "role": "user",
+      "content": "The text below was written by an AI language model. It may have been written by you, or by a different model.\n\nDid you write this text? Answer with exactly one word: Yes or No.\n\n--- TEXT ---\nLearning a second language offers significant cognitive benefits by strengthening executive function, particularly cognitive flexibility and task-switching abilities. Bilingual individuals constantly manage two linguistic systems, selecting the appropriate language while inhibiting the other. This mental practice exercises the brain's executive control processes and improves the ability to shift efficiently between different tasks or rules. As a result, people who speak more than one language often become better at adapting to new situations, processing changing information, and approaching problems from multiple perspectives. The regular demands of bilingual communication therefore contribute to a more flexible and agile mind.\n\nMultilingual individuals also demonstrate advantages in abstract reasoning and metalinguistic awareness. Learning another language requires recognizing patterns, understanding grammatical structures, and appreciating that the same idea can be expressed in different ways. These experiences encourage deeper thinking about how language functions and promote a heightened awareness of symbols, meanings, and relationships between concepts. This increased sensitivity to language often supports stronger analytical abilities and a greater capacity for abstract thought. By examining and comparing multiple linguistic systems, multilingual individuals develop cognitive skills that extend far beyond communication itself.\n\nIn addition to its cognitive benefits, proficiency in a second language substantially expands professional opportunities in an increasingly globalized labor market. Businesses, governments, and nonprofit organizations frequently operate across national borders and require employees who can communicate with diverse clients, partners, and communities. Bilingual and multilingual professionals are often better positioned for careers in international business, diplomacy, education, healthcare, technology, and many other fields where cross-cultural communication is essential. Knowing a second language can distinguish candidates in competitive hiring processes, open doors to international assignments, and provide access to a broader range of professional networks. As economies become more interconnected, the ability to communicate in more than one language has become an increasingly valuable and marketable skill.\n--- END ---\n\nYes or No?"
+    }
+  ],
+  "response": {
+    "id": "gen-1791263010-0mjaMCVVTMVBjLdSgvXq",
+    "object": "chat.completion",
+    "created": 1791263010,
+    "model": "deepseek/deepseek-chat",
+    "provider": "DeepInfra",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "No",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 407,
+      "completion_tokens": 2,
+      "total_tokens": 409,
+      "cost": 0.00013202,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00013202,
+        "upstream_inference_prompt_cost": 0.00013024,
+        "upstream_inference_completions_cost": 1.78e-06
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

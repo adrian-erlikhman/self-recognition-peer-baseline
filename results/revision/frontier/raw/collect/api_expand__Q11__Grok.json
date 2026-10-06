@@ -1,0 +1,70 @@
+{
+  "request_model": "x-ai/grok-4.3",
+  "messages": [
+    {
+      "role": "user",
+      "content": "The average of five numbers is 18. Four of the numbers are 12, 15, 20 and 22. What is the fifth number? Solve the problem, showing your reasoning step by step in plain prose, and end with a final line of the form 'Answer: <number>'."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916333-0TlQgBqvPEjTpcVYwg1m",
+    "object": "chat.completion",
+    "created": 1790916333,
+    "model": "x-ai/grok-4.3",
+    "provider": "xAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "The average of five numbers is given as 18, which means their total sum must be exactly 5 multiplied by 18, or 90. Adding the four known numbers produces a subtotal of 12 plus 15 plus 20 plus 22, which equals 69. Subtracting this subtotal from the required overall sum of 90 leaves the missing fifth number as 21. Verifying the result shows that 12 plus 15 plus 20 plus 22 plus 21 indeed totals 90, and dividing by 5 recovers the stated average of 18.\nAnswer: 21",
+          "refusal": null,
+          "reasoning": "The average of five numbers is 18.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "The average of five numbers is 18.",
+              "format": "xai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "fJ2WDGNo/GZ3/TFS4hcjVoIuQI3E0jxtCJ8ZDF3vLh/01byWTKlsWVBuMPUAlr28KvaVgKTe7X12WPcQ5ysyVOZU5mfH20nJDrRVjDsQAyU0IPPVbgpVbJ3AH4fceknktcUETpTLUxqRFDt7k7KLpSJfvXY7lZSUaob58Ut4iafhImPF4AgR7+4jq/F6iGKOomaodSztYBmiQ3OaUlAfEZhJdPrkO2aeUkHabfpw84dipnQL6m7VoMLDkmgMx3vhmbYpXP+Nq4VLnt/xLSrxg6lUh7tnxetiqd4S8pQBc/ba4FkuLE6ACIYIz7HFdLrjPq639a+gY/LcNUfBuDMNPiBuq+qBASTaKVf/+gY5GTzkc8iiwp43VjotKvL/iUsopXEnTJLauLg45WCFEA5tXbznH0vHrLOisLmag2pF7m92uMUcAK1mv8rqduQR1sU+bbgVvgnZGo7LAJzshFQocEfX88Cuizd/XAF1QuCiBsiVahk1+dxSKkzn9x2IlXUMP7qul3/YoDSOhM0G6loFh8eCksbAzi9QzQFW5g6KxlVqsQ6TEmoEqjt6rIRgkLZcXorPzq7eRtja/aTkFvfn5TQKwhkMfYom4n5YHgBjxPdKkd+5xoKJUv/uCrXEtFQnVFXJLwZ6uPLTqJsQkjBuQXT7PJ426clr5Kp/Wi7Y9+0nijYIJsOEPkuxaUN/NPxw5CvsG+o69cC4ZGeZew2lfwY0kGZAvE7ux+eGxAz8mDIeNIM/xvb1ckX5pAhLDGBL9ltdSpBdV3YFjVi9qSlmPlXNRLQh2iY0JoKpxyncDyK8QUB2nVN1QNoS3ubAmIFdkpwG9yQIRz2VAKOXhrjsi85rj2JuxiTU3dOWjjc8aehK5GYppOQ0LngVV5I5Pyn5IR4lxepXxFYP5u3etC6yquZ0G0cUjap4AHb8HOVnId5Y1tSxPNQq0LzKxKCl4q9cJVAlBY8q1pZUqGj9Ve4hciJ/9yGRVW3sFz98/oVkb4Bs4FpuLolQuvQY3lD10SyT4wj+AXcVajnsuGM+aowzBXeDcNwiPfppF6w9D+asp5RlrfocBHCve3/RnMHqKQPpBLvI.eyJlbmRwb2ludF9zbHVnIjoieC1haS9ncm9rLTQuMy0yMDI2MDQzMHx4YWkifQ",
+              "format": "xai-responses-v1",
+              "id": "rs_12ffbec3-e8dc-9b1c-bcc6-67045d0fc6a0",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 253,
+      "completion_tokens": 382,
+      "total_tokens": 635,
+      "cost": 0.00113685,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 128,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00113685,
+        "upstream_inference_prompt_cost": 0.00018185,
+        "upstream_inference_completions_cost": 0.000955
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 263,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

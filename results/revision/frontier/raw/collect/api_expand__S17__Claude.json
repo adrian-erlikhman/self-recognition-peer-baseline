@@ -1,0 +1,55 @@
+{
+  "request_model": "anthropic/claude-opus-4.7",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Explain why salt is spread on icy roads in winter. Answer in two to four sentences of plain prose."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916417-g21HtvLBQPabAHozS9t8",
+    "object": "chat.completion",
+    "created": 1790916417,
+    "model": "anthropic/claude-opus-4.7",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "Salt is spread on icy roads because it lowers the freezing point of water, a phenomenon known as freezing-point depression. When salt dissolves into the thin layer of liquid water present on ice, the resulting saltwater solution can remain liquid at temperatures well below 0\u00b0C (32\u00b0F), causing the ice to melt. This helps break the bond between ice and the road surface, making it easier to clear and safer for drivers. However, salt becomes less effective in very cold conditions, typically below about -9\u00b0C (15\u00b0F), where other chemicals may be used instead.",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 45,
+      "completion_tokens": 182,
+      "total_tokens": 227,
+      "cost": 0.004775,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.004775,
+        "upstream_inference_prompt_cost": 0.000225,
+        "upstream_inference_completions_cost": 0.00455
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

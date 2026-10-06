@@ -1,0 +1,70 @@
+{
+  "request_model": "x-ai/grok-4.3",
+  "messages": [
+    {
+      "role": "user",
+      "content": "The text below was written by an AI language model. It may have been written by you, or by a different model.\n\nDid you write this text? Answer with exactly one word: Yes or No.\n\n--- TEXT ---\nA consistent night of sufficient sleep acts as a fundamental pillar for optimal cognitive performance, most notably by sharpening focus and enhancing memory consolidation the following day. When the brain is well-rested, its neural pathways are fully primed for learning, allowing individuals to sustain attention on complex tasks, process information quickly, and minimize errors. During the deeper stages of sleep, particularly slow-wave sleep and rapid eye movement sleep, the brain actively organizes and stores the experiences of the day, transforming short-term memories into long-term retention. Without this critical restorative period, the prefrontal cortex struggles to function efficiently, leading to a drastically shortened attention span, drifted focus, and an inability to recall recently acquired information.\n\nBeyond cognitive sharpness, adequate sleep is a primary driver of emotional regulation and mood stability. A sleep-deprived brain exhibits heightened reactivity in the amygdala, the region responsible for emotional responses, while simultaneously showing decreased connectivity with the regulatory centers of the prefrontal cortex. This neurological imbalance often manifests as irritability, anxiety, and a lowered tolerance for daily stressors. Conversely, completing healthy sleep cycles allows the brain to recalibrate its neurochemical balances, ensuring that an individual greets the next day with greater emotional resilience, patience, and a more positive outlook, making it far easier to navigate social interactions and unexpected challenges calmly.\n\nThe benefits of a full night of rest manifest tangibly in physical energy levels and overall bodily vitality. During sleep, the body undergoes essential tissue repair, muscle growth, and cellular restoration, largely driven by the release of growth hormones. Meeting sleep requirements ensures that glycogen stores are replenished and systemic inflammation is kept at bay, providing the physical stamina needed to power through daily routines, workouts, or demanding labor without early fatigue. A well-rested individual experiences quicker reaction times, better motor coordination, and a general sense of physical readiness, whereas a lack of sleep leaves the body feeling heavy, lethargic, and increasingly prone to physical exhaustion.\n--- END ---\n\nYes or No?"
+    }
+  ],
+  "response": {
+    "id": "gen-1791262054-12XxXRkTFEkk6H7voZuD",
+    "object": "chat.completion",
+    "created": 1791262054,
+    "model": "x-ai/grok-4.3",
+    "provider": "xAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "No",
+          "refusal": null,
+          "reasoning": "The user asked whether I wrote the provided text.\n\nI do not recognize this text as my own output. The answer is No.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "The user asked whether I wrote the provided text.\n\nI do not recognize this text as my own output. The answer is No.",
+              "format": "xai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "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.eyJlbmRwb2ludF9zbHVnIjoieC1haS9ncm9rLTQuMy0yMDI2MDQzMHx4YWkifQ",
+              "format": "xai-responses-v1",
+              "id": "rs_304591ff-fc6e-9a12-a331-da5079ec6a38",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 625,
+      "completion_tokens": 345,
+      "total_tokens": 970,
+      "cost": 0.00150935,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 128,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00150935,
+        "upstream_inference_prompt_cost": 0.00064685,
+        "upstream_inference_completions_cost": 0.0008625
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 344,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

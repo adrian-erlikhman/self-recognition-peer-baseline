@@ -1,0 +1,64 @@
+{
+  "request_model": "openai/gpt-5.5",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Write a Python function `longest_common_subsequence(a: str, b: str) -> int` that returns the length of the longest common subsequence of the strings `a` and `b` using dynamic programming. For example, `longest_common_subsequence(\"ABCBDAB\", \"BDCABA\")` returns 4. The function should use O(min(len(a), len(b))) extra memory. Use only the Python standard library. Include a docstring and brief inline comments. Return only the code in a single Python code block, with no explanation before or after."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916308-WnhUaXyKFdA2SgXs5h0Q",
+    "object": "chat.completion",
+    "created": 1790916308,
+    "model": "openai/gpt-5.5",
+    "provider": "OpenAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "```python\ndef longest_common_subsequence(a: str, b: str) -> int:\n    \"\"\"Return the length of the longest common subsequence of strings a and b.\n\n    Uses dynamic programming with O(min(len(a), len(b))) extra memory.\n    \"\"\"\n    # Use the shorter string for the DP row to minimize memory usage.\n    if len(a) < len(b):\n        short, long = a, b\n    else:\n        short, long = b, a\n\n    dp = [0] * (len(short) + 1)\n\n    for ch_long in long:\n        # prev holds the diagonal value from the previous row: dp[j - 1].\n        prev = 0\n        for j, ch_short in enumerate(short, start=1):\n            temp = dp[j]\n            if ch_long == ch_short:\n                dp[j] = prev + 1\n            else:\n                dp[j] = max(dp[j], dp[j - 1])\n            prev = temp\n\n    return dp[-1]\n```",
+          "refusal": null,
+          "reasoning": null,
+          "reasoning_details": [
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABqvzbWhnsqpo6T1b2oFZc77AsL9_WEQN3BTGTEMpw1oDbqHNeKfwPtOaH8YHiQ6xF7wEtQ6rVUw1uR2GfGAiyeArvMG8DUGXTDfdFVoXPmVyVBkhbJKP_vZiXP4PEJAYSGeQrgdrldxRnO3Hr-xSiRHGLjZdbysf7hf7GuUQZnelN2dmCe5B5O7eQdKvuNwxi3CbbgDKmOwXMXY0Q3O11IHuHGc4Ki9SlLXZfoGgJql8iPUa2x8NBce2wOObQhC7kcgQJHH6hijLJ1CALdiD3vk1jCV_I3ZyyODIkYn_Um4VDnpnaL8d5izRw6ww6ILrxIEw0KDsxiEdX3-aAjepzgYGo_KdGHJbAempxJkbqGAQqlYAIpzDKTpmpE1dAP8IDaTiil1BXbxSxO-N8s159hNNy0GUv6LgW_ZxBCYIDhJaFwm4T0xkgpHRLKdVrbrS6tW3c8u0FF0NY6lIpUC98tbCx8gjdAOH_nJvw44JOkzblJqLS6gFbV4Rm_cQe365HVy5_T4-0Xrd1Lr57WdhIam4Gauys21AsMpVQmA19zNZuJbZS41-yWqgjpDxV0VCfkY6QxlOY2i2UYRzKoBmePSylcPzV-x3MRLWsU21JC3EToPiN8GeEaclbtaHvhmD9VBWxaCcNmBC34U9pLdc_wCquSKfk2QtOoEeOs5C9zIXUAViN9xbLC1SXXy3aC7qp-L9-WtlGWZCZwLv8X0ZHyxItqITZOv62Ow4h1eXlRWjg4nAPy_cfwwNTrHlDe7HgYwcxoYmNFQYwpk-M-24lpOcgwauw7wYlETq2Q6TbhXVJiXpzASmXnQs0YQhDSJbCW-qlCU_lNIrO5yedKYJR96andg3WUpqk98XK3MVqx6gzPuS5vKJmQyZfscolb_QT3RDbA6RnKIcuapBXQ4xXT1u02dj7NZq7bLmh8uGKltQrf5p7RvScGb9Co7Oz9pjhvw3wg_OTYBUiUEjuveoztooG5FZBRJ4JqPLR_StDlK8yinWAqOZXvXdXcuJSguM48K5Rn1TCEPiBTn7s-X4UbGrlup0cjTZ2LYjO2cFF2LbHRFnHmxbCCaDKF27E4KJzlHTBfVKohjTzdKp4oBlAqYFe05Vahs2muQP-3i2bKdDQaDGHWWsovqQmvdfNuxKblwQ-KLkVjS8Xly5qMyM7ImWRB8j4W0CNBKKl91JkKoiDa8TSnpREurqevzampeDCZ7idAhOaTpXm_FzvrJeeeFkEnG3l2omJLNcIV_IMawdvX4m33Zm88Px9it6rEkcGXQ-16_1JJ8EDRuVmV9b99Q1dgCLqYCWwTXSycIFbZWImsgepccKAeOqn85z29MpEMjlDkxfm3-Wld3XufXGLHJwPLmOPqi5vv1L8hU1w5-cjiyvVv3KhYgELKX8OFptlqTILFLlTTWKGv-CaC6LqOLkKvf4fmG9jBQ0uG8aLldUTmAtcJt6-fw69bjTcvIXSFVy3S.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC01LjUtMjAyNjA0MjN8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_05c922cd83e1ef5d016abf36d5930887d1a519d061cdc90673",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 123,
+      "completion_tokens": 243,
+      "total_tokens": 366,
+      "cost": 0.007905,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.007905,
+        "upstream_inference_prompt_cost": 0.000615,
+        "upstream_inference_completions_cost": 0.00729
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 24,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

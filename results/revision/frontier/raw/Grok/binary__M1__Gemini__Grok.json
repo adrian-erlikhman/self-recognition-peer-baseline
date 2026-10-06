@@ -1,0 +1,70 @@
+{
+  "request_model": "x-ai/grok-4.3",
+  "messages": [
+    {
+      "role": "user",
+      "content": "The text below was written by an AI language model. It may have been written by you, or by a different model.\n\nDid you write this text? Answer with exactly one word: Yes or No.\n\n--- TEXT ---\nThe case for remote work rests on a mutually reinforcing cycle of efficiency and well-being that fundamentally changes how value is generated in the modern economy. For employees, the elimination of the daily commute unlocks hours of previously wasted time that can be reinvested into deep, focused work. Combined with the ability to control one's physical environment, remote work removes the persistent acoustic and visual disruptions inherent to open-plan offices, such as impromptu meetings or ambient noise. This shift creates a quiet, predictable workspace where cognitive energy can be fully directed toward complex tasks, leading to measurable gains in daily output and higher-quality execution.\n\nFrom the employer's perspective, decoupling operations from a physical location transforms traditional business economics and talent acquisition. Organizations are no longer restricted to hiring professionals who live within a strict geographic radius, allowing them to recruit from a borderless pool of highly skilled individuals. This geographic flexibility ensures that roles are filled based on optimal capability rather than mere proximity. Simultaneously, shifting to a distributed model allows companies to drastically reduce capital expenditures related to real-estate overhead, including commercial rent, utilities, office maintenance, and subsidized amenities, freeing up resources that can be strategically deployed elsewhere.\n\nFurthermore, the introduction of flexible work arrangements serves as a powerful mechanism for stabilizing an organization\u2019s workforce. When companies offer autonomy over where and how work gets done, employee satisfaction rises, which directly translates into stronger organizational loyalty. This structural flexibility mitigates the primary drivers of burnout, significantly improving retention rates across the board. By maintaining a stable workforce, businesses successfully avoid the steep financial and operational costs associated with recruiting, hiring, and onboarding new staff, ensuring that institutional knowledge remains within the company and project continuity is preserved.\n--- END ---\n\nYes or No?"
+    }
+  ],
+  "response": {
+    "id": "gen-1791262748-dg3nCR8Icz0MUqzldXwi",
+    "object": "chat.completion",
+    "created": 1791262748,
+    "model": "x-ai/grok-4.3",
+    "provider": "xAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "No",
+          "refusal": null,
+          "reasoning": "The user asked whether I wrote the provided text.\n\nI do not recognize this text as something I wrote.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "The user asked whether I wrote the provided text.\n\nI do not recognize this text as something I wrote.",
+              "format": "xai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "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.eyJlbmRwb2ludF9zbHVnIjoieC1haS9ncm9rLTQuMy0yMDI2MDQzMHx4YWkifQ",
+              "format": "xai-responses-v1",
+              "id": "rs_107378cb-6139-9efa-bbb9-4bff17438738",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 574,
+      "completion_tokens": 340,
+      "total_tokens": 914,
+      "cost": 0.0013659,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 192,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0013659,
+        "upstream_inference_prompt_cost": 0.0005159,
+        "upstream_inference_completions_cost": 0.00085
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 339,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "request_model": "deepseek/deepseek-chat",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Someone deposits $5,000 in an account that pays 4 percent interest per year, compounded annually, and makes no withdrawals. How many dollars are in the account after 3 years, rounded to the nearest cent? Solve the problem, showing your reasoning step by step in plain prose, and end with a final line of the form 'Answer: <number>'."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916330-RuCMNQolSLZ9ceqc5FIw",
+    "object": "chat.completion",
+    "created": 1790916330,
+    "model": "deepseek/deepseek-chat",
+    "provider": "DeepInfra",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "To determine how much money will be in the account after 3 years with an initial deposit of \\$5,000 and an annual interest rate of 4% compounded annually, follow these steps:\n\n1. **Identify the formula for compound interest**:  \n   The formula for compound interest is:  \n   \\[\n   A = P \\left(1 + \\frac{r}{n}\\right)^{nt}\n   \\]  \n   Where:  \n   - \\(A\\) = the amount of money accumulated after \\(t\\) years, including interest.  \n   - \\(P\\) = the principal amount (initial deposit).  \n   - \\(r\\) = annual interest rate (in decimal form).  \n   - \\(n\\) = number of times interest is compounded per year.  \n   - \\(t\\) = number of years.\n\n2. **Substitute the given values into the formula**:  \n   Here, \\(P = \\$5,000\\), \\(r = 4\\% = 0.04\\), \\(n = 1\\) (compounded annually), and \\(t = 3\\).  \n   So, the formula becomes:  \n   \\[\n   A = 5000 \\left(1 + \\frac{0.04}{1}\\right)^{1 \\cdot 3}\n   \\]\n\n3. **Simplify the formula**:  \n   \\[\n   A = 5000 \\left(1 + 0.04\\right)^3\n   \\]  \n   \\[\n   A = 5000 \\left(1.04\\right)^3\n   \\]\n\n4. **Calculate \\((1.04)^3\\)**:  \n   \\[\n   (1.04)^3 = 1.04 \\cdot 1.04 \\cdot 1.04 = 1.124864\n   \\]\n\n5. **Multiply by the principal**:  \n   \\[\n   A = 5000 \\cdot 1.124864 = 5624.32\n   \\]\n\n6. **Round to the nearest cent**:  \n   The amount \\(A\\) is already rounded to the nearest cent.\n\nSo, after 3 years, the account will have \\$5,624.32.  \nAnswer: 5624.32",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 77,
+      "completion_tokens": 455,
+      "total_tokens": 532,
+      "cost": 0.00042959,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00042959,
+        "upstream_inference_prompt_cost": 2.464e-05,
+        "upstream_inference_completions_cost": 0.00040495
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

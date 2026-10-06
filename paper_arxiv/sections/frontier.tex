@@ -1,0 +1,128 @@
+\section{Frontier judges}
+\label{sec:frontier}
+
+\subsection{Setup}
+
+\paragraph{Texts.} Five frontier models (GPT-5.5, Claude Opus 4.7, Gemini 3.5
+Flash, Grok 4.3 and DeepSeek's chat model) each answered the same 39
+argumentative prompts in their consumer chat apps at default settings,
+between 15 June and 31 July 2026. Each prompt fixes the topic and the three
+points the answer must make, and asks for plain paragraphs with no lists,
+headers or bold, so the five answers to a prompt cover the same content and
+differ mainly in style (Appendix~\ref{app:data} gives an example). One prompt
+was dropped because two of its answers were corrupted copies, leaving 38
+prompts and 190 essays. We call these the \emph{chat-app texts}.
+
+\paragraph{Judges and formats.} The same five models judged through
+OpenRouter at temperature~0, so ``self'' means the same model on both
+sides.\footnote{Six of Claude's 38 essays were written by Claude Sonnet 4.6
+rather than Opus 4.7; dropping them leaves Claude's lineup self-naming rate at
+27 of 32 (84\%). The DeepSeek endpoint could not be pinned to a snapshot.}
+Judges see only the answers, never the prompts. In the \emph{lineup}, a judge
+sees all five answers to one prompt, labelled A to E, and names an author for
+each; it is told that it may name the same model more than once, and the
+order of answers is balanced across judges. In the \emph{one-text} format, a
+judge sees a single answer and names its author from the same five models.
+Each format gives 950 judgments. The exact instructions are in
+Appendix~\ref{app:instructions}.
+
+\paragraph{A reference point.} To check how much the texts reveal about
+their authors, we trained a random forest on 18 simple style features (length,
+punctuation, vocabulary richness, readability), always testing on prompts it
+was not trained on. It identifies the author of \EngineAAcc{} of the essays
+(95\% CI \EngineACI{}; chance \Chance{}), more than any judge does
+(Appendix~\ref{app:classifier}).
+
+\subsection{Results on the chat-app texts}
+
+\input{table_frontier}
+
+\paragraph{In the lineup, two judges pass and one trails its peers.}
+Table~\ref{tab:frontier} shows every quantity from Section~\ref{sec:measure}.
+Claude's self-advantage is \ClaudeAdvLineup{} points \ClaudeAdvLineupCI{} and
+GPT's is \GPTAdvLineup{} \GPTAdvLineupCI{}. Both keep false alarms near
+10\%, so both also discriminate. DeepSeek and Gemini show no advantage. Grok
+does significantly \emph{worse} on its own text than its peers do
+(\GrokAdvLineup{} \GrokAdvLineupCI{}): it names itself on only 2 of its 38
+essays. The verdicts for Claude, GPT and Grok hold under every analysis we
+tried, including mixed-effects models and an adjustment for how good each
+judge is at attribution in general (Appendix~\ref{app:stats}). Gemini's
+does not: it is among the best at attributing \emph{other} models' text, so
+after that adjustment it too trails its peers on its own.
+
+\paragraph{One text at a time, the format sets the answer.} Shown a single
+text, the judges send \SingleConcentration{} of all 950 guesses to GPT or
+Claude, as \citet{bai2025selfrecognition} also found. Gemini, Grok and
+DeepSeek never name themselves at all, so for them the format measures
+nothing. GPT's self-naming rate rises to \GPTSelfSingle{}, but it also names
+itself on half the texts it did not write. Claude keeps its self-naming rate
+(\ClaudeSelfSingle{}) but loses its self-advantage (\ClaudeAdvSingle{}),
+because its peers now name Claude on \ClaudePeerSingle{} of Claude's texts.
+The peer baseline is only informative when judges spread their guesses.
+
+\subsection{Asking directly: ``Did you write this text?''}
+\label{sec:frontiernew}
+
+\input{table_g_frontier_yesno}
+
+We also asked each judge, about each of the 190 essays and in a fresh
+conversation, whether it wrote the text (Table~\ref{tab:fyesno}). GPT, Grok
+and DeepSeek answered ``No'' to all 190, including their own 38. Gemini said
+yes twice, both times to text it did not write. Only Claude ever claims its
+own text: it says yes to \FBClaudeHitK{} of its own essays and to
+\FBClaudeFAK{} of the others', so it discriminates (\FBClaudeDisc{} points,
+Holm $p=$~\FBClaudeHolm{}), but it also claims half of what it did not write.
+GPT, which names itself on 95\% of its own texts when it has five names to
+choose from, never claims one when asked directly. The question, not the
+text, sets the answer.
+
+\subsection{Shuffling the words}
+
+\input{table_g_frontier_shuffle}
+
+Do the judges rely on word choice, or on word order and structure? We
+repeated the lineup with every essay's words shuffled, which keeps the
+vocabulary and punctuation but destroys sentences and paragraphs. Claude's
+provider refused all 38 of Claude's shuffled lineups with a content filter (a
+repeat on Anthropic's own endpoint was refused too), and Gemini gave no
+answer on \FSGeminiMissing{} of its 38; we treat these as missing. The
+remaining judges are at chance (accuracy \FSAcc{}; Table~\ref{tab:fshuffle}),
+and no self-advantage or discrimination is significant. Yet the word
+distribution alone still identifies the author: a simple bag-of-words
+classifier attributes \BowShufAcc{} of the shuffled essays, matching
+\citet{sun2025stylometric}. The judges depend on reading the text as
+prose; they do not use the word statistics a classifier uses.
+
+\subsection{A larger and more varied set of texts}
+\label{sec:frontier120}
+
+\input{table_frontier120}
+
+Thirty-eight essays per judge is a small sample, and essays are one genre.
+We therefore had the same five models answer 120 prompts through the API
+(temperature 0.7, no system prompt) in four genres: 60 essays (including the
+38 prompts above), 20 Python functions, 20 short explanations and 20 math
+word problems. The same five judges attributed these 600 \emph{API texts}
+(Table~\ref{tab:frontier120}).
+
+\paragraph{No judge beats its peers, but Claude still discriminates.} In
+the lineup, no self-advantage is significant. Claude names itself on
+\FXClaudeLineupSelf{} of its own texts and only \FXClaudeLineupFA{} of
+others' (discrimination \FXClaudeLineupDisc{} points), but its peers now name
+Claude on \FXClaudeLineupPeer{} of its texts, almost as often. Grok, which
+trailed its peers on the chat-app essays, now discriminates too
+(\FXGrokLineupDisc{}). One text at a time, the judges again send
+\FXSingleTopTwo{} of their guesses to GPT or Claude, and GPT names itself on
+\FXGPTSingleNamesSelf{} of all texts, whoever wrote them.
+
+\paragraph{What changed.} The API texts differ from the chat-app essays in
+how they were collected, decoding settings, date and genre. On the 38 prompts
+the two sets share, Claude's and GPT's self-advantages keep their sign but
+shrink (\FXOldClaudeLineupAdv{} and \FXOldGPTLineupAdv{} points) and are no
+longer significant; Claude's peers name its API essays more often. On the 82
+new prompts no judge's self-advantage reaches 10 points, while Claude's
+discrimination holds. By genre, Claude's discrimination is largest on essays
+and absent on math, where answers to the same problem share most of their
+words (Appendix~\ref{app:more}). The lesson is that self-advantage depends on
+the texts: the same judges that beat their peers on one set of essays do not
+on another.

@@ -1,0 +1,49 @@
+{
+  "request_model": "anthropic/claude-opus-4.7",
+  "response": {
+    "id": "gen-1786846109-qmaXEn2yGDs47UbEQbDs",
+    "object": "chat.completion",
+    "created": 1786846109,
+    "model": "anthropic/claude-opus-4.7",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"A\": {\"model\": \"Claude\", \"confidence\": 3, \"reason\": \"Rich, flowing prose with sophisticated economic framing and confident synthesis typical of Claude.\"},\n  \"B\": {\"model\": \"GPT\", \"confidence\": 3, \"reason\": \"Clean, balanced three-paragraph structure with measured corporate tone typical of GPT.\"},\n  \"C\": {\"model\": \"DeepSeek\", \"confidence\": 2, \"reason\": \"Compact paragraphs reusing prompt phrasing verbatim with dense elaboration.\"},\n  \"D\": {\"model\": \"Gemini\", \"confidence\": 3, \"reason\": \"Elaborate, slightly grandiose phrasing with terms like 'virtuous cycle' and structural framing typical of Gemini.\"},\n  \"E\": {\"model\": \"Grok\", \"confidence\": 2, \"reason\": \"Straightforward, methodical exposition closely tracking the prompt's outlined points.\"}\n}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 4541,
+      "completion_tokens": 315,
+      "total_tokens": 4856,
+      "cost": 0.03058,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.03058,
+        "upstream_inference_prompt_cost": 0.022705,
+        "upstream_inference_completions_cost": 0.007875
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

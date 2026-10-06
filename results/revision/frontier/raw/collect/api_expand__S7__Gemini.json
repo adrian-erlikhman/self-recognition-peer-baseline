@@ -1,0 +1,63 @@
+{
+  "request_model": "google/gemini-3.5-flash",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Explain what a black hole is. Answer in two to four sentences of plain prose."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916385-IzVH2A3WMXu5B4oMbqzB",
+    "object": "chat.completion",
+    "created": 1790916385,
+    "model": "google/gemini-3.5-flash",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "A black hole is an area in space where gravity is so incredibly strong that nothing, not even light, can escape its pull. This extreme gravity usually forms when a massive star dies and collapses in on itself, squeezing a huge amount of matter into an unimaginably tiny space. Because no light can escape, these objects are invisible, but scientists can detect them by observing how their powerful pull affects nearby stars and gas.",
+          "refusal": null,
+          "reasoning": "**Defining Black Holes**\n\nI'm currently focusing on crafting a concise, accessible definition of black holes. My aim is to explain them in two to four plain prose sentences, avoiding overly technical jargon for a broader understanding.\n\n**Refining Black Hole Definition**\n\nI'm currently refining the definition to ensure it's both precise and easily digestible. My focus is on distilling the core concepts into a few clear sentences that capture the essence of their extreme gravity and formation from stellar collapse, while emphasizing their inherent invisibility.\n\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "**Defining Black Holes**\n\nI'm currently focusing on crafting a concise, accessible definition of black holes. My aim is to explain them in two to four plain prose sentences, avoiding overly technical jargon for a broader understanding.\n\n**Refining Black Hole Definition**\n\nI'm currently refining the definition to ensure it's both precise and easily digestible. My focus is on distilling the core concepts into a few clear sentences that capture the essence of their extreme gravity and formation from stellar collapse, while emphasizing their inherent invisibility.\n\n",
+              "format": "google-gemini-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 17,
+      "completion_tokens": 618,
+      "total_tokens": 635,
+      "cost": 0.0055875,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0055875,
+        "upstream_inference_prompt_cost": 2.55e-05,
+        "upstream_inference_completions_cost": 0.005562
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 535,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

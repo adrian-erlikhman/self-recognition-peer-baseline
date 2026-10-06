@@ -1,0 +1,55 @@
+{
+  "request_model": "anthropic/claude-opus-4.7",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Write a Python function `moving_average(values: list[float], window: int) -> list[float]` that returns the mean of every contiguous run of `window` values, in order, so the result has `len(values) - window + 1` elements. Return an empty list if `window` is greater than `len(values)`, and raise ValueError if `window` is less than 1. The function must run in O(n) time by maintaining a running sum. Use only the Python standard library. Include a docstring and brief inline comments. Return only the code in a single Python code block, with no explanation before or after."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916309-UMcChhNFSdZwTObdwNaA",
+    "object": "chat.completion",
+    "created": 1790916309,
+    "model": "anthropic/claude-opus-4.7",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "```python\ndef moving_average(values: list[float], window: int) -> list[float]:\n    \"\"\"\n    Compute the moving average of a list of numbers over a given window size.\n\n    For each contiguous run of `window` values in `values`, compute the mean.\n    The result has `len(values) - window + 1` elements, preserving order.\n\n    Args:\n        values: The input list of numeric values.\n        window: The size of the moving window (must be >= 1).\n\n    Returns:\n        A list of means for each contiguous window. Empty if `window` exceeds\n        the length of `values`.\n\n    Raises:\n        ValueError: If `window` is less than 1.\n\n    Runs in O(n) time by maintaining a running sum.\n    \"\"\"\n    # Validate the window size.\n    if window < 1:\n        raise ValueError(\"window must be at least 1\")\n\n    n = len(values)\n\n    # Not enough elements to form a single window.\n    if window > n:\n        return []\n\n    # Initialize the running sum with the first `window` elements.\n    running_sum = sum(values[:window])\n    averages = [running_sum / window]\n\n    # Slide the window: add the next element, remove the oldest.\n    for i in range(window, n):\n        running_sum += values[i] - values[i - window]\n        averages.append(running_sum / window)\n\n    return averages\n```",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 184,
+      "completion_tokens": 417,
+      "total_tokens": 601,
+      "cost": 0.011345,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.011345,
+        "upstream_inference_prompt_cost": 0.00092,
+        "upstream_inference_completions_cost": 0.010425
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

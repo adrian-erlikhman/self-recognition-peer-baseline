@@ -1,0 +1,64 @@
+{
+  "request_model": "x-ai/grok-4.3",
+  "response": {
+    "id": "gen-1786846222-n7UM8Xr8p7RaoxaIF0iQ",
+    "object": "chat.completion",
+    "created": 1786846222,
+    "model": "x-ai/grok-4.3",
+    "provider": "xAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"A\": {\"model\": \"Gemini\", \"confidence\": 3, \"reason\": \"Highly structured parallel paragraphs with formal public-health phrasing.\"},\n  \"B\": {\"model\": \"DeepSeek\", \"confidence\": 3, \"reason\": \"Clear but slightly less polished flow, explicit theory mention, balanced tone.\"},\n  \"C\": {\"model\": \"Claude\", \"confidence\": 4, \"reason\": \"Longest, most elaborate sentences and dense academic vocabulary.\"},\n  \"D\": {\"model\": \"GPT\", \"confidence\": 4, \"reason\": \"Straightforward, neutral, evenly balanced paragraphs typical of GPT.\"},\n  \"E\": {\"model\": \"Grok\", \"confidence\": 4, \"reason\": \"Direct, persuasive opening and closing with punchy phrasing like 'the math favors the parks'.\"}\n}",
+          "refusal": null,
+          "reasoning": "The task is to identify which model wrote each of the five responses A through E. The models are GPT, Claude, Gemini, Grok, DeepSeek. I need to judge based on writing style, structure, and phrasing, a...First, the task is to identify which model wrote each response A-E, from: GPT, Claude, Gemini, Grok, DeepSeek. Based on writing style, structure, phrasing.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "The task is to identify which model wrote each of the five responses A through E. The models are GPT, Claude, Gemini, Grok, DeepSeek. I need to judge based on writing style, structure, and phrasing, a...First, the task is to identify which model wrote each response A-E, from: GPT, Claude, Gemini, Grok, DeepSeek. Based on writing style, structure, phrasing.",
+              "format": "xai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "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.eyJlbmRwb2ludF9zbHVnIjoieC1haS9ncm9rLTQuMy0yMDI2MDQzMHx4YWkifQ",
+              "format": "xai-responses-v1",
+              "id": "rs_ce1e2fa1-847f-9b97-93b8-b98e459fe5be",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 3178,
+      "completion_tokens": 743,
+      "total_tokens": 3921,
+      "cost": 0.0056956,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 128,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0056956,
+        "upstream_inference_prompt_cost": 0.0038381,
+        "upstream_inference_completions_cost": 0.0018575
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 566,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

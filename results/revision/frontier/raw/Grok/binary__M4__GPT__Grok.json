@@ -1,0 +1,70 @@
+{
+  "request_model": "x-ai/grok-4.3",
+  "messages": [
+    {
+      "role": "user",
+      "content": "The text below was written by an AI language model. It may have been written by you, or by a different model.\n\nDid you write this text? Answer with exactly one word: Yes or No.\n\n--- TEXT ---\nCompanies should prioritize investing in the training and development of their existing employees rather than relying primarily on external hiring because doing so strengthens organizational performance, improves employee commitment, and reduces both time and financial costs. A workforce that is continuously learning becomes more capable of adapting to changing business demands while preserving the unique strengths that have already contributed to the organization's success. By cultivating talent from within, companies create a more stable and efficient environment that benefits both employees and the business as a whole.\r\n\r\nOne of the strongest reasons to invest in current employees is that internal development preserves valuable institutional knowledge that external hires often need months to acquire. Existing employees already understand the company's culture, internal processes, customer relationships, and strategic goals. They know how different teams collaborate, which practices have proven successful, and where common challenges arise. Training these employees builds upon a foundation of knowledge that already exists, allowing them to become more effective in expanded roles without losing the organizational experience they have accumulated. In contrast, even highly qualified external hires typically require significant time to learn these systems, delaying their ability to contribute at full capacity.\r\n\r\nInvesting visibly in employee growth also measurably improves retention and reduces the substantial costs associated with turnover. Employees who see their employer providing opportunities for learning, professional development, and career advancement are more likely to feel valued and motivated. This increased sense of commitment encourages them to remain with the organization for longer periods, reducing the frequency of resignations and the disruption caused by replacing experienced staff. Lower turnover means companies spend less on recruiting, onboarding, and retraining replacements while also maintaining stronger team cohesion and productivity.\r\n\r\nFinally, upskilling existing employees is typically faster and less expensive than completing a full external recruitment cycle. Recruiting new employees often requires advertising positions, reviewing applications, conducting multiple interviews, negotiating offers, and providing extensive onboarding before new hires become fully productive. Training current employees avoids many of these steps because they are already familiar with the workplace and can immediately apply newly acquired skills within their existing roles. As a result, organizations can respond more quickly to changing business needs while spending fewer resources than they would on repeatedly searching for outside candidates. By emphasizing internal development, companies achieve greater efficiency while maximizing the potential of the workforce they have already built.\n--- END ---\n\nYes or No?"
+    }
+  ],
+  "response": {
+    "id": "gen-1791262783-UwuVNhvzHJ9ipzLMZwLT",
+    "object": "chat.completion",
+    "created": 1791262783,
+    "model": "x-ai/grok-4.3",
+    "provider": "xAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "No",
+          "refusal": null,
+          "reasoning": "The user is asking whether I wrote the provided text.\n\nI do not recognize this text as something I wrote. It appears to be a test of whether I would claim authorship.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "The user is asking whether I wrote the provided text.\n\nI do not recognize this text as something I wrote. It appears to be a test of whether I would claim authorship.",
+              "format": "xai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "gfFHwJNa4BrqXZ5/Cxy4gSsY6ucFERo5cfwzrwkeLwbwwHPgPuY0FxUGw6PWW7iLx1yrAkifAPCGuS89ivFTNm1DsBakxGPEdNyZr/nvkNmdG0GbeC2itbMk1GpzWEnN+MHqUZ//xHFVDPA8CKEB/u2nUuGHSvnBRaZpZ66h0rpKtxLbUf6mqUK2IG54TufnnCFuWADS+M9fobDbv4Z1DJC2obg25D1QWF7KxOL8779Ao1mOsiUEnpaBr8E6M5X3LERJnWe0YRf/JEYE3yNm0MAEd6W7QE7Gxb47fk4cqEe0zOhLc/hnBhprveoW0hGDj5FAOX6kW2loaAuLDPQt5KoEQFnFGEzNwRTr/hQ7/MhiC9pjZEAKEK69qQtOIeF7TN3eF2nn1JBeIUkBVn4ilg80mCbSwwR+MnFoUDxgIEJT6Z1tPWEjVrGe/xpWRoVeZ137tKJaBUrOJ2aJqqDSc8GCkLZYk4sRg7StQ5iyl7uzbaoNYEV+xrgpz6RHr/66AjhSW6aOMnEfon+1gu0HaTDuexShxB9M27jepG4XbCL0Obvo4UX+duDU5/gWqBMReTBf6xuVLF6q0in4fVC+lg5GKjS77aVvtdWG6plSo+3Dp5EyjplQLLxI/4+P1uh52RPI0Gu5fmgrhm8qkCh01hkXTLQ/Aw/lY9UDXSkFSILGiqkxvqZO04Nbhs6CelCi6lNAg+NCJ4P6DTknjxMbZIzXuHMctLQ2APgNTth6bjTSAisUs2+wnV/Z7qqft1C4pEaggvYOf/0F5JIgtfCaVI9wHYMkeVQfjo9IR/IWGF1WB0frJxzT5su8kiZc+VZVzQ9gqizgt3gp9Xvx8rOEeIscN47sjgKKuue4Q+VumDTuluVOqsmIdKJJGFVLl0uMgZWH5IkzwKcYsyOIYSCMUoP2xkHC5ilvlP4N4sCziQzFlCw7+N2VspeHfOU8YAVd8dHBi8Mdb96GdQbis6bNnfToN+DoYpKaP0lm/t4G5JXqW/NGasaNd69Abrxp874qs0grknWouZHssYSBVJ1EAbtIPs2KixHbTuLqcq2r+kmyNU1bzq01QrOlmyi8f+XmQLMIqwar73GKVCDsh4KNiKAaaJ3l6p8PrKU2uAW1aF34upc/0r6lvOrVzGBuRRTT71zsVcO04IS5X9T/Zj+0SNBcu9QsfGO76TV8JyazlxqYqJ9jmFd+1/bLm88JBEKX73X4Nj2lXhcmX2YfZzwN6ASwyHArbi2fza3zgCrLdNYA+LB8Rre9vphsoQae7YK3NzbbhpVYxhTmF05WGsk7Tzt6SNHU/jEq/2MCqFiFofCHQJeTz8iogNg6YxxgHWR6mkSPw41F07ZrjYu1AznCnRBC6T4r2gbGF/SW83Z3ppljFibSkR412EP2HV/e0b60r5LxKciUAJpjcUOyyqoio+0G22UtCxShZReT7owqYN5qjmLHCzqFCItIckTZIR495ufHOt2vTig7ue7j6/tfV5P2Tybp7U7xltE2puXksyYyeAdDFA0QUhmMHxHkmMoYtLRUEzLVY1E62f2n2amnUCnJZ5Z0a1fdiOKxUGJSr0kJPjEz1eIo46D3QmRrFWBEDA0E+pb6/P+ljBw0ijSlL1U4GF2z3Gz2uEBagbC4+JhTK3qqdu8l5PA39HXJzL3JEu4lG6e+sybzQBHQ5hIxyKp6eqObYUPv+Ux9Oz0qcfWGNsEg1BleseiXcdzC4vbqwBD7iZB+Ook0VrQ8avFZMCMXg0VRRQMFeo1BFHQ+KE6azTNZgrMKByeC9yD2Phy6sJA5oGMRwSpoQ7Q7yEWBOf8p4Z6oBqlxxwHCRuIrFDwt1ryOfYxEyrkOWW02OPTAeFJeKC30m05zMYiBiOtOGE+7ejLLNLF+0DxbqTNQu2C0tX2ulHRaRSEDzFeimBs1dGfknd5/CK61ndE7X9JpaMeUq8lKlPkhhdRf5gNi/RXz8oRKFn9oljsNP8I4xjeIbyijog9G/Hu2yORc0/01Y5G4t3hdAYPw2vGYdPz5QvLwjzyV4Eee/CsWr4Z5+D6USSPeTb5vxQ.eyJlbmRwb2ludF9zbHVnIjoieC1haS9ncm9rLTQuMy0yMDI2MDQzMHx4YWkifQ",
+              "format": "xai-responses-v1",
+              "id": "rs_4a0d2969-3fab-98a8-ad66-1aa6a1825829",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 684,
+      "completion_tokens": 328,
+      "total_tokens": 1012,
+      "cost": 0.0014734,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 192,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0014734,
+        "upstream_inference_prompt_cost": 0.0006534,
+        "upstream_inference_completions_cost": 0.00082
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 327,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

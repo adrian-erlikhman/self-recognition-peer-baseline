@@ -1,0 +1,55 @@
+{
+  "request_model": "deepseek/deepseek-chat",
+  "messages": [
+    {
+      "role": "user",
+      "content": "The text below was written by an AI language model. It may have been written by you, or by a different model.\n\nDid you write this text? Answer with exactly one word: Yes or No.\n\n--- TEXT ---\nKeeping your living space tidy is one of the simplest habits that can make everyday life easier. While cleaning may seem like a chore, the time and effort you invest are often repaid in greater convenience, less stress, and improved productivity. A tidy environment helps you move through your day more efficiently and with fewer unnecessary frustrations.\n\nOne of the biggest advantages of staying organized is that you waste far less time searching for your belongings. When everything has a designated place, you can quickly find your keys, wallet, school supplies, important documents, or other everyday essentials. Instead of rushing around the house trying to remember where you left something, you can focus on getting where you need to go. Over weeks and months, those saved minutes add up to many hours that could be spent on more meaningful activities.\n\nA clean environment also reduces background stress. Even if you do not consciously notice it, clutter can create a constant sense that there is always something left to do. Walking into an organized room feels calmer because your surroundings are orderly rather than chaotic. This peaceful atmosphere can help you relax after a long day, improve your mood, and make your home feel like a place where you can truly unwind instead of another source of pressure.\n\nFinally, a tidy living space makes it much easier to focus on work or study. When your desk and room are free of unnecessary distractions, your attention naturally stays on the task in front of you. You spend less time dealing with visual clutter and more time thinking clearly, completing assignments, or finishing projects. By keeping your surroundings organized, you create an environment that supports concentration and helps you perform at your best.\n--- END ---\n\nYes or No?"
+    }
+  ],
+  "response": {
+    "id": "gen-1791262880-4IeGdc8B60OQbn5RKhvw",
+    "object": "chat.completion",
+    "created": 1791262880,
+    "model": "deepseek/deepseek-chat",
+    "provider": "StreamLake",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "No",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 381,
+      "completion_tokens": 2,
+      "total_tokens": 383,
+      "cost": 0.0001001268,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0001001268,
+        "upstream_inference_prompt_cost": 9.80694e-05,
+        "upstream_inference_completions_cost": 2.0574e-06
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

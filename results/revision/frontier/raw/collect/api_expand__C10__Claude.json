@@ -1,0 +1,55 @@
+{
+  "request_model": "anthropic/claude-opus-4.7",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Write a Python function `top_k_words(text: str, k: int) -> list[tuple[str, int]]` that lowercases `text`, extracts words as maximal runs of the letters a to z and apostrophes, and returns the `k` most frequent words as (word, count) pairs, sorted by count descending and then alphabetically for ties. If there are fewer than `k` distinct words, return all of them. Use only the Python standard library. Include a docstring and brief inline comments. Return only the code in a single Python code block, with no explanation before or after."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916309-dgCFgvNqVfIr6KHJlC38",
+    "object": "chat.completion",
+    "created": 1790916309,
+    "model": "anthropic/claude-opus-4.7",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "```python\nimport re\nfrom collections import Counter\n\n\ndef top_k_words(text: str, k: int) -> list[tuple[str, int]]:\n    \"\"\"Return the k most frequent words in text as (word, count) pairs.\n\n    The text is lowercased, and words are extracted as maximal runs of\n    the letters a-z and apostrophes. Results are sorted by count\n    descending, then alphabetically for ties. If fewer than k distinct\n    words exist, all of them are returned.\n\n    Args:\n        text: The input string to analyze.\n        k: The maximum number of top words to return.\n\n    Returns:\n        A list of (word, count) tuples of length at most k.\n    \"\"\"\n    # Lowercase the text for case-insensitive counting.\n    lowered = text.lower()\n    # Extract maximal runs of a-z and apostrophes as words.\n    words = re.findall(r\"[a-z']+\", lowered)\n    # Count word frequencies.\n    counts = Counter(words)\n    # Sort by count descending, then by word ascending for tie-breaking.\n    sorted_items = sorted(counts.items(), key=lambda item: (-item[1], item[0]))\n    # Return at most k items (fewer if not enough distinct words).\n    return sorted_items[:k]\n```",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 185,
+      "completion_tokens": 411,
+      "total_tokens": 596,
+      "cost": 0.0112,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0112,
+        "upstream_inference_prompt_cost": 0.000925,
+        "upstream_inference_completions_cost": 0.010275
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

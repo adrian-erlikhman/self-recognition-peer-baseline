@@ -1,0 +1,2354 @@
+{
+  "n_perms": 2000,
+  "measures": [
+    "stylo",
+    "word",
+    "char",
+    "funcword"
+  ],
+  "rf_oof_accuracy": 0.8631578947368421,
+  "test1": {
+    "events": {
+      "lineup": {
+        "GPT": {
+          "self_namings_on_others_text": 16,
+          "n": 152
+        },
+        "Claude": {
+          "self_namings_on_others_text": 14,
+          "n": 152
+        },
+        "Gemini": {
+          "self_namings_on_others_text": 31,
+          "n": 152
+        },
+        "Grok": {
+          "self_namings_on_others_text": 31,
+          "n": 152
+        },
+        "DeepSeek": {
+          "self_namings_on_others_text": 27,
+          "n": 152
+        }
+      },
+      "single": {
+        "GPT": {
+          "self_namings_on_others_text": 79,
+          "n": 152
+        },
+        "Claude": {
+          "self_namings_on_others_text": 13,
+          "n": 152
+        },
+        "Gemini": {
+          "self_namings_on_others_text": 0,
+          "n": 152
+        },
+        "Grok": {
+          "self_namings_on_others_text": 0,
+          "n": 152
+        },
+        "DeepSeek": {
+          "self_namings_on_others_text": 0,
+          "n": 152
+        }
+      }
+    },
+    "per_judge": {
+      "lineup|GPT|stylo": {
+        "author_fe": {
+          "n": 152,
+          "events": 16,
+          "strata_kept": [
+            "Claude",
+            "DeepSeek",
+            "Gemini",
+            "Grok"
+          ],
+          "OR_per_sd": 1.923017167520724,
+          "ci95": [
+            1.009682547190704,
+            3.662532383934501
+          ],
+          "p": 0.046670470618822964
+        },
+        "author_fe_plus_centrality": {
+          "n": 152,
+          "events": 16,
+          "strata_kept": [
+            "Claude",
+            "DeepSeek",
+            "Gemini",
+            "Grok"
+          ],
+          "OR_per_sd": 2.040177217621185,
+          "ci95": [
+            0.899050274723181,
+            4.629688902082931
+          ],
+          "p": 0.08811278434047727
+        },
+        "mean_sim_selfnamed": -4.0125690866731,
+        "mean_sim_other": -4.90740897239675
+      },
+      "lineup|GPT|word": {
+        "author_fe": {
+          "n": 152,
+          "events": 16,
+          "strata_kept": [
+            "Claude",
+            "DeepSeek",
+            "Gemini",
+            "Grok"
+          ],
+          "OR_per_sd": 1.0178367342059502,
+          "ci95": [
+            0.6590775651782005,
+            1.5718811748946788
+          ],
+          "p": 0.9364500059449095
+        },
+        "author_fe_plus_centrality": {
+          "n": 152,
+          "events": 16,
+          "strata_kept": [
+            "Claude",
+            "DeepSeek",
+            "Gemini",
+            "Grok"
+          ],
+          "OR_per_sd": 1.9705768925574492,
+          "ci95": [
+            0.8673328403911363,
+            4.477143155020164
+          ],
+          "p": 0.10522497089825524
+        },
+        "mean_sim_selfnamed": 0.34260672329636854,
+        "mean_sim_other": 0.3357946999971725
+      },
+      "lineup|GPT|char": {
+        "author_fe": {
+          "n": 152,
+          "events": 16,
+          "strata_kept": [
+            "Claude",
+            "DeepSeek",
+            "Gemini",
+            "Grok"
+          ],
+          "OR_per_sd": 0.8948785066120607,
+          "ci95": [
+            0.5673304503117257,
+            1.4115363297637555
+          ],
+          "p": 0.6328980055791777
+        },
+        "author_fe_plus_centrality": {
+          "n": 152,
+          "events": 16,
+          "strata_kept": [
+            "Claude",
+            "DeepSeek",
+            "Gemini",
+            "Grok"
+          ],
+          "OR_per_sd": 1.6788460043303808,
+          "ci95": [
+            0.6211813794887572,
+            4.537360583113064
+          ],
+          "p": 0.30708646970228626
+        },
+        "mean_sim_selfnamed": 0.542925548715022,
+        "mean_sim_other": 0.542751199713354
+      },
+      "lineup|GPT|funcword": {
+        "author_fe": {
+          "n": 152,
+          "events": 16,
+          "strata_kept": [
+            "Claude",
+            "DeepSeek",
+            "Gemini",
+            "Grok"
+          ],
+          "OR_per_sd": 1.1126094866568084,
+          "ci95": [
+            0.7097190785144071,
+            1.7442110650173226
+          ],
+          "p": 0.6417995448025466
+        },
+        "author_fe_plus_centrality": {
+          "n": 152,
+          "events": 16,
+          "strata_kept": [
+            "Claude",
+            "DeepSeek",
+            "Gemini",
+            "Grok"
+          ],
+          "OR_per_sd": 1.1994321557469068,
+          "ci95": [
+            0.719893444370392,
+            1.99840338523694
+          ],
+          "p": 0.4850708856260152
+        },
+        "mean_sim_selfnamed": 0.27626311316435564,
+        "mean_sim_other": 0.24153860003467972
+      },
+      "lineup|Claude|stylo": {
+        "author_fe": {
+          "n": 152,
+          "events": 14,
+          "strata_kept": [
+            "DeepSeek",
+            "GPT",
+            "Gemini",
+            "Grok"
+          ],
+          "OR_per_sd": 0.8411390711330846,
+          "ci95": [
+            0.5123846407028265,
+            1.3808277625499197
+          ],
+          "p": 0.4939442259025911
+        },
+        "author_fe_plus_centrality": {
+          "n": 152,
+          "events": 14,
+          "strata_kept": [
+            "DeepSeek",
+            "GPT",
+            "Gemini",
+            "Grok"
+          ],
+          "OR_per_sd": 1.0579669779232401,
+          "ci95": [
+            0.5547764970104238,
+            2.0175586608439238
+          ],
+          "p": 0.8641566923868289
+        },
+        "mean_sim_selfnamed": -4.9573790961932875,
+        "mean_sim_other": -5.46710447614599
+      },
+      "lineup|Claude|word": {
+        "author_fe": {
+          "n": 152,
+          "events": 14,
+          "strata_kept": [
+            "DeepSeek",
+            "GPT",
+            "Gemini",
+            "Grok"
+          ],
+          "OR_per_sd": 0.7739523548254431,
+          "ci95": [
+            0.43919866133121166,
+            1.3638526258806711
+          ],
+          "p": 0.3753701959672564
+        },
+        "author_fe_plus_centrality": {
+          "n": 152,
+          "events": 14,
+          "strata_kept": [
+            "DeepSeek",
+            "GPT",
+            "Gemini",
+            "Grok"
+          ],
+          "OR_per_sd": 0.5820193660724126,
+          "ci95": [
+            0.18742255099911995,
+            1.807394791488691
+          ],
+          "p": 0.34917488412679965
+        },
+        "mean_sim_selfnamed": 0.29553150893175134,
+        "mean_sim_other": 0.2935800217845122
+      },
+      "lineup|Claude|char": {
+        "author_fe": {
+          "n": 152,
+          "events": 14,
+          "strata_kept": [
+            "DeepSeek",
+            "GPT",
+            "Gemini",
+            "Grok"
+          ],
+          "OR_per_sd": 0.8837639966495121,
+          "ci95": [
+            0.5362824548063059,
+            1.4563944704400482
+          ],
+          "p": 0.6278016089697911
+        },
+        "author_fe_plus_centrality": {
+          "n": 152,
+          "events": 14,
+          "strata_kept": [
+            "DeepSeek",
+            "GPT",
+            "Gemini",
+            "Grok"
+          ],
+          "OR_per_sd": 0.4453828810929663,
+          "ci95": [
+            0.15333799083137462,
+            1.293651427771829
+          ],
+          "p": 0.1370923308148531
+        },
+        "mean_sim_selfnamed": 0.5000904325368649,
+        "mean_sim_other": 0.49778130174289253
+      },
+      "lineup|Claude|funcword": {
+        "author_fe": {
+          "n": 152,
+          "events": 14,
+          "strata_kept": [
+            "DeepSeek",
+            "GPT",
+            "Gemini",
+            "Grok"
+          ],
+          "OR_per_sd": 0.9745314042189804,
+          "ci95": [
+            0.580041821250256,
+            1.6373154883245387
+          ],
+          "p": 0.9223665462144903
+        },
+        "author_fe_plus_centrality": {
+          "n": 152,
+          "events": 14,
+          "strata_kept": [
+            "DeepSeek",
+            "GPT",
+            "Gemini",
+            "Grok"
+          ],
+          "OR_per_sd": 1.0712885651650286,
+          "ci95": [
+            0.581924741418313,
+            1.9721780295097613
+          ],
+          "p": 0.8249695149330899
+        },
+        "mean_sim_selfnamed": 0.197391543223229,
+        "mean_sim_other": 0.17242159942433913
+      },
+      "lineup|Gemini|stylo": {
+        "author_fe": {
+          "n": 114,
+          "events": 31,
+          "strata_kept": [
+            "Claude",
+            "GPT",
+            "Grok"
+          ],
+          "OR_per_sd": 0.9615902139786928,
+          "ci95": [
+            0.6889849230620682,
+            1.3420551142253214
+          ],
+          "p": 0.8178800629427697
+        },
+        "author_fe_plus_centrality": {
+          "n": 114,
+          "events": 31,
+          "strata_kept": [
+            "Claude",
+            "GPT",
+            "Grok"
+          ],
+          "OR_per_sd": 0.6953684642779857,
+          "ci95": [
+            0.36598533473101985,
+            1.3211931059142001
+          ],
+          "p": 0.2672480191141362
+        },
+        "mean_sim_selfnamed": -4.12616823478557,
+        "mean_sim_other": -4.751425140525866
+      },
+      "lineup|Gemini|word": {
+        "author_fe": {
+          "n": 114,
+          "events": 31,
+          "strata_kept": [
+            "Claude",
+            "GPT",
+            "Grok"
+          ],
+          "OR_per_sd": 1.1368900869984762,
+          "ci95": [
+            0.8535348010521819,
+            1.5143132632929202
+          ],
+          "p": 0.38039010385456584
+        },
+        "author_fe_plus_centrality": {
+          "n": 114,
+          "events": 31,
+          "strata_kept": [
+            "Claude",
+            "GPT",
+            "Grok"
+          ],
+          "OR_per_sd": 0.9957221110989305,
+          "ci95": [
+            0.6145341306188707,
+            1.6133563184405262
+          ],
+          "p": 0.986108932625165
+        },
+        "mean_sim_selfnamed": 0.35533534774554243,
+        "mean_sim_other": 0.32525858108208316
+      },
+      "lineup|Gemini|char": {
+        "author_fe": {
+          "n": 114,
+          "events": 31,
+          "strata_kept": [
+            "Claude",
+            "GPT",
+            "Grok"
+          ],
+          "OR_per_sd": 0.9921124546083477,
+          "ci95": [
+            0.7254712526386267,
+            1.3567555144453063
+          ],
+          "p": 0.9604537472109733
+        },
+        "author_fe_plus_centrality": {
+          "n": 114,
+          "events": 31,
+          "strata_kept": [
+            "Claude",
+            "GPT",
+            "Grok"
+          ],
+          "OR_per_sd": 0.6338555219999514,
+          "ci95": [
+            0.34185433676094695,
+            1.1752749038570307
+          ],
+          "p": 0.14781332756713483
+        },
+        "mean_sim_selfnamed": 0.5554226385153987,
+        "mean_sim_other": 0.5304295994006534
+      },
+      "lineup|Gemini|funcword": {
+        "author_fe": {
+          "n": 114,
+          "events": 31,
+          "strata_kept": [
+            "Claude",
+            "GPT",
+            "Grok"
+          ],
+          "OR_per_sd": 1.0696661501948963,
+          "ci95": [
+            0.7743162034977814,
+            1.4776723872033097
+          ],
+          "p": 0.6829026782847223
+        },
+        "author_fe_plus_centrality": {
+          "n": 114,
+          "events": 31,
+          "strata_kept": [
+            "Claude",
+            "GPT",
+            "Grok"
+          ],
+          "OR_per_sd": 0.8764888385565227,
+          "ci95": [
+            0.5486610267083075,
+            1.4001954699118597
+          ],
+          "p": 0.5812350585515331
+        },
+        "mean_sim_selfnamed": 0.31555912177432227,
+        "mean_sim_other": 0.25007828954922184
+      },
+      "lineup|Grok|stylo": {
+        "author_fe": {
+          "n": 152,
+          "events": 31,
+          "strata_kept": [
+            "Claude",
+            "DeepSeek",
+            "GPT",
+            "Gemini"
+          ],
+          "OR_per_sd": 0.9197986264609219,
+          "ci95": [
+            0.716862017915622,
+            1.1801845991218078
+          ],
+          "p": 0.5109676046649594
+        },
+        "author_fe_plus_centrality": {
+          "n": 152,
+          "events": 31,
+          "strata_kept": [
+            "Claude",
+            "DeepSeek",
+            "GPT",
+            "Gemini"
+          ],
+          "OR_per_sd": 0.9488507344548672,
+          "ci95": [
+            0.701614590241651,
+            1.283208372228195
+          ],
+          "p": 0.7331814387632565
+        },
+        "mean_sim_selfnamed": -6.607646105538648,
+        "mean_sim_other": -5.615314321919326
+      },
+      "lineup|Grok|word": {
+        "author_fe": {
+          "n": 152,
+          "events": 31,
+          "strata_kept": [
+            "Claude",
+            "DeepSeek",
+            "GPT",
+            "Gemini"
+          ],
+          "OR_per_sd": 0.8102003312967475,
+          "ci95": [
+            0.6116700373704747,
+            1.0731677812032143
+          ],
+          "p": 0.1422173731413997
+        },
+        "author_fe_plus_centrality": {
+          "n": 152,
+          "events": 31,
+          "strata_kept": [
+            "Claude",
+            "DeepSeek",
+            "GPT",
+            "Gemini"
+          ],
+          "OR_per_sd": 0.7196966450527981,
+          "ci95": [
+            0.39119116066991527,
+            1.3240668833448093
+          ],
+          "p": 0.2902874049895745
+        },
+        "mean_sim_selfnamed": 0.28928427986223076,
+        "mean_sim_other": 0.34284228103545267
+      },
+      "lineup|Grok|char": {
+        "author_fe": {
+          "n": 152,
+          "events": 31,
+          "strata_kept": [
+            "Claude",
+            "DeepSeek",
+            "GPT",
+            "Gemini"
+          ],
+          "OR_per_sd": 0.8501997102926526,
+          "ci95": [
+            0.661601477781385,
+            1.0925603579449084
+          ],
+          "p": 0.2047319083168896
+        },
+        "author_fe_plus_centrality": {
+          "n": 152,
+          "events": 31,
+          "strata_kept": [
+            "Claude",
+            "DeepSeek",
+            "GPT",
+            "Gemini"
+          ],
+          "OR_per_sd": 0.7677482642804678,
+          "ci95": [
+            0.3422350475834624,
+            1.7223174583308047
+          ],
+          "p": 0.5214418682003406
+        },
+        "mean_sim_selfnamed": 0.495410128528441,
+        "mean_sim_other": 0.5473949972271882
+      },
+      "lineup|Grok|funcword": {
+        "author_fe": {
+          "n": 152,
+          "events": 31,
+          "strata_kept": [
+            "Claude",
+            "DeepSeek",
+            "GPT",
+            "Gemini"
+          ],
+          "OR_per_sd": 0.918055966483706,
+          "ci95": [
+            0.668328565931704,
+            1.2610964135901674
+          ],
+          "p": 0.5976255326977304
+        },
+        "author_fe_plus_centrality": {
+          "n": 152,
+          "events": 31,
+          "strata_kept": [
+            "Claude",
+            "DeepSeek",
+            "GPT",
+            "Gemini"
+          ],
+          "OR_per_sd": 0.6859834528483619,
+          "ci95": [
+            0.45883849460037285,
+            1.0255750184857713
+          ],
+          "p": 0.06622650479229987
+        },
+        "mean_sim_selfnamed": 0.18868995995238602,
+        "mean_sim_other": 0.27107014633164767
+      },
+      "lineup|DeepSeek|stylo": {
+        "author_fe": {
+          "n": 152,
+          "events": 27,
+          "strata_kept": [
+            "Claude",
+            "GPT",
+            "Gemini",
+            "Grok"
+          ],
+          "OR_per_sd": 0.7427253679150627,
+          "ci95": [
+            0.548006894533375,
+            1.0066314450556038
+          ],
+          "p": 0.05519272854964782
+        },
+        "author_fe_plus_centrality": {
+          "n": 152,
+          "events": 27,
+          "strata_kept": [
+            "Claude",
+            "GPT",
+            "Gemini",
+            "Grok"
+          ],
+          "OR_per_sd": 0.6072359882327986,
+          "ci95": [
+            0.39821433323328326,
+            0.9259725595789884
+          ],
+          "p": 0.02049095547635879
+        },
+        "mean_sim_selfnamed": -5.2155914534110135,
+        "mean_sim_other": -4.884611995523166
+      },
+      "lineup|DeepSeek|word": {
+        "author_fe": {
+          "n": 152,
+          "events": 27,
+          "strata_kept": [
+            "Claude",
+            "GPT",
+            "Gemini",
+            "Grok"
+          ],
+          "OR_per_sd": 1.001458594364635,
+          "ci95": [
+            0.8013762454649612,
+            1.2514961878423205
+          ],
+          "p": 0.9897736944637356
+        },
+        "author_fe_plus_centrality": {
+          "n": 152,
+          "events": 27,
+          "strata_kept": [
+            "Claude",
+            "GPT",
+            "Gemini",
+            "Grok"
+          ],
+          "OR_per_sd": 0.9429743467458097,
+          "ci95": [
+            0.6349986158211741,
+            1.4003189872639026
+          ],
+          "p": 0.7710213262929297
+        },
+        "mean_sim_selfnamed": 0.316657451315103,
+        "mean_sim_other": 0.32158585203862017
+      },
+      "lineup|DeepSeek|char": {
+        "author_fe": {
+          "n": 152,
+          "events": 27,
+          "strata_kept": [
+            "Claude",
+            "GPT",
+            "Gemini",
+            "Grok"
+          ],
+          "OR_per_sd": 0.9478848917089265,
+          "ci95": [
+            0.7418251732452427,
+            1.2111826348510955
+          ],
+          "p": 0.6686794489532101
+        },
+        "author_fe_plus_centrality": {
+          "n": 152,
+          "events": 27,
+          "strata_kept": [
+            "Claude",
+            "GPT",
+            "Gemini",
+            "Grok"
+          ],
+          "OR_per_sd": 1.0280745715139428,
+          "ci95": [
+            0.5784065387018124,
+            1.827326030867129
+          ],
+          "p": 0.9248311447524651
+        },
+        "mean_sim_selfnamed": 0.514675821685385,
+        "mean_sim_other": 0.5217457900116022
+      },
+      "lineup|DeepSeek|funcword": {
+        "author_fe": {
+          "n": 152,
+          "events": 27,
+          "strata_kept": [
+            "Claude",
+            "GPT",
+            "Gemini",
+            "Grok"
+          ],
+          "OR_per_sd": 1.0088365697173798,
+          "ci95": [
+            0.7560363275363012,
+            1.346167091885227
+          ],
+          "p": 0.9523338093309042
+        },
+        "author_fe_plus_centrality": {
+          "n": 152,
+          "events": 27,
+          "strata_kept": [
+            "Claude",
+            "GPT",
+            "Gemini",
+            "Grok"
+          ],
+          "OR_per_sd": 1.0298672407629859,
+          "ci95": [
+            0.7159702763757853,
+            1.4813834716234557
+          ],
+          "p": 0.8739340346682523
+        },
+        "mean_sim_selfnamed": 0.22974304916118946,
+        "mean_sim_other": 0.24345919805595537
+      },
+      "single|GPT|stylo": {
+        "author_fe": {
+          "n": 152,
+          "events": 79,
+          "strata_kept": [
+            "Claude",
+            "DeepSeek",
+            "Gemini",
+            "Grok"
+          ],
+          "OR_per_sd": 1.5216497141780165,
+          "ci95": [
+            0.8528891777995653,
+            2.714793331803981
+          ],
+          "p": 0.15524804037984474
+        },
+        "author_fe_plus_centrality": {
+          "n": 152,
+          "events": 79,
+          "strata_kept": [
+            "Claude",
+            "DeepSeek",
+            "Gemini",
+            "Grok"
+          ],
+          "OR_per_sd": 1.1746791802399847,
+          "ci95": [
+            0.5920828136150784,
+            2.330537459893839
+          ],
+          "p": 0.6451005735162534
+        },
+        "mean_sim_selfnamed": -4.586640635295354,
+        "mean_sim_other": -5.0584125403341735
+      },
+      "single|GPT|word": {
+        "author_fe": {
+          "n": 152,
+          "events": 79,
+          "strata_kept": [
+            "Claude",
+            "DeepSeek",
+            "Gemini",
+            "Grok"
+          ],
+          "OR_per_sd": 0.7519074892533352,
+          "ci95": [
+            0.4832224344441201,
+            1.16998887488663
+          ],
+          "p": 0.2062236701582918
+        },
+        "author_fe_plus_centrality": {
+          "n": 152,
+          "events": 79,
+          "strata_kept": [
+            "Claude",
+            "DeepSeek",
+            "Gemini",
+            "Grok"
+          ],
+          "OR_per_sd": 1.8324454714551046,
+          "ci95": [
+            0.7007827057983577,
+            4.791580011996623
+          ],
+          "p": 0.2168452021668349
+        },
+        "mean_sim_selfnamed": 0.35289370537113973,
+        "mean_sim_other": 0.31878334312379875
+      },
+      "single|GPT|char": {
+        "author_fe": {
+          "n": 152,
+          "events": 79,
+          "strata_kept": [
+            "Claude",
+            "DeepSeek",
+            "Gemini",
+            "Grok"
+          ],
+          "OR_per_sd": 0.7449874974779626,
+          "ci95": [
+            0.48162738029173413,
+            1.1523563528765655
+          ],
+          "p": 0.18591060165608786
+        },
+        "author_fe_plus_centrality": {
+          "n": 152,
+          "events": 79,
+          "strata_kept": [
+            "Claude",
+            "DeepSeek",
+            "Gemini",
+            "Grok"
+          ],
+          "OR_per_sd": 2.041072399159991,
+          "ci95": [
+            0.751482828209799,
+            5.543674961325483
+          ],
+          "p": 0.16165397947097215
+        },
+        "mean_sim_selfnamed": 0.5558166260204312,
+        "mean_sim_other": 0.5286501162307181
+      },
+      "single|GPT|funcword": {
+        "author_fe": {
+          "n": 152,
+          "events": 79,
+          "strata_kept": [
+            "Claude",
+            "DeepSeek",
+            "Gemini",
+            "Grok"
+          ],
+          "OR_per_sd": 0.8364573155082051,
+          "ci95": [
+            0.5322152795938583,
+            1.3146199808489432
+          ],
+          "p": 0.4388479684923786
+        },
+        "author_fe_plus_centrality": {
+          "n": 152,
+          "events": 79,
+          "strata_kept": [
+            "Claude",
+            "DeepSeek",
+            "Gemini",
+            "Grok"
+          ],
+          "OR_per_sd": 1.0986327290930158,
+          "ci95": [
+            0.5751972306772101,
+            2.0984000079647642
+          ],
+          "p": 0.7757141889478876
+        },
+        "mean_sim_selfnamed": 0.2786359085617894,
+        "mean_sim_other": 0.20900304984883242
+      },
+      "single|Claude|stylo": {
+        "author_fe": {
+          "n": 114,
+          "events": 13,
+          "strata_kept": [
+            "DeepSeek",
+            "GPT",
+            "Grok"
+          ],
+          "OR_per_sd": 0.7035993113107527,
+          "ci95": [
+            0.3789075663167359,
+            1.306524426759909
+          ],
+          "p": 0.265594892668212
+        },
+        "author_fe_plus_centrality": {
+          "n": 114,
+          "events": 13,
+          "strata_kept": [
+            "DeepSeek",
+            "GPT",
+            "Grok"
+          ],
+          "OR_per_sd": 1.3170642802914847,
+          "ci95": [
+            0.49404353608130314,
+            3.5111446496777146
+          ],
+          "p": 0.581977325286254
+        },
+        "mean_sim_selfnamed": -4.915223842678004,
+        "mean_sim_other": -5.4673799647484795
+      },
+      "single|Claude|word": {
+        "author_fe": {
+          "n": 114,
+          "events": 13,
+          "strata_kept": [
+            "DeepSeek",
+            "GPT",
+            "Grok"
+          ],
+          "OR_per_sd": 1.8580832747121117,
+          "ci95": [
+            0.8990861650970173,
+            3.8399806267648886
+          ],
+          "p": 0.09437625287282395
+        },
+        "author_fe_plus_centrality": {
+          "n": 114,
+          "events": 13,
+          "strata_kept": [
+            "DeepSeek",
+            "GPT",
+            "Grok"
+          ],
+          "OR_per_sd": 1.8672241789343615,
+          "ci95": [
+            0.5560337879230464,
+            6.270349410636224
+          ],
+          "p": 0.3123322464547411
+        },
+        "mean_sim_selfnamed": 0.3494506306329035,
+        "mean_sim_other": 0.2885512657056076
+      },
+      "single|Claude|char": {
+        "author_fe": {
+          "n": 114,
+          "events": 13,
+          "strata_kept": [
+            "DeepSeek",
+            "GPT",
+            "Grok"
+          ],
+          "OR_per_sd": 1.653738774437116,
+          "ci95": [
+            0.7714175637685636,
+            3.5452290206050705
+          ],
+          "p": 0.19603725957969453
+        },
+        "author_fe_plus_centrality": {
+          "n": 114,
+          "events": 13,
+          "strata_kept": [
+            "DeepSeek",
+            "GPT",
+            "Grok"
+          ],
+          "OR_per_sd": 2.0629037848965632,
+          "ci95": [
+            0.4745458825275194,
+            8.967672426266981
+          ],
+          "p": 0.3341496299802733
+        },
+        "mean_sim_selfnamed": 0.5356905586737362,
+        "mean_sim_other": 0.4944684059947964
+      },
+      "single|Claude|funcword": {
+        "author_fe": {
+          "n": 114,
+          "events": 13,
+          "strata_kept": [
+            "DeepSeek",
+            "GPT",
+            "Grok"
+          ],
+          "OR_per_sd": 1.4097837881867328,
+          "ci95": [
+            0.7595746439690036,
+            2.6165833012130393
+          ],
+          "p": 0.2764040293755763
+        },
+        "author_fe_plus_centrality": {
+          "n": 114,
+          "events": 13,
+          "strata_kept": [
+            "DeepSeek",
+            "GPT",
+            "Grok"
+          ],
+          "OR_per_sd": 1.7501652881255685,
+          "ci95": [
+            1.0019022168776737,
+            3.057262958560394
+          ],
+          "p": 0.04922456558749825
+        },
+        "mean_sim_selfnamed": 0.2615503862414649,
+        "mean_sim_other": 0.16660077197514364
+      },
+      "single|Gemini|stylo": {
+        "author_fe": null,
+        "author_fe_plus_centrality": null,
+        "mean_sim_selfnamed": null,
+        "mean_sim_other": -4.623905640013041
+      },
+      "single|Gemini|word": {
+        "author_fe": null,
+        "author_fe_plus_centrality": null,
+        "mean_sim_selfnamed": null,
+        "mean_sim_other": 0.3313926584937097
+      },
+      "single|Gemini|char": {
+        "author_fe": null,
+        "author_fe_plus_centrality": null,
+        "mean_sim_selfnamed": null,
+        "mean_sim_other": 0.53552686395695
+      },
+      "single|Gemini|funcword": {
+        "author_fe": null,
+        "author_fe_plus_centrality": null,
+        "mean_sim_selfnamed": null,
+        "mean_sim_other": 0.2634329329635515
+      },
+      "single|Grok|stylo": {
+        "author_fe": null,
+        "author_fe_plus_centrality": null,
+        "mean_sim_selfnamed": null,
+        "mean_sim_other": -5.817697777789054
+      },
+      "single|Grok|word": {
+        "author_fe": null,
+        "author_fe_plus_centrality": null,
+        "mean_sim_selfnamed": null,
+        "mean_sim_other": 0.3319192676382824
+      },
+      "single|Grok|char": {
+        "author_fe": null,
+        "author_fe_plus_centrality": null,
+        "mean_sim_selfnamed": null,
+        "mean_sim_other": 0.5367928200583648
+      },
+      "single|Grok|funcword": {
+        "author_fe": null,
+        "author_fe_plus_centrality": null,
+        "mean_sim_selfnamed": null,
+        "mean_sim_other": 0.2542689241095615
+      },
+      "single|DeepSeek|stylo": {
+        "author_fe": null,
+        "author_fe_plus_centrality": null,
+        "mean_sim_selfnamed": null,
+        "mean_sim_other": -4.943404399226928
+      },
+      "single|DeepSeek|word": {
+        "author_fe": null,
+        "author_fe_plus_centrality": null,
+        "mean_sim_selfnamed": null,
+        "mean_sim_other": 0.32071041243641646
+      },
+      "single|DeepSeek|char": {
+        "author_fe": null,
+        "author_fe_plus_centrality": null,
+        "mean_sim_selfnamed": null,
+        "mean_sim_other": 0.5204899403747083
+      },
+      "single|DeepSeek|funcword": {
+        "author_fe": null,
+        "author_fe_plus_centrality": null,
+        "mean_sim_selfnamed": null,
+        "mean_sim_other": 0.24102277687070095
+      }
+    },
+    "pooled": {
+      "lineup|stylo": {
+        "judge_x_author_fe": {
+          "n": 722,
+          "events": 119,
+          "strata_kept": [
+            "Claude|DeepSeek",
+            "Claude|GPT",
+            "Claude|Gemini",
+            "Claude|Grok",
+            "DeepSeek|Claude",
+            "DeepSeek|GPT",
+            "DeepSeek|Gemini",
+            "DeepSeek|Grok",
+            "GPT|Claude",
+            "GPT|DeepSeek",
+            "GPT|Gemini",
+            "GPT|Grok",
+            "Gemini|Claude",
+            "Gemini|GPT",
+            "Gemini|Grok",
+            "Grok|Claude",
+            "Grok|DeepSeek",
+            "Grok|GPT",
+            "Grok|Gemini"
+          ],
+          "OR_per_sd": 0.9215580929538295,
+          "ci95": [
+            0.762135942970314,
+            1.1143278656807545
+          ],
+          "p": 0.3992630518136925
+        },
+        "plus_centrality": {
+          "n": 722,
+          "events": 119,
+          "strata_kept": [
+            "Claude|DeepSeek",
+            "Claude|GPT",
+            "Claude|Gemini",
+            "Claude|Grok",
+            "DeepSeek|Claude",
+            "DeepSeek|GPT",
+            "DeepSeek|Gemini",
+            "DeepSeek|Grok",
+            "GPT|Claude",
+            "GPT|DeepSeek",
+            "GPT|Gemini",
+            "GPT|Grok",
+            "Gemini|Claude",
+            "Gemini|GPT",
+            "Gemini|Grok",
+            "Grok|Claude",
+            "Grok|DeepSeek",
+            "Grok|GPT",
+            "Grok|Gemini"
+          ],
+          "OR_per_sd": 0.8525856797503516,
+          "ci95": [
+            0.6688679721446957,
+            1.0867650591559777
+          ],
+          "p": 0.197749900635399
+        }
+      },
+      "lineup|word": {
+        "judge_x_author_fe": {
+          "n": 722,
+          "events": 119,
+          "strata_kept": [
+            "Claude|DeepSeek",
+            "Claude|GPT",
+            "Claude|Gemini",
+            "Claude|Grok",
+            "DeepSeek|Claude",
+            "DeepSeek|GPT",
+            "DeepSeek|Gemini",
+            "DeepSeek|Grok",
+            "GPT|Claude",
+            "GPT|DeepSeek",
+            "GPT|Gemini",
+            "GPT|Grok",
+            "Gemini|Claude",
+            "Gemini|GPT",
+            "Gemini|Grok",
+            "Grok|Claude",
+            "Grok|DeepSeek",
+            "Grok|GPT",
+            "Grok|Gemini"
+          ],
+          "OR_per_sd": 0.935132697145997,
+          "ci95": [
+            0.8096103759593162,
+            1.080116049939916
+          ],
+          "p": 0.36177905906737196
+        },
+        "plus_centrality": {
+          "n": 722,
+          "events": 119,
+          "strata_kept": [
+            "Claude|DeepSeek",
+            "Claude|GPT",
+            "Claude|Gemini",
+            "Claude|Grok",
+            "DeepSeek|Claude",
+            "DeepSeek|GPT",
+            "DeepSeek|Gemini",
+            "DeepSeek|Grok",
+            "GPT|Claude",
+            "GPT|DeepSeek",
+            "GPT|Gemini",
+            "GPT|Grok",
+            "Gemini|Claude",
+            "Gemini|GPT",
+            "Gemini|Grok",
+            "Grok|Claude",
+            "Grok|DeepSeek",
+            "Grok|GPT",
+            "Grok|Gemini"
+          ],
+          "OR_per_sd": 0.9784196319601003,
+          "ci95": [
+            0.7403915495167896,
+            1.292971235057606
+          ],
+          "p": 0.8780882100373946
+        }
+      },
+      "lineup|char": {
+        "judge_x_author_fe": {
+          "n": 722,
+          "events": 119,
+          "strata_kept": [
+            "Claude|DeepSeek",
+            "Claude|GPT",
+            "Claude|Gemini",
+            "Claude|Grok",
+            "DeepSeek|Claude",
+            "DeepSeek|GPT",
+            "DeepSeek|Gemini",
+            "DeepSeek|Grok",
+            "GPT|Claude",
+            "GPT|DeepSeek",
+            "GPT|Gemini",
+            "GPT|Grok",
+            "Gemini|Claude",
+            "Gemini|GPT",
+            "Gemini|Grok",
+            "Grok|Claude",
+            "Grok|DeepSeek",
+            "Grok|GPT",
+            "Grok|Gemini"
+          ],
+          "OR_per_sd": 0.8913755838854068,
+          "ci95": [
+            0.7724621930651184,
+            1.0285945884215844
+          ],
+          "p": 0.11547877954231721
+        },
+        "plus_centrality": {
+          "n": 722,
+          "events": 119,
+          "strata_kept": [
+            "Claude|DeepSeek",
+            "Claude|GPT",
+            "Claude|Gemini",
+            "Claude|Grok",
+            "DeepSeek|Claude",
+            "DeepSeek|GPT",
+            "DeepSeek|Gemini",
+            "DeepSeek|Grok",
+            "GPT|Claude",
+            "GPT|DeepSeek",
+            "GPT|Gemini",
+            "GPT|Grok",
+            "Gemini|Claude",
+            "Gemini|GPT",
+            "Gemini|Grok",
+            "Grok|Claude",
+            "Grok|DeepSeek",
+            "Grok|GPT",
+            "Grok|Gemini"
+          ],
+          "OR_per_sd": 0.8364840882541678,
+          "ci95": [
+            0.6011539761627662,
+            1.1639374563713383
+          ],
+          "p": 0.28946222640454977
+        }
+      },
+      "lineup|funcword": {
+        "judge_x_author_fe": {
+          "n": 722,
+          "events": 119,
+          "strata_kept": [
+            "Claude|DeepSeek",
+            "Claude|GPT",
+            "Claude|Gemini",
+            "Claude|Grok",
+            "DeepSeek|Claude",
+            "DeepSeek|GPT",
+            "DeepSeek|Gemini",
+            "DeepSeek|Grok",
+            "GPT|Claude",
+            "GPT|DeepSeek",
+            "GPT|Gemini",
+            "GPT|Grok",
+            "Gemini|Claude",
+            "Gemini|GPT",
+            "Gemini|Grok",
+            "Grok|Claude",
+            "Grok|DeepSeek",
+            "Grok|GPT",
+            "Grok|Gemini"
+          ],
+          "OR_per_sd": 1.038265123817629,
+          "ci95": [
+            0.8630374965078351,
+            1.2490702567362322
+          ],
+          "p": 0.6905132943271917
+        },
+        "plus_centrality": {
+          "n": 722,
+          "events": 119,
+          "strata_kept": [
+            "Claude|DeepSeek",
+            "Claude|GPT",
+            "Claude|Gemini",
+            "Claude|Grok",
+            "DeepSeek|Claude",
+            "DeepSeek|GPT",
+            "DeepSeek|Gemini",
+            "DeepSeek|Grok",
+            "GPT|Claude",
+            "GPT|DeepSeek",
+            "GPT|Gemini",
+            "GPT|Grok",
+            "Gemini|Claude",
+            "Gemini|GPT",
+            "Gemini|Grok",
+            "Grok|Claude",
+            "Grok|DeepSeek",
+            "Grok|GPT",
+            "Grok|Gemini"
+          ],
+          "OR_per_sd": 0.9934800697432612,
+          "ci95": [
+            0.8145210398999255,
+            1.2117583225331308
+          ],
+          "p": 0.9485316866796529
+        }
+      },
+      "single|stylo": {
+        "judge_x_author_fe": {
+          "n": 266,
+          "events": 92,
+          "strata_kept": [
+            "Claude|DeepSeek",
+            "Claude|GPT",
+            "Claude|Grok",
+            "GPT|Claude",
+            "GPT|DeepSeek",
+            "GPT|Gemini",
+            "GPT|Grok"
+          ],
+          "OR_per_sd": 1.0903597669373637,
+          "ci95": [
+            0.7507818444248053,
+            1.583528464605506
+          ],
+          "p": 0.6495533038984722
+        },
+        "plus_centrality": {
+          "n": 266,
+          "events": 92,
+          "strata_kept": [
+            "Claude|DeepSeek",
+            "Claude|GPT",
+            "Claude|Grok",
+            "GPT|Claude",
+            "GPT|DeepSeek",
+            "GPT|Gemini",
+            "GPT|Grok"
+          ],
+          "OR_per_sd": 1.1028552271983976,
+          "ci95": [
+            0.6361332695995268,
+            1.91200446554939
+          ],
+          "p": 0.7272964370702382
+        }
+      },
+      "single|word": {
+        "judge_x_author_fe": {
+          "n": 266,
+          "events": 92,
+          "strata_kept": [
+            "Claude|DeepSeek",
+            "Claude|GPT",
+            "Claude|Grok",
+            "GPT|Claude",
+            "GPT|DeepSeek",
+            "GPT|Gemini",
+            "GPT|Grok"
+          ],
+          "OR_per_sd": 0.9283276747138971,
+          "ci95": [
+            0.6582404771333248,
+            1.309236216212145
+          ],
+          "p": 0.671595082938732
+        },
+        "plus_centrality": {
+          "n": 266,
+          "events": 92,
+          "strata_kept": [
+            "Claude|DeepSeek",
+            "Claude|GPT",
+            "Claude|Grok",
+            "GPT|Claude",
+            "GPT|DeepSeek",
+            "GPT|Gemini",
+            "GPT|Grok"
+          ],
+          "OR_per_sd": 1.3612586170399084,
+          "ci95": [
+            0.615199528797158,
+            3.01207158934021
+          ],
+          "p": 0.44660308077528843
+        }
+      },
+      "single|char": {
+        "judge_x_author_fe": {
+          "n": 266,
+          "events": 92,
+          "strata_kept": [
+            "Claude|DeepSeek",
+            "Claude|GPT",
+            "Claude|Grok",
+            "GPT|Claude",
+            "GPT|DeepSeek",
+            "GPT|Gemini",
+            "GPT|Grok"
+          ],
+          "OR_per_sd": 0.912526690121609,
+          "ci95": [
+            0.6720894661087377,
+            1.238979335601691
+          ],
+          "p": 0.5574424660741462
+        },
+        "plus_centrality": {
+          "n": 266,
+          "events": 92,
+          "strata_kept": [
+            "Claude|DeepSeek",
+            "Claude|GPT",
+            "Claude|Grok",
+            "GPT|Claude",
+            "GPT|DeepSeek",
+            "GPT|Gemini",
+            "GPT|Grok"
+          ],
+          "OR_per_sd": 1.6387576938710247,
+          "ci95": [
+            0.6979172948896808,
+            3.847915503578369
+          ],
+          "p": 0.2567321569016323
+        }
+      },
+      "single|funcword": {
+        "judge_x_author_fe": {
+          "n": 266,
+          "events": 92,
+          "strata_kept": [
+            "Claude|DeepSeek",
+            "Claude|GPT",
+            "Claude|Grok",
+            "GPT|Claude",
+            "GPT|DeepSeek",
+            "GPT|Gemini",
+            "GPT|Grok"
+          ],
+          "OR_per_sd": 0.9372720598032859,
+          "ci95": [
+            0.6495304785527573,
+            1.3524829751565552
+          ],
+          "p": 0.7291719582051727
+        },
+        "plus_centrality": {
+          "n": 266,
+          "events": 92,
+          "strata_kept": [
+            "Claude|DeepSeek",
+            "Claude|GPT",
+            "Claude|Grok",
+            "GPT|Claude",
+            "GPT|DeepSeek",
+            "GPT|Gemini",
+            "GPT|Grok"
+          ],
+          "OR_per_sd": 1.2451201096380362,
+          "ci95": [
+            0.8063495363150819,
+            1.9226452271676444
+          ],
+          "p": 0.32266761220840046
+        }
+      }
+    }
+  },
+  "test1b_typicality": {
+    "lineup|Claude": {
+      "self_hits": 33,
+      "n": 38,
+      "stylo": {
+        "self_auc_typicality": 0.6363636363636364,
+        "self_p": 0.35303680504918894,
+        "peer_rate_spearman": 0.30473754518035856,
+        "peer_p": 0.06284334793949202
+      },
+      "word": {
+        "self_auc_typicality": 0.4121212121212121,
+        "self_p": 0.5566101262695691,
+        "peer_rate_spearman": 0.01606297301402493,
+        "peer_p": 0.9237452271287306
+      },
+      "char": {
+        "self_auc_typicality": 0.44242424242424244,
+        "self_p": 0.7061373624841119,
+        "peer_rate_spearman": 0.11037557171065698,
+        "peer_p": 0.5094514370442231
+      },
+      "funcword": {
+        "self_auc_typicality": 0.4666666666666667,
+        "self_p": 0.8342756732849612,
+        "peer_rate_spearman": -0.05186045573099476,
+        "peer_p": 0.7571555457029875
+      }
+    },
+    "lineup|GPT": {
+      "self_hits": 22,
+      "n": 38,
+      "stylo": {
+        "self_auc_typicality": 0.4630681818181818,
+        "self_p": 0.7117027229965212,
+        "peer_rate_spearman": 0.0960451872180011,
+        "peer_p": 0.5662296101819446
+      },
+      "word": {
+        "self_auc_typicality": 0.5482954545454546,
+        "self_p": 0.6256683284580744,
+        "peer_rate_spearman": -0.031211817112659853,
+        "peer_p": 0.8524286814277456
+      },
+      "char": {
+        "self_auc_typicality": 0.6619318181818182,
+        "self_p": 0.09482887768218423,
+        "peer_rate_spearman": 0.19771309148938576,
+        "peer_p": 0.23410097893003967
+      },
+      "funcword": {
+        "self_auc_typicality": 0.48295454545454547,
+        "self_p": 0.8708247972647152,
+        "peer_rate_spearman": 0.14148592095555,
+        "peer_p": 0.3968184900354861
+      }
+    },
+    "single|Claude": {
+      "self_hits": 33,
+      "n": 38,
+      "stylo": {
+        "self_auc_typicality": 0.30303030303030304,
+        "self_p": 0.17236254387957176,
+        "peer_rate_spearman": -0.055560805312766005,
+        "peer_p": 0.740406836517911
+      },
+      "word": {
+        "self_auc_typicality": 0.42424242424242425,
+        "self_p": 0.6146965187212866,
+        "peer_rate_spearman": -0.023811773705471148,
+        "peer_p": 0.8871572456498664
+      },
+      "char": {
+        "self_auc_typicality": 0.7272727272727273,
+        "self_p": 0.11201294173430396,
+        "peer_rate_spearman": -0.18784843700982792,
+        "peer_p": 0.2587363129628254
+      },
+      "funcword": {
+        "self_auc_typicality": 0.6060606060606061,
+        "self_p": 0.47453291416139715,
+        "peer_rate_spearman": -0.06614381584853096,
+        "peer_p": 0.693175088861204
+      }
+    },
+    "single|GPT": {
+      "self_hits": 36,
+      "n": 38,
+      "stylo": {
+        "self_auc_typicality": 0.7083333333333334,
+        "self_p": 0.37553342816500723,
+        "peer_rate_spearman": -0.0995447396329454,
+        "peer_p": 0.5520999020455185
+      },
+      "word": {
+        "self_auc_typicality": 0.9722222222222222,
+        "self_p": 0.011379800853485065,
+        "peer_rate_spearman": 0.5105868717377852,
+        "peer_p": 0.0010554720519956517
+      },
+      "char": {
+        "self_auc_typicality": 0.7916666666666666,
+        "self_p": 0.2048364153627312,
+        "peer_rate_spearman": -0.18170681227527172,
+        "peer_p": 0.2749127207291701
+      },
+      "funcword": {
+        "self_auc_typicality": 1.0,
+        "self_p": 0.002844950213371266,
+        "peer_rate_spearman": 0.36468835346318884,
+        "peer_p": 0.0243759791321413
+      }
+    }
+  },
+  "test2_counts": {
+    "lineup": {
+      "n_all": 950,
+      "n_wrong": 630
+    },
+    "single": {
+      "n_all": 950,
+      "n_wrong": 659
+    }
+  },
+  "nearest_centroid_accuracy": {
+    "stylo": 0.7421052631578947,
+    "word": 0.7894736842105263,
+    "char": 0.7684210526315789,
+    "funcword": 0.7789473684210526,
+    "rf": 0.8631578947368421
+  },
+  "test1_permutation": {
+    "lineup|pooled|stylo": {
+      "observed": -0.0789414512455058,
+      "null_mean": 0.06425747495571801,
+      "null_sd": 0.09038517747977087,
+      "p_one_sided": 0.9410294852573713,
+      "p_two_sided": 0.11344327836081959
+    },
+    "lineup|GPT|stylo": {
+      "observed": 0.483632473667108,
+      "null_mean": 0.23736317976795743,
+      "null_sd": 0.2543907071523081,
+      "p_one_sided": 0.15942028985507245,
+      "p_two_sided": 0.3263368315842079
+    },
+    "lineup|Claude|stylo": {
+      "observed": -0.12737594612105402,
+      "null_mean": 0.08027449967898072,
+      "null_sd": 0.39551817203009504,
+      "p_one_sided": 0.6906546726636682,
+      "p_two_sided": 0.6116941529235382
+    },
+    "lineup|Gemini|stylo": {
+      "observed": -0.020779570255268415,
+      "null_mean": 0.06858609573346901,
+      "null_sd": 0.12048486568349785,
+      "p_one_sided": 0.7691154422788605,
+      "p_two_sided": 0.46776611694152925
+    },
+    "lineup|Grok|stylo": {
+      "observed": -0.21235297615025286,
+      "null_mean": -0.08857802919994352,
+      "null_sd": 0.16183503605594968,
+      "p_one_sided": 0.777111444277861,
+      "p_two_sided": 0.4362818590704648
+    },
+    "lineup|DeepSeek|stylo": {
+      "observed": -0.3366307393000972,
+      "null_mean": 0.11368779742439196,
+      "null_sd": 0.20391620454821813,
+      "p_one_sided": 0.9895052473763118,
+      "p_two_sided": 0.026986506746626688
+    },
+    "lineup|pooled|word": {
+      "observed": -0.004160186076601765,
+      "null_mean": -0.0003421021544476296,
+      "null_sd": 0.0031782343551443218,
+      "p_one_sided": 0.889055472263868,
+      "p_two_sided": 0.21739130434782608
+    },
+    "lineup|GPT|word": {
+      "observed": 0.004464794902124092,
+      "null_mean": 0.0014909233093776866,
+      "null_sd": 0.011561928858305355,
+      "p_one_sided": 0.3548225887056472,
+      "p_two_sided": 0.7591204397801099
+    },
+    "lineup|Claude|word": {
+      "observed": -0.01530702561940127,
+      "null_mean": -0.0005276168514524958,
+      "null_sd": 0.01035003322071036,
+      "p_one_sided": 0.9370314842578711,
+      "p_two_sided": 0.14592703648175911
+    },
+    "lineup|Gemini|word": {
+      "observed": 0.0032750260947626967,
+      "null_mean": 0.0002911941718384028,
+      "null_sd": 0.0054480469699857235,
+      "p_one_sided": 0.2798600699650175,
+      "p_two_sided": 0.48125937031484256
+    },
+    "lineup|Grok|word": {
+      "observed": -0.0098845648550891,
+      "null_mean": -0.0015687910037066322,
+      "null_sd": 0.005477297685740268,
+      "p_one_sided": 0.9135432283858071,
+      "p_two_sided": 0.12143928035982009
+    },
+    "lineup|DeepSeek|word": {
+      "observed": -0.0055753502423038824,
+      "null_mean": -0.000785679909832309,
+      "null_sd": 0.00625137678418779,
+      "p_one_sided": 0.8070964517741129,
+      "p_two_sided": 0.4052973513243378
+    },
+    "lineup|pooled|char": {
+      "observed": -0.0077203682125899144,
+      "null_mean": -0.0018780707521429277,
+      "null_sd": 0.004153278830326526,
+      "p_one_sided": 0.9195402298850575,
+      "p_two_sided": 0.15892053973013492
+    },
+    "lineup|GPT|char": {
+      "observed": -0.0025717167403560663,
+      "null_mean": 0.0012900149932216199,
+      "null_sd": 0.015450741299176696,
+      "p_one_sided": 0.5942028985507246,
+      "p_two_sided": 0.784607696151924
+    },
+    "lineup|Claude|char": {
+      "observed": -0.009546390686955435,
+      "null_mean": -0.000552692676196741,
+      "null_sd": 0.014164990534046903,
+      "p_one_sided": 0.7466266866566716,
+      "p_two_sided": 0.49225387306346824
+    },
+    "lineup|Gemini|char": {
+      "observed": -0.005230615119231472,
+      "null_mean": -0.002074780316557802,
+      "null_sd": 0.0070778837294117256,
+      "p_one_sided": 0.7271364317841079,
+      "p_two_sided": 0.6226886556721639
+    },
+    "lineup|Grok|char": {
+      "observed": -0.013675042191570725,
+      "null_mean": -0.006789765173667902,
+      "null_sd": 0.006763978979552115,
+      "p_one_sided": 0.8590704647676162,
+      "p_two_sided": 0.26936531734132935
+    },
+    "lineup|DeepSeek|char": {
+      "observed": -0.006763137887584441,
+      "null_mean": 0.0008474571788018977,
+      "null_sd": 0.008134921276674995,
+      "p_one_sided": 0.8415792103948025,
+      "p_two_sided": 0.31784107946026985
+    },
+    "lineup|pooled|funcword": {
+      "observed": 0.004983203470021653,
+      "null_mean": -0.002101257924356635,
+      "null_sd": 0.00832067266343328,
+      "p_one_sided": 0.1934032983508246,
+      "p_two_sided": 0.39480259870064965
+    },
+    "lineup|GPT|funcword": {
+      "observed": 0.015773285580195626,
+      "null_mean": 0.0058186841423179935,
+      "null_sd": 0.026376213019026925,
+      "p_one_sided": 0.35732133933033483,
+      "p_two_sided": 0.7151424287856072
+    },
+    "lineup|Claude|funcword": {
+      "observed": 0.004461420229605989,
+      "null_mean": 0.0036605035649159598,
+      "null_sd": 0.025993526899415406,
+      "p_one_sided": 0.48125937031484256,
+      "p_two_sided": 0.967016491754123
+    },
+    "lineup|Gemini|funcword": {
+      "observed": 0.021895158319397513,
+      "null_mean": -0.004752725088746295,
+      "null_sd": 0.0158505091652934,
+      "p_one_sided": 0.04547726136931534,
+      "p_two_sided": 0.09245377311344327
+    },
+    "lineup|Grok|funcword": {
+      "observed": -0.0011443172139633446,
+      "null_mean": -0.0051995938803673794,
+      "null_sd": 0.01443843409794239,
+      "p_one_sided": 0.3868065967016492,
+      "p_two_sided": 0.783608195902049
+    },
+    "lineup|DeepSeek|funcword": {
+      "observed": -0.01326097267989089,
+      "null_mean": -0.0042840805245499694,
+      "null_sd": 0.019415234189188873,
+      "p_one_sided": 0.671664167916042,
+      "p_two_sided": 0.6456771614192903
+    },
+    "single|pooled|stylo": {
+      "observed": 0.07827763818838589,
+      "null_mean": 0.0450793730792167,
+      "null_sd": 0.07703740382105483,
+      "p_one_sided": 0.3268365817091454,
+      "p_two_sided": 0.6591704147926037
+    },
+    "single|GPT|stylo": {
+      "observed": 0.2635825094790566,
+      "null_mean": 0.0908275284309301,
+      "null_sd": 0.13039046463087978,
+      "p_one_sided": 0.09895052473763119,
+      "p_two_sided": 0.18440779610194902
+    },
+    "single|Claude|stylo": {
+      "observed": -0.3087737828802655,
+      "null_mean": 0.016755525141169864,
+      "null_sd": 0.32716596807472387,
+      "p_one_sided": 0.8375812093953023,
+      "p_two_sided": 0.3258370814592704
+    },
+    "single|pooled|word": {
+      "observed": 0.0006954395639835723,
+      "null_mean": 0.0015347184477417688,
+      "null_sd": 0.003958423913762626,
+      "p_one_sided": 0.6296851574212894,
+      "p_two_sided": 0.7716141929035483
+    },
+    "single|GPT|word": {
+      "observed": -0.00812395174119887,
+      "null_mean": 0.0006635424991625937,
+      "null_sd": 0.007285555302024273,
+      "p_one_sided": 0.8760619690154923,
+      "p_two_sided": 0.21139430284857572
+    },
+    "single|Claude|word": {
+      "observed": 0.030657784427409327,
+      "null_mean": 0.008321461976874906,
+      "null_sd": 0.012840822862906885,
+      "p_one_sided": 0.057971014492753624,
+      "p_two_sided": 0.0814592703648176
+    },
+    "single|pooled|char": {
+      "observed": -0.0005031844058624379,
+      "null_mean": 0.0020617989847778947,
+      "null_sd": 0.0053179831430085036,
+      "p_one_sided": 0.7211394302848576,
+      "p_two_sided": 0.5792103948025987
+    },
+    "single|GPT|char": {
+      "observed": -0.009234253316391244,
+      "null_mean": -0.0006055850478305322,
+      "null_sd": 0.009778060096416883,
+      "p_one_sided": 0.8335832083958021,
+      "p_two_sided": 0.33383308345827084
+    },
+    "single|Claude|char": {
+      "observed": 0.02604825606324956,
+      "null_mean": 0.015957051827637358,
+      "null_sd": 0.016975449652280438,
+      "p_one_sided": 0.2433783108445777,
+      "p_two_sided": 0.5142428785607196
+    },
+    "single|pooled|funcword": {
+      "observed": 0.002031975769199029,
+      "null_mean": 0.008338362293028678,
+      "null_sd": 0.007327797304011989,
+      "p_one_sided": 0.8050974512743628,
+      "p_two_sided": 0.39280359820089955
+    },
+    "single|GPT|funcword": {
+      "observed": -0.010493642976523714,
+      "null_mean": 0.010190001999415168,
+      "null_sd": 0.013270627353231083,
+      "p_one_sided": 0.9450274862568716,
+      "p_two_sided": 0.10994502748625687
+    },
+    "single|Claude|funcword": {
+      "observed": 0.04731170980630407,
+      "null_mean": 0.024196312720225138,
+      "null_sd": 0.026918899983552267,
+      "p_one_sided": 0.19540229885057472,
+      "p_two_sided": 0.39730134932533734
+    }
+  },
+  "test2": {
+    "lineup|stylo": {
+      "same_prompt_wrong_top1": {
+        "observed": 0.319047619047619,
+        "null_guess_mean": 0.3014023809523809,
+        "p_guess": 0.11544227886056972,
+        "null_ref_mean": 0.28312301587301586,
+        "p_ref": 0.02448775612193903
+      },
+      "same_prompt_wrong_meanrank": {
+        "observed": 2.3412698412698414,
+        "null_guess_mean": 2.3666388888888887,
+        "p_guess": 0.22638680659670166,
+        "null_ref_mean": 2.3977896825396825,
+        "p_ref": 0.06696651674162919
+      },
+      "centroid_all_top1": {
+        "observed": 0.3063157894736842,
+        "null_guess_mean": 0.29151684210526313,
+        "p_guess": 0.06896551724137931
+      },
+      "centroid_wrong_top1": {
+        "observed": 0.326984126984127,
+        "null_guess_mean": 0.31703095238095236,
+        "p_guess": 0.25037481259370314
+      }
+    },
+    "lineup|word": {
+      "same_prompt_wrong_top1": {
+        "observed": 0.273015873015873,
+        "null_guess_mean": 0.2524269841269841,
+        "p_guess": 0.09145427286356822,
+        "null_ref_mean": 0.2562111111111111,
+        "p_ref": 0.15942028985507245
+      },
+      "same_prompt_wrong_meanrank": {
+        "observed": 2.3873015873015873,
+        "null_guess_mean": 2.4328555555555553,
+        "p_guess": 0.079960019990005,
+        "null_ref_mean": 2.49281746031746,
+        "p_ref": 0.0034982508745627187
+      },
+      "centroid_all_top1": {
+        "observed": 0.33473684210526317,
+        "null_guess_mean": 0.3242836842105263,
+        "p_guess": 0.13193403298350825
+      },
+      "centroid_wrong_top1": {
+        "observed": 0.28095238095238095,
+        "null_guess_mean": 0.2652174603174603,
+        "p_guess": 0.14392803598200898
+      }
+    },
+    "lineup|char": {
+      "same_prompt_wrong_top1": {
+        "observed": 0.26666666666666666,
+        "null_guess_mean": 0.2527920634920635,
+        "p_guess": 0.18040979510244878,
+        "null_ref_mean": 0.2569277777777778,
+        "p_ref": 0.27586206896551724
+      },
+      "same_prompt_wrong_meanrank": {
+        "observed": 2.4063492063492062,
+        "null_guess_mean": 2.438885714285714,
+        "p_guess": 0.1619190404797601,
+        "null_ref_mean": 2.4825150793650796,
+        "p_ref": 0.02498750624687656
+      },
+      "centroid_all_top1": {
+        "observed": 0.31684210526315787,
+        "null_guess_mean": 0.31334789473684216,
+        "p_guess": 0.36681659170414793
+      },
+      "centroid_wrong_top1": {
+        "observed": 0.2571428571428571,
+        "null_guess_mean": 0.2462325396825397,
+        "p_guess": 0.23338330834582707
+      }
+    },
+    "lineup|funcword": {
+      "same_prompt_wrong_top1": {
+        "observed": 0.25873015873015875,
+        "null_guess_mean": 0.25903650793650784,
+        "p_guess": 0.5342328835582209,
+        "null_ref_mean": 0.2533563492063492,
+        "p_ref": 0.38780609695152424
+      },
+      "same_prompt_wrong_meanrank": {
+        "observed": 2.3968253968253967,
+        "null_guess_mean": 2.4188674603174602,
+        "p_guess": 0.29185407296351823,
+        "null_ref_mean": 2.4796984126984127,
+        "p_ref": 0.020989505247376312
+      },
+      "centroid_all_top1": {
+        "observed": 0.30842105263157893,
+        "null_guess_mean": 0.3087215789473684,
+        "p_guess": 0.5472263868065967
+      },
+      "centroid_wrong_top1": {
+        "observed": 0.24603174603174602,
+        "null_guess_mean": 0.25762301587301584,
+        "p_guess": 0.8050974512743628
+      }
+    },
+    "lineup|rf": {
+      "centroid_all_top1": {
+        "observed": 0.32421052631578945,
+        "null_guess_mean": 0.30706368421052627,
+        "p_guess": 0.01199400299850075
+      },
+      "centroid_wrong_top1": {
+        "observed": 0.30158730158730157,
+        "null_guess_mean": 0.2896547619047618,
+        "p_guess": 0.21889055472263869
+      }
+    },
+    "single|stylo": {
+      "same_prompt_wrong_top1": {
+        "observed": 0.24127465857359637,
+        "null_guess_mean": 0.2250652503793627,
+        "p_guess": 0.02048975512243878,
+        "null_ref_mean": 0.23614415781487105,
+        "p_ref": 0.41529235382308843
+      },
+      "same_prompt_wrong_meanrank": {
+        "observed": 2.48103186646434,
+        "null_guess_mean": 2.4949863429438546,
+        "p_guess": 0.2318840579710145,
+        "null_ref_mean": 2.5466987860394537,
+        "p_ref": 0.13043478260869565
+      },
+      "centroid_all_top1": {
+        "observed": 0.25473684210526315,
+        "null_guess_mean": 0.24904052631578946,
+        "p_guess": 0.14492753623188406
+      },
+      "centroid_wrong_top1": {
+        "observed": 0.3095599393019727,
+        "null_guess_mean": 0.29271775417298945,
+        "p_guess": 0.00399800099950025
+      }
+    },
+    "single|word": {
+      "same_prompt_wrong_top1": {
+        "observed": 0.26251896813353565,
+        "null_guess_mean": 0.25704704097116843,
+        "p_guess": 0.25737131434282856,
+        "null_ref_mean": 0.2826980273141123,
+        "p_ref": 0.7161419290354822
+      },
+      "same_prompt_wrong_meanrank": {
+        "observed": 2.579666160849772,
+        "null_guess_mean": 2.60808497723824,
+        "p_guess": 0.0559720139930035,
+        "null_ref_mean": 2.3761122913505313,
+        "p_ref": 0.9910044977511244
+      },
+      "centroid_all_top1": {
+        "observed": 0.3031578947368421,
+        "null_guess_mean": 0.2911005263157895,
+        "p_guess": 0.0009995002498750624
+      },
+      "centroid_wrong_top1": {
+        "observed": 0.22610015174506828,
+        "null_guess_mean": 0.20439833080424888,
+        "p_guess": 0.0004997501249375312
+      }
+    },
+    "single|char": {
+      "same_prompt_wrong_top1": {
+        "observed": 0.2534142640364188,
+        "null_guess_mean": 0.24577465857359634,
+        "p_guess": 0.18190904547726136,
+        "null_ref_mean": 0.2767921092564492,
+        "p_ref": 0.7501249375312344
+      },
+      "same_prompt_wrong_meanrank": {
+        "observed": 2.5963581183611533,
+        "null_guess_mean": 2.6360220030349013,
+        "p_guess": 0.008995502248875561,
+        "null_ref_mean": 2.429293626707132,
+        "p_ref": 0.9730134932533733
+      },
+      "centroid_all_top1": {
+        "observed": 0.3063157894736842,
+        "null_guess_mean": 0.28715736842105266,
+        "p_guess": 0.0004997501249375312
+      },
+      "centroid_wrong_top1": {
+        "observed": 0.19726858877086495,
+        "null_guess_mean": 0.17939833080424888,
+        "p_guess": 0.006496751624187906
+      }
+    },
+    "single|funcword": {
+      "same_prompt_wrong_top1": {
+        "observed": 0.19119878603945373,
+        "null_guess_mean": 0.18667450682852807,
+        "p_guess": 0.31634182908545727,
+        "null_ref_mean": 0.24363884673748107,
+        "p_ref": 0.9620189905047476
+      },
+      "same_prompt_wrong_meanrank": {
+        "observed": 2.7268588770864945,
+        "null_guess_mean": 2.746695751138088,
+        "p_guess": 0.20389805097451275,
+        "null_ref_mean": 2.518247344461305,
+        "p_ref": 0.9980009995002499
+      },
+      "centroid_all_top1": {
+        "observed": 0.3389473684210526,
+        "null_guess_mean": 0.31465315789473686,
+        "p_guess": 0.0004997501249375312
+      },
+      "centroid_wrong_top1": {
+        "observed": 0.26555386949924126,
+        "null_guess_mean": 0.24292109256449168,
+        "p_guess": 0.001999000499750125
+      }
+    },
+    "single|rf": {
+      "centroid_all_top1": {
+        "observed": 0.26631578947368423,
+        "null_guess_mean": 0.26747789473684214,
+        "p_guess": 0.6526736631684158
+      },
+      "centroid_wrong_top1": {
+        "observed": 0.3125948406676783,
+        "null_guess_mean": 0.3036176024279211,
+        "p_guess": 0.136431784107946
+      }
+    }
+  },
+  "test2_per_judge": {
+    "lineup|GPT": {
+      "n_wrong": 108,
+      "stylo": {
+        "top1_k": 34,
+        "top1": 0.3148148148148148
+      },
+      "word": {
+        "top1_k": 30,
+        "top1": 0.2777777777777778
+      },
+      "char": {
+        "top1_k": 30,
+        "top1": 0.2777777777777778
+      },
+      "funcword": {
+        "top1_k": 27,
+        "top1": 0.25
+      }
+    },
+    "lineup|Claude": {
+      "n_wrong": 118,
+      "stylo": {
+        "top1_k": 30,
+        "top1": 0.2542372881355932
+      },
+      "word": {
+        "top1_k": 35,
+        "top1": 0.2966101694915254
+      },
+      "char": {
+        "top1_k": 34,
+        "top1": 0.288135593220339
+      },
+      "funcword": {
+        "top1_k": 33,
+        "top1": 0.2796610169491525
+      }
+    },
+    "lineup|Gemini": {
+      "n_wrong": 121,
+      "stylo": {
+        "top1_k": 50,
+        "top1": 0.4132231404958678
+      },
+      "word": {
+        "top1_k": 39,
+        "top1": 0.32231404958677684
+      },
+      "char": {
+        "top1_k": 35,
+        "top1": 0.2892561983471074
+      },
+      "funcword": {
+        "top1_k": 40,
+        "top1": 0.3305785123966942
+      }
+    },
+    "lineup|Grok": {
+      "n_wrong": 141,
+      "stylo": {
+        "top1_k": 48,
+        "top1": 0.3404255319148936
+      },
+      "word": {
+        "top1_k": 36,
+        "top1": 0.2553191489361702
+      },
+      "char": {
+        "top1_k": 34,
+        "top1": 0.24113475177304963
+      },
+      "funcword": {
+        "top1_k": 33,
+        "top1": 0.23404255319148937
+      }
+    },
+    "lineup|DeepSeek": {
+      "n_wrong": 142,
+      "stylo": {
+        "top1_k": 39,
+        "top1": 0.2746478873239437
+      },
+      "word": {
+        "top1_k": 32,
+        "top1": 0.22535211267605634
+      },
+      "char": {
+        "top1_k": 35,
+        "top1": 0.24647887323943662
+      },
+      "funcword": {
+        "top1_k": 30,
+        "top1": 0.2112676056338028
+      }
+    },
+    "single|GPT": {
+      "n_wrong": 117,
+      "stylo": {
+        "top1_k": 34,
+        "top1": 0.2905982905982906
+      },
+      "word": {
+        "top1_k": 45,
+        "top1": 0.38461538461538464
+      },
+      "char": {
+        "top1_k": 42,
+        "top1": 0.358974358974359
+      },
+      "funcword": {
+        "top1_k": 31,
+        "top1": 0.26495726495726496
+      }
+    },
+    "single|Claude": {
+      "n_wrong": 116,
+      "stylo": {
+        "top1_k": 38,
+        "top1": 0.3275862068965517
+      },
+      "word": {
+        "top1_k": 46,
+        "top1": 0.39655172413793105
+      },
+      "char": {
+        "top1_k": 50,
+        "top1": 0.43103448275862066
+      },
+      "funcword": {
+        "top1_k": 35,
+        "top1": 0.3017241379310345
+      }
+    },
+    "single|Gemini": {
+      "n_wrong": 140,
+      "stylo": {
+        "top1_k": 27,
+        "top1": 0.19285714285714287
+      },
+      "word": {
+        "top1_k": 23,
+        "top1": 0.16428571428571428
+      },
+      "char": {
+        "top1_k": 15,
+        "top1": 0.10714285714285714
+      },
+      "funcword": {
+        "top1_k": 17,
+        "top1": 0.12142857142857143
+      }
+    },
+    "single|Grok": {
+      "n_wrong": 139,
+      "stylo": {
+        "top1_k": 22,
+        "top1": 0.15827338129496402
+      },
+      "word": {
+        "top1_k": 18,
+        "top1": 0.12949640287769784
+      },
+      "char": {
+        "top1_k": 10,
+        "top1": 0.07194244604316546
+      },
+      "funcword": {
+        "top1_k": 11,
+        "top1": 0.07913669064748201
+      }
+    },
+    "single|DeepSeek": {
+      "n_wrong": 147,
+      "stylo": {
+        "top1_k": 38,
+        "top1": 0.2585034013605442
+      },
+      "word": {
+        "top1_k": 41,
+        "top1": 0.2789115646258503
+      },
+      "char": {
+        "top1_k": 50,
+        "top1": 0.3401360544217687
+      },
+      "funcword": {
+        "top1_k": 32,
+        "top1": 0.21768707482993196
+      }
+    }
+  },
+  "reading_md": "## Reading\n\n**Test 1: no evidence that resemblance to the judge's own answer drives self-naming.** Across the 36 fitted models (per judge and pooled, four measures, two conditions), 1 has p < 0.05, about what chance gives. In the clean condition, single-text, GPT names itself on 79 of the 152 responses it did not write, and the similarity of those responses to GPT's own answer does not predict which: stylo OR 1.52 [0.85, 2.71], p = 0.155, 79/152; word OR 0.75 [0.48, 1.17], p = 0.206, 79/152; function words OR 0.84 [0.53, 1.31], p = 0.439, 79/152. Claude's 13 single-text self false alarms: word OR 1.86 [0.90, 3.84], p = 0.094, 13/114. Pooled lineup, all five judges: stylo OR 0.92 [0.76, 1.11], p = 0.399, 119/722; char OR 0.89 [0.77, 1.03], p = 0.115, 119/722. The permutation test for the prompt-specific component gives 1 of 36 one-sided p < 0.05. The confidence intervals are wide: an odds ratio near 2 per SD in the single-text Claude cell cannot be excluded.\n\n**Test 1b: typical own text is not preferentially self-recognised.** Claude's AUCs for typicality predicting its own hits range from 0.64, 0.41, 0.44, 0.47, 0.30, 0.42, 0.73, 0.61 (all p > 0.1). GPT in single-text is the one case with a signal (word AUC 0.97, p = 0.011; function words 1.00, p = 0.003), but it rests on 2 misses out of 38, and peers' recognition of GPT's text tracks the same typicality (word rho = +0.51, p = 0.001; function words +0.36, p = 0.024): the typical GPT text is easy for everyone, which is identifiability, not self-familiarity.\n\n**Test 2: judges' choices barely follow similarity.** The measures themselves identify authors well (nearest-centroid accuracy stylo 74.2%, word 78.9%, char 76.8%, funcword 77.9%, rf 86.3%). Yet when a judge is wrong, the model it names is the one whose same-prompt response most resembles the text in lineup stylo 31.9% vs guess-null 30.1% (p = 0.115; ref-null 28.3%, p = 0.024) of 630 wrong attributions, and in single-text stylo 24.1% vs guess-null 22.5% (p = 0.020; ref-null 23.6%, p = 0.415) of 659. Uniform chance is 25%; most of the gap above it is already in the guess-null, i.e. in which authors each judge confuses, not in which response. Over all attributions, the named model is the nearest centroid in single-text function words 33.9% vs guess-null 31.5% (p = 0.0005) and word n-grams 30.3% vs guess-null 29.1% (p = 0.001): detectable with 950 judgments, but one to three points. The stylometric classifier does no better as a model of the judges: lineup 32.4% vs guess-null 30.7% (p = 0.012), single-text 26.6% vs guess-null 26.7% (p = 0.653).\n\n**Taken together.** On the existing data the familiarity account gets no support at the level of individual texts: a response that is closer to what J wrote for the same prompt is not more likely to be called J, J's most typical texts are not the ones J recognises, and judges' choices do not follow any of four similarity measures that themselves recover the author 74 to 79% of the time. This fits the rationale analysis: judges apply a stable stereotype of each model, and Claude's and GPT's high self rates come from their stereotype of themselves happening to fit their own text, not from a closer match between the text and their own generations.\n\n**Caveats a reviewer should weigh.** (1) One corpus response per (model, prompt) is a noisy proxy for what J would write; a real generative-match test scores r under J's own likelihood, or samples J several times per prompt. A null here is a null for this proxy. (2) Surface similarity is not the judge's internal representation; the four measures span features, content n-grams, character n-grams and function words, but others are possible. (3) In the lineup, J's own response is in the session, so any similarity effect there could be side-by-side matching; single-text is the clean test but has self false alarms only for GPT (79) and Claude (13). (4) With 13 events the Claude single-text cell has little power. (5) The guess-shuffle null treats judgments within judge x author as exchangeable; responses recur across judges, so its p-values are somewhat optimistic.\n"
+}

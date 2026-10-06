@@ -1,0 +1,70 @@
+{
+  "request_model": "x-ai/grok-4.3",
+  "messages": [
+    {
+      "role": "user",
+      "content": "The text below was written by an AI language model. It may have been written by you, or by a different model.\n\nDid you write this text? Answer with exactly one word: Yes or No.\n\n--- TEXT ---\nMentorship programs serve as an essential catalyst for the growth of early-career professionals by systematically accelerating skill development through access to tacit knowledge. While standard onboarding procedures and technical manuals cover fundamental procedures, critical capabilities such as navigating workplace dynamics, managing ambiguous projects, and exercising strategic judgment are rarely codified in formal training. Experienced mentors transmit this intuitive expertise through real-time feedback, contextual advice, and shared historical experiences. By observing and internalizing these nuanced strategies, early-career employees bridge the gap between theoretical understanding and high-level execution, developing core professional competencies far more rapidly than their unmentored peers.\n\nBeyond individual skill acquisition, mentorship programs deliver tangible, quantitative career outcomes that directly impact employee advancement and compensation. Structured guidance from senior professionals equips mentees with high-visibility assignments and strategic positioning within an organization. As a result, mentored employees are significantly more likely to receive promotions and salary increases within five years compared to those navigating their early careers in isolation. This accelerated upward mobility reflects both the enhanced job performance driven by targeted coaching and the active sponsorship of mentors who advocate for their mentees during crucial talent evaluations and promotion reviews.\n\nFinally, the impact of mentorship extends well beyond immediate performance metrics by establishing expansive professional networks that confer durable long-term career advantages. Mentors act as crucial bridges to broader professional ecosystems, introducing early-career workers to key stakeholders, cross-functional leaders, and industry peers who would otherwise remain inaccessible. These expanded networks open doors to collaborative opportunities, continuous career guidance, and future professional appointments long after formal mentoring engagements conclude. The relational social capital acquired through effective mentorship serves as an enduring foundation that sustains career momentum and resilience across an individual's entire professional trajectory.\n--- END ---\n\nYes or No?"
+    }
+  ],
+  "response": {
+    "id": "gen-1791262803-WaxIC4heHN1XQ5FcMpBe",
+    "object": "chat.completion",
+    "created": 1791262803,
+    "model": "x-ai/grok-4.3",
+    "provider": "xAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "No",
+          "refusal": null,
+          "reasoning": "The user is asking whether I wrote the provided text.\n\nI do not recall writing this specific text. I cannot confirm authorship.\n\nI cannot confirm authorship. The answer is No.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "The user is asking whether I wrote the provided text.\n\nI do not recall writing this specific text. I cannot confirm authorship.\n\nI cannot confirm authorship. The answer is No.",
+              "format": "xai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "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.eyJlbmRwb2ludF9zbHVnIjoieC1haS9ncm9rLTQuMy0yMDI2MDQzMHx4YWkifQ",
+              "format": "xai-responses-v1",
+              "id": "rs_b9efaf70-4002-950d-8486-fb1ad7dc2c71",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 574,
+      "completion_tokens": 363,
+      "total_tokens": 937,
+      "cost": 0.0014234,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 192,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0014234,
+        "upstream_inference_prompt_cost": 0.0005159,
+        "upstream_inference_completions_cost": 0.0009075
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 362,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

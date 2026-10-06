@@ -1,0 +1,70 @@
+{
+  "request_model": "x-ai/grok-4.3",
+  "messages": [
+    {
+      "role": "user",
+      "content": "The text below was written by an AI language model. It may have been written by you, or by a different model.\n\nDid you write this text? Answer with exactly one word: Yes or No.\n\n--- TEXT ---\nIn an era dominated by ubiquitous screens and digital networks, public libraries remain profoundly essential institutions by serving as the ultimate equalizer for technology access. While it is easy to assume that everyone connects to the internet from a personal device, a stark digital divide persists across socio-economic lines. Libraries bridge this gap by providing entirely free, unrestricted access to high-speed internet, computers, specialized software, and emerging tools like 3D printers and digital media studios. For low-income individuals, students without home connectivity, and marginalized groups, the library is not a quaint relic of the past but a critical technological lifeline. By removing the financial barriers to hardware and broadband, public libraries ensure that the ability to participate in modern society, complete schoolwork, and navigate an increasingly digitized world is a right shared by all rather than a privilege reserved only for those who can afford it.\n\nBeyond acting as portals to the digital realm, libraries function as vital community anchors that foster social cohesion and economic resilience. They are among the last remaining egalitarian, non-commercial public spaces where any individual can exist for hours without the expectation of spending money, offering a safe and welcoming sanctuary for all generations. Within these walls, libraries actively fuel local economies and human development through targeted programming. They provide robust job-search support, resume-writing workshops, and career counseling for the unemployed or those transitioning fields. Concurrently, they host early childhood literacy programs that lay the educational foundation for the next generation. By combining physical sanctuary with structured community investment, libraries build social capital and fortify the civic fabric of the neighborhoods they inhabit.\n\nFinally, the sheer volume of information available online has not made public libraries obsolete; rather, it has made the expertise of professional librarians more indispensable than ever. Unmediated internet search engines prioritize algorithms, advertising revenue, and engagement, which frequently elevates misinformation, sensationalism, and fragmented data. In contrast, librarians possess specialized professional training in information science, allowing them to perform an essential curation and verification role. They guide users through the chaos of the internet, teaching critical digital literacy skills, evaluating source credibility, and unearthing deep, authoritative research databases that remain hidden behind paywalls or buried by search algorithms. In a world saturated with deepfakes and automated content, the human curation, ethical standards, and tailored research assistance provided by librarians ensure that information is not just accessible, but accurate, contextualized, and trustworthy.\n--- END ---\n\nYes or No?"
+    }
+  ],
+  "response": {
+    "id": "gen-1791262774-OPtiZdIfLr6goNU1p2JW",
+    "object": "chat.completion",
+    "created": 1791262774,
+    "model": "x-ai/grok-4.3",
+    "provider": "xAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "No",
+          "refusal": null,
+          "reasoning": "I am determining whether I wrote the provided text.\n\nI am Grok. I did not write this text.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "I am determining whether I wrote the provided text.\n\nI am Grok. I did not write this text.",
+              "format": "xai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "DnqxySLdci3k0Miw/0oO4V5SVoo3VWUsD/CLteEmvVirBhitx7nSooeiZDQwHHtnueRxJv5YGIwmbakTWjlkMRQPAamRq4Y9pvwMtxRVs8SVBzlXrDZU+h/c+xXS7HHJhXPbBIWSzccPpb8dM//vPggzPtZ/jRfosPi1lmiRt+h6Rk/V4PlAKXX9NYybiNWx8VaLes8ki5x6oeWLtiYzGr2q/rZXh4MXBAtP2uYw3LLJyLFOgp7E1UYV5sD0jVAm76oESxk+8NCO/V2ChzwLweprpsQxk+XIc+uR69qIh1R9nAkE6/5fGOrCOH0tr3xyNq6tDxo9uE0gazO2hFuwPJ7Y86MpDJzxrHcqM2khS6vF71AvZc+NlbxvhKX3btN5eOXFvkp8+4oediZdWdfhzL6TsZn21fHv7kmGAHMeBkWlyTDDVwGYyayBLrCB8Lmq0lDOyOUZrkNtZhvaaILztLPJeQFMgeDAaOYGOugKiLKY0iE5vCLfZExux4DJkzlSsb09GuxRUCpxpr+0OqT7yDKZ6N1hGcLybgkKwCn0Pra7yMk6jxZH2/nSt+0pMd+jUJM2m0/JKGo3VjEEW/hVGTKyaLXdqvQPEPgGL17Xjhtf6af1+pUVUTzRFNqe2mOAExP/elhV3N0QhnnCgNc3MlpxcZ0APAxUkZngSRtxvgo+oXxDoUe3VQ5K7zVey7PAwBfXYR/IAoh6pEA/TL+VXjp49VFMj2UPRM1b6mRqtLAOs5hfjIkNiLWDwWa8LKlFX3/5eL2yxDkXP8jvQyelRgQODo7nQcE1yLPCaBjoUqOoGiBNWm2Z9Gsmnag/5ClIlU2PP0rGku6C8uVfjF9Gjg/TeMYRjvMBbVo21+OpBgN4ZrFldlSHVZfkb3cOc29oMXjNjHj64d2StH+zEFao28ke1xMLfMvpdVg2d5JukYaXkvKlLJ+kT/17E1Bf8SEsO8OuDO7PVSUb2S80DsYe+eT5edN7RgdXO+VPE7GJCApISpW3XdJmKjQ4Fnqi/XpIaYIyhr2139atExP/ogfwj/PSnhvQNZaX6h2/ROvv2Dyz+sq57qlLV1DUlv4jTQjvwlEtna6LPBn07c6o+FOG0YesbcpCKvwCWNLWFCQCWHs75bjoOVnJniBm/KGnRva644vRNhICnBzP9ypgCCj7M8c5ecapV+Z9FnebTxtc6bJxJoQ6rjC2Z12dTFvb6V7hogHpz/oJdsBPeedFt9vJmuw0EJK4t3uSEIBjzCGFNEsXRT5ZNJgxHyBcOoayabAKZ04d3t1QZv4oHBamUQj+sXHgSyKbNjY2HNyG8rWUDt9rcUsKpiGzfr9OB12F0+WrhUiRANWhZG/SxP2PheMU41Lf9f7lDlSxEdRH3fEQfOQEsFB/gGOviifuXTaLiasJ/HxUUsbfhfNFo1cJVSOkfRWOJ/SjkJyz/cH70d8WnnO49TY/LWtkpZkXARYNDqWkeZewQnJvK66xaWQxcwFqXUPr3WlWSVVlr8pcGg1ngYTMmfRCGONueGYe8za+5S16s1kaOYpjqLiPFI94smJAuVD7grAv3RO4BfuvhrrEtLT6cMKndE49kl71rY0F/6kY//UJnRAx/fXqi82FYwDmiMWwyLQssbgbQ13pgS1P2vlWRQ7GUSWTKuuhjgkzGpXqwViNsDEpVy3foEjYfZqSxRA5AIw.eyJlbmRwb2ludF9zbHVnIjoieC1haS9ncm9rLTQuMy0yMDI2MDQzMHx4YWkifQ",
+              "format": "xai-responses-v1",
+              "id": "rs_c0f426f5-7920-9730-ac09-b089ebdd1f0c",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 718,
+      "completion_tokens": 278,
+      "total_tokens": 996,
+      "cost": 0.0014581,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 128,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0014581,
+        "upstream_inference_prompt_cost": 0.0007631,
+        "upstream_inference_completions_cost": 0.000695
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 277,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

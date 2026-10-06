@@ -1,0 +1,49 @@
+{
+  "request_model": "anthropic/claude-opus-4.7",
+  "response": {
+    "id": "gen-1786846099-b0Xykxk1ICjj9ySyMH77",
+    "object": "chat.completion",
+    "created": 1786846099,
+    "model": "anthropic/claude-opus-4.7",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"A\": {\"model\": \"GPT\", \"confidence\": 3, \"reason\": \"Structured, clear tone with moderate elaboration typical of GPT-4.\"},\n  \"B\": {\"model\": \"DeepSeek\", \"confidence\": 3, \"reason\": \"Dense single-paragraph blocks with formal but slightly generic phrasing.\"},\n  \"C\": {\"model\": \"Gemini\", \"confidence\": 3, \"reason\": \"Long, ornate prose with specific historical examples and flourishes.\"},\n  \"D\": {\"model\": \"Grok\", \"confidence\": 2, \"reason\": \"Straightforward, plainly worded explanation without stylistic embellishment.\"},\n  \"E\": {\"model\": \"Claude\", \"confidence\": 4, \"reason\": \"Precise, analytical style with careful hedging and clean rhythm typical of Claude.\"}\n}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 5173,
+      "completion_tokens": 275,
+      "total_tokens": 5448,
+      "cost": 0.03274,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.03274,
+        "upstream_inference_prompt_cost": 0.025865,
+        "upstream_inference_completions_cost": 0.006875
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

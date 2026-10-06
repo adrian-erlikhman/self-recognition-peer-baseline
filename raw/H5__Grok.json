@@ -1,0 +1,64 @@
+{
+  "request_model": "x-ai/grok-4.3",
+  "response": {
+    "id": "gen-1786846020-fPgBS1LylHDvz8VmQxIc",
+    "object": "chat.completion",
+    "created": 1786846020,
+    "model": "x-ai/grok-4.3",
+    "provider": "xAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"A\": {\"model\": \"Claude\", \"confidence\": 4, \"reason\": \"Extremely long, densely philosophical paragraphs with careful tripartite structure typical of Claude.\"},\n  \"B\": {\"model\": \"GPT\", \"confidence\": 3, \"reason\": \"Clean, concise, well-organized paragraphs with straightforward academic phrasing.\"},\n  \"C\": {\"model\": \"Gemini\", \"confidence\": 3, \"reason\": \"Shorter and more compact with occasional missing punctuation and summary style.\"},\n  \"D\": {\"model\": \"Claude\", \"confidence\": 4, \"reason\": \"Even longer, highly elaborate sentences and dense philosophical elaboration matching Claude's verbose style.\"},\n  \"E\": {\"model\": \"Grok\", \"confidence\": 3, \"reason\": \"Balanced length, clear explanatory structure with slightly more direct phrasing.\"}\n}",
+          "refusal": null,
+          "reasoning": "The task is to identify which model wrote each of the five responses A through E, based on writing style, structure, and phrasing. The models are GPT, Claude, Gemini, Grok, DeepSeek.\nFirst, the task is to identify the model for each response A-E based on writing style, structure, phrasing. Models: GPT, Claude, Gemini, Grok, DeepSeek.\n\nI need to output JSON in exact format:\n\n{\n  \"A\": {\"model\": \"<model>\", \"confidence\": <1-5 1-5>, \"reason\": \"<one short sentence>\"},\n  ...\n}\n\nConfidence 1=pure guess, 5=certain.\n\nAnalyze styles:\n\n- Claude: Known for detailed, philosophical, long-form, nuanced responses with careful structure.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "The task is to identify which model wrote each of the five responses A through E, based on writing style, structure, and phrasing. The models are GPT, Claude, Gemini, Grok, DeepSeek.\nFirst, the task is to identify the model for each response A-E based on writing style, structure, phrasing. Models: GPT, Claude, Gemini, Grok, DeepSeek.\n\nI need to output JSON in exact format:\n\n{\n  \"A\": {\"model\": \"<model>\", \"confidence\": <1-5 1-5>, \"reason\": \"<one short sentence>\"},\n  ...\n}\n\nConfidence 1=pure guess, 5=certain.\n\nAnalyze styles:\n\n- Claude: Known for detailed, philosophical, long-form, nuanced responses with careful structure.",
+              "format": "xai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "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.eyJlbmRwb2ludF9zbHVnIjoieC1haS9ncm9rLTQuMy0yMDI2MDQzMHx4YWkifQ",
+              "format": "xai-responses-v1",
+              "id": "rs_94d22555-6289-908d-b801-f76fab187a52",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 4013,
+      "completion_tokens": 894,
+      "total_tokens": 4907,
+      "cost": 0.00711685,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 128,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00711685,
+        "upstream_inference_prompt_cost": 0.00488185,
+        "upstream_inference_completions_cost": 0.002235
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 714,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

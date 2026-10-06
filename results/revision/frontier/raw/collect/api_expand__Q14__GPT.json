@@ -1,0 +1,70 @@
+{
+  "request_model": "openai/gpt-5.5",
+  "messages": [
+    {
+      "role": "user",
+      "content": "How many positive integers divide 360 exactly? Solve the problem, showing your reasoning step by step in plain prose, and end with a final line of the form 'Answer: <number>'."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916320-yKRpzFEenEVGcp4gpPJV",
+    "object": "chat.completion",
+    "created": 1790916320,
+    "model": "openai/gpt-5.5",
+    "provider": "OpenAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "To find how many positive integers divide 360 exactly, we first write 360 as a product of prime powers.\n\nStart by factoring:\n\n360 = 36 \u00d7 10\n\n36 = 2\u00b2 \u00d7 3\u00b2, and 10 = 2 \u00d7 5\n\nSo:\n\n360 = 2\u00b3 \u00d7 3\u00b2 \u00d7 5\u00b9\n\nNow use the divisor-counting rule: if a number has prime factorization\n\nn = p\u1d43 \u00d7 q\u1d47 \u00d7 r\u1d9c,\n\nthen the number of positive divisors is\n\n(a + 1)(b + 1)(c + 1).\n\nFor 360 = 2\u00b3 \u00d7 3\u00b2 \u00d7 5\u00b9, the exponents are 3, 2, and 1.\n\nSo the number of positive divisors is:\n\n(3 + 1)(2 + 1)(1 + 1) = 4 \u00d7 3 \u00d7 2 = 24\n\nAnswer: 24",
+          "refusal": null,
+          "reasoning": "**Calculating divisors**\n\nI need to provide a clear answer, so I\u2019ll break down the steps in plain prose. First, I\u2019m factoring 360, which gives me 36 times 10 or 2^3 times 3^2 times 5. Then, I\u2019ll calculate the number of divisors using the formula: (3+1)(2+1)(1+1), which results in 24. I\u2019ll also include that these are positive integers that divide 360 exactly. Finally, I\u2019ll format my final line clearly.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "**Calculating divisors**\n\nI need to provide a clear answer, so I\u2019ll break down the steps in plain prose. First, I\u2019m factoring 360, which gives me 36 times 10 or 2^3 times 3^2 times 5. Then, I\u2019ll calculate the number of divisors using the formula: (3+1)(2+1)(1+1), which results in 24. I\u2019ll also include that these are positive integers that divide 360 exactly. Finally, I\u2019ll format my final line clearly.",
+              "format": "openai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABqvzbjJyt9fj-5rJyrPNrNv3onBpZ5uFZD2lvYssWBtI67eAAwxSlLJRRzjVKN7ArpaLOwiyQ41FI8twldtvih8pb_P97hFuX2ivnrgaSS9FbRfZTf_WvcuprOMUaCgDTn_isMwG6KnGxIGTUPRdfwzrf_K9-KmjXuEVVyrb-XJuUVLwDdHL9tXkRYt-YQmHVxfy0EziuOpR9QucCw3OrVyrmCuOApd5_j1O1wHYKuRK7TddlLz82IQHe0XHyuvWrbNQb4A5yu3DHl3bLkld9f9tOQBejXwc0aDLrtV31LFKhfiyv3rte8STRYG0x56pggk11VIecYhTGDbmsLgNroWUVr8tSdIMVhAmgAeirtNF7RSmr6aTZ5vt83xqH8_qqPtaszMjoFicAYqBE7UXIITUK4kXGQTMo_aEHCQNaV19wLLK_0sUjpPQmBzjFUiFWY-W_vZ2gk5T-ruoFGjRNMyKUaUu-OYv7s9jWj7Zn2bE_2xmAWL95-LGjYr6ZbXCHUaQxEgTBeb9kt2W9QhpwWuv4CtAxEx92iokVmFZQeovELc1G7laQ-rxRNSScR25SJMCZ7hlQUUEIvxsx64RSE2fTtdXMxjMV3K_KRqIcE2r0wp0ogZm8kpvMHH1HRi1jnrmfjZp-zTlVY5L8Zkjg85y3YCXmXymimHx7-LPQpQUhkVa0NhzohctDD4ilcNsB-G77op-8Y6piGDXMclPyiqUb3QYUAuoOgVUIpB7NcmkqBlEfrjuW075wpOFle0Tw4BTziCzU91PJSOyizUf44nwkrLQPEwcA9W7Bm1LNd0ImmJDzzkOAzUyCnb5JYw3X6JW4a-rG-oHgp0iQz-F3VN9eDzGFpgr6zQoeJtKXQK9vqoSY2URz8E5q3gDIYMiw5pTTNvP_Qo1I9etpArk_irKHn55SZwxDFsK0tZ96-0WDsXOHHKvm1uJ_fuxqY7FUNDfSBPSLB6QkYuDvMgu4e2988EznSMZpej56RQJK5fkZJab1QGWyn0n_TDZw-QstlLPb-rUArWOpIMOQgdmXBoois9Ki8Pq6Pl5-6z1p19JL6Aeq7ZIsnI1QazFWDalH8XmobYXVWG-EgZuM75Yyek3SdFuKov2AYbhgcAyaU-lJaPtMWbpkkmu1Z8jmOFfAWgNiKtOoprj3lks6BN3uJR4i8D2hSRDEx9KS41ygijE5dIOCZvS3zsoXbUjtPNwu0l8vTCZ75nWqbUFdZpIuLJCCQik_w07K-8SloU90dCHS9srFO06RMRiOs6joQdbKIUZo5ZwDbMuSWRAMINALrUy2xXjtIaZdpk26qfQttyMv7sQio0E56Gq5kAYmO-G6M4WYPTXnAeNQLekcxbJ7cGOg88Fmun4L9_dxLI0IEVGkoD07_ar8dCPeCmNCsCAuNHyVPqzLIcNARKFF8lYmJBEkdF3Xxn5Y0EZSkMAx7AhiArPDi3CWYd8H81ev0hKy6fZEK5c0T9XR37vAr3-xhCzrnirY8ng3bs_ze4zCxO-PjgVgezKEHhk0zG7a7vLdXcS8JMmVNhVx2oeJVuSVn0WkhEapTIdtTa6sVOSmFIukfZjQwofNQuZ7-9L3YewWNGcQx.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC01LjUtMjAyNjA0MjN8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_0097ae35a7442510016abf36e1275087d190798c89e5f67216",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 44,
+      "completion_tokens": 270,
+      "total_tokens": 314,
+      "cost": 0.00832,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00832,
+        "upstream_inference_prompt_cost": 0.00022,
+        "upstream_inference_completions_cost": 0.0081
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 64,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

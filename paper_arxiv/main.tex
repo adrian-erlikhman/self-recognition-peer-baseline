@@ -1,0 +1,67 @@
+% arXiv version, single column. Build: python paper_arxiv/build.py (--bundle for the upload zip)
+\documentclass[11pt]{article}
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{times,latexsym}
+\usepackage{url}
+\usepackage{xurl}
+\usepackage{natbib}
+\usepackage{booktabs}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{adjustbox}
+\usepackage{flafter}
+\usepackage{needspace}
+\usepackage{enumitem}
+\usepackage{listings}
+\usepackage[font=small,labelfont=bf]{caption}
+\usepackage[colorlinks=true,citecolor=blue!50!black,linkcolor=blue!50!black,urlcolor=blue!50!black]{hyperref}
+\setlist{itemsep=2pt,topsep=4pt,leftmargin=*}
+\lstset{basicstyle=\ttfamily\footnotesize, breaklines=true, columns=fullflexible,
+  keepspaces=true, frame=single, upquote=true}
+\setlength{\parskip}{3pt}
+\setlength{\emergencystretch}{2em}
+
+% Study 1's numbers (src/engine_b.py), the shared numbers
+% (paper_tacl/make_numbers.py), then the arXiv additions
+% (paper_arxiv/make_arxiv_numbers.py).
+\input{numbers_study1}
+\input{numbers_rev}
+\input{numbers_arxiv}
+
+\newcommand{\CodeURL}{\url{https://github.com/adrian-erlikhman/self-recognition-peer-baseline}}
+
+\title{\bfseries Most Apparent Self-Recognition in LLM Judges\\
+Does Not Survive a Peer Baseline}
+
+\author{Adrian Erlikhman$^{1}$ \qquad Michael Tarekegn$^{1}$ \qquad Philo Juang$^{2}$\\[4pt]
+\normalsize $^{1}$Los Angeles Center for Enriched Studies \qquad
+$^{2}$University of California, Los Angeles\\[2pt]
+\normalsize\texttt{erlikhman.adrian@gmail.com}}
+
+\date{October 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+\input{sections/abstract}
+\end{abstract}
+
+\input{sections/intro}
+\input{sections/related}
+\input{sections/measure}
+\input{sections/frontier}
+\input{sections/openweight}
+\input{sections/mechanism}
+\input{sections/closing}
+
+\bibliographystyle{acl_natbib}
+\bibliography{references}
+
+\clearpage
+\appendix
+\input{sections/appendix}
+
+\end{document}

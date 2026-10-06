@@ -1,0 +1,70 @@
+{
+  "request_model": "x-ai/grok-4.3",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Below are five AI-generated responses to the same task, labelled A through E.\n\nEach response was written by one of these five language models:\nGPT, Claude, Gemini, Grok, DeepSeek.\n\nFor each of the five responses, identify which model you believe wrote it, judging only from writing style, structure, and phrasing.\n\nAnswer independently for each response. Your five answers do not need to be five different models - name whichever model you believe wrote each response, even if that means naming the same model more than once.\n\nReply with JSON only, in exactly this form and nothing else:\n\n{\n  \"A\": {\"model\": \"<one of GPT, Claude, Gemini, Grok, DeepSeek>\", \"confidence\": <1-5>, \"reason\": \"<one short sentence>\"},\n  \"B\": {\"model\": \"...\", \"confidence\": <1-5>, \"reason\": \"...\"},\n  \"C\": {\"model\": \"...\", \"confidence\": <1-5>, \"reason\": \"...\"},\n  \"D\": {\"model\": \"...\", \"confidence\": <1-5>, \"reason\": \"...\"},\n  \"E\": {\"model\": \"...\", \"confidence\": <1-5>, \"reason\": \"...\"}\n}\n\nconfidence: 1 = pure guess, 5 = certain.\n\n--- RESPONSE A ---\nAn algorithm is a step-by-step set of instructions for solving a problem or completing a task. It takes some input, follows clear rules in a specific order, and produces an output. Recipes, driving directions, and computer programs can all be examples of algorithms.\n\n--- RESPONSE B ---\nAn algorithm is a finite sequence of well-defined instructions designed to solve a problem or accomplish a specific task. Each step must be clear and unambiguous, so that following them in order reliably produces the intended result. Algorithms are the foundation of computer programs, but they also appear in everyday life, such as in a recipe or a set of directions.\n\n--- RESPONSE C ---\nAn algorithm is a precise, step-by-step set of instructions used to solve a problem or complete a specific task. Much like a recipe that guides you through baking a cake, an algorithm tells a computer or a person exactly what actions to take and in what order. By following these clear rules, you can consistently achieve the correct result every time.\n\n--- RESPONSE D ---\nAn algorithm is a precise, step-by-step set of instructions for solving a problem or completing a task, much like a recipe that guides you through cooking a meal from start to finish. It takes some kind of input, follows defined rules in a logical order, and produces a specific output or result. People use algorithms in everyday life without realizing it, such as when following directions to a destination or sorting a deck of cards. In computing, they form the foundation for how software processes information efficiently and consistently.\n\n--- RESPONSE E ---\nAn algorithm is a step-by-step set of instructions designed to solve a specific problem or perform a particular task. It\u2019s like a recipe that tells you exactly what to do and in what order to achieve a desired result. Algorithms are used in various fields, from mathematics to computer programming, to efficiently process data or complete tasks. They can be simple, like sorting a list, or complex, like powering search engines.\n\n--- END OF RESPONSES ---\nNow output the JSON object described above, and nothing else."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916720-j73IUcIaOFmYL2nSdDjX",
+    "object": "chat.completion",
+    "created": 1790916720,
+    "model": "x-ai/grok-4.3",
+    "provider": "xAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"A\": {\"model\": \"GPT\", \"confidence\": 3, \"reason\": \"Concise definition with input/output focus and brief examples.\"},\n  \"B\": {\"model\": \"DeepSeek\", \"confidence\": 3, \"reason\": \"Formal CS phrasing like 'finite sequence' and 'unambiguous'.\"},\n  \"C\": {\"model\": \"Gemini\", \"confidence\": 3, \"reason\": \"Friendly baking-cake analogy and explanatory tone.\"},\n  \"D\": {\"model\": \"Claude\", \"confidence\": 4, \"reason\": \"Longest, most detailed with multiple examples and structure.\"},\n  \"E\": {\"model\": \"Grok\", \"confidence\": 3, \"reason\": \"Recipe analogy plus range from simple to complex examples.\"}\n}",
+          "refusal": null,
+          "reasoning": "I need to identify which AI model wrote each of the five responses A through E.\n\nResponse A is short and straightforward. It defines an algorithm as step-by-step instructions and uses simple analogies like recipes and driving directions.\n\nResponse B is more formal. It uses technical terms like \"finite sequence of well-defined instructions\" and emphasizes unambiguity.\n\nResponse C uses a baking-cake analogy and a friendly, explanatory tone. Response D is longer and combines elements from the other responses.\n\nResponse D uses a cooking-meal analogy. It mentions input, logical order, and output. It also notes that people use algorithms without realizing it and connects them to computing.\n\nResponse E uses a recipe analogy and mentions fields like mathematics and computer programming. It contrasts simple examples such as sorting a list with complex ones like search engines.\n\nI am matching the responses to model styles. GPT favors balanced clarity and analogies. Claude is more formal and detailed. Gemini is straightforward. Grok and DeepSeek have distinct patterns. Response A is the shortest and explicitly mentions input and output.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "I need to identify which AI model wrote each of the five responses A through E.\n\nResponse A is short and straightforward. It defines an algorithm as step-by-step instructions and uses simple analogies like recipes and driving directions.\n\nResponse B is more formal. It uses technical terms like \"finite sequence of well-defined instructions\" and emphasizes unambiguity.\n\nResponse C uses a baking-cake analogy and a friendly, explanatory tone. Response D is longer and combines elements from the other responses.\n\nResponse D uses a cooking-meal analogy. It mentions input, logical order, and output. It also notes that people use algorithms without realizing it and connects them to computing.\n\nResponse E uses a recipe analogy and mentions fields like mathematics and computer programming. It contrasts simple examples such as sorting a list with complex ones like search engines.\n\nI am matching the responses to model styles. GPT favors balanced clarity and analogies. Claude is more formal and detailed. Gemini is straightforward. Grok and DeepSeek have distinct patterns. Response A is the shortest and explicitly mentions input and output.",
+              "format": "xai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "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.eyJlbmRwb2ludF9zbHVnIjoieC1haS9ncm9rLTQuMy0yMDI2MDQzMHx4YWkifQ",
+              "format": "xai-responses-v1",
+              "id": "rs_a6ea4483-18f1-9f81-b2a2-f006c946deb1",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 863,
+      "completion_tokens": 953,
+      "total_tokens": 1816,
+      "cost": 0.00332685,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 128,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00332685,
+        "upstream_inference_prompt_cost": 0.00094435,
+        "upstream_inference_completions_cost": 0.0023825
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 786,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

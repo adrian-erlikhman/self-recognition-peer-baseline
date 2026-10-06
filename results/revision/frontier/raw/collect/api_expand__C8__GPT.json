@@ -1,0 +1,70 @@
+{
+  "request_model": "openai/gpt-5.5",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Write a Python function `merge_intervals(intervals: list[tuple[int, int]]) -> list[tuple[int, int]]` that takes closed intervals (start, end) with start <= end, in any order, and returns the minimal list of merged intervals sorted by start. Intervals that overlap or touch at an endpoint are merged, so (1, 3) and (3, 5) become (1, 5). Return an empty list for empty input and do not modify the input list. Use only the Python standard library. Include a docstring and brief inline comments. Return only the code in a single Python code block, with no explanation before or after."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916304-c4aftrAQPZD0VOvbmPD2",
+    "object": "chat.completion",
+    "created": 1790916304,
+    "model": "openai/gpt-5.5",
+    "provider": "OpenAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "```python\ndef merge_intervals(intervals: list[tuple[int, int]]) -> list[tuple[int, int]]:\n    \"\"\"Merge closed intervals, combining intervals that overlap or touch.\"\"\"\n    if not intervals:\n        return []\n\n    # Sort a copy by start, then end, leaving the input list unchanged.\n    sorted_intervals = sorted(intervals)\n\n    merged: list[tuple[int, int]] = []\n    current_start, current_end = sorted_intervals[0]\n\n    for start, end in sorted_intervals[1:]:\n        # Closed intervals merge if they overlap or touch at an endpoint.\n        if start <= current_end:\n            current_end = max(current_end, end)\n        else:\n            merged.append((current_start, current_end))\n            current_start, current_end = start, end\n\n    # Add the final accumulated interval.\n    merged.append((current_start, current_end))\n    return merged\n```",
+          "refusal": null,
+          "reasoning": "**Building a code function**\n\nI need to create a function using a code block. It's important to ensure that I'm not altering the input in any way. I\u2019ll use sorting within the function, which is a common requirement. It's also essential to include type hints, which can make the code clearer and easier to understand. Don't forget to add a docstring and some inline comments to explain the code better \u2014 clarity is always key in programming!",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "**Building a code function**\n\nI need to create a function using a code block. It's important to ensure that I'm not altering the input in any way. I\u2019ll use sorting within the function, which is a common requirement. It's also essential to include type hints, which can make the code clearer and easier to understand. Don't forget to add a docstring and some inline comments to explain the code better \u2014 clarity is always key in programming!",
+              "format": "openai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABqvzbSVTsVYSUOtcMOhI3jVD0jroGbraE6ibO-QEar5ZmKimxFT8hFT8SzRP_bL_cSBUyuwCWhOy9IyDmJYyrsBKH6jXS6kRAZzW0c0liQvb9tB9BRuNC0mplTSgM7lrjWlopNnUl5yhXLhDadMe27yrGPN3yz67Kp42fcShOUsqCXbN_KZRAzaT7y3AfGis3gCHi-NbyA94rKWT_vLMWUeQQZKyWd2YZDRuv8Pn-PGlLa8oKXqfKazO60ibfd3euncwx8NNN_6_UxAtsxdRhppOPnmxi5lrVS2Tgu3Q0ddmJZSAMqzGT4wJF11L0sctp3RmQcn-7zNkPLGinZHDek9-vgsh1Y7asMFwkKn5gr_4ZdWRdEwMn9KhggVKv6QaMFomPB7JvU9eslQ-4hC4lf-RQYlhQ_A1cKRaeujvRniglvETiR2EkJEKp8Geb5dsY5aBUnQxgvH_WdCJ6hABBjkvz6zfIEQZLhQVZl8iIGE63YgDoHWt4rAIZcPcThDBi6a3Q3HyUAtkz72NTof3EvWzipzmOouHxMdr6X2aWoZ7wPe1icmK_g7VWrN935Bt_1zPTayYSZ1vVfsMgrWgTysWJkZ67qbI-_clsJcloSHByMqbWJzsmC_g9q4T6McXWn_7iNXnI3Dn1XNbRpr_UYkEk63k_FAIZ9eYNsKIkCiiRvq8FhEyJNkSPVKeVw_I9EoYvc1KYWwQxkumIASBIY5wCc6Atcx5tE__o4DPcnPoiq42_tn_tgJ296xr9mj3jU5e-7IHkrlICJmqJ7jxBtUnM9sx2RLuEWhl7x87fy115COoeu3Yc8CTA9lOZvakwQcv5hWvwLg7md4Mf9-X5je0dlc4tK6wGywq4EeMjjKfChcW3ywDWfNfV4TWlQeEUNzN0ZsSKImrBPHuxokNbJnFiHURV3xU3vQruJYDngKyqYNCtHzZdcGN-ToR-xsVqK5c2QZ5MLS0dLnkhncbp5glcTbOfVWNHSaxXvghyMsjELSZFFVAcyWBT99Tpffs6x_PI24jc4ZvKiy6KtzQdOeTXDSqR7pG22jX04HLxxTKCpCEfBVPgDf_ngBJLhHs12aA1KKVA-MckkXpHwpld_6vDGzdsB2_IxiTUBzqV04r4seJBR7klhGcZGi4s1RPOB_vG-S2uzKBKjLOVmW60kaQ0gV4T5fKx56NbLPEa4e78bGTRo0Qo1Fdy3WHsMMKPnVNYqgA7dmoAvqR3fi6h2nt_3gTgKQwE0Oe42m0LS48ELeJQMCD7p9nt8lHNon6_wwsVLNOowtHapvI8DiKVvln5y806QvAZBVBg43DGUvrx4Z3SQ6KCPrHTlBXuqG-0BOXIPo1KAv1T3hRR5fS_MMQpEd7683P1TCMcYR9ou3kg0BYoLqVmac1QSGqEDLzpqol897NsM2Qf-NGeDeDydrs6doa7OoP9VIIrq45SUYQK-deth6FP2N8SRASNN7AOxgLYL23WzxhNoN_0Zag4kylKg9ZDUT4jyVvyeErX2BEzE8Ak=.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC01LjUtMjAyNjA0MjN8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_05088884b5009f01016abf36d1710c87d1bd18727469a513a7",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 145,
+      "completion_tokens": 224,
+      "total_tokens": 369,
+      "cost": 0.007445,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.007445,
+        "upstream_inference_prompt_cost": 0.000725,
+        "upstream_inference_completions_cost": 0.00672
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 30,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

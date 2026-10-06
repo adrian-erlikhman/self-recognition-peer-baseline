@@ -1,0 +1,55 @@
+{
+  "request_model": "anthropic/claude-opus-4.7",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Explain why water boils at a lower temperature at high altitude. Answer in two to four sentences of plain prose."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916415-2Mxb62qtHUPEdH42nDNd",
+    "object": "chat.completion",
+    "created": 1790916415,
+    "model": "anthropic/claude-opus-4.7",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "Water boils when its vapor pressure equals the surrounding atmospheric pressure. At high altitude, the atmosphere is thinner and exerts less pressure on the liquid's surface, so water molecules need less thermal energy to escape into vapor. As a result, the boiling point drops\u2014for example, from 100\u00b0C at sea level to around 90\u00b0C at 3,000 meters.",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 47,
+      "completion_tokens": 124,
+      "total_tokens": 171,
+      "cost": 0.003335,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.003335,
+        "upstream_inference_prompt_cost": 0.000235,
+        "upstream_inference_completions_cost": 0.0031
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

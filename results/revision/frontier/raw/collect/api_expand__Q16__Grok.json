@@ -1,0 +1,70 @@
+{
+  "request_model": "x-ai/grok-4.3",
+  "messages": [
+    {
+      "role": "user",
+      "content": "How many liters of a 60 percent acid solution must be added to 10 liters of a 20 percent acid solution to produce a 40 percent acid solution? Solve the problem, showing your reasoning step by step in plain prose, and end with a final line of the form 'Answer: <number>'."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916336-omThdaFxoTMXxtN4ZA0s",
+    "object": "chat.completion",
+    "created": 1790916336,
+    "model": "x-ai/grok-4.3",
+    "provider": "xAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "Let \\( x \\) represent the unknown number of liters of 60 percent acid solution that must be added. This contributes \\( 0.6x \\) liters of pure acid. The original 10 liters of 20 percent solution already contains \\( 0.2 \\times 10 = 2 \\) liters of pure acid. The resulting mixture therefore contains a total of \\( 0.6x + 2 \\) liters of pure acid and occupies a total volume of \\( x + 10 \\) liters. For the mixture to be exactly 40 percent acid, the pure-acid quantity must satisfy the equation\n\\[\n0.4(x + 10) = 0.6x + 2.\n\\]\nDistributing the left-hand side produces\n\\[\n0.4x + 4 = 0.6x + 2.\n\\]\nSubtracting \\( 0.4x + 2 \\) from both sides isolates the variable term:\n\\[\n2 = 0.2x.\n\\]\nDividing through by 0.2 then yields the unique solution\n\\[\nx = 10.\n\\]\nVerification confirms the result: adding 10 liters of 60 percent solution supplies 6 liters of acid, for a combined total of 8 liters of acid in 20 liters of mixture, which is precisely 40 percent acid.\nAnswer: 10",
+          "refusal": null,
+          "reasoning": "I need to find how many liters of 60% acid solution must be added to 10 liters of 20% acid solution to produce a 40% solution.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "I need to find how many liters of 60% acid solution must be added to 10 liters of 20% acid solution to produce a 40% solution.",
+              "format": "xai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "V+Tx7fR8o4VoWKRS1Wf28QS1AbscKDrYzjynOsxPWVVV7y2nHhXRbW5SrbbvNk9x/JaWs0b7v/I2F4Yicfx39jFhFjDouZokZFDabuf3P4LQki3YlHxUkMcrUXd6VCjq8MgdhCeU+14yvTb2DK3oxXr4Zo+8bvEzeWN3MmP9NB980NOXmCpphYkO9WRP8m9M76o0c1hNqBfIE6fhm6s25ZVBCbGrJfEiJ8XGLL/dm729F9MjMz+314lAqyq6o5UcoO6gLH+gKrLvwJcofvXfcq0v9HzRzujqWpW5e8uqB3wSuclu6YJaOf7VMFTQmb5rJl0Ty8oKH2EHbOg0bwRs94RHvNldXANhj7ZxuPw/h76p6UmsssDXUaTv7gVIi0XCgwZHynAOKvpyQzDu7CirqLz3X52hwrH7hs7ra/tq+QYzF2DILzgzz/7cv4BjZq/Tk3gqh5KzH4o07zXC30APIpGWgBXqey850nhoNBrNqYQwdcCnYlS2xLNWFX0VTqrZpXrrrH+Orx13pO1oFXCs2wEDD2a6nxv5ATZiXXoGWClNi7sEPmHT5d3eLConCCDqcGyjjUB2M8gSPbd18lO3FzvVRNwqyVJtvHS5OYlq9enL9zZWJ238G0wQ712sxIGQbMK7eSDKFR0j8DdqB4vXefslJe47reFHpROpDgdnoIUDjBPJuuxXxDWWCpDOhfUJSHyJCOIgQWW8pvWBUkcVCjfgil6PHvwpTUUWPJBar8de5sD8AJhoDzwQy9uA9D679J6jxj78qdLxW+qGyVzAuJGtXFO5s0UNOc+xowDlQ7qmdFhztOl0vgYV/wIuDydjR/2+CPK+rDDmPC/UlRaqMdQuiGRqos7nvpjrQ4nHKOHpqORhM4nKaHKzDmcN9OMf5BNPlE1RiYCRcOX7DrGduvE0Fclxy4+8+9JbnnpvxBRsY9p2NzckozltOPYUF9EzEnoke1mcLPuLjY3IRmA9TeRtcdw58s5s4QfZH1l3hGbA0cZXIOBgns3Rhh0laxvKSOeTSDx3T4CMg9nkj3uuFw3c/uAvPPmn9nMvVdxC1qHZh4ExULRuwtVl8OqREp0cVPx0AbwHW/0z2V88KGpPb+2CoRKlQc/8nAEepZOaoUU1fJiF1Onolptwzofp9XKBHdzxIAY5MEeLzicdWnAB9f2n76RGNa4lxzfLKqlCxMQ5sv3lTj3T1Et32rmqbQ/SfqblXdyww92tfGKyt5cillqPc+c+3Q7T.eyJlbmRwb2ludF9zbHVnIjoieC1haS9ncm9rLTQuMy0yMDI2MDQzMHx4YWkifQ",
+              "format": "xai-responses-v1",
+              "id": "rs_9c7a00ef-57a7-9220-bb8c-9deee279ed3a",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 254,
+      "completion_tokens": 590,
+      "total_tokens": 844,
+      "cost": 0.0015909,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 192,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0015909,
+        "upstream_inference_prompt_cost": 0.0001159,
+        "upstream_inference_completions_cost": 0.001475
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 321,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

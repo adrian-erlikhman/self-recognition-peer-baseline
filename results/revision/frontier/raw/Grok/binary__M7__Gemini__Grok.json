@@ -1,0 +1,70 @@
+{
+  "request_model": "x-ai/grok-4.3",
+  "messages": [
+    {
+      "role": "user",
+      "content": "The text below was written by an AI language model. It may have been written by you, or by a different model.\n\nDid you write this text? Answer with exactly one word: Yes or No.\n\n--- TEXT ---\nUrban green spaces and parks represent essential public health infrastructure, delivering well-documented physical and mental health benefits that far outweigh their initial municipal investment and ongoing maintenance costs. Expanding access to natural areas within cities directly correlates with significant improvements in population-level physical health, specifically regarding chronic conditions that place massive financial burdens on local healthcare systems. Regular access to neighborhood parks encourages physical activity, which plays a pivotal role in reducing rates of cardiovascular disease and curbing urban obesity metrics. Furthermore, exposure to natural environments lowers cortisol levels and blood pressure, directly mitigating stress-related illnesses that modern urban living frequently exacerbates. By providing accessible locations for recreation and exercise, municipalities foster healthier populations, ultimately reducing public health expenditures associated with preventable non-communicable diseases.\n\nIn addition to physical health advantages, parks serve as critical restorative environments that support community mental health and buffer against common psychological conditions. The psychological restoration provided by green spaces offers urban residents a vital refuge from constant sensory overload and high-stress environments. Exposure to natural sights, sounds, and biodiversity facilitates cognitive recovery, enhances mood, and significantly reduces symptoms of anxiety and depression. Studies consistently demonstrate that individuals living near green infrastructure report higher levels of subjective well-being and lower psychological distress. By serving as passive therapeutic spaces and social hubs that combat urban isolation, public parks function as proactive tools for mental health management, decreasing the need for acute psychological interventions and enhancing overall quality of life.\n\nBeyond direct biological and psychological effects, green infrastructure confers environmental health benefits that directly safeguard urban populations against environmental hazards. Trees, vegetated surfaces, and unpaved parklands counteract the urban heat island effect by providing shade and evapotranspirative cooling, which substantially lowers ambient temperatures during heat waves and prevents heat-related mortality among vulnerable demographics. Simultaneously, urban foliage acts as a natural air filtration system, capturing particulate matter, absorbing gaseous pollutants like nitrogen dioxide, and producing oxygen. This reduction in air pollution yields immediate respiratory health benefits, leading to lower rates of asthma exacerbation, reduced incidence of chronic obstructive pulmonary disease, and fewer emergency room visits. Consequently, municipal spending on green spaces functions as a highly cost-effective strategy for climate resilience and environmental disease prevention.\n--- END ---\n\nYes or No?"
+    }
+  ],
+  "response": {
+    "id": "gen-1791262794-5WLFSa0kZ6E6dpTFJdYn",
+    "object": "chat.completion",
+    "created": 1791262794,
+    "model": "x-ai/grok-4.3",
+    "provider": "xAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "No",
+          "refusal": null,
+          "reasoning": "Determining whether the user wrote the provided text.\n\nThe text does not match any output I recall generating. The answer is No.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "Determining whether the user wrote the provided text.\n\nThe text does not match any output I recall generating. The answer is No.",
+              "format": "xai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "NUzVzxnt+h5EFLzVC7vrdyFNDgaUV27DL1JMZvoC0z9TMNNniN8HtCtjbY00PpiOdCTATpYE7n0ZJBjvGToG3Gs9rj6qL8RdQdMUOTZfpRTP3yfGePyftVPvWQ7+13xJ2pj649g4p8PhykscyIwqmzX6nz1vg5E22aQi96y4xACXcG2A9MaXh2utpbpIMhBOk+RX0XYFHz1hUz91F/Q6Mt3S48vwRqZnTZCDCWFZJolQd5WRts6W0D8rk2DIMuKj6F+9hv5dGJr3/8zO7D02sOK+8GNw/vdEiuejQWAeYfmh/Lz7lzviKyHiyoBBLsB+jChHughemERRdMpNvIyFiVoUlSYZgSemqR29dkgZj5LVQAm1JnER5jAtaIW7HAgrA+Eezb8QhI7QqMPim4Qy4TERsSFEbjdcvU9maROW3oZrXzo4r+66lNfO+8aTE3R++J9+J9jQ5fmDABR6QRLq1fsOFQ7ENypV6G9j7mJIpfC6vQuywtFItvXGOByRyO5+jxZJGJEj5W6J4XL+mXTs21BFw8K8HMZu8Lwa8SBUJRxmmKtv89h/X1rgzmPmr7vYUQIPUmD2JfeQPOKjM29PHT++amog3QLMHTWOT2hFaUuMG2Z12PFv58yfCq71gvzmH2SfLla2jl7N7lJGHHsLEMOBPWqQUKqK9Pi9trW9IhdMzLUao3NS7GQuodTPhk/3SoaCXCBMNdaTdmcUAXeAA8HZjnhk0euqeVkk0DU1yXzMiEY9bNUv9L0tXt5WW0D9uOC23vclp+s3PBdAKQR+QZ+of5Gmo+DRzCK5GFVbVdCETaC4ZZFRVmmhv84G4a4WqDrbiI5kRE3LNoZ1j/O1ICoW+NkMAIT3Zr1u+oOoWAcMPGi3oPPL4a8ZtDCWPmqs2WYiCCZBEtMrYLmjxM2NFkHDHHxkrxzPre0y6d2qpEZeJcCdz1VEWNWEamfycopu4OQczUJsJhXkzE2Sh68IrjTOCCqQQs5BuoXl4DDsXpGpjeSsJdPwNkF/soYHxYiUUC05xp5LCkIOMnJS3895uUTuHkcqoHgZ5wo5pwejbHIfEDZj3d/HSGfH/2j16NSosgRCqWwAmEI9IZex1z0mnRj7BcCkK+jaGCBwv40MhL8gMc83kcAc86Pge/MIDjkFddrXqFT9smSG2QKUfq+A6kpO/05H14d3GnB4M+3lGUjq2creq4CZg1YhZznXjHgJO0L9CjCh1q5M6DKZc1OzVOaGOPq/flG8EB4KCsZ0TFWTMoPkz7iTAycgHZeN2PlXHVzE1QgrVNhDMCXEvL6ZPECgOfyvZ4sJN+ji9uSrv7NcR8d46N1hJUvo1rseEGqH1rnqF861zR2nYVVlkIMWWnhIjQZxxwBY3BYj69judQwHccemiKBJC4q5y3AfZ5bNyfZEMU9NX+8XRKji0i188VBZOResQByR6owEgfG6cr6l4TEE/5yCVuIjf03z8XoYq4kz6ILXL7VMDJFPiIjb/aZf4+6ZcXRuJtAjgpjGLLRfk+VuHr1tL1gO1VzF9tzqSmjHsXl7cB7Ejii6Pw4yCJA/lSOEPm78qnZrgiopN/jRWnaWpMxIyoB3p6uaY4sRVddpdVSOlFAPZJr5o4LG6wTprPZeLf0j5Qc2ql/q+Die/+ht6D3lswR+IFud3RNmfMSyzkhwb8ITsbyAYVgAWEybrEYAKuZwD64Stbpgm4E40R5kjxjFKB5kmmRdJpEbHvR3QTiknmI7SoU3/qgswa+mBn/gaT5bdFcCByHN9KGgyj37E3svlEkEQU8GfcQ.eyJlbmRwb2ludF9zbHVnIjoieC1haS9ncm9rLTQuMy0yMDI2MDQzMHx4YWkifQ",
+              "format": "xai-responses-v1",
+              "id": "rs_2158bb36-036c-9efd-b830-7a4a867c2026",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 666,
+      "completion_tokens": 292,
+      "total_tokens": 958,
+      "cost": 0.0013609,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 192,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0013609,
+        "upstream_inference_prompt_cost": 0.0006309,
+        "upstream_inference_completions_cost": 0.00073
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 291,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

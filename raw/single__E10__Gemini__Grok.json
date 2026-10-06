@@ -1,0 +1,64 @@
+{
+  "request_model": "x-ai/grok-4.3",
+  "response": {
+    "id": "gen-1786845399-PRhWvibFZRGdbJK94bQT",
+    "object": "chat.completion",
+    "created": 1786845399,
+    "model": "x-ai/grok-4.3",
+    "provider": "xAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "{\"model\": \"Claude\", \"confidence\": 3, \"reason\": \"Highly structured paragraphs with clear topic sentences and a thoughtful focus on mental wellbeing match Claude's typical style.\"}",
+          "refusal": null,
+          "reasoning": "The task is to identify which AI model most likely produced the given text: GPT, Claude, Gemini, Grok, or DeepSeek. I must reply with JSON only in a specific form.\nFirst, the text is structured with three paragraphs, each focusing on one main benefit: 1) mitigating social comparison, 2) reclaiming time for offline activities, 3) improving sleep quality. It uses transitions like \"A primary advantage\", \"also\", \"Finally\". It's formal, coherent, well-written, positive tone on mental health.\n\nNow, matching to models:\n\n- GPT: General, balanced, uses standard English, transitions smoothly. But often more generic.\n\n- Claude: Known for being thoughtful, ethical, careful with language, especially on sensitive topics like mental health. Produces structured, nuanced arguments.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "The task is to identify which AI model most likely produced the given text: GPT, Claude, Gemini, Grok, or DeepSeek. I must reply with JSON only in a specific form.\nFirst, the text is structured with three paragraphs, each focusing on one main benefit: 1) mitigating social comparison, 2) reclaiming time for offline activities, 3) improving sleep quality. It uses transitions like \"A primary advantage\", \"also\", \"Finally\". It's formal, coherent, well-written, positive tone on mental health.\n\nNow, matching to models:\n\n- GPT: General, balanced, uses standard English, transitions smoothly. But often more generic.\n\n- Claude: Known for being thoughtful, ethical, careful with language, especially on sensitive topics like mental health. Produces structured, nuanced arguments.",
+              "format": "xai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "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.eyJlbmRwb2ludF9zbHVnIjoieC1haS9ncm9rLTQuMy0yMDI2MDQzMHx4YWkifQ",
+              "format": "xai-responses-v1",
+              "id": "rs_1ca69e4d-ff61-979a-8243-bb38090bb40a",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 703,
+      "completion_tokens": 677,
+      "total_tokens": 1380,
+      "cost": 0.00243685,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 128,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00243685,
+        "upstream_inference_prompt_cost": 0.00074435,
+        "upstream_inference_completions_cost": 0.0016925
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 639,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

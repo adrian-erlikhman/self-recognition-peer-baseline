@@ -1,0 +1,70 @@
+{
+  "request_model": "x-ai/grok-4.3",
+  "messages": [
+    {
+      "role": "user",
+      "content": "The text below was written by an AI language model. It may have been written by you, or by a different model.\n\nDid you write this text? Answer with exactly one word: Yes or No.\n\n--- TEXT ---\nDefaulting to external recruitment over internal development overlooked a company's most valuable asset, which is the deep institutional knowledge already held by its current workforce. When an organization invests in training its existing employees, it safeguards a massive repository of implicit understanding regarding internal systems, cross-departmental relationships, company culture, and legacy processes. An external hire, no matter how technically qualified on paper, enters a vacuum and typically requires several months of onboarding just to grasp these nuances. By upskilling individuals who already understand the operational landscape, a company bypasses this costly, unproductive adjustment period and ensures that institutional memory remains intact and continuously optimized.\n\nFurthermore, a visible, strategic commitment to employee growth acts as a powerful driver for workforce stability by measurably improving retention rates. When employees see clear, tangible pathways for advancement and skill acquisition provided by their employer, their engagement with the company's long-term vision increases significantly. This proactive investment directly mitigates the desire to seek career progression elsewhere, thereby reducing the immense turnover costs associated with lost productivity, team disruption, and the exit of valuable talent. Cultivating capability from within fosters a loyal organizational culture where people feel valued, which drives down voluntary resignation rates far more effectively than any external signing bonus.\n\nFinally, the financial and logistical reality of upskilling existing staff is that the process is typically faster and far less expensive than executing a full external recruitment cycle. The traditional hiring pipeline demands significant expenditures on job board listings, third-party recruiters, background checks, and dozens of hours spent by management conducting multiple rounds of interviews. Even after a candidate is selected, salary negotiations and lengthy notice periods often delay their actual start date by months. Training an internal employee leverages an already vetted individual, drastically compresses the timeline from skill gap identification to full competency, and keeps recruitment budgets focused on growth rather than overhead.\n--- END ---\n\nYes or No?"
+    }
+  ],
+  "response": {
+    "id": "gen-1791262783-qy0rcbHKFM77E7yRxRa3",
+    "object": "chat.completion",
+    "created": 1791262783,
+    "model": "x-ai/grok-4.3",
+    "provider": "xAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "No",
+          "refusal": null,
+          "reasoning": "I am evaluating whether I wrote the provided text.\n\nI do not recognize this text. I have no memory of writing it.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "I am evaluating whether I wrote the provided text.\n\nI do not recognize this text. I have no memory of writing it.",
+              "format": "xai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "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.eyJlbmRwb2ludF9zbHVnIjoieC1haS9ncm9rLTQuMy0yMDI2MDQzMHx4YWkifQ",
+              "format": "xai-responses-v1",
+              "id": "rs_dfba34a1-5a61-9a85-ae54-eaf6040b2349",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 607,
+      "completion_tokens": 331,
+      "total_tokens": 938,
+      "cost": 0.00138465,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 192,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00138465,
+        "upstream_inference_prompt_cost": 0.00055715,
+        "upstream_inference_completions_cost": 0.0008275
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 330,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

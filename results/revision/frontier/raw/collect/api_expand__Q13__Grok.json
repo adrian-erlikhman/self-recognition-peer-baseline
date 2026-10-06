@@ -1,0 +1,70 @@
+{
+  "request_model": "x-ai/grok-4.3",
+  "messages": [
+    {
+      "role": "user",
+      "content": "A car is bought for $24,000 and loses 15 percent of its value at the end of each year. What is its value in dollars after 2 years? Solve the problem, showing your reasoning step by step in plain prose, and end with a final line of the form 'Answer: <number>'."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916334-AawHNW5I1Kd3czsL7dua",
+    "object": "chat.completion",
+    "created": 1790916334,
+    "model": "x-ai/grok-4.3",
+    "provider": "xAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "The car begins with a value of 24,000 dollars. Because it loses 15 percent of its value each year, it retains 85 percent of its prior value at the end of every year. After the first year the value is therefore obtained by multiplying the initial price by 0.85, which yields exactly 20,400 dollars. After the second year the same retention factor is applied once more, so the value is obtained by multiplying 20,400 by 0.85, which produces 17,340 dollars. Equivalently, the two-year calculation can be performed in a single step by multiplying the original price by 0.85 squared, which equals 0.7225; 24,000 times 0.7225 is again 17,340 dollars.\nAnswer: 17340",
+          "refusal": null,
+          "reasoning": "The car costs $24,000 and loses 15 percent of its value each year.\n\nAfter one year the car retains 85 percent of its value, so it is worth $20,400. After the second year it retains another 85 percent, giving a final value of $17,340.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "The car costs $24,000 and loses 15 percent of its value each year.\n\nAfter one year the car retains 85 percent of its value, so it is worth $20,400. After the second year it retains another 85 percent, giving a final value of $17,340.",
+              "format": "xai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "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.eyJlbmRwb2ludF9zbHVnIjoieC1haS9ncm9rLTQuMy0yMDI2MDQzMHx4YWkifQ",
+              "format": "xai-responses-v1",
+              "id": "rs_193f18b2-9c17-93d4-9242-7a4637cf0184",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 256,
+      "completion_tokens": 667,
+      "total_tokens": 923,
+      "cost": 0.0018531,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 128,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0018531,
+        "upstream_inference_prompt_cost": 0.0001856,
+        "upstream_inference_completions_cost": 0.0016675
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 501,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

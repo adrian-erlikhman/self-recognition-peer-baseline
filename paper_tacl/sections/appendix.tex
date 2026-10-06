@@ -1,0 +1,154 @@
+% ===========================================================================
+% Appendices: replication details (TACL category 1, up to 5 pages) and
+% complementary tables (category 2, up to 3 pages). Not reviewed; every
+% load-bearing result is in the body.
+
+\section{Corpus and protocol}
+\label{app:corpus}
+
+\paragraph{Release.} Both corpora, all judgments with their confidence
+ratings and reasons, every archived API response, the prompts and the
+analysis code will be released with the paper; every number in it is
+regenerated from them by one script.
+
+\paragraph{Example prompt (E1, verbatim).}
+\emph{Argue that getting enough sleep each night improves how well you
+function the next day. Cover three specific effects: sharper focus and
+memory, better mood and emotional control, and improved physical energy.
+Write in continuous prose paragraphs only. Do not use bullet points,
+numbered lists, headers, bold text, or any other formatting.}
+
+\paragraph{Frontier corpus.} 39 prompts in three registers (13 each),
+answered by each model in its consumer chat app, in a fresh conversation,
+with memory and custom instructions off, between 15 June and 31 July 2026.
+Prompt M5 is excluded: its DeepSeek answer is a verbatim copy of its Grok
+answer and its Gemini answer a copy of another prompt's. H3's DeepSeek answer
+is truncated (266 words) and kept. Mean length runs from 324 words (Grok) to
+689 (DeepSeek).
+
+\paragraph{Judge requests.} OpenRouter, temperature 0, 8,000 output tokens
+(16,000 for Gemini, whose reasoning tokens count against the limit), 16--17
+August 2026. Slugs: \texttt{openai/gpt-5.5},
+\texttt{anthropic/claude-opus-4.7}, \texttt{google/gemini-3.5-flash},
+\texttt{x-ai/grok-4.3}, \texttt{deepseek/deepseek-chat}. Of 1,140 calls,
+Claude was served by Anthropic on 227 and Google on 1; DeepSeek by three
+hosts. The lineup and single-text instructions are reproduced in the
+released code.
+
+\section{Statistical details}
+\label{app:stats}
+
+\paragraph{Randomisation test for self-advantage.} For judge $J$, each of
+$J$'s 38 texts was judged once by each of the five judges. Under the null
+that the author's own judgment is no more likely to be correct than a
+peer's, the five judgments on a text are exchangeable with respect to which
+judge is labelled ``self''. Relabelling one of the five uniformly at random,
+independently per text, gives a Poisson-binomial null for the self-advantage
+statistic, from which we compute exact two-sided $p$-values. Because each
+text's number of correct judgments is held fixed, the test conditions on how
+identifiable each text is, and it keeps a text's four peer judgments
+together, which Fisher's exact test does not.
+
+\paragraph{Other clustered analyses.} Prompt-level bootstrap (10,000
+resamples) for every interval on a rate built from 152 judgments; GEE
+logistic regression of correctness on a self indicator with an exchangeable
+working correlation within prompt and a bias-reduced sandwich estimator;
+and a crossed random-effects logistic model with random intercepts for prompt
+and judge. Holm correction is applied within each family: the five
+self-advantage tests per format, the five self-rate-versus-chance tests per
+format, and the ten non-self-versus-chance tests. After correction, Grok's
+lineup self-naming rate is no longer significantly \emph{below} chance
+(Holm $p=$~\GrokSelfLineupHolm{}), though its negative self-advantage is.
+
+\paragraph{Effective sample size.} The intraclass correlation of correctness
+among the four peer judgments of a text is 0.014 in the lineup (design effect
+\PeerDeffLineup{}, about \PeerNeffLineup{} effective judgments of 152).
+
+\paragraph{Skill adjustment.} The additive adjustment compares $J$'s
+advantage on its own text with the advantage each peer $K$ shows over the
+remaining judges on third-party text, i.e.\ a difference in differences that
+removes general judge skill and general author identifiability. A ratio
+version and a GEE model with judge and author fixed effects agree in sign
+for every lineup judge.
+
+\paragraph{Signal detection.} We summarise a judge's $2\times2$ table of hits
+and false alarms by a Haldane-corrected log odds ratio. When a judge never
+names itself (a row of the table is empty) the statistic is undefined, which
+is the case for three of five judges in the single-text format.
+
+\section{Open-weight panel}
+\label{app:openweight}
+
+\paragraph{Models.} Qwen2.5-7B-Instruct (Alibaba), Llama-3.1-8B-Instruct
+(Meta), Mistral-7B-Instruct-v0.3 (Mistral AI) and Phi-4-mini-instruct
+(Microsoft), each from Unsloth's NF4 export on the Hugging Face Hub.
+Gemma-2-9B-it (Google) was planned as a fifth judge and dropped before any
+judging: with its 256k-entry vocabulary it did not fit in the memory of our
+one machine (an 8\,GB laptop GPU sharing 32\,GB of RAM), and no result was
+computed with it.
+
+\paragraph{Quantisation.} We dequantise each NF4 layer and re-pack it as asymmetric
+4-bit integers in groups of 32 for PyTorch's built-in 4-bit matrix kernel,
+on one 8\,GB laptop GPU; embeddings, norms and output layers stay in
+bfloat16. The re-pack adds about 8\% relative rounding error per layer and
+shifts mean token log-probabilities by about 0.1 nats against exact NF4
+inference; the same weights write each model's corpus and serve as its
+judge, so this does not affect which text is a judge's own.
+
+\paragraph{Decoding.} Corpus: temperature 0.7, top-$p$ 0.95, fixed seeds,
+up to 1,100 new tokens for prose, 900 for code and math, 300 for short
+answers; two independent samples per prompt. Judging: greedy decoding for the
+lineup and single-text formats; for yes/no and quality questions we read the
+next-token probabilities of the answer options directly and report the
+probability mass they hold, which checks that the judge answered in format.
+An option's probability is that of the first token carrying it under each of
+its spellings (``Yes'', `` yes'', \ldots), skipping tokens that are only
+whitespace, since all four tokenizers split `` 7'' into a space token and
+``7''. Where a judge's most likely next token is itself bare whitespace
+(Mistral's ratings, never a yes/no answer), we append it and read the
+options one position later. The options held at least 89\% of the
+probability in every yes/no judgment. In ratings, Qwen, Llama and Mistral put
+all of it on the nine digits; Phi put a median of 81\% there for the
+open-weight texts (minimum 12\%) and 94\% for the frontier texts, so its
+ratings, renormalised over the digits, are the least reliable of the four. Prompts longer than 512 tokens are pre-filled in 512-token chunks
+through the key--value cache, which changes memory use and nothing else
+beyond floating-point rounding.
+
+\paragraph{Consistency of each model's style.} A second, independent
+sample from each model for every prompt lets us ask whether a model's style
+is a property of the model or of one draw. The classifier of
+Section~\ref{sec:openweight}, trained on the first sample of the training
+prompts and tested on the second sample of the held-out prompts, attributes
+\OWClfCrossSample{} \OWClfCrossSampleCI{} of texts, against \OWClfPooled{}
+within the first sample: the signal the judges fail to use is stable across
+samples.
+
+\input{table_openweight_genre}
+
+\paragraph{Prompts.} 120: the 40 prompts of the original bank, 20 new prose
+prompts in the same scaffold, 20 Python functions with fully specified
+behaviour, 20 short explanatory questions answered in two to four sentences,
+and 20 word problems with a unique numeric answer. All are released.
+
+\section{Rationale coding}
+\label{app:rationales}
+
+\paragraph{Scheme.} Eleven multi-label cue categories assigned by regular
+expressions over the one-sentence reason attached to every judgment; the
+lexicon and codebook are released. A reason matching none is coded
+\emph{other} (none of the 1,900 was).
+
+\paragraph{Validation.} 150 reasons stratified by judge and format (100 used
+to revise the lexicon once, 50 held out) were labelled from the reason text
+alone. The first annotator, an instance of an LLM (Claude) that also wrote
+the lexicon, gives holdout micro precision 93.1\% and recall 99.5\%. A
+second, independent instance that saw only the codebook agreed with the
+rules at 97.0\% precision and 95.7\% recall over all 150 (per-category
+$\kappa$ 0.86--1.00). Claude is also one of the judges, so biases shared by
+annotator and judge cannot be ruled out by these two. \RationaleHumanAppendix{}
+
+\paragraph{Faithfulness checks.} For cues with a measurable counterpart we
+compared the cited property with the five responses to the same prompt:
+``long'' against word count, ``long sentences'' against mean sentence
+length, quoted phrases against the text, and ``sophisticated vocabulary''
+against mean word length.

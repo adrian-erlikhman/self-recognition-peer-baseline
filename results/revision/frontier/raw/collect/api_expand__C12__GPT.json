@@ -1,0 +1,64 @@
+{
+  "request_model": "openai/gpt-5.5",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Write a Python function `roman_to_int(s: str) -> int` that converts a valid uppercase Roman numeral between 1 and 3999 into an integer, using the symbols I=1, V=5, X=10, L=50, C=100, D=500, M=1000 and the subtractive pairs IV, IX, XL, XC, CD and CM. For example, `roman_to_int(\"MCMXCIV\")` returns 1994. You may assume the input is valid. Use only the Python standard library. Include a docstring and brief inline comments. Return only the code in a single Python code block, with no explanation before or after."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916307-LpfzHrIyDZfQsjFejDqa",
+    "object": "chat.completion",
+    "created": 1790916307,
+    "model": "openai/gpt-5.5",
+    "provider": "OpenAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "```python\ndef roman_to_int(s: str) -> int:\n    \"\"\"Convert a valid uppercase Roman numeral between 1 and 3999 to an integer.\"\"\"\n    values = {\n        \"I\": 1,\n        \"V\": 5,\n        \"X\": 10,\n        \"L\": 50,\n        \"C\": 100,\n        \"D\": 500,\n        \"M\": 1000,\n    }\n\n    total = 0\n    prev_value = 0\n\n    # Process symbols from right to left so subtractive cases are easy to detect.\n    for char in reversed(s):\n        value = values[char]\n\n        # If a smaller value appears before a larger one, subtract it.\n        if value < prev_value:\n            total -= value\n        else:\n            total += value\n            prev_value = value\n\n    return total\n```",
+          "refusal": null,
+          "reasoning": null,
+          "reasoning_details": [
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABqvzbUh0yE1CdbeOXt1R2ptH-HFyY7W5GOR9U16VuC2J23m8mNZA8sUJqbOxtWu9yvOsT3vSKT7vZVTL6jossPHWKbpoq2cXjAc7WhTj48FJgTT4udbAHD4h2W38W9IZTaoiP2spfz0wav7vkLsLuoAwgat2dM26H59HQdaH7iHCKukMYctCZr7OMDLaxVrT5ZyvfPPCz36SpCSIEjpfez-C15-bJ7r0E-W6u4-rKWCpXDlBtPQuKW3tP7-RgRA2H3jflNbOgCBptPwIQHwl6dlXApteTus-53RlnxwU9F1VOoakil6TRC26zAVV793TRbVpPHLJFUVcLJotNngjLCFvpY4fPXdFOwwmIbaHd7Nux2ap10ohcCG60vvMvIPN377hj9CFC2d_uxIoNlbeX-CVxXIMo5eKxAQBO24cbqpHlZKXIt5DreGsyV4PD2IOgsjo89eQO5vE3IUaocLgbfBeoxuQQRGpsbRQ8cmnhnjB8yVL0xmnXo5c5H2fWwacydhSQL2OsTSGm7P4uW-qsSCGTelIuVC8l8RXx4KmWy_AvNr99EhBR-cWMO4yAnqxgD6ox87cZSJEiGB8FRKsCzyzHqYbsVEO-aujJFRxVSU-gW7pgQV2tRKh28EG57yZdssPD5NBflxo7G53v4skfY0BAj5NrkYhrHUc7UiMENxHLJjYlo6P468Phw7FOy5IWUtTYHxe6hsFkFX6oEvUp_-396lyTKT62yYtfIQKrIl3aF49YKEUO1JeVTCaNVxo7NP4Lh97d1QjJx7IBYmxb7ZsZrDHebBzTwM2cv8iX09VVRF5D3kHnw9BQFkhOsQYpKjZxq97Qkz1VVgoLJBlWZVBOQr3Ww8vJq6mElfyVS02f59M0JLYIv7RGFP83fiqPw-9aWVn1T__DfdUojka0L3aXBRXkh86vxpZmEArH1TakWc8mM_iSXD0pTU1dFTs-veSr7GX8f4aBSjr3KniPdYCS031DF7ts9gSx7UVlmh70iTSwtOu29-gc67PTYyXeYtsKe2FCMWZF0F8iGZtsx-tC-zKvH0Bux9v_QRrUWCJsKu7YLcwLGdLfj-pJO1JkDnw82Mhg27ldgWW8h-bVR-G6bHV5-gsKpABeZotLkNVDZWU8dblxP9uPgYcwTQ41YrE_hwc9sFFvpK4TCybSTdBAMKDqAkTSmIsWzW_HQeSei4fC9kJE811M5thdrG8M-TryHBPpFeGBGJ2IyCHQsnhrEm0JQ7ZFahQTRTFWoU3AAeKAbtkGf97iTNvVCrVvluKuePPrOuoeXPHzyRipfameFeek6VHBIqLTD69IY1gAacqeIA5IMIshYUeInC_hxsc7fjn8lfxTopD9e2AdVwxE-spZpC0xZsMX8tOUw8QzmhvaPi3vCYq6-lA_rZGu3ZRymDM6Xik4tZBRrAdafP8u9ExHVwckRTRFV2ndiLEcmxOQ=.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC01LjUtMjAyNjA0MjN8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_061c81f101c9907a016abf36d41ad087d1af84fd7ea8f8be00",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 148,
+      "completion_tokens": 204,
+      "total_tokens": 352,
+      "cost": 0.00686,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00686,
+        "upstream_inference_prompt_cost": 0.00074,
+        "upstream_inference_completions_cost": 0.00612
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 19,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

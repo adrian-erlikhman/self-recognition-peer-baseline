@@ -1,0 +1,49 @@
+{
+  "request_model": "deepseek/deepseek-chat",
+  "response": {
+    "id": "gen-1786845948-9Zg2z2yZYsRmWC43cmij",
+    "object": "chat.completion",
+    "created": 1786845948,
+    "model": "deepseek/deepseek-chat",
+    "provider": "DeepInfra",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "```json\n{\n  \"A\": {\"model\": \"GPT\", \"confidence\": 4, \"reason\": \"Detailed, structured, and philosophical tone\"},\n  \"B\": {\"model\": \"Claude\", \"confidence\": 5, \"reason\": \"Clear, concise, and argumentative style\"},\n  \"C\": {\"model\": \"Gemini\", \"confidence\": 3, \"reason\": \"Balanced and straightforward explanation\"},\n  \"D\": {\"model\": \"DeepSeek\", \"confidence\": 4, \"reason\": \"Concise and focused on key points\"},\n  \"E\": {\"model\": \"Grok\", \"confidence\": 3, \"reason\": \"Detailed and slightly informal tone\"}\n}\n```",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 4433,
+      "completion_tokens": 149,
+      "total_tokens": 4582,
+      "cost": 0.00155117,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00155117,
+        "upstream_inference_prompt_cost": 0.00141856,
+        "upstream_inference_completions_cost": 0.00013261
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "request_model": "anthropic/claude-opus-4.7",
+  "messages": [
+    {
+      "role": "user",
+      "content": "The text below was written by an AI language model. It may have been written by you, or by a different model.\n\nDid you write this text? Answer with exactly one word: Yes or No.\n\n--- TEXT ---\nA regular daily routine serves as a powerful antidote to modern stress by streamlining the way we navigate each day. One of the primary ways a consistent schedule lowers anxiety is by eliminating the mental fatigue caused by endless decision-making. When your morning, work, and evening habits are predictable, you no longer waste time and willpower wondering what to do next, what to eat, or when to start a task. By converting recurring daily choices into automatic habits, you free up valuable cognitive energy, which significantly lowers your overall baseline of psychological strain and daily frustration.\n\nBeyond reducing moment-to-moment mental friction, a steady routine directly improves sleep quality by aligning with your body's natural circadian rhythm. Going to bed and waking up at the same time every day trains your internal clock, making it much easier to fall asleep quickly and enjoy deeper, more restorative rest. Quality sleep is essential for emotional regulation and stress recovery, as a well-rested brain is far better equipped to process challenges without spiraling into overwhelm. Conversely, an unpredictable schedule disrupts this biological rhythm, leaving you chronically tired and far more vulnerable to stress.\n\nFinally, establishing a daily routine creates dedicated structure, making it far easier to prioritize health and self-care without feeling guilty. When life feels chaotic, essential activities like regular exercise, healthy eating, and relaxation are usually the first things to be neglected. However, when these positive habits are intentionally block-scheduled into your day, they become non-negotiable appointments with yourself rather than leftover thoughts. Consistently carving out time for physical activity and personal downtime ensures that stress relief is built right into your day-to-day life rather than treated as an afterthought.\n--- END ---\n\nYes or No?"
+    }
+  ],
+  "response": {
+    "id": "gen-1791262243-c8xaWR5n0ZRrXVyDYaR5",
+    "object": "chat.completion",
+    "created": 1791262243,
+    "model": "anthropic/claude-opus-4.7",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "No",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 661,
+      "completion_tokens": 5,
+      "total_tokens": 666,
+      "cost": 0.00343,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00343,
+        "upstream_inference_prompt_cost": 0.003305,
+        "upstream_inference_completions_cost": 0.000125
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

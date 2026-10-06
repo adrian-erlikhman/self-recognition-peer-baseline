@@ -1,0 +1,55 @@
+{
+  "request_model": "anthropic/claude-opus-4.7",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Explain what DNA does in a living cell. Answer in two to four sentences of plain prose."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916415-PUht1u92NkIDiVwBfe57",
+    "object": "chat.completion",
+    "created": 1790916415,
+    "model": "anthropic/claude-opus-4.7",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "DNA stores the genetic instructions a cell needs to build and operate itself, encoded in sequences of four chemical bases. When the cell needs to make a protein, specific sections of DNA are transcribed into RNA, which is then translated into chains of amino acids that fold into functional molecules. DNA also copies itself before a cell divides, ensuring that each new cell inherits a complete set of instructions. In this way, it serves as both the cell's working manual and the hereditary material passed from one generation to the next.",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 41,
+      "completion_tokens": 166,
+      "total_tokens": 207,
+      "cost": 0.004355,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.004355,
+        "upstream_inference_prompt_cost": 0.000205,
+        "upstream_inference_completions_cost": 0.00415
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

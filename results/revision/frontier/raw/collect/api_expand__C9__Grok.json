@@ -1,0 +1,70 @@
+{
+  "request_model": "x-ai/grok-4.3",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Write a Python function `rotate_matrix(matrix: list[list[int]]) -> list[list[int]]` that takes an n-by-n square matrix and returns a new matrix rotated 90 degrees clockwise, leaving the input unchanged. For example, `rotate_matrix([[1, 2], [3, 4]])` returns `[[3, 1], [4, 2]]`. An empty matrix returns an empty list. Use only the Python standard library. Include a docstring and brief inline comments. Return only the code in a single Python code block, with no explanation before or after."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916309-kWlVnoxPtcYb2yzItfVp",
+    "object": "chat.completion",
+    "created": 1790916309,
+    "model": "x-ai/grok-4.3",
+    "provider": "xAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "```python\ndef rotate_matrix(matrix: list[list[int]]) -> list[list[int]]:\n    \"\"\"Rotate an n x n matrix 90 degrees clockwise, returning a new matrix.\"\"\"\n    if not matrix:\n        return []\n    n = len(matrix)\n    result = [[0] * n for _ in range(n)]\n    for i in range(n):\n        for j in range(n):\n            # new row is old column, new column is n-1 minus old row\n            result[j][n - 1 - i] = matrix[i][j]\n    return result\n```",
+          "refusal": null,
+          "reasoning": "I need to write a Python function that rotates an n-by-n square matrix 90 degrees clockwise. It should return a new matrix and leave the input unchanged.\n\nThe rotation maps the first column to the first row in reverse. I'll handle empty matrices and build a new result list.\n\nThe nested loop approach maps each element at position (i, j) to (j, n-1-i). I'll add a docstring and brief inline comments before returning the code.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "I need to write a Python function that rotates an n-by-n square matrix 90 degrees clockwise. It should return a new matrix and leave the input unchanged.\n\nThe rotation maps the first column to the first row in reverse. I'll handle empty matrices and build a new result list.\n\nThe nested loop approach maps each element at position (i, j) to (j, n-1-i). I'll add a docstring and brief inline comments before returning the code.",
+              "format": "xai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "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.eyJlbmRwb2ludF9zbHVnIjoieC1haS9ncm9rLTQuMy0yMDI2MDQzMHx4YWkifQ",
+              "format": "xai-responses-v1",
+              "id": "rs_d70d9073-fdc8-993a-a2c3-3110fe6fa8c2",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 311,
+      "completion_tokens": 637,
+      "total_tokens": 948,
+      "cost": 0.00177965,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 192,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00177965,
+        "upstream_inference_prompt_cost": 0.00018715,
+        "upstream_inference_completions_cost": 0.0015925
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 520,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

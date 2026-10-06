@@ -1,0 +1,55 @@
+{
+  "request_model": "deepseek/deepseek-chat",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Make the case that personal financial literacy should be a required subject in secondary schools. Address exactly these three points: (1) the absence of financial education correlates with high rates of consumer debt and financial vulnerability among young adults; (2) financial literacy is a universal life skill benefiting all students regardless of income or career path; (3) schools are the only institution with reliable access to all young people before they face high-stakes financial decisions. Do not address counterarguments. Write in continuous prose paragraphs only. Do not use bullet points, numbered lists, headers, bold text, or any other formatting."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916490-PvOZdSf57Q7kCGXc4fti",
+    "object": "chat.completion",
+    "created": 1790916490,
+    "model": "deepseek/deepseek-chat",
+    "provider": "DeepInfra",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "Personal financial literacy should be a required subject in secondary schools because its absence has been shown to correlate with high rates of consumer debt and financial vulnerability among young adults. Many young people enter adulthood without a basic understanding of budgeting, saving, or managing credit, leaving them susceptible to poor financial decisions. This lack of knowledge often leads to accumulating debt, struggling with loan repayments, and facing long-term financial instability. By equipping students with financial literacy before they encounter these challenges, schools can help mitigate the risks associated with financial illiteracy and foster a generation of informed, responsible consumers. Financial literacy is a universal life skill that benefits all students, regardless of their income or career path. Whether pursuing higher education, entering the workforce, or starting a business, every individual will encounter financial decisions that impact their livelihood. Understanding concepts like interest rates, taxes, investments, and retirement planning is essential for navigating adulthood successfully. Moreover, financial literacy empowers students from diverse backgrounds to break cycles of poverty, make informed choices, and achieve financial independence. By teaching these skills, schools can level the playing field and ensure that all students have the tools they need to thrive in a complex economic landscape. Schools are uniquely positioned to provide this education because they are the only institution with reliable access to all young people before they face high-stakes financial decisions. Unlike other organizations or community programs, schools reach nearly every student, regardless of socioeconomic status or geographic location. This universal access ensures that financial literacy education is not limited to those who actively seek it out or can afford specialized courses. By integrating financial literacy into the secondary school curriculum, educators can proactively prepare students for the financial realities they will encounter as adults, reducing the likelihood of costly mistakes and fostering long-term financial well-being.",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 123,
+      "completion_tokens": 349,
+      "total_tokens": 472,
+      "cost": 0.00034997,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00034997,
+        "upstream_inference_prompt_cost": 3.936e-05,
+        "upstream_inference_completions_cost": 0.00031061
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

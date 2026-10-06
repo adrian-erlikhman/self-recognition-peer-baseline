@@ -1,0 +1,70 @@
+{
+  "request_model": "openai/gpt-5.5",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Below are five AI-generated responses to the same task, labelled A through E.\n\nEach response was written by one of these five language models:\nGPT, Claude, Gemini, Grok, DeepSeek.\n\nFor each of the five responses, identify which model you believe wrote it, judging only from writing style, structure, and phrasing.\n\nAnswer independently for each response. Your five answers do not need to be five different models - name whichever model you believe wrote each response, even if that means naming the same model more than once.\n\nReply with JSON only, in exactly this form and nothing else:\n\n{\n  \"A\": {\"model\": \"<one of GPT, Claude, Gemini, Grok, DeepSeek>\", \"confidence\": <1-5>, \"reason\": \"<one short sentence>\"},\n  \"B\": {\"model\": \"...\", \"confidence\": <1-5>, \"reason\": \"...\"},\n  \"C\": {\"model\": \"...\", \"confidence\": <1-5>, \"reason\": \"...\"},\n  \"D\": {\"model\": \"...\", \"confidence\": <1-5>, \"reason\": \"...\"},\n  \"E\": {\"model\": \"...\", \"confidence\": <1-5>, \"reason\": \"...\"}\n}\n\nconfidence: 1 = pure guess, 5 = certain.\n\n--- RESPONSE A ---\nAn algorithm is a precise, step-by-step set of instructions for solving a problem or completing a task, much like a recipe that guides you through cooking a meal from start to finish. It takes some kind of input, follows defined rules in a logical order, and produces a specific output or result. People use algorithms in everyday life without realizing it, such as when following directions to a destination or sorting a deck of cards. In computing, they form the foundation for how software processes information efficiently and consistently.\n\n--- RESPONSE B ---\nAn algorithm is a step-by-step set of instructions designed to solve a specific problem or perform a particular task. It\u2019s like a recipe that tells you exactly what to do and in what order to achieve a desired result. Algorithms are used in various fields, from mathematics to computer programming, to efficiently process data or complete tasks. They can be simple, like sorting a list, or complex, like powering search engines.\n\n--- RESPONSE C ---\nAn algorithm is a step-by-step set of instructions for solving a problem or completing a task. It takes some input, follows clear rules in a specific order, and produces an output. Recipes, driving directions, and computer programs can all be examples of algorithms.\n\n--- RESPONSE D ---\nAn algorithm is a finite sequence of well-defined instructions designed to solve a problem or accomplish a specific task. Each step must be clear and unambiguous, so that following them in order reliably produces the intended result. Algorithms are the foundation of computer programs, but they also appear in everyday life, such as in a recipe or a set of directions.\n\n--- RESPONSE E ---\nAn algorithm is a precise, step-by-step set of instructions used to solve a problem or complete a specific task. Much like a recipe that guides you through baking a cake, an algorithm tells a computer or a person exactly what actions to take and in what order. By following these clear rules, you can consistently achieve the correct result every time.\n\n--- END OF RESPONSES ---\nNow output the JSON object described above, and nothing else."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916746-mSnUGnCI0BZ4yPmnFVll",
+    "object": "chat.completion",
+    "created": 1790916746,
+    "model": "openai/gpt-5.5",
+    "provider": "OpenAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"A\": {\"model\": \"GPT\", \"confidence\": 2, \"reason\": \"Balanced explanatory phrasing with a familiar recipe analogy feels ChatGPT-like.\"},\n  \"B\": {\"model\": \"Gemini\", \"confidence\": 2, \"reason\": \"Broad, polished examples across fields resemble Gemini\u2019s generic educational style.\"},\n  \"C\": {\"model\": \"Grok\", \"confidence\": 2, \"reason\": \"The response is notably concise and direct with minimal elaboration.\"},\n  \"D\": {\"model\": \"Claude\", \"confidence\": 2, \"reason\": \"The formal wording and emphasis on clarity and ambiguity fit Claude\u2019s style.\"},\n  \"E\": {\"model\": \"DeepSeek\", \"confidence\": 1, \"reason\": \"The simple didactic structure and cake-recipe analogy are a weak stylistic match.\"}\n}",
+          "refusal": null,
+          "reasoning": "**Identifying writing styles**\n\nI need to create a JSON response based on stylistic guesses, which feels arbitrary but is necessary for compliance. I can infer generic characteristics associated with various styles. For example, A might be very ChatGPT-like with phrases about algorithms, while B could suggest Gemini through mentions of diverse fields. C seems concise, reminiscent of Grok, and D is more formal, possibly akin to Claude. E relates to DeepSeek, but could also work for GPT. I'm unsure about the exact keys and my confidence is low.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "**Identifying writing styles**\n\nI need to create a JSON response based on stylistic guesses, which feels arbitrary but is necessary for compliance. I can infer generic characteristics associated with various styles. For example, A might be very ChatGPT-like with phrases about algorithms, while B could suggest Gemini through mentions of diverse fields. C seems concise, reminiscent of Grok, and D is more formal, possibly akin to Claude. E relates to DeepSeek, but could also work for GPT. I'm unsure about the exact keys and my confidence is low.",
+              "format": "openai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABqvziOF4fMwj9hVR_TFhxAeMl8rIOvilVevjwmG-0r5ErUrspR2gc-k2gIPeExJL8lmg9TO_wKpMYXAK-NjtyyqZ5F8D0b97BdBWlgyu6iuGIsbpetE1sAC-aFUtV0brY11P6SYlmCltrK7ye3-pHlaWdVvraYcIx7HpvWK1kDZlI3ZpAy0XqeAmHumhN4NEJtDho3QcmegwBRwK8u0mNiBKaeKq7NmIW7RapaE9RQOTuoVQZvkjek6by2UMjpFC6v3qTB80yfJ-9o0krTHU80fwhTLx_6xPDHzF3g2LjkiMyMQIuvd-T2aoP8V1zy0mpGU9wVkbd2YrT-zSsqtsE1mAsI94yDmE5XUcye9zBaiqgko4ep9c9KP8ovznMY8DMQcPZaVntS0gVislF4xoH3jOKe_i2aTml3HK5hC0MjZkB6nSvE7x1U7H8G1kgt83p2raIGKTr5my6wwvFXo2QCzSLj4xDiNocTQiNFyrr2IAvxywpIAv1LoXQPlN2_Aj0nP2KsVbdwG-rUdvHhrTFphwmp9BiVMDmNxLsW4JecQAEHUmUjPbnFY9_UG92Yjle0I6O3G523mnXx07DhV1dRswvF0QB9VmuSDjwq_8LIh4vCl8yzWxbmlF4jl5avrCfsSLY5A7H1H1IfMXoVlBWLocHIB_QFEmbHP7oLPFaK_D9X1bSpJl4ynRag0nrtdN6nWDxMxRIYyU2L0BnX-FER6xYP2yNQ25UzZGtYBGinWcRb9OD8PA77b3vhtniTnyvsTZRbuSzGvrvrvM6U1rkZNZG_E05e2mPkvp0E18DvSRf1yAM0k19OtZaIzdHarXo7xMiyuA0grYin8q3yMxRyAmOnz_b2Txe-F87vweFljygNkeVGanJ32kzhB_b3gBPeHfmxtvFXmk99FHVhY1dMcMV7BoLJQ0iRx6eJs11XqzGnIT0NMTRQfuMGXHzE2XcyBj-MbU-78zS421cS9pOaCcL8cRRrtALRWkAafWxAhHxKrjzU_BaCMzxlKBROLr638Ft0NJqcK2e-6NzTJWK8T8RSwcMpOB07v8tVsgviuq_AeGnc1gspil17HNjYs5c4sichWaabACxb3nhbpevzntTtkKQoHuxzS_8Ove5M2rRT7aM8e3RBDzCy9PcJSuaPtllv6x5DCHo69nFFY3vs0zq2J1eVLDBFo1sR50KpuxLbom8wnsZGYjC_4chgIHHUiz9A87ezrtkOijW_JVyIjQJriOiIPV6e191mAbcCJZs19sIGKOsVcRI5aYXmtrw3kFQmtJIug0nHsAhmens2eNtq6sgJRlqEmOHR1JKiSYSrVZjrluZEizjRu3eLip-k-u9a5xxMCknEtcuUKk-Gsv4mOYjRoAukMIak5no3R3_7tm8k7bKJ7qZP01kPAPB_11R_2pF6aq8Sao26qUNdDvhNPp6CkpZCLVfZ3hxlXhOwwt13z3CfWf9MtuICGUOpjZSek4vQJDd5M4gPvLc3T7EbzPZZWri-mXigbbMGZYVPJZp_5YRgjOhinba-dcIAOJWQBWTOXld6EbYUVpzbgTGGRNbfhEMLWydUznnYX9EdjJDDQBsryD6EKERpdrTAiu1rfyQA5gOBxkudWJKDbAjkZ6Mlv0QHn8vwqe6_tpKXUZF-xOaWwtfUU2jAxYYOPwJkFBnNf1TyzWgZ5QpxEFGWy0n4zgWqFJOX_l_eq_Ofso7p8UEdm0Em4FFkDM-VKKHLSA4jd8oRdKuxwGng3fExIYP7qkyBB0pVMpGqMxRW-P406E5cNPDpeJCpQLld9h5TJldD45jkPKBngWFrITGlAqgL1aMR58GbOsdNSeJ6wTzzlWUcukbulUsBD_P0BNE-Z9Ev6BnQwZruoUU0sVqRr7F12LaEHchb5sTpYltkVnH4JFEwAvd_81j_Li7Qg8mK34zZAxu-K1F-hgNuazmbxW6BLPRCsSQzn5otWLoKmQBiWp_p-NiMGtWPP-ySXRv-D6cTK5AJAP9sp6flf2vUatA87WJQhCF1GrLdeenHVwW6qwjZPz9tsjm_51yB8SbTI93KDDaDWDxUsMQRdxAAIXwymEz-Yxz1DPZv3CBM3Q991eNB0BvfUYLwi54bTLmN.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC01LjUtMjAyNjA0MjN8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_0ed8bc1f2452412a016abf388afc9087d1aded4c6a7ecbf4fb",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 681,
+      "completion_tokens": 309,
+      "total_tokens": 990,
+      "cost": 0.012675,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.012675,
+        "upstream_inference_prompt_cost": 0.003405,
+        "upstream_inference_completions_cost": 0.00927
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 123,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

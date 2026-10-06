@@ -1,0 +1,70 @@
+{
+  "request_model": "x-ai/grok-4.3",
+  "messages": [
+    {
+      "role": "user",
+      "content": "A bookstore sells notebooks for $3.00 each and pens for $1.25 each. Maria buys 4 notebooks and 6 pens. How many dollars does she spend in total? Solve the problem, showing your reasoning step by step in plain prose, and end with a final line of the form 'Answer: <number>'."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916329-zRaWuBxLu4qSdv6aQeol",
+    "object": "chat.completion",
+    "created": 1790916329,
+    "model": "x-ai/grok-4.3",
+    "provider": "xAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "Maria buys 4 notebooks at a price of 3 dollars each, which multiplies out to a total of 12 dollars for the notebooks. She also buys 6 pens at a price of 1.25 dollars each, which multiplies out to a total of 7.5 dollars for the pens. Adding these two subtotals together produces an overall cost of 19.5 dollars.  \nAnswer: 19.5",
+          "refusal": null,
+          "reasoning": "Beginning to analyze the problem. Notebooks cost $3.00 each.\n\nFour notebooks cost $12.00. Six pens cost $7.50. The total is $19.50.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "Beginning to analyze the problem. Notebooks cost $3.00 each.\n\nFour notebooks cost $12.00. Six pens cost $7.50. The total is $19.50.",
+              "format": "xai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "foe05kCxHMWBKsUP2/ELS0D59pOToWxIUAHd99Bi5oANHwcS7T7exr70wRayEw/74xBM8FeyCL9uRKGtUJfnnHAKxJ4famA4oZc2Fpf/4nHWhezhLzbbyB6MomuEqzQpDzZpj+4um9ELJfkOJu5Zz9MM5C6Yp2QQfbxTAp7VQw0vRaCcnCPTyiopI4TSOz5To3vbPsnfSIlL8FeN6vTwtQ0F45oKXKEpVhLFC2s/pc/TdCoJql1CugUgvjJy83EkCw2uYprH0XT8QfXxREcS+jYdbNnuSWV0WfcMPrWvDgg8alibspN8reB3IXkriaTQPeU2x5RTg9dBtmFFJmgYy1/UBRQpgVCzhL0FB69GVJ3axzh95Or3oyQlsxn7pI1kIof7SvGf7l5geDJfVHjWaoTBqepgeFgykf+dwZu/Oz73lFycfJPT3vStLuEmXoH6bXpLikbva+mXmgwqL61Ke0lr8d9Tizz2dXNizH+XXOQKqt2vC7muPzomCL1xZzAS6FtuJ9bV7WSh8q337sQeSwuuaSIZp7E6dH21Ho5dwaOU4FmnYs5AWXtSM2ANTaHVf+2wWUKQByzsDw7LU6m2DayotuWUgDFqkobz40dQ+34HebB6MbAMhf8Lf0qAdcMbmJe23jzHB99JGVVmmUENTYJDxcPTgDda8PN/Bei5uSStR3KZ2SlFc9iTr2nHHa6n2teP+kwB0kKiVMl6i6bNIyEk9xFDNOq0MmRLkPJh+ptqtE7qO8rama94SBrfRtaZfZnsrd6Nu4Y2P+Z8oeFD3Wt0KhnNR6fh0NhrheMlfZuoc+kqe6F+dmm02NalmrIClulgDjmukl2kYgmT2490mVKMtH2S1nQZr1s4BtmfHJMh0Of3nHM0DAZt44ITng5Q53rpGJseDXofczUdl6G+OPsar9PDPdNtBM5W9wlUjeSnSOHpJYDdOMhJcx7hQQxis0FtEFsxBTSjL7F5/4kHbIHlUzhyBIiMYjNYNY1FvnzOpSOumjL8REyekLPBPPGulU+NyswjEjCquTFPtavWMlhDjJWyIi5/iSTTzhFMzCJJ7z+wNu2kZErL++/vUAazT9A5S6vTSvbBSra6b0gBEk0+Icec3v3eSJ8KNPzqu/IXQ7TX3ZqlKaRlacdrjHqV0NNzoUWtD0HOe7P1bLa4Jnh8BXD/NIeUO/YlMBmHlDMYaBOyZaDl+yDeznAQkoabv3o6vAJ2ylepKbNjxVECRc3WN/ElY7k223s7v54WWej4OlKHqy5fTq0KvinCR1cd6mtvMao8wLXko6h6Wxo3PopSyoNJjcWgffJU1mkR/S9jMx0HLk7s2U8QMtb3IjyBWwUqbsfE7/vHhMppdpKVeQwu8WsniREgdaNxGBiEo357dn8ITud7+77vEs0Sq6WQ2xpf1lmSN3xA2JuyTpx9DetZAEB5Cc8yzKk9BFstlF5pO29eYPKx25y9Kvf91wCBRpCysag.eyJlbmRwb2ludF9zbHVnIjoieC1haS9ncm9rLTQuMy0yMDI2MDQzMHx4YWkifQ",
+              "format": "xai-responses-v1",
+              "id": "rs_beb26fdc-bef3-9c07-a3d5-8d38a39813ea",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 259,
+      "completion_tokens": 434,
+      "total_tokens": 693,
+      "cost": 0.00127435,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 128,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00127435,
+        "upstream_inference_prompt_cost": 0.00018935,
+        "upstream_inference_completions_cost": 0.001085
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 347,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

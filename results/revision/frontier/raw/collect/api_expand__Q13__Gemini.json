@@ -1,0 +1,63 @@
+{
+  "request_model": "google/gemini-3.5-flash",
+  "messages": [
+    {
+      "role": "user",
+      "content": "A car is bought for $24,000 and loses 15 percent of its value at the end of each year. What is its value in dollars after 2 years? Solve the problem, showing your reasoning step by step in plain prose, and end with a final line of the form 'Answer: <number>'."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916336-Z4QIxjL3uGixjQ6WPJwc",
+    "object": "chat.completion",
+    "created": 1790916336,
+    "model": "google/gemini-3.5-flash",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "provisioned",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "To find the value of the car after 2 years, we can calculate its depreciation year by year.\n\nInitially, the car is purchased for $24,000.\n\nAt the end of the first year, the car loses 15% of its initial value. \nTo find the amount of value lost, we calculate 15% of $24,000:\n$$0.15 \\times 24,000 = 3,600$$\nSo, the car loses $3,600 in value. We subtract this from the initial price to find the car's value at the end of the first year:\n$$24,000 - 3,600 = 20,400$$\nThe car is worth $20,400 at the end of Year 1.\n\nAt the end of the second year, the car loses 15% of its value from the end of the first year.\nTo find the amount of value lost in the second year, we calculate 15% of $20,400:\n$$0.15 \\times 20,400 = 3,060$$\nSo, the car loses $3,060 in value during the second year. We subtract this from the Year 1 value to find the car's value at the end of the second year:\n$$20,400 - 3,060 = 17,340$$\n\nAfter 2 years, the value of the car is $17,340.\n\nAnswer: 17340",
+          "refusal": null,
+          "reasoning": "**Calculating Car Value**\n\nI'm currently working through the depreciation of the car. After the first year, I've calculated it loses 15% of its initial $24,000 value. My next step is to apply that same 15% depreciation to the remaining value for the second year.\n\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "**Calculating Car Value**\n\nI'm currently working through the depreciation of the car. After the first year, I've calculated it loses 15% of its initial $24,000 value. My next step is to apply that same 15% depreciation to the remaining value for the second year.\n\n",
+              "format": "google-gemini-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 69,
+      "completion_tokens": 1067,
+      "total_tokens": 1136,
+      "cost": 0.0097065,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0097065,
+        "upstream_inference_prompt_cost": 0.0001035,
+        "upstream_inference_completions_cost": 0.009603
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 706,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

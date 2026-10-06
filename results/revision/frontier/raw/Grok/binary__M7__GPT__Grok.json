@@ -1,0 +1,70 @@
+{
+  "request_model": "x-ai/grok-4.3",
+  "messages": [
+    {
+      "role": "user",
+      "content": "The text below was written by an AI language model. It may have been written by you, or by a different model.\n\nDid you write this text? Answer with exactly one word: Yes or No.\n\n--- TEXT ---\nUrban green spaces and parks provide measurable public health benefits that justify the investment municipalities make in creating and maintaining them. Beyond their recreational value, these spaces contribute directly to healthier communities by reducing the prevalence of chronic disease, supporting mental well-being, and improving environmental conditions that influence physical health. As cities continue to grow and populations become increasingly urbanized, preserving and expanding access to green spaces represents an effective strategy for improving public health outcomes while enhancing overall quality of life.\n\nAccess to green space is consistently associated with reduced rates of cardiovascular disease, obesity, and stress-related illness. Parks encourage physical activity by providing safe and attractive places for walking, jogging, cycling, and organized recreation, making it easier for people of all ages to incorporate exercise into their daily routines. Regular physical activity helps lower blood pressure, improve heart health, and maintain a healthy body weight, reducing the risk of chronic diseases that place significant burdens on healthcare systems. At the same time, spending time in natural environments has been shown to lower stress hormones and reduce physiological indicators of chronic stress, contributing to healthier immune, cardiovascular, and endocrine function. These measurable improvements demonstrate that access to green spaces supports both disease prevention and long-term physical well-being.\n\nParks also play a vital role in promoting mental health by providing restorative environments that buffer against anxiety and depression. Natural settings offer opportunities to escape the constant demands and stimulation of urban life, allowing individuals to relax, recover mental energy, and experience a greater sense of calm. Time spent in green environments has been associated with improved mood, lower levels of anxiety, and fewer symptoms of depression across diverse populations. Parks additionally encourage social interaction, community engagement, and recreational activities that strengthen emotional resilience and reduce feelings of isolation. By offering accessible spaces for relaxation, reflection, and connection with others, urban parks make a meaningful contribution to psychological health and overall life satisfaction.\n\nGreen infrastructure further improves public health by reducing urban heat island effects and filtering air pollutants, producing direct respiratory health benefits. Trees and vegetation provide shade and cool surrounding areas through evapotranspiration, helping lower temperatures during periods of extreme heat and reducing the risk of heat-related illness. At the same time, plants capture particulate matter and absorb pollutants that contribute to poor air quality, improving the air that residents breathe. Cleaner air can reduce the frequency and severity of respiratory conditions such as asthma and other chronic lung diseases while supporting healthier cardiovascular and respiratory function across the population. These environmental improvements demonstrate that green infrastructure serves as an important public health resource, making municipal investment in parks and urban green spaces both practical and beneficial for the communities they serve.\n--- END ---\n\nYes or No?"
+    }
+  ],
+  "response": {
+    "id": "gen-1791262791-uYF4NKacXQP3BseleFcA",
+    "object": "chat.completion",
+    "created": 1791262791,
+    "model": "x-ai/grok-4.3",
+    "provider": "xAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "No",
+          "refusal": null,
+          "reasoning": "The user is asking whether I wrote the provided text.\n\nI cannot identify this text as my own. It appears to be a generic essay on urban green spaces. The answer is No.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "The user is asking whether I wrote the provided text.\n\nI cannot identify this text as my own. It appears to be a generic essay on urban green spaces. The answer is No.",
+              "format": "xai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "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.eyJlbmRwb2ludF9zbHVnIjoieC1haS9ncm9rLTQuMy0yMDI2MDQzMHx4YWkifQ",
+              "format": "xai-responses-v1",
+              "id": "rs_8501036e-8ef6-947e-ad5b-0230a9a29866",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 753,
+      "completion_tokens": 377,
+      "total_tokens": 1130,
+      "cost": 0.00174935,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 128,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00174935,
+        "upstream_inference_prompt_cost": 0.00080685,
+        "upstream_inference_completions_cost": 0.0009425
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 376,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "request_model": "google/gemini-3.5-flash",
+  "response": {
+    "id": "gen-1786845397-NvDtigyTlOzglve8imc1",
+    "object": "chat.completion",
+    "created": 1786845397,
+    "model": "google/gemini-3.5-flash",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "provisioned",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "{\"model\": \"Claude\", \"confidence\": 4, \"reason\": \"The text exhibits a highly polished, elegant, and academic writing style with sophisticated vocabulary and smooth transitions characteristic of Claude.\"}",
+          "refusal": null,
+          "reasoning": "**Analyzing Text Structure**\n\nI'm currently dissecting the provided text, focusing on its structural components. My analysis is revealing a consistent pattern of well-formed body paragraphs, each beginning with a strong topic sentence, which I'm using to guide my identification process.\n\n**Identifying Stylistic Markers**\n\nI'm now focusing on identifying the specific stylistic markers of the text. I've noted a formal, academic tone and sophisticated vocabulary, which, when combined with the structured paragraphing and characteristic transition words, strongly suggests a particular LLM.\n\n**Comparing LLM Outputs**\n\nI'm now comparing the stylistic elements I've identified against known LLM outputs. The polished flow, specific vocabulary choices like \"fosters\" and \"mitigation,\" and the direct entry into substantive points, rather than generic introductions, strongly point towards Claude's characteristic writing style.\n\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "**Analyzing Text Structure**\n\nI'm currently dissecting the provided text, focusing on its structural components. My analysis is revealing a consistent pattern of well-formed body paragraphs, each beginning with a strong topic sentence, which I'm using to guide my identification process.\n\n**Identifying Stylistic Markers**\n\nI'm now focusing on identifying the specific stylistic markers of the text. I've noted a formal, academic tone and sophisticated vocabulary, which, when combined with the structured paragraphing and characteristic transition words, strongly suggests a particular LLM.\n\n**Comparing LLM Outputs**\n\nI'm now comparing the stylistic elements I've identified against known LLM outputs. The polished flow, specific vocabulary choices like \"fosters\" and \"mitigation,\" and the direct entry into substantive points, rather than generic introductions, strongly point towards Claude's characteristic writing style.\n\n",
+              "format": "google-gemini-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 531,
+      "completion_tokens": 704,
+      "total_tokens": 1235,
+      "cost": 0.0071325,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0071325,
+        "upstream_inference_prompt_cost": 0.0007965,
+        "upstream_inference_completions_cost": 0.006336
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 664,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

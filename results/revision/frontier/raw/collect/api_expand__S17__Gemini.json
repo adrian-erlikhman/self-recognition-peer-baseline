@@ -1,0 +1,63 @@
+{
+  "request_model": "google/gemini-3.5-flash",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Explain why salt is spread on icy roads in winter. Answer in two to four sentences of plain prose."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916393-8ZQM87y6uhxFteq347ks",
+    "object": "chat.completion",
+    "created": 1790916393,
+    "model": "google/gemini-3.5-flash",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "Salt is spread on icy roads because it dissolves in moisture and lowers the freezing point of water. This prevents water from freezing at its normal temperature, which melts existing ice and stops new ice from forming. By keeping the road surface wet instead of frozen, the salt helps vehicles maintain traction and makes winter driving much safer.",
+          "refusal": null,
+          "reasoning": "**Explaining Salt's Winter Role**\n\nI've been exploring the fundamental science behind why we salt roads in winter. My current focus is on detailing the process by which salt lowers water's freezing point, effectively preventing ice formation on roadways. This explanation will be presented in clear, concise terms for an expert audience.\n\n**Detailing Freezing-Point Depression**\n\nI'm currently detailing how salt's presence disrupts the crystalline structure of water, a key mechanism of freezing-point depression. This explanation emphasizes how this interaction prevents ice formation and ensures safer road conditions for drivers, even in sub-zero temperatures.\n\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "**Explaining Salt's Winter Role**\n\nI've been exploring the fundamental science behind why we salt roads in winter. My current focus is on detailing the process by which salt lowers water's freezing point, effectively preventing ice formation on roadways. This explanation will be presented in clear, concise terms for an expert audience.\n\n**Detailing Freezing-Point Depression**\n\nI'm currently detailing how salt's presence disrupts the crystalline structure of water, a key mechanism of freezing-point depression. This explanation emphasizes how this interaction prevents ice formation and ensures safer road conditions for drivers, even in sub-zero temperatures.\n\n",
+              "format": "google-gemini-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 21,
+      "completion_tokens": 515,
+      "total_tokens": 536,
+      "cost": 0.0046665,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0046665,
+        "upstream_inference_prompt_cost": 3.15e-05,
+        "upstream_inference_completions_cost": 0.004635
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 452,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "request_model": "deepseek/deepseek-chat",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Convince a friend that playing board games with family and friends is time well spent. Give three reasons: it builds conversation and connection around the table, it teaches good sportsmanship in winning and losing, and it is cheap entertainment that can be enjoyed again and again. Write in continuous prose paragraphs only. Do not use bullet points, numbered lists, headers, bold text, or any other formatting."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916377-P5Eba0Q5AbBn34wJLFkd",
+    "object": "chat.completion",
+    "created": 1790916377,
+    "model": "deepseek/deepseek-chat",
+    "provider": "DeepInfra",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "Playing board games with family and friends is an excellent way to spend time together, fostering meaningful conversation and connection around the table. In a world often dominated by screens and distractions, board games provide a unique opportunity to engage face-to-face, share stories, and laugh together. Whether it\u2019s strategizing over a competitive game or collaborating to solve a puzzle, these moments create lasting memories and strengthen relationships. The shared experience of playing a game encourages everyone to open up, leading to deeper conversations and a sense of camaraderie that\u2019s hard to replicate in other settings.\n\nAnother valuable aspect of board games is the opportunity they provide to teach and practice good sportsmanship. Winning and losing are integral parts of any game, and how we handle these outcomes can be a powerful lesson in humility, grace, and resilience. By playing board games, family and friends learn to celebrate victories without arrogance and accept defeats with dignity. These experiences help build emotional intelligence and character, skills that extend far beyond the game table and into everyday life. It\u2019s a safe and fun environment to teach younger players\u2014and remind older ones\u2014about the importance of fairness, respect, and perseverance.\n\nFinally, board games are an affordable form of entertainment that can be enjoyed repeatedly. Unlike many activities that require ongoing expenses or elaborate setups, a single board game can provide hours of enjoyment for a relatively low cost. Many games are designed with replayability in mind, offering different outcomes each time they\u2019re played. This makes them a sustainable investment in fun and togetherness. Whether it\u2019s a rainy day indoors or a cozy evening with friends, board games offer endless opportunities for enjoyment without breaking the bank, making them a practical and rewarding choice for quality time.",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 82,
+      "completion_tokens": 345,
+      "total_tokens": 427,
+      "cost": 0.00033329,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00033329,
+        "upstream_inference_prompt_cost": 2.624e-05,
+        "upstream_inference_completions_cost": 0.00030705
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

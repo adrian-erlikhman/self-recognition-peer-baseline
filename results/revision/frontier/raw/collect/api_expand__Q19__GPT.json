@@ -1,0 +1,70 @@
+{
+  "request_model": "openai/gpt-5.5",
+  "messages": [
+    {
+      "role": "user",
+      "content": "What is the smaller angle, in degrees, between the hour hand and the minute hand of an analog clock at 3:40? Solve the problem, showing your reasoning step by step in plain prose, and end with a final line of the form 'Answer: <number>'."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916322-Wlxv4Z5ASj8hTwosVF5k",
+    "object": "chat.completion",
+    "created": 1790916322,
+    "model": "openai/gpt-5.5",
+    "provider": "OpenAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "At 3:40, the minute hand is on the 40-minute mark.\n\nEach minute mark represents 6 degrees, so the minute hand is:\n\n40 \u00d7 6 = 240 degrees from 12.\n\nThe hour hand starts at 3, which is:\n\n3 \u00d7 30 = 90 degrees from 12.\n\nBut by 3:40, the hour hand has moved partway from 3 toward 4. The hour hand moves 30 degrees in 60 minutes, so in 40 minutes it moves:\n\n40/60 \u00d7 30 = 20 degrees.\n\nSo the hour hand is at:\n\n90 + 20 = 110 degrees from 12.\n\nNow find the difference between the two hand positions:\n\n240 \u2212 110 = 130 degrees.\n\nThe smaller angle is therefore 130 degrees.\n\nAnswer: 130",
+          "refusal": null,
+          "reasoning": "**Calculating angle step by step**\n\nI need to answer in a clear, step-by-step format. To compute the angle at 3:40, I first find the minute hand's position. At 40 minutes, the minute hand is at 240 degrees from 12. Then I calculate the hour hand\u2019s position: at 3 o'clock plus 40 minutes gives me 110 degrees. The difference between the hour and minute hands is 130 degrees, and since it's smaller, that will be my final answer: 130.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "**Calculating angle step by step**\n\nI need to answer in a clear, step-by-step format. To compute the angle at 3:40, I first find the minute hand's position. At 40 minutes, the minute hand is at 240 degrees from 12. Then I calculate the hour hand\u2019s position: at 3 o'clock plus 40 minutes gives me 110 degrees. The difference between the hour and minute hands is 130 degrees, and since it's smaller, that will be my final answer: 130.",
+              "format": "openai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABqvzblAKsFeRguA6d-uQ4rfZOkU3K_C3Ll9BmukedZYaYvu-ioO6H_bMrhctSAQykNOL9Jr5s__hhFsnP2Qlr1aFVUxig6kEV8_QaR1XzvFZQbKGdeYolJ9Ha1dWdQcDSw3zffZsh8Vyzl54uK3rEuRi2TeZ4z8CS9k5GpwJyLFTuIbWCuVJr229BrKfVV_0dq1leNIoYmUtaYF4Swwd89r64v_a2SZrLFwARY82F8bgl-buUS7QGqs_HxW7JjuG7lbJvsUYnnq8hJVwL_0XJRQkNsnFjsc5Kfdf1pv9QLQZKn_MTEtSF6g0wOotcSHsCYwY5VK8Yg6plNR-OVMkdyjdqzCOOjskW4Maeh5Tb5oN68eD_vnRf0N-JSGzmHhHfqrtW-Fa4nTHGN9bmoAGYVYNRU84z9452EvTdNpCJ9VEuf_GN-jo241XdRzWWYuCsOekPQJRsXf4xa1aISagxF26zPh_5wzvfqzAvd8KX4GOwba1grptppEvxVeNUp2099jVJFEp4m2g_xtfl5ndUN1-ovEJRtyLLw3qt6roUfJ5Y4Z7WhGKH8mlTgs-K0hssE0edTW9gVU9ZaFK3dHij02phkQUm_HZPUnYd2CmgQeA2AVYZTNGXIAqRDlUuoMMXHlT4zoNgQcvF4t0Z2J3OiPEiRdDKkrLPT8rCVmxH1S2O4B9MTR5bF5Lqrx8c-U41IaltemsilPAfDZ8WrwCi-UDehQH1NCS8Pa8pV9uUDAhFnWS_t9fPe8utdCSpRLOBR0WuksO52Ms1FwL5RRStY5d2Yk4dSs8CVasvP4J376KaIh2N0ytmrBNea_Le5C1FT26hl4bhJGSpHGBq-oWTw_V-jFWIa9kBFcA5rQaeHCTPKPw9zs02ekIxyR19oGaEB6qZKoqJLJPizH8Y8SJCZSGgBFZTP8l78PCtO-uJlA-Cg6cO5hGBz9Nmv9ic6SGC4rI7w5eZsuVxAIgx-5DbQgeVz3YYkC0gkezqtG_nEoZfZzDT4NJO7yXFxEhvznlzbrFEh79nuW6rlAz8frhWbW9oBc9EheA0HrkWOJ-6eXO2Ff2t6lCvOXPuFMbSFWROuHUxsdaPa4_DNKMF1e1lCIvq2WP7Za17GP94yZyTp6SAzq6bR76_7u2RRc-JUrWzltAfUK8ivYvAAYNNymNZTZDdYS9uUliEC-C1wl_jOOEYSp05p_gZvkOX24hpY8In5pWGml8ON4VwhXBDwDPd1ZTkxfNr4DCw38AUyzpay8kaIdlZxIejYY2jU752RXWGA0bf0l8I4rf07AacnS1slSwqeMsuaNFXO8y7zPjliQyLidajcuceSKEX3pFGZAH-YPiKj6985hDHaqdcesMhrVOd0ELcuk4I5YSSSDfQoyS3JQHaRUOI2UxYNWsny0MUzeyGOSBP_MTudgR7-rWMw-ydjRMyzf6v-lgfShYa4FKatjsKpTprfIMEDyUxy5F7kRFRfAKbqmzBdFBsruMsgjZI-MHbKrOxfkN2w6JmvO1jweFchGe6RGYVmQzdrPXDF5OAXXeOW6crdm5z5VhjX875N1b52_8kN2k0VFvuREA7v14zkXx-AVoOozQL8aVEgIUOBaoXMQvzxPqQA6oyQUm3ZdfdfgBqm4yNeA9KdE-ykJ4I=.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC01LjUtMjAyNjA0MjN8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_015ecf0eab81e048016abf36e305f887d19cdca2916c0bad08",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 62,
+      "completion_tokens": 248,
+      "total_tokens": 310,
+      "cost": 0.00775,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00775,
+        "upstream_inference_prompt_cost": 0.00031,
+        "upstream_inference_completions_cost": 0.00744
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 73,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

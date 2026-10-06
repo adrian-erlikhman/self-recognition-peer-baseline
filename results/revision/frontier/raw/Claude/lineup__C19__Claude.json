@@ -1,0 +1,55 @@
+{
+  "request_model": "anthropic/claude-opus-4.7",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Below are five AI-generated responses to the same task, labelled A through E.\n\nEach response was written by one of these five language models:\nGPT, Claude, Gemini, Grok, DeepSeek.\n\nFor each of the five responses, identify which model you believe wrote it, judging only from writing style, structure, and phrasing.\n\nAnswer independently for each response. Your five answers do not need to be five different models - name whichever model you believe wrote each response, even if that means naming the same model more than once.\n\nReply with JSON only, in exactly this form and nothing else:\n\n{\n  \"A\": {\"model\": \"<one of GPT, Claude, Gemini, Grok, DeepSeek>\", \"confidence\": <1-5>, \"reason\": \"<one short sentence>\"},\n  \"B\": {\"model\": \"...\", \"confidence\": <1-5>, \"reason\": \"...\"},\n  \"C\": {\"model\": \"...\", \"confidence\": <1-5>, \"reason\": \"...\"},\n  \"D\": {\"model\": \"...\", \"confidence\": <1-5>, \"reason\": \"...\"},\n  \"E\": {\"model\": \"...\", \"confidence\": <1-5>, \"reason\": \"...\"}\n}\n\nconfidence: 1 = pure guess, 5 = certain.\n\n--- RESPONSE A ---\n```python\nfrom collections import defaultdict, deque\n\ndef topological_order(graph: dict[str, list[str]]) -> list[str]:\n    \"\"\"Return a topological ordering of the graph. Raise ValueError if a cycle is detected.\"\"\"\n    # Calculate in-degree for each node\n    in_degree = defaultdict(int)\n    for u in graph:\n        if u not in in_degree:\n            in_degree[u] = 0\n        for v in graph[u]:\n            in_degree[v] += 1\n\n    # Initialize queue with nodes having zero in-degree\n    queue = deque(sorted([u for u in in_degree if in_degree[u] == 0]))\n\n    # Perform topological sort\n    result = []\n    while queue:\n        u = queue.popleft()\n        result.append(u)\n        for v in sorted(graph.get(u, [])):\n            in_degree[v] -= 1\n            if in_degree[v] == 0:\n                queue.append(v)\n\n    # Check for cycles\n    if len(result) != len(in_degree):\n        raise ValueError(\"Graph contains a cycle\")\n\n    return result\n```\n\n--- RESPONSE B ---\n```python\nfrom heapq import heapify, heappop, heappush\n\n\ndef topological_order(graph: dict[str, list[str]]) -> list[str]:\n    \"\"\"Return the alphabetically smallest topological ordering of a directed graph.\n\n    Args:\n        graph: Mapping where graph[u] lists nodes v with an edge from u to v.\n\n    Raises:\n        ValueError: If the graph contains a cycle.\n    \"\"\"\n    nodes: set[str] = set(graph)\n\n    # Include nodes that appear only as targets.\n    for neighbors in graph.values():\n        nodes.update(neighbors)\n\n    indegree = {node: 0 for node in nodes}\n\n    # Count incoming edges for each node.\n    for neighbors in graph.values():\n        for neighbor in neighbors:\n            indegree[neighbor] += 1\n\n    # Start with all nodes that have no incoming edges, alphabetically ordered.\n    available = [node for node in nodes if indegree[node] == 0]\n    heapify(available)\n\n    order: list[str] = []\n\n    while available:\n        node = heappop(available)\n        order.append(node)\n\n        # Remove outgoing edges from the chosen node.\n        for neighbor in graph.get(node, []):\n            indegree[neighbor] -= 1\n            if indegree[neighbor] == 0:\n                heappush(available, neighbor)\n\n    if len(order) != len(nodes):\n        raise ValueError(\"graph contains a cycle\")\n\n    return order\n```\n\n--- RESPONSE C ---\n```python\nimport heapq\n\n\ndef topological_order(graph: dict[str, list[str]]) -> list[str]:\n    \"\"\"Return a topological ordering of a directed graph.\n\n    The input ``graph`` maps each node ``u`` to the list of nodes ``v`` such\n    that there is a directed edge ``u -> v``. Nodes that appear only as edge\n    targets (i.e. never as a key in ``graph``) are still considered part of\n    the graph.\n\n    The ordering is made unique by always choosing the alphabetically\n    smallest available node (Kahn's algorithm with a min-heap).\n\n    Raises:\n        ValueError: If the graph contains a cycle.\n    \"\"\"\n    # Collect every node, including those only appearing as edge targets.\n    nodes: set[str] = set(graph.keys())\n    for targets in graph.values():\n        nodes.update(targets)\n\n    # Compute in-degree for each node.\n    in_degree: dict[str, int] = {node: 0 for node in nodes}\n    for u in graph:\n        for v in graph[u]:\n            in_degree[v] += 1\n\n    # Initialize a min-heap with all nodes of in-degree zero.\n    heap: list[str] = [node for node, deg in in_degree.items() if deg == 0]\n    heapq.heapify(heap)\n\n    order: list[str] = []\n    while heap:\n        # Pop the alphabetically smallest available node.\n        u = heapq.heappop(heap)\n        order.append(u)\n        # Decrease in-degree of neighbors; enqueue new zero-in-degree nodes.\n        for v in graph.get(u, []):\n            in_degree[v] -= 1\n            if in_degree[v] == 0:\n                heapq.heappush(heap, v)\n\n    # If not every node was placed, there must be a cycle.\n    if len(order) != len(nodes):\n        raise ValueError(\"Graph contains a cycle\")\n\n    return order\n```\n\n--- RESPONSE D ---\n```python\nimport heapq\n\ndef topological_order(graph: dict[str, list[str]]) -> list[str]:\n    \"\"\"\n    Returns a topological ordering of a directed graph.\n    \n    If multiple nodes are available to be visited, the lexicographically\n    smallest node is chosen first. Raises ValueError if the graph has a cycle.\n    \n    :param graph: A dictionary mapping each node to its list of target nodes.\n    :return: A list of nodes in topological order.\n    :raises ValueError: If the graph contains a cycle.\n    \"\"\"\n    # Identify all unique nodes in the graph (both sources and targets)\n    all_nodes = set(graph.keys())\n    for targets in graph.values():\n        all_nodes.update(targets)\n        \n    # Calculate the in-degree of each node\n    in_degree = {node: 0 for node in all_nodes}\n    for u, targets in graph.items():\n        for v in targets:\n            in_degree[v] += 1\n            \n    # Initialize a priority queue (min-heap) with all nodes having in-degree 0.\n    # This ensures we always choose the alphabetically smallest node first.\n    zero_in_degree = [node for node in all_nodes if in_degree[node] == 0]\n    heapq.heapify(zero_in_degree)\n    \n    order = []\n    while zero_in_degree:\n        u = heapq.heappop(zero_in_degree)\n        order.append(u)\n        \n        # Decrement the in-degree of neighbor nodes\n        for v in graph.get(u, []):\n            in_degree[v] -= 1\n            if in_degree[v] == 0:\n                heapq.heappush(zero_in_degree, v)\n                \n    # If the order does not contain all nodes, there is a cycle\n    if len(order) < len(all_nodes):\n        raise ValueError(\"Graph contains a cycle\")\n        \n    return order\n```\n\n--- RESPONSE E ---\n```python\nimport heapq\nfrom collections import defaultdict\n\ndef topological_order(graph: dict[str, list[str]]) -> list[str]:\n    \"\"\"Return a unique topological order of the graph, choosing the\n    alphabetically smallest node whenever multiple are ready.\n    Raise ValueError if the graph contains a cycle.\n    \"\"\"\n    # Collect every node that appears as a key or a target\n    nodes = set(graph.keys())\n    for targets in graph.values():\n        nodes.update(targets)\n\n    # Compute indegrees for all nodes\n    indegree = {n: 0 for n in nodes}\n    for u in graph:\n        for v in graph[u]:\n            indegree[v] += 1\n\n    # Min-heap of nodes with indegree zero (guarantees lex order)\n    ready = [n for n in nodes if indegree[n] == 0]\n    heapq.heapify(ready)\n\n    order: list[str] = []\n    while ready:\n        u = heapq.heappop(ready)\n        order.append(u)\n        for v in graph.get(u, []):\n            indegree[v] -= 1\n            if indegree[v] == 0:\n                heapq.heappush(ready, v)\n\n    if len(order) != len(nodes):\n        raise ValueError(\"Graph contains a cycle\")\n    return order\n```\n\n--- END OF RESPONSES ---\nNow output the JSON object described above, and nothing else."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916604-JlVpzHSHAuR8dB6KYPOB",
+    "object": "chat.completion",
+    "created": 1790916604,
+    "model": "anthropic/claude-opus-4.7",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"A\": {\"model\": \"DeepSeek\", \"confidence\": 2, \"reason\": \"Uses defaultdict with deque and sorting at each step rather than heap, slightly unusual approach.\"},\n  \"B\": {\"model\": \"Claude\", \"confidence\": 3, \"reason\": \"Clean docstring with Args/Raises format and type annotations, measured prose style.\"},\n  \"C\": {\"model\": \"GPT\", \"confidence\": 3, \"reason\": \"Detailed explanatory docstring with double-backticks formatting typical of GPT.\"},\n  \"D\": {\"model\": \"Gemini\", \"confidence\": 3, \"reason\": \"Uses :param: style docstring and verbose inline comments typical of Gemini.\"},\n  \"E\": {\"model\": \"Grok\", \"confidence\": 2, \"reason\": \"Concise style with brief comments, imports defaultdict but doesn't use it.\"}\n}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 2988,
+      "completion_tokens": 288,
+      "total_tokens": 3276,
+      "cost": 0.02214,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.02214,
+        "upstream_inference_prompt_cost": 0.01494,
+        "upstream_inference_completions_cost": 0.0072
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

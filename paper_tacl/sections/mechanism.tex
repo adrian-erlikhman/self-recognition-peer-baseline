@@ -1,0 +1,126 @@
+% ===========================================================================
+\section{What the judges use}
+\label{sec:mechanism}
+
+The classifier shows that the frontier texts carry enough signal to name
+their authors at \EngineAAcc{}. The frontier judges reach at most
+\GPTOverallLineup{} overall. We test four accounts of what they use instead.
+
+\subsection{Rationales}
+\label{sec:rationales}
+Every frontier judgment came with a one-sentence reason. We coded all 1,900
+with a transparent rule-based scheme of eleven cue types (length,
+punctuation and formatting, structure, sentence construction, word choice,
+tone, hedging, rhetorical flourish, appeals to a model's typical style,
+references to the judge itself, and content). \RationaleValidation{}
+
+\emph{No judge ever refers to itself.} Not one of the 1,900 reasons says
+anything like ``this is how I write'', including the 66 in which Claude
+correctly named itself. Judges instead appeal to what a model typically
+writes: 46\% of lineup reasons and 95\% of single-text reasons invoke a
+model's characteristic style (``classic Claude hedging'').
+
+\emph{The cited cues are the same whether a self-naming is right or wrong.}
+When Claude names itself on its own text in the single-text format it cites
+hedging 31 times in 33; when it names itself on a text it did not write, 12
+times in 13. GPT's self-namings cite word choice in 33 of 36 hits and 64 of
+79 false alarms. A judge that recognised its own writing would not describe
+its misses in the same terms as its hits; a judge applying a stereotype of
+itself would.
+
+\emph{The cues are mostly true of the text, but not diagnostic.} When a
+lineup reason calls a response long, that response is the longest of the
+five in 47 of 71 cases (chance 20\%), and phrases judges quote appear
+verbatim in 238 of 245 cases. The exception is ``sophisticated vocabulary'',
+which matches the response with the longest words no more often than chance
+(3 of 35). Judges describe the texts accurately and then map the description
+onto a model by reputation. Citing hedging predicts a correct attribution
+(odds ratio 1.96, $p<10^{-4}$, lineup), but that shrinks once the true
+author is controlled for (1.54, $p=0.017$), because hedging is simply common
+in Claude's text. As \citet{marioriyad2025silent} warn, none of this shows
+what drove a decision; it shows what judges say drove it.
+
+\subsection{Generative match}
+\label{sec:genmatch}
+\citet{wataoka2024perplexity} propose that a judge favours, and perhaps
+claims, text it would itself have produced. With closed models we can
+approximate ``what $J$ would write'' by $J$'s own answer to the same prompt,
+and ask whether a text's similarity to it predicts $J$ naming itself on text
+it did not write. It does not: across three similarity measures (stylometric
+distance, word and character $n$-gram cosine, function-word profile), two
+formats and five judges, 1 of 36 clustered models reaches $p<0.05$. GPT, the
+judge with the most such false alarms (79 in single-text), shows odds ratio
+1.52 [0.85, 2.71] per standard deviation of stylometric similarity. Nor do
+judges name the model whose answer to the prompt is most similar to the
+text: in 630 wrong lineup attributions the named model is the most similar
+one 31.9\% of the time against 30.1\% for shuffled guesses ($p=0.12$),
+although the same similarity measures identify the true author 74--79\% of
+the time. The signal a generative-match strategy would need is present; the
+judges' errors do not follow it. Section~\ref{sec:likelihood} tests the
+account directly, with each open-weight judge's own probabilities.
+
+\subsection{Likelihood}
+\label{sec:likelihood}
+\citet{wataoka2024perplexity} tie self-preference to familiarity: a judge
+favours text that is likely under its own distribution, which its own text
+usually is. Open weights let us read that familiarity directly. For every
+judge and every text we compute the mean token log-probability of the text
+as the judge's reply to its prompt, and subtract the mean of the other three
+judges' values for the same text, so that a text predictable to every model
+does not count as familiar to one.
+
+\emph{Each judge's probabilities identify its own text.} Picking, for each
+prompt, the text a judge finds relatively most likely names its own text on
+\OWLikCondAccMin{} of prompts for every judge (chance 25\%), and on \OWLikUncAccMin{}--\OWLikUncAccMax{} even without the
+prompt. This is expected, since each text was sampled from its author, but
+it means that the information needed to recognise one's own text is present
+in every judge's forward pass.
+
+\emph{The judges' answers do not use it.} If familiarity drove self-naming,
+a judge would claim the texts of others that it finds relatively likely more
+often than those it does not. We test this within each prompt, on texts the
+judge did not write, comparing the standardised relative likelihood of the
+texts it named as its own with the rest (within-prompt permutation). Across
+the \OWFamTests{} judge--format pairs with enough claims to test (lineup,
+single text and yes/no; \OWFamUntestable{} pairs claim everything or nearly
+nothing), none survives Holm correction; the smallest $p$ is
+\OWFamMinP{} (\OWFamMinWho{}; Holm \OWFamMinHolm{}), and there the judge
+claims the texts it finds \emph{less} likely. Asked who wrote a text, a judge
+answers without consulting the one signal that would let it know.
+
+\subsection{Quality}
+\label{sec:quality}
+\citet{stamand2026sgtr} show that a judge can appear to recognise itself by
+claiming whichever text it rates best. Each open-weight judge rated every
+text in both corpora for how well it carries out its task, on a 1--9 scale
+read as the expected value over the judge's probabilities for the nine
+digits.
+
+\emph{Frontier self-naming is not a quality effect.} With the four
+open-weight judges as raters independent of the frontier judges, we ask two
+questions of Study~1. Do frontier judges claim the better texts? Among texts
+a judge did not write, the ones it named as its own are rated no higher than
+the rest for any judge in the lineup (within-prompt permutation, smallest
+$p=$~\QFLineupClaimMinP{}, Gemini, whose claims lean towards worse texts);
+one text at a time, GPT, the one judge that often claims others' text,
+claims the \emph{worse} ones (standardised difference \QFGPTSingleClaimDiff{},
+$p=$~\QFGPTSingleClaimP{}). Does self-advantage survive holding quality
+fixed? In a GEE of correctness on whether the judge wrote the text and the
+text's within-prompt quality, the self term stays significant for Claude
+(odds ratio \QFClaudeLineupOR{}, $p=$~\QFClaudeLineupORP{}), GPT
+(\QFGPTLineupOR{}, $p=$~\QFGPTLineupORP{}) and Grok (\QFGrokLineupOR{},
+$p=$~\QFGrokLineupORP{}). The raters agree only weakly (mean pairwise
+Spearman \QFRaterRho{}), since almost every frontier text is rated near the
+top of the scale (author means \QFMeanLo{}--\QFMeanHi{}), so this measures
+quality coarsely.
+
+\emph{The open-weight judges do not prefer their own text either.} We
+measure self-preference as how much more a judge rates its own text than its
+peers rate it, minus how much more it rates others' text than its peers do,
+so that a generous rater is not counted as self-preferring. It ranges from
+\OWQualSelfPrefMin{} to \OWQualSelfPrefMax{} points on the nine-point scale,
+and every prompt-bootstrap interval includes zero (largest: Mistral,
+\OWMistralQualSelfPref{} \OWMistralQualSelfPrefCI{}). Judges that cannot tell
+their text from others' do not favour it.
+
+\input{sections/watermark}

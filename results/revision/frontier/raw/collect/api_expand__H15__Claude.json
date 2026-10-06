@@ -1,0 +1,55 @@
+{
+  "request_model": "anthropic/claude-opus-4.7",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Argue that biological function is best analyzed in etiological rather than purely causal-role terms. Develop exactly these three claims: (1) selected-effect accounts, which identify a trait's function with the effect for which its ancestors were selected, explain the normativity of function, including the possibility of malfunction, which a purely dispositional analysis cannot accommodate; (2) causal-role accounts following Cummins cannot distinguish a trait's function from its accidental effects without relativizing function to the explanatory interests of the investigator, thereby surrendering the objectivity of functional attribution; (3) etiological accounts alone vindicate the explanatory force of functional claims, because citing a trait's selected effect answers the historical question of why the trait is present rather than merely describing what it currently does. Do not address counterarguments. Write in continuous prose paragraphs only. Do not use bullet points, numbered lists, headers, bold text, or any other formatting."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916370-hpblCcIBM2qQY8u839JM",
+    "object": "chat.completion",
+    "created": 1790916370,
+    "model": "anthropic/claude-opus-4.7",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "The concept of biological function occupies a central place in the life sciences, and how we analyze it determines whether functional discourse can bear the explanatory and normative weight biologists routinely place upon it. Two broad traditions have competed to provide this analysis: the etiological or selected-effect tradition, which locates function in a trait's selection history, and the causal-role tradition descending from Cummins, which identifies function with any contribution a trait makes to a containing system's capacities. There are compelling reasons to prefer the etiological approach, since it alone secures the normativity, objectivity, and explanatory force that functional attributions appear to possess.\n\nThe first consideration concerns normativity. Functional ascriptions in biology are not merely descriptive; they license claims about what a trait is supposed to do, and consequently about when it fails to do what it should. A diseased heart that cannot pump blood still has the function of pumping blood, and a cone cell in a colorblind retina still has the function of discriminating wavelengths even when it cannot. This normative dimension, including the very possibility of malfunction, is captured naturally by the selected-effect account. If a trait's function is the effect for which its ancestors were selected, then a token of that trait has a function it may fail to perform, since what it is for is fixed by evolutionary history rather than by its current dispositions. A purely dispositional analysis, by contrast, cannot generate this gap between what a trait does and what it ought to do. If function were simply a matter of what a trait is disposed to produce, then a trait that lacks the disposition would lack the function, and malfunction would become conceptually impossible: a non-pumping heart would simply fail to have the pumping function at all, rather than failing to perform its function. Since biologists plainly treat malfunction as a coherent and important category, only an account that distinguishes function from current disposition can accommodate biological practice, and the etiological account does so by anchoring function in ancestral selection rather than present capacity.\n\nThe second consideration concerns objectivity. Cummins-style causal-role analyses define function in terms of a trait's contribution to some capacity of a containing system, where that capacity is itself picked out by the explanatory project of an inquirer. The difficulty is that any trait makes countless contributions to countless systemic capacities, many of which are intuitively accidental rather than functional. The heart contributes to blood circulation, but it also contributes to the production of rhythmic thumping sounds useful to physicians with stethoscopes, to the weight distribution of the thorax, and to a host of other systemic outcomes. To isolate circulation as the heart's function rather than, say, sound production, the causal-role theorist must appeal to which capacity the investigator has chosen to analyze. Function thereby becomes relative to explanatory interests, and the distinction between genuine functions and merely accidental effects collapses into a distinction between effects we happen to care about and effects we do not. This surrenders the objectivity of functional attribution: whether the heart's function is to circulate blood would depend not on the heart itself but on what question an inquirer happens to be asking. The etiological account avoids this consequence because selection history is a mind-independent matter of fact. The heart was selected for pumping blood and not for producing sounds, regardless of what any investigator finds interesting, and this historical fact fixes its function objectively.\n\nThe third consideration concerns explanatory force. When a biologist says that the function of a trait is such-and-such, this claim is typically taken to explain something about the trait, in particular why organisms of the relevant kind have it. The etiological account vindicates this explanatory pretension directly. To cite the selected effect of a trait is to answer the question of why the trait is present in the population: it is present because ancestral variants that produced that effect were differentially retained by natural selection. Functional claims thus do genuine explanatory work, situating the trait within a historical process that accounts for its existence and distribution. Causal-role analyses, by contrast, can only describe what a trait currently contributes to a system; they cannot explain why the trait is there to make the contribution in the first place. Saying that the heart contributes to circulation tells us something about how the organism currently operates, but it leaves wholly untouched the question of why organisms are built with hearts at all. Only by appealing to selection history does functional discourse acquire the retrospective, explanatory dimension that distinguishes it from mere systemic description, and only the etiological account makes this dimension constitutive of what functions are.",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 316,
+      "completion_tokens": 1442,
+      "total_tokens": 1758,
+      "cost": 0.03763,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.03763,
+        "upstream_inference_prompt_cost": 0.00158,
+        "upstream_inference_completions_cost": 0.03605
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

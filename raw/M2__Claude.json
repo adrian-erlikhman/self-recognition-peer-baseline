@@ -1,0 +1,49 @@
+{
+  "request_model": "anthropic/claude-opus-4.7",
+  "response": {
+    "id": "gen-1786846147-s7OvX7eDHGIkyRs5P7cU",
+    "object": "chat.completion",
+    "created": 1786846147,
+    "model": "anthropic/claude-opus-4.7",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"A\": {\"model\": \"GPT\", \"confidence\": 2, \"reason\": \"Straightforward structure with generic phrasing and moderate length paragraphs.\"},\n  \"B\": {\"model\": \"Claude\", \"confidence\": 3, \"reason\": \"Detailed, nuanced examples with careful qualifications and 'third-place' terminology.\"},\n  \"C\": {\"model\": \"DeepSeek\", \"confidence\": 3, \"reason\": \"Formal, measured tone with institutional references and analytical framing.\"},\n  \"D\": {\"model\": \"Claude\", \"confidence\": 3, \"reason\": \"Elegant literary prose with rhetorical flourishes and strong argumentative structure.\"},\n  \"E\": {\"model\": \"Gemini\", \"confidence\": 3, \"reason\": \"Polished marketing-like phrasing with vivid adjectives and clear tripartite structure.\"}\n}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 5127,
+      "completion_tokens": 283,
+      "total_tokens": 5410,
+      "cost": 0.03271,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.03271,
+        "upstream_inference_prompt_cost": 0.025635,
+        "upstream_inference_completions_cost": 0.007075
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

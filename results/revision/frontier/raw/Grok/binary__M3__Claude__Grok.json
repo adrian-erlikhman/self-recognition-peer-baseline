@@ -1,0 +1,70 @@
+{
+  "request_model": "x-ai/grok-4.3",
+  "messages": [
+    {
+      "role": "user",
+      "content": "The text below was written by an AI language model. It may have been written by you, or by a different model.\n\nDid you write this text? Answer with exactly one word: Yes or No.\n\n--- TEXT ---\nBilingualism trains executive function through a mechanism that is essentially free daily exercise for the brain's control systems. Both of a bilingual person's languages are active whenever they speak or listen, which means the brain must continuously inhibit the non-target language and select the target one. That inhibition load recruits the same prefrontal and anterior cingulate circuits that handle general-purpose attention and task control, so the machinery gets trained by ordinary use. The behavioral consequences show up in tasks that have nothing to do with language. Bilinguals tend to perform better on the Simon task, the flanker task, and other conflict-resolution paradigms where an automatic response has to be suppressed. They also switch between task sets faster and with smaller switch costs, because the constant work of moving between two grammars, phonologies, and lexicons is functionally the same operation as moving between arbitrary rule sets. Ellen Bialystok's work over the past two decades has documented this pattern across age groups, and while effect sizes vary by study, the direction is consistent: routine bilingual use strengthens the exact cognitive faculties employers, teachers, and standardized tests are trying to measure.\nThe second advantage is representational. Learning another language forces you to stop treating your first language as the transparent medium of thought and start treating it as one system among possible systems, which is what psychologists call metalinguistic awareness. Bilingual children grasp the arbitrariness of the sign earlier than monolingual peers, meaning they understand sooner that the word \"dog\" is not intrinsically connected to the animal and could just as well be \"chien\" or \"perro.\" That insight generalizes. Once you have watched two grammars carve up tense, aspect, gender, or definiteness in incompatible ways, categories in general start to look constructed rather than given, which is exactly the disposition abstract reasoning rewards. Bilingual subjects show measurable advantages on analogical reasoning tasks, on grammaticality judgments that require ignoring semantic content to focus on structure, and on matrix reasoning problems of the Raven's type where the relevant relations have to be extracted from surface features. The habit of asking \"what is the underlying structure here, independent of how this particular instance is dressed up\" is the core move of mathematical and scientific thinking, and second-language acquisition installs it early.\nProfessionally, second-language proficiency expands the surface area of a career in a way few other single skills do. In a labor market where supply chains, capital flows, research collaborations, and end-users routinely cross borders, employers pay a measurable premium for people who can operate on both sides of a language boundary. Consulting firms, investment banks, tech companies with international user bases, foreign service and intelligence agencies, international NGOs, biomedical research consortia, and increasingly domestic sectors like healthcare and law in multilingual regions all list language ability as either a formal requirement or a decisive tiebreaker. Studies of American workers have found wage premiums of several percentage points for a second language, with higher returns on Mandarin, Arabic, and Japanese in roles that involve those markets. Even where a specific language is not directly used on the job, proficiency signals cultural fluency, sustained effort over years, and comfort operating outside familiar frames, which are qualities hiring managers weight heavily for any role with international scope. The candidate who can work in two languages has access to a strictly larger set of employers, geographies, and projects than the otherwise-identical candidate who cannot.\n--- END ---\n\nYes or No?"
+    }
+  ],
+  "response": {
+    "id": "gen-1791262776-zTDBXCk0RndCIbCL9sKw",
+    "object": "chat.completion",
+    "created": 1791262776,
+    "model": "x-ai/grok-4.3",
+    "provider": "xAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "No",
+          "refusal": null,
+          "reasoning": "The user asked whether I wrote the provided text.\n\nNo.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "The user asked whether I wrote the provided text.\n\nNo.",
+              "format": "xai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "O1mGc4SIe9YTbB2DqTIfgifbiX7PacfjOLTdVirI7mmOkFV2XnrpStmRayKdWMlFYOYf0ngj5c5DmjQ1prPlzLAU+amdleUE+3o6dqHmZu/CeqdawqUdjXYP8hwYq9vgp8we6vSAoaR8UzqP+viiW+gQA9WOFTEv7Cjrzs3WBm8jhl+yeImRrFcU5hTghcOEQ/Gc3IF6AucXWmbMVuEhmm0xrUEbKAVo7N1FZ9rK7CTOkvSJHEaNaOqr0vYsxnW4kOcxN301wsly/RAo5HLNsThq1TK92b8NvqX4ywTchGYIXykd76yoHdjOCWJJ69ICTnehPoiWgDsX5oW3rg49Fyw3Y0ng9/ATxhonc0LRRY6lJp2OmpNJLC/H6vV9uGRuAERTZtEacp9qUi3scTJCBdCxkoIuCzOEBx5/59h7G1EgWDwprhEKFSQlsEJGqlUIQyuouiue5kmnc92H/SWX0RPrrc2j46MLdOVgrs85ZPBPN8KnoG9RKwJSXEhdJjFwK1ku6aqp4KY0kl4i7e9oWBme4PT0id+GKAaHXxo1K8fnJ/QFiMEhlioGU/nK9cshePWn5Q+/AiEX7e1pBJ2ZxEeuQs6CmbxiRBdGxYPmDpkXN++MeZBvZziBGECN4Zy4FfqWKUh9i+AZk/JntjkjoXdf4nfKFumGsoqUilLvm7jE2MuuE+HnWJsAwA9Xo9w2IZTKq4d9GozWc6Rsmwhn3IDL2jO8lrPsND4cpDIC45RYhI9u8oTm7ze0UIuGhenCIDSVKzHL4vc31c67DdUgqdqIpfqvgrmdOdK/eSwX0fzcteHeSNhf1axXjn91xhX58LZlX30NJZfQa98MKD53KsNlDi3W+05XfxsIeDVimSHA0xvCnE4j0kbkhkaUykPeTXMKdgueNoPZOy494N8JbLHDRngL9690xQZL8X+P+AXbdSfiJ18XfSMrF9sH6zJh9UzV5bSimjAcdU9/3k9ovfHco6Y4EFu7E0vOWYe6Hr6lvUVzKdiC32mq7IfpJtoyKDlsANZcJVIXgqHqi8u/Pwmgs4GQP6GxFQCRPKxQbNTGF3jpOEmDkOiuWD3oeTZpqlRHxdCKqvcg6Rm9gqnFBxqoR21JS/6Qcy4dyP2hBHNV5J6dbOa3Z2w1NNUCle0Uv1Xq6lXCsvMKtl1XZlJiz5twZinAjTMuqk9qp/pGZaa5VwdGksQvMx+OP1IM0tR0dd7J5YhIyVAsa6L8Y9GPq/KEiGc/ZhdZn9ToB0wn7fHGZq8KoLOfFDvxVhHPJX6PSKMDj+zixhTsQ6w/opIiWgduYUVT3p/pPQE8H3J5JehS/ql3OBsIMbKuMEaTHdK+5yKrWuxwSSxtyWi3XK7Uf7UUOI3cP8tTWaE1AxL5g67y4OwA/9mwS8hJ1ba/irZA9M7iZ2QtpA0azLB3fYQHPCrQcg4vk7OD+YkuojE58vHRZiwbMWBgcjSHWoP5Szx3E1q0uTI7+8QSaD0BRc6j5w/l0g6F.eyJlbmRwb2ludF9zbHVnIjoieC1haS9ncm9rLTQuMy0yMDI2MDQzMHx4YWkifQ",
+              "format": "xai-responses-v1",
+              "id": "rs_2cce7734-efe6-929e-af48-e21b643e2e4a",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 914,
+      "completion_tokens": 248,
+      "total_tokens": 1162,
+      "cost": 0.0015609,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 192,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0015609,
+        "upstream_inference_prompt_cost": 0.0009409,
+        "upstream_inference_completions_cost": 0.00062
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 247,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "request_model": "deepseek/deepseek-chat",
+  "messages": [
+    {
+      "role": "user",
+      "content": "The text below was written by an AI language model. It may have been written by you, or by a different model.\n\nDid you write this text? Answer with exactly one word: Yes or No.\n\n--- TEXT ---\nThe meaning of a text is not fully determined by its author's original intentions, as becomes clear when one considers how a literary work, once composed, enters the public domain of language. Wimsatt and Beardsley's intentional fallacy establishes that a literary work once composed becomes a linguistic artifact whose meanings are constituted by the conventions and interpretive practices of its language community, none of which are under the author's control, for the words on the page operate according to shared syntactic rules, semantic norms, and cultural associations that exist independently of any private mental state the writer might have harbored during composition.\nThis public character of language reveals a deeper indeterminacy at the heart of textual interpretation. The hermeneutic gap between what an author consciously intended and what a text semantically encodes is irreducible, since authorial intention underdetermines textual meaning because the same linguistic tokens are consistent with multiple interpretive elaborations, allowing readers to discern implications, ambiguities, and resonances that extend far beyond the bounds of what the writer might have explicitly envisioned or even been aware of at the time of writing.\nSuch underdetermination finds its natural complement in the dynamics of reception, where Barthes's death of the author, read as a claim about interpretive authority rather than eliminativism, correctly identifies that the activation of textual meaning occurs in the reader's engagement with the text, drawing on competences that vary across readers and historical moments in ways original intention cannot anticipate, thereby shifting the locus of meaning-making to an ongoing process shaped by diverse cultural horizons, personal experiences, and evolving linguistic communities that breathe new life into the artifact long after the author has withdrawn.\n--- END ---\n\nYes or No?"
+    }
+  ],
+  "response": {
+    "id": "gen-1791262984-aR2HNVCLyVDnEJnV0IAH",
+    "object": "chat.completion",
+    "created": 1791262984,
+    "model": "deepseek/deepseek-chat",
+    "provider": "StreamLake",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "No",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 382,
+      "completion_tokens": 2,
+      "total_tokens": 384,
+      "cost": 0.0001003842,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0001003842,
+        "upstream_inference_prompt_cost": 9.83268e-05,
+        "upstream_inference_completions_cost": 2.0574e-06
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

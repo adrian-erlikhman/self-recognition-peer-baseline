@@ -1,0 +1,55 @@
+{
+  "request_model": "deepseek/deepseek-chat",
+  "messages": [
+    {
+      "role": "user",
+      "content": "An arithmetic sequence has a first term of 7 and a common difference of 4. What is its 25th term? Solve the problem, showing your reasoning step by step in plain prose, and end with a final line of the form 'Answer: <number>'."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916342-ihDwi1rn8TC2fz5yXqof",
+    "object": "chat.completion",
+    "created": 1790916342,
+    "model": "deepseek/deepseek-chat",
+    "provider": "DeepInfra",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "To find the 25th term of an arithmetic sequence, we can use the formula for the \\(n\\)th term of an arithmetic sequence:\n\n\\[\na_n = a_1 + (n - 1) \\cdot d\n\\]\n\nHere:\n- \\(a_n\\) is the \\(n\\)th term,\n- \\(a_1\\) is the first term,\n- \\(d\\) is the common difference,\n- \\(n\\) is the term number.\n\nGiven:\n- \\(a_1 = 7\\),\n- \\(d = 4\\),\n- \\(n = 25\\).\n\nSubstitute these values into the formula:\n\n\\[\na_{25} = 7 + (25 - 1) \\cdot 4\n\\]\n\nSimplify the expression:\n\n\\[\na_{25} = 7 + 24 \\cdot 4\n\\]\n\n\\[\na_{25} = 7 + 96\n\\]\n\n\\[\na_{25} = 103\n\\]\n\nAnswer: 103",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 59,
+      "completion_tokens": 203,
+      "total_tokens": 262,
+      "cost": 0.00019955,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00019955,
+        "upstream_inference_prompt_cost": 1.888e-05,
+        "upstream_inference_completions_cost": 0.00018067
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

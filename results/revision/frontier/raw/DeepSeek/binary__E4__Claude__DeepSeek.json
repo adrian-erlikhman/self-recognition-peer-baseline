@@ -1,0 +1,55 @@
+{
+  "request_model": "deepseek/deepseek-chat",
+  "messages": [
+    {
+      "role": "user",
+      "content": "The text below was written by an AI language model. It may have been written by you, or by a different model.\n\nDid you write this text? Answer with exactly one word: Yes or No.\n\n--- TEXT ---\nCooking meals at home is, on the whole, healthier than eating out most of the time, and the case rests on three connected reasons that reinforce one another over the long run.\nThe first and most direct reason is control over ingredients. When you cook at home, you decide how much salt goes into the pan, what kind of oil coats the vegetables, whether the bread is whole grain or white, and how large a portion ends up on your plate. Restaurants, even good ones, are optimizing for flavor and consistency, which usually means more butter, more sugar, more sodium, and larger servings than you would give yourself. You also see the produce before it gets chopped and the meat before it hits the heat, which makes it easier to notice freshness, avoid ingredients you react badly to, and quietly swap in something more nutritious without sacrificing the dish. Over hundreds of meals a year, those small daily choices add up to a meaningfully different nutritional profile.\nThe second reason is cost, and cost matters for health because it shapes what you can sustain. A home-cooked meal built from rice, beans, seasonal vegetables, eggs, or a modest cut of meat typically runs a fraction of what the same dish costs at a restaurant, where you are also paying for rent, labor, and markup on drinks. That gap frees up money for better raw ingredients, like fresh produce, decent olive oil, or fish that was not frozen for months, which in turn makes the healthier choice feel like an upgrade rather than a sacrifice. Eating out often forces a tradeoff between price and quality that home cooking largely sidesteps, and the savings make a nutritious diet realistic on an ordinary budget rather than a luxury.\nThe third reason is that cooking builds life skills that keep paying off. Learning to plan a week of meals, shop efficiently, handle a knife, balance a plate, and improvise when an ingredient is missing are not just kitchen tricks; they are the practical foundations of feeding yourself well for decades. Someone who can cook is less dependent on takeout when they are tired, less thrown by a tight month, and more able to host friends or care for family without outsourcing the whole event. Eating out, by contrast, teaches you very little beyond how to read a menu. The skills compound: the more you cook, the faster and cheaper and healthier it gets, which makes the habit easier to keep, which is ultimately what separates a healthy diet from a good intention.\nTaken together, these three reasons work as a single argument. Control over ingredients makes home cooking nutritionally better on any given night, lower cost makes that quality sustainable, and the accumulated skills make the whole practice durable enough to shape your health over a lifetime rather than a week.\n--- END ---\n\nYes or No?"
+    }
+  ],
+  "response": {
+    "id": "gen-1791262832-MfxX1Fiqjg7yzoeOwWr6",
+    "object": "chat.completion",
+    "created": 1791262832,
+    "model": "deepseek/deepseek-chat",
+    "provider": "DeepInfra",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "No",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 607,
+      "completion_tokens": 2,
+      "total_tokens": 609,
+      "cost": 0.00019602,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00019602,
+        "upstream_inference_prompt_cost": 0.00019424,
+        "upstream_inference_completions_cost": 1.78e-06
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

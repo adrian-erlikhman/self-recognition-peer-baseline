@@ -1,0 +1,70 @@
+{
+  "request_model": "x-ai/grok-4.3",
+  "messages": [
+    {
+      "role": "user",
+      "content": "A shirt is priced at $40. It is discounted by 25 percent, and then an 8 percent sales tax is applied to the discounted price. What is the final price in dollars? Solve the problem, showing your reasoning step by step in plain prose, and end with a final line of the form 'Answer: <number>'."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916329-zygZlJFJDj6h63BgTqs1",
+    "object": "chat.completion",
+    "created": 1790916329,
+    "model": "x-ai/grok-4.3",
+    "provider": "xAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "The original price of the shirt is 40 dollars. Applying a 25 percent discount reduces the price to 75 percent of the original amount, which calculates as 0.75 multiplied by 40 to yield 30 dollars. An 8 percent sales tax is then applied to this discounted price, which means multiplying 30 by 1.08 to arrive at a final amount of 32.4 dollars. \n\nAnswer: 32.4",
+          "refusal": null,
+          "reasoning": "The original price of the shirt is $40.\n\nA 25% discount brings the price to $30. An 8% sales tax on that discounted amount adds $2.40. The final price is $32.40.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "The original price of the shirt is $40.\n\nA 25% discount brings the price to $30. An 8% sales tax on that discounted amount adds $2.40. The final price is $32.40.",
+              "format": "xai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "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.eyJlbmRwb2ludF9zbHVnIjoieC1haS9ncm9rLTQuMy0yMDI2MDQzMHx4YWkifQ",
+              "format": "xai-responses-v1",
+              "id": "rs_bdb88d03-8d8c-9059-a530-10ac9fd5b102",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 260,
+      "completion_tokens": 535,
+      "total_tokens": 795,
+      "cost": 0.0015281,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 128,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0015281,
+        "upstream_inference_prompt_cost": 0.0001906,
+        "upstream_inference_completions_cost": 0.0013375
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 445,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

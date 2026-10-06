@@ -1,0 +1,26 @@
+\begin{table}[t]
+\centering\small
+\setlength\tabcolsep{3pt}
+\begin{adjustbox}{max width=\linewidth}
+\begin{tabular}{l rr rr rr}
+\toprule
+ & \multicolumn{2}{c}{Share of guesses} & \multicolumn{2}{c}{Non-self acc.} & \multicolumn{2}{c}{Overall acc.} \\
+\cmidrule(lr){2-3}\cmidrule(lr){4-5}\cmidrule(lr){6-7}
+Model & Lineup & Single & Lineup & Single & Lineup & Single \\
+\midrule
+GPT & \GPTBlameLineup & \GPTBlameSingle & \GPTNonSelfLineup & \GPTNonSelfSingle & \GPTOverallLineup & \GPTOverallSingle \\
+Claude & \ClaudeBlameLineup & \ClaudeBlameSingle & \ClaudeNonSelfLineup & \ClaudeNonSelfSingle & \ClaudeOverallLineup & \ClaudeOverallSingle \\
+Gemini & \GeminiBlameLineup & \GeminiBlameSingle & \GeminiNonSelfLineup & \GeminiNonSelfSingle & \GeminiOverallLineup & \GeminiOverallSingle \\
+Grok & \GrokBlameLineup & \GrokBlameSingle & \GrokNonSelfLineup & \GrokNonSelfSingle & \GrokOverallLineup & \GrokOverallSingle \\
+DeepSeek & \DeepSeekBlameLineup & \DeepSeekBlameSingle & \DeepSeekNonSelfLineup & \DeepSeekNonSelfSingle & \DeepSeekOverallLineup & \DeepSeekOverallSingle \\
+\bottomrule
+\end{tabular}
+\end{adjustbox}
+\caption{Frontier judges, chat-app essays. Share of guesses: how often each model is
+named, over all five judges' 950 judgments per format. Non-self accuracy: the
+judge's accuracy on the 152 texts it did not write; overall: on all 190
+(chance 20\%). The lineup spreads guesses evenly; one text at a time, GPT and
+Claude receive almost all of them.}
+\label{tab:blame}
+\label{tab:nonself}
+\end{table}

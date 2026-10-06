@@ -1,0 +1,70 @@
+{
+  "request_model": "x-ai/grok-4.3",
+  "messages": [
+    {
+      "role": "user",
+      "content": "The text below was written by an AI language model. It may have been written by you, or by a different model.\n\nDid you write this text? Answer with exactly one word: Yes or No.\n\n--- TEXT ---\nThe assertion that preparing meals at home is fundamentally healthier than regularly dining out rests on a foundation of simple, compelling truths, the foremost being the absolute control it grants over ingredients. When you cook for yourself, you are the sole architect of your plate, deciding precisely how much salt, sugar, and fat enters each dish. Restaurant fare, by contrast, is often engineered for maximum palatability, relying on heavy-handed additions of sodium, butter, and oils to create flavor and texture, frequently at levels far exceeding what a prudent home cook would use. Furthermore, you can choose high-quality, fresh produce, lean proteins, and whole grains, while avoiding the preservatives, stabilizers, and artificial flavorings that are common in pre-prepared or mass-produced meals. This autonomy is not merely about restriction; it is about enhancement, allowing you to amplify beneficial spices, herbs, and nutritious components, tailoring every meal to your specific dietary needs, whether that means managing blood sugar, reducing cholesterol, or simply increasing your daily vegetable intake. This direct stewardship over your food\u2019s composition is a luxury that even the most conscientious restaurant cannot fully replicate, as you are never present to witness the final seasoning or oil splash that transforms a modest dish into a caloric indulgence.\r\n\r\nBeyond the immediate nutritional benefits, the practice of home cooking serves as a powerful, practical financial strategy, which indirectly supports health by reducing stress and enabling better food choices. The economic argument is not merely about saving pennies; it is about reallocating resources toward higher-quality ingredients that might seem unaffordable when paying restaurant markups. A single entr\u00e9e at a mid-range establishment often costs more than the total sum of fresh vegetables, grains, and protein needed to create three or four nourishing meals at home. These savings accumulate quickly, freeing up budget for organic produce, sustainable seafood, or specialty items like nuts and seeds that boost nutritional value. Moreover, cooking in bulk and repurposing leftovers transforms the economics further, turning a Sunday afternoon\u2019s work into several weekdays\u2019 worth of healthy, ready-to-eat lunches, thereby eliminating the costly and often less nutritious last-minute takeout order on a busy evening. This financial breathing room reduces the anxiety associated with food budgeting, which itself is a component of overall wellness, and empowers you to view healthy eating not as a luxury, but as a sustainable, everyday reality.\r\n\r\nFinally, the habitual act of cooking at home cultivates a repertoire of useful life skills that extend far beyond the kitchen, reinforcing a lifelong commitment to health and self-sufficiency. Learning to chop, saut\u00e9, roast, and season is not merely a mechanical process; it is an education in cause and effect, teaching patience, timing, and the intuitive understanding of how ingredients interact. This knowledge demystifies food, replacing the passive consumerism of restaurant dining with an active, engaged relationship with what you eat, which in turn fosters greater appreciation and mindfulness during meals. As you master basic techniques, you gain the confidence to improvise, using whatever fresh ingredients are on hand rather than relying on a printed menu, which naturally encourages variety and reduces dietary boredom. These skills are also profoundly transferable, teaching planning, organization, and time management, as you learn to efficiently prepare a week\u2019s worth of groceries and coordinate multiple dishes for a single sitting. More importantly, they become a legacy, passed on to family and friends, embedding healthy habits into your social fabric and ensuring that the ability to nourish oneself properly is not lost to convenience, but rather strengthened through repeated, rewarding practice.\n--- END ---\n\nYes or No?"
+    }
+  ],
+  "response": {
+    "id": "gen-1791262649-9uPRRjPPC5mtbIt8Sav4",
+    "object": "chat.completion",
+    "created": 1791262649,
+    "model": "x-ai/grok-4.3",
+    "provider": "xAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "No",
+          "refusal": null,
+          "reasoning": "I need to determine whether I wrote the provided text.\n\nNo. I did not write this text.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "I need to determine whether I wrote the provided text.\n\nNo. I did not write this text.",
+              "format": "xai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "a7o6TzjGHi4Q8Ht879Qc8SmE9BAQUD2Gb4W2EICIHN/sdtgSM+mH3jADFh6m0YzaWuWTyLUt5SSebVAdZpHwM5AWTFRyTOssTFe9+en63FfbLsU6grTnRmh8wcfgA7Npj9NRQ8KjQ+Tsm+vgvhdykLA18rFLlYmduZq8cMQ8pb2tv0KnjsfRpBa99HjmxHpDCIvOaxSSDs9nBvL+5QNc7RWMq5CggO71Gf7Nvo6oevlAXVA3pXrpQ0ib0yCLm0/tKbqs3IrQN5B96rT/M1+xpg2p4qHucVpID88QkkCdg9FhlqXfpjL133ysMaAD5SGCN+QDqT5yc5kqPekiI/j1bEOp/ryUeDxyfAzVKvoojIGns9A6eGkmyBO6kg9HowlOqqYlSrqYGbv1SdsEoi3/NH0pp4nxjkV8Un2WLuSDorDtyqhbyA9Tx0YwpW44+cxdxQjPzv+3bvFgJ9YQaM3js1apuY3oniHE8rDh4XdmdypRkz8mGTJK2XhSpYvxk2JRp4w9sNIa57HfYBNPvRZhKh4F3gfBQTmuR81/wNMF2XvOlNtbOnc+SPMKgeSxgwa+Fi35PKX2gVnMHjXFYLyRQFwaETLmTJmFG2nyoyHqW1Q9XfuZKehlLgyu1OT5KrJspGzgCvv2Syujezxyvv9AZII5DANccS4ygtKnZro0gniypNW1FlVPzEjAM6coJhEvpeveVAQ+AqgaLi1wA+a3rKE2shnbSMQD6gk1qgW8TYa7x4+AqQwk9bqPzeZKq6SQAX+RY3521EdBxdX/Ms8T15HBnnFiN7LXdri6e3Y7BkQW2ljMqQH9sfH2mAzNJXViIBoNfHL9lCvWTQjhPgFjgFUZtDZWz5KPvwe/NQy+iRwQSeJu9WQCj9//ZN4cIaPdYygNb4P8wAeN10pth0F2qC12FfE1xXIK81cDi3H9W/OVci6b932KpHOAgpOz4M7sVy8fISAY1+4JriqknL/BJSWCyspzynvKtzez02Zt+HoKb1C9nctBP5OPZph8b3AMsLrI1bw1U81YcpiNZ0m8KnTR6EtGk0Da2hWMAQeF8Yr6bDY6dK0ahs91nBKjyaPP3d1JWhMPfIRjkjIv0jfaFYXopJ8cRi2Fxq6pssanhLIVjUuADwqRagEShqGdlT+3NkbcXPP/F2KmOqpiCOC81w1i5EHORDd8W8K5pEe3WnOTFmCMJOaioaN7w63lSPsieeV5b8MxtvlCXzyCQn22xPm2/DhaOWHXGJ8gJ8mZIKr+OZcYC8PDiO1RPoTQPdQJC3oUsBxoyBRXSyNz/6ikiDDcqOiyRrI2NB3l7sSBW4ZZahfwfpbCDZ5MFGOHPLuOhnfD8ppGp5Q3YvZezRi7UhQ+TP90uhfposgTORXX0nwsuUaYexOGGeTaJ67QbmsE3iuBCzW5+4B3DFozf1nTbuA49ZnUyHT8F5ajs3BHJvJunNDPppqu8CM5dFsrsJTO5CYasGcHS46HiQjRFm0PvOTa/7O5b6ieFsDp7jKeRIJ6QyINqmyFfCQFTEvGW/vONNPakxRCAaCcplStp/XLikYxI19M+vopV/+N2a2BnkkNeA209oaoAwxyONMLxLQP1qWywqISfwvnGdjkh4pDgbDeCMbzpkRunxN2aRd5+OF/zHZ5Z6bTJivApT0CDBmvmY/Q/ptaUI5cT6xK3BViZ27QBaktW4c+/sQcMObjL25By2VeToCtT4G9JkqR5V3V6tk/5O7j4jL3yvIC8CqsszhxSYaQX6DVVm31vIc1Nml23EwX7UYwxmfV/VpKaSK6Ek5zfTe1aqXYla/6R8J9cvU6tAqfm+K65OF7omPdnWFjY0KTah5PI5ElPWIVMd7f/wZSwlfKzjvDfETxJ+ya2NZRts5wFTkTODROrJLSkLcuf57OAmxq2db33gjOkT5h9VzNecpnlyNQGwJ6FJBPF+PGwm4Czewzni5ifDVELU+gd0mveJYtuaAGD1w32ebU61ISAgTmGHRFI65LfIC9uooU9xkjeV5KnAkGj5S7/VeSJfPWDRCYiWa4jXYPLVcv20f0XPU08VjI3xq4BPFeQthaKhgbP378g1Ea32s7msYm1MpKrAZTVOXTTsgXzfuqyQ.eyJlbmRwb2ludF9zbHVnIjoieC1haS9ncm9rLTQuMy0yMDI2MDQzMHx4YWkifQ",
+              "format": "xai-responses-v1",
+              "id": "rs_7ca0d4fc-5fd1-9fe3-a006-56a73ba95767",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 940,
+      "completion_tokens": 354,
+      "total_tokens": 1294,
+      "cost": 0.0019256,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 128,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0019256,
+        "upstream_inference_prompt_cost": 0.0010406,
+        "upstream_inference_completions_cost": 0.000885
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 353,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

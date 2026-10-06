@@ -1,0 +1,57 @@
+{
+  "request_model": "google/gemini-3.5-flash",
+  "response": {
+    "id": "gen-1786846430-sQCykz8fIfh5rE6ZdP0f",
+    "object": "chat.completion",
+    "created": 1786846430,
+    "model": "google/gemini-3.5-flash",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "provisioned",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "```json\n{\"model\": \"Claude\", \"confidence\": 5, \"reason\": \"The sophisticated vocabulary, elegant transitions, and highly structured three-paragraph essay format containing signature words like 'scaffold' are classic hallmarks of Claude.\"}\n```",
+          "refusal": null,
+          "reasoning": "**Analyzing Text Features**\n\nI'm currently dissecting the text's structural complexity, noting its three lengthy, well-developed paragraphs. The analytical and articulate tone, coupled with vocabulary like \"profound observation,\" is key to my analysis.\n\n**Refining Style Observations**\n\nI'm now focusing on the distinct essayistic style, noting its preference for long, structured paragraphs and rich vocabulary, which strongly suggests a Claude 3/3.5 Sonnet origin. This contrasts with the more direct or bullet-pointed tendencies of other models like GPT-4.\n\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "**Analyzing Text Features**\n\nI'm currently dissecting the text's structural complexity, noting its three lengthy, well-developed paragraphs. The analytical and articulate tone, coupled with vocabulary like \"profound observation,\" is key to my analysis.\n\n**Refining Style Observations**\n\nI'm now focusing on the distinct essayistic style, noting its preference for long, structured paragraphs and rich vocabulary, which strongly suggests a Claude 3/3.5 Sonnet origin. This contrasts with the more direct or bullet-pointed tendencies of other models like GPT-4.\n\n",
+              "format": "google-gemini-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 832,
+      "completion_tokens": 583,
+      "total_tokens": 1415,
+      "cost": 0.006495,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.006495,
+        "upstream_inference_prompt_cost": 0.001248,
+        "upstream_inference_completions_cost": 0.005247
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 532,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

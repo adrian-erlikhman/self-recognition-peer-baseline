@@ -1,0 +1,70 @@
+{
+  "request_model": "x-ai/grok-4.3",
+  "messages": [
+    {
+      "role": "user",
+      "content": "The text below was written by an AI language model. It may have been written by you, or by a different model.\n\nDid you write this text? Answer with exactly one word: Yes or No.\n\n--- TEXT ---\nKeeping a living space tidy simplifies daily routines by eliminating the constant frustration of searching for misplaced items. When every object has a designated home, routine tasks like getting dressed in the morning, finding crucial documents, or locating keys happen effortlessly. Instead of wasting precious minutes scrambling through clutter and tearing through drawers, a well-organized room allows for quick retrieval, preserving both time and energy for more important parts of the day.\n\nA clean environment also plays a vital role in reducing background stress that often goes unnoticed. Visual clutter acts as a constant, subtle reminder of unfinished tasks, which can leave a person feeling overwhelmed or subtly anxious even when trying to relax. By clearing surfaces and maintaining order, the surrounding environment becomes a calm sanctuary, encouraging a sense of control and mental peace that carries through every interaction.\n\nIn addition to reducing stress, an organized space makes it significantly easier to focus on work or study. Physical mess creates cognitive overload, competing for brainpower and making it easy to get distracted by surrounding chaos. When a workspace is tidy and free of unnecessary clutter, the mind can engage deeply with the task at hand, boosting productivity, enhancing memory retention, and making study sessions far more efficient.\n--- END ---\n\nYes or No?"
+    }
+  ],
+  "response": {
+    "id": "gen-1791262678-SFGb7Pj58pL2YPUoK6Lf",
+    "object": "chat.completion",
+    "created": 1791262678,
+    "model": "x-ai/grok-4.3",
+    "provider": "xAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "No",
+          "refusal": null,
+          "reasoning": "I am evaluating whether I wrote the provided text.\n\nI do not recall writing this text. I am Grok, built by xAI.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "I am evaluating whether I wrote the provided text.\n\nI do not recall writing this text. I am Grok, built by xAI.",
+              "format": "xai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "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.eyJlbmRwb2ludF9zbHVnIjoieC1haS9ncm9rLTQuMy0yMDI2MDQzMHx4YWkifQ",
+              "format": "xai-responses-v1",
+              "id": "rs_6625df26-782a-9c6d-a7c2-da72d41fcaf7",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 477,
+      "completion_tokens": 369,
+      "total_tokens": 846,
+      "cost": 0.00138435,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 128,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00138435,
+        "upstream_inference_prompt_cost": 0.00046185,
+        "upstream_inference_completions_cost": 0.0009225
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 368,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

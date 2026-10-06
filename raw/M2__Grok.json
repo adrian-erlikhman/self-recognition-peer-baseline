@@ -1,0 +1,64 @@
+{
+  "request_model": "x-ai/grok-4.3",
+  "response": {
+    "id": "gen-1786846155-ui2PR7nlk1lXc3UyY7Z9",
+    "object": "chat.completion",
+    "created": 1786846155,
+    "model": "x-ai/grok-4.3",
+    "provider": "xAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"A\": {\"model\": \"Claude\", \"confidence\": 4, \"reason\": \"Sophisticated vocabulary and philosophical framing like 'epistemological heart' match Claude's style.\"},\n  \"B\": {\"model\": \"GPT\", \"confidence\": 3, \"reason\": \"Clean, balanced structure with standard transitional phrases typical of GPT outputs.\"},\n  \"C\": {\"model\": \"Gemini\", \"confidence\": 3, \"reason\": \"Direct, concise paragraphs and straightforward phrasing align with Gemini's clear style.\"},\n  \"D\": {\"model\": \"Grok\", \"confidence\": 3, \"reason\": \"Highly detailed examples and expansive elaboration suggest Grok's thorough approach.\"},\n  \"E\": {\"model\": \"DeepSeek\", \"confidence\": 3, \"reason\": \"Specific institutional references (ALA, Library of Congress) and factual tone fit DeepSeek patterns.\"}\n}",
+          "refusal": null,
+          "reasoning": "The task is to identify which model wrote each of the five responses A through E, based on writing style, structure, and phrasing. The models are GPT, Claude, Gemini, Grok, DeepSeek.\nFirst, the output must be JSON only, in exactly this form:\n\n{\n  \"A\": {\"model\": \"<one of GPT, Claude, Gemini, Grok, DeepSeek>\", \"confidence\": <1-5>, \"reason\": \"<one short sentence>\"},\n  \"B\": {\"model\": \"...\", \" \"confidence\": <1-5>, \"reason\": \"...\"},\n  ...\n  \"E\": {\"model\": \"...\", \"confidence\": <1-5>, \"reason\": \"...",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "The task is to identify which model wrote each of the five responses A through E, based on writing style, structure, and phrasing. The models are GPT, Claude, Gemini, Grok, DeepSeek.\nFirst, the output must be JSON only, in exactly this form:\n\n{\n  \"A\": {\"model\": \"<one of GPT, Claude, Gemini, Grok, DeepSeek>\", \"confidence\": <1-5>, \"reason\": \"<one short sentence>\"},\n  \"B\": {\"model\": \"...\", \" \"confidence\": <1-5>, \"reason\": \"...\"},\n  ...\n  \"E\": {\"model\": \"...\", \"confidence\": <1-5>, \"reason\": \"...",
+              "format": "xai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "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.eyJlbmRwb2ludF9zbHVnIjoieC1haS9ncm9rLTQuMy0yMDI2MDQzMHx4YWkifQ",
+              "format": "xai-responses-v1",
+              "id": "rs_53a45df9-1d1a-9fb9-b494-8e07841384c0",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 3189,
+      "completion_tokens": 793,
+      "total_tokens": 3982,
+      "cost": 0.00583435,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 128,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00583435,
+        "upstream_inference_prompt_cost": 0.00385185,
+        "upstream_inference_completions_cost": 0.0019825
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 606,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

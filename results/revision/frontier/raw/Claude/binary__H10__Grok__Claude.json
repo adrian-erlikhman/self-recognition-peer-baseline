@@ -1,0 +1,55 @@
+{
+  "request_model": "anthropic/claude-opus-4.7",
+  "messages": [
+    {
+      "role": "user",
+      "content": "The text below was written by an AI language model. It may have been written by you, or by a different model.\n\nDid you write this text? Answer with exactly one word: Yes or No.\n\n--- TEXT ---\nThe thesis that rationality is not a universal context-independent capacity but is constitutively shaped by the cognitive, social, and institutional conditions in which it operates finds strong support in a range of empirical and theoretical insights into human cognition. Bounded rationality research from Simon's satisficing framework through Kahneman and Tversky's heuristics-and-biases program demonstrates that human reasoning systematically departs from classical rationality norms under ecologically realistic conditions. Simon's pioneering work revealed that decision-makers do not typically optimize by exhaustively evaluating all alternatives against complete information as classical models assume but instead satisfice by selecting options that meet aspiration levels sufficient for the immediate context relying on simplified search procedures shaped by cognitive limitations and environmental pressures. This insight was extended in the heuristics-and-biases program which catalogued systematic patterns such as availability heuristics anchoring effects and representativeness biases showing how reasoning under time constraints uncertainty and incomplete information produces reliable deviations from normative standards of probability updating and logical consistency precisely because these shortcuts are adapted to the messy demands of real-world environments rather than abstract ideals of omniscience and computational perfection.\nBuilding on this foundation rationality is institutionally scaffolded such that the capacity for extended reliable reasoning depends on external cognitive artifacts socially distributed knowledge and institutional norms of evidence that are themselves historically contingent and variable across epistemic communities. Individual cognitive resources are inherently limited in scope and duration yet humans achieve remarkable feats of rationality by offloading memory computation and verification onto tools like notebooks mathematical formalisms databases and collaborative networks which extend the mind beyond the skull and enable chains of inference that would otherwise collapse under personal limitations. These scaffolds are not neutral add-ons but are embedded within social practices and institutions such as scientific peer review legal evidentiary standards or bureaucratic protocols that distribute epistemic labor enforce accountability and accumulate knowledge across generations. The reliability of such extended reasoning thus hinges on the stability and design of these external structures which evolve historically and differ markedly between communities for instance contrasting the evidentiary norms of laboratory science with those of traditional ecological knowledge systems or indigenous dispute resolution practices each tuned to their distinctive material and social ecologies.\nFinally the standards by which reasoning is evaluated as rational or irrational are not neutral and universal but embedded in particular epistemic traditions such that what counts as a reason a valid inference or an appropriate standard of evidence varies across domains in ways that resist reduction to a single transcontextual rationality norm. Within different traditions criteria for soundness emerge from local practices of inquiry and justification including culturally inflected notions of causality relevance and burden of proof that shape which inferences are deemed compelling. For example what passes as rigorous statistical inference in one disciplinary context may appear overly rigid or insensitive to contextual nuance in another while modes of analogical reasoning central to certain legal or narrative traditions defy translation into deductive frameworks without loss. This variability underscores that rationality cannot be abstracted from the traditions and practices that define its operative norms revealing it instead as an achievement deeply interwoven with the cognitive social and institutional matrices that both enable and constrain it.\n--- END ---\n\nYes or No?"
+    }
+  ],
+  "response": {
+    "id": "gen-1791262258-8UIYltpwATEfdTXO0pqU",
+    "object": "chat.completion",
+    "created": 1791262258,
+    "model": "anthropic/claude-opus-4.7",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "No",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 1209,
+      "completion_tokens": 5,
+      "total_tokens": 1214,
+      "cost": 0.00617,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00617,
+        "upstream_inference_prompt_cost": 0.006045,
+        "upstream_inference_completions_cost": 0.000125
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

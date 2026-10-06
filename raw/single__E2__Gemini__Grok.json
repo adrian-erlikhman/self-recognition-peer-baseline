@@ -1,0 +1,64 @@
+{
+  "request_model": "x-ai/grok-4.3",
+  "response": {
+    "id": "gen-1786846351-tQSI1mLQMGNdYU92xS4Q",
+    "object": "chat.completion",
+    "created": 1786846351,
+    "model": "x-ai/grok-4.3",
+    "provider": "xAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "{\"model\": \"Claude\", \"confidence\": 3, \"reason\": \"Highly structured, eloquent paragraphs with formal phrasing and thorough explanations match Claude's typical style.\"}",
+          "refusal": null,
+          "reasoning": "The task is to identify which AI model most likely produced the given text: GPT, Claude, Gemini, Grok, or DeepSeek. I must reply with JSON only in a specific form.\nFirst, the text is highly structured: three paragraphs, each with a clear topic sentence and supporting details. It's formal, informative, and uses precise scientific language without any humor or personality.\n\nNow, matching to models:\n\n- GPT: Produces coherent, balanced text. This could be it.\n\n- Claude: Very articulate, eloquent prose, often with careful phrasing. This text has flowing, explanatory style.\n\n- Gemini: More straightforward, sometimes with lists or directness.\n\n- Grok: Witty, humorous \u2013 this is serious, no wit.\n\n- DeepSeek: Likely more technical or different phrasing, possibly with cultural influences.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "The task is to identify which AI model most likely produced the given text: GPT, Claude, Gemini, Grok, or DeepSeek. I must reply with JSON only in a specific form.\nFirst, the text is highly structured: three paragraphs, each with a clear topic sentence and supporting details. It's formal, informative, and uses precise scientific language without any humor or personality.\n\nNow, matching to models:\n\n- GPT: Produces coherent, balanced text. This could be it.\n\n- Claude: Very articulate, eloquent prose, often with careful phrasing. This text has flowing, explanatory style.\n\n- Gemini: More straightforward, sometimes with lists or directness.\n\n- Grok: Witty, humorous \u2013 this is serious, no wit.\n\n- DeepSeek: Likely more technical or different phrasing, possibly with cultural influences.",
+              "format": "xai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "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.eyJlbmRwb2ludF9zbHVnIjoieC1haS9ncm9rLTQuMy0yMDI2MDQzMHx4YWkifQ",
+              "format": "xai-responses-v1",
+              "id": "rs_3fbaacf6-977e-9234-b6ba-423f6c52ce85",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 762,
+      "completion_tokens": 691,
+      "total_tokens": 1453,
+      "cost": 0.002344,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 320,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.002344,
+        "upstream_inference_prompt_cost": 0.0006165,
+        "upstream_inference_completions_cost": 0.0017275
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 656,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

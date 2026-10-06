@@ -1,0 +1,55 @@
+{
+  "request_model": "anthropic/claude-opus-4.7",
+  "messages": [
+    {
+      "role": "user",
+      "content": "A car is bought for $24,000 and loses 15 percent of its value at the end of each year. What is its value in dollars after 2 years? Solve the problem, showing your reasoning step by step in plain prose, and end with a final line of the form 'Answer: <number>'."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916327-RaIYTivNGMStNHc06YXZ",
+    "object": "chat.completion",
+    "created": 1790916327,
+    "model": "anthropic/claude-opus-4.7",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "The car starts at $24,000 and loses 15% of its value each year, meaning it retains 85% of its value annually.\n\nAfter the first year, the car is worth 85% of $24,000. Calculating this: 0.85 \u00d7 24,000 = 20,400.\n\nAfter the second year, the car is worth 85% of $20,400. Calculating this: 0.85 \u00d7 20,400 = 17,340.\n\nAnswer: 17340",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 97,
+      "completion_tokens": 135,
+      "total_tokens": 232,
+      "cost": 0.00386,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00386,
+        "upstream_inference_prompt_cost": 0.000485,
+        "upstream_inference_completions_cost": 0.003375
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "request_model": "x-ai/grok-4.3",
+  "messages": [
+    {
+      "role": "user",
+      "content": "The text below was written by an AI language model. It may have been written by you, or by a different model.\n\nDid you write this text? Answer with exactly one word: Yes or No.\n\n--- TEXT ---\nRegular physical exercise stands out as one of the best things a person can do for their mental health because it triggers the release of powerful mood-boosting chemicals in the brain that naturally elevate emotional well-being. When the body engages in activities like running, swimming, or even brisk walking, it produces endorphins, often called feel-good hormones, alongside increased levels of serotonin and dopamine. These neurotransmitters work together to create a sense of euphoria and calm, counteracting daily stresses and fostering a more positive outlook that can last well beyond the workout itself, making exercise a reliable and accessible way to support emotional balance without relying on external interventions.\nBeyond the immediate chemical benefits, consistent physical activity has been shown to significantly reduce symptoms of anxiety and depression by providing a constructive outlet for pent-up energy and promoting better overall brain function. Exercise helps regulate the body's stress response, lowering cortisol levels while encouraging neuroplasticity, which allows the brain to adapt and heal more effectively from the toll of mental health challenges. Individuals who incorporate regular movement into their routines often report fewer episodes of overwhelming worry or persistent low mood, as the practice builds resilience and offers a healthy distraction from negative thought patterns, ultimately contributing to longer-term stability and a greater sense of control over one's emotional state.\nOver time, the cumulative effects of regular physical exercise also enhance self-confidence, reinforcing a virtuous cycle that further bolsters mental health. As people achieve fitness milestones, whether through improved strength, endurance, or simply sticking to a routine, they develop a stronger sense of accomplishment and self-efficacy that spills over into other areas of life. This growing confidence diminishes feelings of inadequacy and empowers individuals to face challenges with greater assurance, creating a foundation of self-worth that protects against mental health setbacks. In essence, by weaving these interconnected benefits into daily life, exercise emerges as a profoundly effective strategy for nurturing a healthier mind.\n--- END ---\n\nYes or No?"
+    }
+  ],
+  "response": {
+    "id": "gen-1791262669-Sbvyc4jZKPYhpF0LkWBD",
+    "object": "chat.completion",
+    "created": 1791262669,
+    "model": "x-ai/grok-4.3",
+    "provider": "xAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "No",
+          "refusal": null,
+          "reasoning": "The user asked whether I wrote the provided text.\n\nI do not recognize this text. It appears to be generic AI-generated content, so I cannot confirm it was written by me.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "The user asked whether I wrote the provided text.\n\nI do not recognize this text. It appears to be generic AI-generated content, so I cannot confirm it was written by me.",
+              "format": "xai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "qGUHnSauYhk6U5nr3nYDpn5NiWaB/AkL3k0vnjgzsVwwFQKMg/qnXFKghzaAxwRJ0WyEjGWsNGDyACKwqY9zgVT7P1uZ+drdu3wqmP7iaduF3KCnNYNSpI9OvKUaiVYP0DTu4CXrnysHSDUq+E/mDuUT7llP4d4YJ770NRMn5gcxaAmo3/uSpM4q3z3HgBvtgtQs1pmmBaEoY7xcXXPm30fGpPYJdWOKK3qIS1A24plFGIVcGUH/RZprfD9jKZEhS5gBFhITFqxnoL+BX6Z8d89Huns/BXKIW8/fjxii2dxn5cFieNLwXWo264Po8d+9gQq48R9Pma+hlSA76r4sPU15A8SYmnuHml8iXtAfQf7vzx9L1tBz9Mfb0RMN9lVMqL+Af4qhcJiMwj48ysGXwqwN0W4vxJVkJY/aAgH7mEHyCOGyY3WNfANqvVonRShvl1Sm03GMphFPcy/7j/p5cSIw8jjWTgWCETKGC8U8EAOYIHRu7t7disumHWU0OdSDu5xp9KZ1KH8jWuC4+01AYok+GSn2M0p6UVhAKDl5qMz7xayQf9YqJX4+X6lrY2jAFKlRcZ3uDOHBLsI2Ev7U3QRA0mfSXhp4PGgp5fI7ZOjZPL2k+X7t4+Kicv3dgce6KzbE/rMa6RVGCC8HPnS+zkp5yGCShChJnc39mfI0wxl3StpbeII4gQfrPMKOP18rC4imIcDUiRWXx5/BGhHSAunutPIPg4rVncGsAb6MjYOgrtv6j0DwA/fuzHOSSvQxdo6aI9wNdGr2PaG/vARr3YoZaLP2YZ84HrdvqScirSAkJ6oBzw9h9xgWuBSYRxM6FsoFjcrj0cTOEsRsPTEL6um9TY4jHPM+qosOC+4+F3j8qho56sogolo0RWOXIgEFEMr+IVG+IboHSP8ODIZnkte/OQ1lqchnGarEVDl10uVQRMSKtxrahY4uQlcSnkuujwzndgDO3rw6QHgCXvR8dQLRwzYfj7exYlxuPxm9EG+uJcwxuVqdRu8jULh/U/m1NErMUkvodBs/TQyXZrIbRHPbxfMlkEylA8jgCZQVZmCnwWvdJXkzFE9aUM2PAlEbP6XGBamf2e31u9NNe+eaY7Z+yzH7kF+8+1Oj/pxiBbfQEwMuUWKlNlD7c97q6LJxphWiUFg6wI0JyIJGPJ1DUw3rqhoPvFaI5D8FbMctR8J5INPf3L6q7J8mvjq70vrmIgetat1cMA5wmJkd6jcqzwhC+DprC2JfeSZylKjVUsXsNlBlHkHkTyE62EpZqAaFGBgqUPvpO8H0LzKONuInQGfh26R6MuBcmB3FifXJHqlh468yOSDzAteit8pT1fucPl/zftVyFqk1qPf0kH1r9mTsoTt5vsyswavohoGYpLmUWzY68Eq09x8t7Fv1TC2nB55PCJMh/veQ9N9CT8dNWGM6TJ0bk4FWXWXTsKaJq8KdI7aVAVt3qHZQ6P9vBckAV+0FvZ9coJAAkJVimCAJmjjm9234cCT+rbKpBMnyePpxRu5fZh4Byqu43MR0J8m/vNMawoE2ykA4iie+ScIss//b+C3GerUlEqvPfHerPiyY2kW097JunMXx0DOPV3V1mO3WV3aOQAkDrEIBjusuQl0KWglQwLWS7BMfqe/0mRtL7zx5Ior64r7RA0f5uWSDVr9zaKX3HjxnUdBsyXobtwE9QW3bBNHl9uTyCQ0JMMBtYmPm+4uZfXvajHNb7aJpNQBuw0RMM6KvL+Oe44a8n52opJyevV1NsGPWRN1696s42HdbcRg.eyJlbmRwb2ludF9zbHVnIjoieC1haS9ncm9rLTQuMy0yMDI2MDQzMHx4YWkifQ",
+              "format": "xai-responses-v1",
+              "id": "rs_33700516-9c3c-9ae5-840e-7d95123f7a35",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 611,
+      "completion_tokens": 295,
+      "total_tokens": 906,
+      "cost": 0.00136685,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 128,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00136685,
+        "upstream_inference_prompt_cost": 0.00062935,
+        "upstream_inference_completions_cost": 0.0007375
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 294,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

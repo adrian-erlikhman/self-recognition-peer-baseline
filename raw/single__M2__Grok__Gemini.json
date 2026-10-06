@@ -1,0 +1,57 @@
+{
+  "request_model": "google/gemini-3.5-flash",
+  "response": {
+    "id": "gen-1786862412-bw0bbei01S9Gz1yFLCl8",
+    "object": "chat.completion",
+    "created": 1786862412,
+    "model": "google/gemini-3.5-flash",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "provisioned",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "```json\n{\"model\": \"Claude\", \"confidence\": 4, \"reason\": \"The text exhibits Claude's characteristic sophisticated vocabulary, balanced structure, and smooth, academic tone without typical GPT clich\u00e9s.\"}\n```",
+          "refusal": null,
+          "reasoning": "**Analyzing Text Features**\n\nI'm currently dissecting the text's structural and lexical characteristics. My focus is on identifying patterns in vocabulary and tone that might correlate with specific AI models, aiming for a formal, academic style.\n\n**Identifying Stylistic Markers**\n\nI'm refining my analysis of stylistic cues, noticing specific phrasing like \"not only... but also\" which leans towards GPT-4. The overall formal, academic tone is a strong indicator, though I'm exploring nuances to differentiate between models like Claude and Gemini.\n\n**Refining Model Distinctions**\n\nI'm now leaning towards Claude as the primary candidate. While some phrasing echoes GPT-4, terms like \"vast information landscapes\" and \"community anchors,\" along with a balanced, intellectual tone, strongly suggest Claude. I'm actively searching for phrases like \"unmediated internet search cannot replicate\" to further confirm.\n\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "**Analyzing Text Features**\n\nI'm currently dissecting the text's structural and lexical characteristics. My focus is on identifying patterns in vocabulary and tone that might correlate with specific AI models, aiming for a formal, academic style.\n\n**Identifying Stylistic Markers**\n\nI'm refining my analysis of stylistic cues, noticing specific phrasing like \"not only... but also\" which leans towards GPT-4. The overall formal, academic tone is a strong indicator, though I'm exploring nuances to differentiate between models like Claude and Gemini.\n\n**Refining Model Distinctions**\n\nI'm now leaning towards Claude as the primary candidate. While some phrasing echoes GPT-4, terms like \"vast information landscapes\" and \"community anchors,\" along with a balanced, intellectual tone, strongly suggest Claude. I'm actively searching for phrases like \"unmediated internet search cannot replicate\" to further confirm.\n\n",
+              "format": "google-gemini-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 543,
+      "completion_tokens": 897,
+      "total_tokens": 1440,
+      "cost": 0.0088875,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0088875,
+        "upstream_inference_prompt_cost": 0.0008145,
+        "upstream_inference_completions_cost": 0.008073
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 852,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

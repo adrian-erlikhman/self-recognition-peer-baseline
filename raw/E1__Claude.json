@@ -1,0 +1,49 @@
+{
+  "request_model": "anthropic/claude-opus-4.7",
+  "response": {
+    "id": "gen-1786844821-aHuJ80mfjAZdx5hdgA9R",
+    "object": "chat.completion",
+    "created": 1786844821,
+    "model": "anthropic/claude-opus-4.7",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"A\": {\"model\": \"GPT\", \"confidence\": 3, \"reason\": \"Clean structured paragraphs with concrete examples and balanced tone typical of GPT.\"},\n  \"B\": {\"model\": \"DeepSeek\", \"confidence\": 2, \"reason\": \"Simple, straightforward prose with clear topic sentences and basic vocabulary.\"},\n  \"C\": {\"model\": \"Claude\", \"confidence\": 4, \"reason\": \"Long flowing sentences, nuanced hedging, and reflective tone characteristic of Claude.\"},\n  \"D\": {\"model\": \"Gemini\", \"confidence\": 3, \"reason\": \"Formal, slightly technical phrasing with structured neuroscience details typical of Gemini.\"},\n  \"E\": {\"model\": \"Grok\", \"confidence\": 3, \"reason\": \"Long compound sentences with connective flourishes and 'virtuous cycle' conclusion feel Grok-like.\"}\n}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 4684,
+      "completion_tokens": 306,
+      "total_tokens": 4990,
+      "cost": 0.03107,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.03107,
+        "upstream_inference_prompt_cost": 0.02342,
+        "upstream_inference_completions_cost": 0.00765
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

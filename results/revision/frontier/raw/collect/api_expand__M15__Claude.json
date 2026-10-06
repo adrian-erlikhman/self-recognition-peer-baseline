@@ -1,0 +1,55 @@
+{
+  "request_model": "anthropic/claude-opus-4.7",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Make the case that contributing to open-source software benefits the organizations that do it. Cover exactly these three points: (1) sharing code spreads the cost of maintenance across many contributors instead of one company; (2) public peer review of source code improves software quality and exposes security flaws sooner; (3) visible open-source contributions strengthen an organization's technical reputation and help it recruit skilled engineers. Do not address counterarguments. Write in continuous prose paragraphs only. Do not use bullet points, numbered lists, headers, bold text, or any other formatting."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916351-HsxhqQc1RzGKj3509hBh",
+    "object": "chat.completion",
+    "created": 1790916351,
+    "model": "anthropic/claude-opus-4.7",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "Organizations that contribute to open-source software gain substantial and compounding returns on their investment, often in ways that direct proprietary development cannot match. Far from being an act of corporate charity, open-source participation functions as a pragmatic strategy that distributes burdens, hardens code against failure, and amplifies an organization's standing in the broader technical community.\n\nThe most immediate economic benefit of contributing to open-source projects is the way shared code distributes the ongoing cost of maintenance across a wide pool of contributors rather than concentrating it within a single company. Software is never finished; it must be patched, updated for new dependencies, adapted to evolving platforms, and extended with new features to remain useful. When an organization maintains a proprietary library in isolation, every one of these burdens falls squarely on its own engineering budget. By contrast, a shared open-source project draws upkeep from every company and individual that depends on it, meaning that bug fixes submitted by one contributor benefit all users, performance improvements written at a university find their way into enterprise deployments, and the long tail of compatibility work gets handled by whoever happens to encounter the issue first. The effect is that each participating organization pays a fraction of what solo stewardship would require while enjoying the full value of a well-maintained codebase.\n\nA second compelling benefit is that opening source code to public peer review tangibly improves software quality and surfaces security vulnerabilities far earlier than closed development typically allows. When code is visible to anyone with the interest and skill to examine it, latent bugs, poor architectural decisions, and subtle security flaws are discovered by a vastly larger and more diverse set of eyes than any internal team could marshal. Researchers, hobbyists, downstream users, and competing firms all have reason to scrutinize the code, and their findings flow back as patches, issue reports, and design suggestions. This continuous, distributed audit shortens the window during which vulnerabilities can be exploited and raises the baseline quality of the software, since problems that might linger undetected for years inside a proprietary repository are often caught within weeks of appearing in public view.\n\nFinally, visible open-source contributions substantially strengthen an organization's technical reputation and improve its ability to recruit talented engineers. A company whose name appears on respected projects, whose engineers present at community conferences, and whose code is widely used demonstrates its technical seriousness in a way that marketing alone cannot replicate. Skilled engineers pay close attention to these signals when evaluating prospective employers, because open-source activity shows the quality of the organization's work, the sophistication of its engineering culture, and the degree to which it values craft and collaboration. Candidates can review the actual code their future colleagues produce, which builds confidence and attracts applicants who might otherwise never have considered the company. In this way, open-source contributions function simultaneously as proof of competence, a recruiting channel, and a long-term investment in the organization's reputation within the engineering profession.",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 192,
+      "completion_tokens": 958,
+      "total_tokens": 1150,
+      "cost": 0.02491,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.02491,
+        "upstream_inference_prompt_cost": 0.00096,
+        "upstream_inference_completions_cost": 0.02395
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

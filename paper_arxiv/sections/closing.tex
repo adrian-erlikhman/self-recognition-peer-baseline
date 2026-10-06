@@ -1,0 +1,87 @@
+\section{Recommendations}
+\label{sec:recs}
+
+\begin{enumerate}
+\item \textbf{Report three numbers, not one.} A self-naming rate means
+little without the false-alarm rate and the peer baseline, and all three come
+from the same experiment. Test discrimination first, since that is what
+breaks anonymisation; claim self-recognition only if the judge also beats its
+peers.
+\item \textbf{Do not measure recognition one text at a time.} In that format
+judges pile their guesses onto one or two models, three of our five frontier
+judges never named themselves, and the peer baseline is inflated for whichever
+model everyone guesses. Use a lineup. A yes/no question works only if the
+judge's answers vary: three of our frontier judges said no to everything.
+\item \textbf{Test each judge on the texts it will judge.} Self-advantage
+ranged from strongly positive to significantly negative within one panel, and
+disappeared for the same judges on a different set of texts. A result on one
+corpus does not transfer.
+\item \textbf{Do not read the mechanism off the judges' reasons.} The reasons
+describe the text accurately but are the same for right and wrong
+self-attributions.
+\end{enumerate}
+
+\noindent In practice: have every judge attribute a sample of the pipeline's
+own texts in lineups, compute the three rates per judge, and test
+discrimination and self-advantage with permutations within prompts. Any
+judge that discriminates can see through anonymisation on those texts. Our
+released code implements these steps.
+
+\section{Limitations}
+\label{sec:limits}
+
+\paragraph{Sample size.} The chat-app study has 38 texts per judge, so its
+intervals are wide (Table~\ref{tab:frontier}). The larger API study has 120
+per judge.
+
+\paragraph{Judges.} The open-weight judges are small (4--8 billion
+parameters, run in 4-bit) and much weaker than frontier models. No frontier
+provider returned token probabilities, so the frontier yes/no results are
+hard answers, and the likelihood, quality and answer-first analyses were run
+on the open-weight judges only.
+
+\paragraph{Texts.} All texts are in English, and every prompt fixes the
+content of the answer. Dialogue, long documents and other languages are
+untested. The chat-app essays were collected in consumer apps whose hidden
+system prompts and settings we cannot see.
+
+\paragraph{Reasons.} The coding of the judges' reasons was checked against
+two LLM annotators, both instances of Claude, which is also one of the judges.
+No human labelled them.
+
+\paragraph{Model versions.} Every result describes particular model versions
+at particular dates in 2026. Providers update models behind stable names, and
+the DeepSeek endpoint could not be pinned. The audit should be repeated
+whenever a judge changes.
+
+\section{Conclusion}
+\label{sec:conclusion}
+
+A judge that names itself as the author of its own text has not thereby shown
+that it recognises that text. Scored against its own false alarms and against
+its peers, most apparent self-recognition disappears: of the
+\SVPStd{} cases the usual check flags, \SVPProper{} hold up, all of them
+Claude or GPT on one set of essays, and none on a larger, more varied set.
+The texts carry the signal, and open-weight judges' own probabilities pick
+out their own text, but the judges' answers do not follow either. Before
+relying on anonymisation, test each judge on the kind of text the pipeline
+judges, and use a peer baseline to see whether anyone else can attribute it
+too.
+
+\section*{Data and code}
+All texts, prompts, judgments (with confidence ratings and reasons), archived
+API responses, open-weight likelihoods and quality ratings, and the analysis
+code are at \CodeURL{}. Every number in this paper is generated from those
+files, and none of the analyses needs an API key.
+
+\section*{Ethics statement}
+The study involves no human subjects or personal data: every text was written
+by a language model in response to our prompts. The frontier texts were
+collected through the providers' apps and APIs under their terms of use, and
+the open-weight models were run under their licences. We name the judges that
+recognise their own text so that practitioners can account for them; the
+results describe specific model versions and should not be read as permanent
+properties of a vendor's models.
+
+\section*{Acknowledgements}
+We thank Ryan Erlikhman for his work on an earlier version of this study.

@@ -1,0 +1,57 @@
+{
+  "request_model": "google/gemini-3.5-flash",
+  "response": {
+    "id": "gen-1786999072-rwCK8dUhWERjo5DnpA0r",
+    "object": "chat.completion",
+    "created": 1786999072,
+    "model": "google/gemini-3.5-flash",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "provisioned",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "{\"model\": \"Claude\", \"confidence\": 4, \"reason\": \"The text features Claude's signature balanced paragraph structure, sophisticated vocabulary, and smooth transitions without relying on clich\u00e9 conjunctive adverbs.\"}",
+          "refusal": null,
+          "reasoning": "**Analyzing Text Style**\n\nI'm currently dissecting the writing style of the provided text. My focus is on structural elements and thematic content, particularly how it addresses personal financial literacy in secondary education.\n\n**Identifying Writing Traits**\n\nMy analysis reveals a structured, formal, and clear style, employing accessible yet precise vocabulary. This manner of expression, characterized by balanced essay-like flow and eschewing common AI features like bullet points, strongly aligns with Claude's stylistic tendencies.\n\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "**Analyzing Text Style**\n\nI'm currently dissecting the writing style of the provided text. My focus is on structural elements and thematic content, particularly how it addresses personal financial literacy in secondary education.\n\n**Identifying Writing Traits**\n\nMy analysis reveals a structured, formal, and clear style, employing accessible yet precise vocabulary. This manner of expression, characterized by balanced essay-like flow and eschewing common AI features like bullet points, strongly aligns with Claude's stylistic tendencies.\n\n",
+              "format": "google-gemini-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 485,
+      "completion_tokens": 590,
+      "total_tokens": 1075,
+      "cost": 0.0060375,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0060375,
+        "upstream_inference_prompt_cost": 0.0007275,
+        "upstream_inference_completions_cost": 0.00531
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 547,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

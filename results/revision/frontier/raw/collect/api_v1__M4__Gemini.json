@@ -1,0 +1,63 @@
+{
+  "request_model": "google/gemini-3.5-flash",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Defend the position that companies should invest in training existing employees rather than defaulting to external hiring. Cover exactly these three points: (1) internal development preserves institutional knowledge that external hires take months to acquire; (2) visible investment in employee growth measurably improves retention and reduces turnover costs; (3) upskilling existing employees is typically faster and less expensive than a full external recruitment cycle. Do not address counterarguments. Write in continuous prose paragraphs only. Do not use bullet points, numbered lists, headers, bold text, or any other formatting."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916441-lzKhQ2zWIdsgMyhOFPLf",
+    "object": "chat.completion",
+    "created": 1790916441,
+    "model": "google/gemini-3.5-flash",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "When companies prioritize training their current workforce, they safeguard a wealth of proprietary understanding, cultural alignment, and operational history that external candidates simply do not possess. An existing employee already understands the company\u2019s internal systems, cross-departmental dynamics, and subtle customer preferences, which are critical to daily operations. Recruiting from the outside forces an organization to endure a lengthy onboarding period where the new hire must learn these nuances from scratch, a process that often takes months and temporarily reduces overall team productivity. By contrast, upskilling current staff leverages their foundational knowledge of the business, allowing them to apply new skills immediately within the context of the company's unique environment and maintain operational momentum.\n\nBeyond preserving vital institutional knowledge, a visible commitment to employee development serves as a powerful driver of engagement and loyalty. When workers see clear pathways for advancement and feel that their employers are actively investing in their professional growth, they are far more likely to remain with the organization long-term. This visible investment measurably reduces voluntary turnover, which is one of the most significant drains on corporate resources. By cultivating talent from within, businesses avoid the compounding expenses associated with lost productivity, team disruption, and the exit of valuable staff, creating a stable, motivated workforce that feels valued and secure.\n\nFinally, the financial and temporal efficiency of upskilling existing employees far surpasses that of a full external recruitment cycle. Recruiting externally involves substantial expenditures, including agency fees, job board postings, extensive interviewing hours, and signing bonuses, all of which quickly accumulate. Once hired, external candidates require significant administrative processing and integration time before they become fully profitable assets. Upskilling current employees bypasses these costly and time-consuming hurdles, as targeted training programs can be deployed quickly to fill specific skill gaps. This targeted development allows organizations to adapt to shifting market demands much faster and at a fraction of the cost required to source, vet, and onboard external talent.",
+          "refusal": null,
+          "reasoning": "**Developing Training Strategy**\n\nMy thoughts are currently focused on articulating the core arguments for prioritizing internal training. I'm refining how to best present the advantages in terms of employee retention, skill alignment, and cost-effectiveness compared to external recruitment.\n\n**Preserving Key Insights**\n\nI'm currently focusing on how internal training safeguards invaluable institutional knowledge. This existing understanding of our systems and dynamics is a significant asset that external hires would take considerable time to acquire, making upskilling a more efficient path.\n\n**Sharpening Recruitment Arguments**\n\nI'm now zeroing in on how internal training inherently captures subtle customer preferences. External hires require extensive onboarding for these nuances, impacting productivity. Upskilling leverages existing knowledge for immediate application and retention, highlighting a significant advantage.\n\n**Optimizing Resource Allocation**\n\nI'm now considering how internal training significantly reduces financial and temporal drains. Cultivating talent internally avoids the extensive costs associated with recruitment cycles, lost productivity, and employee turnover, thereby fostering a more stable and cost-effective workforce.\n\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "**Developing Training Strategy**\n\nMy thoughts are currently focused on articulating the core arguments for prioritizing internal training. I'm refining how to best present the advantages in terms of employee retention, skill alignment, and cost-effectiveness compared to external recruitment.\n\n**Preserving Key Insights**\n\nI'm currently focusing on how internal training safeguards invaluable institutional knowledge. This existing understanding of our systems and dynamics is a significant asset that external hires would take considerable time to acquire, making upskilling a more efficient path.\n\n**Sharpening Recruitment Arguments**\n\nI'm now zeroing in on how internal training inherently captures subtle customer preferences. External hires require extensive onboarding for these nuances, impacting productivity. Upskilling leverages existing knowledge for immediate application and retention, highlighting a significant advantage.\n\n**Optimizing Resource Allocation**\n\nI'm now considering how internal training significantly reduces financial and temporal drains. Cultivating talent internally avoids the extensive costs associated with recruitment cycles, lost productivity, and employee turnover, thereby fostering a more stable and cost-effective workforce.\n\n",
+              "format": "google-gemini-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 111,
+      "completion_tokens": 1215,
+      "total_tokens": 1326,
+      "cost": 0.0111015,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0111015,
+        "upstream_inference_prompt_cost": 0.0001665,
+        "upstream_inference_completions_cost": 0.010935
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 834,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

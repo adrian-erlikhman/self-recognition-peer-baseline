@@ -1,0 +1,64 @@
+{
+  "request_model": "x-ai/grok-4.3",
+  "response": {
+    "id": "gen-1786845871-IEJSDWT5ginuWVm5l5eV",
+    "object": "chat.completion",
+    "created": 1786845871,
+    "model": "x-ai/grok-4.3",
+    "provider": "xAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"A\": {\"model\": \"GPT\", \"confidence\": 4, \"reason\": \"Clear three-paragraph structure with systematic points and straightforward educational tone typical of GPT.\"},\n  \"B\": {\"model\": \"Gemini\", \"confidence\": 3, \"reason\": \"Conversational phrasing and narrative flow with emphasis on accessibility matches Gemini's style.\"},\n  \"C\": {\"model\": \"Claude\", \"confidence\": 5, \"reason\": \"Elaborate, literary sentences with dramatic vocabulary and extended metaphors are hallmark Claude traits.\"},\n  \"D\": {\"model\": \"DeepSeek\", \"confidence\": 3, \"reason\": \"Simple, repetitive structure and basic language suggest DeepSeek's more straightforward output.\"},\n  \"E\": {\"model\": \"Grok\", \"confidence\": 4, \"reason\": \"Comprehensive, evidence-based analysis with balanced nuance and explicit three-reason framing fits Grok.\"}\n}",
+          "refusal": null,
+          "reasoning": "The task is to identify which model wrote each of the five responses A through E, based on writing style, structure, and phrasing. The models are GPT, Claude, Gemini, Grok, DeepSeek.\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "The task is to identify which model wrote each of the five responses A through E, based on writing style, structure, and phrasing. The models are GPT, Claude, Gemini, Grok, DeepSeek.\n",
+              "format": "xai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "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.eyJlbmRwb2ludF9zbHVnIjoieC1haS9ncm9rLTQuMy0yMDI2MDQzMHx4YWkifQ",
+              "format": "xai-responses-v1",
+              "id": "rs_6139494e-cef0-96f2-a148-a6133155f748",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 2932,
+      "completion_tokens": 544,
+      "total_tokens": 3476,
+      "cost": 0.0048906,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 128,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0048906,
+        "upstream_inference_prompt_cost": 0.0035306,
+        "upstream_inference_completions_cost": 0.00136
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 353,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

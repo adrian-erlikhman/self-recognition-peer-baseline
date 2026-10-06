@@ -1,0 +1,64 @@
+{
+  "request_model": "openai/gpt-5.5",
+  "messages": [
+    {
+      "role": "user",
+      "content": "An arithmetic sequence has a first term of 7 and a common difference of 4. What is its 25th term? Solve the problem, showing your reasoning step by step in plain prose, and end with a final line of the form 'Answer: <number>'."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916319-gQXdDIZBX4tglW8vLuGS",
+    "object": "chat.completion",
+    "created": 1790916319,
+    "model": "openai/gpt-5.5",
+    "provider": "OpenAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "An arithmetic sequence increases by the same amount each time.\n\nThe first term is 7, and the common difference is 4.\n\nTo find the 25th term, use the arithmetic sequence formula:\n\n\\[\na_n = a_1 + (n - 1)d\n\\]\n\nHere:\n\n\\[\na_1 = 7\n\\]\n\n\\[\nd = 4\n\\]\n\n\\[\nn = 25\n\\]\n\nSubstitute these values:\n\n\\[\na_{25} = 7 + (25 - 1) \\cdot 4\n\\]\n\nSimplify:\n\n\\[\na_{25} = 7 + 24 \\cdot 4\n\\]\n\n\\[\na_{25} = 7 + 96\n\\]\n\n\\[\na_{25} = 103\n\\]\n\nAnswer: 103",
+          "refusal": null,
+          "reasoning": null,
+          "reasoning_details": [
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABqvzbhCgacanQ3CTH0Me5BqqdKCV9HGxw62OQHnnDMf84MXT5lh1mmKuDQZRzmB--vKu4xmFnWKH72700b1-qhc0FsnFJornWojwBrFWW2dBMACrlGEBjoYkjCt61aa-atM7sVQFOberV2qqVb-CGPtWE9tMXrPLHR-Y0V9ub8shg2h330GnaHVU21bGSGyw_lf6rC4TSkrmdnitQcvdCh0YA_kHsw1ltFP5thN12XkBge1rr-d7vycsUf6rgufKQPETM3hPsLJ9CMhiYhhQ3lguWX-WmHckVE6SoRQZUMh298jxFlP_X8zuQzfs8ctmr0KEztaIvl4JzYjBtSkE-S2fk5Vx8qsZuAmaT9AnoUsP2p2lmM1YowRjueQhfmGVvMEYKUwBZq9ZW0iDAerEwtzQ-60I4gZ7Er-PVSJS8Ambg9Kr2VFN9D-yDg5vrpQwaYMKd7_CZKCADXDayuiUeNgNgcx9jc6qXJzfIVl_Zirgsil8fiUOp9cqxtjIQQjz9bT57ZggIXkJ-H2vtXbsRigdRPJ4JXv7aDJCPkHzYQLsWsGer4nD7RvPJbSOgvYKbj8F_7nep_VQ9GdJRUfwGPLfkkfTYtWwEJzzyQFe_hnBWBrTeyTzvtOz9gzsdF2UwjgUlm6a-1TZ7fqPS0vIGw0ez8hj7HlZ3LNh4Z3KVLOvEwWjv4C4wlOho_yk4RbPZjt0vPcuFtQ-bQOmosCvovvSEkh9kP3k2--uc3d_BLkHuWrxyc7YjYnM7FHxVSLtchwQLaqQSwj0yOmjmFEbumuF9OQa9-XZKfskk-e7gCgccSG9YXYghHni64MvDcNCC_WJsWnj2JpR_2-IOoSkWn7xgtOAZ4PfhI9rflg95Rm-j5qixiRJEnefuWp59Bbiei5OpEu1g0_oNIUiDq6XU2NYeqErYOjt4slMjON9pi_dzuYHsudnaC1VoG_IWeR-XodnIwP1Wt3YVUHF4G9-7X2aeUr5u3T3wUIL0sZcP0odVu9gL2ACwMR7Zvr465RMRJHTZEjWuO7afnGXtcT-TBZ6SK5_lJR7hGx36twsjnKcqRJWhlRQezHMeaMACAgIyBv5TbC0XEL0lZXJjUbeGuMeCFsJgbbu99rGTyEajZp2DHc7YaIAZTWynOrgVTlddzwjMAXJEBI7cbZEEeiMYP91fOtilEv2Jng_kCItWhntwUK3lxnmR4ESdVRfSPOiaDWKZhBYiPXQnOhmFdmpjNH6ry32P0o3aKW1LaY5is4jfgW-J6CqcoKO_7wtFq6RC_9cWz1weU0irOAYTaFpr__z-VuEEXgREKAB8Qf_W7mwvaZr9aaWhhjlE0PaICuYeLFYLNi9o-6MAmGlXu1vrFPU1PXuH4nHAfCoyCE64QvGKCJf-VHHSBaNcexQAa19Qgy-sn.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC01LjUtMjAyNjA0MjN8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_093651263a6a24ab016abf36e0dd1487d1b19e2beb372d0685",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 61,
+      "completion_tokens": 192,
+      "total_tokens": 253,
+      "cost": 0.006065,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.006065,
+        "upstream_inference_prompt_cost": 0.000305,
+        "upstream_inference_completions_cost": 0.00576
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 14,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

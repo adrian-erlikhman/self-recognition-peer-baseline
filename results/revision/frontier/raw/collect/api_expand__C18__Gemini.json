@@ -1,0 +1,63 @@
+{
+  "request_model": "google/gemini-3.5-flash",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Write a Python function `shortest_paths(graph: dict[str, list[tuple[str, int]]], source: str) -> dict[str, int]` that implements Dijkstra's algorithm with the `heapq` module. `graph` maps each node to a list of (neighbor, weight) pairs with non-negative integer weights. Return a dictionary mapping every node reachable from `source`, including `source` itself with distance 0, to the length of its shortest path. Nodes that appear only as neighbors must still be handled. Use only the Python standard library. Include a docstring and brief inline comments. Return only the code in a single Python code block, with no explanation before or after."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916315-nFEvEd74Ot9fpSge6rUb",
+    "object": "chat.completion",
+    "created": 1790916315,
+    "model": "google/gemini-3.5-flash",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "```python\nimport heapq\n\ndef shortest_paths(graph: dict[str, list[tuple[str, int]]], source: str) -> dict[str, int]:\n    \"\"\"\n    Computes the shortest path from a source node to all reachable nodes\n    in a graph with non-negative edge weights using Dijkstra's algorithm.\n\n    :param graph: A dictionary mapping each node to a list of (neighbor, weight) tuples.\n    :param source: The starting node.\n    :return: A dictionary mapping reachable nodes to their shortest distance from source.\n    \"\"\"\n    # Dictionary to store the shortest known distance to each node\n    distances = {source: 0}\n    \n    # Priority queue storing (distance, node) tuples, initialized with the source\n    priority_queue = [(0, source)]\n    \n    while priority_queue:\n        current_distance, current_node = heapq.heappop(priority_queue)\n        \n        # If we found a shorter path to this node already, skip processing\n        if current_distance > distances[current_node]:\n            continue\n            \n        # Explore neighbors. Use .get() to handle nodes that only appear as neighbors\n        for neighbor, weight in graph.get(current_node, []):\n            distance = current_distance + weight\n            \n            # If a shorter path to the neighbor is found\n            if distance < distances.get(neighbor, float('inf')):\n                distances[neighbor] = distance\n                heapq.heappush(priority_queue, (distance, neighbor))\n                \n    return distances\n```",
+          "refusal": null,
+          "reasoning": "**Implementing Dijkstra's Algorithm**\n\nI'm currently focused on implementing Dijkstra's algorithm. My current thoughts revolve around structuring the Python function `shortest_paths` and defining the expected input format for the `graph` and `source` parameters. I'm particularly considering how to best represent the graph using a dictionary mapping node names to a list of tuples, where each tuple signifies a neighbor and its associated edge weight.\n\n**Refining Graph Representation**\n\nMy focus has shifted to solidifying the graph's representation. I'm ensuring it cleanly handles nodes that might only be referenced as neighbors, not as primary keys in the input dictionary. This refinement is crucial for accurate path calculations.\n\n**Processing Heap Entries**\n\nMy current thinking is focused on the core logic for processing entries from the priority queue. I'm ensuring that outdated distance entries are correctly identified and skipped, and that neighbor distances are efficiently updated and added back to the heap only when a shorter path is found. The final output format is also being confirmed.\n\n**Optimizing Neighbor Updates**\n\nI'm concentrating on optimizing how I handle neighbor distance updates. The goal is to ensure that when a shorter path to a neighbor is discovered, its entry in the priority queue is efficiently updated or a new entry is added only if it's truly a better route, preventing redundant processing.\n\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "**Implementing Dijkstra's Algorithm**\n\nI'm currently focused on implementing Dijkstra's algorithm. My current thoughts revolve around structuring the Python function `shortest_paths` and defining the expected input format for the `graph` and `source` parameters. I'm particularly considering how to best represent the graph using a dictionary mapping node names to a list of tuples, where each tuple signifies a neighbor and its associated edge weight.\n\n**Refining Graph Representation**\n\nMy focus has shifted to solidifying the graph's representation. I'm ensuring it cleanly handles nodes that might only be referenced as neighbors, not as primary keys in the input dictionary. This refinement is crucial for accurate path calculations.\n\n**Processing Heap Entries**\n\nMy current thinking is focused on the core logic for processing entries from the priority queue. I'm ensuring that outdated distance entries are correctly identified and skipped, and that neighbor distances are efficiently updated and added back to the heap only when a shorter path is found. The final output format is also being confirmed.\n\n**Optimizing Neighbor Updates**\n\nI'm concentrating on optimizing how I handle neighbor distance updates. The goal is to ensure that when a shorter path to a neighbor is discovered, its entry in the priority queue is efficiently updated or a new entry is added only if it's truly a better route, preventing redundant processing.\n\n",
+              "format": "google-gemini-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 146,
+      "completion_tokens": 1404,
+      "total_tokens": 1550,
+      "cost": 0.012855,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.012855,
+        "upstream_inference_prompt_cost": 0.000219,
+        "upstream_inference_completions_cost": 0.012636
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 1055,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

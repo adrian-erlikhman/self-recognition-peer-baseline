@@ -1,0 +1,57 @@
+{
+  "request_model": "google/gemini-3.5-flash",
+  "response": {
+    "id": "gen-1786846508-VYfRergrtJGwVBQh4vuH",
+    "object": "chat.completion",
+    "created": 1786846508,
+    "model": "google/gemini-3.5-flash",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "provisioned",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "```json\n{\"model\": \"GPT\", \"confidence\": 4, \"reason\": \"The text follows a highly structured three-paragraph essay format with classic GPT transition phrases like 'In addition to' and 'Finally,' combined with characteristic vocabulary.\"}\n```",
+          "refusal": null,
+          "reasoning": "**Analyzing Text Characteristics**\n\nI'm currently examining the provided text for linguistic and structural markers that could indicate its origin. My focus is on identifying patterns in vocabulary, sentence complexity, and paragraph flow to differentiate between the AI models.\n\n**Identifying Textual Elements**\n\nI'm digging into the recent observations regarding neurotransmitter mentions and transitional phrasing. The specific structure and vocabulary choices, like \"stands out as one of the most powerful\" and \"comprehensive foundation,\" are particularly salient in my assessment.\n\n**Comparing Model Stylistic Quirks**\n\nI'm currently focusing on distinct phrasing. GPT models frequently employ phrases like \"stands out as one of the most\" and \"plays a crucial role,\" which are quite characteristic. I'm also noting differences in how Claude and Gemini conclude their essays compared to GPT.\n\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "**Analyzing Text Characteristics**\n\nI'm currently examining the provided text for linguistic and structural markers that could indicate its origin. My focus is on identifying patterns in vocabulary, sentence complexity, and paragraph flow to differentiate between the AI models.\n\n**Identifying Textual Elements**\n\nI'm digging into the recent observations regarding neurotransmitter mentions and transitional phrasing. The specific structure and vocabulary choices, like \"stands out as one of the most powerful\" and \"comprehensive foundation,\" are particularly salient in my assessment.\n\n**Comparing Model Stylistic Quirks**\n\nI'm currently focusing on distinct phrasing. GPT models frequently employ phrases like \"stands out as one of the most\" and \"plays a crucial role,\" which are quite characteristic. I'm also noting differences in how Claude and Gemini conclude their essays compared to GPT.\n\n",
+              "format": "google-gemini-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 500,
+      "completion_tokens": 781,
+      "total_tokens": 1281,
+      "cost": 0.007779,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.007779,
+        "upstream_inference_prompt_cost": 0.00075,
+        "upstream_inference_completions_cost": 0.007029
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 728,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

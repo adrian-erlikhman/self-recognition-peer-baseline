@@ -1,0 +1,55 @@
+{
+  "request_model": "anthropic/claude-opus-4.7",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Explain why the sky appears blue during the day. Answer in two to four sentences of plain prose."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916407-Oe7VewC6Bg9OzFWNICBR",
+    "object": "chat.completion",
+    "created": 1790916407,
+    "model": "anthropic/claude-opus-4.7",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "Sunlight is made of many colors, each traveling as waves of different lengths. When it enters Earth's atmosphere, it collides with air molecules that scatter shorter wavelengths\u2014blue and violet\u2014much more strongly than longer ones like red or yellow. Because our eyes are more sensitive to blue than violet, and some violet is absorbed higher in the atmosphere, the scattered light reaching us from all directions looks blue.",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 42,
+      "completion_tokens": 143,
+      "total_tokens": 185,
+      "cost": 0.003785,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.003785,
+        "upstream_inference_prompt_cost": 0.00021,
+        "upstream_inference_completions_cost": 0.003575
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

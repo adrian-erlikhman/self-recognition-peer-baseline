@@ -1,0 +1,70 @@
+{
+  "request_model": "x-ai/grok-4.3",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Write a Python function `run_length_encode(s: str) -> str` that compresses a string by replacing each maximal run of a repeated character with the character followed by the length of the run. For example, `run_length_encode(\"aaabcc\")` returns \"a3b1c2\", and the empty string returns the empty string. Use only the Python standard library. Include a docstring and brief inline comments. Return only the code in a single Python code block, with no explanation before or after."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916304-MCsSvniy9gxDNBjL9xPt",
+    "object": "chat.completion",
+    "created": 1790916304,
+    "model": "x-ai/grok-4.3",
+    "provider": "xAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "```python\ndef run_length_encode(s: str) -> str:\n \"\"\"Compress a string using run-length encoding of consecutive characters.\"\"\"\n if not s:\n return \"\" # empty string edge case\n result = []\n count = 1\n prev = s[0]\n for char in s[1:]: # iterate remaining chars\n if char == prev:\n count += 1\n else:\n result.append(f\"{prev}{count}\")\n prev = char\n count = 1\n result.append(f\"{prev}{count}\") # append final run\n return \"\".join(result)\n```",
+          "refusal": null,
+          "reasoning": "I need to write a Python function that compresses a string by replacing each maximal run of repeated characters with the character followed by its length.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "I need to write a Python function that compresses a string by replacing each maximal run of repeated characters with the character followed by its length.",
+              "format": "xai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "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.eyJlbmRwb2ludF9zbHVnIjoieC1haS9ncm9rLTQuMy0yMDI2MDQzMHx4YWkifQ",
+              "format": "xai-responses-v1",
+              "id": "rs_a604f5ad-3239-9162-ba58-dd4adb785924",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 297,
+      "completion_tokens": 573,
+      "total_tokens": 870,
+      "cost": 0.00166935,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 128,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00166935,
+        "upstream_inference_prompt_cost": 0.00023685,
+        "upstream_inference_completions_cost": 0.0014325
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 460,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

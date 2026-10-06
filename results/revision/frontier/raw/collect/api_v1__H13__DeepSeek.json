@@ -1,0 +1,55 @@
+{
+  "request_model": "deepseek/deepseek-chat",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Argue that the replication crisis in psychology reveals a fundamentally institutional and incentive-structural problem, not merely a methodological one. Develop exactly these three claims: (1) the proximate methodological failures \u2014 underpowered studies, p-hacking, HARKing, and selective outcome reporting \u2014 are not primarily the result of individual researcher incompetence but are rational responses to a publication incentive structure that systematically rewards novel positive results and penalizes replication attempts and null findings; (2) the peer review system as currently constituted provides insufficient verification of methodological adequacy because it does not require data sharing, pre-registration, or independent replication, and reviewers operating under time constraints cannot detect the flexible analytical choices that inflate false-positive rates; (3) field-level interventions \u2014 pre-registration mandates, registered reports, open data requirements, and tenure criteria weighting replication \u2014 are necessary and sufficient to substantially reduce the false-positive rate, but their adoption is slow because they are individually rational only if adopted collectively, creating a coordination problem that individual researchers cannot solve without funding-body enforcement. Do not address counterarguments. Write in continuous prose paragraphs only. Do not use bullet points, numbered lists, headers, bold text, or any other formatting."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916456-nyGUp7ZIM1IBNcEsXkdN",
+    "object": "chat.completion",
+    "created": 1790916456,
+    "model": "deepseek/deepseek-chat",
+    "provider": "StreamLake",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "The replication crisis in psychology underscores a deeper institutional and incentive-structural problem rather than merely a methodological one. The proximate methodological failures, such as underpowered studies, p-hacking, HARKing, and selective outcome reporting, are not primarily due to individual incompetence but are rational adaptations to a publication incentive structure that disproportionately rewards novel, statistically significant findings while marginalizing replication attempts and null results. Researchers operate within a system where career advancement, funding, and professional recognition hinge on frequent publication in high-impact journals, which favor flashy, positive outcomes over rigorous but less glamorous work. This creates a perverse incentive to exploit methodological flexibility to produce publishable results, even at the cost of reliability. The problem is not that researchers are unaware of best practices but that the institutional reward system makes suboptimal methods individually rational, as the costs of rigorous research\u2014such as larger sample sizes or pre-registration\u2014are borne by the individual, while the benefits of questionable practices are immediately rewarded.  \n\nThe peer review system, as currently structured, fails to adequately verify methodological soundness because it lacks mechanisms to ensure transparency and reproducibility. Reviewers typically do not have access to raw data, pre-registered hypotheses, or the ability to independently replicate analyses, leaving them unable to detect the subtle but pervasive analytical flexibility that inflates false-positive rates. Moreover, reviewers operate under time constraints and cognitive biases that favor exciting findings over methodological rigor, further entrenching the problem. The system\u2019s reliance on post-hoc scrutiny rather than pre-commitment to methods means that questionable research practices often go undetected, as reviewers cannot feasibly audit every analytical decision. This institutional blind spot allows false positives to proliferate, not because reviewers are negligent, but because the system does not provide them with the tools or incentives to enforce rigor.  \n\nField-level interventions, such as pre-registration mandates, registered reports, open data requirements, and tenure criteria that value replication, are necessary and sufficient to meaningfully reduce false-positive rates. These reforms align individual incentives with collective epistemic goals by making transparency and reproducibility prerequisites for publication and career advancement. However, their adoption has been slow because they present a collective action problem: no individual researcher or journal can unilaterally impose higher standards without risking competitive disadvantage. Pre-registration, for instance, reduces analytical flexibility but may also decrease a study\u2019s chances of producing publishable results, placing early adopters at a disadvantage. Similarly, journals that prioritize replications may lose submissions to competitors that favor novelty. Thus, systemic change requires coordination\u2014funding bodies, journals, and universities must enforce these standards simultaneously to eliminate free-riding and ensure that the benefits of rigor are universally shared. Without such top-down enforcement, the incentive structure will continue to favor questionable practices, perpetuating the replication crisis.",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 243,
+      "completion_tokens": 563,
+      "total_tokens": 806,
+      "cost": 0.0006417063,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0006417063,
+        "upstream_inference_prompt_cost": 6.25482e-05,
+        "upstream_inference_completions_cost": 0.0005791581
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

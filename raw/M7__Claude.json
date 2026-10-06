@@ -1,0 +1,49 @@
+{
+  "request_model": "anthropic/claude-opus-4.7",
+  "response": {
+    "id": "gen-1786846206-uFLNWwmZEm9zRxiJKFrl",
+    "object": "chat.completion",
+    "created": 1786846206,
+    "model": "anthropic/claude-opus-4.7",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"A\": {\"model\": \"Gemini\", \"confidence\": 3, \"reason\": \"Elaborate vocabulary and sweeping analytical style with detailed technical terminology feels Gemini-like.\"},\n  \"B\": {\"model\": \"GPT\", \"confidence\": 3, \"reason\": \"Clean, balanced structure with measured phrasing typical of GPT.\"},\n  \"C\": {\"model\": \"Claude\", \"confidence\": 4, \"reason\": \"Confident argumentative voice with rhetorical flourishes like 'The math favors the parks' suggests Claude.\"},\n  \"D\": {\"model\": \"DeepSeek\", \"confidence\": 3, \"reason\": \"Formal, somewhat dense academic tone with straightforward three-paragraph structure.\"},\n  \"E\": {\"model\": \"Grok\", \"confidence\": 3, \"reason\": \"Long run-on sentences packing many ideas together feels characteristic of Grok.\"}\n}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 5658,
+      "completion_tokens": 302,
+      "total_tokens": 5960,
+      "cost": 0.03584,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.03584,
+        "upstream_inference_prompt_cost": 0.02829,
+        "upstream_inference_completions_cost": 0.00755
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

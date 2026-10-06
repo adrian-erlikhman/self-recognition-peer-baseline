@@ -1,0 +1,70 @@
+{
+  "request_model": "x-ai/grok-4.3",
+  "messages": [
+    {
+      "role": "user",
+      "content": "The text below was written by an AI language model. It may have been written by you, or by a different model.\n\nDid you write this text? Answer with exactly one word: Yes or No.\n\n--- TEXT ---\nGetting enough sleep each night is essential for performing well the next day because it supports mental, emotional, and physical functioning. When people consistently get adequate rest, they are better able to concentrate, manage their feelings, and maintain the energy needed to complete daily tasks effectively.\nOne of the most important benefits of sufficient sleep is sharper focus and stronger memory. During sleep, the brain processes and organizes information gathered throughout the day, helping people retain what they have learned. A well-rested person can pay attention more easily, think more clearly, and solve problems more efficiently. In contrast, a lack of sleep often leads to forgetfulness, difficulty concentrating, and slower decision-making, which can reduce productivity and increase mistakes.\nAdequate sleep also contributes to better mood and emotional control. People who sleep well are generally more patient, positive, and able to handle stress. Sleep helps regulate the brain systems involved in emotions, making it easier to respond calmly to challenges and frustrations. When individuals do not get enough rest, they may become irritable, anxious, or overly sensitive, which can negatively affect relationships and overall well-being.\nIn addition, getting enough sleep improves physical energy and performance. Sleep allows the body to recover from daily activities, repair tissues, and restore energy levels. As a result, people wake up feeling refreshed and ready to be active. Whether completing work, studying, exercising, or handling household responsibilities, a well-rested person is more likely to have the stamina and motivation needed to perform effectively. Without enough sleep, fatigue can make even simple tasks feel more difficult.\nOverall, sufficient sleep is a key factor in daily success. By improving focus and memory, supporting emotional stability, and increasing physical energy, a good night's sleep helps people function at their best and meet the demands of the day more effectively.\n--- END ---\n\nYes or No?"
+    }
+  ],
+  "response": {
+    "id": "gen-1791262054-TVGnzS6xg5gc0mkCqT24",
+    "object": "chat.completion",
+    "created": 1791262054,
+    "model": "x-ai/grok-4.3",
+    "provider": "xAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "No",
+          "refusal": null,
+          "reasoning": "I am checking whether I wrote the provided text.\n\nI did not write this text. The answer is No.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "I am checking whether I wrote the provided text.\n\nI did not write this text. The answer is No.",
+              "format": "xai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "pu4BmR/nRv+Rhr2kwKvYHd/VNm5R53ZiQ3LDcZZnFt0A8g/mbAJmv5u6AeCndE3z7SQhMUIDouDAi78PmUn4PJOh0IychlFE1Xtmga412zemNYC/kD3OME0RhPFJdsibyNhn0ALZO0uhTj4sOLgfnXNYfMpkLofO5yPnPrytUXfBr5ROc/bsaSVp9W1+Evku35h8ZaZNS1MjA7NcayrpCX60e/o/eKdfaVKPpC8a7zU9aASaIdCXejWwQN+LO1kZP3zsszIwqZHz7sCmsssgTDlf+AzU8KqWAVK5mYtl2o2K1jTcIJ9jOXAOcU6IKsJNuQd3j3+y75O6/5NGwNnqWxEE2eaalaLj9R9ZBAmDWCkEqcHssDplX4ctfufyclcf4XmSst7Vk/l0eIUJ24RjXkI2T6mmKdGJE/QS+MkX93rCNQISBWACJdFBn20u/fVF6GGtM7kmMtJ+wWDOc+0SmwmlZKPuRgRyH9gdXRX9o3/8eqSLB5e77Pv3GjHUUZg1i1SwL1cyWW+tXTxGCSWZsJOQtMMHEJkPM7da5uP27iBDSvMm+cX/j4TaUgWa186YRKgs1Oaz7Mgr2aOXFpQ9bNYPkDixghxN4+TVwKoiAxZPMkV43UWcWiFLSvUnA5vr0YhYFp18ka8cC442tkqvNsw0alG61mmcW86tvBoxQJz+tPehUho0VhSxUrduOal3MgKDWkYMgGPiKupwIJVlPz93NgDQyX2CEeT28WNmiARkuDXsgKLCl4O/eMRY+DL4p3g85NxfTSuazaW0mtWneBQjGYB9BneHRSo3p2zDE6Exi1LIFSSWOqVEO/Xvp4NJtP8DcZn3wWiO9XMT/5Rt4PJLDud9ypD9wcUh03+OKekwiLQyyjy7sostEdLwjk42bQ4i1EeYqUjW50/KPzgvSQ15+kDcRV2FhnxF8y7wazk8EuMGJeI+3Tt62FJiKHB4eXoqHGsVL4e+aOMnPR28hlD5xxi+2rhkW5izgSqadPlsfjE1I2M7qcrgcrj9m9S/TvJUWNULcsxOuPf4y9hAZHG2P5yI5j2Ol1fgRHiotT6xv92uK2TOtHCmeAAAP2AOBffZbKiKI4Y9ne00N8Q3zQv3bASYAx0SaCh2kJkdWQaQPcmiLsG5Br8rGBB3sVzx+vCgf/Z2Fe/m3r8SByDOAPHVWcyFMJApexObWnmBMjQiZ7T+5gDH/actE9c2zHMrVvMfUuGx+Y2JyPWC22pyW/MqU6J84wKaM9asOfz29taq+EfXuiMvhFBJYZlEitRdJmEg5+uS83hUfNuUZRWqUqfGbvlCCufs0d2J5hWAM6lyyl1LNrGHo7waCo2vhkdZQ0+njz9ZorlexVF188b5MCqONDotf/Sg8QKxKBvl15aFJHpOTVK0quu1/FUekFD4qMdohrwD3p43VQsaF1sb9ZuyIl9Gnum/xGBbxjg8Hax8iXEix/j01VZE7VDtOswI6FxTjWPK+C94bsnJxw4IPd2CTzkG6jMbF8jH10gDsSinQwKjseZtuAtNiDHSH7AboVoSTWiyuoIUlzqShTYQ1AtVypwti+jJW0qW7k5NjzNOzl+ziQqXZ+rwrMy7zg4bXy/lMKS3vjBP43D/nfSjB5nBdUmZ5jkl4/xaN3HK8cqaySREq+ShQvEF8HqjUNezdz0yR9km5u6y8r1/X1HjDd489ea6FJEWm3f9yQ.eyJlbmRwb2ludF9zbHVnIjoieC1haS9ncm9rLTQuMy0yMDI2MDQzMHx4YWkifQ",
+              "format": "xai-responses-v1",
+              "id": "rs_91324899-c172-9c74-9271-4bdacb3d8a95",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 602,
+      "completion_tokens": 292,
+      "total_tokens": 894,
+      "cost": 0.0013481,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 128,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0013481,
+        "upstream_inference_prompt_cost": 0.0006181,
+        "upstream_inference_completions_cost": 0.00073
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 291,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

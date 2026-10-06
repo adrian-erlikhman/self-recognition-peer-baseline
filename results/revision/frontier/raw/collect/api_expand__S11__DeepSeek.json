@@ -1,0 +1,55 @@
+{
+  "request_model": "deepseek/deepseek-chat",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Explain why the leaves of many trees change color in autumn. Answer in two to four sentences of plain prose."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916423-dg4iElA6PQzDq53YkvYn",
+    "object": "chat.completion",
+    "created": 1790916423,
+    "model": "deepseek/deepseek-chat",
+    "provider": "DeepInfra",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "In autumn, the leaves of many trees change color due to shorter days and cooler temperatures, which signal the tree to stop producing chlorophyll, the green pigment essential for photosynthesis. As chlorophyll breaks down, other pigments like carotenoids (yellows and oranges) and anthocyanins (reds and purples) become visible, creating the vibrant fall colors.",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 25,
+      "completion_tokens": 72,
+      "total_tokens": 97,
+      "cost": 7.208e-05,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 7.208e-05,
+        "upstream_inference_prompt_cost": 8e-06,
+        "upstream_inference_completions_cost": 6.408e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

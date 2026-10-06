@@ -1,0 +1,70 @@
+{
+  "request_model": "openai/gpt-5.5",
+  "messages": [
+    {
+      "role": "user",
+      "content": "A ladder 25 feet long leans against a vertical wall with its foot 7 feet from the base of the wall. The top of the ladder slides 4 feet down the wall. By how many feet does the foot of the ladder move away from the wall? Solve the problem, showing your reasoning step by step in plain prose, and end with a final line of the form 'Answer: <number>'."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916320-W2XHjatMdpDBDf3HFFiW",
+    "object": "chat.completion",
+    "created": 1790916320,
+    "model": "openai/gpt-5.5",
+    "provider": "OpenAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "The ladder, wall, and ground form a right triangle.\n\nInitially, the ladder is 25 feet long, and its foot is 7 feet from the wall. So the height of the top of the ladder is found using the Pythagorean theorem:\n\n\\[\n7^2 + h^2 = 25^2\n\\]\n\n\\[\n49 + h^2 = 625\n\\]\n\n\\[\nh^2 = 576\n\\]\n\n\\[\nh = 24\n\\]\n\nSo initially, the top of the ladder is 24 feet up the wall.\n\nThe top of the ladder then slides 4 feet down, so its new height is:\n\n\\[\n24 - 4 = 20\n\\]\n\nNow the ladder is still 25 feet long, so we again use the Pythagorean theorem to find the new distance of the foot from the wall:\n\n\\[\nx^2 + 20^2 = 25^2\n\\]\n\n\\[\nx^2 + 400 = 625\n\\]\n\n\\[\nx^2 = 225\n\\]\n\n\\[\nx = 15\n\\]\n\nSo the foot of the ladder is now 15 feet from the wall. It was originally 7 feet from the wall, so it moved:\n\n\\[\n15 - 7 = 8\n\\]\n\nAnswer: 8",
+          "refusal": null,
+          "reasoning": "**Calculating ladder distance**\n\nI need to tackle this problem step by step. It's a classic scenario! The initial ladder length is 25, with the foot at 7. The height is calculated as \\( \\sqrt{625 - 49} \\), giving us 24. After the top slides down 4, the new height becomes 20. The new foot distance is \\( \\sqrt{625 - 400} \\), resulting in 15. So, moving away from the wall means the distance is 15 - 7, which equals 8. Final answer: 8.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "**Calculating ladder distance**\n\nI need to tackle this problem step by step. It's a classic scenario! The initial ladder length is 25, with the foot at 7. The height is calculated as \\( \\sqrt{625 - 49} \\), giving us 24. After the top slides down 4, the new height becomes 20. The new foot distance is \\( \\sqrt{625 - 400} \\), resulting in 15. So, moving away from the wall means the distance is 15 - 7, which equals 8. Final answer: 8.",
+              "format": "openai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABqvzbjxTY6CDWm2cdWPfE62Vu3p3-_y3Hm5aRWD-d9guq2uBKhRwJMYsHmltaTLwo1E9LcjmwxTczkbCIO-zKP29ScCecI_idW1b2lNc9BnEhKqzU3Uxqo1QOaN6hKVl78rwHWnu0N-nv0UwOUWfphphzpcBwfYKdpS02UkiwbGytB8H_UHw_tMlJC9xyqmrYkVbel4X3XljSBrsPlxoKHB0hKXGryBuBtHFtouEp9CQI8Mmd1W5KgbAOgvOqHwF1NfGusggdJeknEdvQLePiSVyOG6VQOzUqxiCCYK0boJuF8mEbJucXAUxHqdsUrfu4TYq_w5Gm8bwHw5f39RMtpIqzPe8Y3S_vH-pt8QgrORtrJgVJoRGVRec2OfG6MUaDSZIv-r4w_oKcQVPsCAxSlCmRSIcqcLg0fYi7EHln-zi7i5_EEl9KcKjrxS8sOuhEBt9s2BhmvRR3vrisNVmRtraQQpNyJH-xSR3I6or-zFKzrCzvEle3EjewiiM3o389KKthXYxYefc0tZWD__1XW3NX_LdF_RJjF5YevoUttda_OnMZoIyaYKp9cKWPglcxF85qpBKQPejYMiBHlSOJLBj4yALt1fABpEtGEk-3stkdP2DOZe97-nnjPMB1k9jOFsP0cJdbQtp3HZKMC4aGwpozPqfkoH51R_pd02VoA1Gn6fWEcSIaQB8iMB0NIQ9mb_wPgU1UTO4vsmhVWTzM6SD3kbF7EPAHoVFeNFrQDo-kAA670a5tDfS-mPCT9skV0flrUnGY0UVbWrTcruVh47nXZcqRS3S9bPg6XWDI5tfUNg6h3fAXLSxWa2xBCqlXBjxbqqmJ-Y6tytVLffQHWWVMmixGUBPPcj-f-sEOuHvpeJWxbmXyPiLI-H07dssmWWYd-iHQ0jI5QMOEZib3Pgz5qThsPIleaKJ6NJGSSuBIjKG-qvgBsnKOPqnr1WiCsi-EQqDa7m-oooIMX21Yd9v0L9ZlPBxfxCoXfKnC8zUgkN1cDEfRZ1iQ9BRS1f_pEHIA8ASx08Y1Yk-VrH9Sr745u9FuyUvuohkGHb7mwz2FrP7_5LI8vm2SaNIStOBunu9DstCa67euoc9tQ620Ep2hOMyTk7p0IIiCW6W7XUwZbjWvn8LPEl8xX-CVeGT0JVoYSnOBMloLNSOGATXZLvBM47saYJafhEaSAftZ-XHNRaAfG3_Hn0vrAv5tLBlSu6PaI5BV1X_Vmz8Jjk-nxe0Wo30G4HgrPRU9C1mkJyAVeyAIPYWLSj7HQ3cpFMciKSYjp-_2uMF2Q5MdC75MQ3hF1_CJ6cFiPPqZcgj3byOiwTq6KX0urDWI4t38H2j1DaO7WAZc87XDTbpKYEk252Ud8Fm2A1N1bX4FCcfC6kJ6XkJbVH_yVEOCm05p1HGIPgqcMwepbkuX4dTb-BE8Zyvu5_BGl-NMsXHZuMEtM8gQ_8JWD13QyblmN27broOuKbchfVdmu3fq-zjjSWhVuf64X1f8NUG68UgUS-cF-uQqjLF3UW0zfZv43ZE5H-IUQijCL8ML7SpcsrIEUjIWFbicNKOt7eqNvdGzYyghbMv--2wy3E3TFI3hgmwKkq8w7V1QU1NCybsXCUzBERlDoANsBz1IVeI6sa0-QNiFXGdJC_PZKzwzY32KxhBbU4nNnO7uX.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC01LjUtMjAyNjA0MjN8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_0614f47e2c8c2911016abf36e141f887d1b542cd1b5a11107f",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 89,
+      "completion_tokens": 355,
+      "total_tokens": 444,
+      "cost": 0.011095,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.011095,
+        "upstream_inference_prompt_cost": 0.000445,
+        "upstream_inference_completions_cost": 0.01065
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 72,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

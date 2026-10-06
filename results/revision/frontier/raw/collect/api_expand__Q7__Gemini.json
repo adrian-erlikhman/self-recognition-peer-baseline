@@ -1,0 +1,63 @@
+{
+  "request_model": "google/gemini-3.5-flash",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Someone deposits $5,000 in an account that pays 4 percent interest per year, compounded annually, and makes no withdrawals. How many dollars are in the account after 3 years, rounded to the nearest cent? Solve the problem, showing your reasoning step by step in plain prose, and end with a final line of the form 'Answer: <number>'."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916330-i1HOUpqsuDZq8ZrXQJF4",
+    "object": "chat.completion",
+    "created": 1790916330,
+    "model": "google/gemini-3.5-flash",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "provisioned",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "To find the amount of money in the account after 3 years, we can calculate the balance year by year, applying the 4 percent annual interest rate to the balance at the end of each preceding year.\n\nIn the first year, the initial deposit is $5,000. The interest earned during this year is 4 percent of $5,000, which is calculated as:\n$0.04 \\times 5,000 = 200$ dollars.\nAdding this interest to the initial deposit, the balance at the end of the first year is:\n$5,000 + 200 = 5,200$ dollars.\n\nIn the second year, the interest is earned on the new balance of $5,200. The interest earned during the second year is:\n$0.04 \\times 5,200 = 208$ dollars.\nAdding this interest to the first year's ending balance, the balance at the end of the second year is:\n$5,200 + 208 = 5,408$ dollars.\n\nIn the third year, the interest is earned on the balance of $5,408. The interest earned during the third year is:\n$0.04 \\times 5,408 = 216.32$ dollars.\nAdding this interest to the second year's ending balance, the balance at the end of the third year is:\n$5,408 + 216.32 = 5,624.32$ dollars.\n\nThus, after 3 years, there are $5,624.32 in the account.\n\nAnswer: 5624.32",
+          "refusal": null,
+          "reasoning": "**Calculating Future Value**\n\nI'm working on determining the account balance after three years. The current focus is on applying the compound interest formula using the provided principal of $5,000 and an annual interest rate of 4%.\n\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "**Calculating Future Value**\n\nI'm working on determining the account balance after three years. The current focus is on applying the compound interest formula using the provided principal of $5,000 and an annual interest rate of 4%.\n\n",
+              "format": "google-gemini-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 76,
+      "completion_tokens": 971,
+      "total_tokens": 1047,
+      "cost": 0.008853,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.008853,
+        "upstream_inference_prompt_cost": 0.000114,
+        "upstream_inference_completions_cost": 0.008739
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 585,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

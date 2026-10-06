@@ -1,0 +1,49 @@
+{
+  "request_model": "anthropic/claude-opus-4.7",
+  "response": {
+    "id": "gen-1786846158-RAywwYG6ytXsfBslC2WD",
+    "object": "chat.completion",
+    "created": 1786846158,
+    "model": "anthropic/claude-opus-4.7",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"A\": {\"model\": \"GPT\", \"confidence\": 3, \"reason\": \"Clean structured tri-paragraph essay with generic phrasing typical of GPT.\"},\n  \"B\": {\"model\": \"Grok\", \"confidence\": 3, \"reason\": \"Long run-on sentences with slightly exuberant phrasing and no paragraph breaks between blocks.\"},\n  \"C\": {\"model\": \"DeepSeek\", \"confidence\": 3, \"reason\": \"Dense, elaborate academic prose with lots of examples and formal vocabulary.\"},\n  \"D\": {\"model\": \"Claude\", \"confidence\": 2, \"reason\": \"Measured, balanced, unadorned prose without hyperbole feels Claude-like.\"},\n  \"E\": {\"model\": \"Claude\", \"confidence\": 4, \"reason\": \"Concrete specifics like Bialystok, task names, and confident analytical voice suggest Claude.\"}\n}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 5060,
+      "completion_tokens": 299,
+      "total_tokens": 5359,
+      "cost": 0.032775,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.032775,
+        "upstream_inference_prompt_cost": 0.0253,
+        "upstream_inference_completions_cost": 0.007475
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

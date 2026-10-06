@@ -1,0 +1,70 @@
+{
+  "request_model": "openai/gpt-5.5",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Write a Python function `flatten(nested: list) -> list` that takes a list whose elements may be lists nested to any depth and returns a new flat list of all non-list elements in left-to-right order. Only objects of type `list` are flattened; tuples, strings, and other values are kept as single elements. For example, `flatten([1, [2, [3, (4, 5)]], \"ab\"])` returns `[1, 2, 3, (4, 5), \"ab\"]`. Use only the Python standard library. Include a docstring and brief inline comments. Return only the code in a single Python code block, with no explanation before or after."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916304-P6xrswLx00XJZLZZZc5C",
+    "object": "chat.completion",
+    "created": 1790916304,
+    "model": "openai/gpt-5.5",
+    "provider": "OpenAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "```python\ndef flatten(nested: list) -> list:\n    \"\"\"Return a new flat list of all non-list elements in left-to-right order.\"\"\"\n    flat = []\n    stack = [iter(nested)]\n\n    while stack:\n        try:\n            item = next(stack[-1])\n        except StopIteration:\n            # Finished the current list; return to its parent.\n            stack.pop()\n            continue\n\n        if type(item) is list:\n            # Descend into lists only; keep tuples, strings, etc. as values.\n            stack.append(iter(item))\n        else:\n            flat.append(item)\n\n    return flat\n```",
+          "refusal": null,
+          "reasoning": "**Implementing a flatten function**\n\nI'm working on a function to flatten a nested list structure into a single list. It initializes an empty list and uses a stack to manage the nested iterators. While there are items in the stack, it tries to get the next item and checks its type. If it's another list, it adds an iterator for that list to the stack. If it's not a list, it appends the item to the flat list. This should work for arbitrary nesting until memory limits.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "**Implementing a flatten function**\n\nI'm working on a function to flatten a nested list structure into a single list. It initializes an empty list and uses a stack to manage the nested iterators. While there are items in the stack, it tries to get the next item and checks its type. If it's another list, it adds an iterator for that list to the stack. If it's not a list, it appends the item to the flat list. This should work for arbitrary nesting until memory limits.",
+              "format": "openai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABqvzbWUrYs9GaD2qpuJ_Dhvdpk7MjV51TYMiK1nEH5n2YEjHczbmRiwFhn6KnMUd-1H4mBa1XVHXuTnWDsitLJxl5Is76dB1Gb1V3RBiFu7Qy_FIiEj_BUpu4ch4ZZAWcbBm9x4rdcLVni9iIXYia5rnOBcr-mBRA9pxriMIeHQjLSuTTGgWkriitBQ-FdLO_G3GsOlFvEGV_azLQgCAukLf4a1fQgImV1RdwzAZiTCYH1FyEDm01n95QvBDw3H9YtIx9wOF8b5UlEGBaz6r52LoJwqovlqhCv5eNkum8rPjFSSywES92BJx35ruOtq9jippDJ--NAfNukqRXPQYiDXLuf-S1DvHo4_3MKHlab2uZ9nBRzaWlzdMV0eQMXqeAPZkTG096XDT7uvpmETBJLizSN6BG-sSpw2I97M77G6mBqEcNYR4SgMUTCtwDjp-WESTzBUvmms8ePBlOwY8Bii6KJZDNRBvSQ82X5MZYxIOFx_NFxvAzJrzM1b-Sw83Awq-cIQNfwHXPLUP3_9YLTYEWm3GVyPY9n3Ib96tiSaCEIE962sV9l8QczTsRz7otWyf-Du2nZ8mbHSUcLAchUKo5Woh4JFOnEXcliBW0080CMF03uH5VbLS3FzZg4-6lKjOs5Uyg6lYHemua9aIEdRR4LoZISVe9t0ckSzuUeEK_tUIHQDfHsq-wP00r2vwxsS47ocvNAzdYuCNB8bEhtZSe3699xmj5tUCHx6EbetAAUVix7NfP2KPtvH2_rHZrSAZ40BgEukvlrjZz-Z8QDkvEpvTIu1eEUS5OzmAQdt-so1w9qOgO_rzsGKIii8mNpPPnUIiOdTd_qZfBjBYMb4qxZD6hqYCjlQG5vLqvSUI1pj3K6_KF0dxr7UqUSYgYaVBWA3anLrghWT1bZetgxr6tyeRF69IJELq-Sh61HMQc14Ww7EMiRUssxYB3vfaZHsPQTN5JuDM6LNwOns33-CXpLCW5azCsm5GYACfINrhXcVkmPCUhMN3iAMvwBVjpIf9N4Nh3IRyMmH3dlkO36UZVX_N9eDHf_qilibRwNUsRlTl1y2nkw9diIU-0RnOX852xlK4z1Lmgeng3_PWELKBeWkoXhpfs9MKmkrov9XoMmT-glaOOHaGb3Cpvh1hOkRrJFQH90rAYLT4nd9BXbhyo7-uNdHVXjJSGmzr7hijq4K8jOWXQAY_CTS_N7IRVRKxXomZAUqEVky3uD4heq913sDraN-ORAAT-g4Mpdb-eCL2kFN20rGF3aPHY1iMHAC9W64K90EXEadoLapSypJ2Tymm8uVD3sVD60aEF7v6H8DvXyt3SCO3HjrYOOu80gGngTlbsURFeRV0HAULSYPOOUU08ylHYgOYXO2K552CZFp0BpaQwADCe4Cpw46_wD_lP6-P2aEm1xlB-hE7JaMKOTexKJEdZE2mcnw3oiUinAmKcAUCfBgyAyWuggGOojBjKXnhkPm2yxpMB9BxUUqP8qYjNbXGK0rwGZ370t7b0VIMrYf8VvrwVVDNkwqKudKd0SOyFX9qDyrZXEOZ_T11WTXui6VNX1dHqXxLD4h0rrOt-uNiXPARdLc3IPHzW9nj9Li-9xCf_irgQNnwAvRV_3OxMg9natNIU3Uz-FHeJO80aJrfWQfzC6wj--DXwniP6X5WwJyzlnsJD_Iwq7_Pu1ObtB21hZFoEvIFi2Pjuk0U-Pms__PtYOaQDnU_RV-z31wDRIn992o8VpVEn_D-ogEgaEMyu8H7nMPHXT7oLFajPmHLkVPW-QOIzlrzJKW_EQCD0bZdYFMMZ4cOvg2ZgfuvfjarVhL_r8GO9DONq-iAGMIGWtF4KXbTc422PDx0hurnr6MZixJc2ciFNSNJ7UiKli6FprlZVPbTyPiZLig2_HoARBNA3M64P_-WpYxm9tiYwSgU4t-0V78945DRm_R75pj44RqyOpdcFrlSG-7h2l_uKvHuXPeNeBWCTegy_aF5VyvJdOy2pL_Cb5yX7WbnIrEk_z-ZC_Z8eKcNvdvE4h56AftkBQ2rTtjtjLNr1KPhJ4Mn9HgbfKD8naL23NnNe-Y-nFxdMWzT6kXnfd5lgUa3c6w3NLww5Xbxf8rO4mjaUogW3NvcW-At8WNyMtG9yG9S-8JW73b1xujkl0GtrAag-4MIUhXKJUMzIO_tUEtSQS2sMTt59lk-DLicWmyAw2vURu3OmnTKG89xnhcGeSGByoIrfvU-m-Ag7JsObEHU47OsBNbYXLCaJLwi38LGmLLSTeebYd_dtARg6PfaDusijYlRBmFagzPiDWT7Sp9uOrOOi0C-CMT2w9HKxJPDoOATDSrFl-gZ4XTLL4lYZqWs1DFoRLgMLtwLvCMY53E5L7Ke0i7YgYoiz7jSGu2NhQHu7g5F2OL46eEsXVwVWWHAB6GpplB-ufulnUj1rlUME8Z_PFcYba6pW0ETARnTr11RxX1-1QlY355Aa02ABushdYbEZZqclsbjj8OjRgPIO7EuPpCzN-4DzS4ZXp9e7Akcr8L5F09QvQ1E7wCx9Gj35alvUsFiZH_bSk5hXh5vpCEh8PV07cUh8Mq_ZnRsVbAKuh8FjHSs4s4H7LnIQPgzmH-paxIjCxd7lw-IyanKDNQaYB7ko2_DiujFaZpnmzBwojSA-g6pI_dB64IhJ8Zqfi7BjQK2TXoTLWkHZwetzOx4UuRxmeGYuYAV8j55MTGs340vSIphyS23yRy0rxlNyvQFJfvwDz6WfzhAXB13DwFuUwBHO7I_7dG2m03Wkf9SpHaWM0S-RkRkfrDyFnaL2VTXBdAZZeAYnlYmHmhrFqGFgTikM5DH4DwD0jyHZQfT5BeYx2f40PEgMPm5kqIAiuV69onyVC50s3kUJ-vMbkm1-IPXaNEjBuqAXa5rkmW4351X4V8LPQZ7KjwCu11iQX2spF5TpAr_avH2RQTq0NC3i1GBvF-VwiNEp-P7UcUl4ygpS6fSACHyk3LRVchx1kjIrJYGaX0uFya6L4iQXM-x3QACL-_Fqg_cXcsAzaflU3-hfngnQF7f-T4iaLab_aMPCwCyKI9q8QPEWzBetJX7IpRyJfMU-pfVHpI2qrOcIsZqco6ri7FDR2gaVz6QqlvXQLFNdVnK6UehcBCyuzJF2p7Nd66MzAX1MuxptWNW1J0GfG6oNRG6gK878GhbXuh7bv76uto50dMLrGPPY4oQtufRHsxA9svcmMjQR4b9MeGMMlyK5ZHlNjx4easrtxjHfjS8_SiCRpigDjHcGVkg8Bjs0kTAt7oCJVnbHfW1bFhl_T4PhyRfRI2eO7EGZ2zjMcQjcKPazQiEwFMaBXaXZ-PR5yltgIoXsKNNdf7M38N-Zoefl_3HR_vhQ26bfFIsLU_KcdeWLtSU08sJm7eOszN-0OqY6-naWOuA==.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC01LjUtMjAyNjA0MjN8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_018a28d306f2735a016abf36d17fd487d1b81a0d5d1e75a7d5",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 152,
+      "completion_tokens": 459,
+      "total_tokens": 611,
+      "cost": 0.01453,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.01453,
+        "upstream_inference_prompt_cost": 0.00076,
+        "upstream_inference_completions_cost": 0.01377
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 326,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

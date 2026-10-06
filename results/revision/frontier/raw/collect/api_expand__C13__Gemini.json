@@ -1,0 +1,63 @@
+{
+  "request_model": "google/gemini-3.5-flash",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Write a Python function `max_subarray_sum(nums: list[int]) -> int` that returns the largest sum of any non-empty contiguous subarray of `nums`, using Kadane's algorithm in O(n) time. If all numbers are negative, return the largest single element. Raise ValueError if `nums` is empty. Use only the Python standard library. Include a docstring and brief inline comments. Return only the code in a single Python code block, with no explanation before or after."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916310-uUlYWeWeIkrdjLkNMcOE",
+    "object": "chat.completion",
+    "created": 1790916310,
+    "model": "google/gemini-3.5-flash",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "```python\ndef max_subarray_sum(nums: list[int]) -> int:\n    \"\"\"\n    Finds the largest sum of any non-empty contiguous subarray of nums\n    using Kadane's algorithm in O(n) time.\n\n    Args:\n        nums: A list of integers.\n\n    Returns:\n        The maximum subarray sum.\n\n    Raises:\n        ValueError: If the input list is empty.\n    \"\"\"\n    if not nums:\n        raise ValueError(\"The input list cannot be empty.\")\n\n    # Initialize the current and global maximum subarray sums with the first element\n    max_so_far = nums[0]\n    curr_max = nums[0]\n\n    # Iterate through the array starting from the second element\n    for x in nums[1:]:\n        # Decide whether to extend the current subarray or start a new one at x\n        curr_max = max(x, curr_max + x)\n        # Update the maximum sum found so far\n        max_so_far = max(max_so_far, curr_max)\n\n    return max_so_far\n```",
+          "refusal": null,
+          "reasoning": "**Developing Kadane's Algorithm**\n\nI'm focusing on the core logic for Kadane's algorithm, specifically iterating through the input list and maintaining two key variables: the maximum sum found so far and the current sum ending at the current position. I'm working through edge cases to ensure correctness.\n\n**Refining Kadane's Logic**\n\nI've finalized the core iteration for Kadane's. My thoughts now center on robust error handling, specifically ensuring a `ValueError` is raised for empty inputs, and meticulously documenting the algorithm's $O(n)$ time complexity and standard handling of all-negative arrays.\n\n**Implementing Kadane's Algorithm**\n\nI've translated the refined logic into Python code. My focus has shifted to thorough testing, specifically verifying edge cases like single-element arrays and arrays with all negative numbers, ensuring the implementation correctly handles these scenarios.\n\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "**Developing Kadane's Algorithm**\n\nI'm focusing on the core logic for Kadane's algorithm, specifically iterating through the input list and maintaining two key variables: the maximum sum found so far and the current sum ending at the current position. I'm working through edge cases to ensure correctness.\n\n**Refining Kadane's Logic**\n\nI've finalized the core iteration for Kadane's. My thoughts now center on robust error handling, specifically ensuring a `ValueError` is raised for empty inputs, and meticulously documenting the algorithm's $O(n)$ time complexity and standard handling of all-negative arrays.\n\n**Implementing Kadane's Algorithm**\n\nI've translated the refined logic into Python code. My focus has shifted to thorough testing, specifically verifying edge cases like single-element arrays and arrays with all negative numbers, ensuring the implementation correctly handles these scenarios.\n\n",
+              "format": "google-gemini-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 104,
+      "completion_tokens": 1061,
+      "total_tokens": 1165,
+      "cost": 0.009705,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.009705,
+        "upstream_inference_prompt_cost": 0.000156,
+        "upstream_inference_completions_cost": 0.009549
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 817,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

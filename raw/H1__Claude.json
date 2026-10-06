@@ -1,0 +1,49 @@
+{
+  "request_model": "anthropic/claude-opus-4.7",
+  "response": {
+    "id": "gen-1786845900-9GFq6XKVV7pO17dDEoaN",
+    "object": "chat.completion",
+    "created": 1786845900,
+    "model": "anthropic/claude-opus-4.7",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"A\": {\"model\": \"Claude\", \"confidence\": 4, \"reason\": \"Long flowing paragraphs with philosophical depth and phrases like 'tribunal of experience' suggest Claude's expansive style.\"},\n  \"B\": {\"model\": \"GPT\", \"confidence\": 3, \"reason\": \"Clear structured prose with moderate detail and typical academic phrasing suggests GPT.\"},\n  \"C\": {\"model\": \"Gemini\", \"confidence\": 3, \"reason\": \"Long compound sentences with heavy use of connective clauses and 'thereby' constructions suggest Gemini.\"},\n  \"D\": {\"model\": \"DeepSeek\", \"confidence\": 3, \"reason\": \"Balanced structure with concrete examples and measured academic tone typical of DeepSeek.\"},\n  \"E\": {\"model\": \"Grok\", \"confidence\": 3, \"reason\": \"Formal, somewhat repetitive academic phrasing with careful hedging suggests Grok.\"}\n}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 7054,
+      "completion_tokens": 320,
+      "total_tokens": 7374,
+      "cost": 0.04327,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.04327,
+        "upstream_inference_prompt_cost": 0.03527,
+        "upstream_inference_completions_cost": 0.008
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

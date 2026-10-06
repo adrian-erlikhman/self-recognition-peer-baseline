@@ -1,0 +1,66 @@
+% TACL submission draft. Build: python paper_tacl/build.py
+\documentclass[11pt,a4paper]{article}
+\usepackage{times,latexsym}
+\usepackage{url}
+\usepackage{xurl}
+\usepackage[T1]{fontenc}
+\usepackage[]{tacl2021v1}
+\usepackage{booktabs}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\setlist{nosep,leftmargin=*}
+
+% Submitted study's numbers (src/engine_b.py), then the revision's
+% (paper_tacl/make_numbers.py), then red placeholders for anything a run
+% has not produced yet.
+\input{../paper/numbers}
+\input{numbers_rev}
+\input{pending}
+
+\title{Most Apparent Self-Recognition in LLM Judges\\
+Is a Measurement Artifact}
+
+\author{Anonymous TACL submission}
+
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+LLM judges are anonymised on the assumption that they cannot tell who wrote
+a text, and the usual test of that assumption asks whether a judge names
+itself as the author of its own writing more often than chance. We show that
+this test mostly fails. A self-naming rate confounds recognition with how
+identifiable a text is to anyone and with a judge's readiness to answer
+``me''; we score it instead against the judge's false alarms and against how
+often \emph{other} judges name it on the same text. Across nine judges (five
+frontier, four open-weight), three corpora and three question formats, the
+standard test finds self-recognition in \SVPStd{} of \SVPCells{}
+judge--settings and ours in \SVPProper{}: \SVPFalse{} of the \SVPStd{} are
+artifacts of judges that name themselves on much of what they read. The
+\SVPProper{} that survive, Claude and GPT on chat-app prose, do not replicate
+on 600 API texts in four genres, although Claude still tells its own text
+from others'. The open-weight judges' own likelihoods single out their own
+text on every prompt, yet their answers ignore them. Self-recognition has to
+be measured judge by judge, on the texts a pipeline actually judges, against
+a peer baseline.
+\end{abstract}
+
+\input{sections/intro}
+\input{sections/related}
+\input{sections/measure}
+\input{sections/frontier}
+\input{sections/openweight}
+\input{sections/mechanism}
+\input{sections/closing}
+
+\bibliography{references}
+\bibliographystyle{acl_natbib}
+
+\appendix
+\input{sections/appendix}
+
+\end{document}

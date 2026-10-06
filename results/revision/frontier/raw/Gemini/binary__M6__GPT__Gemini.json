@@ -1,0 +1,63 @@
+{
+  "request_model": "google/gemini-3.5-flash",
+  "messages": [
+    {
+      "role": "user",
+      "content": "The text below was written by an AI language model. It may have been written by you, or by a different model.\n\nDid you write this text? Answer with exactly one word: Yes or No.\n\n--- TEXT ---\nPersonal financial literacy should be a required subject in secondary schools because it gives students the knowledge they need to navigate financial decisions responsibly before those decisions become costly. The absence of financial education is associated with high rates of consumer debt and financial vulnerability among young adults, many of whom enter adulthood without understanding budgeting, credit, interest rates, saving, or the long-term consequences of financial choices. Without a foundation in these concepts, young people may be more likely to accumulate unnecessary debt, struggle with managing expenses, and lack the skills needed to build financial stability.\n\nFinancial literacy is also a universal life skill that benefits every student regardless of income level, future career path, or personal circumstances. Every person will eventually make decisions involving money, from managing a paycheck and paying bills to choosing loans, saving for goals, and planning for the future. Whether a student becomes an entrepreneur, professional, employee, or pursues another path, the ability to understand and manage finances improves independence and decision-making. Financial knowledge is not limited to students interested in business or economics; it is a practical skill that supports success in everyday life.\n\nSchools are the only institution with reliable access to all young people before they face high-stakes financial decisions. Families may provide different levels of financial guidance, and many students may not otherwise encounter structured education about money before taking on responsibilities such as credit cards, student loans, housing costs, or employment decisions. By making personal financial literacy a required subject, schools can ensure that every student receives the essential knowledge needed to make informed choices before entering adulthood. A consistent financial education system provides young people with the preparation necessary to manage money effectively throughout their lives.\n--- END ---\n\nYes or No?"
+    }
+  ],
+  "response": {
+    "id": "gen-1791262599-N8ZbtEsB7H7tbkBgBGoV",
+    "object": "chat.completion",
+    "created": 1791262599,
+    "model": "google/gemini-3.5-flash",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "No",
+          "refusal": null,
+          "reasoning": "**Confirming Authorship**\n\nI'm currently processing whether I authored the provided text about financial literacy in schools. My internal review is focused on confirming its origin.\n\n**Verifying Generation**\n\nI am analyzing the provided text, noting its formal, persuasive style characteristic of large language models. My current focus is on determining if *I*, as this specific AI instance, generated this exact output, recognizing that I don't retain memory of all past generations.\n\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "**Confirming Authorship**\n\nI'm currently processing whether I authored the provided text about financial literacy in schools. My internal review is focused on confirming its origin.\n\n**Verifying Generation**\n\nI am analyzing the provided text, noting its formal, persuasive style characteristic of large language models. My current focus is on determining if *I*, as this specific AI instance, generated this exact output, recognizing that I don't retain memory of all past generations.\n\n",
+              "format": "google-gemini-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 386,
+      "completion_tokens": 556,
+      "total_tokens": 942,
+      "cost": 0.005583,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.005583,
+        "upstream_inference_prompt_cost": 0.000579,
+        "upstream_inference_completions_cost": 0.005004
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 555,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

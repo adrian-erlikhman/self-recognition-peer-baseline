@@ -1,0 +1,19 @@
+\begin{table}[t]
+\centering\small
+\setlength\tabcolsep{2.5pt}
+\begin{adjustbox}{max width=\linewidth}
+\begin{tabular}{l rrr l r r}
+\toprule
+Judge & Self & Peer & FA & Self-adv. [95\% CI] & Hit$-$FA & Original \\
+\midrule
+GPT & 37.5\% & 25.0\% & 17.1\% & +12.5 [$-$12.5, +38.9] & +14.5 & \GPTAdvLineup \\
+Claude & \multicolumn{5}{c}{\emph{refused every lineup}} & \ClaudeAdvLineup \\
+Gemini & 20.8\% & 18.1\% & 19.8\% & +2.8 [$-$15.3, +22.2] & +1.0 & \GeminiAdvLineup \\
+Grok & 8.3\% & 13.9\% & 21.7\% & $-$5.6 [$-$15.3, +6.9] & $-$8.6 & \GrokAdvLineup \\
+DeepSeek & 12.5\% & 9.7\% & 21.7\% & +2.8 [$-$11.1, +19.4] & $-$8.6 & \DeepSeekAdvLineup \\
+\bottomrule
+\end{tabular}
+\end{adjustbox}
+\caption{The chat-app lineup repeated with every essay's words shuffled. Columns as in Table~\ref{tab:frontier}; Original is the self-advantage on the unshuffled essays. Claude's provider refused all of Claude's shuffled lineups, so Claude has no judgments here, but its essays were still judged by the other four. No value is significant after correction.}
+\label{tab:fshuffle}
+\end{table}

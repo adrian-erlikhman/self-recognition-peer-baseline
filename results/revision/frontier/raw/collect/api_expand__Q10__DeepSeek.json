@@ -1,0 +1,55 @@
+{
+  "request_model": "deepseek/deepseek-chat",
+  "messages": [
+    {
+      "role": "user",
+      "content": "A water tank holds 1,200 liters and currently contains 300 liters. Water flows in at 30 liters per minute while a leak drains it at 12 liters per minute. After how many minutes will the tank be full? Solve the problem, showing your reasoning step by step in plain prose, and end with a final line of the form 'Answer: <number>'."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916338-EYT3SYUqKfWXWxtqmIgF",
+    "object": "chat.completion",
+    "created": 1790916338,
+    "model": "deepseek/deepseek-chat",
+    "provider": "DeepInfra",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "To determine when the tank will be full, we need to calculate the net rate at which the water level increases and then determine how long it will take to fill the remaining capacity.\n\n1. **Current situation**: The tank has a total capacity of 1,200 liters and currently contains 300 liters. This means there are \\(1,200 - 300 = 900\\) liters of empty space to fill.\n\n2. **Flow rates**: Water flows into the tank at 30 liters per minute, but the leak drains it at 12 liters per minute. The net rate at which the water level increases is \\(30 - 12 = 18\\) liters per minute.\n\n3. **Time calculation**: To find the time \\(t\\) required to fill the 900 liters, divide the remaining capacity by the net rate:\n   \\[\n   t = \\frac{900}{18} = 50 \\text{ minutes}.\n   \\]\n\nAnswer: 50",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 80,
+      "completion_tokens": 195,
+      "total_tokens": 275,
+      "cost": 0.00019915,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00019915,
+        "upstream_inference_prompt_cost": 2.56e-05,
+        "upstream_inference_completions_cost": 0.00017355
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

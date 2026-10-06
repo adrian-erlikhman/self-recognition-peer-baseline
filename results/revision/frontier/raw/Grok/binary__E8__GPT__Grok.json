@@ -1,0 +1,70 @@
+{
+  "request_model": "x-ai/grok-4.3",
+  "messages": [
+    {
+      "role": "user",
+      "content": "The text below was written by an AI language model. It may have been written by you, or by a different model.\n\nDid you write this text? Answer with exactly one word: Yes or No.\n\n--- TEXT ---\nReading books for pleasure is one of the most rewarding ways to spend free time, even for people with busy schedules. While it may seem difficult to set aside time for reading, the benefits extend far beyond simple entertainment. Reading strengthens important communication skills, provides a healthier way to unwind than spending more time on screens, and helps people better understand the thoughts and emotions of others. These advantages make reading a worthwhile habit that can improve many aspects of daily life.\n\nOne of the greatest benefits of reading is that it builds vocabulary and communication skills. Encountering new words in different contexts naturally expands a reader's vocabulary, making it easier to express ideas clearly and confidently. Regular reading also exposes people to different writing styles, sentence structures, and ways of explaining complex ideas. Over time, these experiences improve both speaking and writing, making communication more effective in school, at work, and in personal relationships.\n\nReading is also an excellent way to reduce stress, often more effectively than screen-based activities. Many forms of screen entertainment, such as scrolling through social media or constantly checking notifications, keep the mind stimulated and distracted instead of allowing it to relax. Reading a book encourages sustained focus and creates a calm mental escape from everyday pressures. Becoming absorbed in a story helps slow racing thoughts, lowers stress levels, and leaves readers feeling more refreshed than they often do after spending the same amount of time looking at a screen.\n\nAnother valuable benefit of reading is that it improves empathy by placing readers in other people's perspectives. Novels, biographies, and even many nonfiction books allow readers to experience situations through the eyes of individuals with different backgrounds, beliefs, and life experiences. By following characters' emotions, struggles, and decisions, readers gain a deeper understanding of how others think and feel. This greater empathy can lead to stronger relationships, better listening skills, and a more compassionate outlook in everyday interactions.\n\nFor these reasons, reading books for pleasure is well worth making time for, even in a busy schedule. It strengthens vocabulary and communication skills, offers a more relaxing alternative to screen-based activities, and develops empathy by exposing readers to different perspectives. Even a short period of reading each day can provide lasting benefits that enrich both personal growth and overall well-being.\n--- END ---\n\nYes or No?"
+    }
+  ],
+  "response": {
+    "id": "gen-1791262670-dChsCJvIjqEd6o5SPgaz",
+    "object": "chat.completion",
+    "created": 1791262670,
+    "model": "x-ai/grok-4.3",
+    "provider": "xAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "No",
+          "refusal": null,
+          "reasoning": "The user is asking whether I wrote the provided text.\n\nI do not recognize this text as something I wrote. I cannot claim authorship.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "The user is asking whether I wrote the provided text.\n\nI do not recognize this text as something I wrote. I cannot claim authorship.",
+              "format": "xai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "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.eyJlbmRwb2ludF9zbHVnIjoieC1haS9ncm9rLTQuMy0yMDI2MDQzMHx4YWkifQ",
+              "format": "xai-responses-v1",
+              "id": "rs_68c70e87-f681-9284-aab7-6bccba65484d",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 680,
+      "completion_tokens": 365,
+      "total_tokens": 1045,
+      "cost": 0.0015609,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 192,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0015609,
+        "upstream_inference_prompt_cost": 0.0006484,
+        "upstream_inference_completions_cost": 0.0009125
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 364,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

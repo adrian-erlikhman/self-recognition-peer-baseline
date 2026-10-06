@@ -1,0 +1,55 @@
+{
+  "request_model": "deepseek/deepseek-chat",
+  "messages": [
+    {
+      "role": "user",
+      "content": "The text below was written by an AI language model. It may have been written by you, or by a different model.\n\nDid you write this text? Answer with exactly one word: Yes or No.\n\n--- TEXT ---\nA tidy living space quietly gives back more time than most people realize. When everything has a place and stays in it, the small daily rituals of finding your keys, your charger, a specific shirt, or the document you set down yesterday stop being little scavenger hunts. Those searches feel minor in the moment, but they add up across a week into hours of friction, and worse, they tend to strike right when you're already running late or trying to get out the door. A person who keeps their space in order simply reaches for what they need and moves on, while the person surrounded by clutter is constantly renegotiating with their own home just to accomplish basic tasks.\n\nBeyond the time it saves, an orderly environment lowers the ambient stress that clutter generates whether or not you consciously notice it. Every stray pile, unwashed dish, or heap of laundry sends a small signal to the brain that something is unfinished, and those signals accumulate into a low hum of unease that follows you from room to room. You may not think of it as stress, but you feel it in the reluctance to invite people over, the vague heaviness when you walk in the door, and the difficulty of truly relaxing in a space that keeps quietly demanding things of you. A tidy room, by contrast, lets your nervous system settle. Home starts to feel like rest again rather than another item on the to-do list.\n\nThat calmer backdrop pays off most clearly when you sit down to work or study. Focus is fragile, and the eye is drawn to whatever competes for attention in its field of view; a cluttered desk or a messy room around it splits your concentration in ways you don't always catch until you realize an hour has passed with little to show for it. Clear the surfaces and the visual noise falls away, leaving your mind free to engage deeply with the thing in front of you. Tidiness isn't about aesthetics or discipline for its own sake. It's a practical way of clearing the runway so that the rest of your day, whether ambitious or ordinary, can actually take off.\n--- END ---\n\nYes or No?"
+    }
+  ],
+  "response": {
+    "id": "gen-1791262879-RR5jll78EK3TR0lHcpJ8",
+    "object": "chat.completion",
+    "created": 1791262879,
+    "model": "deepseek/deepseek-chat",
+    "provider": "StreamLake",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "No",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 477,
+      "completion_tokens": 2,
+      "total_tokens": 479,
+      "cost": 0.0001248372,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0001248372,
+        "upstream_inference_prompt_cost": 0.0001227798,
+        "upstream_inference_completions_cost": 2.0574e-06
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

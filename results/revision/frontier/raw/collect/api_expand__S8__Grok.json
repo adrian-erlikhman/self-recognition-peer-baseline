@@ -1,0 +1,64 @@
+{
+  "request_model": "x-ai/grok-4.3",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Explain why a metal spoon feels colder than a wooden spoon when both are at room temperature. Answer in two to four sentences of plain prose."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916377-9Q2EjSBACkAAk42MP8px",
+    "object": "chat.completion",
+    "created": 1790916377,
+    "model": "x-ai/grok-4.3",
+    "provider": "xAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "Both spoons start at the exact same room temperature, but metal conducts heat far better than wood. When your warmer hand touches them, heat flows rapidly out of your skin into the metal, quickly lowering the temperature at the point of contact and triggering a strong cold sensation. Wood, being a poor conductor, lets heat leave your hand much more slowly, so the same temperature difference feels far less chilly.",
+          "refusal": null,
+          "reasoning": null,
+          "reasoning_details": [
+            {
+              "type": "reasoning.encrypted",
+              "data": "ox8zHrNPYUatFevSRsUEdhkMSHxcplC8xH7V4jCpe+ewLYfAkloVWHkvy3Ya2tMYEwBaGG6hAT29xpGxPZN6Yvufp96RUB5FawGfHgOeZ2IRbMQoGe7EL3nk24x7XklgqoAA6hSVc9LcROViAT9+wim2HHh/1JDKOlAVXoA+CHg1caLookCSiAi95FhB0TUBx8boxgrvfIS3oGXMzfLNkQgB7pEalmAjjpdGYegwQ1mlAJDwjbMGFu+9mcGFsaKx0LCQKXHJmd8zk+tchfi2xsBmFJevqO4rPYd7elyhZH4jRTdnns098tiNTTyhOOETVQesIdhzRe3Zq9Hevs7Zc35+TKLzxrt8a8e6bXzI8EhX5ZtKGS8F2aqnXh2QAsNw1+wgNKvj5/8gB9Xbx2ljIWfRZ7bHQxk5mQI5ssFVettO1U06BpHJGr4OPo1Kz80bY4q5TX5Hhwyddqxui3AvbWcN7ZXPOxNVDdIpGyXIC4a+2ok0X5O7KDvd8ZvIBshAkaRe790Iu36AevtlsjB1vUDMppcIxq42muCcODXKkdUBF/wAKhimHQD6ecg5vQKZIH7JyrV1YyMtsDt0rGUKEF+5EzDUy/1PT1tahxggr9DeLlD2IXgANax4605gM7nVd7X7bCJvSpyKGJdSF1VWNjaFVv4ECaJg43CcYQ40ysbHZS1LWFYj+11SlY0RMiF2rck5b0rIU8m/t7bREA8Jf5p3/BYNCEAr9KOevgBJ9/Mr/8szLnJoHRNYPkJXwWscKDUoY0lbcGCRrihXv9BplWUxi02iclKUHIb7EqRUQ45fG0sYtzoB/sKNWIpzrJt+BWFTMCqEHWnAWKRF9HWqy5rjtiQfEnHm6+PCpELPGMdkOeRvTtvDFodGzgMkuKLhWBuiBIZzbkYh/XxAbhtRu0pXBBwvFk6Eg0YhcM2WtCcfaRNVxbimKG22vrwHw3FwfR39JvtXHCyTsHEn5ew+qAFMCE8rZCwqIcAnR/d5pEkNW9/m3UOAwlf6/hUDGJZou8om4105q+Hmaz/2pSPAhka+dwAyDzlGFxY2LZ0bWXCHglGe5UHK7v8GL6xlGU1DRHfUJKX1XrhQyhFwxmYC6OqAHuxWXxwObRyqRcz7dDpkgg1yb+RMOgtRiZIlTtB/ODYEKHuCWRKfvT1gqinIUdOh9ty6E8FByZL+bhQMiiB+rEpVkUPARqJvT7P3S7owJ+K+q+nK4GdxVlTxNFmoIUURw2kFh6BGkpfXuBG76N167W/Z0EklIxqF2x4uobuzBPgC9f+Zu9cM0mpNyh959ZklQj7sPxAmD5fDfhuj6UBrUU4SgUupkC4N3HUmHdQTTsbQEIoMEGdSomICeCvR3Yr9yEDhGLVckAiE8aLjDzrV/ZvbnKg3VxL+W78OrQpKZJp2DXqouNDHyuue7B+t1oM1h7Bczlx1zKz5DGxGwbJOWBLiS37RGgTA.eyJlbmRwb2ludF9zbHVnIjoieC1haS9ncm9rLTQuMy0yMDI2MDQzMHx4YWkifQ",
+              "format": "xai-responses-v1",
+              "id": "rs_492c574e-8f21-9940-a6fb-c41e72bf25b8",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 220,
+      "completion_tokens": 314,
+      "total_tokens": 534,
+      "cost": 0.0009256,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 128,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0009256,
+        "upstream_inference_prompt_cost": 0.0001406,
+        "upstream_inference_completions_cost": 0.000785
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 235,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

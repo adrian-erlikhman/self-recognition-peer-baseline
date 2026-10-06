@@ -1,0 +1,55 @@
+{
+  "request_model": "anthropic/claude-opus-4.7",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Convince someone that keeping their living space tidy makes daily life easier. Use three arguments: you waste less time searching for things, a clean environment reduces background stress, and it makes it easier to focus on work or study. Write in continuous prose paragraphs only. Do not use bullet points, numbered lists, headers, bold text, or any other formatting."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916441-MB14mGJJo9Na7DFMKiS3",
+    "object": "chat.completion",
+    "created": 1790916441,
+    "model": "anthropic/claude-opus-4.7",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "Think about how many minutes slip away each day while you hunt for your keys, dig through a pile of laundry for a specific shirt, or shuffle papers around trying to find that one bill you swore you left on the counter. Those small searches feel trivial in the moment, but they add up quickly, and they almost always strike when you are already running late or trying to shift gears between tasks. When your living space is tidy, everything has a place, and more importantly, you know where that place is. Reaching for your wallet becomes an automatic motion rather than a frustrating treasure hunt, and the time you reclaim can be spent on things that actually matter to you, whether that is sleeping a little longer, cooking a real breakfast, or simply walking out the door without that familiar flicker of panic.\n\nBeyond the practical time savings, a tidy environment quietly lowers the volume of stress humming in the background of your day. Clutter is a form of visual noise, and even when you are not consciously thinking about the dishes in the sink or the clothes draped over the chair, your brain registers them as unfinished business. Each pile is a small, silent reminder that something still needs doing, and those reminders accumulate into a vague but persistent sense of being behind. Walking into a clean room, on the other hand, gives your nervous system permission to settle. You feel lighter without quite knowing why, and that ease carries into your mood, your patience with the people around you, and the quality of rest you get at the end of the day.\n\nThat same mental quiet pays dividends when it comes time to focus on work or study. Concentration is fragile, and it suffers whenever your attention has to compete with a messy desk, a cluttered counter, or a floor strewn with things that should be put away. Every stray object is a potential distraction, a tiny invitation for your mind to wander away from the task in front of you. When your space is orderly, your thoughts have room to stretch out, and getting started feels less like pushing a boulder uphill. You sit down, you see a clear surface, and the path from intention to action becomes much shorter. Over weeks and months, that difference compounds into real progress on the things you care about, which is ultimately why the small habit of keeping your space tidy is worth so much more than the effort it costs.",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 122,
+      "completion_tokens": 711,
+      "total_tokens": 833,
+      "cost": 0.018385,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.018385,
+        "upstream_inference_prompt_cost": 0.00061,
+        "upstream_inference_completions_cost": 0.017775
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

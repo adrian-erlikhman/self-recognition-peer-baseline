@@ -1,0 +1,49 @@
+{
+  "request_model": "deepseek/deepseek-chat",
+  "response": {
+    "id": "gen-1786846007-tg6VyIttEtagCvIzqHVO",
+    "object": "chat.completion",
+    "created": 1786846007,
+    "model": "deepseek/deepseek-chat",
+    "provider": "DeepInfra",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"A\": {\"model\": \"GPT\", \"confidence\": 4, \"reason\": \"Complex, philosophical tone with Kantian references.\"},\n  \"B\": {\"model\": \"Claude\", \"confidence\": 4, \"reason\": \"Clear, structured argument with Kantian influence.\"},\n  \"C\": {\"model\": \"DeepSeek\", \"confidence\": 3, \"reason\": \"Balanced, philosophical argument with nuanced phrasing.\"},\n  \"D\": {\"model\": \"GPT\", \"confidence\": 5, \"reason\": \"Highly detailed, philosophical depth with Kantian references.\"},\n  \"E\": {\"model\": \"Gemini\", \"confidence\": 3, \"reason\": \"Concise, structured argument with philosophical undertones.\"}\n}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 4085,
+      "completion_tokens": 160,
+      "total_tokens": 4245,
+      "cost": 0.0014496,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0014496,
+        "upstream_inference_prompt_cost": 0.0013072,
+        "upstream_inference_completions_cost": 0.0001424
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "request_model": "deepseek/deepseek-chat",
+  "response": {
+    "id": "gen-1786846243-YdpM96Obt81meYBm6igr",
+    "object": "chat.completion",
+    "created": 1786846243,
+    "model": "deepseek/deepseek-chat",
+    "provider": "Novita",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "```json\n{\n  \"A\": {\n    \"model\": \"GPT\",\n    \"confidence\": 4,\n    \"reason\": \"The response is detailed, structured, and uses a formal tone typical of GPT.\"\n  },\n  \"B\": {\n    \"model\": \"Claude\",\n    \"confidence\": 3,\n    \"reason\": \"The response is clear and concise, with a focus on practical benefits, characteristic of Claude.\"\n  },\n  \"C\": {\n    \"model\": \"GPT\",\n    \"confidence\": 4,\n    \"reason\": \"The response is comprehensive and well-structured, similar to GPT's style.\"\n  },\n  \"D\": {\n    \"model\": \"DeepSeek\",\n    \"confidence\": 3,\n    \"reason\": \"The response is analytical and focuses on systematic benefits, which aligns with DeepSeek's approach.\"\n  },\n  \"E\": {\n    \"model\": \"Gemini\",\n    \"confidence\": 3,\n    \"reason\": \"The response is balanced and emphasizes both immediate and long-term benefits, typical of Gemini.\"\n  }\n}\n```",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 2892,
+      "completion_tokens": 225,
+      "total_tokens": 3117,
+      "cost": 0.0014493,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0014493,
+        "upstream_inference_prompt_cost": 0.0011568,
+        "upstream_inference_completions_cost": 0.0002925
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

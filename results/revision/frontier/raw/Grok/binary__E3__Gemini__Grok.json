@@ -1,0 +1,70 @@
+{
+  "request_model": "x-ai/grok-4.3",
+  "messages": [
+    {
+      "role": "user",
+      "content": "The text below was written by an AI language model. It may have been written by you, or by a different model.\n\nDid you write this text? Answer with exactly one word: Yes or No.\n\n--- TEXT ---\nSpending time outdoors every day is a simple yet powerful way to support and improve your mental health, beginning with its ability to significantly reduce stress and anxiety. When you step into a natural environment, your body experiences a physiological shift that lowers cortisol levels, the hormone primarily responsible for stress. The natural sounds, sights, and textures of the outdoors engage your senses in a calming way, which helps quiet a racing mind and eases the physical tension that often accompanies anxiety. Even a brief walk through a park or sitting near trees can induce a sense of tranquility, helping you feel more grounded, resilient, and at peace amid the pressures of daily life.\n\nIn addition to lowering stress, daily outdoor exposure directly enhances your emotional well-being through the power of sunlight. Exposure to natural light triggers the brain to release serotonin, a crucial neurotransmitter often referred to as the body's natural mood stabilizer. This boost in serotonin can instantly lift your spirits, increase your energy levels, and foster a more positive outlook on life. Regular daytime sunlight also helps regulate your internal biological clock, leading to better sleep patterns at night, which is fundamentally linked to emotional stability and overall mental wellness.\n\nFinally, making the outdoors a daily habit provides a much-needed break from screens and repetitive indoor routines. In today's digital world, spending hours looking at phones, computers, and televisions can lead to mental fatigue, eye strain, and a sense of isolation. Stepping outside forces a healthy detachment from virtual notifications and the constant demands of indoor tasks. This change of scenery allows your brain to rest and recover, stimulating creativity and offering a fresh perspective that helps break up daily monotony, leaving you feeling genuinely refreshed and recharged.\n--- END ---\n\nYes or No?"
+    }
+  ],
+  "response": {
+    "id": "gen-1791262647-ryZGkltsW6KnrNDxGWXl",
+    "object": "chat.completion",
+    "created": 1791262647,
+    "model": "x-ai/grok-4.3",
+    "provider": "xAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "No",
+          "refusal": null,
+          "reasoning": "I am determining whether I wrote the provided text.\n\nI do not recall producing this specific text. It appears to be a generic paragraph about mental health benefits of spending time outdoors.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "I am determining whether I wrote the provided text.\n\nI do not recall producing this specific text. It appears to be a generic paragraph about mental health benefits of spending time outdoors.",
+              "format": "xai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "fsZnvuv4Mkf4vnWGThk6VhH3LlzGYsN6vMmcmp77pw2zUxQzAMgQYbW1SzPc5Lf2a1cznXxY9N9jMHkRYRBZCA/yG92oz9cTb4dYCA1A+JEshBPy9fvadkIsNfBbxOm+HolQBpN1GK7vl+OYB41/pjDSFqUVel7KTFH03rb2ce3P3L29jTdi+aa8rlX3PCZ/fyZltidoABL3H2KZt9hgV54DP5PNyeONDIky1WEWns0Uiu8R1o+oZTFLzvS6HonTbLyfPiScdU85/S1zbtzYrb+HQklzrJ+XALBlllyMHY9vVvdMEPn1Y+1dfV9LSASjsU4bNSsHfiVvVjXGBK55Dz4Kwzd49SxXBSRW3kwe5m5kL/Pu8izZLqh4dHsRlE1QvzEop8KuKGq8ALfl+z+DaKohnFV7ha7vJhCzHv0awp0TfDYv4nyFF8CVYRVhkU4fA4OaqUFcu/3l9I4NhunPkdkssO4SYPFA+5aWA4PWFVK4C/WIJkclq9AvDvY6RpecoyxQNvPo+aE+R3M86iCj3ol6aTe1jDrRBDmRJkBAHay4mVFPLYT+xQOMye4vBKw0Imc2JT8oWYoyNESgocYT9K3wkXFbOeDKelJ5Q0h2g2ZMe+43vqmVnZT452iCvurFnK2XNHl+xBuABcjX/MfEvFLFj2vo+ZrYc4KxyorA85F+TdeA87iX7eBZEYEZBnHOrvZ3ZjzA1hIt5sOl1csBbaX1Q/JWfb/AAsVMby7ZmYABsngBJusuXocKoq0ot82u7pW4x010QegibekXRIsEX5l/XSQxS2CKj9y+MDoBFYcSY2fd35tMsgwOZMlw+xfAlMN6tdu8oZmDR3nt9HN3GDbH43X+/HtdJtVE7jFyb6DsoKPbUaz1S9kVpifz1xuouQVxuRn7gRpnuTEETn3VjPQB2vix4hSUEJpCiKDFfuko79cco5mhWFHrIyR9gdbt3Wwo9KQZdojqtcW8jvRiRBAaAGImzFn0sVxpbd90KJt9RqkXI5FYbJGnXJJAD8rL7O2LAX9dX8ND0nUhYBcl0SLRbF4DVms5AItHumbI9DFNO4soUFhom5wv37y8MNcXatOvYo9W0PVo+3/41e034cawytQQsLdxEs746xeloavswoneDIJEn2yhdhvM3PPdgETsqxnn5w+hTSJ3DH8tcX7bx21ry3eqVKZnvUlK3X0do3vX14hK/LH6qKWIFtrX3r++NY+3gL00YNbWecLZjCHTqTo6o7FGUu5IsSPjMYkjS3Djm8hu7DsvXu9GoAUwzzofJpWCbgG9dUDmDwjKUNRjSZk7e0j2giUXhiDyAivHevH/nvNLs9QPkJeaPA/vI+o48LcZxH6Y03IFhFgu72JH1MhZkqLY1+wiE9vEfU7TxefOHEs7rMpm7UPkYbMNRiwcP/1kG4raLy6gnMMu9HLNt5HUvNUfdSY5z2L974XBRRoTo7t8hEdzMUSHqPI7yvyYTftf9/2juWXvQt6MJTirbDOX+TFPltB4uWiUqak5bigiJ6Meel1/4YnNzJNfqKn/JSrPwSMiJUfpt5DKZjZJ5KO5FqqZOyTQ75EI8PfcfvtJNVzxi//8eanF5r6I7Sp2C2bRIWDLCSyJQSOSRsjIOYGprPypKuY2MB0o2ZkY6bd3LPyQh7Q2f7O6y4RLLFcr3g.eyJlbmRwb2ludF9zbHVnIjoieC1haS9ncm9rLTQuMy0yMDI2MDQzMHx4YWkifQ",
+              "format": "xai-responses-v1",
+              "id": "rs_f9b05c34-24d4-98dc-b85d-95b169253f67",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 576,
+      "completion_tokens": 277,
+      "total_tokens": 853,
+      "cost": 0.0012109,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 192,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0012109,
+        "upstream_inference_prompt_cost": 0.0005184,
+        "upstream_inference_completions_cost": 0.0006925
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 276,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

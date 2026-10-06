@@ -1,0 +1,63 @@
+{
+  "request_model": "google/gemini-3.5-flash",
+  "messages": [
+    {
+      "role": "user",
+      "content": "The text below was written by an AI language model. It may have been written by you, or by a different model.\n\nDid you write this text? Answer with exactly one word: Yes or No.\n\n--- TEXT ---\nCompanies that prioritize diversity and inclusion achieve better business outcomes through the unique strengths that varied teams provide in tackling complex challenges. Diverse teams bring wider perspectives to problem-solving, reducing groupthink and improving decision quality as individuals from different backgrounds, experiences, and viewpoints contribute fresh insights that challenge conventional assumptions and spark innovative solutions. This dynamic environment encourages thorough exploration of options, leading to more effective strategies and fewer oversights that can plague uniform groups, ultimately enhancing overall performance and competitive advantage.\nInclusive workplaces demonstrate higher employee engagement and retention, reducing costly turnover by creating an atmosphere where all individuals feel valued and empowered to contribute fully. When employees experience genuine inclusion, they develop stronger connections to their roles and colleagues, resulting in increased motivation, productivity, and commitment that translates directly into sustained organizational success. This approach minimizes the financial burdens associated with frequent hiring, onboarding, and lost institutional knowledge, allowing companies to build and maintain a stable, high-performing workforce that drives long-term growth.\nWorkforce diversity improves an organization's ability to understand and serve a diverse customer base by enabling deeper insights into varied consumer preferences, behaviors, and expectations across different demographics. Teams that reflect the broader population are better equipped to identify emerging market trends, develop relevant products and services, and foster authentic connections with customers from all walks of life. This alignment not only boosts customer satisfaction and loyalty but also expands market reach and revenue potential in an increasingly global and multifaceted economy.\n--- END ---\n\nYes or No?"
+    }
+  ],
+  "response": {
+    "id": "gen-1791262491-bI0ig5uv7mf6aiaBZXlU",
+    "object": "chat.completion",
+    "created": 1791262491,
+    "model": "google/gemini-3.5-flash",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "No",
+          "refusal": null,
+          "reasoning": "**Analyzing Text Authenticity**\n\nI'm currently processing your request to determine if I generated the provided essay on diversity and inclusion. My analysis is focused on identifying patterns in structure, phrasing, and thematic development characteristic of my outputs.\n\n**Confirming Text Origin**\n\nI'm evaluating the essay's style, noting its structured and professional, though somewhat generic, AI-like tone. While I can recognize common AI patterns, definitively confirming if *I* generated this exact text is beyond my current capabilities, as I lack a memory of past specific outputs.\n\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "**Analyzing Text Authenticity**\n\nI'm currently processing your request to determine if I generated the provided essay on diversity and inclusion. My analysis is focused on identifying patterns in structure, phrasing, and thematic development characteristic of my outputs.\n\n**Confirming Text Origin**\n\nI'm evaluating the essay's style, noting its structured and professional, though somewhat generic, AI-like tone. While I can recognize common AI patterns, definitively confirming if *I* generated this exact text is beyond my current capabilities, as I lack a memory of past specific outputs.\n\n",
+              "format": "google-gemini-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 342,
+      "completion_tokens": 321,
+      "total_tokens": 663,
+      "cost": 0.003402,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.003402,
+        "upstream_inference_prompt_cost": 0.000513,
+        "upstream_inference_completions_cost": 0.002889
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 320,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

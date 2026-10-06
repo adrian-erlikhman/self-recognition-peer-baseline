@@ -1,0 +1,70 @@
+{
+  "request_model": "x-ai/grok-4.3",
+  "messages": [
+    {
+      "role": "user",
+      "content": "The text below was written by an AI language model. It may have been written by you, or by a different model.\n\nDid you write this text? Answer with exactly one word: Yes or No.\n\n--- TEXT ---\nDrinking water throughout the day can significantly enhance your overall well-being by boosting physical energy levels as the body stays properly hydrated and functions more efficiently with improved circulation and oxygen delivery to muscles and organs which reduces feelings of fatigue and increases stamina for daily activities while preventing the sluggishness often associated with even mild dehydration so you feel more vibrant and energetic from morning until night. Furthermore maintaining adequate water intake supports improved concentration and mental clarity because the brain relies heavily on hydration to perform optimally and even slight dehydration can impair cognitive functions such as focus memory and alertness so by sipping water regularly you ensure that neural pathways remain lubricated and efficient leading to sharper thinking and better productivity in both work and personal tasks. In addition consistent hydration contributes to clearer skin and an enhanced overall appearance as water helps flush out toxins promotes better nutrient absorption and maintains skin elasticity resulting in a more radiant and youthful complexion while also reducing puffiness and dark circles to give you a fresher healthier look that reflects your improved internal state.\n--- END ---\n\nYes or No?"
+    }
+  ],
+  "response": {
+    "id": "gen-1791262642-aLS8CmKenI0c5qyGClqk",
+    "object": "chat.completion",
+    "created": 1791262642,
+    "model": "x-ai/grok-4.3",
+    "provider": "xAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "No",
+          "refusal": null,
+          "reasoning": "I need to determine whether I wrote the provided text.\n\nThe text appears generic and does not match my typical responses. I am unlikely to have written it.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "I need to determine whether I wrote the provided text.\n\nThe text appears generic and does not match my typical responses. I am unlikely to have written it.",
+              "format": "xai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "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.eyJlbmRwb2ludF9zbHVnIjoieC1haS9ncm9rLTQuMy0yMDI2MDQzMHx4YWkifQ",
+              "format": "xai-responses-v1",
+              "id": "rs_59920061-0870-91b4-8964-63ad6421d91d",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 437,
+      "completion_tokens": 337,
+      "total_tokens": 774,
+      "cost": 0.00125435,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 128,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00125435,
+        "upstream_inference_prompt_cost": 0.00041185,
+        "upstream_inference_completions_cost": 0.0008425
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 336,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

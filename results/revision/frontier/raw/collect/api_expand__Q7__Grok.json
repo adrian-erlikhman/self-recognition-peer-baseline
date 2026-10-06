@@ -1,0 +1,64 @@
+{
+  "request_model": "x-ai/grok-4.3",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Someone deposits $5,000 in an account that pays 4 percent interest per year, compounded annually, and makes no withdrawals. How many dollars are in the account after 3 years, rounded to the nearest cent? Solve the problem, showing your reasoning step by step in plain prose, and end with a final line of the form 'Answer: <number>'."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916329-3I1Psvgcrqpld9gh1P6U",
+    "object": "chat.completion",
+    "created": 1790916329,
+    "model": "x-ai/grok-4.3",
+    "provider": "xAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "The compound interest formula states that the amount A in an account after t years is given by A = P(1 + r)^t, where P is the initial principal and r is the annual interest rate expressed as a decimal. Substituting the given values produces A = 5000 \u00d7 (1.04)^3.  \n\nFirst compute the power: 1.04 squared equals 1.0816, and multiplying that result by 1.04 yields 1.124864. Multiplying the principal by this factor then gives exactly 5000 \u00d7 1.124864 = 5624.32. Because the result is already expressed to the nearest cent, no further rounding is required.  \n\nAnswer: 5624.32",
+          "refusal": null,
+          "reasoning": null,
+          "reasoning_details": [
+            {
+              "type": "reasoning.encrypted",
+              "data": "3Ydki3vLCRKhwhOhucKpKklDaONsRhXPZQlD8m7Q7da17cULKCQsoB/GPAZK8bbML3IEObjcbZ/R4U0oe7+yeGamHx13XAlgPDQUuZ/xLtnsYEfuSQ5qYVgTPuRKvyDR4UVDoDlER1pzJQhTnuBgxSfBmh7G61d22S+D3tK6G/S8MmkBMuTKJqTDyyq7fFK3HmmwHZDqsSNmt6zjH6YozTIel9yQYLYuq7k4kSTgIsirGiD1DOpSvL+ns4X7+mudvLSOQ+UA3mRADy1FS3Yw8DaiWtnOkC1UVNPxTzFeTFJJKhvJUOq5JS8GBmDdmydZ+HzKMER2QkpxZxZxkxj/umFjxU0f7+AixxwB1C2Jc1IwP3KhroU8PLkRQFhVhC8laLDm+u5CFkj8ah8t3Y+mUUabcJhZqa1WmWELx9BkXhJYvPeG1TDyfv4duyhNn0I1B9fBCnR11R4z+FnoKAKgZlgvJe0o+tU7bkVSBVVbuDZtkFCVky/z2n0PwNju+CB9Im2VNSUsbeSzoCWMjGJ+LpVMl6TPcbCQ+qqgQQWAWvMtpsWiuV43uAk0VtiSTN/JmPJ2N16Ku3hQs1UaCznsreCVRWbwkSaSTw9qlizk4+7vYL91e9TdTp78nGEZRVr4IYoH24oXS4tB0jYrODeH8grkMXxwRcOEsNqAsf0S6NHV4QDrpEuqVpEv6i+mEhFNjcL1Uh3zxwfqrQMKZwT1KVg1UgnYXUqoqHoJusLinsUG7Qi/IYWW1sIjRC/tsOeL/L1dbobDYAU5q+7LBgcLyW3jzxAPYuwx3vkEaOzkn2CVRit09hQon1GJ5gsE+q38J1D0LdM+gKeBadbQEor94rO5slah8FtlDVhz3eP6BbPjrBNUTffvOlOf5UkAOQ49zCe3tKwmSOXo1zp8MSe9ubsXD5NoMDXHuuE4TITXncE3zxuGo8qWVfZMy0YnOiJuMxpibJlaDOjpW+UkMs3WKY2HlTWn5ExU4koemtGIsMg1DS1MSE/XPjWUrBAehvU8i6S+FfrJWUxBFwdi4p4uhEGfMAXmCDYzXKw/dNG676eZvzavUYUx347Jvp0UZdNMswiw0juQvAh5NMden+hUsRsJkq3kPPVaVib6hez905c65/Z9BTvK2oCL0zqFqmqpKWY+sKHKno2R9JlAUePh8PBdB1Ckvzner1jUcRZkvF0PbLXln9gMvC/AW5ZCXBGfDqh1u7M+M1j55x4Xu43R2GSL8xAarFak6arxtPVObiGDal+2NKoW/traMKJLk1NnL7+zVP90J7tSFm/fwMR6/twFXX30MjgDavPpEj+rCX8Jt5mzwT5mYab1DUZxwJaenP+nbclQ6y5NauYGG0GtDyxLbOQZxr1OM4LLFeUo59U5wlLr/uPPCfgNSdJ3X55o32lu20leqnzJ/+SnhVR7zVWyZ2wpj9nBAhozPy4fVcdspUZxrHSUiUhfC/4.eyJlbmRwb2ludF9zbHVnIjoieC1haS9ncm9rLTQuMy0yMDI2MDQzMHx4YWkifQ",
+              "format": "xai-responses-v1",
+              "id": "rs_e78dfda5-2629-9e61-971c-08e39a76de7b",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 265,
+      "completion_tokens": 499,
+      "total_tokens": 764,
+      "cost": 0.00144435,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 128,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00144435,
+        "upstream_inference_prompt_cost": 0.00019685,
+        "upstream_inference_completions_cost": 0.0012475
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 350,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

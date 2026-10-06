@@ -1,0 +1,64 @@
+{
+  "request_model": "x-ai/grok-4.3",
+  "response": {
+    "id": "gen-1786862413-eUr53pIM7fvOmwzxzamG",
+    "object": "chat.completion",
+    "created": 1786862413,
+    "model": "x-ai/grok-4.3",
+    "provider": "xAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "{\"model\": \"Claude\", \"confidence\": 3, \"reason\": \"Eloquent, structured paragraphs with socially conscious framing match Claude's typical style.\"}",
+          "refusal": null,
+          "reasoning": "The task is to identify which AI model most likely produced the given text: GPT, Claude, Gemini, Grok, or DeepSeek. I must reply with JSON only in a specific form.\nFirst, the text is formal, well-structured with paragraphs, uses positive language about libraries and community, emphasizes equity and empowerment.\n\nAnalyzing styles:\n\n- GPT: Often very balanced, can be generic.\n\n- Claude: Known for thoughtful, nuanced, helpful, structured responses with depth.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "The task is to identify which AI model most likely produced the given text: GPT, Claude, Gemini, Grok, or DeepSeek. I must reply with JSON only in a specific form.\nFirst, the text is formal, well-structured with paragraphs, uses positive language about libraries and community, emphasizes equity and empowerment.\n\nAnalyzing styles:\n\n- GPT: Often very balanced, can be generic.\n\n- Claude: Known for thoughtful, nuanced, helpful, structured responses with depth.",
+              "format": "xai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "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.eyJlbmRwb2ludF9zbHVnIjoieC1haS9ncm9rLTQuMy0yMDI2MDQzMHx4YWkifQ",
+              "format": "xai-responses-v1",
+              "id": "rs_5faa8252-b423-9825-9dae-1b0bf1bb46e7",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 720,
+      "completion_tokens": 561,
+      "total_tokens": 1281,
+      "cost": 0.0021681,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 128,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0021681,
+        "upstream_inference_prompt_cost": 0.0007656,
+        "upstream_inference_completions_cost": 0.0014025
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 528,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

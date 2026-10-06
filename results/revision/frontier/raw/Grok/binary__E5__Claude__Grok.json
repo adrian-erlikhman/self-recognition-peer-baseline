@@ -1,0 +1,70 @@
+{
+  "request_model": "x-ai/grok-4.3",
+  "messages": [
+    {
+      "role": "user",
+      "content": "The text below was written by an AI language model. It may have been written by you, or by a different model.\n\nDid you write this text? Answer with exactly one word: Yes or No.\n\n--- TEXT ---\nA regular daily routine is one of the simplest and most underrated tools for reducing stress, and its benefits become obvious once you consider how much of our anxiety comes from the sheer volume of small choices we make each day. When you have to decide every morning what time to get up, what to eat, when to start work, and how to structure your evening, each of those decisions draws from a finite pool of mental energy. Psychologists sometimes call this decision fatigue, and it's the reason that even trivial choices can feel exhausting by the end of a long day. A routine quietly eliminates most of that burden. If breakfast is the same three options, if you always go for a walk at the same hour, if your workday begins with the same first task, then your brain is freed from constantly weighing possibilities and can direct its energy toward the things that actually matter. The result is a calmer, clearer mind that isn't worn down by hundreds of tiny negotiations before noon.\n\nThe second reason routines reduce stress is that they profoundly improve the quality of your sleep, and sleep is arguably the single biggest lever you have over your mood and resilience. The human body runs on a circadian rhythm, an internal clock that regulates hormones, alertness, digestion, and temperature over roughly a twenty-four hour cycle. That clock thrives on consistency and gets confused by irregularity. When you go to bed and wake up at wildly different times, or eat late one night and early the next, your body never quite knows what to expect, and the hormonal signals that should be preparing you for rest or for wakefulness arrive at the wrong times. Anchoring your day with a consistent wake time, consistent meals, and a predictable wind-down in the evening trains your body to release melatonin when it should and cortisol when it should, which leads to deeper, more restorative sleep. Better sleep, in turn, lowers baseline stress hormones and makes everything else in life easier to handle.\n\nFinally, a routine makes it dramatically easier to protect time for exercise and self-care, which are precisely the things that tend to get sacrificed when life feels chaotic. When your schedule is improvised each day, exercise becomes something you'll do when you find a spare hour, and that hour almost never appears because urgent tasks expand to fill whatever space is available. The same fate befalls reading, cooking a real meal, calling a friend, or simply sitting quietly for a few minutes. But if your run happens at seven in the morning every weekday, or if Sunday afternoon is always reserved for a long walk and meal prep, those activities stop being something you have to fight for and become simply what you do at that hour. The decision has already been made, the resistance is lower, and the consistency itself compounds into real benefits over time. In this way a routine doesn't restrict your life so much as it protects the parts of it that keep you sane.\n--- END ---\n\nYes or No?"
+    }
+  ],
+  "response": {
+    "id": "gen-1791262654-2ovR6ve6viudpYa4cyWY",
+    "object": "chat.completion",
+    "created": 1791262654,
+    "model": "x-ai/grok-4.3",
+    "provider": "xAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "No",
+          "refusal": null,
+          "reasoning": "The user asked whether I wrote the provided text.\n\nI don't recall generating this text. I will answer No.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "The user asked whether I wrote the provided text.\n\nI don't recall generating this text. I will answer No.",
+              "format": "xai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "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.eyJlbmRwb2ludF9zbHVnIjoieC1haS9ncm9rLTQuMy0yMDI2MDQzMHx4YWkifQ",
+              "format": "xai-responses-v1",
+              "id": "rs_b082583d-6ff4-946a-933d-89e1dc286406",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 815,
+      "completion_tokens": 339,
+      "total_tokens": 1154,
+      "cost": 0.00173185,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 128,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00173185,
+        "upstream_inference_prompt_cost": 0.00088435,
+        "upstream_inference_completions_cost": 0.0008475
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 338,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

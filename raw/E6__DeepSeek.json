@@ -1,0 +1,49 @@
+{
+  "request_model": "deepseek/deepseek-chat",
+  "response": {
+    "id": "gen-1786845850-XlKmepuO8wVCDEj8QNk7",
+    "object": "chat.completion",
+    "created": 1786845850,
+    "model": "deepseek/deepseek-chat",
+    "provider": "Novita",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "```json\n{\n  \"A\": {\n    \"model\": \"Claude\",\n    \"confidence\": 4,\n    \"reason\": \"The response is detailed, empathetic, and uses a conversational yet structured approach, typical of Claude.\"\n  },\n  \"B\": {\n    \"model\": \"Grok\",\n    \"confidence\": 3,\n    \"reason\": \"The response is more casual and direct, with a friendly tone, which aligns with Grok's style.\"\n  },\n  \"C\": {\n    \"model\": \"GPT\",\n    \"confidence\": 5,\n    \"reason\": \"The response is highly structured, detailed, and persuasive, with a polished and professional tone, characteristic of GPT.\"\n  },\n  \"D\": {\n    \"model\": \"Gemini\",\n    \"confidence\": 3,\n    \"reason\": \"The response is clear and informative but slightly more formal and less conversational, fitting Gemini's style.\"\n  },\n  \"E\": {\n    \"model\": \"DeepSeek\",\n    \"confidence\": 4,\n    \"reason\": \"The response is practical, straightforward, and slightly technical, which matches DeepSeek's approach.\"\n  }\n}\n```",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 2534,
+      "completion_tokens": 242,
+      "total_tokens": 2776,
+      "cost": 0.0013282,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0013282,
+        "upstream_inference_prompt_cost": 0.0010136,
+        "upstream_inference_completions_cost": 0.0003146
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

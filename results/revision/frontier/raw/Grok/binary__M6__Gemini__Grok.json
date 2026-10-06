@@ -1,0 +1,70 @@
+{
+  "request_model": "x-ai/grok-4.3",
+  "messages": [
+    {
+      "role": "user",
+      "content": "The text below was written by an AI language model. It may have been written by you, or by a different model.\n\nDid you write this text? Answer with exactly one word: Yes or No.\n\n--- TEXT ---\nPersonal financial literacy represents one of the most critical missing pieces in modern secondary education, as its absence directly correlates with alarming rates of consumer debt and financial vulnerability among young adults. When young people enter adulthood without a foundational understanding of interest rates, credit scores, budgeting, and debt accumulation, they are vastly more likely to fall into predatory lending traps, carry high-interest credit card balances, and face long-term financial insecurity. This systemic lack of preparation creates a generation ill-equipped to navigate the complex financial systems that dictate their daily lives, turning preventable mistakes into lifelong economic burdens.\n\nBeyond preventing financial missteps, financial literacy serves as a truly universal life skill that benefits every student regardless of their socio-economic background, future career path, or higher education plans. Whether a graduate pursues a trade, attends a university, starts a small business, or enters the workforce directly, managing income, filing taxes, saving for retirement, and building wealth are inescapable realities for everyone. Equipping students with these skills ensures that regardless of what job they hold or what income level they achieve, they possess the practical tools required to make informed decisions and achieve personal autonomy.\n\nFinally, secondary schools are uniquely positioned as the only institution in society with guaranteed, reliable access to virtually all young people before they are forced to make high-stakes financial decisions. While families and online resources can theoretically offer guidance, access to accurate and unbiased financial advice outside the school system is profoundly unequal. Schools provide an equitable, standardized environment to instill these habits universally, reaching students precisely at the moment before they sign student loan agreements, apply for their first credit cards, or enter binding lease contracts. Ensuring financial literacy is a core requirement within secondary education is therefore the single most effective strategy to empower all future generations with the knowledge needed to thrive.\n--- END ---\n\nYes or No?"
+    }
+  ],
+  "response": {
+    "id": "gen-1791262787-304kuNloQtwCC43RL3mH",
+    "object": "chat.completion",
+    "created": 1791262787,
+    "model": "x-ai/grok-4.3",
+    "provider": "xAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "No",
+          "refusal": null,
+          "reasoning": "I am determining whether I wrote the provided text.\n\nI do not recall writing this text. I am Grok, and my responses are generated in real time.\n\nNo.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "I am determining whether I wrote the provided text.\n\nI do not recall writing this text. I am Grok, and my responses are generated in real time.\n\nNo.",
+              "format": "xai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "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.eyJlbmRwb2ludF9zbHVnIjoieC1haS9ncm9rLTQuMy0yMDI2MDQzMHx4YWkifQ",
+              "format": "xai-responses-v1",
+              "id": "rs_1e773f9a-d4b2-9c80-a9e0-db9fb6f75033",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 595,
+      "completion_tokens": 337,
+      "total_tokens": 932,
+      "cost": 0.00145185,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 128,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00145185,
+        "upstream_inference_prompt_cost": 0.00060935,
+        "upstream_inference_completions_cost": 0.0008425
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 336,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "request_model": "x-ai/grok-4.3",
+  "messages": [
+    {
+      "role": "user",
+      "content": "A rectangle has a perimeter of 46 centimeters, and its length is 5 centimeters more than its width. What is its area in square centimeters? Solve the problem, showing your reasoning step by step in plain prose, and end with a final line of the form 'Answer: <number>'."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916329-qCbT0fuSrrWHplRrSed5",
+    "object": "chat.completion",
+    "created": 1790916329,
+    "model": "x-ai/grok-4.3",
+    "provider": "xAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "The perimeter of the rectangle is 46 centimeters, which means twice the length plus twice the width equals 46. Dividing both sides by 2 gives length plus width equals 23 centimeters. Since the length is 5 centimeters more than the width, we can express the length as width plus 5. Adding the width to both sides of that relation and setting it equal to 23 gives two times the width plus 5 equals 23. Subtracting 5 from both sides yields two times the width equals 18, so the width is 9 centimeters. Adding 5 gives the length as 14 centimeters. Multiplying length by width produces an area of 126 square centimeters.  \nAnswer: 126",
+          "refusal": null,
+          "reasoning": "The rectangle has a perimeter of 46 cm. Its length is 5 cm more than its width.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "The rectangle has a perimeter of 46 cm. Its length is 5 cm more than its width.",
+              "format": "xai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "crXE8pVM89P0yXy3hXDSiq9vmAED8mavD9p0dGeZuxnfPlysh3kBBZUyl4yG130QEtActlYid+KWz/HQI1GsVpKvQQh6fm7WxTW/OgUPmdgJARMhpI9gAE6HNs/TNzPZs6D78eVQhEDKYakN8CaI15ns3pNZaLTMGecOuTf7AymtlQyguhk9b0bZM+bWGTHnfvLOe0/5UtdMYf1deFyX5OkZt7XDYS0LHc55FgK6F+IKqLrz74n8XpgXZfuC54YM7r7ey6ARnv1rdXsNpZk4pKOcGjJyuz6P22JDXs3WRJ5K44dOKtPvoEyRyDNQwsl7I6wW7g7+Q60MUthlBxYk1BbwoL9Q0P2dpegUi1CdY6IBHmov1x9wr84eZCx/A6iRtaCLG8bCSgza/z0d+gCEhX2bcgVQZFeY7RvLrk+xIN+4Ins7S+/VHefLIzowirtDxMqgiiX459Mh6jk5FkdCC6RFHHUvguRFhm5Zy+1/T6ZDHaO/Wi+NGff7FOWkKQIENnRLsSFmVacEAIRxguXVaO7xYqMXeUAvUQC36ambuapY3xUwhiKIlEq+G0xQ6Nx3t+mRPi3Z5BJhHIDCf4S5Jalz9ifR4gyiM61KPNidXzgbeEC1BqSnznxRKRinqlB8I4oeZFJYyh5kLyvDQ0I8HohsB6NORous/AmDdbCWW9ABRJX0KLSn9owSl7l6i+gYRlWw7LctHQ+acwDQD64BUIRBc6eiq0ADagOVP7ymM6yjw6Dd138F8BY1NjQTDFKfSMhM3YRHajFbv+8w5/3T8kd0nabfAgqeVx4UeJA/WbdYyzjYdJywcNaTeOSF2mVIjwmcH9i7yYMBhve6Fe/G9eI5nHRxnKgR9dlodbgJlCfdmvXBH0RFXLIHxe333GfVnM4bkJwO7IOovq8iNRsg4U1pJsJ4ZaYtZf0Fz+IbOwbSCWcr/BE/GlQg2NWUCiYn/vfYr1mShYKiYtX2WNOy2duv3w1LzAQKuS1rIfGiMGc+DQaDByL+1JdAXSgS5n5xsP44/EkcGo/6jLXgXjsk+uuevJqFsVx0UwxA1aj49vGI2YComaJ6+CDHqLzbvdKdj5jc6qanGVPhE+fUPT9mOa17N3/RcN9xStxqkcGIq5GkvyTUfdgHSr4xhTMuJ8ygnXat8u+3POEEmE9Bd04+n/7UXTVkGBXvcj6oVwTHevcX1z7yFU1OX2x2tDIp4J2Q7y6QRrYiwQ9qwFP6X/+PF86ANy99Ie0bZKKvNG3VBw45rEQPTpfnzT3rNzPVv+AIndLRWQGHfggPaPQZXRnXbf0DDzi+Pxw2FyxQpGz3ag/pY6P3WFaKhsEbaWZK6wBQVQmk9Fmo0XasFoY4cTQH1C2Jcxh+ebBBWU1SpZygJ95pgG7bA9avIXZHd5gohY7cPAQIErY7I6CZZXEf7kGRa/o3RKH4nJzmhXYNScpG//I14Inl1L7UZEKuBG7Llf5I4PwChfPCnxhG3P5pD3nAR4PENPDELM4DUTQBMYBdBY+v2mnplBTMDB4DFdfpxClxfZDmeNDgbM9kZDuszPEjZERtAyGfndhs7uGa9zeWO5MZljAI2QvFaNfTv1hdpM9jko5cRAEz/0hdOaBq9vsASJzL198MunDVIFoMLyLIBLQv9rVnBecOVhm3p83SwTKlDJ7vc3JQ23mhHh9NATpvYwX22gyrx1/HzmphmUk+6CPUM1pGCJZGWsZ25E9MCkqZPn8ySX+z6hgColGB1Kqm8fiLs6kMoT5fIcnob8K0g3bqYccT/NYv2d2To/LQh2hJtyNfwRlZv1pVsF+FM2Ltxvp2POiut54iUJcBLXWWuO1ecPRSoRJVkLgogC4.eyJlbmRwb2ludF9zbHVnIjoieC1haS9ncm9rLTQuMy0yMDI2MDQzMHx4YWkifQ",
+              "format": "xai-responses-v1",
+              "id": "rs_06df6333-8e55-979d-8ed3-59509f1d4533",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 251,
+      "completion_tokens": 507,
+      "total_tokens": 758,
+      "cost": 0.00144685,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 128,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00144685,
+        "upstream_inference_prompt_cost": 0.00017935,
+        "upstream_inference_completions_cost": 0.0012675
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 363,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

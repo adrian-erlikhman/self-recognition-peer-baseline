@@ -1,0 +1,70 @@
+{
+  "request_model": "openai/gpt-5.5",
+  "messages": [
+    {
+      "role": "user",
+      "content": "A culture starts with 150 bacteria, and the population doubles every 20 minutes. How many bacteria are there after 2 hours? Solve the problem, showing your reasoning step by step in plain prose, and end with a final line of the form 'Answer: <number>'."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916322-3zf2zaXTbgKN5H0VAnml",
+    "object": "chat.completion",
+    "created": 1790916322,
+    "model": "openai/gpt-5.5",
+    "provider": "OpenAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "The culture starts with 150 bacteria.\n\nThe population doubles every 20 minutes.\n\nTwo hours is 120 minutes.\n\nTo find how many doubling periods occur in 120 minutes, divide:\n\n120 \u00f7 20 = 6\n\nSo the population doubles 6 times.\n\nStarting with 150 bacteria, after 6 doublings:\n\n150 \u00d7 2\u2076 = 150 \u00d7 64 = 9,600\n\nAnswer: 9600",
+          "refusal": null,
+          "reasoning": "**Calculating step-by-step**\n\nI need to break this down: 2 hours equals 120 minutes. If we're doubling something every 20 minutes, that gives us 6 doublings over the duration. So, with the calculation of 150 multiplied by 2 to the power of 6, I arrive at 9600. That gives me my final answer. It's all about laying it out clearly so that I can double-check my math along the way!",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "**Calculating step-by-step**\n\nI need to break this down: 2 hours equals 120 minutes. If we're doubling something every 20 minutes, that gives us 6 doublings over the duration. So, with the calculation of 150 multiplied by 2 to the power of 6, I arrive at 9600. That gives me my final answer. It's all about laying it out clearly so that I can double-check my math along the way!",
+              "format": "openai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABqvzbk0N1nIbM3G1QGnRDhGOsdEl9xSO93SuYDlbEg5LdkUwK5qMdGipFD-6BxlbjAnqa2CwixPyq1qGgPGEpH9IW6DtWB3jDgFt48k5yJwe4kB8iDykAoAo4tQJfenADjdSHUJvhnHyEGsg2oUdH_TTcRyr9NsM83cFlQlI5rR0-9xD9UGeWyCjnN2gtHIdaxfZnwOvy1nrpSrrBs9930zr-Cx9KpeC-bX5zww_eJbDKoNFcEkksBXeOZG54rbPMW8zJSD7_mjHerdQkWtBLm2SxyWYFBG5KERMIVA-aOGbQM4cGYBU6Oh3we7LJ8VQGSx3dQRrlxqG9-7SJ-_ZnW3d1htNwqJXNw_phWWBgd_ThIvmjZ3vbT82YbMZkJOpCNbEnsp5dCBHA-6LdthFuIueNJGvG9hzkOgUKoDioEy9lECkC_qMdZQqrDqeDg0_VtKdGGCiyDCJ2n57p9BJX7x4bN4alxSKmQzAUA4D8xmL3bqwjkiDzRSmnlCMg9uur9wXhb13t3IU3cXNgS8J-M7WUfBb8-tlg8ul9hG1pnhBtylSh_1gUcNAjXrf7Qe71-knlO64ngvtnSnNPHnvq-9pcFzrb6L0WXuvurEezzGV08yxMiSHgT3Mn36oTp-LkXWb56NqDY42NnTZ9gPqm5f5Q88EklOs9i0INL8ykcSmHltkV-UowsaegiCom--jlntO4AWveWfJzdZRunqbEpSIFZm6x3k6Nr1LPHcFYwWD0qbjxwuC_IwjrHCZ0k4GXoeF4W1lt1kjA7mQlM4r516CyYh98_tazkb8Yrb5HEYN77LXoiklVGy8p934rr4-uoKLdGsYATaJ461gqbdj3DXNiUsX5CpjP4lyszZH_12igbC0Zh85sCwYIPovbS7eWwEBIl2xWIyyNYHamyDpqEhc7TkHthYEYHFBeb7PKa9F2zX4xb9N3P-QocKix3jCp0xIfi7A8sKgUx1Z_b__gcWnngmKQHYkPga0CE5HtWG-8fDnFC90QYL8dDrgFqQkfnuzRGyKFy2ILUG9Q3jltzYpIIK4_qox5X96ohR1flJel1f8-9qsbwpPftM89RGHrhSjHTdHobQwRt-fMv8lYhsjm9ecgzOYQ1aGYiAOLpQMDThmlIk7Xh7-1iEOKFuFlHCBkLvG1dVqYSOHstJlrGfJQMsdJI9npk93qd1sgdaqCaD6OG7-0a1ETnubePHKc3SGUJ85AmAUfLecGK2LvoyNCI-7OaFP8NZfxdSPqWKxXMC_Djm4gS2Q6lly3a535ETNeaon2s_sRcTzUkjb5Gp1UMvlqs9AdTz06cnt7aza8BAFHVQhM4k6dPYC0iVfazr7J5Vc6gC9rvepZwpduqJrOAB0rORZvelCJXsQ4aaI5iZN0LWUrmq2TqgDf3LqtNPO7Ydf763GR1AEK3l23qZddnR2OhHAbB3fshcg7Dtk7GBh_MAF6N5_d0DYnlzhJYnKoG_fTUDFPa1CH_OdOIDfylWuP52fOWuBKqFl_5ECLw8Vo=.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC01LjUtMjAyNjA0MjN8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_0d4d35b74fa0e234016abf36e2eb1887d1a702b0fdd1be266a",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 62,
+      "completion_tokens": 136,
+      "total_tokens": 198,
+      "cost": 0.00439,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00439,
+        "upstream_inference_prompt_cost": 0.00031,
+        "upstream_inference_completions_cost": 0.00408
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 41,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "request_model": "deepseek/deepseek-chat",
+  "messages": [
+    {
+      "role": "user",
+      "content": "The text below was written by an AI language model. It may have been written by you, or by a different model.\n\nDid you write this text? Answer with exactly one word: Yes or No.\n\n--- TEXT ---\nSpending time outdoors every day can have a powerful positive effect on mental health. One of the biggest benefits is that being outside helps reduce stress and anxiety. Natural environments such as parks, beaches, or even a quiet neighborhood street can feel calming and peaceful. Fresh air and the sights and sounds of nature give the mind a chance to slow down and recover from the pressures of school, work, and daily responsibilities. Even a short walk outside can help people feel less overwhelmed and more relaxed.\n\nAnother reason to spend time outdoors is that sunlight can improve mood. Exposure to natural light encourages the body to produce vitamin D and helps regulate chemicals in the brain that are connected to happiness and emotional well-being. Many people notice that they feel more energetic and positive after spending time in the sun. Regular exposure to daylight can also help reduce feelings of sadness and improve overall emotional balance.\n\nFinally, going outside provides an important break from screens and repetitive indoor routines. Many people spend hours each day looking at phones, computers, and televisions, which can lead to mental fatigue and feelings of isolation. Stepping outdoors creates an opportunity to disconnect from technology, move around, and experience a change of scenery. This break refreshes the mind, improves concentration, and makes it easier to return to daily tasks with a clearer and healthier state of mind.\n--- END ---\n\nYes or No?"
+    }
+  ],
+  "response": {
+    "id": "gen-1791262861-uA0zuwSeVt6y3cAHwr4t",
+    "object": "chat.completion",
+    "created": 1791262861,
+    "model": "deepseek/deepseek-chat",
+    "provider": "StreamLake",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "No",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 320,
+      "completion_tokens": 2,
+      "total_tokens": 322,
+      "cost": 8.44254e-05,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 8.44254e-05,
+        "upstream_inference_prompt_cost": 8.2368e-05,
+        "upstream_inference_completions_cost": 2.0574e-06
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

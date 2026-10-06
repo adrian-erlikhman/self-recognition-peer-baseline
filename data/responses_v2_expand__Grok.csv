@@ -1,0 +1,519 @@
+prompt_id,genre,tier,model,model_version,source,word_count,text
+C1,code,Easy,Grok,x-ai/grok-4.3,api_expand,53,"```python
+def is_palindrome(s: str) -> bool:
+    """"""Return True if s reads the same forwards and backwards after lowercasing and removing non-alphanumeric characters.""""""
+    # Build cleaned string of lowercase letters and digits only
+    cleaned = ''.join(c.lower() for c in s if c.isalnum())
+    # Compare cleaned string to its reverse
+    return cleaned == cleaned[::-1]
+```"
+C2,code,Easy,Grok,x-ai/grok-4.3,api_expand,89,"```python
+def fizzbuzz(n: int) -> list[str]:
+    """"""Return FizzBuzz list for 1 to n (or [] if n < 1).""""""
+    if n < 1:
+        return []  # empty for invalid input
+    result = []
+    for i in range(1, n + 1):
+        if i % 3 == 0 and i % 5 == 0:
+            result.append(""FizzBuzz"")  # multiple of both
+        elif i % 3 == 0:
+            result.append(""Fizz"")  # multiple of 3 only
+        elif i % 5 == 0:
+            result.append(""Buzz"")  # multiple of 5 only
+        else:
+            result.append(str(i))  # plain number
+    return result
+```"
+C3,code,Easy,Grok,x-ai/grok-4.3,api_expand,69,"```python
+def sieve_primes(n: int) -> list[int]:
+    """"""Return all primes <= n using the Sieve of Eratosthenes.""""""
+    if n < 2:
+        return []  # no primes below 2
+    is_prime = [True] * (n + 1)
+    is_prime[0] = is_prime[1] = False
+    for i in range(2, int(n**0.5) + 1):
+        if is_prime[i]:
+            for j in range(i*i, n+1, i):
+                is_prime[j] = False  # mark multiples
+    return [i for i in range(n+1) if is_prime[i]]
+```"
+C4,code,Easy,Grok,x-ai/grok-4.3,api_expand,49,"```python
+def second_largest(nums: list[int]) -> int | None:
+    """"""Return the second largest distinct value in nums, or None if fewer than two.""""""
+    unique = set(nums)  # distinct values, input list unmodified
+    if len(unique) < 2:
+        return None
+    sorted_unique = sorted(unique)  # ascending order
+    return sorted_unique[-2]  # second largest
+```"
+C5,code,Easy,Grok,x-ai/grok-4.3,api_expand,65,"```python
+def run_length_encode(s: str) -> str:
+ """"""Compress a string using run-length encoding of consecutive characters.""""""
+ if not s:
+ return """" # empty string edge case
+ result = []
+ count = 1
+ prev = s[0]
+ for char in s[1:]: # iterate remaining chars
+ if char == prev:
+ count += 1
+ else:
+ result.append(f""{prev}{count}"")
+ prev = char
+ count = 1
+ result.append(f""{prev}{count}"") # append final run
+ return """".join(result)
+```"
+C6,code,Easy,Grok,x-ai/grok-4.3,api_expand,77,"```python
+def valid_brackets(s: str) -> bool:
+    """"""Return True if all brackets in s are correctly matched and nested.""""""
+    stack = []  # use list as stack
+    mapping = {')': '(', ']': '[', '}': '{'}  # closing -> opening
+    for char in s:
+        if char in '([{':  # opening bracket
+            stack.append(char)
+        elif char in ')]}':  # closing bracket
+            if not stack or stack[-1] != mapping[char]:
+                return False
+            stack.pop()
+    return not stack  # True only if stack empty
+```"
+C7,code,Easy,Grok,x-ai/grok-4.3,api_expand,44,"```python
+def flatten(nested: list) -> list:
+    """"""Return a flat list of all non-list elements from nested, left-to-right.""""""
+    result = []
+    for item in nested:
+        if isinstance(item, list):
+            result.extend(flatten(item))  # recurse on nested list
+        else:
+            result.append(item)           # keep non-list as single element
+    return result
+```"
+C8,code,Medium,Grok,x-ai/grok-4.3,api_expand,68,"```python
+def merge_intervals(intervals: list[tuple[int, int]]) -> list[tuple[int, int]]:
+    """"""Merge overlapping or adjacent closed intervals, return sorted list.""""""
+    if not intervals:
+        return []
+    # Work on a sorted copy to preserve input order and avoid mutation
+    sorted_ints = sorted(intervals)
+    merged = [sorted_ints[0]]
+    for curr in sorted_ints[1:]:
+        prev = merged[-1]
+        if curr[0] <= prev[1]:  # overlap or touch at endpoint
+            merged[-1] = (prev[0], max(prev[1], curr[1]))
+        else:
+            merged.append(curr)
+    return merged
+```"
+C9,code,Medium,Grok,x-ai/grok-4.3,api_expand,67,"```python
+def rotate_matrix(matrix: list[list[int]]) -> list[list[int]]:
+    """"""Rotate an n x n matrix 90 degrees clockwise, returning a new matrix.""""""
+    if not matrix:
+        return []
+    n = len(matrix)
+    result = [[0] * n for _ in range(n)]
+    for i in range(n):
+        for j in range(n):
+            # new row is old column, new column is n-1 minus old row
+            result[j][n - 1 - i] = matrix[i][j]
+    return result
+```"
+C10,code,Medium,Grok,x-ai/grok-4.3,api_expand,72,"```python
+import re
+from collections import Counter
+
+def top_k_words(text: str, k: int) -> list[tuple[str, int]]:
+    """"""Return up to k most frequent words as (word, count) pairs.""""""
+    text = text.lower()  # lowercase input
+    words = re.findall(r""[a-z']+"", text)  # extract maximal a-z/' runs
+    counts = Counter(words)  # tally frequencies
+    # sort by descending count, then ascending word
+    sorted_items = sorted(counts.items(), key=lambda x: (-x[1], x[0]))
+    return sorted_items[:k]  # top k or all if fewer
+```"
+C11,code,Medium,Grok,x-ai/grok-4.3,api_expand,77,"```python
+def leftmost_index(arr: list[int], target: int) -> int:
+    """"""Return the leftmost index of target in sorted arr, or -1 if absent.""""""
+    low, high = 0, len(arr) - 1
+    while low <= high:
+        mid = (low + high) // 2
+        if arr[mid] < target:
+            low = mid + 1  # search right half
+        else:
+            high = mid - 1  # search left half (including mid)
+    if low < len(arr) and arr[low] == target:
+        return low
+    return -1
+```"
+C12,code,Medium,Grok,x-ai/grok-4.3,api_expand,73,"```python
+def roman_to_int(s: str) -> int:
+    """"""Convert valid Roman numeral (1-3999) to integer using standard and subtractive notation.""""""
+    values = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
+    res = 0
+    for i in range(len(s)):
+        # subtract if current value smaller than next (subtractive pair)
+        if i + 1 < len(s) and values[s[i]] < values[s[i + 1]]:
+            res -= values[s[i]]
+        else:
+            res += values[s[i]]
+    return res
+```"
+C13,code,Medium,Grok,x-ai/grok-4.3,api_expand,54,"```python
+def max_subarray_sum(nums: list[int]) -> int:
+    """"""Return max sum of any contiguous subarray using Kadane's algorithm.""""""
+    if not nums:
+        raise ValueError(""nums cannot be empty"")
+    max_current = max_global = nums[0]
+    for num in nums[1:]:
+        max_current = max(num, max_current + num)  # extend or start new
+        if max_current > max_global:
+            max_global = max_current
+    return max_global
+```"
+C14,code,Medium,Grok,x-ai/grok-4.3,api_expand,73,"```python
+def moving_average(values: list[float], window: int) -> list[float]:
+    """"""Return moving averages over contiguous windows of given size.""""""
+    if window < 1:
+        raise ValueError(""window must be >= 1"")
+    n = len(values)
+    if window > n:
+        return []
+    result = []
+    current_sum = sum(values[:window])  # O(window) initial sum
+    result.append(current_sum / window)
+    for i in range(window, n):
+        current_sum += values[i] - values[i - window]  # update running sum in O(1)
+        result.append(current_sum / window)
+    return result
+```"
+C15,code,Medium,Grok,x-ai/grok-4.3,api_expand,75,"```python
+import re
+
+def parse_duration(s: str) -> int:
+    """"""Parse duration string (e.g. '1h30m15s') to total seconds.""""""
+    if not s:
+        raise ValueError(""empty string"")
+    # regex enforces optional h/m/s parts in order, with digits
+    pattern = r'^((?P<h>\d+)h)?((?P<m>\d+)m)?((?P<s>\d+)s)?$'
+    match = re.match(pattern, s)
+    if not match:
+        raise ValueError(""invalid format or out of order"")
+    h = int(match.group('h') or 0)
+    m = int(match.group('m') or 0)
+    sec = int(match.group('s') or 0)
+    return h * 3600 + m * 60 + sec
+```"
+C16,code,Hard,Grok,x-ai/grok-4.3,api_expand,96,"```python
+def longest_common_subsequence(a: str, b: str) -> int:
+    """"""Return length of longest common subsequence of a and b.""""""
+    if len(a) > len(b):
+        a, b = b, a  # ensure len(a) <= len(b) for O(min) space
+    m, n = len(a), len(b)
+    prev = [0] * (m + 1)
+    curr = [0] * (m + 1)
+    for j in range(1, n + 1):
+        for i in range(1, m + 1):
+            if a[i-1] == b[j-1]:
+                curr[i] = prev[i-1] + 1
+            else:
+                curr[i] = max(prev[i], curr[i-1])
+        prev, curr = curr, prev  # reuse arrays, O(min(len(a), len(b))) space
+    return prev[m]
+```"
+C17,code,Hard,Grok,x-ai/grok-4.3,api_expand,106,"```python
+def edit_distance(a: str, b: str) -> int:
+    """"""Return the Levenshtein edit distance between strings a and b.""""""
+    m, n = len(a), len(b)
+    # DP table: dp[i][j] = distance for a[:i] and b[:j]
+    dp = [[0] * (n + 1) for _ in range(m + 1)]
+    for i in range(m + 1):
+        dp[i][0] = i  # deletions
+    for j in range(n + 1):
+        dp[0][j] = j  # insertions
+    for i in range(1, m + 1):
+        for j in range(1, n + 1):
+            if a[i-1] == b[j-1]:
+                dp[i][j] = dp[i-1][j-1]
+            else:
+                dp[i][j] = 1 + min(dp[i-1][j],   # delete
+                                   dp[i][j-1],   # insert
+                                   dp[i-1][j-1]) # substitute
+    return dp[m][n]
+```"
+C18,code,Hard,Grok,x-ai/grok-4.3,api_expand,122,"```python
+import heapq
+
+def shortest_paths(graph: dict[str, list[tuple[str, int]]], source: str) -> dict[str, int]:
+    """"""Compute shortest path distances from source using Dijkstra's algorithm.""""""
+    # Collect all nodes including those appearing only as neighbors
+    nodes = set(graph.keys())
+    for neighbors in graph.values():
+        for neigh, _ in neighbors:
+            nodes.add(neigh)
+    # Initialize distances
+    dist = {node: float('inf') for node in nodes}
+    dist[source] = 0
+    # Priority queue for Dijkstra
+    pq = []
+    heapq.heappush(pq, (0, source))
+    while pq:
+        d, u = heapq.heappop(pq)
+        if d > dist[u]:
+            continue
+        if u in graph:
+            for v, w in graph[u]:
+                if dist[v] > dist[u] + w:
+                    dist[v] = dist[u] + w
+                    heapq.heappush(pq, (dist[v], v))
+    # Return only reachable nodes
+    return {k: v for k, v in dist.items() if v < float('inf')}
+```"
+C19,code,Hard,Grok,x-ai/grok-4.3,api_expand,142,"```python
+import heapq
+from collections import defaultdict
+
+def topological_order(graph: dict[str, list[str]]) -> list[str]:
+    """"""Return a unique topological order of the graph, choosing the
+    alphabetically smallest node whenever multiple are ready.
+    Raise ValueError if the graph contains a cycle.
+    """"""
+    # Collect every node that appears as a key or a target
+    nodes = set(graph.keys())
+    for targets in graph.values():
+        nodes.update(targets)
+
+    # Compute indegrees for all nodes
+    indegree = {n: 0 for n in nodes}
+    for u in graph:
+        for v in graph[u]:
+            indegree[v] += 1
+
+    # Min-heap of nodes with indegree zero (guarantees lex order)
+    ready = [n for n in nodes if indegree[n] == 0]
+    heapq.heapify(ready)
+
+    order: list[str] = []
+    while ready:
+        u = heapq.heappop(ready)
+        order.append(u)
+        for v in graph.get(u, []):
+            indegree[v] -= 1
+            if indegree[v] == 0:
+                heapq.heappush(ready, v)
+
+    if len(order) != len(nodes):
+        raise ValueError(""Graph contains a cycle"")
+    return order
+```"
+C20,code,Hard,Grok,x-ai/grok-4.3,api_expand,98,"```python
+def count_n_queens(n: int) -> int:
+    """"""Count solutions to n-queens using backtracking.""""""
+    if n < 0:
+        raise ValueError(""n must be non-negative"")
+    if n == 0:
+        return 1
+    def backtrack(row, cols, diag1, diag2):
+        if row == n:
+            return 1  # found valid placement
+        count = 0
+        for col in range(n):
+            if col not in cols and (row - col) not in diag1 and (row + col) not in diag2:
+                cols.add(col)
+                diag1.add(row - col)
+                diag2.add(row + col)
+                count += backtrack(row + 1, cols, diag1, diag2)
+                cols.remove(col)
+                diag1.remove(row - col)
+                diag2.remove(row + col)
+        return count
+    return backtrack(0, set(), set(), set())
+```"
+Q1,math,Easy,Grok,x-ai/grok-4.3,api_expand,61,"Maria buys 4 notebooks at a price of 3 dollars each, which multiplies out to a total of 12 dollars for the notebooks. She also buys 6 pens at a price of 1.25 dollars each, which multiplies out to a total of 7.5 dollars for the pens. Adding these two subtotals together produces an overall cost of 19.5 dollars.  
+Answer: 19.5"
+Q2,math,Easy,Grok,x-ai/grok-4.3,api_expand,63,"The train first travels at 72 kilometers per hour for 2.5 hours, covering a distance of 72 multiplied by 2.5, which equals 180 kilometers. Then it travels at 90 kilometers per hour for 1.5 hours, covering 90 multiplied by 1.5, equaling 135 kilometers. Adding these two distances gives the total distance traveled, which is 180 plus 135, resulting in 315 kilometers.  
+Answer: 315"
+Q3,math,Easy,Grok,x-ai/grok-4.3,api_expand,113,"The perimeter of the rectangle is 46 centimeters, which means twice the length plus twice the width equals 46. Dividing both sides by 2 gives length plus width equals 23 centimeters. Since the length is 5 centimeters more than the width, we can express the length as width plus 5. Adding the width to both sides of that relation and setting it equal to 23 gives two times the width plus 5 equals 23. Subtracting 5 from both sides yields two times the width equals 18, so the width is 9 centimeters. Adding 5 gives the length as 14 centimeters. Multiplying length by width produces an area of 126 square centimeters.  
+Answer: 126"
+Q4,math,Medium,Grok,x-ai/grok-4.3,api_expand,146,"To find the sum of all integers from 1 to 200 that are divisible by 3 or by 5, apply the principle of inclusion-exclusion: compute the sum of multiples of 3, add the sum of multiples of 5, and subtract the sum of multiples of both (that is, multiples of 15) to avoid double-counting.
+The multiples of 3 in this range are 3, 6, ..., 198. There are 66 such terms, forming an arithmetic series whose sum is 6633. The multiples of 5 are 5, 10, ..., 200. There are 40 such terms, forming an arithmetic series whose sum is 4100. The multiples of 15 are 15, 30, ..., 195. There are 13 such terms, forming an arithmetic series whose sum is 1365.
+Adding the first two sums and subtracting the third therefore yields the required total: 6633 + 4100 - 1365 = 9368.
+Answer: 9368"
+Q5,math,Easy,Grok,x-ai/grok-4.3,api_expand,64,"The original price of the shirt is 40 dollars. Applying a 25 percent discount reduces the price to 75 percent of the original amount, which calculates as 0.75 multiplied by 40 to yield 30 dollars. An 8 percent sales tax is then applied to this discounted price, which means multiplying 30 by 1.08 to arrive at a final amount of 32.4 dollars. 
+
+Answer: 32.4"
+Q6,math,Medium,Grok,x-ai/grok-4.3,api_expand,76,"Two fair six-sided dice produce a total of 6 × 6 = 36 equally likely outcomes. The ordered pairs that sum to exactly 8 are (2,6), (3,5), (4,4), (5,3), and (6,2), giving five favorable outcomes. The exact probability is therefore the ratio 5/36. Performing the division yields the repeating decimal 0.138888…, which rounds to four decimal places by examining the fifth digit (8) and increasing the fourth digit from 8 to 9, producing 0.1389.
+Answer: 0.1389"
+Q7,math,Medium,Grok,x-ai/grok-4.3,api_expand,97,"The compound interest formula states that the amount A in an account after t years is given by A = P(1 + r)^t, where P is the initial principal and r is the annual interest rate expressed as a decimal. Substituting the given values produces A = 5000 × (1.04)^3.  
+
+First compute the power: 1.04 squared equals 1.0816, and multiplying that result by 1.04 yields 1.124864. Multiplying the principal by this factor then gives exactly 5000 × 1.124864 = 5624.32. Because the result is already expressed to the nearest cent, no further rounding is required.  
+
+Answer: 5624.32"
+Q8,math,Medium,Grok,x-ai/grok-4.3,api_expand,68,"Ana works at a rate of one sixth of the fence per hour, while Ben works at a rate of one fourth of the fence per hour. Adding these rates together gives a combined rate of five twelfths of the fence per hour. The time required to complete one full fence at this combined rate is the reciprocal of five twelfths, which equals twelve fifths hours.  
+Answer: 12/5"
+Q9,math,Easy,Grok,x-ai/grok-4.3,api_expand,73,"Since the order of selection does not matter when forming a committee, this is a problem of combinations rather than permutations. The number of ways to choose 3 members out of 10 is given by the combination formula C(10,3), which equals 10! divided by (3! times 7!). This simplifies directly to (10 × 9 × 8) divided by (3 × 2 × 1), or 720 divided by 6, which equals 120.
+Answer: 120"
+Q10,math,Medium,Grok,x-ai/grok-4.3,api_expand,82,"The tank has a capacity of 1,200 liters but starts with only 300 liters, so 900 liters must still be added to reach full. Water enters at a rate of 30 liters per minute while the leak removes water at 12 liters per minute, producing a net gain of 18 liters per minute. Dividing the required volume by this net rate gives the time needed: 900 divided by 18 equals 50. Therefore the tank reaches capacity after exactly 50 minutes.  
+Answer: 50"
+Q11,math,Easy,Grok,x-ai/grok-4.3,api_expand,88,"The average of five numbers is given as 18, which means their total sum must be exactly 5 multiplied by 18, or 90. Adding the four known numbers produces a subtotal of 12 plus 15 plus 20 plus 22, which equals 69. Subtracting this subtotal from the required overall sum of 90 leaves the missing fifth number as 21. Verifying the result shows that 12 plus 15 plus 20 plus 22 plus 21 indeed totals 90, and dividing by 5 recovers the stated average of 18.
+Answer: 21"
+Q12,math,Easy,Grok,x-ai/grok-4.3,api_expand,100,"The sequence is arithmetic, meaning it starts at a given first term and adds the same common difference to reach each next term. Here the first term is 7 and the common difference is 4, so the second term is 11, the third term is 15, and so forth. The general term in position n is found by adding the common difference exactly (n − 1) times to the first term. Substituting n = 25 therefore requires adding the difference 24 times: 24 multiplied by 4 equals 96, and 96 added to the initial term 7 yields 103.
+Answer: 103"
+Q13,math,Medium,Grok,x-ai/grok-4.3,api_expand,111,"The car begins with a value of 24,000 dollars. Because it loses 15 percent of its value each year, it retains 85 percent of its prior value at the end of every year. After the first year the value is therefore obtained by multiplying the initial price by 0.85, which yields exactly 20,400 dollars. After the second year the same retention factor is applied once more, so the value is obtained by multiplying 20,400 by 0.85, which produces 17,340 dollars. Equivalently, the two-year calculation can be performed in a single step by multiplying the original price by 0.85 squared, which equals 0.7225; 24,000 times 0.7225 is again 17,340 dollars.
+Answer: 17340"
+Q14,math,Medium,Grok,x-ai/grok-4.3,api_expand,105,"To determine how many positive integers divide 360 exactly, begin by finding its prime factorization. Dividing 360 repeatedly by the smallest primes yields the factorization \(2^3 \times 3^2 \times 5^1\).  
+
+The number of positive divisors of any integer is found by adding one to each exponent in the prime factorization and then multiplying the results: \((3+1) \times (2+1) \times (1+1) = 4 \times 3 \times 2 = 24\).  
+
+This count can be verified by explicit enumeration of the divisors: 1, 2, 3, 4, 5, 6, 8, 9, 10, 12, 15, 18, 20, 24, 30, 36, 40, 45, 60, 72, 90, 120, 180, 360.  
+
+Answer: 24"
+Q15,math,Hard,Grok,x-ai/grok-4.3,api_expand,165,"The situation is modeled using the Pythagorean theorem, since the wall is vertical, the ground is horizontal, and the ladder forms the hypotenuse of a right triangle. The ladder length remains fixed at 25 feet throughout.
+Initially the base of the triangle measures 7 feet, so the height on the wall is found by taking the square root of 25 squared minus 7 squared, which simplifies to the square root of 625 minus 49, or the square root of 576, yielding exactly 24 feet.
+After the top of the ladder slides 4 feet downward the new height is therefore 20 feet. The new base length is then the square root of 25 squared minus 20 squared, which simplifies to the square root of 625 minus 400, or the square root of 225, yielding exactly 15 feet.
+Subtracting the original base from the new base shows that the foot of the ladder has moved 15 minus 7, or 8 feet farther from the wall.
+Answer: 8"
+Q16,math,Hard,Grok,x-ai/grok-4.3,api_expand,187,"Let \( x \) represent the unknown number of liters of 60 percent acid solution that must be added. This contributes \( 0.6x \) liters of pure acid. The original 10 liters of 20 percent solution already contains \( 0.2 \times 10 = 2 \) liters of pure acid. The resulting mixture therefore contains a total of \( 0.6x + 2 \) liters of pure acid and occupies a total volume of \( x + 10 \) liters. For the mixture to be exactly 40 percent acid, the pure-acid quantity must satisfy the equation
+\[
+0.4(x + 10) = 0.6x + 2.
+\]
+Distributing the left-hand side produces
+\[
+0.4x + 4 = 0.6x + 2.
+\]
+Subtracting \( 0.4x + 2 \) from both sides isolates the variable term:
+\[
+2 = 0.2x.
+\]
+Dividing through by 0.2 then yields the unique solution
+\[
+x = 10.
+\]
+Verification confirms the result: adding 10 liters of 60 percent solution supplies 6 liters of acid, for a combined total of 8 liters of acid in 20 liters of mixture, which is precisely 40 percent acid.
+Answer: 10"
+Q17,math,Medium,Grok,x-ai/grok-4.3,api_expand,108,"To determine when the lighthouses next flash simultaneously after starting together, calculate the least common multiple of their flashing intervals (12, 18, and 30 seconds). Begin by finding the prime factorization of each interval: 12 factors as 2 squared times 3; 18 factors as 2 times 3 squared; and 30 factors as 2 times 3 times 5. The LCM is then formed by taking the highest power of every prime that appears, which yields 2 squared times 3 squared times 5. Multiplying these together produces 4 times 9 times 5, or 180. This value is the smallest positive time at which all three intervals coincide again.
+
+Answer: 180"
+Q18,math,Medium,Grok,x-ai/grok-4.3,api_expand,86,"The population doubles every 20 minutes starting from an initial count of 150 bacteria. Convert the elapsed time of 2 hours into minutes to obtain 120 minutes. Divide the total elapsed time by the length of each doubling interval to find the number of doublings, which is 120 / 20 = 6. The final population is therefore obtained by multiplying the initial count by 2 raised to the sixth power. Since 2^6 equals 64, the calculation is 150 multiplied by 64, which equals 9600.
+
+Answer: 9600"
+Q19,math,Hard,Grok,x-ai/grok-4.3,api_expand,213,"A standard analog clock is a circle spanning 360 degrees, with 12 hour marks equally spaced around it. This means that the marks are separated by 30 degrees each. At exactly 3:00 the hour hand sits on the 3, which corresponds to an angle of 90 degrees from the 12 o'clock position. The hour hand, however, continues to move as the minutes pass: it travels 30 degrees in 60 minutes, or 0.5 degrees per minute. Therefore, after 40 additional minutes the hour hand has advanced another 20 degrees and now sits at 110 degrees from the 12.
+The minute hand moves independently and completes a full circle every 60 minutes, which corresponds to 6 degrees per minute. At 40 minutes it therefore sits at 240 degrees from the 12.
+The absolute difference between these two positions is 130 degrees. Because the clock is a circle, the angle on the opposite side of the hands is 360 minus 130, or 230 degrees. The smaller of the two possible angles is therefore 130 degrees.
+This result can be confirmed with the standard closed-form expression for clock-hand angles, |30H − 5.5M|, which for H = 3 and M = 40 again yields 130; taking the minimum with its supplement produces the same final value.
+Answer: 130"
+Q20,math,Hard,Grok,x-ai/grok-4.3,api_expand,218,"From 1 to 999 there are exactly 999 integers in total. To determine how many of them contain at least one digit 7, first count the complementary quantity: the integers whose decimal representations contain no digit 7 at all.
+Any integer from 0 to 999 can be written as a three-digit string by padding with leading zeros when necessary. In such a padded representation each of the three digit positions may be filled in 9 ways (any digit from 0-9 except 7). Consequently there are exactly \(9^3 = 729\) strings that contain no 7, including the all-zero string 000. Removing that single string leaves 728 integers from 1 to 999 whose ordinary decimal representations contain no digit 7.
+Subtracting therefore yields the desired count for the interval [1, 999]:
+\[
+999 - 728 = 271.
+\]
+The remaining integer 1000 has decimal representation “1000”, which contains no digit 7. Adding it therefore does not change the total, so exactly 271 integers from 1 to 1000 inclusive contain at least one digit 7.
+(The same count of 728 integers without a 7 can be obtained by enumerating separately by number of digits: 8 one-digit numbers, \(8 \times 9 = 72\) two-digit numbers, and \(8 \times 9 \times 9 = 648\) three-digit numbers, which again sum to 728.)
+Answer: 271"
+E14,prose,Easy,Grok,x-ai/grok-4.3,api_expand,277,"Volunteering your time to assist others can yield significant personal advantages that extend well beyond the immediate act of service. One key benefit lies in the development of new skills and the expansion of one's professional network, as individuals often encounter situations that require problem-solving, leadership, or technical abilities not typically honed in their daily routines, thereby enhancing their overall competence and employability. Moreover, interacting with fellow volunteers and beneficiaries from diverse backgrounds facilitates connections that can lead to valuable professional opportunities, such as recommendations, collaborations, or even job offers, as these relationships are built on shared experiences and mutual respect.
+
+In addition to skill-building, volunteering instills a profound sense of purpose and meaning in one's life, allowing people to contribute to causes greater than themselves, which can foster a deeper understanding of their own values and place in the world. This sense of fulfillment arises from witnessing the tangible impact of their efforts, whether it's improving community welfare or supporting individuals in need, ultimately leading to greater life satisfaction and motivation to pursue personal goals with renewed vigor.
+
+Furthermore, the act of volunteering plays a crucial role in improving mental health by alleviating feelings of isolation, as regular participation in group activities or community service creates opportunities for social interaction and bonding that combat loneliness and provide emotional support networks. Such engagements reduce stress and anxiety levels, as the focus shifts outward, promoting a healthier perspective on one's own challenges while building resilience through positive social connections. By embracing volunteering, individuals not only enrich the lives of others but also cultivate their own personal growth in multifaceted ways, making it a rewarding pursuit for holistic well-being."
+E15,prose,Easy,Grok,x-ai/grok-4.3,api_expand,194,"Learning to play a musical instrument remains a worthwhile pursuit even for adults juggling careers, family responsibilities, and other commitments, as the activity delivers tangible gains that extend well beyond simple entertainment. The process of learning new pieces and techniques directly exercises memory by requiring constant recall of notes, rhythms, and patterns, while simultaneously sharpening hand coordination through the precise, repetitive motions needed to produce clear sounds on strings, keys, or valves. These mental and physical demands help maintain cognitive sharpness and motor skills that might otherwise diminish with age or sedentary routines.
+
+Beyond these functional improvements, an instrument serves as an accessible creative outlet after the structured demands of work or school have ended, transforming spare evening hours into opportunities for personal expression rather than passive scrolling or television viewing. This outlet channels emotions into something tangible and original, fostering relaxation and a renewed sense of balance. At the same time, regular practice builds a steady sense of progress that becomes evident in measurable milestones, such as mastering a difficult passage or performing a full song without error, which reinforces motivation and cultivates patience that carries over into other aspects of adult life."
+E16,prose,Easy,Grok,x-ai/grok-4.3,api_expand,141,"Choosing to walk or bike for short trips instead of driving transforms everyday routines by reducing the financial burden of constant car use, since skipping fuel purchases and parking costs adds up to meaningful savings over time that can be redirected toward other priorities or simply ease household budgets. This approach also weaves physical activity seamlessly into daily life, allowing people to build movement into errands and commutes without carving out separate time for exercise, which supports better fitness and energy levels as a natural byproduct rather than an added chore. At the same time, moving at a human pace encourages greater awareness of local surroundings, turning ordinary journeys into chances to notice architecture, gardens, seasonal changes, and community details that often go unseen from behind a windshield, ultimately fostering a stronger sense of connection and enjoyment in one's own neighborhood."
+E17,prose,Easy,Grok,x-ai/grok-4.3,api_expand,183,"Taking a basic first aid course over a single weekend represents one of the most practical investments you can make in your personal development and community safety. These courses are typically designed to fit into just a couple of days, often at a very affordable price that won't strain your budget, making them an accessible way to gain valuable skills without significant time or financial commitment. By dedicating those hours, you equip yourself with the knowledge to respond effectively to everyday emergencies like cuts, burns, or choking incidents that can occur at home, work, or in public spaces, potentially making a critical difference in someone's outcome before professional help arrives. 
+
+Furthermore, the training instills a sense of calm confidence when faced with stressful situations, allowing you to act decisively rather than panicking or freezing up. This mental preparedness not only enhances your ability to assist others but also contributes to your overall resilience in life's unexpected challenges. In essence, choosing to spend a weekend this way transforms what might seem like ordinary time into an opportunity for meaningful empowerment and peace of mind."
+E18,prose,Easy,Grok,x-ai/grok-4.3,api_expand,236,"Growing a small herb or vegetable garden at home stands out as a deeply rewarding hobby because it brings the convenience of fresh, flavorful produce directly to your doorstep, allowing you to step outside and harvest ingredients like basil, tomatoes, or lettuce at their peak ripeness for meals that taste far superior to anything from a supermarket. This immediate access not only elevates everyday cooking with vibrant flavors and nutrients but also fosters a sense of self-sufficiency that connects you more closely to the food you eat. At the same time, the simple routines of watering, weeding, and pruning offer a calming escape from the relentless demands of work and modern life, as the quiet focus on nurturing living things provides a meditative break that reduces stress and restores mental balance through gentle physical activity in the open air.
+
+Beyond these immediate pleasures, the hobby cultivates patience in profound ways, since watching seeds sprout into seedlings and eventually mature into harvestable plants unfolds slowly over weeks or months, teaching you to appreciate gradual progress and the rhythms of nature rather than expecting instant results. This process builds resilience and mindfulness, turning the garden into a living lesson that enriches your perspective on growth and effort in other areas of life. Overall, these elements combine to make home gardening not just a practical pursuit but a fulfilling one that nourishes both body and mind in lasting ways."
+E19,prose,Easy,Grok,x-ai/grok-4.3,api_expand,162,"Writing tasks down in a daily planner is an effective way to maintain control over one's daily responsibilities and overall life. By committing appointments and to-do items to paper, individuals are far less likely to overlook important obligations, as the physical record serves as a constant reminder that can be consulted throughout the day, thereby reducing the mental strain of trying to recall every detail from memory alone. 
+
+Furthermore, the act of transferring thoughts about pending tasks onto a planner frees up cognitive space, allowing the mind to relax without the nagging worry that something crucial might be forgotten. This mental decluttering promotes a sense of calm and enables better focus on the present moment rather than being preoccupied with future duties. 
+
+Finally, the satisfaction derived from checking off completed items provides tangible evidence of progress, which can be motivating and reassuring, as it visually demonstrates the volume of work accomplished and reinforces the feeling of being on top of one's life."
+E20,prose,Easy,Grok,x-ai/grok-4.3,api_expand,187,"Playing board games with family and friends turns ordinary evenings into meaningful experiences because the activity naturally draws everyone into lively conversations and deeper connections as players share strategies, react to unexpected moves, and laugh over memorable moments right there at the table. This shared engagement strengthens bonds in ways that passive activities like watching television simply cannot match, creating lasting memories through direct interaction and mutual enjoyment. Beyond that, the games themselves serve as excellent teachers of good sportsmanship, helping participants learn to celebrate victories humbly while accepting defeats with grace and resilience, skills that carry over into everyday life and foster better relationships overall. 
+
+On top of these social and personal benefits, board games represent an incredibly affordable form of entertainment since a single purchase can provide hours of fun across countless sessions without any recurring expenses, making them far more economical than frequent outings or digital subscriptions that add up quickly. With so many titles offering replayability through varied rules and player dynamics, the investment pays dividends repeatedly, ensuring that time spent around the table remains both enriching and practical for years to come."
+E21,prose,Easy,Grok,x-ai/grok-4.3,api_expand,175,"Learning to swim is an essential skill that everyone should acquire because it significantly enhances personal safety in various aquatic environments. Being able to swim proficiently reduces the risk of drowning or accidents when around pools, lakes, and the ocean, where unexpected situations can arise quickly. Moreover, swimming serves as an excellent full-body workout that engages multiple muscle groups without placing undue stress on the joints, making it an ideal form of exercise for people of all ages and fitness levels. This low-impact activity not only builds strength and endurance but also improves cardiovascular health in a gentle manner. Furthermore, mastering swimming opens up a world of enjoyable recreational opportunities, such as snorkeling to explore underwater life or participating in thrilling water sports like surfing and kayaking. These activities become accessible and safe only with basic swimming knowledge, thereby enriching one's leisure time and fostering a deeper appreciation for water-based adventures. Ultimately, by learning to swim, individuals equip themselves with lifelong benefits that promote safety, health, and enjoyment, making it a worthwhile pursuit for all."
+M14,prose,Medium,Grok,x-ai/grok-4.3,api_expand,201,"Routine preventive maintenance of buildings and equipment consistently demonstrates greater cost-effectiveness than addressing failures only after they occur, as scheduled inspections enable the early detection of minor defects that might otherwise develop into major structural or mechanical breakdowns requiring far more extensive and expensive interventions. By identifying and correcting these small issues during routine checks, organizations prevent the escalation of problems that could compromise entire systems or lead to complete replacements, thereby containing costs at a manageable level rather than facing sudden and substantial outlays. 
+
+Planned maintenance further enhances savings by allowing activities to be scheduled during periods of low operational demand, which eliminates the abrupt halts in production or service delivery that accompany unexpected breakdowns and the associated losses in output and revenue. This foresight ensures continuity in operations, protecting the financial performance of the facility without the compounding expenses of emergency responses and idle resources. 
+
+Well-maintained assets also achieve substantially longer service lives, which spreads their original capital costs across many additional years of reliable use and reduces the frequency of full-scale investments in new equipment or renovations. This extended durability translates into lower annualized expenses and more predictable budgeting, reinforcing the overall economic advantage of a preventive strategy."
+M15,prose,Medium,Grok,x-ai/grok-4.3,api_expand,139,"Organizations that contribute to open-source software realize meaningful operational benefits through the distribution of development responsibilities. When code is shared publicly, the ongoing costs of maintenance and updates fall across a wide network of external contributors rather than remaining the exclusive obligation of one company, freeing internal resources for other priorities while sustaining the project over longer periods.
+
+The same public availability subjects the code to continuous examination by diverse reviewers, which elevates overall quality through collective scrutiny and allows security issues to surface and be resolved earlier than they would in a proprietary setting limited to internal teams.
+
+Organizations also gain from the visibility of their contributions, as this activity builds a credible technical profile that draws skilled engineers seeking environments where collaborative work and open innovation are actively practiced, thereby strengthening recruitment outcomes without additional formal outreach."
+M16,prose,Medium,Grok,x-ai/grok-4.3,api_expand,318,"The standardized shipping container stands out as one of the most economically consequential innovations of the twentieth century because it transformed the mechanics and economics of moving goods around the world. Containerization sharply reduced the labor and time required to load and unload cargo at ports, replacing gangs of longshoremen who once spent days wrestling individual crates and bales with cranes that could transfer dozens of sealed units in a single shift. What had been a slow, costly bottleneck became a rapid, predictable process that freed ships to spend more time at sea and less time idling at dock, directly cutting the capital and operating expenses tied to maritime transport.
+
+A common container size allowed goods to move between ships, trains, and trucks without repacking, enabling integrated global supply chains that linked factories on one continent to retailers on another. Once loaded at the point of origin, a single container could travel by truck to a railhead, by rail to a port, and by ship across an ocean, then continue inland by rail or road, all without the repeated opening, sorting, and reloading that had previously added expense, delay, and error at every transfer point. This seamless interoperability made it practical for firms to locate production wherever costs were lowest and to coordinate complex, just-in-time flows of components and finished products across borders.
+
+Sealed containers reduced theft and damage in transit, lowering insurance and handling costs that had long inflated the price of traded goods. With cargo protected from weather, pilferage, and rough handling inside locked steel boxes, carriers and shippers faced fewer claims, insurers charged lower premiums, and firms could dispense with heavy wooden crates and extra security measures. These savings, layered atop the gains in port speed and multimodal efficiency, drove down the total cost of moving merchandise over long distances and thereby expanded the volume and variety of goods that could profitably enter international trade."
+M17,prose,Medium,Grok,x-ai/grok-4.3,api_expand,145,"Citizen science projects contribute substantially to scientific research by enabling the collection of extensive datasets that would otherwise be unattainable. Volunteer observers gather data over vast geographic areas and extended time periods that professional teams alone could not manage, as seen in long-running bird counts which supply invaluable longitudinal records on species distributions and environmental changes across continents and decades. 
+
+Online volunteers further advance research by classifying large image and audio datasets such as galaxy photographs at speeds that surpass the capacity of small research groups working in isolation, thereby converting raw materials into usable catalogs far more efficiently and allowing projects to scale without proportional increases in professional staffing. 
+
+Participation in these efforts also improves public scientific literacy by giving individuals direct experience with systematic observation and data handling, which builds a clearer grasp of how evidence is assembled and validated in real investigations."
+M18,prose,Medium,Grok,x-ai/grok-4.3,api_expand,151,"Structured code review serves as a vital practice that enhances the overall quality of software developed by engineering teams. By having peers examine proposed changes before they are integrated into the main codebase, teams are able to identify and resolve defects at an early stage, which proves significantly less expensive than addressing issues that surface only after the software has been deployed to production environments where fixes often require extensive testing, coordination, and potential downtime. 
+
+The collaborative examination of modifications also promotes a broader understanding of the entire codebase among team members, thereby diminishing the dependency on individual experts who might otherwise become bottlenecks during development or maintenance tasks. 
+
+In addition, the consistent application of review standards ensures that all code adheres to established conventions and practices, resulting in software that is more straightforward to maintain and evolve over extended periods as new features are added or existing ones are updated."
+M19,prose,Medium,Grok,x-ai/grok-4.3,api_expand,164,"In high-stakes professions such as aviation and surgery, written checklists have proven effective at minimizing preventable errors by addressing key human factors that contribute to mistakes. For instance, checklists reduce reliance on memory for routine but critical steps, especially under stress and fatigue, allowing professionals to focus on the immediate demands of the situation without overlooking essential procedures that might otherwise be forgotten when cognitive resources are strained. 
+
+Furthermore, these tools standardize communication within teams by giving every member a defined moment to raise concerns, ensuring that all voices are heard in a structured manner that prevents oversights arising from hierarchical dynamics or time pressures common in operating rooms and cockpits. 
+
+Documented results, including the World Health Organization's surgical safety checklist, show measurable reductions in complications after adoption, with studies demonstrating significant drops in surgical site infections, mortality rates, and other adverse events across multiple healthcare settings, underscoring the practical benefits observed similarly in aviation protocols that have long relied on such systematic approaches."
+M20,prose,Medium,Grok,x-ai/grok-4.3,api_expand,186,"Over the past several decades, advancements in weather forecasting have generated substantial economic benefits across multiple sectors by providing more reliable and timely information. For instance, farmers now benefit from greater accuracy in predictions, which enables them to optimize the timing of planting, irrigation, and harvesting activities in ways that minimize crop losses and enhance overall yields. This improved decision-making translates directly into higher productivity and reduced financial risks associated with adverse weather conditions. 
+
+Furthermore, the ability to issue earlier and more precise warnings for severe storms has allowed communities to undertake timely evacuations and implement protective measures, thereby significantly decreasing both property damage and the tragic loss of human lives. Such preparations not only save costs related to rebuilding and recovery but also preserve the workforce and infrastructure essential for economic stability. 
+
+In addition, sectors such as airlines, shipping companies, and electricity grid operators have leveraged these forecasting improvements to streamline their operations, including planning more efficient routes and balancing supply with demand more effectively, which leads to lower fuel consumption, reduced delays, and optimized resource allocation that collectively contribute to billions in annual savings."
+H14,prose,Hard,Grok,x-ai/grok-4.3,api_expand,241,"Causation cannot be adequately analyzed as mere regular succession between types of events, for regularity accounts fail to distinguish genuine causal relations from accidental or common-cause correlations, since a falling barometer reading is regularly followed by a storm without causing it. Such accounts therefore leave open the possibility that any observed regularity might be spurious in precisely this way, offering no resources for isolating those patterns that reflect genuine production or influence rather than mere coincidence or shared antecedents. 
+Interventionist accounts developed by Woodward succeed where regularity accounts fail by identifying causal relations with dependencies that remain invariant under ideal interventions on the putative cause. On this view a variable X counts as a cause of Y precisely when there exists a possible intervention on X that would change the value of Y while holding fixed all other relevant variables, thereby capturing a stable relationship that persists across a range of manipulations rather than one that merely happens to obtain in the actual course of events. 
+The interventionist account explains the epistemic privilege of randomized controlled experiments, whose design approximates an ideal intervention by severing the putative cause from its ordinary antecedents. By assigning subjects to treatment or control conditions through a random mechanism, such trials break the usual connections between the intervention variable and its background causes, thereby isolating the dependence of the outcome on the treatment alone and furnishing evidence that would be unavailable from passive observation of regularities."
+H15,prose,Hard,Grok,x-ai/grok-4.3,api_expand,193,"Biological function in living organisms is best understood through an etiological lens that traces back to the selective history of traits rather than through a purely causal-role analysis that focuses solely on current contributions to system capacities. Selected-effect accounts identify a trait's function with the effect for which its ancestors were selected, and this framework explains the normativity of function, including the possibility of malfunction, which a purely dispositional analysis cannot accommodate because it merely describes what a trait is capable of doing without reference to any standard of proper performance that could be violated. 
+
+Causal-role accounts following Cummins face difficulties in distinguishing a trait's function from its accidental effects, as they must ultimately relativize function to the explanatory interests of the investigator, thereby surrendering the objectivity of functional attribution and making functions dependent on subjective choices rather than inherent features of biological systems. 
+
+Etiological accounts alone vindicate the explanatory force of functional claims, since citing a trait's selected effect answers the historical question of why the trait is present rather than merely describing what it currently does, thereby grounding functional explanations in evolutionary history in a manner that causal-role accounts inherently lack."
+H16,prose,Hard,Grok,x-ai/grok-4.3,api_expand,284,"The thesis that knowledge acquired through testimony cannot be reduced to knowledge grounded in the hearer's own perception, memory, and inductive inference finds support in the practical limits that confront any attempt to ground testimony solely in those resources. As Coady argued, no individual is in a position to verify independently the track record of more than a small fraction of the sources on whom ordinary belief depends, so a reductionist justification of testimony is unavailable in practice. The sheer number and variety of informants whose reports shape everyday knowledge exceed what any single person could check through direct observation and inference, leaving reductionism without the empirical foundation it requires.
+
+Young children acquire vast bodies of knowledge through testimony before they possess the inferential resources that reductionism requires for testimonial justification. They absorb information about language, objects, social norms, and countless other domains from caregivers and others at an age when they lack the conceptual sophistication needed to assess track records or perform the inductive calculations that a reductionist account demands. This developmental sequence indicates that testimonial knowledge functions prior to and independently of the perceptual and inferential apparatus to which reductionism would tie it.
+
+The division of cognitive labor in contemporary science, analyzed by Hardwig, makes researchers epistemically dependent on colleagues whose results they cannot personally check, so that scientific knowledge itself rests irreducibly on testimonial trust. Specialists routinely rely on experimental findings, data sets, and theoretical derivations produced by others whose methods and competence they cannot replicate or audit through their own perception and inference alone. Such dependence shows that even the most rigorous forms of empirical knowledge incorporate an element of testimony that resists reduction to individual perceptual and inductive grounds."
+H17,prose,Hard,Grok,x-ai/grok-4.3,api_expand,329,"Idealized scientific models that incorporate known falsehoods can nevertheless furnish genuine understanding of natural phenomena by strategically highlighting the factors responsible for observed behaviors while setting aside irrelevant complications. Idealizations such as frictionless planes in mechanics, infinite populations in evolutionary biology, and point masses in gravitational theory function precisely in this way, as they deliberately excise influences that would otherwise obscure the core explanatory structure without changing what actually makes a difference to the phenomenon under study. By removing friction or finitude or spatial extension, these models direct attention to the operative relations that produce the target effects, thereby revealing the mechanisms at work rather than misleading through literal inaccuracy.
+
+This capacity for revelation stems from the fact that understanding itself amounts to a grasp of patterns of counterfactual dependence, patterns that an idealized model can depict with precision even though its explicit assumptions diverge from reality. When a model shows how altering one variable would modify an outcome while holding others fixed, it conveys the dependency relations that constitute explanatory insight, and the falsehoods introduced through idealization do not disrupt those relations so long as the retained structure accurately tracks the relevant sensitivities. Consequently, the model supports reliable inferences about what would happen under various interventions, delivering understanding that tracks the world's modal structure without requiring every representational element to be literally true.
+
+Such a process finds further illustration in minimal-model explanations, which as analyzed by Batterman succeed in accounting for universal behaviors across physically heterogeneous systems exactly by stripping away the microscopic details that vary from one system to another. These models retain only the shared structural features that govern large-scale patterns, such as critical phenomena or scaling laws, and their omissions ensure that the explanation does not depend on system-specific particulars that would prevent generalization. In this manner, the deliberate falsehoods and abstractions enable the model to isolate what is common and explanatorily potent, thereby generating understanding of why diverse phenomena exhibit the same macroscopic regularities."
+H18,prose,Hard,Grok,x-ai/grok-4.3,api_expand,125,"The thesis that practical knowledge cannot be reduced to propositional knowledge finds strong support in several lines of reasoning. Gilbert Ryle's regress argument demonstrates that supposing every intelligent performance depends on first contemplating a proposition leads to an infinite regress, since the application of that proposition would itself demand additional propositional knowledge to guide its proper use. 
+
+Skilled performance requires a context-sensitive responsiveness to the nuances of particular situations, which exceeds what any finite collection of propositions an agent might state or accept could encompass. 
+
+Evidence from neuropsychology reveals dissociations between these forms of knowledge, as seen in amnesic patients who successfully learn new motor skills despite having no explicit recollection of their practice sessions, indicating that practical abilities can develop independently of propositional memory."
+H19,prose,Hard,Grok,x-ai/grok-4.3,api_expand,149,"Loss of biodiversity undermines the long-term stability and functioning of ecosystems by reducing their ability to cope with change. The insurance hypothesis holds that species differ in their responses to environmental fluctuation, so that communities with more species maintain more stable aggregate productivity as conditions change, which helps preserve consistent levels of biomass production across varying environmental conditions. 
+
+Building on this, functional redundancy, in which several species perform overlapping ecological roles, buffers ecosystem processes against the loss of any single species, and this buffer erodes as species are removed, thereby exposing vital functions to greater risk from further declines in diversity. 
+
+Moreover, the loss of keystone species can trigger trophic cascades, as when the decline of sea otters allowed sea urchins to overgraze kelp forests, showing that the effects of a single extinction can propagate through an entire community and lead to fundamental alterations in habitat and species interactions."
+S1,short,Easy,Grok,x-ai/grok-4.3,api_expand,77,"The sky appears blue because sunlight contains all colors of light, but the gases in Earth's atmosphere scatter shorter wavelengths more strongly than longer ones. Blue light, being at the shorter end of the visible spectrum, gets redirected in many directions by air molecules, so it reaches our eyes from all parts of the sky. The other colors continue mostly in straight lines toward the ground or are scattered less, leaving the overhead view dominated by blue."
+S2,short,Easy,Grok,x-ai/grok-4.3,api_expand,70,"Ice floats on liquid water because it is less dense than the liquid. This happens when cooling causes the molecules to lock into a fixed, open lattice held by hydrogen bonds, which pushes them farther apart than they are in the more compact liquid state. The result is that a given volume of ice weighs less than the same volume of liquid water, so the solid form stays on top."
+S3,short,Easy,Grok,x-ai/grok-4.3,api_expand,68,"A rainbow forms when sunlight shines through raindrops still hanging in the air after a shower. Each drop bends the incoming light, reflects it once off its inner surface, and bends it again as the light leaves, splitting the white sunlight into separate colors. An observer sees the familiar arc only when the drops sit at just the right angle relative to the sun and the viewer’s eye."
+S4,short,Medium,Grok,x-ai/grok-4.3,api_expand,80,"Earth has seasons because it is tilted on its axis by about 23.5 degrees as it orbits the Sun. This tilt causes each hemisphere to receive varying amounts of direct sunlight throughout the year, with longer days and stronger solar rays during summer when a hemisphere leans toward the Sun. The opposite occurs six months later, bringing winter to that same hemisphere while the other experiences summer. The planet's distance from the Sun plays almost no role in these changes."
+S5,short,Medium,Grok,x-ai/grok-4.3,api_expand,86,"Ocean tides are mainly caused by the Moon's gravitational pull on Earth's oceans, which tugs water toward it and creates a bulge on the near side. A second bulge forms on the far side because the Earth and Moon orbit a common center of mass, leaving the oceans slightly behind. As the planet rotates through these bulges every day, sea levels rise and fall along coastlines. The Sun adds a smaller effect that becomes noticeable when its pull lines up with the Moon's during spring tides."
+S6,short,Easy,Grok,x-ai/grok-4.3,api_expand,53,"Bread dough rises because yeast mixed into the flour and water feeds on the sugars and produces carbon dioxide gas. The gas forms bubbles that become trapped inside the elastic network of gluten proteins developed during kneading. As more gas builds up, the dough expands and increases in volume before it is baked."
+S7,short,Medium,Grok,x-ai/grok-4.3,api_expand,78,"A black hole is a region in space where gravity has become so powerful that nothing, not even light, can escape once it crosses a certain boundary. These objects usually form when a massive star runs out of fuel and collapses under its own weight at the end of its life. The intense gravity pulls in nearby gas, stars, and light, often creating detectable effects like swirling disks of hot material or distorted paths of light around them."
+S8,short,Medium,Grok,x-ai/grok-4.3,api_expand,70,"Both spoons start at the exact same room temperature, but metal conducts heat far better than wood. When your warmer hand touches them, heat flows rapidly out of your skin into the metal, quickly lowering the temperature at the point of contact and triggering a strong cold sensation. Wood, being a poor conductor, lets heat leave your hand much more slowly, so the same temperature difference feels far less chilly."
+S9,short,Medium,Grok,x-ai/grok-4.3,api_expand,65,"A refrigerator keeps food cold by continuously removing heat from its insulated interior and expelling it to the outside air. It circulates a refrigerant that absorbs warmth as it evaporates inside the unit, then releases that heat when it condenses in coils at the back. A compressor drives this cycle, while a thermostat turns the system on and off to hold the desired low temperature."
+S10,short,Easy,Grok,x-ai/grok-4.3,api_expand,58,"Photosynthesis allows a plant to make its own food by capturing sunlight and using it to turn water and carbon dioxide into sugars. These sugars provide the energy and building blocks the plant needs to grow, repair itself, and carry out its life processes. Without this process, the plant would lack the internal fuel supply required for survival."
+S11,short,Easy,Grok,x-ai/grok-4.3,api_expand,64,"As autumn approaches, shorter days and cooler temperatures signal many trees to stop producing chlorophyll, the pigment that makes leaves green and powers photosynthesis. Once chlorophyll breaks down without being replenished, other pigments already in the leaves, like yellow and orange carotenoids, become visible. Some trees also create red anthocyanins during this season, resulting in the range of fall colors before the leaves drop."
+S12,short,Easy,Grok,x-ai/grok-4.3,api_expand,60,"Weather refers to the short-term atmospheric conditions in a specific place, such as temperature, rain, or wind on a given day or week. Climate, by contrast, describes the long-term average of those conditions over many years or decades in a region. A single cold snap is weather, while the overall trend toward warmer winters in an area reflects its climate."
+S13,short,Easy,Grok,x-ai/grok-4.3,api_expand,91,"A magnetic compass works because the Earth itself behaves like a giant magnet with its own magnetic field running between its poles. A small, lightweight magnetized needle inside the compass is mounted so it can swing freely, and this needle lines up with the Earth’s field so that one end consistently points toward magnetic north. Once north is known, the other directions follow: east lies to the right, west to the left, and south directly opposite north. Markings on the compass housing then allow the user to read any specific heading."
+S14,short,Medium,Grok,x-ai/grok-4.3,api_expand,60,"Inflation in economics is a sustained rise in the overall price level of goods and services across an economy. As prices increase, each unit of currency buys fewer things than before, which erodes the purchasing power of money over time. It is typically measured by tracking changes in a standard basket of consumer items, such as food, housing, and transportation."
+S15,short,Easy,Grok,x-ai/grok-4.3,api_expand,91,"The Moon appears to go through phases because it orbits Earth while reflecting sunlight, so only half of it is ever lit at once. From our viewpoint on Earth, the angle between the Sun, Moon, and our planet constantly shifts as the Moon moves along its path, revealing changing portions of that illuminated half. When the Moon lies between Earth and the Sun its dark side faces us, producing a new moon, whereas the opposite alignment shows the fully lit side as a full moon; the cycle repeats roughly every month."
+S16,short,Easy,Grok,x-ai/grok-4.3,api_expand,89,"An algorithm is a precise, step-by-step set of instructions for solving a problem or completing a task, much like a recipe that guides you through cooking a meal from start to finish. It takes some kind of input, follows defined rules in a logical order, and produces a specific output or result. People use algorithms in everyday life without realizing it, such as when following directions to a destination or sorting a deck of cards. In computing, they form the foundation for how software processes information efficiently and consistently."
+S17,short,Medium,Grok,x-ai/grok-4.3,api_expand,77,"Salt is spread on icy roads because it helps melt the ice even when temperatures are below freezing. When the salt mixes with the ice, it dissolves into the thin layer of water on the surface and forms a brine that freezes at a lower temperature than pure water. This breaks the ice's hold on the road and keeps more water from refreezing, making driving safer until the cold becomes too extreme for the salt to work."
+S18,short,Hard,Grok,x-ai/grok-4.3,api_expand,74,"An airplane wing generates lift through its airfoil shape, which is curved on the top and flatter underneath. As the plane moves forward, air flows faster over the curved upper surface than the flatter lower one, creating lower pressure above the wing that effectively sucks it upward. The wing also pushes air downward as it passes through, and by Newton's third law the air pushes back with an equal upward force on the wing."
+S19,short,Medium,Grok,x-ai/grok-4.3,api_expand,92,"In a living cell, DNA serves as the main storage site for genetic information, holding the instructions needed to build proteins and carry out cellular functions. These instructions are accessed through transcription into RNA, which is then translated into proteins that perform most of the cell's work. During cell division, the DNA is replicated so each new cell receives a complete copy of the genetic material, allowing traits to be passed on. The cell also controls which sections of DNA are active at any time to respond to its needs and environment."
+S20,short,Hard,Grok,x-ai/grok-4.3,api_expand,78,"At higher altitudes the air pressure is lower because there is less atmosphere weighing down on everything. Water turns to vapor and boils once the pressure of its escaping molecules equals the surrounding air pressure, so that matching point is reached at a lower temperature when the air is thinner. As a result, water boils well below the usual 100 °C on a mountain, and food cooked in it takes longer because the liquid is not as hot."

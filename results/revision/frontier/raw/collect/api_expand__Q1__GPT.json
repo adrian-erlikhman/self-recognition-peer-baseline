@@ -1,0 +1,70 @@
+{
+  "request_model": "openai/gpt-5.5",
+  "messages": [
+    {
+      "role": "user",
+      "content": "A bookstore sells notebooks for $3.00 each and pens for $1.25 each. Maria buys 4 notebooks and 6 pens. How many dollars does she spend in total? Solve the problem, showing your reasoning step by step in plain prose, and end with a final line of the form 'Answer: <number>'."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916316-04IzBu3DSUCH53JvUFtw",
+    "object": "chat.completion",
+    "created": 1790916316,
+    "model": "openai/gpt-5.5",
+    "provider": "OpenAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "Each notebook costs $3.00, and Maria buys 4 notebooks. So the notebooks cost 4 \u00d7 3.00 = $12.00.\n\nEach pen costs $1.25, and Maria buys 6 pens. So the pens cost 6 \u00d7 1.25 = $7.50.\n\nNow add the two costs together: $12.00 + $7.50 = $19.50.\n\nAnswer: 19.50",
+          "refusal": null,
+          "reasoning": "**Calculating total costs**\n\nI need to provide a straightforward answer with clear steps. First, I calculate 4 * 3, which equals 12, then 6 * 1.25 gives me 7.5. Adding those together, I get a total of 19.5. If needed, I should mention that it\u2019s in dollars. So, my final answer will be formatted as 19.50. That looks good!",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "**Calculating total costs**\n\nI need to provide a straightforward answer with clear steps. First, I calculate 4 * 3, which equals 12, then 6 * 1.25 gives me 7.5. Adding those together, I get a total of 19.5. If needed, I should mention that it\u2019s in dollars. So, my final answer will be formatted as 19.50. That looks good!",
+              "format": "openai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABqvzbfUPO-eg1MtjaLDJaWU94XdlllL9rqozSIRMQZxZTC9eV4Favt4MdELaRj6V5aGTB-9UEDwcBeyF4NHBQd7fKzndltZKGVHRKmEB-9FchDHV6MXeymhkHG2RchfT3GmRgI9iE9CPehclAlW5C4c5rhuG8Ega1PcKcgiSuD21mYQhZazc-nd5AOjxD-L_Kt8uVA_0R2DGHn-C15C3zB1M9l1ITxfHpO7EsiUwmwgtwgxWHHL5rQx_04RV9bUBQt3xE6BzKa0hFdVMna9F8NCHAxFZ92oyzcm9zsgA5sgVg7GtKkKihbUb9xD7rsqSh2jTQa8KhWCofELtlYtuHKMUuEtXFtXjzUHX9iFLVf0jbt4lLbsSTG_5YihySacoISx-9Qpo6idSWgL5cP74h72Wps75bXfWhQVYX1N6peCNiOn1SotnvpNuDYma2kWPdx58JKsOS2c3v-p0hnlwwtoKyzO1urDpEo5yN2zQS4PFRSxN4utvec3flR-rF3skVRsgq5TwdMJNMFjhMHbIlM4BIFezn23gpE1TVBJdv_ltyJfxsrAN5Mugo5xjEvQhfUwAYDbvJO2tf6zQUR3iJ5_KLqFhEnYnHZ7zeVmDcAmF68qMBZoLU0CgK81O3ieTJxQshpRnvyoEnB7MRLzPPF5KGk8Nri7BWRKRxBCeiXsJrdpyfd7U9X4bLofQ2xD6hwuyCBB203veELHkHAFhfDKs2n7Z8lJk2WiwhOI5dFqLDlWdPHbANxGMKxjkucgeDkM-gCHfuiUaEQXM-clHK4tl4IIdSMMyQfxfakAmYmE_laBWfrPz6n_iJnZBcGne4vDVYVGUr6skzCjKTvg405y54AxCR_JSBz0H9pMge_hyhHgd6BQRUbVaCNlZu7e_fEHFkysf2S0AoFuzJbANzM1V3_zVAIlRfOq2L_LqCJ2acmILD5ZvlHe_DcaYY-b-Aq49UWU898aKTm9ufFM_q7MRW-hGGCFZ8T5a-KN4M8FSwRzzwqJYjOSJzXpbxPI8jELDLW5HKSjeX7MmObFkYu4I16bc_we9H5DrcAkuEGgHLFL7_NvEOnfGrG7b6sfaMbDC5n0r5mV-bDEhTfkIH9bqmWIG5-CrPwktrO8_8ltslNyrPG668rXi40u2i2rb5i7lLM_xv1ulm3_U1P1uiV9Hj5LHclyMzbYIqLTeakkl4kh3fkuh1runhMJx9tsiG_C23aph1kgaXvZ540TqA3olYU9c2BgsU07X0Lr3Z64p34Z0TMvXcbOqkFqRF8Yf16lu41dz01CAzZWznDQrhDPZM9PcV6bbs5R8Ol42yfegBGXPnt8FqbNGBHTX_jjFNf9wwVtNyGmD3P2F-W7a55_biyZFFMXtRzxX4IJo-8yLjiX2LSlZWGtYgsg-8HM2QEL3HUb-M2NYb09Q-ufxpmSuNAgrLoG7qyN2OVk4F4C9cCFrUF1UampN66d3N2zd4teuR46AWUWWwCJNI6avsKiAnkZHWklqeg_qhX56E4X31hZIC9HaMUG1J09GoXKjTaXwl4RbrNSELFg9LxWhcyXVBbCOlGt1Z-C57zQ_K7SrAUzwrAEp3pcAeEfyM5ttbPRcya.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC01LjUtMjAyNjA0MjN8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_022efe6e11e87eb7016abf36dd7ad087d19e8c1faab7c5cee8",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 73,
+      "completion_tokens": 163,
+      "total_tokens": 236,
+      "cost": 0.005255,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.005255,
+        "upstream_inference_prompt_cost": 0.000365,
+        "upstream_inference_completions_cost": 0.00489
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 65,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

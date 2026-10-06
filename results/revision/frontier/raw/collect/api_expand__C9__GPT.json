@@ -1,0 +1,70 @@
+{
+  "request_model": "openai/gpt-5.5",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Write a Python function `rotate_matrix(matrix: list[list[int]]) -> list[list[int]]` that takes an n-by-n square matrix and returns a new matrix rotated 90 degrees clockwise, leaving the input unchanged. For example, `rotate_matrix([[1, 2], [3, 4]])` returns `[[3, 1], [4, 2]]`. An empty matrix returns an empty list. Use only the Python standard library. Include a docstring and brief inline comments. Return only the code in a single Python code block, with no explanation before or after."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916306-myZdbhZjacKL6WShm0j7",
+    "object": "chat.completion",
+    "created": 1790916306,
+    "model": "openai/gpt-5.5",
+    "provider": "OpenAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "```python\ndef rotate_matrix(matrix: list[list[int]]) -> list[list[int]]:\n    \"\"\"Return a new n-by-n matrix rotated 90 degrees clockwise.\n\n    The input matrix is not modified. An empty matrix returns an empty list.\n    \"\"\"\n    if not matrix:\n        return []\n\n    n = len(matrix)\n\n    # Build each rotated row from the corresponding column of the original.\n    return [[matrix[row][col] for row in range(n - 1, -1, -1)] for col in range(n)]\n```",
+          "refusal": null,
+          "reasoning": "**Writing a function**\n\nI need to focus on creating a code block function. I should think about validation and whether to include it. It looks like I\u2019ll want to prompt for an n-by-n input and make sure I can handle empty values. Including a docstring and inline comments will be key for clarity. In the end, the function should just return the code block. Alright, let\u2019s get started!",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "**Writing a function**\n\nI need to focus on creating a code block function. I should think about validation and whether to include it. It looks like I\u2019ll want to prompt for an n-by-n input and make sure I can handle empty values. Including a docstring and inline comments will be key for clarity. In the end, the function should just return the code block. Alright, let\u2019s get started!",
+              "format": "openai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABqvzbUL__J8iGgJAtrKQRbNMxGVmxLSrZA2kLZJSXq1Kh6ShxlprYtowh-Z3StZrEOYd7_oxVCDH2zhR9n9Q6CiK5TnnfXJ0uJophNrRIprArkKtNZx198wmiyybMqllQ9AmwIEVP4cmBH6wGg2RIHv61uTlhTHWE9HZ5yQlDjYezlY9Q7bmX2QNxsvmPXIyKFPIK6_WPwCJtqV97Wndli9xzjD_KGZCdpY_uBv0kdxMJsgDJpswlnjAKOSYSHGqdcT5vMPuryFk0keIkGHSu-jxr-Mq74ZtAr3SF3x7uVKP28LWRZt-SgOrJTU77vijBYnamRbMEWwIZSs6v0Yfp4BuwixyDtowGVswkxeE6EGuRumwuqwkK4jO5MiIi8U2qEzvODicF3UeEbkQZ6iCJnJOZQcr34Gfht47vlcuxSGHh4NwwZa7MLHJNqTblaVuRHcfTEHwy4GJZl7k_q2_BwqU2CLiRzxFddn52P4PJzb1_5JwbsfVDZGHaKDjTHNse0hW4DQwJ9Rxxvrrep0xbgFho0dPowkHmkGoMDR1a9ttEQqhjTrMVriBcPmUXOjK4EgwGiXKqT2kZFnWCiOMpc-3wTLw3-FAkPFItggMU-SNRwpYFlsZZ7-y0df3dTQQI2ZA8l5E2_sOzVGs8FlviXIFitEN_QptHyr2lB-EF-V8HQiJExmijiZZoTMepS6W2Y9beLTWawj17wlHx-L-8AQsZWzvkhGQw2GIhuDaLWUF-24DeTpkC6mCfWWdHsZm613X1WHmqARc9R0l4GT3tpHMDwkwq7-lbCRIAH-Tn7m0LfOSVHkPzEQ-5uSSmnoPpbgGdGesYaoBe8YUQcYw2EJtVVTQNMMDEDaIPwsTArotNB288WmzhO1Z5ipcZ764ire9Tl6nsZFZMcKdbURxaQMA3P8bPoHoLs082MJBevFb87iUQe2SPJgSYN_o02fz7ENcijgQjA7BvrPgqd32sUYlbWPvBpyPu0rNwedhqXlOCH7qFUKe66HdlPH3lpX8i9J4V_lfVUudSPiuqhccThFI5FA2q6hXs1chQzSoy06MDBpXtxWTNmt8thdjGDNFXjLbiUVDx8BkGPeq7Q7cMlWYdQBh52kQIqViQa8jz0LpfgAgh48MIW2Eqy5VZkNZH6XY-p5J0ucpZbw355aSXtg3ka-MA0SYjDwLe6xA54I0-GGfHvHWS-jxRsEX6PzWwvL9Xc10DTp5meY2hR9juOP-M_47L_z86i5qM1Bp7_nJmgG0CkAYwUbOVYK7iFQzDcgQzzYaWzJreXHFP3y4gIH4r8fM70hk6phrkW1H5R5CSZ2sRy3nJnUb4XoCqiPrEU9VnztStJT5nZFJt-AuptadkGEC8XhOavaDcJgTQEU0LWBYXQ6j85o56uw13jBWcAeNxxbYLwcAqRjshL6PfNPH20ZphubEhk6tqdNsj6adqK3xS5hgB-c026sExa5qyBg3m0CW81geJCaStSIhl8PleRctKEf0KOw3BXCeQme2uVkl_O5P2Zl_SDQ3yFXPVbGgxLEA_4voms1VerStvWtZ_xaQ==.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC01LjUtMjAyNjA0MjN8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_026f803df1225368016abf36d327f087d188f206acce65caca",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 125,
+      "completion_tokens": 151,
+      "total_tokens": 276,
+      "cost": 0.005155,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.005155,
+        "upstream_inference_prompt_cost": 0.000625,
+        "upstream_inference_completions_cost": 0.00453
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 37,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

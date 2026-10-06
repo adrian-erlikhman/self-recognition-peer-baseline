@@ -1,0 +1,49 @@
+{
+  "request_model": "anthropic/claude-opus-4.7",
+  "response": {
+    "id": "gen-1786846193-Ggd3RQewsiU6eFNJGqW4",
+    "object": "chat.completion",
+    "created": 1786846193,
+    "model": "anthropic/claude-opus-4.7",
+    "provider": "Anthropic",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"A\": {\"model\": \"GPT\", \"confidence\": 3, \"reason\": \"Concise, straightforward prose with generic phrasing typical of GPT.\"},\n  \"B\": {\"model\": \"Claude\", \"confidence\": 4, \"reason\": \"Nuanced, carefully qualified argumentation with sophisticated sentence structure and equity framing.\"},\n  \"C\": {\"model\": \"DeepSeek\", \"confidence\": 3, \"reason\": \"Somewhat hyperbolic phrasing like 'vastly more likely' and 'profoundly unequal' with clean tri-part structure.\"},\n  \"D\": {\"model\": \"Grok\", \"confidence\": 3, \"reason\": \"Dense paragraphs without breaks and slightly stilted formal phrasing suggest Grok.\"},\n  \"E\": {\"model\": \"Gemini\", \"confidence\": 4, \"reason\": \"Highly expansive, list-laden examples with elevated diction and hedged qualifiers typical of Gemini.\"}\n}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 4617,
+      "completion_tokens": 322,
+      "total_tokens": 4939,
+      "cost": 0.031135,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.031135,
+        "upstream_inference_prompt_cost": 0.023085,
+        "upstream_inference_completions_cost": 0.00805
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

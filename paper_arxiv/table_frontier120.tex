@@ -1,0 +1,27 @@
+\begin{table}[t]
+\centering\small
+\setlength\tabcolsep{2.5pt}
+\begin{adjustbox}{max width=\linewidth}
+\begin{tabular}{l rrr rr}
+\toprule
+Judge & Self & Peer & FA & Self-adv. [95\% CI] & Hit$-$FA \\
+\midrule
+\multicolumn{6}{l}{\emph{Lineup}} \\
+GPT & 19.2\% & 15.0\% & 20.4\% & +4.2 [$-$3.3, +12.1] & $-$1.2 \\
+Claude & 56.7\% & 50.4\% & 12.7\% & +6.2 [$-$2.5, +14.8] & +44.0$^{*}$ \\
+Gemini & 26.7\% & 31.9\% & 18.3\% & $-$5.2 [$-$14.4, +3.8] & +8.3 \\
+Grok & 32.5\% & 30.2\% & 16.2\% & +2.3 [$-$7.1, +11.9] & +16.2$^{*}$ \\
+DeepSeek & 21.7\% & 18.8\% & 17.7\% & +2.9 [$-$5.2, +11.5] & +4.0 \\
+\midrule
+\multicolumn{6}{l}{\emph{One text at a time}} \\
+GPT & 83.3\% & 63.1\% & 84.4\% & +20.2$^{*}$ [+13.5, +26.7] & $-$1.0 \\
+Claude & 40.8\% & 49.8\% & 3.1\% & $-$9.0 [$-$16.0, $-$1.5] & +37.7$^{*}$ \\
+Gemini & 8.3\% & 4.0\% & 4.8\% & +4.4 [$-$0.4, +9.6] & +3.5 \\
+Grok & 1.7\% & 0.0\% & 0.6\% & +1.7 [+0.0, +4.2] & +1.0 \\
+DeepSeek & 0.0\% & 10.6\% & 0.0\% & $-$10.6$^{*}$ [$-$12.9, $-$8.3] & +0.0 \\
+\bottomrule
+\end{tabular}
+\end{adjustbox}
+\caption{The five frontier judges on 600 texts the same five models wrote through the API for 120 prompts in four genres (120 own texts per judge). Columns as in Table~\ref{tab:frontier}; $^{*}$Holm-corrected within-prompt permutation $p<0.05$.}
+\label{tab:frontier120}
+\end{table}

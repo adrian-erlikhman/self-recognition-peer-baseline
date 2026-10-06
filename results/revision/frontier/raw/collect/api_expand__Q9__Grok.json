@@ -1,0 +1,70 @@
+{
+  "request_model": "x-ai/grok-4.3",
+  "messages": [
+    {
+      "role": "user",
+      "content": "A club has 10 members. In how many different ways can it choose a committee of 3 members, if the order of selection does not matter? Solve the problem, showing your reasoning step by step in plain prose, and end with a final line of the form 'Answer: <number>'."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916333-VnWtwG0ac3eiVukaO3Xa",
+    "object": "chat.completion",
+    "created": 1790916333,
+    "model": "x-ai/grok-4.3",
+    "provider": "xAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "Since the order of selection does not matter when forming a committee, this is a problem of combinations rather than permutations. The number of ways to choose 3 members out of 10 is given by the combination formula C(10,3), which equals 10! divided by (3! times 7!). This simplifies directly to (10 \u00d7 9 \u00d7 8) divided by (3 \u00d7 2 \u00d7 1), or 720 divided by 6, which equals 120.\nAnswer: 120",
+          "refusal": null,
+          "reasoning": "The club has 10 members.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "The club has 10 members.",
+              "format": "xai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "HZZgDdhm/wMsx4SE8mvXLGgo3izfTYSniJBU0z77SnSI2QR5K7yFPJVl/fDiOuz6x7sUFWtA6vhtrzgnTceZJPhO3vwOGmpBYuLJntJa7gpkCZjwRzoZSU+8TG/8rTYUXFdduyK133PCFcf01vTblYory4c7z04p1KoWkg91t2xjmmK97U1WeYKDUFALKhBsANnvC+ePZN5eb06h44bR1lyXtrKhLFBcgaK3tPEJUOQvM3fnqeMmCHiM/gEJF6f8SKEXKzfHqgcqJfLgXQi1Exc2nACaUP/SebOZTu+h+2HmnIpD4hWxhuLZzBahYz8nuq9UMYJH+2w86TrQaBhu2qrPjmIe7QJbwYUr/4bG3km74pQ8UYa5F7jHYUo0QELOOFvzyCehXaM8dgFXLMY8nX5SIEy4F1+jWozxa0LiBC+GQX4tqI7pOsBtuauAKp4azLQoy47K7WBI5kTjQyZOsgJhZ70cSJe0xoSiQbDxQPMXT6zQFrZY+GwGJBj7H6iZYFVsJUwdSdAujXmxPZrYe4bwgxaSsBcOSWq4Ps+yxWsCq0oIVleDCKxCe+Pz7Tjbn4puT6BjxHX5GdMy10vDLz8YxVjrXzN7Xj+xvxG6DTHH3eNQ3RZxy6A3zK4FTBD8dX6c2w8kIVkBKFpKVKVNyVnnYrLXey6L9cj02gc9b/t5TGrfPSqVzR0sCSA/W46MPgJSuBAqAchzfshUprw2nuFOt4zJ7mHgIfs9mVXE8UBG7MqbHobLRRnAWaKspUjKI2FBAqxGycASJ8OfAqBgY8TXn2+HhcfR5RwzbNOyemelR+ciTGfml0sSkZJSA6xv3bVkO11UferFwL7jcWHX6WNWPrwyQGrrtWwLB/JFPtySlGbNVcY5pEC57fL+FcNtR9ZA5NDFPD7RhOWAfEPw2dRSo4x/CPAZVBatsn6wjlRncn5NKof0JmxZYmnwtnRKVKGKsReh+rg0O6SWkZ4s+zgO73epx8OFV6fNtjOR626nGAbL/Foq6qB7a7MbciQzMcayO6myGdt5GG/fjzdeFzzWJuv+t5IvvZzIhELUUfouYsAG4gOJrs4KHT7U8Y2bznWUy1HwO6wC1LZlFB2UCSsbq2W1GxMNYzbRY7HhxSwODEuXeMaHKVk8NoZCWiVK8+N722XiYXf+xCKbcR91Yk038Ff7yWZyn9BpdUx8T0YAP3fMRQSbLNzj1Js8qkedd0rfKXzL+HnCyfidG7pRI2/NiTvo3JmLvnJvG71sFIyP/SKdTiHSRR5EQcktZqRM+BF+HZaFLUsaevqQ4cL/cXPJmqXnlTZ2eOUsL7n06h/xZNHaCZY5yVTjIUw9f/Joh5kQninJeiHPYydWOjxyrs5lO79VQz2nlqLLyx1wA/Zzp/x0mscBxKRo474/p9wHMiq/DHeHc7dz18PfiLtydCCWt8BNyhnP78GNkXtMBvmN/zfR1wMs/9E2G5MmZV55IVmfem8NJwNgbufc9qwQjUIqtsnWfPJOtpdG6v3PHwwAhnqUw+cbIL3EwwfDVe/atr8lAy3aUdW7SECa9PEY9HViwFSwiuBoXyQs9ZQrzXuXl6MHy1M8kWv6vObbSUQgSZccKYqOM5k6yHp8IXUeLF4CkQs2XyChhdjy5da3F8m5pm4HStCUcX5lh3E7scthSOF6I+hiLraU7Af3Kf6F3YmIoOGfWkLxXx4FHc8uNcxvoYa0YivJW3e7rexMpTDPBwYdGMVkGihfSG6d9SBuvLf2hnNUc7lcPQ09k6rjClCDgXc3x2kk+QdDoFeX.eyJlbmRwb2ludF9zbHVnIjoieC1haS9ncm9rLTQuMy0yMDI2MDQzMHx4YWkifQ",
+              "format": "xai-responses-v1",
+              "id": "rs_93d2b7b0-428a-98c6-be90-09146619ca9c",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 252,
+      "completion_tokens": 505,
+      "total_tokens": 757,
+      "cost": 0.0014431,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 128,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0014431,
+        "upstream_inference_prompt_cost": 0.0001806,
+        "upstream_inference_completions_cost": 0.0012625
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 402,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "request_model": "x-ai/grok-4.3",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Write a Python function `max_subarray_sum(nums: list[int]) -> int` that returns the largest sum of any non-empty contiguous subarray of `nums`, using Kadane's algorithm in O(n) time. If all numbers are negative, return the largest single element. Raise ValueError if `nums` is empty. Use only the Python standard library. Include a docstring and brief inline comments. Return only the code in a single Python code block, with no explanation before or after."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916310-gvwRgcIeRNdX5LSVS1h6",
+    "object": "chat.completion",
+    "created": 1790916310,
+    "model": "x-ai/grok-4.3",
+    "provider": "xAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "```python\ndef max_subarray_sum(nums: list[int]) -> int:\n    \"\"\"Return max sum of any contiguous subarray using Kadane's algorithm.\"\"\"\n    if not nums:\n        raise ValueError(\"nums cannot be empty\")\n    max_current = max_global = nums[0]\n    for num in nums[1:]:\n        max_current = max(num, max_current + num)  # extend or start new\n        if max_current > max_global:\n            max_global = max_current\n    return max_global\n```",
+          "refusal": null,
+          "reasoning": "I need to implement Kadane's algorithm in O(n) time to find the maximum sum of any contiguous subarray. The function will raise ValueError for empty input and return the largest single element if all numbers are negative.\n\nThe algorithm initializes both the current and global maximums to the first element. It then iterates through the rest of the array, updating the current sum to the larger of the current element or the running sum plus that element. The global maximum is updated whenever the current sum exceeds it.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "I need to implement Kadane's algorithm in O(n) time to find the maximum sum of any contiguous subarray. The function will raise ValueError for empty input and return the largest single element if all numbers are negative.\n\nThe algorithm initializes both the current and global maximums to the first element. It then iterates through the rest of the array, updating the current sum to the larger of the current element or the running sum plus that element. The global maximum is updated whenever the current sum exceeds it.",
+              "format": "xai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "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.eyJlbmRwb2ludF9zbHVnIjoieC1haS9ncm9rLTQuMy0yMDI2MDQzMHx4YWkifQ",
+              "format": "xai-responses-v1",
+              "id": "rs_ca64d988-2a53-9970-9e78-cee7496692b6",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 292,
+      "completion_tokens": 709,
+      "total_tokens": 1001,
+      "cost": 0.0019359,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 192,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0019359,
+        "upstream_inference_prompt_cost": 0.0001634,
+        "upstream_inference_completions_cost": 0.0017725
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 602,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

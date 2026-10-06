@@ -1,0 +1,70 @@
+{
+  "request_model": "x-ai/grok-4.3",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Write a Python function `longest_common_subsequence(a: str, b: str) -> int` that returns the length of the longest common subsequence of the strings `a` and `b` using dynamic programming. For example, `longest_common_subsequence(\"ABCBDAB\", \"BDCABA\")` returns 4. The function should use O(min(len(a), len(b))) extra memory. Use only the Python standard library. Include a docstring and brief inline comments. Return only the code in a single Python code block, with no explanation before or after."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916313-D95tUQxFcqbBb3fwnqiE",
+    "object": "chat.completion",
+    "created": 1790916313,
+    "model": "x-ai/grok-4.3",
+    "provider": "xAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "```python\ndef longest_common_subsequence(a: str, b: str) -> int:\n    \"\"\"Return length of longest common subsequence of a and b.\"\"\"\n    if len(a) > len(b):\n        a, b = b, a  # ensure len(a) <= len(b) for O(min) space\n    m, n = len(a), len(b)\n    prev = [0] * (m + 1)\n    curr = [0] * (m + 1)\n    for j in range(1, n + 1):\n        for i in range(1, m + 1):\n            if a[i-1] == b[j-1]:\n                curr[i] = prev[i-1] + 1\n            else:\n                curr[i] = max(prev[i], curr[i-1])\n        prev, curr = curr, prev  # reuse arrays, O(min(len(a), len(b))) space\n    return prev[m]\n```",
+          "refusal": null,
+          "reasoning": "I need to write a Python function that computes the longest common subsequence length using dynamic programming with O(min(len(a), len(b))) extra memory.\n\nI'll use two 1D arrays to keep only the previous row in memory. The shorter string will be used as the row dimension for O(min(len(a), len(b))) space.\n\nI drafted the code with two 1D arrays and a swap between iterations. I am verifying that the final result is correctly read from `prev[m]`.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "I need to write a Python function that computes the longest common subsequence length using dynamic programming with O(min(len(a), len(b))) extra memory.\n\nI'll use two 1D arrays to keep only the previous row in memory. The shorter string will be used as the row dimension for O(min(len(a), len(b))) space.\n\nI drafted the code with two 1D arrays and a swap between iterations. I am verifying that the final result is correctly read from `prev[m]`.",
+              "format": "xai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "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.eyJlbmRwb2ludF9zbHVnIjoieC1haS9ncm9rLTQuMy0yMDI2MDQzMHx4YWkifQ",
+              "format": "xai-responses-v1",
+              "id": "rs_dffb0941-f969-96cc-a118-4868ae4d1f62",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 309,
+      "completion_tokens": 785,
+      "total_tokens": 1094,
+      "cost": 0.00221435,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 128,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00221435,
+        "upstream_inference_prompt_cost": 0.00025185,
+        "upstream_inference_completions_cost": 0.0019625
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 584,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

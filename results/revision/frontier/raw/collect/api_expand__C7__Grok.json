@@ -1,0 +1,70 @@
+{
+  "request_model": "x-ai/grok-4.3",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Write a Python function `flatten(nested: list) -> list` that takes a list whose elements may be lists nested to any depth and returns a new flat list of all non-list elements in left-to-right order. Only objects of type `list` are flattened; tuples, strings, and other values are kept as single elements. For example, `flatten([1, [2, [3, (4, 5)]], \"ab\"])` returns `[1, 2, 3, (4, 5), \"ab\"]`. Use only the Python standard library. Include a docstring and brief inline comments. Return only the code in a single Python code block, with no explanation before or after."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916304-Qgy9Z4w6LDqXVCOmxdsz",
+    "object": "chat.completion",
+    "created": 1790916304,
+    "model": "x-ai/grok-4.3",
+    "provider": "xAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "```python\ndef flatten(nested: list) -> list:\n    \"\"\"Return a flat list of all non-list elements from nested, left-to-right.\"\"\"\n    result = []\n    for item in nested:\n        if isinstance(item, list):\n            result.extend(flatten(item))  # recurse on nested list\n        else:\n            result.append(item)           # keep non-list as single element\n    return result\n```",
+          "refusal": null,
+          "reasoning": "I need to write a recursive `flatten` function that uses only the standard library. It will return a flat list of non-list elements in left-to-right order.\n\nThe implementation will use recursion with `isinstance(item, list)` to distinguish nested lists from tuples and strings. I am drafting the function signature, docstring, and loop structure now.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "I need to write a recursive `flatten` function that uses only the standard library. It will return a flat list of non-list elements in left-to-right order.\n\nThe implementation will use recursion with `isinstance(item, list)` to distinguish nested lists from tuples and strings. I am drafting the function signature, docstring, and loop structure now.",
+              "format": "xai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "lhAaTQjWe6CtPYECJS85Q2nuGshTdYqL6+YKiil3WUvAzHTcxJW7DU4ssVrxeqrpSOJ0FmCX5hgh3CYt7ddPTmzIi8Zz0La05Yr9+YgHcY1cvx+tC2A6zR2Vb8YwHUY19ghyk1lcgyyJQP7VFYgq/uJME+geYpaT5nhVYGN5f6EO1CFbTD5A7CT3Cl4xcFbBu+dEWNUp4Q0koemNxg7EX+oNyauspVVmFXvLDcRfHGs4GIoMIaPJzIxiLsKhvOkynolFCxsk7GCYRBJ9+mZAwh1KK9O0z7p/g7xWGarOaO5VG2d1vsif6cXC+fbsYwxud1YGwNkNKtafL9zTg68BtT78K2SQU/kbgZZb74zYu0N1zzv9LGSRiAIoDc/1wCVjkMI5UXujv0lFvlHncfYDtAWS6MsRiJOPc4MCKzZrsA7BSpeMqxtJ5BvUS+drgPGqGciPWEVxLLSiJquVWtBHdky+2udx/AWDGpPDcZGA00o23McXsIa604NBePTBzpKIRDKvGfhlyimkMTzE8mi2MyURk5jdvBAjDxCMSbxvKpEupCJ6P2f9ZiHIsahy5oMBGESr0NLpp5ux95MMNrj3Erqj7AeoV3W6MN6tKDJysMiplB7cbtW+AMBp3bxzXSWUi0HQ7rSkqUTqRS5oKOSGldopmD2ZZmTX81YwN7VcmxnXhCn4QX3I2Nkm0sAg+ACYPCSh1BhJzu1TiFR5j0awPpw5vD+8HCnqD6ipfJ21OJarSDbzvSlJD3VHNzImiWxPby1hp/OGN08tJsbHgq/47PuUwRVRtzQgOl1OM/V7wjFtbc617Yd6328Ao8YeP2UjChyaI0v2zpRpRqhsZjrEQeniq54ZCXp2e6VToC6o0h/PX7e85q5hCT0WPb2LD6wxRiHHphjKyEeVRBgMsqJk4XscS1pCWofBzijjB8atqZy7eM7rGbZo4z/UCE1oG9RaeeYnCMClFuSGFrmvP10IJy6Pg4a3ftgPEobQJ4dBYKNpfWbgvTdUi8k3VZ65RymTwd7cqVYT21F2+lhhNsmekb5/ejxXSW+XylFXWnE8zIjH35pcsTdyVvnhgHFoEIe6SEzwRK26VX9tR3M5pejnYkLckl0yAiqHfmYdf8o7WreJvgbjmM1Ipnspw6IMMaU7JxGIM3+R+XzbRKr/+xw0Uwm23aJcfJ1IIeig8H+r8Ocp8y9wCZ1saGPMzcv5L0C+JIMr9ykCuQnoyNjYkGDvsl5ABiCjCvfoJEpJwIAB0rq7nssfjIgogaAqPlydTUCk8HWZBKbsrMW7R8dp5uFNVsTMiLBv0yj6AkHkmQK26jOEd5G7oh+180eBLhVRML0i70GJZEWVuLvFFdHo5EYK4vCgR5HpXcOHVj8Rnnej9ZtJEHmcVWe2qvLxTu4mjY2F1UhEByAKAH6xoQbfDuZQt0TkwA0dgzeRy/+0RfsHgIT5ZSDweFyBAve1ELvIafR2V0iPgL04oMmZI9qxA0JK9eNKO9PffIL2YsRd0RCAnHQLO4JkKqkI5XcDUZdyoBjTEMxMK+6ATHSgTDr9ilzitB1ki0IWPSXsJi4wCKf0lR5m4APNTuGP4zbpv6JvNf+FEprqo3jDPMNYXov9atj4284jsajiIP/iSO2Kqnu49/aXv2OX9aGDbTX77Batb1pU61ZXjzax/0gvsBU2CQrJCbIeqwuM/wr9P5B9K0wZ+9gvrF4VeV6PLTRynjbBROE6jJayUflpzRGGMUSkeFG0PL8hArF+McGc4KAeyUiR1ztfTXAkLzL2T+H+pzMpYZ+L1goBrBO2W+5dNmObquVyFK5BZqGlqIq+mHDl6IObFSqurzPw+M8uWLeM6faReIWcohLRRrWIki4U+35XCz3MxgOqnW0SGI3w9Z0.eyJlbmRwb2ludF9zbHVnIjoieC1haS9ncm9rLTQuMy0yMDI2MDQzMHx4YWkifQ",
+              "format": "xai-responses-v1",
+              "id": "rs_68e3af42-ec0c-97e8-b674-3ed579454147",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 338,
+      "completion_tokens": 402,
+      "total_tokens": 740,
+      "cost": 0.0012259,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 192,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0012259,
+        "upstream_inference_prompt_cost": 0.0002209,
+        "upstream_inference_completions_cost": 0.001005
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 318,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

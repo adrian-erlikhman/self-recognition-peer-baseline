@@ -1,0 +1,63 @@
+{
+  "request_model": "google/gemini-3.5-flash",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Explain how an airplane wing generates lift. Answer in two to four sentences of plain prose."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916394-HOleokiPbp0TrABTLKw6",
+    "object": "chat.completion",
+    "created": 1790916394,
+    "model": "google/gemini-3.5-flash",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "As an airplane moves forward, its wings slice through the air and force the airflow downward. Because of the wing's tilted angle and curved shape, air flows faster over the top surface than underneath, which creates lower air pressure on top and higher pressure below. This pressure difference, combined with the physical reaction of the air being deflected downward, pushes the wing upward to create lift.",
+          "refusal": null,
+          "reasoning": "**Analyzing Wing Aerodynamics**\n\nI'm currently focused on the fundamental mechanisms by which an airplane wing creates lift. My thinking is revolving around the principles of airflow dynamics and Bernoulli's principle. I'm aiming for a clear, concise explanation suitable for a technically proficient audience, avoiding unnecessary jargon while maintaining scientific rigor.\n\n**Explaining Lift Generation**\n\nI'm refining my explanation of lift, emphasizing the dual mechanisms of downward air deflection and pressure differentials. My current draft highlights how the wing's shape and angle of attack influence airflow speed, leading to reduced pressure above and increased pressure below, a crucial aspect of lift.\n\n**Refining Lift Explanations**\n\nI'm now focusing on integrating both Newtonian and Bernoulli-based explanations for lift. My latest draft clearly outlines how downward air deflection and the pressure differential due to varying airflow speeds work in concert to generate upward force, avoiding common misconceptions.\n\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "**Analyzing Wing Aerodynamics**\n\nI'm currently focused on the fundamental mechanisms by which an airplane wing creates lift. My thinking is revolving around the principles of airflow dynamics and Bernoulli's principle. I'm aiming for a clear, concise explanation suitable for a technically proficient audience, avoiding unnecessary jargon while maintaining scientific rigor.\n\n**Explaining Lift Generation**\n\nI'm refining my explanation of lift, emphasizing the dual mechanisms of downward air deflection and pressure differentials. My current draft highlights how the wing's shape and angle of attack influence airflow speed, leading to reduced pressure above and increased pressure below, a crucial aspect of lift.\n\n**Refining Lift Explanations**\n\nI'm now focusing on integrating both Newtonian and Bernoulli-based explanations for lift. My latest draft clearly outlines how downward air deflection and the pressure differential due to varying airflow speeds work in concert to generate upward force, avoiding common misconceptions.\n\n",
+              "format": "google-gemini-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 18,
+      "completion_tokens": 712,
+      "total_tokens": 730,
+      "cost": 0.006435,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.006435,
+        "upstream_inference_prompt_cost": 2.7e-05,
+        "upstream_inference_completions_cost": 0.006408
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 636,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "request_model": "x-ai/grok-4.3",
+  "response": {
+    "id": "gen-1786846145-2EWoYnFzqHBioY56EhpH",
+    "object": "chat.completion",
+    "created": 1786846145,
+    "model": "x-ai/grok-4.3",
+    "provider": "xAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"A\": {\"model\": \"GPT\", \"confidence\": 4, \"reason\": \"Formulaic three-paragraph structure with clear topic sentences and balanced phrasing typical of GPT.\"},\n  \"B\": {\"model\": \"Gemini\", \"confidence\": 3, \"reason\": \"Concise yet flowing academic tone with emphasis on outcomes, resembling Gemini's polished style.\"},\n  \"C\": {\"model\": \"Claude\", \"confidence\": 5, \"reason\": \"Extremely long, dense paragraphs with exhaustive study citations and complex syntax match Claude's depth.\"},\n  \"D\": {\"model\": \"DeepSeek\", \"confidence\": 3, \"reason\": \"Direct, repetitive structure and straightforward academic language suggest DeepSeek.\"},\n  \"E\": {\"model\": \"Grok\", \"confidence\": 4, \"reason\": \"Narrative flow, vivid phrasing like 'literacy compounds', and specific economist references fit Grok's engaging style.\"}\n}",
+          "refusal": null,
+          "reasoning": "The task is to identify which model wrote each of the five responses A through E, based on writing style, structure, and phrasing. The models are GPT, Claude, Gemini, Grok, DeepSeek.\nFirst, the task is to identify the model for each response A-E: GPT, Claude, Gemini, Grok, DeepSeek based on writing style, structure, phrasing.\n\nI need to output JSON in exact format:\n\n{\n  \"A\": {\"model\": \"<model>\", \"confidence\": <1-5>, \" \"reason\": \"<one short sentence>\"},\n  ...\n}\n\nConfidence 1-5, 5=certain.\n\nFrom my analysis:\n\n- C is very long, detailed with specific studies (Perry, Abecedarian), complex sentences \u2013 that's Claude.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "The task is to identify which model wrote each of the five responses A through E, based on writing style, structure, and phrasing. The models are GPT, Claude, Gemini, Grok, DeepSeek.\nFirst, the task is to identify the model for each response A-E: GPT, Claude, Gemini, Grok, DeepSeek based on writing style, structure, phrasing.\n\nI need to output JSON in exact format:\n\n{\n  \"A\": {\"model\": \"<model>\", \"confidence\": <1-5>, \" \"reason\": \"<one short sentence>\"},\n  ...\n}\n\nConfidence 1-5, 5=certain.\n\nFrom my analysis:\n\n- C is very long, detailed with specific studies (Perry, Abecedarian), complex sentences \u2013 that's Claude.",
+              "format": "xai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "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.eyJlbmRwb2ludF9zbHVnIjoieC1haS9ncm9rLTQuMy0yMDI2MDQzMHx4YWkifQ",
+              "format": "xai-responses-v1",
+              "id": "rs_6b3167fe-49af-9844-9caa-2957b96a6090",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 3029,
+      "completion_tokens": 895,
+      "total_tokens": 3924,
+      "cost": 0.00555335,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 448,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00555335,
+        "upstream_inference_prompt_cost": 0.00331585,
+        "upstream_inference_completions_cost": 0.0022375
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 698,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

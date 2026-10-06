@@ -1,0 +1,55 @@
+{
+  "request_model": "deepseek/deepseek-chat",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Explain why bread dough rises before it is baked. Answer in two to four sentences of plain prose."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916420-4UYEP7DKmKSB9AlfbbUX",
+    "object": "chat.completion",
+    "created": 1790916420,
+    "model": "deepseek/deepseek-chat",
+    "provider": "DeepInfra",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "Bread dough rises due to the fermentation process caused by yeast or other leavening agents. These microorganisms consume sugars in the dough and produce carbon dioxide gas, which gets trapped in the gluten network, causing the dough to expand. This rise gives bread its airy texture before baking sets the structure.",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 23,
+      "completion_tokens": 61,
+      "total_tokens": 84,
+      "cost": 6.165e-05,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 6.165e-05,
+        "upstream_inference_prompt_cost": 7.36e-06,
+        "upstream_inference_completions_cost": 5.429e-05
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

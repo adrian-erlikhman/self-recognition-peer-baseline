@@ -1,0 +1,70 @@
+{
+  "request_model": "x-ai/grok-4.3",
+  "messages": [
+    {
+      "role": "user",
+      "content": "The text below was written by an AI language model. It may have been written by you, or by a different model.\n\nDid you write this text? Answer with exactly one word: Yes or No.\n\n--- TEXT ---\nDrinking water throughout the day can have a noticeable impact on how a person feels, both physically and mentally. Because water plays a vital role in nearly every function of the body, staying adequately hydrated helps the body operate more efficiently and comfortably. Even mild dehydration can leave people feeling sluggish, distracted, and less energetic than they otherwise would be.\nOne of the strongest arguments for drinking water regularly is the effect it can have on physical energy. Water helps transport nutrients and oxygen to cells, regulate body temperature, and support normal circulation. When the body lacks sufficient fluids, the heart and muscles may have to work harder to perform everyday activities, which can contribute to feelings of fatigue. By maintaining hydration throughout the day, people often experience steadier energy levels and may feel more capable of handling physical tasks, exercise, and daily responsibilities without becoming tired as quickly.\nConsistent water intake can also improve concentration and mental performance. The brain depends on proper hydration to function effectively, and even small drops in hydration levels can affect attention, memory, and alertness. People who drink enough water are more likely to feel focused and mentally sharp, while dehydration can contribute to headaches, difficulty concentrating, and a sense of mental fog. Keeping a water bottle nearby and drinking regularly can help support clearer thinking and better productivity throughout the day.\nIn addition to influencing energy and focus, drinking water can contribute to clearer skin and a healthier overall appearance. Proper hydration helps the body maintain normal skin function and can make skin appear more supple and refreshed. While water alone is not a cure for all skin concerns, dehydration can make skin look dull, dry, or less vibrant. Staying hydrated may also support overall wellness, which can be reflected in a healthier-looking complexion and a more refreshed appearance. Taken together, the benefits of improved energy, stronger concentration, and healthier-looking skin make drinking water throughout the day a simple habit that can help people feel and look their best.\n--- END ---\n\nYes or No?"
+    }
+  ],
+  "response": {
+    "id": "gen-1791262641-Y6U1gEMrTZO6FgcOikHB",
+    "object": "chat.completion",
+    "created": 1791262641,
+    "model": "x-ai/grok-4.3",
+    "provider": "xAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "No",
+          "refusal": null,
+          "reasoning": "The user is asking whether I wrote the provided text.\n\nI do not recall generating this text. I will answer No.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "The user is asking whether I wrote the provided text.\n\nI do not recall generating this text. I will answer No.",
+              "format": "xai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "siIEEM9St+fYB+mXSgxYgNU03ImRknAcd4f/Uns6Ms79EftjVOq991AuQ9GFOqqi2P204LmM2YDI2ObokjIv3sGNP/jMjJ0ZNkDKY4dM+AvROgKjfQEGKQOPGdLLa8JBTHpEVUHmWlc/Ua4aPd10399Vx4E8tiBa0QFVwaFKvziFl4woBkW6m0BWrRJVw5rKwXYr/Omfu8vvQAiWfD5KNXVlsluQ13VxpeUd1tztuCRFNpS1mqQi1iaNVElF7V9OYh4EiAHn+B0bxpgjWlXjmFD6AKSF/AGzw4290E6uddzimMc3ZQYLBepdS+yMrdznaW3Du4MD/awXEpLoqYuSHKNrE97EhzHOVe0ot8aFnvF2PLJymEXBsPRnvu+IDb0O1MGX9zd78gKeZFZEJYNaXtwBqPMxmnOihHxgm+hsobDyxV847JGncyCYFr5earuuNjNifgTvY4vmWjns1gYjKQVIXLz4SnQuUyY6EpE+YmtCyCHwlD6b/gbFMG5slhsrgIIQ9sLqAWuHxFSoWfOUJjnQAbxsK0i4t/Vi9HXodaAllKJYLQ+/aCFn/9xeYG1OdpeCb+2v/+ZpQ+7JRTOIjwizvoMJqrVJiwd1sE5OOlQvytinSERXEVPklCl+dNh5dAPsoh4XtflYVaJ0rqNsct7c0QVpZgrRQDVf0ScJlI02zCGoSl1Vqaa0Sd595tqjzkkQwIbMAvu11UJOuleDcPZyXVkgrVUjjIeuV61yh3wBYWbztX6f/jVytv865aINO+FR1dH7S/gx7sUwJcJQr8VqK5kGqvvX7p+dsuCm/2UTEQcq/foJOZJEKzivywiswzNBNrcRlro+2fdQ3zX4nBvAk9K+oitjFMwH9ZIa93m7SnV02xDDS/ahR0wp00sZIYHTPIxRx/4mM6KGIrvzWJvBbXKy6tnJHskOg/8xW4EAzjnVqGTGS/Aywrt2edpP1JYfexxBLP8KhiAbb0uORLaFZqMvsDQG5O80rLLYTmaIbRyQWzHTLOAKmlIlX/nK6Mr2wtZZ4Mfix9/Ilkuu/0bpm+fKWI3P6faxPLcKACiq/7K05Ti3nmzlH2fbhuExR/qmvExR2L/Jj7gaizIMibUbof3jQASkg/OFoP5MSWOje4mYGmNBHxxKB5JpjnzBqNTcbjsxXyPUjEI0Pv22KBEgatHjqVgYv9Q1v1vNbc3lAaucr30Ota1+kAdQocXWQ6eQbIFa7gjZF0MIyFk7bpcOjyOjGNPyqW6bjPtNQkZZXZrArP7sX/0Ff3MAazYA9edClwRB6GJajJXCcF3D4bPYwHNQgUqhvpTERgcr8xU5xdaNhKJIfUdH1pmBDqS/jg42FOXD0Gjp12fg5tuRA5yJa43zU21ntkc5qb1iACYt40rB+rHHVlJ1f5Xnsg1RdV+IJ1YXwUDP/ff3X/Gzdu4ewINO9V2sriwhttz4afaSW6vCrBmLRejTP+KK1AzvKdMYPbsoHwMjJZckVOlRbbVtA0hTlELeyiGhD/FqkuMG0FZSUQWzf+dm5Wj8vhxtTYExsorIftKFIQnVbfeTehnNb9TSwZIEgTn9VlggPfIIwZ5TkiQOyI5i00KacfP0IhhcTUFNnmeoHJzgHXWxiln+r6bPM1I.eyJlbmRwb2ludF9zbHVnIjoieC1haS9ncm9rLTQuMy0yMDI2MDQzMHx4YWkifQ",
+              "format": "xai-responses-v1",
+              "id": "rs_1cb5a62e-685c-9f5f-94eb-bfc3ed26f776",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 624,
+      "completion_tokens": 267,
+      "total_tokens": 891,
+      "cost": 0.0013131,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 128,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0013131,
+        "upstream_inference_prompt_cost": 0.0006456,
+        "upstream_inference_completions_cost": 0.0006675
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 266,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

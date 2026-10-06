@@ -1,0 +1,64 @@
+{
+  "request_model": "x-ai/grok-4.3",
+  "response": {
+    "id": "gen-1786846444-51zRITYtpCEYbMPlQdIq",
+    "object": "chat.completion",
+    "created": 1786846444,
+    "model": "x-ai/grok-4.3",
+    "provider": "xAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "{\"model\": \"GPT\", \"confidence\": 3, \"reason\": \"Neutral, highly structured explanatory style with clear topic sentences and no humor or distinctive flair matches GPT most closely.\"}",
+          "refusal": null,
+          "reasoning": "The task is to identify which AI model most likely produced the given text: GPT, Claude, Gemini, Grok, or DeepSeek. I must reply with JSON only in a specific form.\nFirst, the text is very structured: intro, then reasons with subheadings implied, detailed explanations, conclusion. It's positive, helpful, straightforward.\n\nComparing styles:\n\n- GPT: Often produces clear, logical, well-structured text like this. Neutral, informative.\n\n- Claude: Also structured, but might be more elaborate or philosophical (e.g., Anthropic's style emphasizes safety, nuance).\n\n- Gemini: Helpful, but might include disclaimers or be more concise.\n\n- Grok: Witty, humorous, direct. This text lacks any humor \u2013 it's purely serious and academic-like.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "The task is to identify which AI model most likely produced the given text: GPT, Claude, Gemini, Grok, or DeepSeek. I must reply with JSON only in a specific form.\nFirst, the text is very structured: intro, then reasons with subheadings implied, detailed explanations, conclusion. It's positive, helpful, straightforward.\n\nComparing styles:\n\n- GPT: Often produces clear, logical, well-structured text like this. Neutral, informative.\n\n- Claude: Also structured, but might be more elaborate or philosophical (e.g., Anthropic's style emphasizes safety, nuance).\n\n- Gemini: Helpful, but might include disclaimers or be more concise.\n\n- Grok: Witty, humorous, direct. This text lacks any humor \u2013 it's purely serious and academic-like.",
+              "format": "xai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "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.eyJlbmRwb2ludF9zbHVnIjoieC1haS9ncm9rLTQuMy0yMDI2MDQzMHx4YWkifQ",
+              "format": "xai-responses-v1",
+              "id": "rs_7f875a53-aab0-904f-aaa0-4a06686eeec3",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 723,
+      "completion_tokens": 723,
+      "total_tokens": 1446,
+      "cost": 0.00257685,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 128,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00257685,
+        "upstream_inference_prompt_cost": 0.00076935,
+        "upstream_inference_completions_cost": 0.0018075
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 685,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

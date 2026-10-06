@@ -1,0 +1,55 @@
+{
+  "request_model": "anthropic/claude-opus-4.7",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Explain what inflation means in economics. Answer in two to four sentences of plain prose."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916411-00raBCBXKc91sb8CD36j",
+    "object": "chat.completion",
+    "created": 1790916411,
+    "model": "anthropic/claude-opus-4.7",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "Inflation is the rate at which the general level of prices for goods and services rises over time, which in turn reduces the purchasing power of money. When inflation occurs, each unit of currency buys fewer goods than it did before, so consumers effectively need more money to maintain the same standard of living. Economists typically measure it using price indexes like the Consumer Price Index, and moderate, stable inflation is generally considered a normal feature of a growing economy.",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 39,
+      "completion_tokens": 144,
+      "total_tokens": 183,
+      "cost": 0.003795,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.003795,
+        "upstream_inference_prompt_cost": 0.000195,
+        "upstream_inference_completions_cost": 0.0036
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

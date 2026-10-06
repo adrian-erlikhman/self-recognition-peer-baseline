@@ -1,0 +1,70 @@
+{
+  "request_model": "x-ai/grok-4.3",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Write a Python function `valid_brackets(s: str) -> bool` that returns True if every bracket in `s` is correctly matched and nested, considering the three bracket types (), [] and {}, and ignoring all other characters. For example, `valid_brackets(\"a[b(c)]{}\")` returns True and `valid_brackets(\"([)]\")` returns False. Use only the Python standard library. Include a docstring and brief inline comments. Return only the code in a single Python code block, with no explanation before or after."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916304-txLDNaMzeK9ULppZO1u0",
+    "object": "chat.completion",
+    "created": 1790916304,
+    "model": "x-ai/grok-4.3",
+    "provider": "xAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "```python\ndef valid_brackets(s: str) -> bool:\n    \"\"\"Return True if all brackets in s are correctly matched and nested.\"\"\"\n    stack = []  # use list as stack\n    mapping = {')': '(', ']': '[', '}': '{'}  # closing -> opening\n    for char in s:\n        if char in '([{':  # opening bracket\n            stack.append(char)\n        elif char in ')]}':  # closing bracket\n            if not stack or stack[-1] != mapping[char]:\n                return False\n            stack.pop()\n    return not stack  # True only if stack empty\n```",
+          "refusal": null,
+          "reasoning": "I need to write a Python function that checks if brackets in a string are correctly matched and nested.\n\nI'll use a stack to track unmatched opening brackets. A mapping will link each closing bracket to its matching opener. I'll iterate through the string, push opening brackets onto the stack, and pop when a closing bracket matches the top. If the stack is empty at the end, all brackets are properly nested.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "I need to write a Python function that checks if brackets in a string are correctly matched and nested.\n\nI'll use a stack to track unmatched opening brackets. A mapping will link each closing bracket to its matching opener. I'll iterate through the string, push opening brackets onto the stack, and pop when a closing bracket matches the top. If the stack is empty at the end, all brackets are properly nested.",
+              "format": "xai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "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.eyJlbmRwb2ludF9zbHVnIjoieC1haS9ncm9rLTQuMy0yMDI2MDQzMHx4YWkifQ",
+              "format": "xai-responses-v1",
+              "id": "rs_05745bfc-2b9f-9f99-801c-d6bbecf86473",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 302,
+      "completion_tokens": 477,
+      "total_tokens": 779,
+      "cost": 0.0014356,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 128,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0014356,
+        "upstream_inference_prompt_cost": 0.0002431,
+        "upstream_inference_completions_cost": 0.0011925
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 344,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

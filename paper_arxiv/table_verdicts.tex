@@ -1,0 +1,27 @@
+\begin{table}[t]
+\centering\small
+\begin{tabular}{lll}
+\toprule
+Judges, texts, format & Usual test passes & Our test passes \\
+\midrule
+Frontier, chat-app essays, lineup & GPT, Claude & GPT, Claude \\
+Frontier, chat-app essays, one text & GPT, Claude & GPT \\
+Frontier, chat-app essays, yes/no & Claude & Claude \\
+Frontier, API texts, lineup & Claude, Grok & -- \\
+Frontier, API texts, one text & GPT, Claude & -- \\
+Open-weight, lineup & Qwen & -- \\
+Open-weight, one text & Qwen, Llama, Phi & -- \\
+Open-weight, yes/no & Llama, Mistral & -- \\
+\midrule
+Cases flagged & \SVPStd{} of \SVPCells{} & \SVPProper{} of \SVPCells{} \\
+\bottomrule
+\end{tabular}
+\caption{Which judges appear to recognise their own text. Usual test: the
+judge names itself on its own text more often than chance (for yes/no: says
+yes to its own text more than half the time). Our test: the judge names itself
+more often on its own text than on others' \emph{and} more often than its
+peers do (for yes/no, which has no peer baseline, the first condition only).
+All tests are corrected for the number of judges. A case is one judge on one
+set of texts in one format.}
+\label{tab:verdicts}
+\end{table}

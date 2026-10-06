@@ -1,0 +1,70 @@
+{
+  "request_model": "x-ai/grok-4.3",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Explain why salt is spread on icy roads in winter. Answer in two to four sentences of plain prose."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916385-lRjjhL9fc3t2pYfXCsO0",
+    "object": "chat.completion",
+    "created": 1790916385,
+    "model": "x-ai/grok-4.3",
+    "provider": "xAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "Salt is spread on icy roads because it helps melt the ice even when temperatures are below freezing. When the salt mixes with the ice, it dissolves into the thin layer of water on the surface and forms a brine that freezes at a lower temperature than pure water. This breaks the ice's hold on the road and keeps more water from refreezing, making driving safer until the cold becomes too extreme for the salt to work.",
+          "refusal": null,
+          "reasoning": "I need to explain why salt is spread on icy roads in winter.\n\nSalt lowers the freezing point of water through a colligative property. It disrupts the ice-water equilibrium and creates brine that melts at temperatures below 0\u00b0C. This prevents refreezing and keeps roads safer.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "I need to explain why salt is spread on icy roads in winter.\n\nSalt lowers the freezing point of water through a colligative property. It disrupts the ice-water equilibrium and creates brine that melts at temperatures below 0\u00b0C. This prevents refreezing and keeps roads safer.",
+              "format": "xai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "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.eyJlbmRwb2ludF9zbHVnIjoieC1haS9ncm9rLTQuMy0yMDI2MDQzMHx4YWkifQ",
+              "format": "xai-responses-v1",
+              "id": "rs_9ccae78b-152d-9b13-b378-054147b0fd72",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 213,
+      "completion_tokens": 470,
+      "total_tokens": 683,
+      "cost": 0.00130685,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 128,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00130685,
+        "upstream_inference_prompt_cost": 0.00013185,
+        "upstream_inference_completions_cost": 0.001175
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 385,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

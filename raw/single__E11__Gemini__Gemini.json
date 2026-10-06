@@ -1,0 +1,57 @@
+{
+  "request_model": "google/gemini-3.5-flash",
+  "response": {
+    "id": "gen-1786846278-50Et8U55om3a36gA9Cb4",
+    "object": "chat.completion",
+    "created": 1786846278,
+    "model": "google/gemini-3.5-flash",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "provisioned",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "{\"model\": \"GPT\", \"confidence\": 4, \"reason\": \"The text follows a highly structured essay format with characteristic transition phrases like 'In addition to' and 'Finally', combined with typical GPT vocabulary such as 'fosters' and 'catalyst'.\"}",
+          "refusal": null,
+          "reasoning": "**Analyzing Text Structure**\n\nI'm currently examining the structural elements of the text provided. My focus is on dissecting the three paragraphs to understand how they contribute to the overall narrative and potentially reveal stylistic nuances that might point towards a specific AI model.\n\n**Identifying Stylistic Signatures**\n\nI'm pinpointing characteristics like structured transitions (\"In addition to...\", \"Finally...\") and sophisticated vocabulary (\"fundamentally improves,\" \"physiological changes\") within the paragraphs. This polished, accessible academic tone strongly suggests GPT-3.5 or GPT-4.\n\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "**Analyzing Text Structure**\n\nI'm currently examining the structural elements of the text provided. My focus is on dissecting the three paragraphs to understand how they contribute to the overall narrative and potentially reveal stylistic nuances that might point towards a specific AI model.\n\n**Identifying Stylistic Signatures**\n\nI'm pinpointing characteristics like structured transitions (\"In addition to...\", \"Finally...\") and sophisticated vocabulary (\"fundamentally improves,\" \"physiological changes\") within the paragraphs. This polished, accessible academic tone strongly suggests GPT-3.5 or GPT-4.\n\n",
+              "format": "google-gemini-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 495,
+      "completion_tokens": 680,
+      "total_tokens": 1175,
+      "cost": 0.0068625,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0068625,
+        "upstream_inference_prompt_cost": 0.0007425,
+        "upstream_inference_completions_cost": 0.00612
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 625,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "request_model": "x-ai/grok-4.3",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Write a Python function `second_largest(nums: list[int]) -> int | None` that returns the second largest distinct value in `nums`, or None if `nums` contains fewer than two distinct values. For example, `second_largest([4, 1, 4, 3])` returns 3. Do not modify the input list. Use only the Python standard library. Include a docstring and brief inline comments. Return only the code in a single Python code block, with no explanation before or after."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916304-leDaTMNp1ZiJM4yLnIII",
+    "object": "chat.completion",
+    "created": 1790916304,
+    "model": "x-ai/grok-4.3",
+    "provider": "xAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "```python\ndef second_largest(nums: list[int]) -> int | None:\n    \"\"\"Return the second largest distinct value in nums, or None if fewer than two.\"\"\"\n    unique = set(nums)  # distinct values, input list unmodified\n    if len(unique) < 2:\n        return None\n    sorted_unique = sorted(unique)  # ascending order\n    return sorted_unique[-2]  # second largest\n```",
+          "refusal": null,
+          "reasoning": "I need to write a Python function that returns the second largest distinct value in a list, or None if fewer than two distinct values exist.\n\nI'll use a set to get distinct values, then find the two largest without sorting or modifying the input list.\n\nA single pass through the list is more efficient than sorting. I'll track the largest and second largest values with two variables, handling negative integers and edge cases.\n\nI'll use a set to collect distinct values, then sort them and return the second-to-last element. This avoids modifying the input list.\n\nI'm now drafting the single-pass implementation. It will use two variables to track the largest and second largest distinct values, plus a set to skip duplicates.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "I need to write a Python function that returns the second largest distinct value in a list, or None if fewer than two distinct values exist.\n\nI'll use a set to get distinct values, then find the two largest without sorting or modifying the input list.\n\nA single pass through the list is more efficient than sorting. I'll track the largest and second largest values with two variables, handling negative integers and edge cases.\n\nI'll use a set to collect distinct values, then sort them and return the second-to-last element. This avoids modifying the input list.\n\nI'm now drafting the single-pass implementation. It will use two variables to track the largest and second largest distinct values, plus a set to skip duplicates.",
+              "format": "xai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "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.eyJlbmRwb2ludF9zbHVnIjoieC1haS9ncm9rLTQuMy0yMDI2MDQzMHx4YWkifQ",
+              "format": "xai-responses-v1",
+              "id": "rs_55aa52f9-2a50-9229-8f4b-1b4acac6bc40",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 299,
+      "completion_tokens": 762,
+      "total_tokens": 1061,
+      "cost": 0.00214435,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 128,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00214435,
+        "upstream_inference_prompt_cost": 0.00023935,
+        "upstream_inference_completions_cost": 0.001905
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 674,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

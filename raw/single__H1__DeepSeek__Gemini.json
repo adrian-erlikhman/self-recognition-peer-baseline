@@ -1,0 +1,57 @@
+{
+  "request_model": "google/gemini-3.5-flash",
+  "response": {
+    "id": "gen-1786846710-ZcaQXr95rjrhRpSMdnNU",
+    "object": "chat.completion",
+    "created": 1786846710,
+    "model": "google/gemini-3.5-flash",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "provisioned",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "```json\n{\"model\": \"Claude\", \"confidence\": 4, \"reason\": \"The text exhibits a highly sophisticated, academic writing style with precise philosophical terminology and elegant transitions characteristic of Claude.\"}\n```",
+          "refusal": null,
+          "reasoning": "**Exploring Scientific Skepticism**\n\nI'm currently delving into the core concepts of fallibilism and the Duhem-Quine thesis. My focus is on dissecting the intricate relationship between evidence and theoretical claims, aiming to articulate the inherent underdetermination in scientific reasoning with academic rigor.\n\n**Refining Epistemic Stance**\n\nI'm currently examining how the provisional nature of scientific knowledge, as articulated by fallibilism and the Duhem-Quine thesis, undercuts established certainties. My work is focused on the underdetermination of theory by evidence and the flexible distribution of blame within a belief system.\n\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "**Exploring Scientific Skepticism**\n\nI'm currently delving into the core concepts of fallibilism and the Duhem-Quine thesis. My focus is on dissecting the intricate relationship between evidence and theoretical claims, aiming to articulate the inherent underdetermination in scientific reasoning with academic rigor.\n\n**Refining Epistemic Stance**\n\nI'm currently examining how the provisional nature of scientific knowledge, as articulated by fallibilism and the Duhem-Quine thesis, undercuts established certainties. My work is focused on the underdetermination of theory by evidence and the flexible distribution of blame within a belief system.\n\n",
+              "format": "google-gemini-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 894,
+      "completion_tokens": 552,
+      "total_tokens": 1446,
+      "cost": 0.006309,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.006309,
+        "upstream_inference_prompt_cost": 0.001341,
+        "upstream_inference_completions_cost": 0.004968
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 509,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

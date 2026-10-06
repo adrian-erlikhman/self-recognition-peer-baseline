@@ -1,0 +1,64 @@
+{
+  "request_model": "x-ai/grok-4.3",
+  "response": {
+    "id": "gen-1786862126-qVxBwwMVKI49lCkV8QBi",
+    "object": "chat.completion",
+    "created": 1786862126,
+    "model": "x-ai/grok-4.3",
+    "provider": "xAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "{\"model\": \"Claude\", \"confidence\": 4, \"reason\": \"Highly structured academic prose with explicit sequential argumentation and formal phrasing matches Claude's style.\"}",
+          "refusal": null,
+          "reasoning": "The task is to identify which AI model most likely produced the given text based on writing style, structure, and phrasing. The models are GPT, Claude, Gemini, Grok, DeepSeek.\nFirst, the text is a philosophical essay on distributive justice, referencing Rawls, with a structured argument: three considerations, each developed in turn, ending with a summary.\n\nKey indicators:\n\n- Formal, academic tone.\n\n- Uses terms like \"sediment of prior injustice\", \"cultural capital\", \"touchstone\".",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "The task is to identify which AI model most likely produced the given text based on writing style, structure, and phrasing. The models are GPT, Claude, Gemini, Grok, DeepSeek.\nFirst, the text is a philosophical essay on distributive justice, referencing Rawls, with a structured argument: three considerations, each developed in turn, ending with a summary.\n\nKey indicators:\n\n- Formal, academic tone.\n\n- Uses terms like \"sediment of prior injustice\", \"cultural capital\", \"touchstone\".",
+              "format": "xai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "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.eyJlbmRwb2ludF9zbHVnIjoieC1haS9ncm9rLTQuMy0yMDI2MDQzMHx4YWkifQ",
+              "format": "xai-responses-v1",
+              "id": "rs_0fe4fc74-6dc2-93b1-9974-0f612d3ad8d6",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 1274,
+      "completion_tokens": 443,
+      "total_tokens": 1717,
+      "cost": 0.0025656,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 128,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0025656,
+        "upstream_inference_prompt_cost": 0.0014581,
+        "upstream_inference_completions_cost": 0.0011075
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 409,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

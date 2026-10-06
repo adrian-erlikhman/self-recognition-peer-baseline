@@ -1,0 +1,100 @@
+% ===========================================================================
+\section{Study 2: four open-weight judges, four genres}
+\label{sec:openweight}
+
+Study~1 has three limits: 38 prompts of one genre, closed models whose
+probabilities we cannot read, and vendors that may mark their text. Study~2
+removes all three.
+
+\subsection{Design}
+\paragraph{Panel.} Four open-weight instruction models from four labs:
+Qwen2.5-7B (Alibaba), Llama-3.1-8B (Meta), Mistral-7B-v0.3 (Mistral AI) and
+Phi-4-mini (Microsoft), each run in 4-bit on one consumer GPU
+(Appendix~\ref{app:openweight}). With four candidates, chance is 25\%. As in Study~1, the same
+weights write each model's share of the corpus and judge it.
+
+\paragraph{Corpus.} 120 content-scaffolded prompts in four genres: the 40
+argumentative prose prompts of the original bank and 20 new ones in the same
+format; 20 Python functions with fully specified behaviour; 20 explanatory
+questions answered in two to four sentences; and 20 word problems with a
+numeric answer. Each model answered every prompt (temperature 0.7), giving
+\OWNResponses{} texts\OnPolSecondSample{}. We generated the texts ourselves
+from public weights, so none carries a watermark.
+
+\paragraph{Conditions.} The \emph{lineup} and \emph{single-text} formats of
+Study~1, with the panel's names as candidates. A \emph{yes/no} format asks a
+judge of every text, in a fresh context, ``Did you write this text?''; we
+read the probability of \emph{yes} from the judge's next-token distribution,
+so every judge answers for itself on every text and both hit and false-alarm
+rates are defined. \OnPolDesign{} Every judgment is greedy.
+Finally, each judge's \emph{likelihood} of every text, conditioned on the
+prompt, is read directly, and each judge rates every text in both corpora
+for quality.
+
+\subsection{Results}
+\input{table_openweight}
+
+\paragraph{No open-weight judge recognises itself in the lineup.} Two
+judges clear the first test of Section~\ref{sec:measure} and fail the
+second (Table~\ref{tab:openweight}). Qwen names itself on
+\OWQwenLineupSelf{} of its own texts while its peers name Qwen on only
+\OWQwenLineupPeer{}, a self-advantage of \OWQwenLineupAdv{} points
+\OWQwenLineupAdvCI{}; but it also names itself on \OWQwenLineupFA{} of the
+texts it did not write, so its hits exceed its false alarms by only
+\OWQwenLineupDisc{} points (Holm $p=$~\OWQwenLineupDiscHolm{}). Llama's
+self-advantage of \OWLlamaLineupAdv{} \OWLlamaLineupAdvCI{} comes with
+\emph{more} false alarms than hits (\OWLlamaLineupFA{} against
+\OWLlamaLineupSelf{}). Both judges beat their peers on their own text only
+because they put their own name on much of what they read. Mistral and Phi show neither
+an advantage nor discrimination. The judges attribute the lineup at
+\OWLineupAcc{} overall, against 25\% chance, although the texts carry the
+signal: the classifier of Section~\ref{sec:frontier}, trained and tested on
+disjoint prompts, attributes them at \OWClfPooled{} \OWClfPooledCI{}, from
+\OWClfMath{} on math to \OWClfProse{} on prose.
+
+\paragraph{One text at a time, each judge answers by habit.} The frontier
+judges, shown one text at a time, piled their guesses onto GPT and Claude.
+The open-weight judges pile them onto themselves, or onto no one: Qwen names
+itself on \OWQwenSingleNamesSelf{} of all texts and Llama on
+\OWLlamaSingleNamesSelf{}, whoever wrote them, while Mistral names itself on
+only \OWMistralSingleNamesSelf{}. The self-advantage then measures the habit.
+It is \OWQwenSingleAdv{} points for Qwen, \OWLlamaSingleAdv{} for Llama,
+\OWPhiSingleAdv{} for Phi and \OWMistralSingleAdv{} for Mistral, all four
+significant after Holm correction, and none of the four judges
+discriminates (hit minus false-alarm rate \OWLlamaSingleDisc{} to
+\OWPhiSingleDisc{} points, Holm $p\geq$~\OWPhiSingleDiscHolm{}). Read as
+self-naming rates, this format would credit Qwen and Llama with near-perfect
+self-recognition.
+
+\paragraph{Asked directly, judges answer by disposition.} The yes/no format
+removes the candidate list, so a judge cannot pile its answers onto one
+popular name; it can only say yes or no to each text. What it says depends
+almost entirely on the judge (Table~\ref{tab:openweight}). Mistral says yes
+to \OWMistralBinaryHit{} of its own texts and to \OWMistralBinaryFA{} of
+everyone else's; Llama to \OWLlamaBinaryHit{} and \OWLlamaBinaryFA{}; Qwen
+to \OWQwenBinaryHit{} and \OWQwenBinaryFA{}; Phi to \OWPhiBinaryHit{} and
+\OWPhiBinaryFA{}. Read as self-naming rates, these would rank the four judges
+from near-certain self-recognition to none; read against the false alarms,
+none of them discriminates. The AUC of $P(\text{yes})$, which is free of that
+disposition, is \OWQwenBinaryAUC{} for Qwen, \OWLlamaBinaryAUC{} for Llama,
+\OWPhiBinaryAUC{} for Phi and \OWMistralBinaryAUC{} \OWMistralBinaryAUCCI{}
+for Mistral, which is reliably \emph{below} chance (within-prompt
+permutation, Holm $p=$~\OWMistralBinaryAUCHolm{}): Mistral is slightly more
+willing to claim other models' text than its own. Split by genre, the
+highest AUC of any judge is \OWBinaryAUCGenreMax{} \OWBinaryAUCGenreMaxCI{}
+(\OWBinaryAUCGenreMaxWho{}).
+
+\subsection{On-policy judging}
+\label{sec:onpolicy}
+\citet{khullar2026selfattribution} find that a monitor's judgment shifts
+most when it evaluates an action it produced earlier in the same
+conversation. Our on-policy conditions ask whether that position also lets a
+judge recognise its writing. When the candidate is the judge's own previous
+turn, word for word, every judge's $P(\text{yes})$ separates it from peers'
+answers: the AUC is \OWMistralOnPolAUC{} for Mistral, \OWQwenOnPolAUC{} for
+Qwen, \OWPhiOnPolAUC{} for Phi and \OWLlamaOnPolAUC{} for Llama (all Holm
+$p<0.01$). That is a low bar, since the candidate is a copy of text already in
+the context window, and even so it is not met everywhere: on prose Llama's
+AUC is \OWLlamaOnPolProseAUC{}, below chance, and its thresholded answers keep
+the habits of the fresh-context format (Mistral says yes to
+\OWMistralOnPolFA{} of peers' answers). \OnPolResampled{}

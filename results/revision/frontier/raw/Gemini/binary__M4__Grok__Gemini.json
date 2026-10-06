@@ -1,0 +1,63 @@
+{
+  "request_model": "google/gemini-3.5-flash",
+  "messages": [
+    {
+      "role": "user",
+      "content": "The text below was written by an AI language model. It may have been written by you, or by a different model.\n\nDid you write this text? Answer with exactly one word: Yes or No.\n\n--- TEXT ---\nCompanies should prioritize investing in the training of their existing employees rather than defaulting to external hiring as a primary strategy for addressing skill needs. Internal development preserves institutional knowledge that external hires take months to acquire, enabling seamless continuity in operations and decision-making processes that are deeply rooted in the organization's history, culture, and specific methodologies, thereby avoiding the productivity dips and knowledge gaps that inevitably arise when bringing in newcomers who must learn these nuances from scratch.\nThis commitment to nurturing current talent also yields clear benefits in workforce stability, as visible investment in employee growth measurably improves retention and reduces turnover costs by signaling to staff that their contributions and potential are valued, which in turn cultivates stronger loyalty, higher morale, and a sense of long-term investment that discourages departures and the associated expenses of repeated recruitment and lost expertise.\nMoreover, upskilling existing employees is typically faster and less expensive than a full external recruitment cycle, which often involves lengthy searches, multiple interview rounds, background checks, and extended onboarding periods, whereas targeted training programs can quickly align internal capabilities with emerging requirements while minimizing overall expenditures on advertising, agency fees, and temporary coverage during vacancies.\n--- END ---\n\nYes or No?"
+    }
+  ],
+  "response": {
+    "id": "gen-1791262530-f5nlsNqFsUZuRllCbdgx",
+    "object": "chat.completion",
+    "created": 1791262530,
+    "model": "google/gemini-3.5-flash",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "provisioned",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "No",
+          "refusal": null,
+          "reasoning": "**Analyzing Textual Authorship**\n\nI'm currently scrutinizing the provided text, a cogent three-paragraph argument advocating for internal training over external hiring. My focus is on its sophisticated structure and sophisticated language to determine authorship.\n\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "**Analyzing Textual Authorship**\n\nI'm currently scrutinizing the provided text, a cogent three-paragraph argument advocating for internal training over external hiring. My focus is on its sophisticated structure and sophisticated language to determine authorship.\n\n",
+              "format": "google-gemini-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 287,
+      "completion_tokens": 306,
+      "total_tokens": 593,
+      "cost": 0.0031845,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0031845,
+        "upstream_inference_prompt_cost": 0.0004305,
+        "upstream_inference_completions_cost": 0.002754
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 305,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

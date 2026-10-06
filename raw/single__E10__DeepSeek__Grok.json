@@ -1,0 +1,64 @@
+{
+  "request_model": "x-ai/grok-4.3",
+  "response": {
+    "id": "gen-1786845390-ewMUEOsN6jLi6XfKEeJ8",
+    "object": "chat.completion",
+    "created": 1786845390,
+    "model": "x-ai/grok-4.3",
+    "provider": "xAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "{\"model\": \"Claude\", \"confidence\": 3, \"reason\": \"Highly structured, formal, multi-paragraph explanatory style with clear logical transitions matches Claude's typical output.\"}",
+          "refusal": null,
+          "reasoning": "The task is to identify which AI model most likely produced the given text: GPT, Claude, Gemini, Grok, or DeepSeek. I must reply with JSON only in a specific format.\nFirst, the text is highly structured with clear sections: introduction to comparison, reclaiming time, and sleep improvement. It uses formal language, transitions like \"First and foremost,\" \"Beyond,\" \"Finally,\" and detailed explanations with psychological and scientific references.\n\nNow, matching to models:\n\n- GPT: Produces coherent, balanced text, but can be more generic or repetitive in some cases.\n\n- Claude: Known for elaborate, nuanced, well-structured arguments with depth, often in essays or explanations. This matches the detailed, flowing paragraphs without fluff.\n\n- Gemini: More straightforward, sometimes cautious with language.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "The task is to identify which AI model most likely produced the given text: GPT, Claude, Gemini, Grok, or DeepSeek. I must reply with JSON only in a specific format.\nFirst, the text is highly structured with clear sections: introduction to comparison, reclaiming time, and sleep improvement. It uses formal language, transitions like \"First and foremost,\" \"Beyond,\" \"Finally,\" and detailed explanations with psychological and scientific references.\n\nNow, matching to models:\n\n- GPT: Produces coherent, balanced text, but can be more generic or repetitive in some cases.\n\n- Claude: Known for elaborate, nuanced, well-structured arguments with depth, often in essays or explanations. This matches the detailed, flowing paragraphs without fluff.\n\n- Gemini: More straightforward, sometimes cautious with language.",
+              "format": "xai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "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.eyJlbmRwb2ludF9zbHVnIjoieC1haS9ncm9rLTQuMy0yMDI2MDQzMHx4YWkifQ",
+              "format": "xai-responses-v1",
+              "id": "rs_cd3a9c77-b684-98c2-8885-80a7c20260c8",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 1038,
+      "completion_tokens": 671,
+      "total_tokens": 1709,
+      "cost": 0.0028406,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 128,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0028406,
+        "upstream_inference_prompt_cost": 0.0011631,
+        "upstream_inference_completions_cost": 0.0016775
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 634,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

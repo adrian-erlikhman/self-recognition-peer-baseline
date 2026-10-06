@@ -1,0 +1,55 @@
+{
+  "request_model": "deepseek/deepseek-chat",
+  "messages": [
+    {
+      "role": "user",
+      "content": "The text below was written by an AI language model. It may have been written by you, or by a different model.\n\nDid you write this text? Answer with exactly one word: Yes or No.\n\n--- TEXT ---\nCooking meals at home is healthier than eating out most of the time because it allows you to take full control over what goes into your food, ensuring that fresh ingredients and balanced nutrition take center stage without the hidden excesses often found in restaurant preparations. When you prepare your own dishes, you can choose high-quality produce, lean proteins, and whole grains while limiting added sugars, unhealthy fats, and sodium that many establishments use to enhance flavor and shelf life, resulting in meals that better support overall well-being, weight management, and long-term health goals. This direct oversight not only reduces exposure to processed additives and potential allergens but also encourages experimentation with herbs, spices, and cooking methods that maximize nutrient retention, making home-cooked food a superior choice for sustained vitality.\nBeyond the nutritional advantages, home cooking proves significantly cheaper over time, freeing up financial resources that might otherwise be spent on inflated restaurant prices that include labor, ambiance, and profit margins. By shopping for ingredients in bulk and planning meals around seasonal or affordable staples, individuals can create multiple servings for a fraction of the cost of a single takeout order, allowing for smarter budgeting and the ability to invest in better quality foods without breaking the bank. This economic benefit compounds as it minimizes impulsive dining decisions and reduces waste through portion control, ultimately supporting a more sustainable lifestyle that aligns health priorities with practical financial sense.\nMoreover, regularly preparing meals at home builds essential life skills that extend far beyond the kitchen, fostering independence, creativity, and a deeper appreciation for nourishment that enhances personal growth and resilience. Learning to chop, season, and balance flavors hones time management and problem-solving abilities while promoting mindfulness about food sources and cultural traditions, skills that translate into greater confidence in daily routines and even professional or social settings. As these competencies develop, they create a virtuous cycle of empowerment, where the act of cooking becomes not just a healthier habit but a rewarding foundation for self-sufficiency and lifelong well-being.\n--- END ---\n\nYes or No?"
+    }
+  ],
+  "response": {
+    "id": "gen-1791262866-cIh9vbcJedTbm3NEN7AH",
+    "object": "chat.completion",
+    "created": 1791262866,
+    "model": "deepseek/deepseek-chat",
+    "provider": "StreamLake",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "No",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 444,
+      "completion_tokens": 2,
+      "total_tokens": 446,
+      "cost": 0.000116343,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.000116343,
+        "upstream_inference_prompt_cost": 0.0001142856,
+        "upstream_inference_completions_cost": 2.0574e-06
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

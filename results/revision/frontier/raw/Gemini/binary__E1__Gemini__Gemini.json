@@ -1,0 +1,63 @@
+{
+  "request_model": "google/gemini-3.5-flash",
+  "messages": [
+    {
+      "role": "user",
+      "content": "The text below was written by an AI language model. It may have been written by you, or by a different model.\n\nDid you write this text? Answer with exactly one word: Yes or No.\n\n--- TEXT ---\nA consistent night of sufficient sleep acts as a fundamental pillar for optimal cognitive performance, most notably by sharpening focus and enhancing memory consolidation the following day. When the brain is well-rested, its neural pathways are fully primed for learning, allowing individuals to sustain attention on complex tasks, process information quickly, and minimize errors. During the deeper stages of sleep, particularly slow-wave sleep and rapid eye movement sleep, the brain actively organizes and stores the experiences of the day, transforming short-term memories into long-term retention. Without this critical restorative period, the prefrontal cortex struggles to function efficiently, leading to a drastically shortened attention span, drifted focus, and an inability to recall recently acquired information.\n\nBeyond cognitive sharpness, adequate sleep is a primary driver of emotional regulation and mood stability. A sleep-deprived brain exhibits heightened reactivity in the amygdala, the region responsible for emotional responses, while simultaneously showing decreased connectivity with the regulatory centers of the prefrontal cortex. This neurological imbalance often manifests as irritability, anxiety, and a lowered tolerance for daily stressors. Conversely, completing healthy sleep cycles allows the brain to recalibrate its neurochemical balances, ensuring that an individual greets the next day with greater emotional resilience, patience, and a more positive outlook, making it far easier to navigate social interactions and unexpected challenges calmly.\n\nThe benefits of a full night of rest manifest tangibly in physical energy levels and overall bodily vitality. During sleep, the body undergoes essential tissue repair, muscle growth, and cellular restoration, largely driven by the release of growth hormones. Meeting sleep requirements ensures that glycogen stores are replenished and systemic inflammation is kept at bay, providing the physical stamina needed to power through daily routines, workouts, or demanding labor without early fatigue. A well-rested individual experiences quicker reaction times, better motor coordination, and a general sense of physical readiness, whereas a lack of sleep leaves the body feeling heavy, lethargic, and increasingly prone to physical exhaustion.\n--- END ---\n\nYes or No?"
+    }
+  ],
+  "response": {
+    "id": "gen-1791262040-nDgFMLjYDZbLnPsg2WWv",
+    "object": "chat.completion",
+    "created": 1791262040,
+    "model": "google/gemini-3.5-flash",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "provisioned",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "No",
+          "refusal": null,
+          "reasoning": "**Analyzing Text Authenticity**\n\nI'm currently focused on determining if I authored the provided essay on sleep. My analysis involves examining stylistic markers and comparing them against my typical output patterns to ascertain its origin.\n\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "**Analyzing Text Authenticity**\n\nI'm currently focused on determining if I authored the provided essay on sleep. My analysis involves examining stylistic markers and comparing them against my typical output patterns to ascertain its origin.\n\n",
+              "format": "google-gemini-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 448,
+      "completion_tokens": 309,
+      "total_tokens": 757,
+      "cost": 0.003453,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.003453,
+        "upstream_inference_prompt_cost": 0.000672,
+        "upstream_inference_completions_cost": 0.002781
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 308,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "request_model": "x-ai/grok-4.3",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Write a Python function `parse_duration(s: str) -> int` that converts a duration string made of an optional hours part, an optional minutes part and an optional seconds part, in that order, such as \"1h30m15s\", \"45m\" or \"2h5s\", into a total number of seconds. Each part is a non-negative integer followed by the letter h, m or s. Raise ValueError if the string is empty, contains any other characters, or lists the parts out of order. Use only the Python standard library. Include a docstring and brief inline comments. Return only the code in a single Python code block, with no explanation before or after."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916312-LWUv2yfddNl4zMMv11KL",
+    "object": "chat.completion",
+    "created": 1790916312,
+    "model": "x-ai/grok-4.3",
+    "provider": "xAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "```python\nimport re\n\ndef parse_duration(s: str) -> int:\n    \"\"\"Parse duration string (e.g. '1h30m15s') to total seconds.\"\"\"\n    if not s:\n        raise ValueError(\"empty string\")\n    # regex enforces optional h/m/s parts in order, with digits\n    pattern = r'^((?P<h>\\d+)h)?((?P<m>\\d+)m)?((?P<s>\\d+)s)?$'\n    match = re.match(pattern, s)\n    if not match:\n        raise ValueError(\"invalid format or out of order\")\n    h = int(match.group('h') or 0)\n    m = int(match.group('m') or 0)\n    sec = int(match.group('s') or 0)\n    return h * 3600 + m * 60 + sec\n```",
+          "refusal": null,
+          "reasoning": "I need to write a `parse_duration` function that converts duration strings into total seconds.\n\nI'll use the `re` module to parse the string. The function must reject empty inputs, invalid characters, and out-of-order parts.\n\nThe regex `^((\\d+)h)?((\\d+)m)?((\\d+)s)?$` enforces the required order of hours, minutes, and seconds. It rejects out-of-order or duplicate parts automatically.\n\nI'll check for an empty string before applying the regex, since `^...$` would otherwise match it. After extracting the hours, minutes, and seconds from the matched groups, I'll default any missing part to zero and return the total in seconds.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "I need to write a `parse_duration` function that converts duration strings into total seconds.\n\nI'll use the `re` module to parse the string. The function must reject empty inputs, invalid characters, and out-of-order parts.\n\nThe regex `^((\\d+)h)?((\\d+)m)?((\\d+)s)?$` enforces the required order of hours, minutes, and seconds. It rejects out-of-order or duplicate parts automatically.\n\nI'll check for an empty string before applying the regex, since `^...$` would otherwise match it. After extracting the hours, minutes, and seconds from the matched groups, I'll default any missing part to zero and return the total in seconds.",
+              "format": "xai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "3HnLboa/38lEbIjtUdU5wBXM4P3qmjBwy61NRzjHnyfCKq5RKMhKM7DmwHa2N3EmFNJm3ZeF7HWGobvVyiIZHWZyt8Uye5yy/xiQuhlujx2gi2/7NuUbWGSWHbAnatNB+3emKvQYFeJIyuB0TKlt5nvyAdt0SYSB0YJmCe37HsDSEBKk2NelkUa0DuRbjpnTXaKbABUE3zkV7X5SmF3kE8TcnCg2IgR7JpQ1LoQnH7xkE8EDSjetwhiz+yn31B77OLEgaZ8j3N5Y6nuBsUUKGFwWreug9FVsUts0NkPAYJ01vBMxtlKIHKj0S8cwdxelYbJyJaRgSmPIq7EWwoXZKuX6gIkEiAmUgG1q3FbemtDTe3LuzLyP5eFuFMfwA2M6GkFgJ8/+GuWzUSeAkllN5F+DA3dRiWk5/oQmL3F2Tdp5jVoEX6WBeKLLWaYH2wxttJLxYYelBcjXU1nnD7lSal3+26GtAVVGJlMjWdI2GOM9JAtO9Coc3eqmK4k+e8w5KXQVgoPHGFj00OSoaY80u+HPjhd42hKTEZ+IB4h+QLltr3qdXmIrT/QhtXArpyNjd5aG7ojIniHRlhFUKXgZtCoSwTKVe6KpzeCXFklpcexGLvpvucrPqVC656T2vha40pMlLS01Zq3WOqwEYWoI+EJXKaVn0yPKAtoyLBhXh4pYmQGv6WCBB7tR2dNQyeHgZrZ6zHtaXDcbNaJXu8PwnOUG8oyv2ecyS7/QyW/U9FWgYb0zwQdsKuPnbwFLA5kD5JiQXQ5ixbCjpll0THZcv3l8/GW7VeAnI+Tk6BAHP7nJ1h0kYhpQhsU3SxaakHLBRdDUnj9mh4Igi47QL71ExlQAT6pPHdvqz/1CtagG+7ZiH9KGTpcZrpXRb/GERFmMLtcM60BGgrket00q7D5vJFLh0w004gxmPPewQ6ZqGIrDigHRm8RFiX//Hi24vHSVEe/g1ZwURI7ueZl2A+Un3ftCnKz9kNe276GYijX+hoIwSffFXp+W1KdVBnU4YezzKeYjkk4KnLQ438UFuUsFaWl/cthzYSa9rasgBX8A6NQa0dnj+j5GEuog0q9abE+4kE6nT1Q2pjiIa27plO9hALiczz4Z6zWzSUMLoVAlTll016MFSqRS5kDwSoeH8JQkOCsV8qsY/Z6aVeQfR9SKs/+6uotISu4IC2tIraLqpCMIC0UTFiCOtyTF8WEyez3HeupE9FuanJbdKf3O5IuZGoilHcsjZi4WkuSqPKS4CaZKGnqdDdc8LSI46pSp9wEW5BrwSnuDKH+ynFyZOuh5sSOdDzrNb0ghMq4Wx3U6e+qbH7/ucgktmUkfMgVuWsOOkxDI9j6s3ptc3VoD0QHs1+qpOv/TtWOutstALxIV5Zi+7D/rM51zjnZntMX/jaTwlcifYxyP7d5iKfNNkBoNktMS50prA2SXHePkQbEdsbjY8FOO0FCUYkdu6pRoUd7ukhQGu/rfomJgBn4nPzSlVn8+15ClohQ7tUCwFFfgpDfKkD+FC84QAn1jPvDTAXXdnLDJj/fPc6R3NDN0rtvs1CI/e3rWZme+Q/wL/xpx5Eai3r3+AstzUW2ag+cDRVknxdv2d5fgoOvoiLSmHR/Phh5sqK4lu94F6AcdJvKKmUrikhxcw+6rLh9KRDQ/ncOhfb3Rb+GJa/oG2KndVS3NxwRnAbHLSkJAQu7/IMXHo8mUNjQJAEa2KnemxD/VWCvXmfIUbU9js3jolWgyTCV/vDQXbZx60vRm9RaTJMBiVTvBwqAIt+Y2S+E0U+o9FaiwNDDm+G70rW44J7HG8tDSJjdTOYhE4karscebKTIfG3cBo7RP2uai998u8BpeQg1SHleQcI0669nEst3PnzHs2y07ExMgnYhMBHFMUoFK1DM1hIr+PS4hik+yUNyTjcA0VKJed1V4o4i1rrvNqIbEf53tlxjKMo0rhGdTzkdZbh6aWW5+uchu5KpapqtFtr5/a18vukghCqPLASlXa0/6rQXcgMbVh14OfbkA60mmGf5iOteM9gLOfow5ZN+ge67UZ0X/4sq+4CsqdspLjUeGVTngbHACbYAheuphoswNcNm9AMcQ2B2oPsXR4/Tuv/Wsl7FkHueWRAQtmDvOKjTIn4zL7bMoIr6i3ED/PVXbZaTFt9Wi1ztGpcYq19P5KD0lrQzQ86HkcBXDf8AJk2YVRVl6w6OYzbate3OoxNY/liSDk9WM1LxiEOoPrlkFXe2DtGYe/A/QrPEcJz4yE984Ei8dmx2jO3TaFWUK3JeYvkhmC7wAt4LdNNvhpVvjUt//O/r5mSlfjVnmb9X1PezNcFBSE4VwtsCxzWNapCxGJlB47YYWtV889MPXDLFipjGswUaIEsRQaG4xJMkPApKjeYTIO303cDcsjHAFRd/WLUQY4ftNukE1W3tTU0J2vFt9Nqlh76F7cn1SZcpBvd5B/vUsSgel985hKib/IpkYHsDnxL+iPejEwwPWMe8XNJwJnfwfuzwuZhYDTr81ydfjyjKuZJvEcOXlCqv4IGrguiVgoI1r6Iqa0GaDPjfVixUW0HfTKXNYn5iRsHTMSxl0rM2ncSE6EyXME8YJL+FQpaobrBBpj0yN6EkPIG98UzaGQRPkhqpuZ0c9Lbs/edeH/SXKC0F2kx154FtrZlldfJlNCs93zwk/M7aVYFtF5VGHXY2qjNLmrQqGzLuUcq5aDa7UovytGDxXek8+DyQdOEtfPZD5SnTZvI2O+4rwXaTvdG8OgpaKK2KDvBNYzda4mtLhenK6A43fjhJbLf4bnDwUkXBblNML0qz9rkDKn7kngs5wU7KTAt8b3AM8thq3jdsVS5WIHcL8fV0YDFIHPMmlJRQwZovYVTB+pbhVYQoly8krCvWL4bYUphhGxY9cTYfE+qd3Nypjlx52lBiVk/Q4T+9u1lWj93tj84sFi2E+pQPIUSm7LduzAnHseQE8NsMXkk2jDBA0uwuz2i7Fb+NcLpoEJFnnv4LpAo/OyJ3tMUr/yw/Z0XTFy8uhaRGjbf1oYF3Hb+DFB1NSKxxBML4K4ihhUblQdy5f1M8oUKaPD9zT6AvIRTRX5cgplIYPPVX2qC5NPiubc9Ubdy+VVSO5vIxTw2+VUSqa99la1L0n0Ohd0Rq+EvQd1EmRoJ88Rf+B6AMOQSXnvVRbcGds3tgtIaS2xMF1LNVnRa525i1YEV5DZ+G5rnuW9ypp6EshU+SG+pXG3YyV6HJyk9CIcIISMA5pzfMtsQUgp67Yg9EP+sib01N3oMypiCWb6fFvcGxaFTiznC7Vrpb8K7VLPp0ftqQitTyG/81sFOda0f2rDu9Q0rPufHYN/t8ZRUMhyWDIRnvh26a9QmGmdeBJ6F0MjP2UIFn3gczwenNfj99TJi1XAl3O+UIKcvMjfDKecnJCHYdEEHZVgfjWw67iPDoB36qUonKJlm5W7CkcKLgci1NvT1snr6S8XBg6fu7awlOmeGU9TUSwZdYeVEj35mezGiX3552kDcN+PlcSwy5xXKlRdi2KNecvxSxJcF3XM7fIp0GH8QZIugqYoofzMMPlmXcc2yGNOK8Av/vzlH7nZnFVqXnJhHyfLgc9VQxOitdx+4MkbEmzlt7IO1iqnZe2p1/vUyDFJzOoAHqvJzKMddfhEeqH65h4Akm6VjCbBdRguDyTghEEdw1OZ//ShWqq2caSzjeWTcUeqMDIBgTFmYM/MhcgZHiZy/VFxHGmNAXD4ZN36jNFMnCIjLByqkU5IYYAhtTgUC5UzAHAr3hkEgoWiQbnVqZBlvTd4PdftG4tFmLPMSr33BS4Y+turMzlcAwC1cEEci7YuezGu+CssGl8LS30SFzg97Z6MtZtlHS4T4EJEXbG5DixvLmKJhBhyaf3lsdISuwHtwnCM02G02nXPUPZe4cWfbeG5q4XErdbcCGzAITtoGgrdgUZuITRjuwDXqTq/0mrsrPutSDlhVQUyv5pcBAWCS414Afq9BKe3IBhKaiPhU33fFjGTvmO1ZSuJULpASzhsHZgihMsJWn6f6VuP8EdHjYjs5ZdvWo+u2m/XhP13boskK1/xsGI/UWZSTig15ERLW9zc2fgwc41aav4YyPpCRbytOUiIv8BAwJDucPAK+aYYbW+jNXZ567ee+5/n2WAJk5vphlERTebgk2mnJ6OAJTopCDn0PuANP0dEPPtDi9oHcjNNKbyqZ5ZcJhztA5Z27kAGSxHYw9iiioNvj7Pd37sI3gQ4knOlyMbfJ6FkdLVCxRQNS5Z0cMZGUyaaZzD8OaHh8RSWCZOOiKg0I6cHA9Kgm3xoO9MHwSjCzEUQ9FyCw//IeiUuIxzQyP606b+VUlUFtp272kxjrix2acmTJlMhy5oS4MrgoBXFfozXByeSqPDEIMqmdOmniXEJClA17o8DOmKTyZJGhrv2GdaRH7hFwz1B2GYoIQ14+5xBhDa3zYcpQKXWmKbqil6tQmtAR3PmWKrwuM/LOR2j6rdnlKhKNe5jvFNTAT1UBpC71q4hWC8fjzpWI3ZiwNmEiUCGjL2VLwA8oMXaUwdphNnX2ejkZU7nQLo9vRElzCsUubnXaDQi5vc731JQFi8copg9qog06LRbDJlmIZWYgOlufi/VIx3ss5JWMuWnJmmZn4irmV1dbrdiLzu4CHiiyOqh88++YhCFP33A/elLZ8S5VfbhRqgYZL17YRfmOpUvrA/7XYzLRdFiXY.eyJlbmRwb2ludF9zbHVnIjoieC1haS9ncm9rLTQuMy0yMDI2MDQzMHx4YWkifQ",
+              "format": "xai-responses-v1",
+              "id": "rs_c69becd2-b523-95dd-acb1-c1bc9a6bf4db",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 333,
+      "completion_tokens": 1151,
+      "total_tokens": 1484,
+      "cost": 0.00309215,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 192,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00309215,
+        "upstream_inference_prompt_cost": 0.00021465,
+        "upstream_inference_completions_cost": 0.0028775
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 971,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

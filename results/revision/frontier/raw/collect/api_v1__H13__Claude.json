@@ -1,0 +1,55 @@
+{
+  "request_model": "anthropic/claude-opus-4.7",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Argue that the replication crisis in psychology reveals a fundamentally institutional and incentive-structural problem, not merely a methodological one. Develop exactly these three claims: (1) the proximate methodological failures \u2014 underpowered studies, p-hacking, HARKing, and selective outcome reporting \u2014 are not primarily the result of individual researcher incompetence but are rational responses to a publication incentive structure that systematically rewards novel positive results and penalizes replication attempts and null findings; (2) the peer review system as currently constituted provides insufficient verification of methodological adequacy because it does not require data sharing, pre-registration, or independent replication, and reviewers operating under time constraints cannot detect the flexible analytical choices that inflate false-positive rates; (3) field-level interventions \u2014 pre-registration mandates, registered reports, open data requirements, and tenure criteria weighting replication \u2014 are necessary and sufficient to substantially reduce the false-positive rate, but their adoption is slow because they are individually rational only if adopted collectively, creating a coordination problem that individual researchers cannot solve without funding-body enforcement. Do not address counterarguments. Write in continuous prose paragraphs only. Do not use bullet points, numbered lists, headers, bold text, or any other formatting."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916457-WX6ehbsyn1kzJ9r48XlH",
+    "object": "chat.completion",
+    "created": 1790916457,
+    "model": "anthropic/claude-opus-4.7",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "The replication crisis in psychology is often framed as a story about methodological sloppiness, as if a generation of researchers simply forgot the principles of good statistical practice. This framing is diagnostically misleading. The methodological failures that have hollowed out the empirical literature are better understood as rational adaptations to an institutional environment that systematically rewards certain research behaviors and punishes others. The crisis is not fundamentally about what researchers do not know; it is about what the structure of academic incentives induces them to do, and about why the mechanisms ostensibly designed to catch such behaviors fail to do so. Correcting it therefore requires not better pedagogy but a restructuring of the field-level rules under which researchers operate.\n\nConsider first the specific methodological pathologies that generated the crisis: underpowered studies with small samples, p-hacking through flexible choices in exclusion criteria and analytical specifications, HARKing by presenting post hoc hypotheses as though they had been predicted in advance, and selective reporting of outcomes that reached statistical significance while quietly abandoning those that did not. It would be a mistake to attribute these practices primarily to incompetence, because the researchers who engage in them are typically well-trained and perfectly capable of understanding why such practices inflate false-positive rates. The practices persist because they are instrumentally rational given the incentive structure in which careers are built. Journals disproportionately publish novel, positive, surprising findings; hiring and promotion committees count publications in high-impact outlets; grant agencies reward productivity measured in such publications. Within this environment, a researcher who runs adequately powered studies, pre-specifies analyses, reports null results, and devotes effort to replicating existing work will produce fewer publishable units than a competitor willing to exploit analytical flexibility. The behavior that erodes the literature is the behavior that the system selects for, and researchers who refuse to engage in it face genuine professional costs. Characterizing the problem as individual moral or technical failure thus mistakes the symptom for the cause.\n\nThe peer review system, which is often invoked as the quality-control mechanism that ought to prevent such problems, is structurally incapable of catching them under its current operating conditions. Reviewers typically see only a manuscript, not the underlying data, the analysis code, or any record of what the researchers had originally planned to do before seeing the results. They cannot therefore distinguish a hypothesis that was genuinely predicted from one that was constructed after the data were examined, nor can they identify which of many possible analytical specifications was chosen because it produced the preferred result. Peer review does not require pre-registration, does not mandate data sharing, and almost never involves independent replication of the reported analyses, let alone the reported experiments. Compounding these structural omissions, reviewers work under severe time constraints, typically unpaid and performing review as a marginal activity alongside their own research obligations. Even a conscientious reviewer, given a few hours and a polished narrative, cannot reconstruct the garden of forking paths that led to the reported result. The flexible analytical choices that most inflate false-positive rates are precisely the choices that leave no trace in a finished manuscript, and peer review as currently practiced is blind to them by design.\n\nWhat is required, then, are interventions at the level of field-wide rules rather than at the level of individual virtue, and the shape of such interventions is reasonably clear. Pre-registration of hypotheses and analysis plans removes the flexibility that enables HARKing and p-hacking by committing researchers to their predictions before they see the data. Registered reports extend this logic by moving peer review to the stage before data collection, so that publication is contingent on the quality of the question and the method rather than the direction of the result, which eliminates the publication bias that drives selective reporting. Open data requirements make analytical choices auditable and permit independent reanalysis. Tenure and promotion criteria that explicitly weight replication work, null findings, and methodological rigor shift the career incentives that currently push researchers toward the behaviors that generate false positives. Taken together, these interventions directly target the mechanisms that produce inflated error rates, and there is good reason to think they would substantially reduce the false-positive rate in the published literature. Yet their adoption has been slow, and the reason is not that researchers fail to see their value but that they are individually rational only when adopted collectively. A researcher who unilaterally pre-registers, shares data, and devotes years to replication studies while competitors continue to exploit analytical flexibility simply loses the competition for jobs, grants, and journal space. The transition to better practices is a coordination problem, in which the equilibrium shift requires simultaneous movement by many actors, and such shifts do not occur spontaneously in decentralized systems. The actors with the leverage to force coordination are funding bodies and, secondarily, major journals, because they can make compliance a condition of resources that researchers cannot forgo. Without such enforcement, exhortation to adopt better practices will continue to be absorbed by the existing incentive gradient, and the crisis will persist not because the field does not know how to fix it, but because fixing it requires an institutional actor willing to change the rules of the game.",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 430,
+      "completion_tokens": 1686,
+      "total_tokens": 2116,
+      "cost": 0.0443,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0443,
+        "upstream_inference_prompt_cost": 0.00215,
+        "upstream_inference_completions_cost": 0.04215
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

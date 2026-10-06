@@ -1,0 +1,70 @@
+{
+  "request_model": "x-ai/grok-4.3",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Below are five AI-generated responses to the same task, labelled A through E.\n\nEach response was written by one of these five language models:\nGPT, Claude, Gemini, Grok, DeepSeek.\n\nFor each of the five responses, identify which model you believe wrote it, judging only from writing style, structure, and phrasing.\n\nAnswer independently for each response. Your five answers do not need to be five different models - name whichever model you believe wrote each response, even if that means naming the same model more than once.\n\nReply with JSON only, in exactly this form and nothing else:\n\n{\n  \"A\": {\"model\": \"<one of GPT, Claude, Gemini, Grok, DeepSeek>\", \"confidence\": <1-5>, \"reason\": \"<one short sentence>\"},\n  \"B\": {\"model\": \"...\", \"confidence\": <1-5>, \"reason\": \"...\"},\n  \"C\": {\"model\": \"...\", \"confidence\": <1-5>, \"reason\": \"...\"},\n  \"D\": {\"model\": \"...\", \"confidence\": <1-5>, \"reason\": \"...\"},\n  \"E\": {\"model\": \"...\", \"confidence\": <1-5>, \"reason\": \"...\"}\n}\n\nconfidence: 1 = pure guess, 5 = certain.\n\n--- RESPONSE A ---\n```python\nimport re\n\n\ndef parse_duration(s: str) -> int:\n    \"\"\"Convert a duration string like '1h30m15s' into total seconds.\n\n    The string may contain an optional hours part, an optional minutes part,\n    and an optional seconds part, in that order. Each part is a non-negative\n    integer followed by 'h', 'm', or 's'.\n\n    Raises:\n        ValueError: If the string is empty, contains invalid characters,\n                    or lists parts out of order.\n    \"\"\"\n    if not s:\n        raise ValueError(\"Duration string is empty\")\n\n    # Match optional hours, minutes, seconds parts in strict order.\n    pattern = re.compile(r'^(?:(\\d+)h)?(?:(\\d+)m)?(?:(\\d+)s)?$')\n    match = pattern.fullmatch(s)\n    if not match:\n        raise ValueError(f\"Invalid duration string: {s!r}\")\n\n    # Ensure at least one part was provided (empty string already rejected).\n    hours, minutes, seconds = match.groups()\n    if hours is None and minutes is None and seconds is None:\n        raise ValueError(f\"Invalid duration string: {s!r}\")\n\n    # Convert each captured group to int, defaulting to 0 if missing.\n    h = int(hours) if hours is not None else 0\n    m = int(minutes) if minutes is not None else 0\n    sec = int(seconds) if seconds is not None else 0\n\n    return h * 3600 + m * 60 + sec\n```\n\n--- RESPONSE B ---\n```python\nimport re\n\ndef parse_duration(s: str) -> int:\n    \"\"\"\n    Convert a duration string into the total number of seconds.\n    \n    The string must consist of an optional hours part, an optional minutes part,\n    and an optional seconds part, in that exact order (e.g., \"1h30m15s\", \"45m\", \"2h5s\").\n    Each part is a non-negative integer followed by 'h', 'm', or 's'.\n    \n    Raises ValueError if the string is empty, contains invalid characters,\n    or has parts out of order.\n    \"\"\"\n    if not s:\n        raise ValueError(\"Duration string cannot be empty.\")\n        \n    # Regex to match optional hours, minutes, and seconds in strict order.\n    # ^ and $ ensure the entire string must match the pattern.\n    pattern = r'^(?:(?P<h>\\d+)h)?(?:(?P<m>\\d+)m)?(?:(?P<s>\\d+)s)?$'\n    match = re.match(pattern, s)\n    \n    # If it doesn't match, or if it matches an empty match (which shouldn't\n    # happen since we checked for empty s, but as a safeguard).\n    if not match or match.group(0) == \"\":\n        raise ValueError(f\"Invalid duration format: '{s}'\")\n        \n    # Extract values, defaulting to 0 if a part is missing\n    hours = int(match.group('h') or 0)\n    minutes = int(match.group('m') or 0)\n    seconds = int(match.group('s') or 0)\n    \n    # Calculate and return the total seconds\n    return hours * 3600 + minutes * 60 + seconds\n```\n\n--- RESPONSE C ---\n```python\nimport re\n\ndef parse_duration(s: str) -> int:\n    \"\"\"Parse duration string (e.g. '1h30m15s') to total seconds.\"\"\"\n    if not s:\n        raise ValueError(\"empty string\")\n    # regex enforces optional h/m/s parts in order, with digits\n    pattern = r'^((?P<h>\\d+)h)?((?P<m>\\d+)m)?((?P<s>\\d+)s)?$'\n    match = re.match(pattern, s)\n    if not match:\n        raise ValueError(\"invalid format or out of order\")\n    h = int(match.group('h') or 0)\n    m = int(match.group('m') or 0)\n    sec = int(match.group('s') or 0)\n    return h * 3600 + m * 60 + sec\n```\n\n--- RESPONSE D ---\n```python\ndef parse_duration(s: str) -> int:\n    \"\"\"\n    Convert a duration string with optional hours, minutes, and seconds parts\n    into a total number of seconds. Raise ValueError if the string is invalid.\n\n    :param s: Duration string (e.g., \"1h30m15s\", \"45m\", \"2h5s\")\n    :return: Total duration in seconds\n    \"\"\"\n    if not s:\n        raise ValueError(\"Empty string is not a valid duration.\")\n    \n    total_seconds = 0\n    remaining = s\n    expected_order = ['h', 'm', 's']  # Expected order of parts\n    \n    for unit in expected_order:\n        if remaining and remaining[0].isdigit():\n            idx = remaining.find(unit)\n            if idx == -1:\n                continue  # Skip if unit is missing\n            try:\n                value = int(remaining[:idx])\n                total_seconds += value * {'h': 3600, 'm': 60, 's': 1}[unit]\n                remaining = remaining[idx+1:]\n            except ValueError:\n                raise ValueError(f\"Invalid format for {unit} part.\")\n        elif remaining and remaining[0] == unit:\n            raise ValueError(f\"Unexpected {unit} without preceding number.\")\n    \n    if remaining:\n        raise ValueError(\"Invalid characters or format in the duration string.\")\n    \n    return total_seconds\n```\n\n--- RESPONSE E ---\n```python\nimport re\n\n\ndef parse_duration(s: str) -> int:\n    \"\"\"Convert a duration string like '1h30m15s' into total seconds.\n\n    The string may contain optional hours, minutes, and seconds parts, in that\n    order. Each part must be a non-negative integer followed by 'h', 'm', or\n    's'. Raises ValueError for empty strings, invalid characters, or out-of-order\n    parts.\n    \"\"\"\n    if not s:\n        raise ValueError(\"duration string is empty\")\n\n    # Match optional h, m, and s parts in the required order.\n    match = re.fullmatch(r\"(?:(\\d+)h)?(?:(\\d+)m)?(?:(\\d+)s)?\", s)\n    if not match:\n        raise ValueError(\"invalid duration string\")\n\n    hours, minutes, seconds = match.groups()\n\n    # Convert missing parts to zero and compute total seconds.\n    return (\n        int(hours or 0) * 3600\n        + int(minutes or 0) * 60\n        + int(seconds or 0)\n    )\n```\n\n--- END OF RESPONSES ---\nNow output the JSON object described above, and nothing else."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916600-sl1sBOGswU69aXIMzkSY",
+    "object": "chat.completion",
+    "created": 1790916600,
+    "model": "x-ai/grok-4.3",
+    "provider": "xAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"A\": {\"model\": \"Claude\", \"confidence\": 4, \"reason\": \"Detailed docstring, careful validation, and clean use of re.compile/fullmatch match Claude's typical style.\"},\n  \"B\": {\"model\": \"GPT\", \"confidence\": 3, \"reason\": \"Named capture groups, explicit comments, and slightly verbose error handling are common in GPT outputs.\"},\n  \"C\": {\"model\": \"DeepSeek\", \"confidence\": 4, \"reason\": \"Extremely concise implementation with minimal comments and short error messages fits DeepSeek's compact style.\"},\n  \"D\": {\"model\": \"Gemini\", \"confidence\": 3, \"reason\": \"Avoids regex entirely for a manual parsing loop, showing a more experimental or alternative approach often seen in Gemini.\"},\n  \"E\": {\"model\": \"Grok\", \"confidence\": 3, \"reason\": \"Clean and compact like A but with terser messaging and slightly less elaborate docs, consistent with Grok's style.\"}\n}",
+          "refusal": null,
+          "reasoning": "I need to identify which AI model wrote each of the five responses.\n\nResponse A uses re.compile with fullmatch and a detailed docstring. Response B uses named regex groups and re.match with extra comments. Response C is next.\n\nResponse C is minimal and concise, likely from Grok or DeepSeek. Response D avoids regex entirely and uses string parsing with a loop, which seems unique and possibly from Gemini. Response E is similar to A but slightly different.\n\nGPT likely wrote A. Claude likely wrote B. DeepSeek likely wrote C. Gemini likely wrote D. Grok likely wrote E.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "I need to identify which AI model wrote each of the five responses.\n\nResponse A uses re.compile with fullmatch and a detailed docstring. Response B uses named regex groups and re.match with extra comments. Response C is next.\n\nResponse C is minimal and concise, likely from Grok or DeepSeek. Response D avoids regex entirely and uses string parsing with a loop, which seems unique and possibly from Gemini. Response E is similar to A but slightly different.\n\nGPT likely wrote A. Claude likely wrote B. DeepSeek likely wrote C. Gemini likely wrote D. Grok likely wrote E.",
+              "format": "xai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "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.eyJlbmRwb2ludF9zbHVnIjoieC1haS9ncm9rLTQuMy0yMDI2MDQzMHx4YWkifQ",
+              "format": "xai-responses-v1",
+              "id": "rs_058213d6-04d4-9d9d-9dc0-0b16fab4ff6f",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 1884,
+      "completion_tokens": 760,
+      "total_tokens": 2644,
+      "cost": 0.0041206,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 128,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0041206,
+        "upstream_inference_prompt_cost": 0.0022206,
+        "upstream_inference_completions_cost": 0.0019
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 547,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

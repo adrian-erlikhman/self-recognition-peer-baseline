@@ -1,0 +1,1316 @@
+prompt_id,genre,tier,model,model_version,source,word_count,text
+C1,code,Easy,DeepSeek,deepseek/deepseek-chat,api_expand,65,"```python
+def is_palindrome(s: str) -> bool:
+    """"""
+    Returns True if `s` is a palindrome after converting to lowercase and removing non-alphanumeric characters.
+    The empty string is considered a palindrome.
+    """"""
+    # Filter out non-alphanumeric characters and convert to lowercase
+    filtered = ''.join(char.lower() for char in s if char.isalnum())
+    # Check if the filtered string reads the same forwards and backwards
+    return filtered == filtered[::-1]
+```"
+C2,code,Easy,DeepSeek,deepseek/deepseek-chat,api_expand,104,"```python
+def fizzbuzz(n: int) -> list[str]:
+    """"""Return a list of strings following the FizzBuzz rules for integers from 1 to n inclusive.
+    
+    Multiples of both 3 and 5 are replaced by ""FizzBuzz"", multiples of 3 by ""Fizz"",
+    multiples of 5 by ""Buzz"", and other numbers by their string representation.
+    Returns an empty list if n < 1.
+    """"""
+    result = []
+    for i in range(1, n + 1):
+        if i % 15 == 0:  # Check for multiples of both 3 and 5 first
+            result.append(""FizzBuzz"")
+        elif i % 3 == 0:
+            result.append(""Fizz"")
+        elif i % 5 == 0:
+            result.append(""Buzz"")
+        else:
+            result.append(str(i))
+    return result
+```"
+C3,code,Easy,DeepSeek,deepseek/deepseek-chat,api_expand,115,"```python
+def sieve_primes(n: int) -> list[int]:
+    """"""
+    Return a list of all prime numbers less than or equal to n in increasing order,
+    using the Sieve of Eratosthenes algorithm. Returns an empty list if n < 2.
+    """"""
+    if n < 2:
+        return []
+    
+    sieve = [True] * (n + 1)
+    sieve[0] = sieve[1] = False  # 0 and 1 are not primes
+    
+    for current in range(2, int(n ** 0.5) + 1):
+        if sieve[current]:
+            # Mark multiples of current as non-prime
+            sieve[current*current : n+1 : current] = [False] * len(sieve[current*current : n+1 : current])
+    
+    # Collect all indices where sieve is True
+    primes = [i for i, is_prime in enumerate(sieve) if is_prime]
+    return primes
+```"
+C4,code,Easy,DeepSeek,deepseek/deepseek-chat,api_expand,114,"```python
+def second_largest(nums: list[int]) -> int | None:
+    """"""
+    Returns the second largest distinct value in the input list, or None if there are 
+    fewer than two distinct values. The input list is not modified.
+
+    Args:
+        nums: A list of integers.
+
+    Returns:
+        The second largest distinct integer, or None if applicable.
+    """"""
+    # Get the distinct values by converting the list to a set
+    distinct_nums = set(nums)
+    
+    # Check if there are at least two distinct values
+    if len(distinct_nums) < 2:
+        return None
+    
+    # Convert the set back to a sorted list in ascending order
+    sorted_nums = sorted(distinct_nums)
+    
+    # The second largest is the second last element in the sorted list
+    return sorted_nums[-2]
+```"
+C5,code,Easy,DeepSeek,deepseek/deepseek-chat,api_expand,90,"```python
+def run_length_encode(s: str) -> str:
+    """"""
+    Compresses the input string by replacing each maximal run of a repeated character
+    with the character followed by the length of the run.
+    
+    :param s: The input string to compress
+    :return: The compressed string
+    """"""
+    if not s:
+        return """"
+    
+    compressed = []
+    count = 1
+    
+    for i in range(1, len(s)):
+        if s[i] == s[i - 1]:
+            count += 1
+        else:
+            compressed.append(s[i - 1] + str(count))
+            count = 1
+    
+    # Append the last character and its count
+    compressed.append(s[-1] + str(count))
+    
+    return """".join(compressed)
+```"
+C6,code,Easy,DeepSeek,deepseek/deepseek-chat,api_expand,95,"```python
+def valid_brackets(s: str) -> bool:
+    """"""
+    Check if all brackets in the string are correctly matched and nested.
+    Only considers the characters '(', ')', '[', ']', '{', and '}'.
+    """"""
+    stack = []
+    # Mapping of closing brackets to their corresponding opening brackets
+    bracket_map = {')': '(', ']': '[', '}': '{'}
+    
+    for char in s:
+        if char in bracket_map.values():  # Opening bracket
+            stack.append(char)
+        elif char in bracket_map:  # Closing bracket
+            if not stack or stack[-1] != bracket_map[char]:
+                return False
+            stack.pop()
+    
+    # If stack is empty, all brackets were matched correctly
+    return not stack
+```"
+C7,code,Easy,DeepSeek,deepseek/deepseek-chat,api_expand,114,"```python
+def flatten(nested: list) -> list:
+    """"""Flatten a nested list structure, keeping non-list elements as single items.
+    
+    Args:
+        nested: A list that may contain nested lists to any depth. Other types are not flattened.
+    
+    Returns:
+        A new flat list with all non-list elements in left-to-right order.
+    """"""
+    flat_list = []
+    stack = [iter(nested)]  # Initialize stack with an iterator over the input list
+    
+    while stack:
+        try:
+            element = next(stack[-1])  # Get next element from the top iterator
+            if isinstance(element, list):  # If it's a list, push its iterator onto the stack
+                stack.append(iter(element))
+            else:
+                flat_list.append(element)  # Otherwise, add it to the result
+        except StopIteration:
+            stack.pop()  # Remove exhausted iterator from the stack
+    
+    return flat_list
+```"
+C8,code,Medium,DeepSeek,deepseek/deepseek-chat,api_expand,107,"```python
+def merge_intervals(intervals: list[tuple[int, int]]) -> list[tuple[int, int]]:
+    """"""
+    Merges overlapping or touching intervals and returns a sorted list of merged intervals.
+    
+    Args:
+        intervals: A list of tuples representing closed intervals (start, end).
+    
+    Returns:
+        A list of tuples representing the merged intervals, sorted by start.
+    """"""
+    if not intervals:
+        return []
+    
+    # Sort intervals based on the start value
+    sorted_intervals = sorted(intervals, key=lambda x: x[0])
+    
+    merged = []
+    current_start, current_end = sorted_intervals[0]
+    
+    for start, end in sorted_intervals[1:]:
+        if start <= current_end:  # Overlapping or touching
+            current_end = max(current_end, end)
+        else:
+            merged.append((current_start, current_end))
+            current_start, current_end = start, end
+    
+    # Add the last interval
+    merged.append((current_start, current_end))
+    
+    return merged
+```"
+C9,code,Medium,DeepSeek,deepseek/deepseek-chat,api_expand,109,"```python
+def rotate_matrix(matrix: list[list[int]]) -> list[list[int]]:
+    """"""
+    Rotate an n-by-n square matrix 90 degrees clockwise and return the result.
+    The input matrix remains unchanged. Returns an empty list for empty input.
+    
+    Args:
+        matrix: A square matrix represented as a list of lists of integers.
+        
+    Returns:
+        A new matrix rotated 90 degrees clockwise.
+    """"""
+    if not matrix:
+        return []
+    
+    n = len(matrix)
+    # Create a new matrix with the same dimensions, initialized to 0
+    rotated = [[0 for _ in range(n)] for _ in range(n)]
+    
+    for i in range(n):
+        for j in range(n):
+            # Rotate each element 90 degrees clockwise
+            rotated[j][n - 1 - i] = matrix[i][j]
+    
+    return rotated
+```"
+C10,code,Medium,DeepSeek,deepseek/deepseek-chat,api_expand,113,"```python
+import re
+from collections import Counter
+
+def top_k_words(text: str, k: int) -> list[tuple[str, int]]:
+    """"""
+    Extract words from the text (lowercased) and return the top k most frequent words.
+    
+    Args:
+        text (str): The input text.
+        k (int): The number of top words to return.
+    
+    Returns:
+        list[tuple[str, int]]: List of (word, count) pairs, sorted by count descending and alphabetically for ties.
+    """"""
+    # Lowercase the text and find all words consisting of letters and apostrophes
+    words = re.findall(r""[a-z']+"", text.lower())
+    
+    # Count the frequency of each word
+    word_counts = Counter(words)
+    
+    # Sort by count descending, then alphabetically ascending
+    sorted_words = sorted(word_counts.items(), key=lambda x: (-x[1], x[0]))
+    
+    # Return the top k words
+    return sorted_words[:k]
+```"
+C11,code,Medium,DeepSeek,deepseek/deepseek-chat,api_expand,98,"```python
+def leftmost_index(arr: list[int], target: int) -> int:
+    """"""
+    Perform a binary search on the sorted list `arr` to find the index of the first occurrence of `target`.
+    Returns -1 if `target` is not present.
+    """"""
+    left, right = 0, len(arr) - 1
+    result = -1
+    
+    while left <= right:
+        mid = left + (right - left) // 2
+        
+        if arr[mid] == target:
+            result = mid  # Update result, but continue searching to the left
+            right = mid - 1
+        elif arr[mid] < target:
+            left = mid + 1
+        else:
+            right = mid - 1
+    
+    return result
+```"
+C12,code,Medium,DeepSeek,deepseek/deepseek-chat,api_expand,104,"```python
+def roman_to_int(s: str) -> int:
+    """"""
+    Converts a valid uppercase Roman numeral to an integer.
+
+    :param s: The Roman numeral string.
+    :return: The corresponding integer value.
+    """"""
+    # Mapping of Roman numerals to their integer values
+    roman_map = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
+    
+    total = 0
+    prev_value = 0
+    
+    # Iterate through the string in reverse order
+    for char in reversed(s):
+        current_value = roman_map[char]
+        # If the current value is less than the previous value, subtract it
+        if current_value < prev_value:
+            total -= current_value
+        else:
+            total += current_value
+        prev_value = current_value
+    
+    return total
+```"
+C13,code,Medium,DeepSeek,deepseek/deepseek-chat,api_expand,95,"```python
+def max_subarray_sum(nums: list[int]) -> int:
+    """"""
+    Returns the largest sum of any non-empty contiguous subarray of `nums` using Kadane's algorithm.
+    If all numbers are negative, returns the largest single element.
+    
+    :param nums: List of integers
+    :return: Maximum sum of a contiguous subarray
+    :raises ValueError: If `nums` is empty
+    """"""
+    if not nums:
+        raise ValueError(""Input list cannot be empty"")
+    
+    max_current = max_global = nums[0]
+    all_negative = True
+    
+    for num in nums[1:]:
+        if num >= 0:
+            all_negative = False
+        max_current = max(num, max_current + num)
+        max_global = max(max_global, max_current)
+    
+    if all_negative:
+        return max(nums)
+    
+    return max_global
+```"
+C14,code,Medium,DeepSeek,deepseek/deepseek-chat,api_expand,102,"```python
+def moving_average(values: list[float], window: int) -> list[float]:
+    """"""
+    Calculate the moving average of `values` over a specified `window` size.
+    
+    Args:
+        values: List of float values.
+        window: Size of the moving average window.
+    
+    Returns:
+        List of moving averages.
+    
+    Raises:
+        ValueError: If `window` is less than 1.
+    """"""
+    if window < 1:
+        raise ValueError(""Window size must be at least 1."")
+    if window > len(values):
+        return []
+    
+    result = []
+    window_sum = sum(values[:window])
+    result.append(window_sum / window)
+    
+    for i in range(1, len(values) - window + 1):
+        window_sum = window_sum - values[i - 1] + values[i + window - 1]
+        result.append(window_sum / window)
+    
+    return result
+```"
+C15,code,Medium,DeepSeek,deepseek/deepseek-chat,api_expand,145,"```python
+def parse_duration(s: str) -> int:
+    """"""
+    Convert a duration string with optional hours, minutes, and seconds parts
+    into a total number of seconds. Raise ValueError if the string is invalid.
+
+    :param s: Duration string (e.g., ""1h30m15s"", ""45m"", ""2h5s"")
+    :return: Total duration in seconds
+    """"""
+    if not s:
+        raise ValueError(""Empty string is not a valid duration."")
+    
+    total_seconds = 0
+    remaining = s
+    expected_order = ['h', 'm', 's']  # Expected order of parts
+    
+    for unit in expected_order:
+        if remaining and remaining[0].isdigit():
+            idx = remaining.find(unit)
+            if idx == -1:
+                continue  # Skip if unit is missing
+            try:
+                value = int(remaining[:idx])
+                total_seconds += value * {'h': 3600, 'm': 60, 's': 1}[unit]
+                remaining = remaining[idx+1:]
+            except ValueError:
+                raise ValueError(f""Invalid format for {unit} part."")
+        elif remaining and remaining[0] == unit:
+            raise ValueError(f""Unexpected {unit} without preceding number."")
+    
+    if remaining:
+        raise ValueError(""Invalid characters or format in the duration string."")
+    
+    return total_seconds
+```"
+C16,code,Hard,DeepSeek,deepseek/deepseek-chat,api_expand,130,"```python
+def longest_common_subsequence(a: str, b: str) -> int:
+    """"""
+    Returns the length of the longest common subsequence between strings a and b.
+    Uses dynamic programming with O(min(len(a), len(b))) extra memory.
+    """"""
+    # Ensure a is the shorter string to minimize space usage
+    if len(a) > len(b):
+        a, b = b, a
+    
+    m, n = len(a), len(b)
+    # Initialize previous and current DP rows
+    prev = [0] * (m + 1)
+    curr = [0] * (m + 1)
+    
+    for j in range(1, n + 1):
+        for i in range(1, m + 1):
+            if a[i - 1] == b[j - 1]:
+                curr[i] = prev[i - 1] + 1
+            else:
+                curr[i] = max(prev[i], curr[i - 1])
+        # Swap prev and curr for the next iteration
+        prev, curr = curr, prev
+    
+    return prev[m]
+```"
+C17,code,Hard,DeepSeek,deepseek/deepseek-chat,api_expand,157,"```python
+def edit_distance(a: str, b: str) -> int:
+    """"""
+    Calculate the Levenshtein distance between two strings a and b.
+    The Levenshtein distance is the minimum number of single-character edits
+    (insertions, deletions, or substitutions) required to change one string into the other.
+    """"""
+    m = len(a)
+    n = len(b)
+    
+    # Create a (m+1) x (n+1) matrix initialized with zeros
+    dp = [[0] * (n + 1) for _ in range(m + 1)]
+    
+    # Initialize the first row and column with incremental values
+    for i in range(m + 1):
+        dp[i][0] = i
+    for j in range(n + 1):
+        dp[0][j] = j
+    
+    # Fill the matrix
+    for i in range(1, m + 1):
+        for j in range(1, n + 1):
+            if a[i-1] == b[j-1]:
+                cost = 0
+            else:
+                cost = 1
+            # Minimum of deletion, insertion, or substitution
+            dp[i][j] = min(
+                dp[i-1][j] + 1,      # Deletion
+                dp[i][j-1] + 1,      # Insertion
+                dp[i-1][j-1] + cost  # Substitution
+            )
+    
+    return dp[m][n]
+```"
+C18,code,Hard,DeepSeek,deepseek/deepseek-chat,api_expand,182,"```python
+import heapq
+
+def shortest_paths(graph: dict[str, list[tuple[str, int]]], source: str) -> dict[str, int]:
+    """"""
+    Compute the shortest paths from a source node to all other nodes in a weighted graph using Dijkstra's algorithm.
+    
+    Args:
+        graph: A dictionary mapping each node to a list of (neighbor, weight) pairs.
+        source: The starting node for the shortest path computation.
+    
+    Returns:
+        A dictionary mapping each reachable node to the length of its shortest path from the source.
+    """"""
+    distances = {node: float('inf') for node in graph}  # Initialize distances to infinity
+    distances[source] = 0  # Distance to the source node is 0
+    heap = [(0, source)]  # Priority queue to process nodes with the smallest distance first
+    
+    while heap:
+        current_distance, current_node = heapq.heappop(heap)
+        
+        # Skip if we've already found a shorter path to this node
+        if current_distance > distances[current_node]:
+            continue
+        
+        # Update distances to neighbors
+        for neighbor, weight in graph.get(current_node, []):
+            distance = current_distance + weight
+            if distance < distances[neighbor]:
+                distances[neighbor] = distance
+                heapq.heappush(heap, (distance, neighbor))
+    
+    # Remove nodes with infinite distance (unreachable)
+    return {node: dist for node, dist in distances.items() if dist != float('inf')}
+```"
+C19,code,Hard,DeepSeek,deepseek/deepseek-chat,api_expand,115,"```python
+from collections import defaultdict, deque
+
+def topological_order(graph: dict[str, list[str]]) -> list[str]:
+    """"""Return a topological ordering of the graph. Raise ValueError if a cycle is detected.""""""
+    # Calculate in-degree for each node
+    in_degree = defaultdict(int)
+    for u in graph:
+        if u not in in_degree:
+            in_degree[u] = 0
+        for v in graph[u]:
+            in_degree[v] += 1
+
+    # Initialize queue with nodes having zero in-degree
+    queue = deque(sorted([u for u in in_degree if in_degree[u] == 0]))
+
+    # Perform topological sort
+    result = []
+    while queue:
+        u = queue.popleft()
+        result.append(u)
+        for v in sorted(graph.get(u, [])):
+            in_degree[v] -= 1
+            if in_degree[v] == 0:
+                queue.append(v)
+
+    # Check for cycles
+    if len(result) != len(in_degree):
+        raise ValueError(""Graph contains a cycle"")
+
+    return result
+```"
+C20,code,Hard,DeepSeek,deepseek/deepseek-chat,api_expand,152,"```python
+def count_n_queens(n: int) -> int:
+    """"""
+    Returns the number of ways to place `n` queens on an n-by-n chessboard
+    so that no two queens share a row, column, or diagonal using backtracking.
+
+    :param n: The size of the chessboard and the number of queens.
+    :return: The number of valid configurations.
+    :raises ValueError: If `n` is negative.
+    """"""
+    if n < 0:
+        raise ValueError(""n must be non-negative"")
+    if n == 0:
+        return 1
+
+    def is_safe(board, row, col):
+        """"""Check if placing a queen at (row, col) is safe.""""""
+        for i in range(row):
+            if board[i] == col or abs(board[i] - col) == abs(i - row):
+                return False
+        return True
+
+    def backtrack(row, board):
+        """"""Recursively try to place queens row by row.""""""
+        if row == n:
+            return 1
+        count = 0
+        for col in range(n):
+            if is_safe(board, row, col):
+                board[row] = col
+                count += backtrack(row + 1, board)
+        return count
+
+    return backtrack(0, [0] * n)
+```"
+Q1,math,Easy,DeepSeek,deepseek/deepseek-chat,api_expand,116,"To determine how much Maria spends in total, we'll calculate the cost of the notebooks and the pens separately and then add them together.
+
+1. **Calculate the cost of the notebooks:**
+   - Each notebook costs $3.00.
+   - Maria buys 4 notebooks.
+   - Total cost of notebooks = \( 4 \times 3.00 = 12.00 \) dollars.
+
+2. **Calculate the cost of the pens:**
+   - Each pen costs $1.25.
+   - Maria buys 6 pens.
+   - Total cost of pens = \( 6 \times 1.25 = 7.50 \) dollars.
+
+3. **Calculate the total cost:**
+   - Total cost = Cost of notebooks + Cost of pens.
+   - Total cost = \( 12.00 + 7.50 = 19.50 \) dollars.
+
+Answer: 19.50"
+Q2,math,Easy,DeepSeek,deepseek/deepseek-chat,api_expand,148,"To find the total distance traveled by the train, we need to calculate the distance covered during each segment of the journey and then sum them up.
+
+### Step 1: Calculate the distance traveled at 72 km/h
+The train travels at 72 km/h for 2.5 hours. Using the formula:
+
+\[
+\text{Distance} = \text{Speed} \times \text{Time}
+\]
+
+\[
+\text{Distance}_1 = 72 \, \text{km/h} \times 2.5 \, \text{h} = 180 \, \text{km}
+\]
+
+### Step 2: Calculate the distance traveled at 90 km/h
+The train then travels at 90 km/h for 1.5 hours. Using the same formula:
+
+\[
+\text{Distance}_2 = 90 \, \text{km/h} \times 1.5 \, \text{h} = 135 \, \text{km}
+\]
+
+### Step 3: Calculate the total distance
+Add the distances from both segments of the journey:
+
+\[
+\text{Total Distance} = \text{Distance}_1 + \text{Distance}_2 = 180 \, \text{km} + 135 \, \text{km} = 315 \, \text{km}
+\]
+
+Answer: 315"
+Q3,math,Easy,DeepSeek,deepseek/deepseek-chat,api_expand,229,"To find the area of the rectangle, let's follow these steps:
+
+1. **Define the variables**:
+   - Let \( w \) be the width of the rectangle in centimeters.
+   - Since the length is 5 centimeters more than the width, the length \( L \) can be expressed as \( L = w + 5 \).
+
+2. **Write the perimeter formula**:
+   The perimeter \( P \) of a rectangle is given by:
+   \[
+   P = 2 \times (\text{length} + \text{width})
+   \]
+   Substituting the given perimeter and the expressions for length and width:
+   \[
+   46 = 2 \times ((w + 5) + w)
+   \]
+
+3. **Simplify the equation**:
+   Combine like terms inside the parentheses:
+   \[
+   46 = 2 \times (2w + 5)
+   \]
+   Multiply 2 by the terms inside the parentheses:
+   \[
+   46 = 4w + 10
+   \]
+
+4. **Solve for \( w \)**:
+   Subtract 10 from both sides:
+   \[
+   46 - 10 = 4w
+   \]
+   \[
+   36 = 4w
+   \]
+   Divide both sides by 4:
+   \[
+   w = 9
+   \]
+
+5. **Find the length \( L \)**:
+   Using \( L = w + 5 \):
+   \[
+   L = 9 + 5 = 14
+   \]
+
+6. **Calculate the area**:
+   The area \( A \) of a rectangle is given by:
+   \[
+   A = \text{length} \times \text{width}
+   \]
+   Substituting the values:
+   \[
+   A = 14 \times 9 = 126
+   \]
+
+Answer: 126"
+Q4,math,Medium,DeepSeek,deepseek/deepseek-chat,api_expand,451,"To find the sum of all integers from 1 to 200 that are divisible by 3 or by 5, we can use the principle of inclusion-exclusion. Here's the step-by-step reasoning:
+
+---
+
+### Step 1: Identify the numbers divisible by 3
+The numbers divisible by 3 from 1 to 200 form an arithmetic sequence: 3, 6, 9, ..., 198.  
+To find the number of terms, use the formula for the nth term of an arithmetic sequence:  
+\[ a_n = a_1 + (n-1)d \]  
+Here, \( a_n = 198 \), \( a_1 = 3 \), and \( d = 3 \).  
+\[ 198 = 3 + (n-1)(3) \]  
+\[ 198 = 3n \]  
+\[ n = 66 \]  
+So, there are 66 terms divisible by 3.
+
+The sum of these terms is:  
+\[ S_3 = \frac{n}{2}(a_1 + a_n) \]  
+\[ S_3 = \frac{66}{2}(3 + 198) \]  
+\[ S_3 = 33 \times 201 = 6633 \]
+
+---
+
+### Step 2: Identify the numbers divisible by 5
+The numbers divisible by 5 from 1 to 200 form an arithmetic sequence: 5, 10, 15, ..., 200.  
+To find the number of terms, use the formula for the nth term of an arithmetic sequence:  
+\[ a_n = a_1 + (n-1)d \]  
+Here, \( a_n = 200 \), \( a_1 = 5 \), and \( d = 5 \).  
+\[ 200 = 5 + (n-1)(5) \]  
+\[ 200 = 5n \]  
+\[ n = 40 \]  
+So, there are 40 terms divisible by 5.
+
+The sum of these terms is:  
+\[ S_5 = \frac{n}{2}(a_1 + a_n) \]  
+\[ S_5 = \frac{40}{2}(5 + 200) \]  
+\[ S_5 = 20 \times 205 = 4100 \]
+
+---
+
+### Step 3: Identify the numbers divisible by both 3 and 5 (i.e., divisible by 15)
+The numbers divisible by 15 from 1 to 200 form an arithmetic sequence: 15, 30, 45, ..., 195.  
+To find the number of terms, use the formula for the nth term of an arithmetic sequence:  
+\[ a_n = a_1 + (n-1)d \]  
+Here, \( a_n = 195 \), \( a_1 = 15 \), and \( d = 15 \).  
+\[ 195 = 15 + (n-1)(15) \]  
+\[ 195 = 15n \]  
+\[ n = 13 \]  
+So, there are 13 terms divisible by 15.
+
+The sum of these terms is:  
+\[ S_{15} = \frac{n}{2}(a_1 + a_n) \]  
+\[ S_{15} = \frac{13}{2}(15 + 195) \]  
+\[ S_{15} = \frac{13}{2} \times 210 = 1365 \]
+
+---
+
+### Step 4: Apply the inclusion-exclusion principle
+The total sum of numbers divisible by 3 or 5 is:  
+\[ S = S_3 + S_5 - S_{15} \]  
+\[ S = 6633 + 4100 - 1365 \]  
+\[ S = 9368 \]
+
+---
+
+Answer: 9368"
+Q5,math,Easy,DeepSeek,deepseek/deepseek-chat,api_expand,96,"Let's solve the problem step by step.
+
+1. **Original Price:**  
+   The shirt costs \$40.
+
+2. **Apply the 25% Discount:**  
+   A 25% discount means you subtract 25% of \$40 from the original price.  
+   \( 25\% \) of \$40 = \( 0.25 \times 40 = \$10 \).  
+   Discounted price = \$40 - \$10 = \$30.
+
+3. **Apply the 8% Sales Tax:**  
+   An 8% sales tax means you add 8% of \$30 to the discounted price.  
+   \( 8\% \) of \$30 = \( 0.08 \times 30 = \$2.40 \).  
+   Final price = \$30 + \$2.40 = \$32.40.
+
+Answer: 32.40"
+Q6,math,Medium,DeepSeek,deepseek/deepseek-chat,api_expand,145,"To determine the probability that the sum of two numbers rolled on fair six-sided dice is 8, follow these steps:
+
+1. **Total Possible Outcomes:**
+   Each die has 6 faces, so when two dice are rolled, the total number of possible outcomes is:
+   \[
+   6 \times 6 = 36
+   \]
+
+2. **Favorable Outcomes (where the sum is 8):**
+   We need to count all the pairs \((a, b)\) where \(a + b = 8\). Here are the possible combinations:
+   \[
+   (2, 6), (3, 5), (4, 4), (5, 3), (6, 2)
+   \]
+   There are **5** such favorable outcomes.
+
+3. **Calculate the Probability:**
+   Probability \(P\) is given by the ratio of favorable outcomes to total possible outcomes:
+   \[
+   P = \frac{\text{Favorable Outcomes}}{\text{Total Outcomes}} = \frac{5}{36}
+   \]
+
+4. **Convert to Decimal:**
+   To express the probability as a decimal rounded to four decimal places:
+   \[
+   \frac{5}{36} \approx 0.1389
+   \]
+
+Answer: 0.1389"
+Q7,math,Medium,DeepSeek,deepseek/deepseek-chat,api_expand,213,"To determine how much money will be in the account after 3 years with an initial deposit of \$5,000 and an annual interest rate of 4% compounded annually, follow these steps:
+
+1. **Identify the formula for compound interest**:  
+   The formula for compound interest is:  
+   \[
+   A = P \left(1 + \frac{r}{n}\right)^{nt}
+   \]  
+   Where:  
+   - \(A\) = the amount of money accumulated after \(t\) years, including interest.  
+   - \(P\) = the principal amount (initial deposit).  
+   - \(r\) = annual interest rate (in decimal form).  
+   - \(n\) = number of times interest is compounded per year.  
+   - \(t\) = number of years.
+
+2. **Substitute the given values into the formula**:  
+   Here, \(P = \$5,000\), \(r = 4\% = 0.04\), \(n = 1\) (compounded annually), and \(t = 3\).  
+   So, the formula becomes:  
+   \[
+   A = 5000 \left(1 + \frac{0.04}{1}\right)^{1 \cdot 3}
+   \]
+
+3. **Simplify the formula**:  
+   \[
+   A = 5000 \left(1 + 0.04\right)^3
+   \]  
+   \[
+   A = 5000 \left(1.04\right)^3
+   \]
+
+4. **Calculate \((1.04)^3\)**:  
+   \[
+   (1.04)^3 = 1.04 \cdot 1.04 \cdot 1.04 = 1.124864
+   \]
+
+5. **Multiply by the principal**:  
+   \[
+   A = 5000 \cdot 1.124864 = 5624.32
+   \]
+
+6. **Round to the nearest cent**:  
+   The amount \(A\) is already rounded to the nearest cent.
+
+So, after 3 years, the account will have \$5,624.32.  
+Answer: 5624.32"
+Q8,math,Medium,DeepSeek,deepseek/deepseek-chat,api_expand,153,"To determine how long Ana and Ben take to paint the fence together, we analyze their individual work rates and combine them.
+
+1. **Ana's work rate**: Ana can paint the fence in 6 hours, so her rate is \( \frac{1}{6} \) of the fence per hour.
+2. **Ben's work rate**: Ben can paint the fence in 4 hours, so his rate is \( \frac{1}{4} \) of the fence per hour.
+3. **Combined work rate**: When working together, their rates add up. So, their combined rate is:
+   \[
+   \frac{1}{6} + \frac{1}{4} = \frac{2}{12} + \frac{3}{12} = \frac{5}{12} \text{ of the fence per hour}.
+   \]
+4. **Time to complete the fence together**: To find the time \( t \) it takes to paint the entire fence together, we solve:
+   \[
+   \frac{5}{12} \cdot t = 1.
+   \]
+   Multiplying both sides by \( \frac{12}{5} \) gives:
+   \[
+   t = \frac{12}{5} = 2.4 \text{ hours}.
+   \]
+
+Answer: 2.4"
+Q9,math,Easy,DeepSeek,deepseek/deepseek-chat,api_expand,258,"To determine the number of ways a club with 10 members can choose a committee of 3 members where the order of selection does not matter, we can use the concept of combinations. Combinations are used when the order of selection is irrelevant, and the formula for combinations is:
+
+\[
+\text{Number of combinations} = \binom{n}{k} = \frac{n!}{k!(n - k)!}
+\]
+
+Here, \( n \) is the total number of items, and \( k \) is the number of items to choose. In this problem:
+
+\[
+n = 10 \quad \text{(the total number of members)}
+\]
+\[
+k = 3 \quad \text{(the number of members to choose for the committee)}
+\]
+
+Plugging these values into the combination formula:
+
+\[
+\binom{10}{3} = \frac{10!}{3!(10 - 3)!} = \frac{10!}{3! \cdot 7!}
+\]
+
+Now, simplify the factorials. Recall that \( 10! = 10 \times 9 \times 8 \times 7! \), so the \( 7! \) terms cancel out:
+
+\[
+\binom{10}{3} = \frac{10 \times 9 \times 8 \times 7!}{3! \times 7!} = \frac{10 \times 9 \times 8}{3!}
+\]
+
+Next, compute \( 3! \):
+
+\[
+3! = 3 \times 2 \times 1 = 6
+\]
+
+Now, substitute \( 3! \) back into the equation:
+
+\[
+\binom{10}{3} = \frac{10 \times 9 \times 8}{6}
+\]
+
+Calculate the numerator:
+
+\[
+10 \times 9 \times 8 = 720
+\]
+
+Finally, divide by 6:
+
+\[
+\binom{10}{3} = \frac{720}{6} = 120
+\]
+
+Thus, there are 120 different ways to choose a committee of 3 members from a club of 10 members when the order of selection does not matter.
+
+Answer: 120"
+Q10,math,Medium,DeepSeek,deepseek/deepseek-chat,api_expand,140,"To determine when the tank will be full, we need to calculate the net rate at which the water level increases and then determine how long it will take to fill the remaining capacity.
+
+1. **Current situation**: The tank has a total capacity of 1,200 liters and currently contains 300 liters. This means there are \(1,200 - 300 = 900\) liters of empty space to fill.
+
+2. **Flow rates**: Water flows into the tank at 30 liters per minute, but the leak drains it at 12 liters per minute. The net rate at which the water level increases is \(30 - 12 = 18\) liters per minute.
+
+3. **Time calculation**: To find the time \(t\) required to fill the 900 liters, divide the remaining capacity by the net rate:
+   \[
+   t = \frac{900}{18} = 50 \text{ minutes}.
+   \]
+
+Answer: 50"
+Q11,math,Easy,DeepSeek,deepseek/deepseek-chat,api_expand,130,"To find the fifth number, we can follow these steps:
+
+1. **Calculate the total sum of the five numbers using the average:**  
+   Since the average of the five numbers is 18, the total sum of the numbers is:  
+   \[
+   \text{Total Sum} = \text{Average} \times \text{Number of Terms} = 18 \times 5 = 90
+   \]
+
+2. **Calculate the sum of the four known numbers:**  
+   The four known numbers are 12, 15, 20, and 22. Their sum is:  
+   \[
+   12 + 15 + 20 + 22 = 69
+   \]
+
+3. **Find the fifth number:**  
+   The fifth number is the difference between the total sum and the sum of the four known numbers:  
+   \[
+   \text{Fifth Number} = \text{Total Sum} - \text{Sum of Known Numbers} = 90 - 69 = 21
+   \]
+
+Answer: 21"
+Q12,math,Easy,DeepSeek,deepseek/deepseek-chat,api_expand,114,"To find the 25th term of an arithmetic sequence, we can use the formula for the \(n\)th term of an arithmetic sequence:
+
+\[
+a_n = a_1 + (n - 1) \cdot d
+\]
+
+Here:
+- \(a_n\) is the \(n\)th term,
+- \(a_1\) is the first term,
+- \(d\) is the common difference,
+- \(n\) is the term number.
+
+Given:
+- \(a_1 = 7\),
+- \(d = 4\),
+- \(n = 25\).
+
+Substitute these values into the formula:
+
+\[
+a_{25} = 7 + (25 - 1) \cdot 4
+\]
+
+Simplify the expression:
+
+\[
+a_{25} = 7 + 24 \cdot 4
+\]
+
+\[
+a_{25} = 7 + 96
+\]
+
+\[
+a_{25} = 103
+\]
+
+Answer: 103"
+Q13,math,Medium,DeepSeek,deepseek/deepseek-chat,api_expand,166,"To determine the car's value after 2 years, follow these steps:
+
+1. **Initial Value:**
+   The car is bought for **$24,000**.
+
+2. **First-Year Depreciation:**
+   - The car loses **15%** of its value at the end of each year.
+   - **15%** of **$24,000** is calculated as:
+     \[
+     0.15 \times 24,000 = 3,600 \text{ dollars}
+     \]
+   - **Value after the first year:**
+     \[
+     24,000 - 3,600 = 20,400 \text{ dollars}
+     \]
+
+3. **Second-Year Depreciation:**
+   - Now, the car is worth **$20,400**.
+   - **15%** of **$20,400** is:
+     \[
+     0.15 \times 20,400 = 3,060 \text{ dollars}
+     \]
+   - **Value after the second year:**
+     \[
+     20,400 - 3,060 = 17,340 \text{ dollars}
+     \]
+
+4. **Final Value:**
+   After 2 years, the car's value is **$17,340**.
+
+Alternatively, you can use the compound depreciation formula:
+\[
+\text{Final Value} = \text{Initial Value} \times (1 - \text{Depreciation Rate})^{\text{Number of Years}}
+\]
+\[
+\text{Final Value} = 24,000 \times (1 - 0.15)^2 = 24,000 \times 0.7225 = 17,340 \text{ dollars}
+\]
+
+Both methods yield the same result.
+
+Answer: 17340"
+Q14,math,Medium,DeepSeek,deepseek/deepseek-chat,api_expand,147,"To determine how many positive integers divide 360 exactly, we first factorize 360 into its prime factors. Here's the step-by-step reasoning:
+
+1. **Factorize 360 into primes**:  
+   Start by dividing 360 by the smallest prime numbers:  
+   - \(360 ÷ 2 = 180\)  
+   - \(180 ÷ 2 = 90\)  
+   - \(90 ÷ 2 = 45\)  
+   - \(45 ÷ 3 = 15\)  
+   - \(15 ÷ 3 = 5\)  
+   - \(5 ÷ 5 = 1\)  
+
+   So, the prime factorization of 360 is:  
+   \(360 = 2^3 × 3^2 × 5^1\).
+
+2. **Apply the divisor formula**:  
+   If a number \(N\) has a prime factorization of the form \(N = p_1^{a} × p_2^{b} × p_3^{c} × \dots\), then the number of positive divisors of \(N\) is given by \((a+1)(b+1)(c+1)\dots\).  
+
+   Applying this to \(360 = 2^3 × 3^2 × 5^1\):  
+   Number of divisors = \((3+1)(2+1)(1+1) = 4 × 3 × 2 = 24\).
+
+Answer: 24."
+Q15,math,Hard,DeepSeek,deepseek/deepseek-chat,api_expand,241,"To solve this problem, we'll use the Pythagorean theorem, which relates the sides of a right triangle. Let's break it down step by step.
+
+### Step 1: Initial Position of the Ladder
+- The ladder is 25 feet long.
+- The foot of the ladder is initially 7 feet from the wall.
+- Let \( h \) be the initial height of the ladder on the wall.
+
+Using the Pythagorean theorem:
+\[
+7^2 + h^2 = 25^2
+\]
+\[
+49 + h^2 = 625
+\]
+\[
+h^2 = 576
+\]
+\[
+h = \sqrt{576} = 24 \text{ feet}
+\]
+
+So, the ladder initially reaches 24 feet up the wall.
+
+### Step 2: After the Ladder Slides
+- The top of the ladder slides 4 feet down the wall.
+- The new height of the ladder on the wall is \( 24 - 4 = 20 \) feet.
+- Let \( x \) be the new distance of the foot of the ladder from the wall.
+
+Using the Pythagorean theorem again:
+\[
+x^2 + 20^2 = 25^2
+\]
+\[
+x^2 + 400 = 625
+\]
+\[
+x^2 = 225
+\]
+\[
+x = \sqrt{225} = 15 \text{ feet}
+\]
+
+### Step 3: Calculate the Movement of the Foot
+- The foot of the ladder moves from 7 feet to 15 feet away from the wall.
+- The distance it moves away is \( 15 - 7 = 8 \) feet.
+
+Answer: 8"
+Q16,math,Hard,DeepSeek,deepseek/deepseek-chat,api_expand,242,"To solve this problem, let's set up an equation based on the concentrations and volumes of the acid solutions.
+
+1. **Define the variables:**
+   - Let \( x \) be the number of liters of the 60% acid solution to be added.
+
+2. **Calculate the total amount of acid:**
+   - The 60% solution contributes \( 0.60x \) liters of acid.
+   - The 20% solution contributes \( 0.20 \times 10 = 2 \) liters of acid.
+
+3. **Total volume of the mixture:**
+   - The total volume after mixing will be \( x + 10 \) liters.
+
+4. **Set up the equation for the desired concentration:**
+   - We want the final mixture to be 40% acid. Therefore:
+     \[
+     \frac{0.60x + 2}{x + 10} = 0.40
+     \]
+
+5. **Solve the equation:**
+   - Multiply both sides by \( x + 10 \) to eliminate the denominator:
+     \[
+     0.60x + 2 = 0.40(x + 10)
+     \]
+   - Distribute \( 0.40 \) on the right side:
+     \[
+     0.60x + 2 = 0.40x + 4
+     \]
+   - Subtract \( 0.40x \) from both sides:
+     \[
+     0.20x + 2 = 4
+     \]
+   - Subtract \( 2 \) from both sides:
+     \[
+     0.20x = 2
+     \]
+   - Divide both sides by \( 0.20 \):
+     \[
+     x = \frac{2}{0.20} = 10
+     \]
+
+6. **Conclusion:**
+   - You need to add 10 liters of the 60% acid solution to the 10 liters of the 20% acid solution to produce a 40% acid solution.
+
+Answer: 10"
+Q17,math,Medium,DeepSeek,deepseek/deepseek-chat,api_expand,176,"To determine when the three lighthouses will next flash together, we need to find the Least Common Multiple (LCM) of their flashing intervals: 12 seconds, 18 seconds, and 30 seconds. The LCM is the smallest number that is a multiple of all three intervals.
+
+### Step 1: Prime Factorization
+First, we break down each interval into its prime factors:
+
+- 12 = 2² × 3¹
+- 18 = 2¹ × 3²
+- 30 = 2¹ × 3¹ × 5¹
+
+### Step 2: Identify the Highest Powers
+For the LCM, we take the highest power of each prime number present in the factorizations:
+
+- For 2, the highest power is 2² (from 12).
+- For 3, the highest power is 3² (from 18).
+- For 5, the highest power is 5¹ (from 30).
+
+### Step 3: Calculate the LCM
+Multiply these highest powers together to find the LCM:
+
+LCM = 2² × 3² × 5¹ = 4 × 9 × 5 = 180
+
+### Conclusion
+The three lighthouses will next flash together after 180 seconds.
+
+Answer: 180"
+Q18,math,Medium,DeepSeek,deepseek/deepseek-chat,api_expand,112,"To determine the number of bacteria after 2 hours, follow these steps:
+
+1. **Determine the number of doubling periods:**
+   - The population doubles every 20 minutes.
+   - 2 hours is equal to 120 minutes.
+   - Number of doubling periods = Total time / Doubling time = 120 minutes / 20 minutes = 6 periods.
+
+2. **Calculate the population after each doubling period:**
+   - Start with 150 bacteria.
+   - After each doubling period, the population is multiplied by 2.
+   - After 6 doubling periods, the population is \(150 \times 2^6\).
+
+3. **Compute \(2^6\):**
+   - \(2^6 = 64\).
+
+4. **Calculate the final population:**
+   - Final population = \(150 \times 64 = 9600\).
+
+Answer: 9600"
+Q19,math,Hard,DeepSeek,deepseek/deepseek-chat,api_expand,196,"To determine the smaller angle between the hour hand and the minute hand of an analog clock at 3:40, follow these steps:
+
+1. **Minute Hand Calculation**:
+   - The minute hand moves 360 degrees in 60 minutes, so it moves 6 degrees per minute.
+   - At 40 minutes, the minute hand is at \(40 \times 6 = 240\) degrees.
+
+2. **Hour Hand Calculation**:
+   - The hour hand moves 360 degrees in 12 hours, so it moves 30 degrees per hour.
+   - Additionally, the hour hand moves 0.5 degrees per minute (since \(30 \text{ degrees per hour} \div 60 \text{ minutes} = 0.5 \text{ degrees per minute}\)).
+   - At 3:40, the hour hand is at \(3 \times 30 + 40 \times 0.5 = 90 + 20 = 110\) degrees.
+
+3. **Angle Between the Hands**:
+   - The absolute difference between the positions of the minute hand and the hour hand is \(|240 - 110| = 130\) degrees.
+   - The smaller angle between the two hands is the minimum of this angle and its supplement (360 - 130 = 230 degrees).
+
+Thus, the smaller angle between the hour hand and the minute hand at 3:40 is 130 degrees.
+
+Answer: 130"
+Q20,math,Hard,DeepSeek,deepseek/deepseek-chat,api_expand,424,"To determine how many integers from 1 to 1000 inclusive contain at least one digit 7 in their decimal representation, we can use the complementary counting approach. Specifically, we will:
+
+1. Calculate the total number of integers from 1 to 1000.
+2. Calculate the number of integers that **do not** contain the digit 7.
+3. Subtract the result of step 2 from step 1 to get the number of integers that **do** contain at least one digit 7.
+
+---
+
+### Step 1: Total number of integers from 1 to 1000
+The total number of integers from 1 to 1000 inclusive is simply **1000**.
+
+---
+
+### Step 2: Number of integers that do not contain the digit 7
+We count the number of integers from 1 to 1000 that do **not** contain the digit 7 in any of their digits. We break this down by the number of digits in the integer:
+
+#### Case 1: 1-digit numbers (1 to 9)
+Each digit can be any of 0, 1, 2, 3, 4, 5, 6, 8, or 9 (excluding 7). There are **9** possible digits.
+Total: 9 numbers.
+
+#### Case 2: 2-digit numbers (10 to 99)
+For a 2-digit number, the first digit cannot be 0, so it can be any of 1, 2, 3, 4, 5, 6, 8, or 9 (excluding 7). There are **8** possible choices for the first digit. The second digit can be any of 0, 1, 2, 3, 4, 5, 6, 8, or 9 (excluding 7). There are **9** possible choices for the second digit.
+Total: \(8 \times 9 = 72\) numbers.
+
+#### Case 3: 3-digit numbers (100 to 999)
+For a 3-digit number, the first digit cannot be 0, so it can be any of 1, 2, 3, 4, 5, 6, 8, or 9 (excluding 7). There are **8** possible choices for the first digit. The second and third digits can each be any of 0, 1, 2, 3, 4, 5, 6, 8, or 9 (excluding 7). There are **9** possible choices for each of these digits.
+Total: \(8 \times 9 \times 9 = 648\) numbers.
+
+#### Case 4: 1000
+The number 1000 does not contain the digit 7.
+Total: 1 number.
+
+#### Total numbers without the digit 7:
+Add the totals from all cases:
+\(9 + 72 + 648 + 1 = 730\).
+
+---
+
+### Step 3: Subtract to find numbers with at least one digit 7
+Subtract the number of integers without the digit 7 from the total number of integers:
+\(1000 - 730 = 270\).
+
+---
+
+Answer: 270"
+E14,prose,Easy,DeepSeek,deepseek/deepseek-chat,api_expand,440,"Volunteering your time to help others is often seen as a selfless act, but it also offers significant personal benefits that can enrich your life in meaningful ways. One of the most tangible advantages is the opportunity to build new skills and expand your professional network. When you volunteer, you often find yourself in environments that require adaptability, problem-solving, and teamwork—skills that are highly transferable to the workplace. For example, organizing a community event can enhance your project management abilities, while tutoring students can improve your communication and teaching skills. Additionally, volunteering connects you with individuals from diverse backgrounds, including professionals, community leaders, and fellow volunteers, who can become valuable contacts in your career. These connections can lead to mentorship opportunities, job referrals, or collaborations that might not have been possible otherwise. In this way, volunteering serves as both a personal and professional growth engine, equipping you with practical tools and relationships that can advance your goals.
+
+Beyond the practical benefits, volunteering provides a profound sense of purpose and meaning. In a world where many people feel disconnected or unsure of their impact, dedicating time to a cause larger than yourself can be deeply fulfilling. Whether you’re helping to feed the homeless, supporting environmental conservation, or mentoring young people, your efforts contribute to positive change in the world. This sense of purpose can help you feel more grounded and aligned with your values, fostering a greater sense of fulfillment in your daily life. Moreover, seeing the tangible results of your work—whether it’s a child’s smile, a cleaner park, or a family’s gratitude—can reinforce your belief in your ability to make a difference. This sense of meaning can spill over into other areas of your life, inspiring you to approach challenges with greater resilience and optimism.
+
+Finally, volunteering has been shown to improve mental health by reducing feelings of isolation and fostering a sense of connection. In an increasingly digital and fast-paced world, many people struggle with loneliness or a lack of meaningful social interaction. Volunteering brings people together around a shared mission, creating opportunities to form genuine bonds with others. These interactions can alleviate feelings of loneliness and remind you that you are part of a larger community. Additionally, the act of helping others releases endorphins and activates the brain’s reward system, often referred to as the “helper’s high,” which can boost your mood and reduce stress. Over time, this positive emotional feedback loop can contribute to improved mental well-being, helping you feel more balanced and content. By volunteering, you not only uplift others but also nurture your own emotional and psychological health, creating a win-win situation for everyone involved."
+E15,prose,Easy,DeepSeek,deepseek/deepseek-chat,api_expand,288,"Learning to play a musical instrument as an adult is a deeply rewarding pursuit, offering benefits that extend far beyond simply making music. One of the most immediate advantages is the way it exercises both memory and hand coordination. Mastering an instrument requires memorizing notes, chords, and patterns while simultaneously training the hands to move with precision and timing. This dual challenge strengthens cognitive function, sharpening mental agility and fine motor skills in ways that can translate to improved focus and dexterity in everyday tasks. Over time, the repetition and refinement of these skills create new neural pathways, making the brain more adaptable and resilient.
+
+Beyond the cognitive benefits, playing an instrument provides a much-needed creative outlet after the structure of work or school. Unlike passive forms of relaxation, such as watching television, making music engages the mind and body in active expression. It allows for emotional release, offering a way to channel stress, joy, or introspection into something tangible. This creative engagement fosters a sense of fulfillment that can counterbalance the routine demands of daily life, making it a uniquely satisfying way to unwind and reconnect with oneself.
+
+Perhaps one of the most motivating aspects of learning an instrument is the steady sense of progress that comes with consistent practice. Unlike many adult pursuits where improvement can feel slow or intangible, musical growth is measurable and immediate. A difficult passage that seemed impossible one week becomes fluid the next, and small, incremental achievements build confidence and momentum. This continuous forward motion creates a rewarding feedback loop, reinforcing persistence and discipline while delivering the deep satisfaction of personal mastery. Whether playing for pleasure or performance, the journey of musical development offers a lasting and enriching sense of accomplishment."
+E16,prose,Easy,DeepSeek,deepseek/deepseek-chat,api_expand,246,"Choosing to walk or bike for short trips instead of driving can significantly improve everyday life in simple yet meaningful ways. One of the most immediate benefits is the money saved on fuel and parking, which adds up over time. Gas prices and parking fees can strain budgets, especially for frequent short trips, but opting for human-powered travel eliminates these costs entirely. Over weeks and months, the savings can be substantial, leaving more room in your budget for other priorities or small indulgences. Beyond the financial advantage, walking or biking integrates exercise seamlessly into your routine without the need for extra planning or gym memberships. Many people struggle to find time for workouts, but these short trips turn necessary errands into opportunities to move your body, improving cardiovascular health, boosting energy levels, and reducing stress. The physical activity becomes a natural part of your day rather than a chore to schedule around. Perhaps most rewarding, though, is the chance to slow down and connect with your surroundings. Driving often means rushing past details, but walking or biking allows you to notice the changing seasons, greet neighbors, or discover hidden gems like a cozy café or a vibrant community garden. These small moments of appreciation can brighten your mood and foster a deeper sense of belonging in your neighborhood. Together, these benefits—financial savings, effortless exercise, and a richer connection to your community—make walking or biking for short trips a simple yet powerful way to enhance daily life."
+E17,prose,Easy,DeepSeek,deepseek/deepseek-chat,api_expand,311,"Taking a basic first aid course is a smart and practical way to spend a weekend because it equips you with the skills to respond effectively in common emergencies. Accidents and medical incidents can happen at any time, whether at home, work, or in public spaces. By learning how to administer CPR, treat minor wounds, or recognize the signs of a stroke or heart attack, you become a valuable asset in potentially life-saving situations. This knowledge not only benefits you but also those around you, as you’ll be prepared to act swiftly and appropriately when seconds count. It’s a small investment of time that can make a significant difference in the outcome of an unexpected crisis.
+
+Beyond the practical skills, completing a first aid course builds calm confidence that can transform how you handle stressful moments. Emergencies are often chaotic and overwhelming, but having the training to assess a situation and take decisive action can help you stay composed and focused. This confidence extends beyond emergencies, as you’ll feel more assured in your ability to manage unexpected challenges in general. Knowing you have the tools to help in a crisis fosters a sense of empowerment and readiness that can positively impact your daily life.
+
+Additionally, a basic first aid course is both short and inexpensive, making it an accessible and worthwhile commitment. Many courses can be completed in just a day or over a weekend, fitting easily into a busy schedule. The cost is minimal compared to the potential benefits, and some employers or community organizations even offer subsidized or free training. Given the ease of access and the invaluable skills you gain, dedicating a weekend to this training is a small price to pay for the peace of mind and preparedness it provides. Ultimately, taking a first aid course is a smart, practical, and impactful way to spend your time."
+E18,prose,Easy,DeepSeek,deepseek/deepseek-chat,api_expand,289,"Growing a small herb or vegetable garden at home is a deeply rewarding hobby for several reasons. First and foremost, it provides the satisfaction of having fresh, flavorful food right outside your door. There’s something uniquely gratifying about plucking ripe tomatoes, fragrant basil, or crisp lettuce straight from your own garden. Not only do homegrown herbs and vegetables taste better than store-bought ones, but they also allow you to control how they’re grown—whether you prefer organic methods or simply want to avoid unnecessary pesticides. This direct connection to your food fosters a greater appreciation for what you eat and can even inspire healthier eating habits.  
+
+Beyond the practical benefits, tending to a garden offers a peaceful escape from the stresses of daily life. The simple acts of watering, weeding, and pruning provide a mindful break from screens and responsibilities, grounding you in the present moment. Many people find gardening to be a form of therapy, as the rhythmic tasks and connection to nature help reduce anxiety and promote relaxation. Whether you’re gently loosening soil or admiring new growth, the garden becomes a quiet sanctuary where you can unwind and recharge.  
+
+Finally, gardening cultivates patience, a virtue that’s increasingly rare in our fast-paced world. Plants grow on their own timeline, and no amount of rushing will make them sprout or ripen faster. Watching seeds slowly transform into seedlings, then mature into productive plants, teaches you to appreciate the gradual process of growth—both in the garden and in life. This slow, steady progress can be deeply satisfying, reminding you that some of the best things take time. Whether you’re a beginner or an experienced gardener, the lessons learned from nurturing living things make this hobby as enriching as it is enjoyable."
+E19,prose,Easy,DeepSeek,deepseek/deepseek-chat,api_expand,340,"Writing tasks down in a daily planner is an invaluable tool for staying on top of your life, as it provides structure, clarity, and a sense of accomplishment. One of the most immediate benefits is that it helps you forget fewer tasks and appointments. When everything is stored in your mind, it’s easy for details to slip through the cracks, especially when life becomes busy. By jotting down your responsibilities, you create a reliable external record that you can refer to throughout the day. This ensures that nothing is overlooked—whether it’s a meeting, a deadline, or a simple errand—and reduces the stress of trying to remember everything on your own. It’s like having a safety net for your commitments.
+
+Another advantage of using a daily planner is that it clears your head, allowing you to relax and focus on the present moment. When your mind is cluttered with a mental to-do list, it can be difficult to fully engage in what you’re doing or even enjoy downtime. Writing tasks down transfers them from your brain to paper, giving you permission to let go of the mental burden. This act of externalizing your responsibilities creates mental space, making it easier to concentrate on the task at hand or simply unwind without feeling overwhelmed by everything else you need to do. It’s a simple yet effective way to promote mindfulness and reduce anxiety.
+
+Finally, checking items off your planner provides a tangible sense of progress and accomplishment. As you complete tasks and mark them off, you create a visual representation of your productivity. This not only boosts your motivation but also helps you recognize how much you’ve achieved throughout the day. Seeing your progress can be incredibly satisfying and reinforces the value of your efforts. It’s a small but powerful way to build momentum and maintain a positive outlook, even on challenging days. In this way, a daily planner becomes more than just a tool for organization—it’s a source of encouragement and a reminder of your capability to manage your life effectively."
+E20,prose,Easy,DeepSeek,deepseek/deepseek-chat,api_expand,291,"Playing board games with family and friends is an excellent way to spend time together, fostering meaningful conversation and connection around the table. In a world often dominated by screens and distractions, board games provide a unique opportunity to engage face-to-face, share stories, and laugh together. Whether it’s strategizing over a competitive game or collaborating to solve a puzzle, these moments create lasting memories and strengthen relationships. The shared experience of playing a game encourages everyone to open up, leading to deeper conversations and a sense of camaraderie that’s hard to replicate in other settings.
+
+Another valuable aspect of board games is the opportunity they provide to teach and practice good sportsmanship. Winning and losing are integral parts of any game, and how we handle these outcomes can be a powerful lesson in humility, grace, and resilience. By playing board games, family and friends learn to celebrate victories without arrogance and accept defeats with dignity. These experiences help build emotional intelligence and character, skills that extend far beyond the game table and into everyday life. It’s a safe and fun environment to teach younger players—and remind older ones—about the importance of fairness, respect, and perseverance.
+
+Finally, board games are an affordable form of entertainment that can be enjoyed repeatedly. Unlike many activities that require ongoing expenses or elaborate setups, a single board game can provide hours of enjoyment for a relatively low cost. Many games are designed with replayability in mind, offering different outcomes each time they’re played. This makes them a sustainable investment in fun and togetherness. Whether it’s a rainy day indoors or a cozy evening with friends, board games offer endless opportunities for enjoyment without breaking the bank, making them a practical and rewarding choice for quality time."
+E21,prose,Easy,DeepSeek,deepseek/deepseek-chat,api_expand,379,"Learning how to swim is an essential skill that everyone should acquire, primarily because it significantly enhances personal safety in aquatic environments. Whether near a pool, lake, or ocean, water can be unpredictable and potentially dangerous. Knowing how to swim equips individuals with the ability to navigate these environments confidently and reduces the risk of drowning or accidents. Even in shallow water, unexpected situations like strong currents or sudden drops can arise, and being able to swim ensures that one can respond effectively. Moreover, swimming skills are invaluable in emergencies, not only for self-preservation but also for assisting others who may be in distress. By learning to swim, individuals gain a crucial layer of protection that can make a life-saving difference in water-related scenarios.
+
+Beyond safety, swimming offers exceptional physical benefits as a full-body workout that is gentle on the joints. Unlike high-impact exercises such as running or weightlifting, swimming provides resistance without placing strain on the bones and joints, making it an ideal form of exercise for people of all ages and fitness levels. It engages nearly every muscle group, improving strength, endurance, and flexibility. Additionally, swimming promotes cardiovascular health, enhances lung capacity, and can aid in weight management. Its low-impact nature also makes it a suitable option for individuals recovering from injuries or those with conditions like arthritis. By incorporating swimming into their routine, individuals can enjoy a comprehensive workout that supports overall health while minimizing the risk of injury.
+
+Finally, learning to swim opens up a world of enjoyable recreational activities that would otherwise be inaccessible. Water-based hobbies such as snorkeling, scuba diving, surfing, kayaking, and paddleboarding become attainable and enriching experiences for those who can swim. These activities not only provide opportunities for adventure and exploration but also foster a deeper connection with nature. Swimming enables people to participate in group sports like water polo or synchronized swimming, fostering social interaction and teamwork. Even simple pleasures like playing in the waves or swimming with friends and family are enhanced by this skill. By learning to swim, individuals unlock a gateway to countless fun and fulfilling experiences that enrich their lives physically, emotionally, and socially. In essence, swimming is more than just a survival skill—it is a pathway to a healthier, safer, and more enjoyable lifestyle."
+M14,prose,Medium,DeepSeek,deepseek/deepseek-chat,api_expand,330,"Routine preventive maintenance of buildings and equipment is inherently more cost-effective than repairing them after they fail because it systematically addresses potential issues before they escalate into costly problems. Scheduled inspections play a critical role in this process by identifying small defects early, such as minor leaks, cracks, or wear and tear on mechanical components. These seemingly insignificant issues, if left unattended, can develop into major structural failures or catastrophic equipment breakdowns, requiring extensive and expensive repairs. By catching and resolving these defects early, preventive maintenance minimizes the likelihood of sudden failures and reduces the overall repair costs over time. This proactive approach ensures that resources are allocated efficiently, avoiding the financial burden of emergency repairs and the associated disruption to operations.
+
+Planned maintenance also avoids the significant costs associated with unplanned downtime, which often accompanies sudden breakdowns. When equipment or building systems fail unexpectedly, operations must halt abruptly, leading to lost output, missed deadlines, and potential revenue losses. In contrast, preventive maintenance is scheduled during periods of low activity or planned downtime, ensuring that operations can continue uninterrupted for the majority of the time. This predictability allows businesses to maintain productivity levels and meet their commitments without the inefficiencies and financial penalties that come with unplanned outages. By prioritizing preventive maintenance, organizations can sustain smoother workflows and avoid the hidden costs of unexpected failures.
+
+Additionally, well-maintained assets last substantially longer, which significantly reduces their overall cost of ownership. Regular maintenance preserves the integrity of buildings and equipment, preventing premature deterioration and extending their useful life. This longevity spreads the initial capital investment over more years of service, effectively lowering the annual depreciation expense. Furthermore, extended asset lifespans delay the need for costly replacements, allowing organizations to allocate their budgets more effectively. The cumulative effect of preventive maintenance is a reduction in long-term capital expenditures, making it a financially prudent strategy for managing built assets and equipment. By prioritizing routine maintenance, organizations can achieve greater operational efficiency and financial sustainability."
+M15,prose,Medium,DeepSeek,deepseek/deepseek-chat,api_expand,295,"Contributing to open-source software offers significant advantages to organizations by distributing the responsibilities and costs of software maintenance more broadly. When companies share their code publicly, they no longer bear the full burden of maintaining it alone. Instead, a global community of developers can contribute fixes, updates, and optimizations, reducing the strain on any single organization. This collaborative approach ensures that software remains robust and up-to-date without requiring a single entity to invest excessive resources. By participating in open-source, companies effectively leverage collective effort, making maintenance more sustainable and cost-efficient over time.  
+
+Public peer review of source code is another key benefit, as it leads to higher-quality and more secure software. When code is openly available, a diverse group of developers can scrutinize it, identifying bugs, inefficiencies, and security vulnerabilities that internal teams might overlook. This transparency accelerates problem detection and resolution, resulting in more reliable and resilient software. The broader the audience reviewing the code, the faster issues are caught and addressed, reducing the risk of costly failures or breaches. Open-source projects often achieve a level of scrutiny that proprietary software struggles to match, precisely because of the sheer volume of independent reviewers contributing their expertise.  
+
+Beyond technical improvements, open-source contributions enhance an organization’s reputation in the tech community, making it more attractive to top engineering talent. Skilled developers often seek employers who actively participate in open-source, viewing such engagement as a sign of technical competence, innovation, and a commitment to collaborative problem-solving. By maintaining visible contributions to open projects, companies signal their technical leadership and create opportunities to engage with potential hires who are already familiar with their work. This reputation for openness and expertise becomes a powerful recruitment tool, helping organizations attract and retain the best engineers in a competitive job market."
+M16,prose,Medium,DeepSeek,deepseek/deepseek-chat,api_expand,329,"The standardized shipping container revolutionized global trade and logistics, becoming one of the most economically consequential innovations of the twentieth century. By drastically reducing the labor and time required to load and unload cargo at ports, containerization streamlined the entire shipping process. Before its adoption, goods were manually handled in irregularly shaped packages, a process that was both labor-intensive and time-consuming. The introduction of uniform containers allowed for the mechanization of loading and unloading, leveraging cranes and forklifts to move goods swiftly and efficiently. This reduction in labor costs and turnaround times not only boosted port productivity but also enabled ships to spend less time idle in harbors, increasing their operational efficiency and reducing overall shipping costs.
+
+A common container size further transformed global trade by facilitating seamless movement of goods between ships, trains, and trucks without the need for repacking. This interoperability across different modes of transportation laid the foundation for integrated global supply chains. Manufacturers could now rely on a standardized system to transport raw materials and finished products across vast distances with minimal disruption. This integration lowered transportation costs, reduced delays, and allowed businesses to optimize production schedules and inventory management. As a result, companies could operate on a global scale with unprecedented efficiency, fostering international trade and economic growth.
+
+Additionally, sealed containers significantly reduced theft and damage during transit, which in turn lowered insurance and handling costs. The secure, tamper-proof design of standardized containers minimized the risk of pilferage, a common problem in traditional shipping methods. Moreover, the robust construction of containers protected goods from environmental hazards and rough handling, ensuring that products arrived in better condition. These improvements reduced the financial losses associated with damaged or stolen goods, leading to lower insurance premiums and fewer claims. Businesses could now rely on a more predictable and cost-effective shipping process, further incentivizing global trade and investment. Together, these advantages underscore the profound economic impact of the standardized shipping container, making it a cornerstone of modern commerce."
+M17,prose,Medium,DeepSeek,deepseek/deepseek-chat,api_expand,310,"Citizen science projects make genuine contributions to scientific research by expanding the scope and efficiency of data collection while fostering public engagement with science. One key advantage is the ability of volunteer observers to gather data across vast geographic areas and extended time spans, which would be impractical for professional teams alone. For example, long-running bird counts, such as the Audubon Society’s Christmas Bird Count, rely on thousands of volunteers to monitor bird populations annually. This decentralized approach provides researchers with comprehensive datasets that reveal trends in biodiversity, migration patterns, and the impacts of climate change over decades. Without the participation of citizen scientists, such extensive and longitudinal data would be prohibitively expensive or logistically impossible to obtain.  
+
+Another significant contribution comes from online volunteers who classify large datasets of images or audio recordings, dramatically accelerating research progress. Projects like Galaxy Zoo, where participants categorize millions of galaxy photographs, demonstrate how crowdsourcing can outperform small research teams in processing vast amounts of data. By distributing the workload among many volunteers, scientists can analyze data at a scale and speed that would otherwise require specialized algorithms or years of labor-intensive work. This collaborative effort not only advances specific research goals but also allows professionals to focus on interpreting results and developing new hypotheses.  
+
+Beyond data collection, citizen science fosters public scientific literacy and a deeper understanding of how evidence is gathered. Participants gain firsthand experience with the scientific method, learning to observe systematically, record data accurately, and recognize patterns. This engagement demystifies research processes and builds trust in scientific findings, as volunteers see how data translates into knowledge. By involving the public in real research, citizen science bridges the gap between scientists and society, creating a more informed and scientifically literate community. These benefits, combined with the tangible research outcomes, underscore the indispensable role of citizen science in advancing scientific knowledge."
+M18,prose,Medium,DeepSeek,deepseek/deepseek-chat,api_expand,326,"Structured code review significantly enhances the quality of software by identifying defects early in the development process, fostering team-wide knowledge sharing, and ensuring consistent coding practices. One of the most immediate benefits of code review is the ability to catch defects before they reach production. Bugs discovered during the development phase are far less costly to address than those found after release, where they can lead to customer dissatisfaction, downtime, and expensive hotfixes. By systematically examining each change, reviewers can spot logical errors, edge cases, and potential vulnerabilities that might have been overlooked by the original author. This proactive approach not only reduces the risk of critical failures but also contributes to a more stable and reliable end product.
+
+Beyond defect detection, code review plays a crucial role in spreading knowledge across the engineering team. When developers review each other’s work, they gain exposure to different parts of the codebase and learn from the approaches and techniques employed by their peers. This shared understanding reduces the team’s reliance on individual experts, who might otherwise become bottlenecks or single points of failure. Over time, this collective familiarity with the codebase empowers more team members to contribute confidently to various areas of the project, enhancing overall productivity and resilience. It also fosters collaboration and mentorship, as less experienced developers can learn from the insights of their more seasoned colleagues.
+
+Finally, structured code review enforces consistent coding standards, which are essential for maintaining software over its lifecycle. When reviewers assess code for readability, style, and adherence to best practices, they ensure that the codebase remains clean, uniform, and easy to understand. This consistency simplifies debugging, refactoring, and extending the software, as developers can quickly navigate and modify code without encountering inconsistencies or confusing patterns. By embedding these standards into the review process, teams create a culture of quality that persists across individual contributions, ultimately resulting in software that is not only functional but also sustainable and scalable over time."
+M19,prose,Medium,DeepSeek,deepseek/deepseek-chat,api_expand,287,"Written checklists are a powerful tool for reducing preventable errors in high-stakes professions like aviation and surgery, primarily because they address three key areas where human fallibility can lead to costly mistakes. First, checklists minimize reliance on memory, particularly for routine but critical steps that can be overlooked under stress or fatigue. In high-pressure environments, cognitive overload and exhaustion can impair even the most experienced professionals, leading to skipped or forgotten procedures. By externalizing these steps into a written format, checklists ensure that no essential task is omitted, regardless of external pressures or mental strain. This systematic approach acts as a safeguard against lapses that could otherwise have catastrophic consequences.  
+
+Second, checklists standardize communication within teams by creating clear, structured opportunities for each member to voice concerns or confirm completion of tasks. In fields like surgery or aviation, where multidisciplinary teams must collaborate seamlessly, miscommunication or hesitancy to speak up can be deadly. Checklists provide predefined moments where team members are expected to pause, verify, and discuss critical items, fostering a culture of accountability and shared responsibility. This structured interaction reduces ambiguity and ensures that potential issues are identified and addressed before they escalate.  
+
+Finally, the effectiveness of checklists is not merely theoretical but empirically validated. The World Health Organization’s surgical safety checklist, for example, has demonstrated measurable reductions in postoperative complications, including infections and mortality, after its widespread adoption. Similar results have been observed in aviation, where pre-flight checklists have contributed to decades of improved safety records. These documented outcomes underscore that checklists are more than procedural formalities—they are evidence-based interventions that tangibly enhance outcomes. By systematically addressing memory lapses, improving communication, and delivering proven results, written checklists remain indispensable in mitigating errors in high-stakes professions."
+M20,prose,Medium,DeepSeek,deepseek/deepseek-chat,api_expand,346,"Improvements in weather forecasting over recent decades have generated significant economic value across multiple sectors, demonstrating their critical role in optimizing decision-making and resource allocation. One of the most impactful areas is agriculture, where more accurate forecasts enable farmers to time planting, irrigation, and harvesting with greater precision. By aligning these activities with favorable weather conditions, farmers can minimize crop losses caused by droughts, floods, or untimely frosts. This not only boosts yields but also reduces waste, ensuring a more reliable food supply and stabilizing agricultural markets. The economic benefits extend beyond individual farms, as improved crop outcomes contribute to lower food prices and greater food security for entire populations.
+
+Another crucial area where enhanced forecasting has delivered substantial economic value is in mitigating the impacts of severe storms. Earlier and more accurate warnings of hurricanes, tornadoes, and other extreme weather events allow governments, businesses, and individuals to take proactive measures. Evacuations and preparations can significantly reduce property damage and loss of life, saving billions of dollars in recovery costs and preserving critical infrastructure. For instance, timely evacuations ahead of hurricanes prevent costly rebuilding efforts and minimize disruptions to local economies. Moreover, early warnings enable businesses to secure assets and maintain continuity, further amplifying the economic benefits of improved forecasting.
+
+Transportation and energy sectors also reap considerable economic gains from advanced weather forecasting. Airlines and shipping companies rely on precise weather data to optimize routes, avoid hazardous conditions, and reduce fuel consumption. This not only lowers operational costs but also enhances safety and reliability, leading to greater customer satisfaction and competitive advantage. Similarly, electricity grid operators use forecasts to balance supply and demand more efficiently, particularly in regions reliant on renewable energy sources like wind and solar. By anticipating weather patterns, they can adjust energy production and distribution to prevent outages and reduce reliance on costly backup systems. These efficiencies translate into lower energy costs for consumers and businesses, fostering economic growth and sustainability. Collectively, these examples underscore the immense economic value generated by advancements in weather forecasting, benefiting industries and societies on a global scale."
+H14,prose,Hard,DeepSeek,deepseek/deepseek-chat,api_expand,381,"The thesis that causation cannot be adequately analyzed as mere regular succession between types of events is well-supported by examining the limitations of regularity accounts and the strengths of interventionist alternatives. Regularity accounts, which reduce causation to the observation of constant conjunctions between events, fail to distinguish genuine causal relations from accidental or common-cause correlations. For instance, a falling barometer reading is regularly followed by a storm, yet the barometer does not cause the storm. Instead, both events are effects of a common cause—a drop in atmospheric pressure. This example illustrates that regularity alone cannot capture the asymmetry inherent in causal relationships, as it conflates causation with mere correlation. Without a mechanism to differentiate between causal and non-causal regularities, regularity accounts provide an incomplete and often misleading analysis of causation.
+
+In contrast, interventionist accounts, developed by James Woodward, address this deficiency by identifying causal relations with dependencies that remain invariant under ideal interventions on the putative cause. According to this view, a causal relationship exists if manipulating the cause in an ideal way—holding all other factors constant—leads to a change in the effect. This approach successfully distinguishes genuine causation from spurious correlations by focusing on the behavior of the system under controlled manipulations. For example, intervening to artificially lower the barometer reading would not produce a storm, confirming that the barometer does not cause the storm. By incorporating the concept of intervention, this account captures the asymmetry and directionality of causation that regularity accounts overlook, providing a more robust framework for analyzing causal relationships.
+
+Moreover, the interventionist account explains the epistemic privilege of randomized controlled experiments, which are widely regarded as the gold standard for establishing causal claims. Randomized controlled experiments approximate ideal interventions by severing the putative cause from its ordinary antecedents, thereby isolating its effect on the outcome. Randomization ensures that any observed correlation between the cause and effect is not confounded by hidden variables or common causes. This methodological design aligns with the interventionist principle that causal relationships are those that remain invariant under manipulation. Thus, the interventionist account not only provides a theoretical foundation for understanding causation but also justifies the practical superiority of experimental methods in uncovering causal truths. By integrating these insights, the interventionist framework offers a compelling alternative to the inadequacies of regularity-based analyses."
+H15,prose,Hard,DeepSeek,deepseek/deepseek-chat,api_expand,464,"The analysis of biological function is best approached through an etiological lens, specifically the selected-effect account, rather than a purely causal-role framework, as the former provides a more robust and comprehensive understanding of function. Selected-effect accounts define a trait’s function as the effect for which its ancestors were naturally selected, and this approach uniquely explains the normativity inherent in functional attributions. Unlike causal-role accounts, which treat function as a mere dispositional property, selected-effect accounts accommodate the possibility of malfunction. For instance, a heart’s function is to pump blood because this effect conferred a selective advantage on ancestors with hearts. However, a heart that fails to pump blood is malfunctioning, even if it still produces other effects, such as rhythmic sounds. This normative dimension—the distinction between proper function and malfunction—cannot be captured by purely dispositional analyses, which reduce function to whatever a trait happens to do in a given system. Thus, selected-effect accounts provide a principled basis for understanding functional norms, a critical feature of biological explanation.
+
+Causal-role accounts, as articulated by Robert Cummins, identify a trait’s function with its causal contribution to a broader system’s capacities. While this approach offers a pragmatic framework for analyzing complex systems, it fails to distinguish a trait’s function from its accidental effects without appealing to the explanatory interests of the investigator. For example, the heart’s rhythmic sounds contribute to systemic capacities, such as providing auditory cues for medical diagnosis, but these sounds are not its function. Without invoking selective history, causal-role accounts must relativize function to the goals or interests of the observer, thereby surrendering the objectivity of functional attribution. In contrast, selected-effect accounts ground functional claims in the objective, historical facts of natural selection, avoiding the subjectivity inherent in causal-role analyses. This objectivity is crucial for scientific explanations, which seek to uncover facts about the natural world rather than reflect the investigator’s perspective.
+
+Moreover, etiological accounts alone vindicate the explanatory force of functional claims by addressing the historical question of why a trait is present. When we assert that the function of the heart is to pump blood, we are not merely describing a current disposition but explaining the evolutionary pressures that led to the heart’s existence and persistence. Causal-role accounts, by contrast, are limited to describing what a trait does within a system, offering no insight into its origins or maintenance over evolutionary time. This historical dimension is essential for understanding biological traits, as it connects their current properties to the selective processes that shaped them. By citing a trait’s selected effect, etiological accounts provide a deeper and more satisfying explanation of biological phenomena, one that goes beyond surface-level descriptions to uncover the underlying reasons for a trait’s presence and design. Thus, the etiological approach is indispensable for a complete and objective analysis of biological function."
+H16,prose,Hard,DeepSeek,deepseek/deepseek-chat,api_expand,523,"The thesis that knowledge acquired through testimony cannot be reduced to knowledge grounded in the hearer’s own perception, memory, and inductive inference is compellingly supported by three key considerations. First, as Coady has argued, the sheer scale of testimonial knowledge on which individuals rely makes reductionism practically untenable. In ordinary life, people depend on a vast network of sources—teachers, journalists, scientists, historians, and others—for information about the world. No individual has the capacity to independently verify the track record of more than a small fraction of these sources. For example, a person cannot personally observe historical events, conduct every scientific experiment, or verify every news report they encounter. Attempting to reduce testimonial knowledge to perception, memory, and inductive inference would require an impractical and unsustainable level of epistemic labor. This reliance on testimony is not a failure of epistemic rigor but a necessary feature of human cognition, given the limits of individual experience and the complexity of the world. Reductionism, therefore, fails to account for the practical realities of how knowledge is acquired and sustained in everyday life.
+
+Second, the developmental trajectory of knowledge acquisition in young children underscores the irreducible nature of testimonial knowledge. Children absorb vast amounts of information through testimony long before they develop the inferential capacities required by reductionist accounts. For instance, a child learns language, basic facts about the world, and social norms primarily through the testimony of parents, caregivers, and teachers. At this early stage, children lack the ability to critically evaluate the reliability of their sources or to independently verify the truth of what they are told. Yet, this knowledge forms the foundation for their future understanding and reasoning. Reductionism, which insists that testimonial knowledge must be justified through the hearer’s own perception, memory, and inference, cannot explain how young children acquire knowledge so effectively and pervasively through testimony. This suggests that testimonial knowledge operates as a distinct and fundamental epistemic source, irreducible to other cognitive processes.
+
+Third, the division of cognitive labor in contemporary science, as analyzed by Hardwig, demonstrates the irreducibly testimonial nature of scientific knowledge itself. Scientific research is highly specialized, with individual scientists relying on the findings of colleagues whose work they cannot personally replicate or verify. For example, a physicist may depend on the results of complex experiments conducted by a team in another country, or a biologist may build on data generated by colleagues using advanced technologies. This epistemic interdependence is not a flaw but a strength of the scientific enterprise, enabling the accumulation of knowledge that no single individual could achieve alone. Reductionism, which seeks to ground testimonial knowledge in the hearer’s own perceptual and inferential capacities, cannot account for this reliance on the testimony of others. Scientific knowledge, therefore, rests on an irreducible foundation of trust in the testimony of fellow researchers, highlighting the indispensable role of testimony in epistemic practices even at the highest levels of inquiry. Together, these three claims—rooted in the practical limits of individual verification, the cognitive development of children, and the collaborative nature of science—provide a robust defense of the thesis that testimonial knowledge cannot be reduced to perception, memory, and inductive inference."
+H17,prose,Hard,DeepSeek,deepseek/deepseek-chat,api_expand,462,"Idealized scientific models, despite containing known falsehoods, can provide genuine understanding of natural phenomena by isolating the difference-making factors that are essential to explaining a phenomenon. Consider idealizations such as frictionless planes, infinite populations, or point masses. These abstractions deliberately remove factors that, while present in reality, do not significantly alter the explanatory structure of the phenomenon under study. By stripping away these extraneous details, idealized models focus attention on the core mechanisms or relationships that drive the behavior of the system. For example, analyzing motion on a frictionless plane allows physicists to isolate the fundamental principles of Newtonian mechanics without the complicating influence of friction. This approach does not claim that friction is irrelevant in all contexts but rather that its exclusion clarifies the primary factors responsible for the phenomenon. Thus, idealizations serve as tools for identifying and understanding the causal or explanatory structure of a system by isolating its essential features.
+
+Understanding, as a cognitive achievement, consists in grasping patterns of counterfactual dependence—how changes in one variable would affect another under different conditions. Idealized models are particularly well-suited to capturing these patterns, even when their literal assumptions are false. For instance, the ideal gas law assumes that gas molecules occupy no volume and experience no intermolecular forces, assumptions that are false for real gases. Nevertheless, the model accurately represents the counterfactual dependence between pressure, volume, and temperature in many scenarios. By abstracting away from the complexities of real gases, the ideal gas law provides insight into the general behavior of gases under varying conditions. This ability to represent counterfactual relationships, rather than to depict reality in all its detail, is what makes idealized models powerful tools for understanding. They allow scientists to reason about how changes in key variables would affect a system, even if the model’s assumptions are not strictly true.
+
+Minimal-model explanations, as analyzed by Robert Batterman, further illustrate how idealized models can provide genuine understanding by accounting for universal behavior across physically heterogeneous systems. These models focus on the shared features that govern the behavior of diverse systems, omitting the microscopic details that differ between them. For example, the universality of critical phenomena in phase transitions—such as the behavior of fluids and magnets near critical points—can be explained by minimal models that abstract away from the specific microscopic details of each system. These models reveal that the same mathematical patterns govern the behavior of seemingly disparate systems, providing insight into why they exhibit similar macroscopic behavior. By omitting irrelevant details, minimal models highlight the underlying principles that unify diverse phenomena, offering a deeper understanding of universal behavior. This approach demonstrates that idealized models, far from being mere simplifications, can capture essential truths about the natural world by focusing on the patterns and relationships that transcend specific contexts."
+H18,prose,Hard,DeepSeek,deepseek/deepseek-chat,api_expand,340,"The thesis that practical knowledge is irreducible to propositional knowledge finds robust support in Gilbert Ryle’s regress argument, the context-sensitive nature of skilled performance, and neuropsychological evidence of dissociations between the two forms of knowing. Ryle’s regress argument demonstrates that if every intelligent act required prior contemplation of a proposition, the application of that proposition would itself demand further propositional knowledge, leading to an infinite and untenable regress. For instance, to act on the proposition “turn the key clockwise to start the car,” one would first need another proposition to interpret “clockwise,” and so on ad infinitum. This regress reveals the impossibility of reducing skilled action to a sequence of propositional steps; instead, practical knowledge must involve an immediate, non-propositional capacity to execute actions without intermediary deliberation.  
+
+Moreover, skilled performance depends on a context-sensitive responsiveness that cannot be captured by any finite set of propositions. A chess player, for example, does not win by mechanically applying abstract rules but by adapting to the unique contingencies of each game, drawing on an implicit grasp of patterns and possibilities that defies explicit articulation. Similarly, a jazz musician improvises fluently not by recalling theoretical principles but by embodying a feel for rhythm and harmony that emerges through practice. These capacities exceed what could be codified in propositions, as the nuances of real-world situations are too variable and open-ended to be fully specified in advance.  
+
+Neuropsychological dissociations further solidify the distinction between practical and propositional knowledge. Amnesic patients, for instance, can learn new motor skills like mirror tracing or playing a sequence on a piano despite having no explicit memory of the training sessions. Their procedural knowledge—the “how”—persists even as their declarative memory—the “that”—fails. Such cases show that practical knowledge operates independently of propositional awareness, as the former does not depend on the latter for its acquisition or expression. These dissociations underscore that practical knowledge is not merely a species of propositional knowledge but a distinct cognitive capacity with its own mechanisms and manifestations. Together, these arguments affirm the irreducibility of knowing-how to knowing-that."
+H19,prose,Hard,DeepSeek,deepseek/deepseek-chat,api_expand,412,"The loss of biodiversity fundamentally undermines the long-term stability and functioning of ecosystems, as evidenced by three interconnected ecological principles. First, the insurance hypothesis posits that species differ in their responses to environmental fluctuations, meaning that communities with greater biodiversity are better equipped to maintain stable aggregate productivity as conditions change. In diverse ecosystems, some species may thrive under specific environmental stresses while others decline, ensuring that overall ecosystem functions such as nutrient cycling, primary production, and energy flow remain consistent. When biodiversity is reduced, this resilience is compromised, leaving ecosystems more vulnerable to disturbances such as climate change, habitat alteration, or invasive species. Without a variety of species to buffer against these changes, ecosystems risk losing their capacity to sustain essential processes, destabilizing their structure and function over time.
+
+Second, functional redundancy, where multiple species perform overlapping ecological roles, serves as a critical buffer against the loss of any single species. In a biodiverse ecosystem, if one species is lost, others with similar functions can compensate, preventing the collapse of critical processes such as pollination, decomposition, or predation. However, as species are removed—whether through habitat destruction, overexploitation, or climate change—this redundancy diminishes, leaving ecosystems increasingly fragile. Each extinction reduces the pool of species available to fulfill essential roles, and eventually, losses can surpass the system’s capacity to compensate. This erosion of functional redundancy leaves ecosystems less adaptable and more prone to abrupt shifts in function, which can have cascading effects on the services they provide to humans and other organisms.
+
+Third, the loss of keystone species—those that exert a disproportionate influence on their ecosystems—can trigger trophic cascades that destabilize entire communities. For example, the decline of sea otters in the North Pacific led to an explosion in sea urchin populations, which then overgrazed kelp forests, transforming these rich habitats into barren underwater deserts. This case illustrates how the extinction of a single species can propagate through an ecosystem, altering its structure and function in profound and often unpredictable ways. Keystone species often regulate populations of other species, maintain habitat complexity, or drive critical processes, and their loss can unravel the intricate web of interactions that sustain ecosystem stability. Without these pivotal species, ecosystems may shift to alternative states that are less productive, less diverse, and less resilient to future disturbances. Together, these three mechanisms—the insurance hypothesis, functional redundancy, and the role of keystone species—demonstrate how biodiversity loss undermines the stability and functioning of ecosystems, posing significant risks to their long-term sustainability."
+S1,short,Easy,DeepSeek,deepseek/deepseek-chat,api_expand,55,"The sky appears blue during the day due to a phenomenon called Rayleigh scattering. When sunlight passes through Earth's atmosphere, shorter blue wavelengths of light are scattered in all directions more than longer red or yellow wavelengths by the tiny molecules of air. This scattered blue light reaches our eyes, making the sky look blue."
+S2,short,Easy,DeepSeek,deepseek/deepseek-chat,api_expand,47,"Ice floats on liquid water because it is less dense than water. When water freezes, its molecules form a crystalline structure that spaces them farther apart, making ice less dense. Since less dense materials float on denser ones, ice naturally rises to the surface of liquid water."
+S3,short,Easy,DeepSeek,deepseek/deepseek-chat,api_expand,73,"A rainbow forms when sunlight passes through water droplets in the air, causing the light to refract (bend), reflect inside the droplet, and then refract again as it exits. This process separates the sunlight into its individual colors, creating the visible spectrum of a rainbow. The arc shape appears because the angle of refraction is consistent for each color, and viewers see it from a specific angle relative to the sun and droplets."
+S4,short,Medium,DeepSeek,deepseek/deepseek-chat,api_expand,86,"Earth has seasons because its axis is tilted at about 23.5 degrees relative to its orbit around the Sun. As Earth moves around the Sun, different parts of the planet receive more or less direct sunlight at different times of the year. When a hemisphere tilts toward the Sun, it experiences summer with longer days and more intense sunlight, while the opposite hemisphere tilts away, bringing winter with shorter days and weaker sunlight. The tilt—not Earth’s distance from the Sun—is the main reason for seasonal changes."
+S5,short,Medium,DeepSeek,deepseek/deepseek-chat,api_expand,78,"Ocean tides are primarily caused by the gravitational pull of the moon and the sun on Earth's oceans. The moon's gravity creates bulges in the ocean, leading to high tides where the water is pulled and low tides in areas where the water is displaced. The sun also influences tides, with its gravitational effect combining with or opposing the moon's pull, depending on their alignment. These interactions result in the regular rise and fall of ocean water levels."
+S6,short,Easy,DeepSeek,deepseek/deepseek-chat,api_expand,51,"Bread dough rises due to the fermentation process caused by yeast or other leavening agents. These microorganisms consume sugars in the dough and produce carbon dioxide gas, which gets trapped in the gluten network, causing the dough to expand. This rise gives bread its airy texture before baking sets the structure."
+S7,short,Medium,DeepSeek,deepseek/deepseek-chat,api_expand,72,"A black hole is an extremely dense region in space where gravity is so strong that nothing, not even light, can escape from it. It forms when a massive star collapses under its own gravity at the end of its life, creating a point of infinite density called a singularity. The boundary around a black hole, called the event horizon, marks the point of no return for anything that gets too close."
+S8,short,Medium,DeepSeek,deepseek/deepseek-chat,api_expand,57,"A metal spoon feels colder than a wooden spoon at room temperature because metal is a better conductor of heat. When you touch the metal spoon, it quickly draws heat away from your skin, making it feel colder, whereas wood is a poor conductor and doesn’t remove heat as efficiently, so it feels closer to room temperature."
+S9,short,Medium,DeepSeek,deepseek/deepseek-chat,api_expand,61,"A refrigerator keeps food cold by circulating a refrigerant through a closed loop system. The refrigerant absorbs heat from inside the fridge, cooling the air, and then releases the heat outside through coils at the back or bottom of the appliance. A thermostat regulates the temperature by turning the cooling system on and off as needed to maintain the desired coldness."
+S10,short,Easy,DeepSeek,deepseek/deepseek-chat,api_expand,55,"Photosynthesis allows plants to convert sunlight, water, and carbon dioxide into glucose, which serves as their primary source of energy. This process also produces oxygen as a byproduct, which is released into the atmosphere. Through photosynthesis, plants grow, maintain their health, and support the broader ecosystem by providing food and oxygen for other living organisms."
+S11,short,Easy,DeepSeek,deepseek/deepseek-chat,api_expand,53,"In autumn, the leaves of many trees change color due to shorter days and cooler temperatures, which signal the tree to stop producing chlorophyll, the green pigment essential for photosynthesis. As chlorophyll breaks down, other pigments like carotenoids (yellows and oranges) and anthocyanins (reds and purples) become visible, creating the vibrant fall colors."
+S12,short,Easy,DeepSeek,deepseek/deepseek-chat,api_expand,58,"Weather refers to short-term atmospheric conditions—like temperature, rain, or wind—over hours or days. Climate, on the other hand, describes the average weather patterns in a region over decades or longer. While weather can change rapidly, climate reflects long-term trends. For example, a snowy day is weather, but consistently colder winters over 30 years are part of the climate."
+S13,short,Easy,DeepSeek,deepseek/deepseek-chat,api_expand,54,"A magnetic compass shows direction by aligning itself with Earth's magnetic field. The needle, which is magnetized, points toward Earth's magnetic north pole, allowing users to determine cardinal directions (north, south, east, and west) based on its orientation. This works because the needle is free to rotate and respond to the planet's inherent magnetism."
+S14,short,Medium,DeepSeek,deepseek/deepseek-chat,api_expand,81,"Inflation in economics refers to the general increase in prices of goods and services over time, which reduces the purchasing power of money. It means that each unit of currency buys fewer items than before. Inflation is often measured by indices like the Consumer Price Index (CPI) and can result from various factors, such as increased demand, rising production costs, or changes in monetary policy. Moderate inflation is normal in growing economies, but high or unpredictable inflation can harm economic stability."
+S15,short,Easy,DeepSeek,deepseek/deepseek-chat,api_expand,73,"The Moon appears to go through phases because of its orbit around Earth and the changing angles at which sunlight reflects off its surface. As the Moon moves, different portions of its sunlit side become visible from Earth, creating the cycle of phases from New Moon to Full Moon and back. This happens because the Moon does not produce its own light but reflects sunlight, and Earth’s perspective changes as the Moon orbits."
+S16,short,Easy,DeepSeek,deepseek/deepseek-chat,api_expand,71,"An algorithm is a step-by-step set of instructions designed to solve a specific problem or perform a particular task. It’s like a recipe that tells you exactly what to do and in what order to achieve a desired result. Algorithms are used in various fields, from mathematics to computer programming, to efficiently process data or complete tasks. They can be simple, like sorting a list, or complex, like powering search engines."
+S17,short,Medium,DeepSeek,deepseek/deepseek-chat,api_expand,42,"Salt is spread on icy roads because it lowers the freezing point of water, melting the ice and preventing it from refreezing easily. This makes roads safer for driving by reducing slippery conditions. Salt is also cheap and effective for large-scale use."
+S18,short,Hard,DeepSeek,deepseek/deepseek-chat,api_expand,79,"An airplane wing generates lift primarily through its shape, called an airfoil, which is curved on top and flatter on the bottom. As air flows over the wing, it moves faster over the curved top surface, creating lower pressure above the wing compared to the higher pressure below. This pressure difference produces an upward force—lift—that keeps the plane airborne. The angle of the wing (angle of attack) also affects lift by directing more air downward, increasing the pressure difference."
+S19,short,Medium,DeepSeek,deepseek/deepseek-chat,api_expand,64,"DNA contains the instructions needed to build and maintain a living cell. It carries genetic information in the form of genes, which determine traits like appearance, behavior, and function. Through a process called gene expression, DNA directs the production of proteins, which perform most of the work in cells. Additionally, DNA is passed from one generation to the next, ensuring the continuity of life."
+S20,short,Hard,DeepSeek,deepseek/deepseek-chat,api_expand,57,"Water boils at a lower temperature at high altitude because the atmospheric pressure is lower. At higher elevations, there is less air pushing down on the water’s surface, which reduces the pressure needed for water molecules to escape as vapor. As a result, water reaches its boiling point sooner, at a lower temperature than at sea level."

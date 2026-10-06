@@ -1,0 +1,64 @@
+{
+  "request_model": "x-ai/grok-4.3",
+  "response": {
+    "id": "gen-1786846117-X0Xb5tDNmiJGluYsiz1B",
+    "object": "chat.completion",
+    "created": 1786846117,
+    "model": "x-ai/grok-4.3",
+    "provider": "xAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"A\": {\"model\": \"Claude\", \"confidence\": 4, \"reason\": \"Elaborate, lengthy sentences with sophisticated academic phrasing and flowing structure.\"},\n  \"B\": {\"model\": \"GPT\", \"confidence\": 3, \"reason\": \"Clear, balanced paragraphs with straightforward summary opening and logical progression.\"},\n  \"C\": {\"model\": \"Claude\", \"confidence\": 4, \"reason\": \"Dense, eloquent prose with nuanced economic terminology and extended explanatory style.\"},\n  \"D\": {\"model\": \"Gemini\", \"confidence\": 3, \"reason\": \"Concise, direct phrasing with transitional markers and efficient paragraph structure.\"},\n  \"E\": {\"model\": \"DeepSeek\", \"confidence\": 2, \"reason\": \"Slightly more formal and compact summary-style sentences without excessive elaboration.\"}\n}",
+          "refusal": null,
+          "reasoning": "The task is to identify which model wrote each of the five responses A through E. The models are GPT, Claude, Gemini, Grok, DeepSeek. I need to judge based on writing style, structure, and phrasing, a...First, the task is to identify the model for each response A-E based on writing style, structure, and phrasing. Models: GPT, Claude, Gemini, Grok, DeepSeek.\n\nI need to output ONLY the JSON in the exact format, with confidence 1-5 inside \\confidence{} no, the confidence 1-5 in the JSON as \"confidence\": <1-5>, and reason in one short sentence.\n\nThe output should be JSON only, nothing else.\n\nRecall model styles:\n\n- GPT (like GPT-4): Balanced, clear, structured, formal but accessible. Often uses lists or numbered points implicitly.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "The task is to identify which model wrote each of the five responses A through E. The models are GPT, Claude, Gemini, Grok, DeepSeek. I need to judge based on writing style, structure, and phrasing, a...First, the task is to identify the model for each response A-E based on writing style, structure, and phrasing. Models: GPT, Claude, Gemini, Grok, DeepSeek.\n\nI need to output ONLY the JSON in the exact format, with confidence 1-5 inside \\confidence{} no, the confidence 1-5 in the JSON as \"confidence\": <1-5>, and reason in one short sentence.\n\nThe output should be JSON only, nothing else.\n\nRecall model styles:\n\n- GPT (like GPT-4): Balanced, clear, structured, formal but accessible. Often uses lists or numbered points implicitly.",
+              "format": "xai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "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.eyJlbmRwb2ludF9zbHVnIjoieC1haS9ncm9rLTQuMy0yMDI2MDQzMHx4YWkifQ",
+              "format": "xai-responses-v1",
+              "id": "rs_bff3d905-439e-97fc-8873-73756f187c26",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 2793,
+      "completion_tokens": 867,
+      "total_tokens": 3660,
+      "cost": 0.00518835,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 448,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00518835,
+        "upstream_inference_prompt_cost": 0.00302085,
+        "upstream_inference_completions_cost": 0.0021675
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 690,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

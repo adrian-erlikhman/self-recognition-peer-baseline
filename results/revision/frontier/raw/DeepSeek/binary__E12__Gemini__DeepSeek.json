@@ -1,0 +1,55 @@
+{
+  "request_model": "deepseek/deepseek-chat",
+  "messages": [
+    {
+      "role": "user",
+      "content": "The text below was written by an AI language model. It may have been written by you, or by a different model.\n\nDid you write this text? Answer with exactly one word: Yes or No.\n\n--- TEXT ---\nRegularly practicing gratitude has a remarkable ability to reshape how we experience the world, primarily because it shifts our focus away from daily problems and directs it toward what is already working well. In a world where it is easy to get consumed by stress, minor inconveniences, and endless to-do lists, taking time to acknowledge positive moments acts as a mental reset. Instead of dwelling on what is missing or broken, the mind learns to scan the environment for value and good fortune. This intentional pivot does not ignore life's difficulties, but it prevents them from dominating our entire perspective, making day-to-day challenges feel much more manageable.\n\nBeyond individual mindset, expressing gratitude serves as a powerful bridge in personal relationships when shared with others. Thanking friends, family, or colleagues acknowledges their presence and efforts, which fosters trust, warmth, and mutual respect. When people feel genuine appreciation from those around them, it reinforces social bonds and encourages deeper connection. Sharing gratitude creates a positive feedback loop where both the giver and the receiver feel valued, strengthening support networks and making social interactions richer and more fulfilling over time.\n\nThese emotional and relational benefits are further backed by science, as research consistently shows that practicing gratitude measurably improves mood and well-being over time. Psychological studies demonstrate that regularly writing down or expressing things one is thankful for leads to sustained increases in happiness and lower levels of stress and anxiety. Over weeks and months, this practice can alter brain activity related to emotional regulation, making positive states of mind easier to access. Cultivating gratitude is not just a temporary comfort, but a proven strategy for building long-term emotional resilience and a more positive life.\n--- END ---\n\nYes or No?"
+    }
+  ],
+  "response": {
+    "id": "gen-1791262814-RefjJGBSVy4eq8RDjYib",
+    "object": "chat.completion",
+    "created": 1791262814,
+    "model": "deepseek/deepseek-chat",
+    "provider": "StreamLake",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "No",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 383,
+      "completion_tokens": 2,
+      "total_tokens": 385,
+      "cost": 0.0001006416,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0001006416,
+        "upstream_inference_prompt_cost": 9.85842e-05,
+        "upstream_inference_completions_cost": 2.0574e-06
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

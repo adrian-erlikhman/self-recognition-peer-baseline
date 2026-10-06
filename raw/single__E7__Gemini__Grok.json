@@ -1,0 +1,64 @@
+{
+  "request_model": "x-ai/grok-4.3",
+  "response": {
+    "id": "gen-1786846510-MEKy6QYqBgjCV5Ckf3Zk",
+    "object": "chat.completion",
+    "created": 1786846510,
+    "model": "x-ai/grok-4.3",
+    "provider": "xAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "{\"model\": \"Claude\", \"confidence\": 3, \"reason\": \"Formal, balanced three-paragraph structure with sophisticated phrasing and clear topic sentences matches Claude's typical style.\"}",
+          "refusal": null,
+          "reasoning": "The task is to identify which AI model most likely produced the given text: GPT, Claude, Gemini, Grok, or DeepSeek. I must reply with JSON only in a specific form.\nFirst, the text is very structured: three clear paragraphs with topic sentences, transitions like \"In addition\", \"Finally\". It's formal, informative, no humor, no wit. Sounds academic/scientific.\n\nNow, matching to models:\n\n- GPT: Often produces clear, structured, balanced text. Can be formal.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "The task is to identify which AI model most likely produced the given text: GPT, Claude, Gemini, Grok, or DeepSeek. I must reply with JSON only in a specific form.\nFirst, the text is very structured: three clear paragraphs with topic sentences, transitions like \"In addition\", \"Finally\". It's formal, informative, no humor, no wit. Sounds academic/scientific.\n\nNow, matching to models:\n\n- GPT: Often produces clear, structured, balanced text. Can be formal.",
+              "format": "xai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "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.eyJlbmRwb2ludF9zbHVnIjoieC1haS9ncm9rLTQuMy0yMDI2MDQzMHx4YWkifQ",
+              "format": "xai-responses-v1",
+              "id": "rs_10cfed9a-0ace-93b0-bb4d-bc6df4de004f",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 673,
+      "completion_tokens": 620,
+      "total_tokens": 1293,
+      "cost": 0.00225685,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 128,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00225685,
+        "upstream_inference_prompt_cost": 0.00070685,
+        "upstream_inference_completions_cost": 0.00155
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 583,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

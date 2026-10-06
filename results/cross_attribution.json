@@ -1,0 +1,436 @@
+{
+  "lineup": {
+    "n": 950,
+    "models": [
+      "GPT",
+      "Claude",
+      "Gemini",
+      "Grok",
+      "DeepSeek"
+    ],
+    "matrix": {
+      "GPT": {
+        "GPT": 68,
+        "Claude": 18,
+        "Gemini": 47,
+        "Grok": 25,
+        "DeepSeek": 32
+      },
+      "Claude": {
+        "GPT": 22,
+        "Claude": 115,
+        "Gemini": 4,
+        "Grok": 39,
+        "DeepSeek": 10
+      },
+      "Gemini": {
+        "GPT": 53,
+        "Claude": 17,
+        "Gemini": 50,
+        "Grok": 29,
+        "DeepSeek": 41
+      },
+      "Grok": {
+        "GPT": 21,
+        "Claude": 8,
+        "Gemini": 53,
+        "Grok": 46,
+        "DeepSeek": 62
+      },
+      "DeepSeek": {
+        "GPT": 40,
+        "Claude": 54,
+        "Gemini": 25,
+        "Grok": 30,
+        "DeepSeek": 41
+      }
+    },
+    "row_rates": {
+      "GPT": {
+        "GPT": 0.35789473684210527,
+        "Claude": 0.09473684210526316,
+        "Gemini": 0.24736842105263157,
+        "Grok": 0.13157894736842105,
+        "DeepSeek": 0.16842105263157894
+      },
+      "Claude": {
+        "GPT": 0.11578947368421053,
+        "Claude": 0.6052631578947368,
+        "Gemini": 0.021052631578947368,
+        "Grok": 0.20526315789473684,
+        "DeepSeek": 0.05263157894736842
+      },
+      "Gemini": {
+        "GPT": 0.2789473684210526,
+        "Claude": 0.08947368421052632,
+        "Gemini": 0.2631578947368421,
+        "Grok": 0.15263157894736842,
+        "DeepSeek": 0.21578947368421053
+      },
+      "Grok": {
+        "GPT": 0.11052631578947368,
+        "Claude": 0.042105263157894736,
+        "Gemini": 0.2789473684210526,
+        "Grok": 0.24210526315789474,
+        "DeepSeek": 0.3263157894736842
+      },
+      "DeepSeek": {
+        "GPT": 0.21052631578947367,
+        "Claude": 0.28421052631578947,
+        "Gemini": 0.13157894736842105,
+        "Grok": 0.15789473684210525,
+        "DeepSeek": 0.21578947368421053
+      }
+    },
+    "per_author_recall": {
+      "GPT": 0.35789473684210527,
+      "Claude": 0.6052631578947368,
+      "Gemini": 0.2631578947368421,
+      "Grok": 0.24210526315789474,
+      "DeepSeek": 0.21578947368421053
+    },
+    "n_wrong": 630,
+    "blame_share_on_errors": {
+      "GPT": 0.21587301587301588,
+      "Claude": 0.15396825396825398,
+      "Gemini": 0.20476190476190476,
+      "Grok": 0.19523809523809524,
+      "DeepSeek": 0.23015873015873015
+    },
+    "top_flows": [
+      {
+        "true_author": "Grok",
+        "guessed_model": "DeepSeek",
+        "n": 62,
+        "share_of_author_row": 0.3263157894736842,
+        "share_of_all_errors": 0.09841269841269841
+      },
+      {
+        "true_author": "DeepSeek",
+        "guessed_model": "Claude",
+        "n": 54,
+        "share_of_author_row": 0.28421052631578947,
+        "share_of_all_errors": 0.08571428571428572
+      },
+      {
+        "true_author": "Gemini",
+        "guessed_model": "GPT",
+        "n": 53,
+        "share_of_author_row": 0.2789473684210526,
+        "share_of_all_errors": 0.08412698412698413
+      },
+      {
+        "true_author": "Grok",
+        "guessed_model": "Gemini",
+        "n": 53,
+        "share_of_author_row": 0.2789473684210526,
+        "share_of_all_errors": 0.08412698412698413
+      },
+      {
+        "true_author": "GPT",
+        "guessed_model": "Gemini",
+        "n": 47,
+        "share_of_author_row": 0.24736842105263157,
+        "share_of_all_errors": 0.0746031746031746
+      },
+      {
+        "true_author": "Gemini",
+        "guessed_model": "DeepSeek",
+        "n": 41,
+        "share_of_author_row": 0.21578947368421053,
+        "share_of_all_errors": 0.06507936507936508
+      }
+    ],
+    "pooled_non_self_accuracy": 0.3263157894736842,
+    "n_pooled_non_self": 760,
+    "per_judge": {
+      "GPT": {
+        "overall_accuracy": 0.43157894736842106,
+        "non_self_accuracy": 0.39473684210526316,
+        "n_non_self": 152,
+        "guess_share": {
+          "GPT": 0.2,
+          "Claude": 0.20526315789473684,
+          "Gemini": 0.2,
+          "Grok": 0.19473684210526315,
+          "DeepSeek": 0.2
+        },
+        "top_target": "Claude",
+        "top_target_share": 0.20526315789473684
+      },
+      "Claude": {
+        "overall_accuracy": 0.37894736842105264,
+        "non_self_accuracy": 0.2565789473684211,
+        "n_non_self": 152,
+        "guess_share": {
+          "GPT": 0.22105263157894736,
+          "Claude": 0.24736842105263157,
+          "Gemini": 0.15789473684210525,
+          "Grok": 0.1736842105263158,
+          "DeepSeek": 0.2
+        },
+        "top_target": "Claude",
+        "top_target_share": 0.24736842105263157
+      },
+      "Gemini": {
+        "overall_accuracy": 0.3631578947368421,
+        "non_self_accuracy": 0.40789473684210525,
+        "n_non_self": 152,
+        "guess_share": {
+          "GPT": 0.2,
+          "Claude": 0.2,
+          "Gemini": 0.2,
+          "Grok": 0.2,
+          "DeepSeek": 0.2
+        },
+        "top_target": "Grok",
+        "top_target_share": 0.2
+      },
+      "Grok": {
+        "overall_accuracy": 0.2578947368421053,
+        "non_self_accuracy": 0.3092105263157895,
+        "n_non_self": 152,
+        "guess_share": {
+          "GPT": 0.2,
+          "Claude": 0.23157894736842105,
+          "Gemini": 0.2,
+          "Grok": 0.1736842105263158,
+          "DeepSeek": 0.19473684210526315
+        },
+        "top_target": "Claude",
+        "top_target_share": 0.23157894736842105
+      },
+      "DeepSeek": {
+        "overall_accuracy": 0.25263157894736843,
+        "non_self_accuracy": 0.2631578947368421,
+        "n_non_self": 152,
+        "guess_share": {
+          "GPT": 0.25263157894736843,
+          "Claude": 0.23157894736842105,
+          "Gemini": 0.18421052631578946,
+          "Grok": 0.14736842105263157,
+          "DeepSeek": 0.18421052631578946
+        },
+        "top_target": "GPT",
+        "top_target_share": 0.25263157894736843
+      }
+    }
+  },
+  "single": {
+    "n": 950,
+    "models": [
+      "GPT",
+      "Claude",
+      "Gemini",
+      "Grok",
+      "DeepSeek"
+    ],
+    "matrix": {
+      "GPT": {
+        "GPT": 129,
+        "Claude": 61,
+        "Gemini": 0,
+        "Grok": 0,
+        "DeepSeek": 0
+      },
+      "Claude": {
+        "GPT": 32,
+        "Claude": 158,
+        "Gemini": 0,
+        "Grok": 0,
+        "DeepSeek": 0
+      },
+      "Gemini": {
+        "GPT": 112,
+        "Claude": 76,
+        "Gemini": 2,
+        "Grok": 0,
+        "DeepSeek": 0
+      },
+      "Grok": {
+        "GPT": 99,
+        "Claude": 88,
+        "Gemini": 0,
+        "Grok": 1,
+        "DeepSeek": 2
+      },
+      "DeepSeek": {
+        "GPT": 64,
+        "Claude": 124,
+        "Gemini": 1,
+        "Grok": 0,
+        "DeepSeek": 1
+      }
+    },
+    "row_rates": {
+      "GPT": {
+        "GPT": 0.6789473684210526,
+        "Claude": 0.32105263157894737,
+        "Gemini": 0.0,
+        "Grok": 0.0,
+        "DeepSeek": 0.0
+      },
+      "Claude": {
+        "GPT": 0.16842105263157894,
+        "Claude": 0.8315789473684211,
+        "Gemini": 0.0,
+        "Grok": 0.0,
+        "DeepSeek": 0.0
+      },
+      "Gemini": {
+        "GPT": 0.5894736842105263,
+        "Claude": 0.4,
+        "Gemini": 0.010526315789473684,
+        "Grok": 0.0,
+        "DeepSeek": 0.0
+      },
+      "Grok": {
+        "GPT": 0.5210526315789473,
+        "Claude": 0.4631578947368421,
+        "Gemini": 0.0,
+        "Grok": 0.005263157894736842,
+        "DeepSeek": 0.010526315789473684
+      },
+      "DeepSeek": {
+        "GPT": 0.3368421052631579,
+        "Claude": 0.6526315789473685,
+        "Gemini": 0.005263157894736842,
+        "Grok": 0.0,
+        "DeepSeek": 0.005263157894736842
+      }
+    },
+    "per_author_recall": {
+      "GPT": 0.6789473684210526,
+      "Claude": 0.8315789473684211,
+      "Gemini": 0.010526315789473684,
+      "Grok": 0.005263157894736842,
+      "DeepSeek": 0.005263157894736842
+    },
+    "n_wrong": 659,
+    "blame_share_on_errors": {
+      "GPT": 0.4658573596358118,
+      "Claude": 0.5295902883156297,
+      "Gemini": 0.0015174506828528073,
+      "Grok": 0.0,
+      "DeepSeek": 0.0030349013657056147
+    },
+    "top_flows": [
+      {
+        "true_author": "DeepSeek",
+        "guessed_model": "Claude",
+        "n": 124,
+        "share_of_author_row": 0.6526315789473685,
+        "share_of_all_errors": 0.18816388467374812
+      },
+      {
+        "true_author": "Gemini",
+        "guessed_model": "GPT",
+        "n": 112,
+        "share_of_author_row": 0.5894736842105263,
+        "share_of_all_errors": 0.16995447647951442
+      },
+      {
+        "true_author": "Grok",
+        "guessed_model": "GPT",
+        "n": 99,
+        "share_of_author_row": 0.5210526315789473,
+        "share_of_all_errors": 0.15022761760242792
+      },
+      {
+        "true_author": "Grok",
+        "guessed_model": "Claude",
+        "n": 88,
+        "share_of_author_row": 0.4631578947368421,
+        "share_of_all_errors": 0.13353566009104703
+      },
+      {
+        "true_author": "Gemini",
+        "guessed_model": "Claude",
+        "n": 76,
+        "share_of_author_row": 0.4,
+        "share_of_all_errors": 0.11532625189681335
+      },
+      {
+        "true_author": "DeepSeek",
+        "guessed_model": "GPT",
+        "n": 64,
+        "share_of_author_row": 0.3368421052631579,
+        "share_of_all_errors": 0.09711684370257967
+      }
+    ],
+    "pooled_non_self_accuracy": 0.29210526315789476,
+    "n_pooled_non_self": 760,
+    "per_judge": {
+      "GPT": {
+        "overall_accuracy": 0.38421052631578945,
+        "non_self_accuracy": 0.24342105263157895,
+        "n_non_self": 152,
+        "guess_share": {
+          "GPT": 0.6052631578947368,
+          "Claude": 0.39473684210526316,
+          "Gemini": 0.0,
+          "Grok": 0.0,
+          "DeepSeek": 0.0
+        },
+        "top_target": "GPT",
+        "top_target_share": 0.6052631578947368
+      },
+      "Claude": {
+        "overall_accuracy": 0.3894736842105263,
+        "non_self_accuracy": 0.26973684210526316,
+        "n_non_self": 152,
+        "guess_share": {
+          "GPT": 0.7263157894736842,
+          "Claude": 0.24210526315789474,
+          "Gemini": 0.015789473684210527,
+          "Grok": 0.005263157894736842,
+          "DeepSeek": 0.010526315789473684
+        },
+        "top_target": "GPT",
+        "top_target_share": 0.7263157894736842
+      },
+      "Gemini": {
+        "overall_accuracy": 0.2631578947368421,
+        "non_self_accuracy": 0.32894736842105265,
+        "n_non_self": 152,
+        "guess_share": {
+          "GPT": 0.1736842105263158,
+          "Claude": 0.8210526315789474,
+          "Gemini": 0.0,
+          "Grok": 0.0,
+          "DeepSeek": 0.005263157894736842
+        },
+        "top_target": "Claude",
+        "top_target_share": 0.8210526315789474
+      },
+      "Grok": {
+        "overall_accuracy": 0.26842105263157895,
+        "non_self_accuracy": 0.3355263157894737,
+        "n_non_self": 152,
+        "guess_share": {
+          "GPT": 0.10526315789473684,
+          "Claude": 0.8947368421052632,
+          "Gemini": 0.0,
+          "Grok": 0.0,
+          "DeepSeek": 0.0
+        },
+        "top_target": "Claude",
+        "top_target_share": 0.8947368421052632
+      },
+      "DeepSeek": {
+        "overall_accuracy": 0.22631578947368422,
+        "non_self_accuracy": 0.28289473684210525,
+        "n_non_self": 152,
+        "guess_share": {
+          "GPT": 0.6842105263157895,
+          "Claude": 0.3157894736842105,
+          "Gemini": 0.0,
+          "Grok": 0.0,
+          "DeepSeek": 0.0
+        },
+        "top_target": "GPT",
+        "top_target_share": 0.6842105263157895
+      }
+    }
+  }
+}

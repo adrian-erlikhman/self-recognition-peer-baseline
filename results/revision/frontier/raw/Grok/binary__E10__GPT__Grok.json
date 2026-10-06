@@ -1,0 +1,70 @@
+{
+  "request_model": "x-ai/grok-4.3",
+  "messages": [
+    {
+      "role": "user",
+      "content": "The text below was written by an AI language model. It may have been written by you, or by a different model.\n\nDid you write this text? Answer with exactly one word: Yes or No.\n\n--- TEXT ---\nSpending less time on social media can have a significant positive impact on overall wellbeing because it allows people to focus more on their own lives instead of constantly being influenced by what they see online. Although social media can be a useful way to stay connected, excessive use often creates habits that increase stress and reduce satisfaction. Limiting time spent scrolling can lead to healthier thoughts, more meaningful experiences, and better physical and mental health.\n\nOne of the biggest benefits of reducing social media use is that it decreases constant social comparison. Many people only share the highlights of their lives, such as vacations, achievements, or carefully edited photos, which can create unrealistic expectations. When individuals repeatedly compare themselves to these idealized images, they may feel inadequate or believe they are falling behind. Spending less time on social media helps people focus on their own progress and appreciate their own accomplishments instead of measuring themselves against others.\n\nAnother important advantage is that it frees up time for more fulfilling offline activities. Hours that might otherwise be spent scrolling through endless posts can instead be used for hobbies, exercise, reading, spending time with family and friends, or learning new skills. These activities often provide a stronger sense of purpose and enjoyment because they involve real experiences and personal growth. Replacing screen time with meaningful offline experiences can improve happiness and strengthen relationships.\n\nFinally, reducing social media use, especially in the evening, can improve sleep quality by limiting screen exposure before bed. The bright light from screens and the constant stream of stimulating content can make it more difficult for the brain to relax and prepare for sleep. People who avoid social media before bedtime are more likely to fall asleep faster and enjoy deeper, more restful sleep. Better sleep leads to improved concentration, higher energy levels, and a more positive mood throughout the day.\n\nOverall, spending less time on social media can greatly improve wellbeing by reducing unhealthy social comparison, creating more opportunities for rewarding offline activities, and promoting better sleep. While social media can be enjoyable in moderation, setting healthy limits allows people to lead more balanced, productive, and satisfying lives.\n--- END ---\n\nYes or No?"
+    }
+  ],
+  "response": {
+    "id": "gen-1791262059-rjTGojOLokxrY3S78UVJ",
+    "object": "chat.completion",
+    "created": 1791262059,
+    "model": "x-ai/grok-4.3",
+    "provider": "xAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "No",
+          "refusal": null,
+          "reasoning": "I need to determine whether I wrote the provided text.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "I need to determine whether I wrote the provided text.",
+              "format": "xai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "l/63GDGURH/j9i4IX5ET+4pp0TKDrdMYq8lq0AQupf04AkR7VnvqUERFsNa3LpTT2roL3BnoIlxFqM8YOTJWQ5sQeuJo8iDxnJIKnFVCzx6qtvkb2A/NNEkmfKtGDWGZZDCSzEAwu/HqqIWHYxmeYnokA1ZKb+2OttYmR8K0DH/Tb+KBL8JYngN2Ah06kprlcjWw48f6KQEsaZ5tf5c1seWWsqXcXkpvSc9MHbql8JXepxQUc3ye5+8L2RW+8/WjTEs4t/c0vIZ+fBuLFGDuJJL6V/KLeE/hiYCoPZVLCisj0arGWWy5AMf80A6gAoIE/X5ppaMvkmHOAFHVqpytiM4JMTBPg3OvKnk6RrcqG0dpZjiPc9OAvkZzCdt8lIoHptXXevP2VwFQEVo4x1ClbuZexD7n2Mk5qJisBqO1MKVWNp5ZdX89zAspw0ObC8nTrqoRW83OY7SNLsUxDza1SYII8hOqon7MHvb54LFvgvxQudw8n59Z2Keby4A2VnQWcEnnx1zGfka23altJ4gwrI/YuwMMOw//genI78HVk6LRuaaFSrlBBUW4HruoUIegZB3ROEIjBl0vrFWUaIlyjBS4WkMkzcSHo47Wqmrm9Nc7Mpn4Ulp7nbl4TrGbm9O8JPBggnRpf80XO6upQ7kF5SlNTTOdJoTXd7C0nFNhBUR6o+pUPUFRu4I+MgQZ+kyDrmVxmkvhGRVNuWLcOdL/YrtsD/4DvY2Xh/xkpbkDKfwwzDtTL4cNGXb4hsNlx/YrHr93bxgExe3XpazG6IC+cQkSrc1KuzWwfoUtS635/tBHdElOAw917YnFKUdFWS2FBW6Y9+4aa968u2dQzBLhux4VMSGuuaQ0HA3KXwSP2Wj2nDxazBM2IWsfixlA5NlmIbALokNUNvpXkrQvV1wSLOFkdn7eMnciF8mlxOb09zZce+moBb/MGdvbV8pSqZWTD5wB/xgqW0lpbp7GSn5bcsZGBeNe5x7F9/69ZpxY61BY2EUGPxkMNnx6M3O4mFqkUjY4bHtO6gKYjFTxOQccXJKHz9jACUWt3PHaErKC4HbIVPrbNe9zGGG/bcv5XuCz35KN3qB38xxSrKWNi1Q7aXbfQinrWaDqkZE95LkLDq0yxbIq2tvkDvkMDGYOLke+N7ejx9wJwEsl+LEu4VDuYkajhZkksDZFI2qcznTuUWyxVfNsTlJQCsEMYMRqQCg279VdQh3nPtN/S39lsuuBlXEQ59TQzwSUUWkEpyNOEiZgtHHYAWtIb3k8kK29/dg0Tmk9jW6k5V8w15nJCFJHPqwyKuapjTSVmNwvQlKrNV8i4io9Cst1hfA1r3uD98IQ3LvYX0bUXfCmhebkXA+klZ+yebeSwbT3XtjVrYgSBZI2cGXM3Hzi.eyJlbmRwb2ludF9zbHVnIjoieC1haS9ncm9rLTQuMy0yMDI2MDQzMHx4YWkifQ",
+              "format": "xai-responses-v1",
+              "id": "rs_81a8c727-b5e4-9b15-9bd5-a5b80ca17154",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 648,
+      "completion_tokens": 222,
+      "total_tokens": 870,
+      "cost": 0.0012306,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 128,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0012306,
+        "upstream_inference_prompt_cost": 0.0006756,
+        "upstream_inference_completions_cost": 0.000555
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 221,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

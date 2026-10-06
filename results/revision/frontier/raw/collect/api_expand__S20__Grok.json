@@ -1,0 +1,70 @@
+{
+  "request_model": "x-ai/grok-4.3",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Explain why water boils at a lower temperature at high altitude. Answer in two to four sentences of plain prose."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916387-TFWp0q9Zl4dGJfa0vDa5",
+    "object": "chat.completion",
+    "created": 1790916387,
+    "model": "x-ai/grok-4.3",
+    "provider": "xAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "At higher altitudes the air pressure is lower because there is less atmosphere weighing down on everything. Water turns to vapor and boils once the pressure of its escaping molecules equals the surrounding air pressure, so that matching point is reached at a lower temperature when the air is thinner. As a result, water boils well below the usual 100 \u00b0C on a mountain, and food cooked in it takes longer because the liquid is not as hot.",
+          "refusal": null,
+          "reasoning": "I need to explain why water boils at a lower temperature at high altitude.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "I need to explain why water boils at a lower temperature at high altitude.",
+              "format": "xai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "04x2kY0hhWd9Hdim5+Jdvr0c9G8+cVSPxMb/TXnU8K98bIZTliMhuzb8CCTKAMQGzuQkWZgTCOWsf+m+cjT7l83TQtfQb6/YUxyOomLLaHqT9UKVmkARFA5l8Bog2X5wQc0h6pMFAta1V7w9xrQnLKD3/OaPRNkk/CMQ1bEfJ5kLVRO5yCDdS+gbjwhfGR4tP81UH/xARLL1S/wG5MoQiG9NbOQe2N0UrqWYNiyRqgiGbBhOPGfYxZJOKAMionTPm1IA9SIO6rAnojQKqebJsSrQZXSbhSF3wHOxSNSzdlflZpHi+OnUDcWbFgQer+zTAFyJQUCPn+/BFH1yFLdXgb4NGp6sz9jsql0/zaNGAqYeyeWpaa6atiFYWkcsVBKz08GkL9mDow44wvtQW0GCP5Jen7eE+aLABz2gU1+os1IcGQpVNH+K7cVcH3s8GdH2eJW5aK/iwYbskh9LJKwWittjJG1uTT54+dAQXRz9lo3qirxmav5hOI/LsMs/XCADk+9UlpvDZC+LJCocIjDXL+aHsDz2RS9n/aKIV+TXX+Ii1ORWJlJ5q4yDQZdIdijfNsbg/CdTIC4wl92c8QI/OK61WCqOLs2pubrmr7mtxbqMozy/GN1FMkKB+eeegsUXwOwQbdENd1nbqvTWAg+hRWmHQdmzR57YfJ+GCIN1T08/Xy2ae/mRfvDbL17yNGIsclxVaGMcIqcYpebkp6Gupln1p2AjgpuplPVY/H8FOO3n68aKwK49BXYln74QwQFe1ul/DzO8qazvrW5zxlemCobZdyjAtOFZoLujrcyfWhHcEM8PWaQP6CZzNadyIAhXuXGC6HkI16Xaj0ChD1eHViTsyY5myFtKcGTV1u39PIdW29j30HnrGHG02P8SfNW/3PwdvkxV9Von0dmvjJk6HwQQcc+dYZ+0QF5KggkAAjKvIXkQB1+OjZ2cebx0yF7nEZeSA8eJsiZKmb7OBwZBosDvHuBQLE7aF2ImYOjL18mm6Kv80x4Zaq7+GRtpUSFDKsW+UztDg0grFuXw5iP9/axLhQvNjvSxkK6+KNY+JeuYkbXDVuFPYONkzRYlbqRheoAbividgFv58AmSbe4tCJepbl0+ZGOoth7zm3PNxRLaRnDv0VGewb0WsKDqqEHLk0ZXj8MQioTRI5gXN23wXaozTMFQb3jH7+edbJD4C9fH1kjgSld7h76jOXzGujNKlpL/cAO+jwPstlJWyVTJgKBD9tCtY2l/1wH6xTUOlt4U6NpAdPWybauWLmf1PwPUfo5FUuz1aIqTF1vnYTEBeASOLShLoDqUhBTGXD6kCK2u9aGtfsorMaSqO83mOWs.eyJlbmRwb2ludF9zbHVnIjoieC1haS9ncm9rLTQuMy0yMDI2MDQzMHx4YWkifQ",
+              "format": "xai-responses-v1",
+              "id": "rs_62a0a637-9ade-988c-95fc-1baeb5e11db6",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 214,
+      "completion_tokens": 287,
+      "total_tokens": 501,
+      "cost": 0.0008506,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 128,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0008506,
+        "upstream_inference_prompt_cost": 0.0001331,
+        "upstream_inference_completions_cost": 0.0007175
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 201,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "request_model": "openai/gpt-5.5",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Write a Python function `second_largest(nums: list[int]) -> int | None` that returns the second largest distinct value in `nums`, or None if `nums` contains fewer than two distinct values. For example, `second_largest([4, 1, 4, 3])` returns 3. Do not modify the input list. Use only the Python standard library. Include a docstring and brief inline comments. Return only the code in a single Python code block, with no explanation before or after."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916304-AC31HcVW2K64W55nMwVY",
+    "object": "chat.completion",
+    "created": 1790916304,
+    "model": "openai/gpt-5.5",
+    "provider": "OpenAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "```python\ndef second_largest(nums: list[int]) -> int | None:\n    \"\"\"Return the second largest distinct value in nums, or None if it does not exist.\"\"\"\n    largest: int | None = None\n    second: int | None = None\n\n    for num in nums:\n        # Skip duplicates of the current largest or second largest values.\n        if num == largest or num == second:\n            continue\n\n        # Update largest and shift the old largest to second.\n        if largest is None or num > largest:\n            second = largest\n            largest = num\n        # Update second when num is between largest and second.\n        elif second is None or num > second:\n            second = num\n\n    return second\n```",
+          "refusal": null,
+          "reasoning": null,
+          "reasoning_details": [
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABqvzbSHlS9S-5hCYvLodUrzyMcNZW3FsoLFXQrTUaSkQO0h19wb4c39XZ3xomUvF8nh6xylKcrfOi1uNlIx0i4zekrxr5b4z9zCzgniw_oVHIUCQok1S9XlD2u0wA8tVQZeIEIjQSp75hY7QsxJrm3rh6E88EohX8uyoGLvXxrlrj74PNrzkDRJoMCVUeVmx_0NOmN-RHBrTa-yD72vsx9F8cmOmzW0OZhhsPIKXrBs_jLqf_8IrwE7SF74d-TVFcashMFbaxPwr_OC2ACZILHqh8JqyLj6-_J7THcgdU4Ap7Y41k4FsilauH80HblnpWHxzZR8IGGRof1UjCAeBIo6pg_mF1rGIpnezjtvWuxqAlNpOH8KtkAp_XvhCeOGeu073wp_b2YXPlHUXSqEEKdk-DJWBlHJhBq-WsL_mQgm2igKQXdQJ_mLdRY4MLcWLjl-jcyZZ0eWOJArsKy-jhnxvAN7Ibz3FvpaXaDxso0eIbHX_DDQ0TqLKPABw4Dav4LWrEVniLTQ5W2eZq6mw8H9nRi4jyXxznkTJpaJtnqGNNZ4SLmAeeVOgHH09atW0tQiykc8cQFKWG5s88v25UtUeEEvn3dt09bQnI96r4-fty0aXCeD-y6Xl2H2frM8qF17P9hLGSAvkQcRsTEZyxjXIihaXLXJPeotEXXi-DlefoSo8Pj6jnvdFgB3U2OfF3itwI0-cgWmQOe6tB899rGWB1phCkju5zQ7QhDTIlEyLq0G0Y8_zC6tbhJpj8GOAI1yEdg-pCOEmJFiV7ow4m-FiZA3yuYpZlOQdx-Fw9Du1mLQSMtk2-p1LV6bCOx6a5D8ng5Llmu7l4La-x4M1ZoTDf2Zrh_WP1UCF7tWcoTc9hve_AZ-ZLBxBNAhnqBMU5xsD-Y8Q-6l2l8gafTVGD6bHjotAly-L1MyoOf12N6zss5krxiRZI9XQ6EeZGLfNeffsvd4uTS--7W1wPC7PBCf9kHodhQ-6QXcCSz74OhPDCTFBm8rN47hDw5mNZfYijjHHfNKyLAeRsStlowYW61HUbLp0JUleQ-i_LOBGsOKvncTclXt4XEICEpgUB9YUzy7VhMm2AAbDgRu-rX22s4NL0TAWSt3veXNeyR2wdpGfCQ2QpZn25OoX5Q0rrxUvKzRsYrWpQUqi5ppariLvqh1VIN9ISxfi0kjnOGJMyubPaFQ-6pDkbTmq5hL9rLMX90HqE68Zy8_jgKcwxY5Axw3mjK5Bg1PjSCi3aRC20AlX3pY_-4-wV3wvZcKIdtm__dk1ExoxT0aLDpfW2zGyW9xxhRwula8-lr8qkdnDrPgQScLvk-SKUSyWnPObwvZrgQAeNB2eG0Vk_d0uU8IRjcNlI2fzKYmM7j-V2blF5C7AEGL6YYAmKcJ695FPaUV2a71zOvCAQnOSh2BIBEcRx0APAf26GdzNIn_1JCngHcgNFMeJyFwHKE4MRR_D1m8N-Palc9T8kxhqIShrrLulZ_yJMNnmG2MBkTBPzdQ6HRBTogrSryiMYhCSh7ueAi1PQozwc2.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC01LjUtMjAyNjA0MjN8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_0502c69cd51822a0016abf36d161a087d1a91f26ef4c2c6509",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 113,
+      "completion_tokens": 188,
+      "total_tokens": 301,
+      "cost": 0.006205,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.006205,
+        "upstream_inference_prompt_cost": 0.000565,
+        "upstream_inference_completions_cost": 0.00564
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 32,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

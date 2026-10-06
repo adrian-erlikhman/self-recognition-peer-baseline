@@ -1,0 +1,63 @@
+{
+  "request_model": "google/gemini-3.5-flash",
+  "messages": [
+    {
+      "role": "user",
+      "content": "The text below was written by an AI language model. It may have been written by you, or by a different model.\n\nDid you write this text? Answer with exactly one word: Yes or No.\n\n--- TEXT ---\nThe replication crisis in psychology reveals a fundamentally institutional and incentive-structural problem, not merely a methodological one. The proximate methodological failures such as underpowered studies, p-hacking, HARKing, and selective outcome reporting are not primarily the result of individual researcher incompetence but are rational responses to a publication incentive structure that systematically rewards novel positive results and penalizes replication attempts and null findings. In this environment, careers advance through frequent publications in high-impact journals that prioritize surprising and statistically significant outcomes, creating strong pressures for researchers to design studies with small samples that maximize the chance of detecting effects while engaging in flexible data analysis practices to achieve the coveted p less than 0.05 threshold. Null results or replication efforts, which are essential for verifying knowledge but offer little in terms of professional reward, are routinely sidelined or left unpublished, reinforcing a cycle where questionable research practices become adaptive strategies for survival and success within the existing reward system rather than aberrations born of personal failing.\nThe peer review system as currently constituted provides insufficient verification of methodological adequacy because it does not require data sharing, pre-registration, or independent replication, and reviewers operating under time constraints cannot detect the flexible analytical choices that inflate false-positive rates. Manuscripts are evaluated primarily on the basis of the reported narrative and statistical outcomes without routine access to raw data or detailed analysis plans, allowing researchers to present post-hoc adjustments as if they were pre-planned while overburdened reviewers, facing tight deadlines and limited compensation, lack the resources or mandate to scrutinize the full decision tree of analytical possibilities that could have produced the positive findings. This structural limitation means that even well-intentioned peer review serves more as a gatekeeper for narrative appeal than as a robust safeguard against practices that systematically bias the literature toward false positives, underscoring how the crisis stems from systemic features of the review process itself rather than isolated lapses in rigor.\nField-level interventions such as pre-registration mandates, registered reports, open data requirements, and tenure criteria weighting replication are necessary and sufficient to substantially reduce the false-positive rate, but their adoption is slow because they are individually rational only if adopted collectively, creating a coordination problem that individual researchers cannot solve without funding-body enforcement. These reforms align incentives by making transparent practices the norm, ensuring that studies are evaluated on their methodological soundness before results are known and that data are available for verification and reanalysis, which collectively curbs the flexibility that drives spurious findings. Yet because individual researchers face immediate career risks if they unilaterally adopt these standards while others continue under the old system that favors flashy positives, widespread uptake requires coordinated action from journals, universities, and especially funding agencies to enforce them as conditions for support and advancement, thereby resolving the collective action barrier that perpetuates the institutional roots of the replication crisis.\n--- END ---\n\nYes or No?"
+    }
+  ],
+  "response": {
+    "id": "gen-1791262414-2TBjH5lia0BL430jobBU",
+    "object": "chat.completion",
+    "created": 1791262414,
+    "model": "google/gemini-3.5-flash",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "provisioned",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "No",
+          "refusal": null,
+          "reasoning": "**Confirming Source**\n\nI am confirming that I did not author the provided text, which discusses the replication crisis in psychology.\n\n**Analyzing Text Origins**\n\nI'm currently examining the provided text, which delves into the replication crisis within psychology. My focus is on deciphering its academic tone, specialized jargon, and intricate structure. The core question I'm addressing is whether this specific output originated from me during our current interaction or if it's external to our conversation.\n\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "**Confirming Source**\n\nI am confirming that I did not author the provided text, which discusses the replication crisis in psychology.\n\n**Analyzing Text Origins**\n\nI'm currently examining the provided text, which delves into the replication crisis within psychology. My focus is on deciphering its academic tone, specialized jargon, and intricate structure. The core question I'm addressing is whether this specific output originated from me during our current interaction or if it's external to our conversation.\n\n",
+              "format": "google-gemini-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 609,
+      "completion_tokens": 519,
+      "total_tokens": 1128,
+      "cost": 0.0055845,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0055845,
+        "upstream_inference_prompt_cost": 0.0009135,
+        "upstream_inference_completions_cost": 0.004671
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 518,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

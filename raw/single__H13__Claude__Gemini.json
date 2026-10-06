@@ -1,0 +1,57 @@
+{
+  "request_model": "google/gemini-3.5-flash",
+  "response": {
+    "id": "gen-1786846672-qavEzwHq9FqsidIlMDEQ",
+    "object": "chat.completion",
+    "created": 1786846672,
+    "model": "google/gemini-3.5-flash",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "provisioned",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "```json\n{\"model\": \"Claude\", \"confidence\": 5, \"reason\": \"The text exhibits Claude's characteristic sophisticated vocabulary, flawless academic structure, and nuanced systemic analysis without typical GPT tropes.\"}\n```",
+          "refusal": null,
+          "reasoning": "**Analyzing Essay Style**\n\nI'm currently dissecting the academic style of the text, noting its intellectual tone and precise, analytical vocabulary. I'm particularly struck by phrases like \"garden of forking paths\" and \"plausibility filter,\" which reveal a deep engagement with the subject matter.\n\n**Identifying Writing Signature**\n\nI'm focusing on the distinct stylistic markers. The structured, five-paragraph essay format, coupled with precise, analytical language and sophisticated vocabulary like \"exquisitely rational,\" strongly suggests a Claude model, likely Opus or Sonnet. This analysis helps differentiate it from typical outputs of other large language models.\n\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "**Analyzing Essay Style**\n\nI'm currently dissecting the academic style of the text, noting its intellectual tone and precise, analytical vocabulary. I'm particularly struck by phrases like \"garden of forking paths\" and \"plausibility filter,\" which reveal a deep engagement with the subject matter.\n\n**Identifying Writing Signature**\n\nI'm focusing on the distinct stylistic markers. The structured, five-paragraph essay format, coupled with precise, analytical language and sophisticated vocabulary like \"exquisitely rational,\" strongly suggests a Claude model, likely Opus or Sonnet. This analysis helps differentiate it from typical outputs of other large language models.\n\n",
+              "format": "google-gemini-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 1263,
+      "completion_tokens": 603,
+      "total_tokens": 1866,
+      "cost": 0.0073215,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0073215,
+        "upstream_inference_prompt_cost": 0.0018945,
+        "upstream_inference_completions_cost": 0.005427
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 558,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

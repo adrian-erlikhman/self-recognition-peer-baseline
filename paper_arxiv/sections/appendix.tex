@@ -1,0 +1,156 @@
+% ===========================================================================
+\section{Data collection}
+\label{app:data}
+
+\paragraph{Chat-app texts.} 39 argumentative prompts in three levels of
+difficulty (13 each), answered by each model in its consumer chat app, in a
+fresh conversation with memory and custom instructions off, between 15 June
+and 31 July 2026. One prompt (M5) is excluded because its DeepSeek answer is a
+copy of its Grok answer and its Gemini answer a copy of another prompt's.
+Mean length runs from 324 words (Grok) to 689 (DeepSeek).
+
+\paragraph{API texts.} 120 prompts: 60 essays (the 40 prompts of the
+original bank, which include the 39 above, and 20 new ones in the same
+format), 20 Python functions with fully specified behaviour, 20 questions
+answered in two to four sentences, and 20 word problems with a numeric
+answer. Collected through OpenRouter on 1 October 2026, temperature 0.7, no
+system prompt. All 120 prompts are in the repository. One example per genre:
+\begin{itemize}
+\item \emph{Essay (E1):} Argue that getting enough sleep each night improves
+how well you function the next day. Cover three specific effects: sharper
+focus and memory, better mood and emotional control, and improved physical
+energy. Write in continuous prose paragraphs only. Do not use bullet points,
+numbered lists, headers, bold text, or any other formatting.
+\item \emph{Code:} Write a Python function \texttt{is\_palindrome(s: str) ->
+bool} that returns True if \texttt{s} reads the same forwards and backwards
+after converting it to lowercase and removing every character that is not a
+letter or a digit, and False otherwise. The empty string counts as a
+palindrome. Use only the Python standard library. Include a docstring and
+brief inline comments. Return only the code in a single Python code block,
+with no explanation before or after.
+\item \emph{Short answer:} Explain why the sky appears blue during the day.
+Answer in two to four sentences of plain prose.
+\item \emph{Math:} A bookstore sells notebooks for \$3.00 each and pens for
+\$1.25 each. Maria buys 4 notebooks and 6 pens. How many dollars does she
+spend in total? Solve the problem, showing your reasoning step by step in
+plain prose, and end with a final line of the form `Answer: <number>'.
+\end{itemize}
+
+\paragraph{Frontier judges.} Through OpenRouter at temperature 0, with up to
+8,000 output tokens (16,000 for Gemini, whose reasoning counts against the
+limit). Models: \nolinkurl{openai/gpt-5.5}, \nolinkurl{anthropic/claude-opus-4.7},
+\nolinkurl{google/gemini-3.5-flash}, \nolinkurl{x-ai/grok-4.3},
+\nolinkurl{deepseek/deepseek-chat}. The chat-app essays were judged in the lineup
+and one-text formats on 16--17 August 2026, the API texts on 1 October, and
+the yes/no and shuffled-word conditions on 5 October. Every request in the
+lineup, one-text and yes/no formats returned an answer. In the shuffled-word
+lineup, all 38 of Claude's requests ended with a provider content filter (on
+both the host that served it and Anthropic's own endpoint), and 14 of
+Gemini's ended at the output limit or empty; these 52 are treated as missing.
+Judging the chat-app essays in the first two formats cost \CostStudyOne{},
+writing and judging the API texts about \$31, and the two October conditions
+about \$11.
+
+% ===========================================================================
+\section{Judge instructions}
+\label{app:instructions}
+
+Every request, word for word, with the texts in angle brackets. The frontier
+judges received no system prompt. The open-weight judges received the same
+instructions with their own four names.
+
+\input{sections/gen_instructions}
+
+% ===========================================================================
+\section{Statistical details}
+\label{app:stats}
+
+\paragraph{Self-advantage.} Each of a judge's texts is judged by every judge
+in the panel. If the author has no advantage, the judgments on a text are
+interchangeable with respect to which judge counts as ``self''. We therefore
+compute the $p$-value by randomly reassigning the ``self'' label among the
+judges of each text (exactly, for the chat-app study). This keeps a text's
+peer judgments together and accounts for how easy each text is. Intervals
+resample prompts (10,000 times for the chat-app study, 4,000 elsewhere). We
+also fit a logistic regression with errors clustered by prompt and a model
+with random effects for prompt and judge (Table~\ref{tab:clustered}); none
+changes a verdict for Claude, GPT or Grok.
+
+\paragraph{Discrimination.} We randomly reassign, within each lineup (or each
+prompt's set of texts), which text is the judge's own, and compare the
+observed difference between hit and false-alarm rates with this distribution.
+
+\paragraph{Corrections.} Holm's correction is applied across the judges of a
+panel within each format. The four peer judgments of a text are nearly
+independent (design effect \PeerDeffLineup{} in the lineup).
+
+\paragraph{Skill adjustment.} A judge that is good at attribution in general
+has an easier time beating its peers. We subtract, for each judge, the
+advantage its peers show over the remaining judges on texts neither wrote.
+This leaves Claude at \ClaudeAdjAdvLineup{}, GPT at \GPTAdjAdvLineup{} and
+Grok at \GrokAdjAdvLineup{} points, and moves Gemini from no difference to
+\GeminiAdjAdvLineup{}.
+
+\input{table_g_clustered}
+
+% ===========================================================================
+\section{Open-weight models}
+\label{app:openweight}
+
+Qwen2.5-7B-Instruct, Llama-3.1-8B-Instruct, Mistral-7B-Instruct-v0.3 and
+Phi-4-mini-instruct, from Unsloth's 4-bit (NF4) exports. To run them on one
+8\,GB laptop GPU we converted each layer to PyTorch's built-in 4-bit format
+(groups of 32); the same weights wrote and judged, so ``self'' is exact.
+Gemma-2-9B was planned as a fifth judge and dropped before any judging
+because it did not fit in memory. Texts were sampled at temperature 0.7
+(top-$p$ 0.95, fixed seeds), two independent answers per prompt. Lineup and
+one-text judgments use greedy decoding; for yes/no questions and quality
+ratings we read the probabilities of the answer options directly. The
+options received at least 89\% of the probability in every yes/no judgment.
+A classifier trained on the first sample of some prompts and tested on the
+second sample of others attributes \OWClfCrossSample{} of texts, so each
+model's style is stable across samples.
+
+% ===========================================================================
+\section{Style classifier}
+\label{app:classifier}
+
+A random forest (500 trees) over 18 interpretable features
+(Table~\ref{tab:features}), evaluated with five-fold cross-validation in
+which no prompt appears in both training and test data. Length matters: the
+models' essays differ in length by a factor of two. With every length-related
+feature removed, a logistic regression still reaches
+\EngineALengthFreeLR{}; with every text cut to the shortest in its prompt
+group, the full feature set still reaches 67\% while a length-only
+classifier falls to 22\%, near chance. The same features attribute the
+open-weight texts at \OWClfPooled{}, from \OWClfMath{} on math to
+\OWClfProse{} on essays.
+
+\input{table_s_features}
+
+% ===========================================================================
+\section{Additional results}
+\label{app:more}
+
+\input{table_x_blame}
+\input{table_x_api120}
+\input{table_x_owsingle}
+\input{table_openweight_genre}
+\input{table_g_ow_likelihood}
+
+% ===========================================================================
+\section{Coding the judges' reasons}
+\label{app:rationales}
+
+Each reason was coded with rules (regular expressions) into eleven
+categories; a reason can have several. To check the rules, two annotators
+labelled a sample of 150 reasons, stratified by judge and format, from a
+written codebook. Both annotators were instances of an LLM (Claude): the
+first also wrote the rules, the second saw only the codebook. Against the
+second annotator the rules reach 97\% precision and 96\% recall, and the two
+annotators agree closely ($\kappa$ 0.86--1.00 per category). Because Claude is
+also one of the judges, biases shared by annotator and judge cannot be ruled
+out, and no human labelled the sample. Table~\ref{tab:cues} gives how often
+each judge cites each cue.
+
+\input{table_g_cues}

@@ -1,0 +1,70 @@
+{
+  "request_model": "x-ai/grok-4.3",
+  "messages": [
+    {
+      "role": "user",
+      "content": "The text below was written by an AI language model. It may have been written by you, or by a different model.\n\nDid you write this text? Answer with exactly one word: Yes or No.\n\n--- TEXT ---\nFor centuries, animals have shared a special place alongside human beings, but modern science now confirms what pet owners have long known: living with a pet fundamentally improves both emotional well-being and physical health. One of the most significant benefits of pet ownership is the profound reduction in feelings of isolation. Pets offer unconditional affection and constant companionship, acting as a reliable presence that eases loneliness, particularly for those living alone or navigating major life transitions. Simply having a loyal animal in the home provides a sense of purpose and a nonjudgmental listener, which fosters emotional security and helps individuals feel connected to the world around them.\n\nIn addition to emotional support, caring for a pet naturally encourages daily structure and physical activity. Animals rely entirely on their owners for food, shelter, and exercise, which forces individuals to establish consistent daily routines. Walking a dog, for example, transforms sedentary habits into daily movement, boosting cardiovascular health and keeping owners active without the pressure of a formal workout regimen. Even the routine tasks of feeding, grooming, or playing with pets keep individuals engaged throughout the day, providing momentum and a sense of daily achievement that supports both physical fitness and mental vitality.\n\nFinally, the unique bond shared between a human and a pet triggers physiological changes that directly lower stress. Physical interactions, such as petting a cat or dog, stimulate the release of feel-good neurotransmitters like oxytocin while simultaneously reducing levels of cortisol, the body's primary stress hormone. This biological reaction helps lower blood pressure and heart rate, soothing the nervous system during times of anxiety. Through this powerful combination of companionship, daily structure, and stress-reducing chemical reactions, pets prove to be a powerful catalyst for a healthier, happier life.\n--- END ---\n\nYes or No?"
+    }
+  ],
+  "response": {
+    "id": "gen-1791262626-XbhPAGBYMXDpvHB4Kxxq",
+    "object": "chat.completion",
+    "created": 1791262626,
+    "model": "x-ai/grok-4.3",
+    "provider": "xAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "No",
+          "refusal": null,
+          "reasoning": "Determining whether this text was written by me.\n\nI do not recall writing this specific text. It appears to be a generic essay about pet benefits.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "Determining whether this text was written by me.\n\nI do not recall writing this specific text. It appears to be a generic essay about pet benefits.",
+              "format": "xai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "RZ0uSDDU2HDTYE2bbUvsw9QfhRCe6ZHJ2IWIGvLWyM17rPP9XwL5/LQ6tjn4dvdx2NxHblkHG3+ESHhdmW8YYKkSSectCaZZYS7smD4MpZDjGnyFtSIOHYImIh92650CVQutjiY81jG81s2IXtha3iwqCTLuwcvrBh407A/nlNa56G5y8YYLDO1htHjWR90dqum1F6udTiX1Ehf2CQppXPEcrIpMtpsvPauNGFcqDoZEKlevgMj4Kd9YIG34JhTEZ/qDHqe6eizit55ycubDqthuCyM8TBauAp/7zTQVrf0cDeeu29z7CRoiQK49X68w/CvPsRZMWAIwllGJfsT5eZTiioe3zdltvAyvdWWlexhC0EQuRCbEGmVlJPWnTM5htlj2fUOP1fmLdQZEB/FHYY8F94BBk+0cqlbVTkIkp5vx3bPFYNdt8exw/2Gs+snEldhzGTCfkYPNI6DzCLf+UUUg7hjd7J5Utqnz7N77wq3KLiAG7W7CzEWO11TXI5kcrgP997GlgtErnZvKSScC+u5KsAwum677lOADP7QZZCyW11I/0y7YoDt73GiMEvKQnx7/+mNxxv2Hx/UmIXnqE+j8v8loHxU09swEKgkzt3lYf2xt2sbheNsfscONTDW2o4H8o5oe+le1PQIk6D1AdZ5XoCra+IdnW0h3ZR1ovjOW6S/WJdhiHLjdeyfei07uHf14/aNu8PT9uB3+akKrUWxZmz0HWoRys5G5fgP+qEXqkQuqe2jElZ3mqpA6sDwpRM13QkmDzOJty7qJL3bl4dVqyuPxrqw2UbfWLTqROU+owmY9Sfg65GWnf8HUZ0UWiV4Zw5b4G1nknFGcxQZM8hPWpBNuxRDOlt5npdMT9tyPqd6/IP6qm2r8Iv9tOtFKIFRl9THpz1NLdq0Dxz4uugRxY3uyJEO6Q37BIcmafSE3FqBdiyMO9ryOCsbTHxGdtm4ELk4suPAqCOFz3i1ZgSOLSEvk/s9MYAXm7YhALrLHF34Gvd1pq7QhRiHgJ2Sp+0gDPaLHrRuiH/22AIkHR1XKategPsynEThkUWxCAyVrSqjHuULNQd98Sia/WMTUJx2qjfl57SEf5EXXRsZtIVpBk7cWhdkMobGWWY7yyJY04bgEKlRWMvpTTiLY9KzYs8ArGfV/C5f+ncXmkxG56KuEwvPdfLmAtsA+LqWiSri63k2BIK/QGYPEIzf2dDYxSFCYPr/3rAqUkFECSX2cDUCmllYdFz4dJJTBL7TW/HS06Lde7mGM74tnnSiexC7xJV/b5w24LL1iuOkJMfgwgl7FCAGqugS6umagLtg2s/6UXSEQRevTKEIENqUxBm/giTVIazClQCy7F/DcYq1Uv/CjQQD/2bKIrKfpXPMtZoq1/JJORhVSdnVoz9beGA1bdX2Yp2AmXyW4uMP62ds+WGp5b1+ey15P6qEyFK/GXM72U9BY8ovF7hp8OxnapM/lurDyDfy+3yCgj2e/XMyNNaiLEhTKnfcmDj6cAp9/99dPkWtGRM4Ae1j3mOiaoN6TVnT3NAXtSx7jQ1FZQXXz8uZ6AfXG3c8T7w0OjMkp+u3Xt3RD6/GYyH4gkhxp4oz90fYTPL0s2TfXtVIGQlaZrbHplLVyEWZ5KxZcFcDohLXYmJZK3Ma9r0QCf5qBtrbOoZPeVCJUBdfTl7bf5nW6X1N1V8YyLaSIlhHCCov7H5pAQvPsX58z2ZHeBfvQsLJTCL36AuFv0dan5gj6O9hgzk3GLMPA6dYLddD8iUt2qhd87zucO4VePyGAEFhA2XSgvDPjEzhtkbtQeFKKhgElYVIfW1nxn1g/WRvPzsh5LGoIMtNumvO999Pp/SixrZeKNsFr6tcFpFPXZNPFvEx56vMysRb430wvo45E7hhwl7y5lGUeON50Jg.eyJlbmRwb2ludF9zbHVnIjoieC1haS9ncm9rLTQuMy0yMDI2MDQzMHx4YWkifQ",
+              "format": "xai-responses-v1",
+              "id": "rs_8deff711-c610-94bb-a1dd-a5f1ac86a01d",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 577,
+      "completion_tokens": 319,
+      "total_tokens": 896,
+      "cost": 0.00138435,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 128,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00138435,
+        "upstream_inference_prompt_cost": 0.00058685,
+        "upstream_inference_completions_cost": 0.0007975
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 318,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

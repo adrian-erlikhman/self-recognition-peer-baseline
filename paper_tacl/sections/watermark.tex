@@ -1,0 +1,29 @@
+% ===========================================================================
+\subsection{Not a watermark}
+\label{sec:watermark}
+
+Could a judge be reading a watermark its vendor planted? Three facts say no.
+
+\emph{A keyed watermark cannot be read in context.} Deployed text watermarks
+shift token probabilities by a pseudorandom function of a secret key and the
+preceding tokens \citep{kirchenbauer2023watermark, dathathri2024synthid}.
+Detection needs the key; the pattern is statistically invisible without it,
+by design. Nothing in our protocol gives a judge a detector.
+
+\emph{The dates do not fit.} Our frontier corpus was written between 15 June
+and 31 July 2026. Anthropic announced keyed watermarking of Claude text in
+August 2026, applied at launch to models released from 2 August and
+retrofitted to older models, Opus 4.7 among them, without a stated start date
+\citep{anthropic2026watermark, anthropic2026marking}. The judge with the
+largest self-advantage wrote its texts before any announced Claude watermark.
+Conversely, text from the Gemini app is watermarked with SynthID-Text
+\citep{deepmind2026synthid}, and Gemini is one of the judges that does
+\emph{not} recognise itself.
+
+\emph{Authorship is identifiable without one.} We generated the open-weight
+corpus ourselves from public weights, with no sampling modification, so it
+carries no watermark; the stylometric classifier still attributes it at
+\OWClfPooled{} (Section~\ref{sec:openweight}). The signal that would let a
+judge recognise its own text is stylistic and needs no watermark, and the
+open-weight judges, which could not be reading one, do not recognise
+themselves either.

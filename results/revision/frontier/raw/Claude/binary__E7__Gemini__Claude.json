@@ -1,0 +1,55 @@
+{
+  "request_model": "anthropic/claude-opus-4.7",
+  "messages": [
+    {
+      "role": "user",
+      "content": "The text below was written by an AI language model. It may have been written by you, or by a different model.\n\nDid you write this text? Answer with exactly one word: Yes or No.\n\n--- TEXT ---\nRegular physical exercise stands out as one of the most powerful and accessible tools available for improving and maintaining mental health. One of the primary reasons for this profound benefit is the immediate physiological response triggered in the brain during movement. When a person engages in physical activity, the body stimulates the release of neurotransmitters such as endorphins, dopamine, and serotonin. These natural mood-boosting chemicals interact with receptors in the brain to reduce the perception of pain and evoke positive, energizing feelings. Over time, consistent exercise helps regulate these chemical pathways, leading to a more sustained sense of emotional well-being and psychological resilience.\n\nIn addition to enhancing everyday mood, regular exercise plays a crucial role in managing and mitigating serious mental health conditions, particularly anxiety and depression. Engaging in aerobic activities like running, swimming, or brisk walking helps lower levels of the body's stress hormones, including cortisol and adrenaline. The rhythmic motion and focus required during workouts act as a form of active mindfulness, interrupting negative thought loops and giving the mind a break from daily worries. Studies consistently demonstrate that routine exercise can be as effective as standard clinical interventions for mild to moderate depression, providing a natural and proactive way to relieve psychological distress.\n\nFinally, the long-term commitment to a physical routine fosters significant improvements in self-confidence and self-esteem. As individuals set personal fitness goals, overcome physical challenges, and witness their own progress, they develop a stronger sense of self-efficacy and personal mastery. This newfound confidence extends far beyond physical capabilities, influencing how people perceive their ability to handle stress and overcome obstacles in daily life. Combined with the positive body image and sense of routine that regular movement brings, physical exercise acts as a comprehensive foundation for building lasting mental strength.\n--- END ---\n\nYes or No?"
+    }
+  ],
+  "response": {
+    "id": "gen-1791262248-yiEHwPK8jZ9beDmLT4L9",
+    "object": "chat.completion",
+    "created": 1791262248,
+    "model": "anthropic/claude-opus-4.7",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "Yes",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 708,
+      "completion_tokens": 7,
+      "total_tokens": 715,
+      "cost": 0.003715,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.003715,
+        "upstream_inference_prompt_cost": 0.00354,
+        "upstream_inference_completions_cost": 0.000175
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

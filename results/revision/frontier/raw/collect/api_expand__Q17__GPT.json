@@ -1,0 +1,70 @@
+{
+  "request_model": "openai/gpt-5.5",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Three lighthouses flash every 12, 18 and 30 seconds respectively. They all flash together at the same moment. How many seconds pass before they next flash together? Solve the problem, showing your reasoning step by step in plain prose, and end with a final line of the form 'Answer: <number>'."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916322-hqb6r2JHroy1QXy0qaD9",
+    "object": "chat.completion",
+    "created": 1790916322,
+    "model": "openai/gpt-5.5",
+    "provider": "OpenAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "The lighthouses will next flash together after a number of seconds that is a multiple of all three flashing intervals: 12, 18, and 30.\n\nSo we need to find the least common multiple of 12, 18, and 30.\n\nBreak each number into prime factors:\n\n12 = 2 \u00d7 2 \u00d7 3 = 2\u00b2 \u00d7 3  \n18 = 2 \u00d7 3 \u00d7 3 = 2 \u00d7 3\u00b2  \n30 = 2 \u00d7 3 \u00d7 5\n\nNow take the highest powers of each prime factor:\n\n- Highest power of 2 is 2\u00b2\n- Highest power of 3 is 3\u00b2\n- Highest power of 5 is 5\n\nMultiply these together:\n\n2\u00b2 \u00d7 3\u00b2 \u00d7 5 = 4 \u00d7 9 \u00d7 5 = 180\n\nSo the lighthouses will next flash together after 180 seconds.\n\nAnswer: 180",
+          "refusal": null,
+          "reasoning": "**Calculating LCM step-by-step**\n\nI need to provide the answer clearly, breaking down the reasoning in plain language. To compute the least common multiple (LCM) of 12, 18, and 30, I factor them: 12 is \\(2^2 \\times 3\\), 18 is \\(2 \\times 3^2\\), and 30 is \\(2 \\times 3 \\times 5\\). I take the highest powers of each prime factor, which leads me to \\(2^2 \\times 3^2 \\times 5 = 180\\). So, I'll conclude with: Answer: 180.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "**Calculating LCM step-by-step**\n\nI need to provide the answer clearly, breaking down the reasoning in plain language. To compute the least common multiple (LCM) of 12, 18, and 30, I factor them: 12 is \\(2^2 \\times 3\\), 18 is \\(2 \\times 3^2\\), and 30 is \\(2 \\times 3 \\times 5\\). I take the highest powers of each prime factor, which leads me to \\(2^2 \\times 3^2 \\times 5 = 180\\). So, I'll conclude with: Answer: 180.",
+              "format": "openai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABqvzbk1peuZscg7yj_4ky3b0_Nrtz-1rxuoyiLpXAn5KYt5nI2S5Xd40icmQ7BA5nG0J5Vnr4UNqvqvZZAluRonqQ0S1z-7ql7W8hmOZSiolnaut0J3BJCRXVvs7AWoe-U9MDHNr2nXyPOy110MZilq9fHgyS3ulvWguHp2VfmwWbva9v___6pf-EpqrzVa5XJRUlhQas_tJVApTayAVJ_8Vev7hlN4fF6ofrIwA_nWM2x_QQGzZVgCVx2l5ngYB7nx0qtW61e2IDly7bqWsObYl1dqw84DLb1p7gtyXCxOx-UEmnd-IYCkeHO0qN--rgl5Jl1B9hjk29yeMHqexilJTEZsWa0MDK1m2EDfhK_NpbrktOY3i-CW7kAlDOyvvcrXNFqP2AFk6bS-8LTqy-gD6bpjwzAAkopwjJs-8r-B-diXVt1nv37bzuNCYhkrxW7e_FmcWo7VmL-mq7b24sGzyZcuWWkitSgjmbLOHwVtoEV2FofFCnkzhzWLq_D0PLXbuhqZdUIRpNu_hiKjho7i3IKde9m3Q_pez2vAkP5L3-TQDJrOLQjSWGyP8SHTGO8DDG1ANtYsB83YMbU8Mo5-kF8bhhiLBZpAYBXqwOTReK2-KfJjIIUCH-DIYk9FDnlhS6UP4r0HfA65f31HWSoxMxJWyDLIGig1Y3im2jnb8LZxWwaLsqffD9fpLyezygxpo6hwMsQ3SEPmtOjQ_R2Q5xnAOmlvxNc6KTIq6xkDF3geoMdkLwg6ARifr1Q3IggSRZ2KMX08ins9aXO2s62OmGimQurpehJ7pBOzotGRe-xB52tnUrX8T6lwX5WoobLqGVncSN6qiPbtlXvyWktaekzq-adaLJpR8CN_eEBmC5cegdldfM4RaDZ4N-mdV9MGYuq3oBovQKp034Tg8lXAgH2_el-CwYIuozCTdmCD-9HazjgGCMDF19fEtWm3JxolNJRlxu454QHG4eBk6O2R1WTbtXecYowPO-nawht1xFp0vNG6kH_Yjfi0F12nwQy2WhwOn911bXo3YKH6YoWkUYkUqLKeBV_FT7I2HErptWp3_KahlZ3v1IH1R1befxANjio9BvGqWa_41t8shlfE2y4rbzkz5n1GZHC_qzxcCKsHHa6NdbGlQCCHyTGVFxsx3c0sGKj22LAbKYJz7axwHmOsVVn2LVsdOsAy-l6kpJxbOHK7_CRqfd7643Wze0QnsCvGZQ9esrJzyV2DtGlUF7VVd0fP29zIHR--IQ6cF1K_SAZwsO97INR4MCT3TwgcvqjT0AK5RgZj48HhWegkAJIjapn_zawxBaoZo9y-C2GrZbnctf4ArhLOxaIyhir5_pdpIYUcuWbTceClCl_HyBVmqxmK6T5rzmpL6oiSbQq8wdQxnyDbdUtPBjh0-EV-wVgQi5H_8CutmhOxg7ujRDZ2VsBd6DN_8EgRXgtOG2YtAdgFDKX0W9F3sdQ_YUyLxkyvEtYJB4wltmFTnxZg76IhS9d8ylllKWt_9LRZXqKamn4AmeR9PKv_e11fZRLEIQJljJBBsQk-Ace0xrSR2wtQA==.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC01LjUtMjAyNjA0MjN8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_0428f0155c759446016abf36e2d83887d18fcd916150a48a93",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 71,
+      "completion_tokens": 265,
+      "total_tokens": 336,
+      "cost": 0.008305,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.008305,
+        "upstream_inference_prompt_cost": 0.000355,
+        "upstream_inference_completions_cost": 0.00795
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 66,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

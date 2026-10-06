@@ -1,0 +1,49 @@
+{
+  "request_model": "deepseek/deepseek-chat",
+  "response": {
+    "id": "gen-1786845822-uOhPcfHUeJMK2tLqLrbD",
+    "object": "chat.completion",
+    "created": 1786845822,
+    "model": "deepseek/deepseek-chat",
+    "provider": "DeepInfra",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"A\": {\"model\": \"GPT\", \"confidence\": 4, \"reason\": \"Detailed, structured, and formal tone\"},\n  \"B\": {\"model\": \"Gemini\", \"confidence\": 3, \"reason\": \"Concise and straightforward phrasing\"},\n  \"C\": {\"model\": \"Claude\", \"confidence\": 4, \"reason\": \"Logical flow and nuanced argumentation\"},\n  \"D\": {\"model\": \"DeepSeek\", \"confidence\": 3, \"reason\": \"Balanced and practical reasoning\"},\n  \"E\": {\"model\": \"Grok\", \"confidence\": 3, \"reason\": \"Engaging and slightly informal style\"}\n}",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 2625,
+      "completion_tokens": 143,
+      "total_tokens": 2768,
+      "cost": 0.00096727,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00096727,
+        "upstream_inference_prompt_cost": 0.00084,
+        "upstream_inference_completions_cost": 0.00012727
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

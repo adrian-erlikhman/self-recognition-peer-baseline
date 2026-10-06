@@ -1,0 +1,55 @@
+{
+  "request_model": "deepseek/deepseek-chat",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Write a Python function `parse_duration(s: str) -> int` that converts a duration string made of an optional hours part, an optional minutes part and an optional seconds part, in that order, such as \"1h30m15s\", \"45m\" or \"2h5s\", into a total number of seconds. Each part is a non-negative integer followed by the letter h, m or s. Raise ValueError if the string is empty, contains any other characters, or lists the parts out of order. Use only the Python standard library. Include a docstring and brief inline comments. Return only the code in a single Python code block, with no explanation before or after."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916312-POuqlymGqmzFg8E1DZrT",
+    "object": "chat.completion",
+    "created": 1790916312,
+    "model": "deepseek/deepseek-chat",
+    "provider": "DeepInfra",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "```python\ndef parse_duration(s: str) -> int:\n    \"\"\"\n    Convert a duration string with optional hours, minutes, and seconds parts\n    into a total number of seconds. Raise ValueError if the string is invalid.\n\n    :param s: Duration string (e.g., \"1h30m15s\", \"45m\", \"2h5s\")\n    :return: Total duration in seconds\n    \"\"\"\n    if not s:\n        raise ValueError(\"Empty string is not a valid duration.\")\n    \n    total_seconds = 0\n    remaining = s\n    expected_order = ['h', 'm', 's']  # Expected order of parts\n    \n    for unit in expected_order:\n        if remaining and remaining[0].isdigit():\n            idx = remaining.find(unit)\n            if idx == -1:\n                continue  # Skip if unit is missing\n            try:\n                value = int(remaining[:idx])\n                total_seconds += value * {'h': 3600, 'm': 60, 's': 1}[unit]\n                remaining = remaining[idx+1:]\n            except ValueError:\n                raise ValueError(f\"Invalid format for {unit} part.\")\n        elif remaining and remaining[0] == unit:\n            raise ValueError(f\"Unexpected {unit} without preceding number.\")\n    \n    if remaining:\n        raise ValueError(\"Invalid characters or format in the duration string.\")\n    \n    return total_seconds\n```",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 144,
+      "completion_tokens": 298,
+      "total_tokens": 442,
+      "cost": 0.0003113,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0003113,
+        "upstream_inference_prompt_cost": 4.608e-05,
+        "upstream_inference_completions_cost": 0.00026522
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

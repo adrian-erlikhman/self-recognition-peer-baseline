@@ -1,0 +1,21 @@
+\begin{table}[t]
+\centering\small
+\setlength\tabcolsep{3pt}
+\begin{tabular}{lll}
+\toprule
+Setting & Standard test & Our test \\
+\midrule
+Frontier, chat app, lineup & GPT, Claude & GPT, Claude \\
+Frontier, chat app, single & GPT, Claude & GPT \\
+Frontier, API, lineup & Claude, Grok & -- \\
+Frontier, API, single & GPT, Claude & -- \\
+Open-weight, lineup & Qwen & -- \\
+Open-weight, single & Qwen, Llama, Phi & -- \\
+Open-weight, yes/no & Llama, Mistral & -- \\
+\midrule
+Judge-settings flagged & 14 of 32 & 3 of 32 \\
+\bottomrule
+\end{tabular}
+\caption{Which judges ``recognise themselves''. Standard test: the judge names itself on its own text more often than chance (Holm-corrected binomial test; for yes/no, says yes to its own text more than half the time). Our test: it beats its peers on its own text \emph{and} names itself more on its own text than on others' (both Holm-corrected permutation tests; for yes/no, AUC above 0.5). Nine judges, three corpora, three formats.}
+\label{tab:verdicts}
+\end{table}

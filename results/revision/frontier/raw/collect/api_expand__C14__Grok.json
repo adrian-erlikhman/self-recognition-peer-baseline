@@ -1,0 +1,70 @@
+{
+  "request_model": "x-ai/grok-4.3",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Write a Python function `moving_average(values: list[float], window: int) -> list[float]` that returns the mean of every contiguous run of `window` values, in order, so the result has `len(values) - window + 1` elements. Return an empty list if `window` is greater than `len(values)`, and raise ValueError if `window` is less than 1. The function must run in O(n) time by maintaining a running sum. Use only the Python standard library. Include a docstring and brief inline comments. Return only the code in a single Python code block, with no explanation before or after."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916311-wA1bwGb7yAGnu2qjn76e",
+    "object": "chat.completion",
+    "created": 1790916311,
+    "model": "x-ai/grok-4.3",
+    "provider": "xAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "```python\ndef moving_average(values: list[float], window: int) -> list[float]:\n    \"\"\"Return moving averages over contiguous windows of given size.\"\"\"\n    if window < 1:\n        raise ValueError(\"window must be >= 1\")\n    n = len(values)\n    if window > n:\n        return []\n    result = []\n    current_sum = sum(values[:window])  # O(window) initial sum\n    result.append(current_sum / window)\n    for i in range(window, n):\n        current_sum += values[i] - values[i - window]  # update running sum in O(1)\n        result.append(current_sum / window)\n    return result\n```",
+          "refusal": null,
+          "reasoning": "I need to implement a Python function that computes a moving average over a sliding window of values.\n\nThe implementation will use a running sum to achieve O(n) time. It will return an empty list when the window exceeds the input length, raise ValueError for invalid windows, and include a docstring with inline comments.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "I need to implement a Python function that computes a moving average over a sliding window of values.\n\nThe implementation will use a running sum to achieve O(n) time. It will return an empty list when the window exceeds the input length, raise ValueError for invalid windows, and include a docstring with inline comments.",
+              "format": "xai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "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.eyJlbmRwb2ludF9zbHVnIjoieC1haS9ncm9rLTQuMy0yMDI2MDQzMHx4YWkifQ",
+              "format": "xai-responses-v1",
+              "id": "rs_5df035c9-857c-9fa1-a97f-16ec7c1fb2fb",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 323,
+      "completion_tokens": 561,
+      "total_tokens": 884,
+      "cost": 0.00167185,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 128,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00167185,
+        "upstream_inference_prompt_cost": 0.00026935,
+        "upstream_inference_completions_cost": 0.0014025
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 422,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,67 @@
+% ===========================================================================
+\section{Related work}
+\label{sec:related}
+
+\paragraph{Self-preference and self-recognition.}
+LLM judges rate their own outputs above others'
+\citep{panickssery2024selfpreference, wataoka2024perplexity, ye2025justice}.
+\citet{panickssery2024selfpreference} tie the preference to self-recognition
+through fine-tuning, and \citet{ackerman2025inspection} locate a
+self-recognition direction in Llama-3-8B-Instruct.
+\citet{wataoka2024perplexity} propose that the preference follows
+familiarity: judges favour text of low perplexity to them, which their own
+text usually is. Whether judges can \emph{name} their own text is less
+settled. \citet{bai2025selfrecognition} find exact-author accuracy near chance
+for ten models shown one text at a time, with guesses piling onto GPT and
+Claude; \citet{davidson2024anonymized} find no consistent self-recognition in
+anonymised panels; \citet{zhou2025implicit} find that models recognise their
+own text in pairs but not alone; and \citet{laine2024sad} include
+self-recognition in a situational-awareness benchmark.
+\citet{stamand2026sgtr} show that a quality heuristic, picking the
+better text as one's own, confounds many of these measurements, and
+\citet{roytburg2026narcissists} and \citet{shi2025positionbias} document how
+judge biases shift with format and position. Two studies are closest to
+ours. CALM \citep{ye2025justice} scores self-enhancement against the scores
+\emph{other} judges give the same answer, a peer reference for quality; we
+apply the same idea to naming the author. \citet{barkhordar2026stylenotself}
+show, for code, that raw attribution accuracy mostly reflects how readily a
+model claims authorship and recommend balanced accuracy and heuristic
+baselines. We reach the same diagnosis for prose and three other genres, and
+add the peer baseline, the comparison of formats on identical texts, and
+likelihood access for open-weight judges.
+
+\paragraph{Where the self is located.}
+\citet{khullar2026selfattribution} define \emph{self-attribution bias} as a
+monitor rating an action more favourably when it is implicitly framed as its
+own; the effect is strongest when the monitor judges an action it produced
+earlier in the same conversation and largely vanishes for other models'
+actions. That is a judgment shift driven by conversational position, not an
+authorship decision, which is why we avoid the term and speak of self-naming.
+Our on-policy condition (Section~\ref{sec:onpolicy}) connects the two: it
+asks whether a judge that has just written an answer recognises it as its
+own.
+
+\paragraph{Attributing text to models.}
+Supervised classifiers separate model families with high accuracy
+\citep{sun2025stylometric, bitton2025fingerprints, rosenfeld2026whose,
+zaitsu2025stylometry, russell2026storyscope}. \citet{sun2025stylometric}
+report 97.1\% over five chat models and 88.9\% after shuffling the words of
+every text, so much of the signal lies in the word distribution rather than
+its order. Attribution systems also concentrate false attributions on some
+candidates \citep{alipoormolabashi2025maui}, as LLM judges do on GPT and
+Claude. Few-shot LLM judges can approach classifier accuracy
+\citep{dietrich2026splits}; we study the zero-shot case, which is how
+anonymised judging pipelines use them.
+
+\paragraph{Watermarks.}
+Keyed text watermarks bias token choice using a secret key and the preceding
+context \citep{kirchenbauer2023watermark, dathathri2024synthid}; detecting
+them requires the key. Google marks text from the Gemini app with
+SynthID-Text \citep{dathathri2024synthid}, and Anthropic announced keyed
+watermarking of Claude text in August 2026. Section~\ref{sec:watermark}
+explains why neither can account for our results.
+
+\paragraph{Explanations.}
+Judges' stated reasons often omit the cues that actually drove their
+decisions \citep{marioriyad2025silent}. We analyse the 1,900 rationales our
+frontier judges wrote with that caveat (Section~\ref{sec:rationales}).

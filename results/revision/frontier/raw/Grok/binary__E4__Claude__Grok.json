@@ -1,0 +1,70 @@
+{
+  "request_model": "x-ai/grok-4.3",
+  "messages": [
+    {
+      "role": "user",
+      "content": "The text below was written by an AI language model. It may have been written by you, or by a different model.\n\nDid you write this text? Answer with exactly one word: Yes or No.\n\n--- TEXT ---\nCooking meals at home is, on the whole, healthier than eating out most of the time, and the case rests on three connected reasons that reinforce one another over the long run.\nThe first and most direct reason is control over ingredients. When you cook at home, you decide how much salt goes into the pan, what kind of oil coats the vegetables, whether the bread is whole grain or white, and how large a portion ends up on your plate. Restaurants, even good ones, are optimizing for flavor and consistency, which usually means more butter, more sugar, more sodium, and larger servings than you would give yourself. You also see the produce before it gets chopped and the meat before it hits the heat, which makes it easier to notice freshness, avoid ingredients you react badly to, and quietly swap in something more nutritious without sacrificing the dish. Over hundreds of meals a year, those small daily choices add up to a meaningfully different nutritional profile.\nThe second reason is cost, and cost matters for health because it shapes what you can sustain. A home-cooked meal built from rice, beans, seasonal vegetables, eggs, or a modest cut of meat typically runs a fraction of what the same dish costs at a restaurant, where you are also paying for rent, labor, and markup on drinks. That gap frees up money for better raw ingredients, like fresh produce, decent olive oil, or fish that was not frozen for months, which in turn makes the healthier choice feel like an upgrade rather than a sacrifice. Eating out often forces a tradeoff between price and quality that home cooking largely sidesteps, and the savings make a nutritious diet realistic on an ordinary budget rather than a luxury.\nThe third reason is that cooking builds life skills that keep paying off. Learning to plan a week of meals, shop efficiently, handle a knife, balance a plate, and improvise when an ingredient is missing are not just kitchen tricks; they are the practical foundations of feeding yourself well for decades. Someone who can cook is less dependent on takeout when they are tired, less thrown by a tight month, and more able to host friends or care for family without outsourcing the whole event. Eating out, by contrast, teaches you very little beyond how to read a menu. The skills compound: the more you cook, the faster and cheaper and healthier it gets, which makes the habit easier to keep, which is ultimately what separates a healthy diet from a good intention.\nTaken together, these three reasons work as a single argument. Control over ingredients makes home cooking nutritionally better on any given night, lower cost makes that quality sustainable, and the accumulated skills make the whole practice durable enough to shape your health over a lifetime rather than a week.\n--- END ---\n\nYes or No?"
+    }
+  ],
+  "response": {
+    "id": "gen-1791262649-E1UjvI1Q2bnfgRWHKYd7",
+    "object": "chat.completion",
+    "created": 1791262649,
+    "model": "x-ai/grok-4.3",
+    "provider": "xAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "No",
+          "refusal": null,
+          "reasoning": "I am evaluating whether I wrote the provided text.\n\nThe text does not appear to be from my own writing.\n\nNo.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "I am evaluating whether I wrote the provided text.\n\nThe text does not appear to be from my own writing.\n\nNo.",
+              "format": "xai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "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.eyJlbmRwb2ludF9zbHVnIjoieC1haS9ncm9rLTQuMy0yMDI2MDQzMHx4YWkifQ",
+              "format": "xai-responses-v1",
+              "id": "rs_b100db56-b7a1-98b4-b49d-dd56e2acfe6e",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 788,
+      "completion_tokens": 332,
+      "total_tokens": 1120,
+      "cost": 0.0016134,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 192,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0016134,
+        "upstream_inference_prompt_cost": 0.0007834,
+        "upstream_inference_completions_cost": 0.00083
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 331,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

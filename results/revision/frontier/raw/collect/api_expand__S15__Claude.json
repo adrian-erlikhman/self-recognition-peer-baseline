@@ -1,0 +1,55 @@
+{
+  "request_model": "anthropic/claude-opus-4.7",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Explain why the Moon appears to go through phases. Answer in two to four sentences of plain prose."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916411-LBgHYhzB6d2RcZTl9EV0",
+    "object": "chat.completion",
+    "created": 1790916411,
+    "model": "anthropic/claude-opus-4.7",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "The Moon doesn't produce its own light; it shines by reflecting sunlight, so only the half facing the Sun is ever illuminated. As the Moon orbits Earth over about a month, we see varying portions of that lit half from our vantage point, which creates the familiar cycle of phases. When the Moon lies roughly between Earth and the Sun, its dark side faces us (new moon), and when Earth sits between the Sun and Moon, we see the fully lit side (full moon), with crescent, quarter, and gibbous shapes appearing at points in between.",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 43,
+      "completion_tokens": 184,
+      "total_tokens": 227,
+      "cost": 0.004815,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.004815,
+        "upstream_inference_prompt_cost": 0.000215,
+        "upstream_inference_completions_cost": 0.0046
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "request_model": "openai/gpt-5.5",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Someone deposits $5,000 in an account that pays 4 percent interest per year, compounded annually, and makes no withdrawals. How many dollars are in the account after 3 years, rounded to the nearest cent? Solve the problem, showing your reasoning step by step in plain prose, and end with a final line of the form 'Answer: <number>'."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916316-kQv6IDjMpHnTKcariElm",
+    "object": "chat.completion",
+    "created": 1790916316,
+    "model": "openai/gpt-5.5",
+    "provider": "OpenAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "The account starts with a principal of $5,000.\n\nThe interest rate is 4% per year, compounded annually. That means each year the balance is multiplied by:\n\n1.04\n\nAfter 3 years, the balance is:\n\n$5,000 \u00d7 1.04\u00b3\n\nNow calculate:\n\n1.04\u00b3 = 1.124864\n\nSo:\n\n$5,000 \u00d7 1.124864 = $5,624.32\n\nRounded to the nearest cent, the account has $5,624.32.\n\nAnswer: 5624.32",
+          "refusal": null,
+          "reasoning": "**Calculating compound interest**\n\nI need to approach this step by step in plain prose. First, I\u2019ve got to compute 5000 multiplied by 1.04 raised to the power of 3. That gives me 5000 times 1.124864, which equals 5624.32. So, my final answer is 5624.32. That seems clear and straightforward, but I want to ensure there's no confusion about how I got there. It's always good to show the math behind it!",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "**Calculating compound interest**\n\nI need to approach this step by step in plain prose. First, I\u2019ve got to compute 5000 multiplied by 1.04 raised to the power of 3. That gives me 5000 times 1.124864, which equals 5624.32. So, my final answer is 5624.32. That seems clear and straightforward, but I want to ensure there's no confusion about how I got there. It's always good to show the math behind it!",
+              "format": "openai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "gAAAAABqvzbe4GgeWvs67vsCckfgNNaLReukPBSdFtnhjkxFk9chbLGmlxxRQLtugJcawNxWOCV7a4lPbntwSmb5QlnXjKiMrN5UU37OeBec6fKwdG8S8GhJZL_7abFSPaGkfty6vNt3OEcHVJIPKlJrOJ8v813-CBo4QfTz5mZ78gTxTaj1L3IwIJl3ptWHv4W-n31LHnXjwQmBgfpjBB4NRuVL2Budk9PyLmQxyN_rjQPAg3BbHc7Pi6esf-FvKx0ZWC9z9rqn094hulrSAgCvzjeWS-eWulMtsh-Y5YymAuVBEqg_RheCSw4cf_QIQabYgZo86583BKLLKRRmyosdh71dI9OSWsPwgUZMfAuawTaZsQtbfjveDCxyUwQ4Osciuwb95z868mg4qUfpIihCiGLXd0iI7nTGiooqtLSyUkvvdIDfLvhM4bZmWuWRb-dBU3m0qhRLvBAMqvjww4dbLUw5pyKOlt3a0msKQUV96C9juFnnuwfiBLkag1Nof9HVQ0Fus1_Ets9EDRrfxYNS1vIzCmUTG71IOrqaWP-f_zjotGTpAWDPAMhLMuw4KbEwh-KTpctu7HZ2XVD2O3tyC7b85NQguy8-j9HFfAR2Rpk3nA2GZu_y483O-7NwwuIjv7ukHIlPOvqVbSUPTaxsDFPXbD0KNhR89X4rKFyp4u1CJ3oohchRqvrEJxkaqhvV1BufVAY659FcR0cXJUlS-e8JBd4Ldou8MGr52hIDNQLqhy2WDZZdnKCilu6WtYUM9FT0TB7acFXXYLFHEDDQcjV5pXX6wBmqnVGeK9qD72olOp6h9r_-Dwnlinj6QgJvnvF7YTkt55NOvsFtJtpGX2ZWNdYKujUfxgdemMJXUlfVDezs6DJ2yVGtj77C49jx9JS6NDEkwS6uBG5zr9pFA98iwOCwvwJ8sF1iPzYcqQkfftoNk8oGTE47yH7nKW2zG9fuIrJ54ZxxoOjDgj3zUjshDBCO3erKSUQiNTmKc8bVcYTUFaAyi3nNPQzrwD2A9X8tDof1vwbq7UHvqiNyjjDS6zue-dpBguXTO0fryalPgwTBADXkKSZXUNLUGqyWcL324OnQ32DFA58CK0Dbl1uwZLMFijSgOwlH9rtl060fg_gJn4Gj8kHPtTyeUBEKEPH7Fb1fTQT48tG_dTang4RioOnxIycMnw-g9LsfIh8_SVGOAyxq7JPi4MCh5slRszKGrGXI5IxsfM02bkqcFrd9DUhtJOzOxPYvWNuQ68rSH2gt0bTlH5GBg_n-tNZ2JJWyYg7Co82YmPw7mU8hdvG-dZ7MoAs0xrgY4mG66YIYu3BhR5ShvWX7WcWrBohTchuweZ2b86CkeTlbJd4uce3P_mGPsTKYog7odfFbvxCNSVvH4bA1W7cz1inLRuEPRK8n-3rKEu_rHtuA2GCcyUzIjuSP9V0usEftMTkJbwcl-RPjswHXb5xJRYJ-6JELzsbvI5DJNSy82B53qK3iKHTCs9Fz-QEiYoviF8t35eIT83FZCRI=.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC01LjUtMjAyNjA0MjN8b3BlbmFpIn0",
+              "format": "openai-responses-v1",
+              "id": "rs_02c2301977b4e4ff016abf36dd767887d1bde367e7279e1257",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 79,
+      "completion_tokens": 171,
+      "total_tokens": 250,
+      "cost": 0.005525,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.005525,
+        "upstream_inference_prompt_cost": 0.000395,
+        "upstream_inference_completions_cost": 0.00513
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 49,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "request_model": "anthropic/claude-opus-4.7",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Write a Python function `shortest_paths(graph: dict[str, list[tuple[str, int]]], source: str) -> dict[str, int]` that implements Dijkstra's algorithm with the `heapq` module. `graph` maps each node to a list of (neighbor, weight) pairs with non-negative integer weights. Return a dictionary mapping every node reachable from `source`, including `source` itself with distance 0, to the length of its shortest path. Nodes that appear only as neighbors must still be handled. Use only the Python standard library. Include a docstring and brief inline comments. Return only the code in a single Python code block, with no explanation before or after."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916313-HQ43n3KGQ5Vbn9VyT16F",
+    "object": "chat.completion",
+    "created": 1790916313,
+    "model": "anthropic/claude-opus-4.7",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "```python\nimport heapq\n\n\ndef shortest_paths(graph: dict[str, list[tuple[str, int]]], source: str) -> dict[str, int]:\n    \"\"\"Compute shortest path distances from `source` to all reachable nodes using Dijkstra's algorithm.\n\n    Args:\n        graph: Adjacency mapping where each key is a node and each value is a list of\n            (neighbor, weight) tuples with non-negative integer weights.\n        source: The starting node.\n\n    Returns:\n        A dictionary mapping each node reachable from `source` to the shortest-path\n        distance from `source`. The `source` itself maps to 0.\n    \"\"\"\n    # Min-heap of (distance_so_far, node) entries.\n    heap: list[tuple[int, str]] = [(0, source)]\n    # Finalized shortest distances.\n    distances: dict[str, int] = {}\n\n    while heap:\n        # Pop the node with the smallest tentative distance.\n        dist, node = heapq.heappop(heap)\n        # Skip if we've already finalized this node (stale heap entry).\n        if node in distances:\n            continue\n        distances[node] = dist\n        # Explore neighbors; use .get to handle nodes that appear only as neighbors.\n        for neighbor, weight in graph.get(node, []):\n            if neighbor not in distances:\n                # Push a candidate distance; duplicates are filtered on pop.\n                heapq.heappush(heap, (dist + weight, neighbor))\n\n    return distances\n```",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 223,
+      "completion_tokens": 492,
+      "total_tokens": 715,
+      "cost": 0.013415,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.013415,
+        "upstream_inference_prompt_cost": 0.001115,
+        "upstream_inference_completions_cost": 0.0123
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

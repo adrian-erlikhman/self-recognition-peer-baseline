@@ -1,0 +1,1064 @@
+prompt_id,genre,tier,model,model_version,source,word_count,text
+C1,code,Easy,Claude,anthropic/claude-opus-4.7,api_expand,80,"```python
+def is_palindrome(s: str) -> bool:
+    """"""Return True if s is a palindrome after lowercasing and keeping only alphanumerics.
+
+    The empty string is considered a palindrome.
+
+    Args:
+        s: The input string to check.
+
+    Returns:
+        True if the cleaned string reads the same forwards and backwards, else False.
+    """"""
+    # Keep only alphanumeric characters and convert them to lowercase.
+    cleaned = [ch.lower() for ch in s if ch.isalnum()]
+    # Compare the cleaned sequence with its reverse.
+    return cleaned == cleaned[::-1]
+```"
+C2,code,Easy,Claude,anthropic/claude-opus-4.7,api_expand,146,"```python
+def fizzbuzz(n: int) -> list[str]:
+    """"""Return the FizzBuzz sequence for integers from 1 to n inclusive.
+
+    For each integer i in [1, n]:
+      - ""FizzBuzz"" if i is divisible by both 3 and 5
+      - ""Fizz"" if i is divisible by 3 (but not 5)
+      - ""Buzz"" if i is divisible by 5 (but not 3)
+      - the decimal string of i otherwise
+
+    Returns an empty list if n < 1.
+    """"""
+    # Guard clause: non-positive n yields an empty list
+    if n < 1:
+        return []
+
+    result: list[str] = []
+    for i in range(1, n + 1):
+        # Check divisibility by 15 first (equivalent to divisible by both 3 and 5)
+        if i % 15 == 0:
+            result.append(""FizzBuzz"")
+        elif i % 3 == 0:
+            result.append(""Fizz"")
+        elif i % 5 == 0:
+            result.append(""Buzz"")
+        else:
+            # Default: decimal string representation of i
+            result.append(str(i))
+    return result
+```"
+C3,code,Easy,Claude,anthropic/claude-opus-4.7,api_expand,158,"```python
+def sieve_primes(n: int) -> list[int]:
+    """"""Return all prime numbers <= n in increasing order using the Sieve of Eratosthenes.
+
+    Args:
+        n: Upper bound (inclusive) for prime search.
+
+    Returns:
+        A list of all primes p such that 2 <= p <= n. Returns an empty list if n < 2.
+    """"""
+    # No primes exist below 2
+    if n < 2:
+        return []
+
+    # Boolean sieve: is_prime[i] will be True if i is (still considered) prime
+    is_prime = [True] * (n + 1)
+    is_prime[0] = is_prime[1] = False  # 0 and 1 are not prime
+
+    # Only need to sieve up to sqrt(n); composites above have smaller prime factors
+    for i in range(2, int(n**0.5) + 1):
+        if is_prime[i]:
+            # Mark multiples of i starting at i*i as composite
+            for multiple in range(i * i, n + 1, i):
+                is_prime[multiple] = False
+
+    # Collect indices that remained marked prime
+    return [i for i, prime in enumerate(is_prime) if prime]
+```"
+C4,code,Easy,Claude,anthropic/claude-opus-4.7,api_expand,131,"```python
+def second_largest(nums: list[int]) -> int | None:
+    """"""Return the second largest distinct value in nums, or None if fewer than two distinct values exist.
+
+    The input list is not modified.
+
+    Examples:
+        >>> second_largest([4, 1, 4, 3])
+        3
+        >>> second_largest([5, 5, 5])
+        >>> second_largest([])
+    """"""
+    # Track the largest and second largest distinct values seen so far.
+    largest = None
+    second = None
+
+    for n in nums:
+        # Skip values equal to the current largest to ensure distinctness.
+        if largest is None or n > largest:
+            # New maximum found; previous largest becomes second largest.
+            second = largest
+            largest = n
+        elif n != largest and (second is None or n > second):
+            # Update second largest when n is strictly between second and largest.
+            second = n
+
+    return second
+```"
+C5,code,Easy,Claude,anthropic/claude-opus-4.7,api_expand,115,"```python
+from itertools import groupby
+
+
+def run_length_encode(s: str) -> str:
+    """"""Compress a string using run-length encoding.
+
+    Each maximal run of a repeated character in the input is replaced
+    by that character followed by the integer length of the run.
+
+    Args:
+        s: The input string to encode.
+
+    Returns:
+        The run-length encoded string. An empty input yields an empty string.
+
+    Examples:
+        >>> run_length_encode(""aaabcc"")
+        'a3b1c2'
+        >>> run_length_encode("""")
+        ''
+    """"""
+    # Group consecutive identical characters and build ""<char><count>"" pieces.
+    parts = []
+    for char, group in groupby(s):
+        # Count the elements in the current run of identical characters.
+        count = sum(1 for _ in group)
+        parts.append(f""{char}{count}"")
+    # Join all encoded runs into the final result string.
+    return """".join(parts)
+```"
+C6,code,Easy,Claude,anthropic/claude-opus-4.7,api_expand,153,"```python
+def valid_brackets(s: str) -> bool:
+    """"""
+    Check whether all brackets in `s` are correctly matched and nested.
+
+    Considers three bracket types: (), [], and {}. All other characters
+    are ignored. Returns True if every opening bracket has a matching
+    closing bracket of the same type in the correct order, False otherwise.
+
+    Examples:
+        >>> valid_brackets(""a[b(c)]{}"")
+        True
+        >>> valid_brackets(""([)]"")
+        False
+    """"""
+    # Mapping from each closing bracket to its corresponding opening bracket
+    pairs = {')': '(', ']': '[', '}': '{'}
+    openers = set(pairs.values())
+    closers = set(pairs.keys())
+
+    stack = []  # Holds opening brackets awaiting a match
+    for ch in s:
+        if ch in openers:
+            # Push opening bracket onto the stack
+            stack.append(ch)
+        elif ch in closers:
+            # Must match the most recent opening bracket
+            if not stack or stack[-1] != pairs[ch]:
+                return False
+            stack.pop()
+        # Non-bracket characters are ignored
+
+    # Valid only if every opener has been matched and closed
+    return not stack
+```"
+C7,code,Easy,Claude,anthropic/claude-opus-4.7,api_expand,154,"```python
+def flatten(nested: list) -> list:
+    """"""Flatten a list with arbitrary nesting of lists into a single flat list.
+
+    Only objects of type ``list`` are flattened. Other iterables such as
+    tuples and strings are preserved as single elements.
+
+    Args:
+        nested: A list whose elements may themselves be lists nested to any depth.
+
+    Returns:
+        A new list containing all non-list elements in left-to-right order.
+
+    Example:
+        >>> flatten([1, [2, [3, (4, 5)]], ""ab""])
+        [1, 2, 3, (4, 5), 'ab']
+    """"""
+    result = []  # accumulator for flattened elements
+    # Use an explicit stack to avoid recursion depth limits on deeply nested input.
+    # We iterate the input left-to-right, so push items in reverse to preserve order.
+    stack = list(reversed(nested))
+    while stack:
+        item = stack.pop()
+        if type(item) is list:
+            # Only genuine lists are expanded; push children in reverse for order.
+            stack.extend(reversed(item))
+        else:
+            # Tuples, strings, and all other values are kept intact.
+            result.append(item)
+    return result
+```"
+C8,code,Medium,Claude,anthropic/claude-opus-4.7,api_expand,190,"```python
+def merge_intervals(intervals: list[tuple[int, int]]) -> list[tuple[int, int]]:
+    """"""
+    Merge a list of closed intervals (start, end) where start <= end.
+
+    Intervals that overlap or touch at an endpoint are merged into one.
+    For example, (1, 3) and (3, 5) merge into (1, 5).
+
+    Args:
+        intervals: A list of (start, end) tuples representing closed intervals.
+                   The input list is not modified.
+
+    Returns:
+        A minimal list of merged intervals sorted in ascending order by start.
+        Returns an empty list if the input is empty.
+    """"""
+    # Handle empty input early.
+    if not intervals:
+        return []
+
+    # Sort a copy by start value so we don't mutate the caller's list.
+    sorted_intervals = sorted(intervals, key=lambda iv: iv[0])
+
+    merged: list[tuple[int, int]] = []
+    # Start with the first interval as the current candidate.
+    current_start, current_end = sorted_intervals[0]
+
+    for start, end in sorted_intervals[1:]:
+        if start <= current_end:
+            # Overlapping or touching: extend the current interval's end if needed.
+            if end > current_end:
+                current_end = end
+        else:
+            # Disjoint: push the current interval and start a new one.
+            merged.append((current_start, current_end))
+            current_start, current_end = start, end
+
+    # Append the final pending interval.
+    merged.append((current_start, current_end))
+    return merged
+```"
+C9,code,Medium,Claude,anthropic/claude-opus-4.7,api_expand,154,"```python
+def rotate_matrix(matrix: list[list[int]]) -> list[list[int]]:
+    """"""
+    Rotate an n-by-n square matrix 90 degrees clockwise.
+
+    Takes a square matrix (list of lists of ints) and returns a new matrix
+    rotated 90 degrees clockwise. The input matrix is left unchanged.
+    An empty matrix returns an empty list.
+
+    Args:
+        matrix: An n-by-n square matrix represented as a list of lists.
+
+    Returns:
+        A new n-by-n matrix rotated 90 degrees clockwise.
+
+    Example:
+        >>> rotate_matrix([[1, 2], [3, 4]])
+        [[3, 1], [4, 2]]
+    """"""
+    # Handle the empty matrix case
+    if not matrix:
+        return []
+
+    n = len(matrix)
+
+    # For a 90-degree clockwise rotation, the element at position (i, j)
+    # in the rotated matrix comes from position (n - 1 - j, i) in the original.
+    # Equivalently: new_row i = original column i read from bottom to top.
+    rotated = [
+        [matrix[n - 1 - j][i] for j in range(n)]
+        for i in range(n)
+    ]
+
+    return rotated
+```"
+C10,code,Medium,Claude,anthropic/claude-opus-4.7,api_expand,159,"```python
+import re
+from collections import Counter
+
+
+def top_k_words(text: str, k: int) -> list[tuple[str, int]]:
+    """"""Return the k most frequent words in text as (word, count) pairs.
+
+    The text is lowercased, and words are extracted as maximal runs of
+    the letters a-z and apostrophes. Results are sorted by count
+    descending, then alphabetically for ties. If fewer than k distinct
+    words exist, all of them are returned.
+
+    Args:
+        text: The input string to analyze.
+        k: The maximum number of top words to return.
+
+    Returns:
+        A list of (word, count) tuples of length at most k.
+    """"""
+    # Lowercase the text for case-insensitive counting.
+    lowered = text.lower()
+    # Extract maximal runs of a-z and apostrophes as words.
+    words = re.findall(r""[a-z']+"", lowered)
+    # Count word frequencies.
+    counts = Counter(words)
+    # Sort by count descending, then by word ascending for tie-breaking.
+    sorted_items = sorted(counts.items(), key=lambda item: (-item[1], item[0]))
+    # Return at most k items (fewer if not enough distinct words).
+    return sorted_items[:k]
+```"
+C11,code,Medium,Claude,anthropic/claude-opus-4.7,api_expand,212,"```python
+def leftmost_index(arr: list[int], target: int) -> int:
+    """"""
+    Return the index of the first (leftmost) occurrence of `target` in the
+    sorted list `arr` (non-decreasing order), or -1 if `target` is not present.
+
+    Runs in O(log n) time using an iterative binary search that narrows down
+    to the leftmost matching position.
+
+    Parameters
+    ----------
+    arr : list[int]
+        A list of integers sorted in non-decreasing order. May contain duplicates.
+    target : int
+        The value to search for.
+
+    Returns
+    -------
+    int
+        The index of the first occurrence of `target`, or -1 if not found.
+    """"""
+    # Initialize search bounds [lo, hi) as a half-open interval over valid indices.
+    lo, hi = 0, len(arr)
+
+    # Standard ""lower_bound"" binary search: find smallest index i with arr[i] >= target.
+    while lo < hi:
+        mid = (lo + hi) // 2  # Compute midpoint; safe from overflow in Python.
+        if arr[mid] < target:
+            # Target must be to the right of mid.
+            lo = mid + 1
+        else:
+            # arr[mid] >= target; a valid position may be at mid or earlier.
+            hi = mid
+    # After the loop, `lo` is the leftmost index where target could be inserted.
+    # Verify that it actually points to `target`.
+    if lo < len(arr) and arr[lo] == target:
+        return lo
+    return -1
+```"
+C12,code,Medium,Claude,anthropic/claude-opus-4.7,api_expand,119,"```python
+def roman_to_int(s: str) -> int:
+    """"""Convert a valid uppercase Roman numeral (1-3999) to an integer.
+
+    Supports symbols I, V, X, L, C, D, M and the subtractive pairs
+    IV, IX, XL, XC, CD, CM.
+
+    Example:
+        >>> roman_to_int(""MCMXCIV"")
+        1994
+    """"""
+    # Map each Roman symbol to its integer value
+    values = {
+        'I': 1, 'V': 5, 'X': 10, 'L': 50,
+        'C': 100, 'D': 500, 'M': 1000,
+    }
+
+    total = 0
+    prev = 0
+    # Traverse from right to left; subtract when a smaller value precedes a larger one
+    for ch in reversed(s):
+        current = values[ch]
+        if current < prev:
+            total -= current  # subtractive case (e.g., I before V)
+        else:
+            total += current
+        prev = current
+
+    return total
+```"
+C13,code,Medium,Claude,anthropic/claude-opus-4.7,api_expand,187,"```python
+def max_subarray_sum(nums: list[int]) -> int:
+    """"""
+    Return the largest sum of any non-empty contiguous subarray of `nums`.
+
+    Uses Kadane's algorithm, which runs in O(n) time and O(1) extra space.
+    If all numbers are negative, the result is the largest single element.
+
+    Args:
+        nums: A list of integers (must be non-empty).
+
+    Returns:
+        The maximum sum achievable by any contiguous subarray of `nums`.
+
+    Raises:
+        ValueError: If `nums` is empty.
+
+    Examples:
+        >>> max_subarray_sum([-2, 1, -3, 4, -1, 2, 1, -5, 4])
+        6
+        >>> max_subarray_sum([-3, -1, -2])
+        -1
+        >>> max_subarray_sum([5])
+        5
+    """"""
+    if not nums:
+        raise ValueError(""nums must be a non-empty list"")
+
+    # `current` tracks the best sum of a subarray ending at the current index.
+    # `best` tracks the best sum seen so far across all positions.
+    current = best = nums[0]
+
+    # Iterate from the second element onward, extending or restarting the subarray.
+    for x in nums[1:]:
+        # Either extend the previous subarray by x, or start fresh at x.
+        current = max(x, current + x)
+        # Update the overall best if the current running sum exceeds it.
+        if current > best:
+            best = current
+
+    return best
+```"
+C14,code,Medium,Claude,anthropic/claude-opus-4.7,api_expand,181,"```python
+def moving_average(values: list[float], window: int) -> list[float]:
+    """"""
+    Compute the moving average of a list of numbers over a given window size.
+
+    For each contiguous run of `window` values in `values`, compute the mean.
+    The result has `len(values) - window + 1` elements, preserving order.
+
+    Args:
+        values: The input list of numeric values.
+        window: The size of the moving window (must be >= 1).
+
+    Returns:
+        A list of means for each contiguous window. Empty if `window` exceeds
+        the length of `values`.
+
+    Raises:
+        ValueError: If `window` is less than 1.
+
+    Runs in O(n) time by maintaining a running sum.
+    """"""
+    # Validate the window size.
+    if window < 1:
+        raise ValueError(""window must be at least 1"")
+
+    n = len(values)
+
+    # Not enough elements to form a single window.
+    if window > n:
+        return []
+
+    # Initialize the running sum with the first `window` elements.
+    running_sum = sum(values[:window])
+    averages = [running_sum / window]
+
+    # Slide the window: add the next element, remove the oldest.
+    for i in range(window, n):
+        running_sum += values[i] - values[i - window]
+        averages.append(running_sum / window)
+
+    return averages
+```"
+C15,code,Medium,Claude,anthropic/claude-opus-4.7,api_expand,185,"```python
+import re
+
+
+def parse_duration(s: str) -> int:
+    """"""Convert a duration string like '1h30m15s' into total seconds.
+
+    The string may contain an optional hours part, an optional minutes part,
+    and an optional seconds part, in that order. Each part is a non-negative
+    integer followed by 'h', 'm', or 's'.
+
+    Raises:
+        ValueError: If the string is empty, contains invalid characters,
+                    or lists parts out of order.
+    """"""
+    if not s:
+        raise ValueError(""Duration string is empty"")
+
+    # Match optional hours, minutes, seconds parts in strict order.
+    pattern = re.compile(r'^(?:(\d+)h)?(?:(\d+)m)?(?:(\d+)s)?$')
+    match = pattern.fullmatch(s)
+    if not match:
+        raise ValueError(f""Invalid duration string: {s!r}"")
+
+    # Ensure at least one part was provided (empty string already rejected).
+    hours, minutes, seconds = match.groups()
+    if hours is None and minutes is None and seconds is None:
+        raise ValueError(f""Invalid duration string: {s!r}"")
+
+    # Convert each captured group to int, defaulting to 0 if missing.
+    h = int(hours) if hours is not None else 0
+    m = int(minutes) if minutes is not None else 0
+    sec = int(seconds) if seconds is not None else 0
+
+    return h * 3600 + m * 60 + sec
+```"
+C16,code,Hard,Claude,anthropic/claude-opus-4.7,api_expand,211,"```python
+def longest_common_subsequence(a: str, b: str) -> int:
+    """"""
+    Return the length of the longest common subsequence of strings `a` and `b`.
+
+    Uses dynamic programming with O(min(len(a), len(b))) extra memory by keeping
+    only a single row of the DP table (whichever is shorter is used as the
+    ""columns"" dimension).
+
+    Example:
+        >>> longest_common_subsequence(""ABCBDAB"", ""BDCABA"")
+        4
+    """"""
+    # Ensure `b` is the shorter string so our DP row has length min(len(a), len(b)) + 1.
+    if len(a) < len(b):
+        a, b = b, a
+
+    n = len(b)
+    # `prev` holds the previous row of the conceptual (len(a)+1) x (len(b)+1) DP table.
+    prev = [0] * (n + 1)
+
+    # Iterate over each character in the longer string `a`.
+    for ch_a in a:
+        # `diag` tracks dp[i-1][j-1] as we move across the row.
+        diag = 0
+        for j in range(1, n + 1):
+            # Save current prev[j] before overwriting; it becomes next iteration's diag.
+            temp = prev[j]
+            if ch_a == b[j - 1]:
+                # Characters match: extend the LCS from the diagonal cell.
+                prev[j] = diag + 1
+            else:
+                # No match: take the best from the cell above or to the left.
+                prev[j] = max(prev[j], prev[j - 1])
+            diag = temp
+
+    # The bottom-right cell contains the length of the LCS.
+    return prev[n]
+```"
+C17,code,Hard,Claude,anthropic/claude-opus-4.7,api_expand,209,"```python
+def edit_distance(a: str, b: str) -> int:
+    """"""
+    Compute the Levenshtein distance between two strings.
+
+    The Levenshtein distance is the minimum number of single-character
+    insertions, deletions, or substitutions required to transform string
+    `a` into string `b`.
+
+    Args:
+        a: The source string.
+        b: The target string.
+
+    Returns:
+        The minimum edit distance as a non-negative integer.
+
+    Example:
+        >>> edit_distance(""kitten"", ""sitting"")
+        3
+    """"""
+    # Ensure `b` is the shorter string to minimize memory usage.
+    if len(a) < len(b):
+        a, b = b, a
+
+    # If the shorter string is empty, distance equals length of the other.
+    if not b:
+        return len(a)
+
+    # Previous row of the DP table; starts as distances from empty prefix of `a`.
+    previous_row = list(range(len(b) + 1))
+
+    # Iterate over each character in `a`, updating the DP row.
+    for i, ca in enumerate(a, start=1):
+        # First element of current row: cost of deleting `i` chars from `a`.
+        current_row = [i]
+        for j, cb in enumerate(b, start=1):
+            insertions = current_row[j - 1] + 1       # insert into `a`
+            deletions = previous_row[j] + 1           # delete from `a`
+            substitutions = previous_row[j - 1] + (ca != cb)  # substitute or match
+            current_row.append(min(insertions, deletions, substitutions))
+        previous_row = current_row
+
+    # The bottom-right cell contains the final edit distance.
+    return previous_row[-1]
+```"
+C18,code,Hard,Claude,anthropic/claude-opus-4.7,api_expand,173,"```python
+import heapq
+
+
+def shortest_paths(graph: dict[str, list[tuple[str, int]]], source: str) -> dict[str, int]:
+    """"""Compute shortest path distances from `source` to all reachable nodes using Dijkstra's algorithm.
+
+    Args:
+        graph: Adjacency mapping where each key is a node and each value is a list of
+            (neighbor, weight) tuples with non-negative integer weights.
+        source: The starting node.
+
+    Returns:
+        A dictionary mapping each node reachable from `source` to the shortest-path
+        distance from `source`. The `source` itself maps to 0.
+    """"""
+    # Min-heap of (distance_so_far, node) entries.
+    heap: list[tuple[int, str]] = [(0, source)]
+    # Finalized shortest distances.
+    distances: dict[str, int] = {}
+
+    while heap:
+        # Pop the node with the smallest tentative distance.
+        dist, node = heapq.heappop(heap)
+        # Skip if we've already finalized this node (stale heap entry).
+        if node in distances:
+            continue
+        distances[node] = dist
+        # Explore neighbors; use .get to handle nodes that appear only as neighbors.
+        for neighbor, weight in graph.get(node, []):
+            if neighbor not in distances:
+                # Push a candidate distance; duplicates are filtered on pop.
+                heapq.heappush(heap, (dist + weight, neighbor))
+
+    return distances
+```"
+C19,code,Hard,Claude,anthropic/claude-opus-4.7,api_expand,223,"```python
+import heapq
+
+
+def topological_order(graph: dict[str, list[str]]) -> list[str]:
+    """"""Return a topological ordering of a directed graph.
+
+    The input ``graph`` maps each node ``u`` to the list of nodes ``v`` such
+    that there is a directed edge ``u -> v``. Nodes that appear only as edge
+    targets (i.e. never as a key in ``graph``) are still considered part of
+    the graph.
+
+    The ordering is made unique by always choosing the alphabetically
+    smallest available node (Kahn's algorithm with a min-heap).
+
+    Raises:
+        ValueError: If the graph contains a cycle.
+    """"""
+    # Collect every node, including those only appearing as edge targets.
+    nodes: set[str] = set(graph.keys())
+    for targets in graph.values():
+        nodes.update(targets)
+
+    # Compute in-degree for each node.
+    in_degree: dict[str, int] = {node: 0 for node in nodes}
+    for u in graph:
+        for v in graph[u]:
+            in_degree[v] += 1
+
+    # Initialize a min-heap with all nodes of in-degree zero.
+    heap: list[str] = [node for node, deg in in_degree.items() if deg == 0]
+    heapq.heapify(heap)
+
+    order: list[str] = []
+    while heap:
+        # Pop the alphabetically smallest available node.
+        u = heapq.heappop(heap)
+        order.append(u)
+        # Decrease in-degree of neighbors; enqueue new zero-in-degree nodes.
+        for v in graph.get(u, []):
+            in_degree[v] -= 1
+            if in_degree[v] == 0:
+                heapq.heappush(heap, v)
+
+    # If not every node was placed, there must be a cycle.
+    if len(order) != len(nodes):
+        raise ValueError(""Graph contains a cycle"")
+
+    return order
+```"
+C20,code,Hard,Claude,anthropic/claude-opus-4.7,api_expand,246,"```python
+def count_n_queens(n: int) -> int:
+    """"""Return the number of distinct solutions to the n-queens problem.
+
+    Places `n` queens on an n-by-n chessboard such that no two queens
+    share a row, column, or diagonal. Uses backtracking with bitmasks
+    for efficiency.
+
+    Args:
+        n: The size of the board and number of queens. Must be >= 0.
+
+    Returns:
+        The number of valid placements. Returns 1 for n == 0.
+
+    Raises:
+        ValueError: If n is negative.
+
+    Examples:
+        >>> count_n_queens(8)
+        92
+        >>> count_n_queens(0)
+        1
+        >>> count_n_queens(1)
+        1
+    """"""
+    if n < 0:
+        raise ValueError(""n must be non-negative"")
+    if n == 0:
+        return 1
+
+    # Full mask with n lowest bits set, representing all columns available.
+    full = (1 << n) - 1
+
+    def backtrack(cols: int, diag1: int, diag2: int) -> int:
+        # cols: columns already occupied
+        # diag1: ""/"" diagonals blocked (shifts left each row down)
+        # diag2: ""\"" diagonals blocked (shifts right each row down)
+        if cols == full:
+            return 1  # all rows successfully filled
+
+        count = 0
+        # Bits set to 1 indicate available positions in this row.
+        available = ~(cols | diag1 | diag2) & full
+        while available:
+            # Isolate the lowest available bit (one candidate column).
+            bit = available & -available
+            available ^= bit  # mark this candidate as tried
+            # Recurse: update masks and shift diagonals for the next row.
+            count += backtrack(cols | bit, (diag1 | bit) << 1 & full,
+                               (diag2 | bit) >> 1)
+        return count
+
+    return backtrack(0, 0, 0)
+```"
+Q1,math,Easy,Claude,anthropic/claude-opus-4.7,api_expand,90,"Maria buys 4 notebooks at $3.00 each. To find the cost of the notebooks, I multiply 4 by $3.00, which gives $12.00.
+
+She also buys 6 pens at $1.25 each. To find the cost of the pens, I multiply 6 by $1.25. Since 6 × 1 = 6 and 6 × 0.25 = 1.50, the total for the pens is $6.00 + $1.50 = $7.50.
+
+To find the total amount Maria spends, I add the cost of the notebooks and the pens together: $12.00 + $7.50 = $19.50.
+
+Answer: 19.50"
+Q2,math,Easy,Claude,anthropic/claude-opus-4.7,api_expand,101,"To find the total distance traveled, I need to calculate the distance for each portion of the trip and then add them together.
+
+For the first part of the journey, the train travels at 72 kilometers per hour for 2.5 hours. Multiplying the speed by the time gives the distance: 72 times 2.5 equals 180 kilometers.
+
+For the second part of the journey, the train travels at 90 kilometers per hour for 1.5 hours. Multiplying these values: 90 times 1.5 equals 135 kilometers.
+
+Adding the two distances together gives the total distance traveled: 180 plus 135 equals 315 kilometers.
+
+Answer: 315"
+Q3,math,Easy,Claude,anthropic/claude-opus-4.7,api_expand,77,"Let the width be w. Then the length is w + 5.
+
+The perimeter of a rectangle is twice the sum of length and width, so:
+2(w + w + 5) = 46
+2(2w + 5) = 46
+2w + 5 = 23
+2w = 18
+w = 9
+
+So the width is 9 cm and the length is 14 cm.
+
+The area is length × width = 14 × 9 = 126 square centimeters.
+
+Answer: 126"
+Q4,math,Medium,Claude,anthropic/claude-opus-4.7,api_expand,74,"Sum of multiples of 3 up to 200: largest is 198 = 3·66, so sum = 3·(66·67/2) = 3·2211 = 6633.
+
+Sum of multiples of 5 up to 200: largest is 200 = 5·40, so sum = 5·(40·41/2) = 5·820 = 4100.
+
+Sum of multiples of 15 up to 200: largest is 195 = 15·13, so sum = 15·(13·14/2) = 15·91 = 1365.
+
+By inclusion-exclusion: 6633 + 4100 − 1365 = 9368.
+
+Answer: 9368"
+Q5,math,Easy,Claude,anthropic/claude-opus-4.7,api_expand,56,"The shirt starts at $40. A 25 percent discount reduces the price by 25% of $40, which is $10, leaving a discounted price of $30.
+
+Next, an 8 percent sales tax is applied to this discounted price. Eight percent of $30 is $2.40, so adding that to $30 gives a final price of $32.40.
+
+Answer: 32.40"
+Q6,math,Medium,Claude,anthropic/claude-opus-4.7,api_expand,102,"To find the probability that two fair six-sided dice sum to 8, I need to count the favorable outcomes and divide by the total possible outcomes.
+
+The total number of outcomes when rolling two dice is 6 × 6 = 36, since each die has 6 faces and the rolls are independent.
+
+Next, I'll find all ordered pairs (first die, second die) that sum to 8. Going through the possibilities systematically: (2,6), (3,5), (4,4), (5,3), and (6,2). That gives 5 favorable outcomes.
+
+The probability is therefore 5/36.
+
+Converting to a decimal: 5 ÷ 36 = 0.13888..., which rounds to 0.1389.
+
+Answer: 0.1389"
+Q7,math,Medium,Claude,anthropic/claude-opus-4.7,api_expand,40,"Starting with $5,000 at 4% annual interest compounded annually, the balance after 3 years is:
+
+5000 × (1.04)³
+
+First, compute (1.04)³:
+- 1.04² = 1.0816
+- 1.0816 × 1.04 = 1.124864
+
+Then multiply:
+5000 × 1.124864 = 5624.32
+
+Answer: 5624.32"
+Q8,math,Medium,Claude,anthropic/claude-opus-4.7,api_expand,79,"Ana paints at a rate of 1/6 of the fence per hour, and Ben paints at a rate of 1/4 of the fence per hour. Working together, their combined rate is 1/6 + 1/4. Finding a common denominator gives 2/12 + 3/12 = 5/12 of the fence per hour.
+
+To find the time required to complete one whole fence, I take the reciprocal of the combined rate: 1 ÷ (5/12) = 12/5 hours, which equals 2.4 hours.
+
+Answer: 2.4"
+Q9,math,Easy,Claude,anthropic/claude-opus-4.7,api_expand,71,"To choose a committee of 3 members from 10, where order doesn't matter, we use the combination formula:
+
+C(n, k) = n! / (k!(n-k)!)
+
+Here n = 10 and k = 3, so:
+
+C(10, 3) = 10! / (3! · 7!)
+
+The 7! cancels with part of 10!, leaving:
+
+C(10, 3) = (10 · 9 · 8) / (3 · 2 · 1) = 720 / 6 = 120
+
+Answer: 120"
+Q10,math,Medium,Claude,anthropic/claude-opus-4.7,api_expand,87,"The tank has a capacity of 1,200 liters and currently holds 300 liters, so it needs an additional 1,200 − 300 = 900 liters to be full.
+
+Water flows in at 30 liters per minute, but it also leaks out at 12 liters per minute. The net rate of filling is therefore 30 − 12 = 18 liters per minute.
+
+To find the time required to add 900 liters at a net rate of 18 liters per minute, divide: 900 ÷ 18 = 50 minutes.
+
+Answer: 50"
+Q11,math,Easy,Claude,anthropic/claude-opus-4.7,api_expand,56,"The average of five numbers is 18, so their total sum must be 5 × 18 = 90.
+
+Adding the four known numbers: 12 + 15 + 20 + 22 = 69.
+
+The fifth number is the difference between the total sum and the sum of the known numbers: 90 − 69 = 21.
+
+Answer: 21"
+Q12,math,Easy,Claude,anthropic/claude-opus-4.7,api_expand,56,"The nth term of an arithmetic sequence is given by a_n = a_1 + (n-1)d, where a_1 is the first term and d is the common difference.
+
+Here, a_1 = 7, d = 4, and n = 25.
+
+Substituting: a_25 = 7 + (25-1)(4) = 7 + 24·4 = 7 + 96 = 103.
+
+Answer: 103"
+Q13,math,Medium,Claude,anthropic/claude-opus-4.7,api_expand,59,"The car starts at $24,000 and loses 15% of its value each year, meaning it retains 85% of its value annually.
+
+After the first year, the car is worth 85% of $24,000. Calculating this: 0.85 × 24,000 = 20,400.
+
+After the second year, the car is worth 85% of $20,400. Calculating this: 0.85 × 20,400 = 17,340.
+
+Answer: 17340"
+Q14,math,Medium,Claude,anthropic/claude-opus-4.7,api_expand,18,"360 = 2³ · 3² · 5¹.
+
+Number of divisors = (3+1)(2+1)(1+1) = 4·3·2 = 24.
+
+Answer: 24"
+Q15,math,Hard,Claude,anthropic/claude-opus-4.7,api_expand,47,"Initial height on wall: √(25² - 7²) = √(625-49) = √576 = 24 feet.
+
+After sliding down 4 feet, new height = 20 feet.
+
+New distance from wall: √(625 - 400) = √225 = 15 feet.
+
+The foot moves 15 - 7 = 8 feet.
+
+Answer: 8"
+Q16,math,Hard,Claude,anthropic/claude-opus-4.7,api_expand,106,"Let x be the liters of 60% solution to add.
+
+The acid from the 60% solution is 0.60x liters, and the acid from the 20% solution is 0.20 × 10 = 2 liters. The total acid in the mixture is 0.60x + 2 liters.
+
+The total volume of the mixture is x + 10 liters, and we want this to be 40% acid, so the acid content equals 0.40(x + 10).
+
+Setting these equal: 0.60x + 2 = 0.40(x + 10) = 0.40x + 4.
+
+Subtracting 0.40x from both sides: 0.20x + 2 = 4.
+
+Subtracting 2: 0.20x = 2, so x = 10.
+
+Answer: 10"
+Q17,math,Medium,Claude,anthropic/claude-opus-4.7,api_expand,116,"To find when all three lighthouses flash together again, I need to find the least common multiple (LCM) of 12, 18, and 30.
+
+First, I'll find the prime factorization of each number:
+- 12 = 2² × 3
+- 18 = 2 × 3²
+- 30 = 2 × 3 × 5
+
+The LCM is found by taking the highest power of each prime that appears:
+- Highest power of 2: 2² = 4
+- Highest power of 3: 3² = 9
+- Highest power of 5: 5¹ = 5
+
+Multiplying these together: 4 × 9 × 5 = 36 × 5 = 180.
+
+So the lighthouses will next flash together after 180 seconds.
+
+Answer: 180"
+Q18,math,Medium,Claude,anthropic/claude-opus-4.7,api_expand,137,"To solve this problem, I need to determine how many times the bacterial population doubles over the given time period, then apply that growth to the initial population.
+
+First, I'll figure out how many doubling periods occur in 2 hours. Since the population doubles every 20 minutes, and 2 hours equals 120 minutes, I divide 120 by 20 to get 6 doubling periods.
+
+Next, I'll apply the exponential growth formula. Each doubling multiplies the population by 2, so after 6 doublings, the population is multiplied by 2 raised to the 6th power. Calculating this: 2 to the 6th power equals 64.
+
+Finally, I multiply the initial population of 150 bacteria by this growth factor of 64. Performing the multiplication: 150 times 64 equals 9,600.
+
+Therefore, after 2 hours, there are 9,600 bacteria in the culture.
+
+Answer: 9600"
+Q19,math,Hard,Claude,anthropic/claude-opus-4.7,api_expand,35,"Hour hand at 3:40: 3*30 + 40*0.5 = 90 + 20 = 110 degrees from 12.
+Minute hand: 40*6 = 240 degrees.
+Difference: 240 - 110 = 130 degrees. Smaller angle is 130.
+
+Answer: 130"
+Q20,math,Hard,Claude,anthropic/claude-opus-4.7,api_expand,31,"Numbers from 1 to 1000. Consider 000 to 999 (1000 numbers), count those without any 7: 9×9×9=729. So with at least one 7: 1000-729=271. 1000 itself has no 7.
+
+Answer: 271"
+E14,prose,Easy,Claude,anthropic/claude-opus-4.7,api_expand,694,"Volunteering is often framed as a selfless act, something we do purely for the benefit of others, but this framing obscures a more complete truth: giving your time to help others is one of the most reliable ways to improve your own life. The reciprocal nature of service work means that every hour spent helping a neighbor, mentoring a student, or supporting a cause returns dividends to the volunteer in forms both tangible and intangible. Far from being a sacrifice, volunteering is one of the smartest personal investments a person can make, enriching their career prospects, deepening their sense of self, and strengthening their psychological wellbeing.
+
+Consider first the practical benefits to your professional life. When you volunteer, you inevitably find yourself doing work you would never encounter in your day job, which forces you to develop new competencies. The accountant who helps run a food bank learns logistics and operations management. The software engineer who tutors underserved youth develops communication skills and patience. The marketing specialist who joins a nonprofit board gains experience in governance and fundraising. These skills translate directly into resume-worthy accomplishments and often into capabilities that distinguish you from colleagues who have stuck to narrow professional lanes. Beyond skills, volunteering places you alongside people you would otherwise never meet. The person stirring soup next to you at the shelter might be a hiring manager at a company you admire, a board member who can open doors, or simply a thoughtful professional whose perspective expands your own. These connections, formed in the context of shared purpose rather than transactional networking, tend to be more durable and more generous than relationships built at industry mixers.
+
+The second benefit runs deeper than career advancement, touching on the fundamental human need for meaning. Modern life, with its emphasis on consumption and personal achievement, can leave people feeling adrift, uncertain of why their efforts matter. Volunteering cuts through this fog by connecting your actions directly to visible outcomes in the lives of other people. When you help an elderly person navigate a complicated medical appointment, teach a child to read, or restore a wetland, you can see with your own eyes that the world is slightly better because you showed up. This visibility of impact is something many jobs cannot offer, where the connection between daily tasks and ultimate benefit is abstract or distant. Over time, consistent volunteering builds a narrative about who you are and what you stand for, giving you an answer to the quiet but persistent question of what your life is actually for. That sense of purpose is not a luxury; it is foundational to living well.
+
+Finally, volunteering offers one of the most effective and underappreciated remedies for the loneliness that has become endemic in contemporary society. Isolation is now recognized as a serious health risk, with effects on mortality comparable to smoking, and traditional sources of community like religious congregations and civic organizations have weakened for many people. Volunteering reintroduces structured, regular, in-person contact with others who share at least one commitment with you, which is a surprisingly powerful foundation for connection. The act of focusing outward on someone else's needs also interrupts the ruminative inward spiral that fuels anxiety and depression, giving the mind a healthier object of attention. Research has repeatedly shown that people who volunteer report lower rates of depression, greater life satisfaction, and even better physical health outcomes than those who do not. The mechanism is not mysterious: humans evolved to live in cooperative groups, and acting on that cooperative instinct feeds something essential in us.
+
+Taken together, these benefits make a compelling case that volunteering is not charity you perform at your own expense but rather a practice that happens to help others while substantially improving your own life. The person who volunteers gains skills and relationships that advance their career, discovers a sense of meaning that anchors them against the drift of modern life, and protects their mental health by staying connected to a community of purpose. If you are looking for a single habit that pays returns across nearly every dimension of wellbeing, giving your time to others is difficult to beat."
+E15,prose,Easy,Claude,anthropic/claude-opus-4.7,api_expand,640,"There is a persistent myth that music is the exclusive territory of the young, that if you did not start plucking a violin at age five or hammering out scales before your tenth birthday, the door has quietly closed behind you. This is nonsense. Learning an instrument as an adult is not only possible but genuinely worthwhile, and the rewards it offers are precisely the kinds of rewards that adult life tends to lack. Far from being a nostalgic indulgence or a late attempt to recapture something missed, taking up music in your thirties, fifties, or seventies is one of the more sensible things a person can do with their time.
+
+Consider first what happens inside your head and hands when you sit down to practice. Playing an instrument demands that you remember notes, patterns, rhythms, and fingerings while simultaneously coordinating two hands doing entirely different things, often while reading symbols on a page or listening carefully to what you just produced. This is a workout for the brain unlike almost anything else in daily adult life, which tends to involve either passive consumption or narrow, repetitive tasks. Pressing a specific key with your left little finger while your right hand plays a melody and your foot works a pedal is the kind of multi-channel activity that keeps neural pathways active and encourages new ones to form. Over months and years, this translates into sharper memory, better fine motor control, and a kind of mental agility that carries over into other areas, from typing to driving to simply remembering where you put your keys. The brain, it turns out, is delighted to be given something complicated to do.
+
+The second benefit is harder to measure but just as important. Most adults spend their days responding to demands set by other people, whether at work, at home, or on a screen. There is often very little in a given week that belongs purely to the self, that exists for no reason other than that you wanted to make something. An instrument supplies exactly this. After a long day of meetings or classes or caretaking, sitting down with a guitar or at a piano is a way of entering a different mode entirely, one where the goal is not productivity or usefulness but expression. You can play a sad song when you feel sad, or batter the keys when you are frustrated, or simply lose yourself in a piece you love. This kind of creative outlet is a quiet pressure valve, and it tends to make the rest of life more bearable because it gives you somewhere to put the parts of yourself that otherwise have nowhere to go.
+
+Finally, there is the matter of progress, which adult life is often strangely short on. Once formal education ends and a career settles into its rhythms, the clear markers of improvement that structured our younger years tend to disappear. You rarely finish a workday knowing you are measurably better at something than you were a month ago. An instrument gives this back. The piece that seemed impossible in January is playable by March and fluent by June. The chord change that tripped you up a hundred times eventually happens without your thinking about it. This steady, visible accumulation of small victories is deeply satisfying in a way that few adult activities manage to be, and it reminds you of something easy to forget, which is that you are still capable of learning, still capable of becoming someone slightly different from who you were last year. For the exercise it gives the mind and hands, for the creative refuge it offers from the demands of ordinary life, and for the quiet proof it provides that you are still growing, learning an instrument as an adult is well worth the time it asks of you."
+E16,prose,Easy,Claude,anthropic/claude-opus-4.7,api_expand,528,"Swapping the car for your own two feet or two wheels on short trips is one of those small lifestyle shifts that quietly pays dividends across almost every part of daily life. The errands we tend to drive for, a quick run to the grocery store, a coffee a few blocks away, dropping something in the mail, are often the ones where a car offers the least real advantage. Once you start leaving the keys behind for these kinds of trips, the benefits accumulate in ways that are easy to feel but hard to notice until you look back.
+
+The most immediate reward is financial. Every short drive burns fuel inefficiently, since engines are least economical when they are cold and stopping frequently, and the costs of insurance, maintenance, and tire wear quietly tick upward with every mile. Add in the occasional parking meter, garage fee, or parking ticket, and the true price of a two-mile hop to pick up dinner is a lot steeper than the gas gauge suggests. Walking costs nothing at all, and biking costs only the modest upkeep of a chain and a set of tires. Over a year, replacing even a handful of weekly short drives with human-powered trips can add up to real money that stays in your pocket instead of disappearing into the pump or a parking app.
+
+The second benefit is that movement gets folded into your day without any extra effort. One of the biggest obstacles to regular exercise is scheduling it, carving out a block of time, changing clothes, driving to a gym, and then driving home again. When walking or biking is simply how you get where you were already going, the workout happens on its own. A fifteen-minute walk to the pharmacy and back is a half hour of light cardio you did not have to plan, and a short bike ride to meet a friend doubles as the kind of steady activity that keeps joints loose, moods lifted, and sleep deeper. The exercise feels less like a chore and more like a natural rhythm of living, which is exactly the kind of movement people tend to stick with over the long run.
+
+Finally, moving slowly through your own neighborhood changes your relationship to it. From behind a windshield, a street is mostly an obstacle course of signals and other cars, and the shops, gardens, and small details along the way blur into scenery. On foot or on a bike, you actually see the new bakery that opened on the corner, the neighbor repainting their porch, the shortcut through the park you never knew existed. You run into people you know, exchange a few words with a shopkeeper, notice the seasons shifting in the trees overhead. These small encounters and observations build a sense of belonging to a place, and over time they turn the area around your home from a backdrop into a community you feel genuinely connected to. Taken together, the saved money, the effortless exercise, and the richer sense of place make short walks and rides feel less like a sacrifice and more like one of the easiest upgrades available to everyday life."
+E17,prose,Easy,Claude,anthropic/claude-opus-4.7,api_expand,406,"Spending a weekend learning basic first aid is one of the most practical investments you can make in yourself and the people around you. Emergencies rarely announce themselves, and the situations where first aid matters most are not exotic disasters but the ordinary mishaps of daily life. A child chokes on a grape at a family dinner, a coworker slices open a hand in the office kitchen, a parent slips on the stairs, a stranger collapses on a crowded sidewalk. In each of these moments, the minutes before professional help arrives are the ones that often determine the outcome. A basic course teaches you how to clear an airway, control bleeding, recognize a stroke, perform CPR, and respond to burns, fractures, and allergic reactions. These are not rare or specialized skills; they are the everyday tools of someone who is prepared to be useful when it counts.
+
+Beyond the technical knowledge, a first aid course gives you something harder to measure but just as valuable, which is the quiet confidence to act when others freeze. Panic is the natural response to seeing someone hurt, and panic is also what wastes precious time. When you have practiced putting your hands on a mannequin, rehearsed the steps of a response, and heard an instructor walk you through the logic of what to do first, you develop a kind of calm muscle memory. You stop asking yourself whether you are the right person to help, because you know you are. That composure is contagious, too. Bystanders look to whoever seems to know what they are doing, and your steadiness can turn a chaotic scene into a coordinated one, which makes a real difference for the person on the ground.
+
+Perhaps the best argument of all is how little the course actually asks of you. Most basic first aid and CPR certifications take only a day or two, often cost less than a nice dinner out, and are offered year-round by the Red Cross, community colleges, hospitals, and local fire departments. Compared to the countless weekends we spend on errands, screens, or activities we will not remember a month later, a few hours spent gaining lifelong, potentially life-saving skills is an extraordinary bargain. You walk out with a certification card, a refreshed sense of capability, and the knowledge that if the worst happens tomorrow, you will not be a bystander. That is a remarkably good return on a single Saturday."
+E18,prose,Easy,Claude,anthropic/claude-opus-4.7,api_expand,480,"There is something quietly satisfying about stepping outside your back door, scissors in hand, and snipping a handful of basil for the pasta already simmering on the stove. A small herb or vegetable garden brings food to your table at its freshest possible moment, hours or even minutes from soil to plate rather than days from field to grocery shelf. The flavor difference is remarkable, as anyone who has tasted a sun-warmed tomato pulled straight from the vine can confirm. Beyond taste, there is the simple convenience of never running out of parsley or chives when a recipe calls for them, and the small pleasure of knowing exactly how your food was grown, without mystery sprays or long transport chains. Even a few pots on a balcony can supply a steady stream of greens, herbs, or peppers, turning everyday cooking into something a little more personal and alive.
+
+The act of tending those plants offers something that is harder to quantify but just as valuable, a genuine pause from the pressures of modern life. Watering in the early morning, pulling a few weeds, checking leaves for new growth, these are tasks that ask nothing of your inbox and demand no quick decisions. The mind slows naturally when the hands are busy with soil and water, and the garden becomes a small, undemanding companion in the middle of an otherwise hectic schedule. Many gardeners describe their time among the plants as a kind of informal meditation, a stretch of minutes in which worries loosen their grip and the senses take over. The smell of crushed mint, the warmth of sun on the shoulders, the sound of bees working the flowers, all of these pull attention gently back into the present moment, offering a reliable refuge from the noise of the day.
+
+Perhaps the deepest reward, though, is the lesson in patience that a garden teaches almost without trying. Seeds do not sprout on command, and tomatoes do not ripen because you are eager for salad. You plant, you water, you wait, and you learn to trust that growth is happening even on days when nothing visible seems to change. Checking the beds each morning becomes an exercise in noticing small progress, a first true leaf, a bud beginning to swell, the slow blush of color on a pepper. In a world that trains us to expect instant results, this slow rhythm is a quiet correction, reminding us that worthwhile things often take their time. Over a season, this patience becomes a habit of mind that reaches beyond the garden, shaping how we approach other long projects and the gradual growth of our own skills and relationships. For the price of a few seed packets and a little daily attention, a home garden offers fresh food, calm hours, and a steadier spirit, which is a generous return on so modest an investment."
+E19,prose,Easy,Claude,anthropic/claude-opus-4.7,api_expand,609,"Writing tasks down in a daily planner is one of the simplest habits a person can adopt, yet it quietly transforms the way you move through your days. Life has a way of piling obligations on top of each other, and the human mind, impressive as it is, was never designed to serve as a flawless storage system for grocery lists, dentist appointments, work deadlines, and birthday reminders all at once. A planner takes on that burden, and in doing so it offers three distinct benefits that together help you stay firmly on top of your life rather than scrambling to catch up with it.
+
+The first and most obvious advantage is that you simply forget fewer tasks and appointments. When something lives only in your head, it competes with every other thought for attention, and the odds of it slipping away at the wrong moment are surprisingly high. The friend you meant to call, the prescription you meant to refill, the report due by the end of the week, all of these can vanish from memory the instant a new concern crowds in. Committing them to paper, or to the page of a planner you check each morning, essentially guarantees that they will resurface when they need to. You stop missing meetings, you stop paying late fees, and you stop apologizing for commitments you let slide. Over time, this reliability builds trust with the people around you and, just as importantly, with yourself.
+
+The second benefit is less visible but arguably more valuable, which is that writing things down clears your head and allows you to actually relax. Anyone who has lain awake at night mentally reciting a list of things they must not forget knows the particular exhaustion of carrying unfinished business in the mind. Psychologists sometimes describe this as the cognitive load of open loops, and those open loops drain energy whether you are consciously thinking about them or not. The moment you transfer a task from your brain to the page, your mind can let go of it, confident that it has been captured somewhere trustworthy. The result is a quieter interior, better sleep, more focused attention on whatever you are actually doing, and the ability to enjoy your downtime without a background hum of anxiety reminding you of what you have not done.
+
+The third benefit emerges only after you have been using a planner for a while, and it is the quiet satisfaction of checking items off. Progress is often invisible in daily life because we tend to focus on what still needs doing rather than what has already been accomplished. A planner reverses that habit by leaving a visible trail of completed work behind you. Running your pen through a finished task provides a small jolt of accomplishment, and glancing back at a week filled with crossed-out lines reminds you that you are not, in fact, falling behind, but moving steadily forward. On difficult days, this evidence of your own productivity can be genuinely reassuring, and over months it becomes a record of effort that motivates you to keep going.
+
+Taken together, these three effects reinforce each other in a way that reshapes the texture of ordinary life. You forget less, so you feel more competent. You carry less in your head, so you feel more at ease. You see your progress, so you feel more encouraged. A daily planner is not a magical object, and it will not solve problems that go deeper than organization, but as a tool for staying on top of the ordinary demands of life, few habits deliver so much benefit in exchange for so little effort."
+E20,prose,Easy,Claude,anthropic/claude-opus-4.7,api_expand,488,"Listen, I know your evenings fill up fast and the easy thing is to collapse on the couch and scroll until you fall asleep, but hear me out on this one. Pulling out a board game with your family or a few friends is one of the best uses of a free hour or two that I can think of, and I think if you tried it more often you'd come to agree. There's something about sitting across a table from the people you care about, with a board and some pieces between you, that opens up a kind of connection you just can't manufacture any other way. You talk. You tease each other about questionable strategies. Old stories come up out of nowhere, inside jokes get recycled, and somewhere between turns you end up actually learning what's going on in each other's lives. No one is half-watching a screen or waiting for a notification. Everyone is right there, in the same moment, and that shared attention is rarer than it used to be and more valuable because of it.
+
+Beyond the conversation, playing games is quietly one of the best ways to practice being a decent human being in miniature. Every game has winners and losers, and how you handle both says a lot about you. Sitting down regularly to play teaches you, and especially teaches kids, how to lose gracefully when the dice don't cooperate, how to win without rubbing anyone's nose in it, how to follow rules you didn't make, and how to be patient while someone else takes their turn. Those are small lessons on any given night, but they add up, and they transfer out into the rest of life in ways you don't always notice until later. A family that plays together learns how to disagree, compete, and still like each other at the end of the evening, which is a skill a lot of adults never quite master.
+
+And then there's the simple practical argument, which is that board games are an absurdly good deal. A movie night out for a family of four these days can run you a small fortune once you add up tickets and snacks, and it's over in two hours with nothing to show for it. A good board game might cost you twenty or thirty dollars once, and you can play it dozens, even hundreds of times. The cost per hour of entertainment drops to almost nothing, and unlike most purchases it tends to appreciate in sentimental value the more you use it. The worn corners and the handwritten house rules on the inside of the lid become part of the fun. So the next time someone suggests pulling a game off the shelf, say yes. It's cheaper than going out, better for your relationships than another streaming binge, and quietly good for your character on top of it. That's a hard combination to beat."
+E21,prose,Easy,Claude,anthropic/claude-opus-4.7,api_expand,611,"Learning to swim is one of the most valuable skills a person can acquire, and it is something that everyone, regardless of age or background, should take the time to master. While many people view swimming as merely a recreational pastime, it is in fact a fundamental life skill that offers protection, promotes physical well-being, and opens doors to a wide range of enjoyable experiences. The case for universal swimming education rests on three compelling reasons that together demonstrate why this ability deserves a place alongside other essential competencies we teach ourselves and our children.
+
+First and foremost, knowing how to swim dramatically improves personal safety in and around water. Drowning remains one of the leading causes of accidental death worldwide, and tragedies occur not only in oceans and lakes but also in backyard pools, hotel resorts, and even relatively shallow bodies of water. A person who can swim confidently is far less likely to panic when they unexpectedly find themselves in deep water, and they are better equipped to help a struggling companion or recognize dangerous conditions like rip currents and sudden drop-offs. Even if someone never intends to spend significant time near water, life has a way of placing us in situations we did not anticipate, whether on a boat, during a vacation, or at a friend's pool party. The ability to swim provides a crucial layer of protection that can mean the difference between a minor scare and a devastating loss.
+
+Beyond safety, swimming offers one of the most effective and well-rounded forms of exercise available. Unlike running or many gym-based workouts, swimming engages nearly every major muscle group simultaneously, strengthening the arms, legs, core, and back while also providing a significant cardiovascular challenge. What makes it particularly valuable is that the buoyancy of water supports the body and eliminates the harsh impact that comes with activities performed on hard ground. This gentle quality makes swimming suitable for people of all ages and fitness levels, including those recovering from injuries, individuals with arthritis or joint problems, pregnant women, and older adults who may struggle with high-impact exercise. In a world where sedentary lifestyles contribute to countless health problems, having access to a sustainable, enjoyable form of exercise that can be practiced throughout one's entire life is a tremendous gift.
+
+Finally, swimming unlocks a whole universe of recreational activities that would otherwise remain inaccessible. The confident swimmer can go snorkeling in tropical reefs, try scuba diving in exotic locations, enjoy water skiing or wakeboarding on summer afternoons, paddle a kayak with assurance, surf ocean waves, or simply play with family and friends in the water without hesitation. These experiences create lasting memories and often become some of the most cherished moments in people's lives. Travel itself becomes richer when swimming opens up coastal destinations, lake resorts, and island adventures. Those who cannot swim often find themselves watching from the shore while others enjoy these pleasures, missing out on experiences that build friendships, foster adventure, and connect us with the natural world.
+
+Taken together, these three considerations make a powerful case that swimming should be regarded as a universal skill rather than an optional hobby. It protects lives, nurtures physical health in a way few other activities can match, and enriches our existence with experiences that bring joy and connection. Anyone who has not yet learned to swim would do well to seek out lessons, and parents should prioritize teaching their children this invaluable ability. The investment of time and effort is modest compared to the lifetime of benefits that follow, and in a world surrounded by water, there is simply no good reason to remain unable to navigate it."
+M14,prose,Medium,Claude,anthropic/claude-opus-4.7,api_expand,633,"Routine preventive maintenance of buildings and equipment is unambiguously more cost-effective than the reactive strategy of waiting for assets to fail and then paying to restore them. The economics of upkeep favor the organization that invests modestly and consistently in the health of its physical plant, because small, predictable expenditures today displace the far larger, often catastrophic expenditures that inevitably accompany neglect. When maintenance is treated as a disciplined, scheduled activity rather than an emergency response, the cumulative savings in capital, labor, and productivity are substantial, and the operational stability that results becomes a competitive advantage in its own right.
+
+The first and most immediate benefit of a preventive program is that scheduled inspections identify minor defects while they are still minor. A hairline crack in a concrete beam, a slow drip at a pipe joint, a worn drive belt, a loose electrical connection, or a small patch of roof membrane that has begun to blister all share a common trait: each is cheap to remedy at the moment of discovery but ruinously expensive to address once it has progressed. A dripping valve left alone can saturate insulation, corrode structural steel, and spawn mold remediation projects that run into six figures. A frayed belt that costs a few dollars to replace during a routine walk-through can, if ignored, destroy a motor, seize a shaft, and damage the surrounding assembly. By bringing a trained eye to every critical component on a regular cadence, preventive maintenance intercepts deterioration at its least costly stage, converting what would have been structural or mechanical catastrophes into trivial line items on a work order.
+
+The second advantage lies in the orderly management of time. Planned maintenance is performed during windows chosen by the organization, often during off-shifts, weekends, scheduled shutdowns, or seasonal lulls, so that the work interferes minimally with production, occupancy, or service delivery. Reactive repairs, by contrast, occur on the equipment's schedule, not the owner's, and failure almost always arrives at the worst possible moment: during peak demand, in the middle of a shift, on the eve of a deadline, or on a holiday when labor and parts command premium rates. The unplanned downtime that follows a sudden breakdown carries costs that extend far beyond the repair invoice itself, including lost output, idled workers who must still be paid, missed shipments, contractual penalties, expedited freight for emergency components, and the reputational damage of failing customers who were counting on uninterrupted service. By replacing these chaotic interruptions with predictable intervals of planned work, preventive maintenance preserves throughput and keeps revenue flowing on the schedule the business has promised.
+
+The third advantage compounds over the longest horizon and is often the most consequential in financial terms. Assets that receive consistent care simply last longer, sometimes dramatically so. A roof that is inspected, cleaned, and spot-repaired on a regular schedule may deliver forty years of service rather than twenty; a chiller whose tubes are brushed, whose refrigerant charge is maintained, and whose bearings are lubricated on a defined interval can operate reliably for decades beyond the service life of a neglected counterpart; a fleet of pumps, motors, and transformers that is monitored and refurbished at the right moments will outlast its design life rather than fall short of it. Because the capital cost of a long-lived asset is amortized across many more productive years, the effective annual cost of ownership drops in direct proportion to the extension of service life. Deferring the next major capital replacement by a decade or more releases funds for growth, improvements, and innovation that would otherwise be consumed in simply standing still. In this way, preventive maintenance does not merely preserve what has already been purchased; it quietly multiplies the return on every dollar of capital the organization has ever invested in its physical infrastructure."
+M15,prose,Medium,Claude,anthropic/claude-opus-4.7,api_expand,493,"Organizations that contribute to open-source software gain substantial and compounding returns on their investment, often in ways that direct proprietary development cannot match. Far from being an act of corporate charity, open-source participation functions as a pragmatic strategy that distributes burdens, hardens code against failure, and amplifies an organization's standing in the broader technical community.
+
+The most immediate economic benefit of contributing to open-source projects is the way shared code distributes the ongoing cost of maintenance across a wide pool of contributors rather than concentrating it within a single company. Software is never finished; it must be patched, updated for new dependencies, adapted to evolving platforms, and extended with new features to remain useful. When an organization maintains a proprietary library in isolation, every one of these burdens falls squarely on its own engineering budget. By contrast, a shared open-source project draws upkeep from every company and individual that depends on it, meaning that bug fixes submitted by one contributor benefit all users, performance improvements written at a university find their way into enterprise deployments, and the long tail of compatibility work gets handled by whoever happens to encounter the issue first. The effect is that each participating organization pays a fraction of what solo stewardship would require while enjoying the full value of a well-maintained codebase.
+
+A second compelling benefit is that opening source code to public peer review tangibly improves software quality and surfaces security vulnerabilities far earlier than closed development typically allows. When code is visible to anyone with the interest and skill to examine it, latent bugs, poor architectural decisions, and subtle security flaws are discovered by a vastly larger and more diverse set of eyes than any internal team could marshal. Researchers, hobbyists, downstream users, and competing firms all have reason to scrutinize the code, and their findings flow back as patches, issue reports, and design suggestions. This continuous, distributed audit shortens the window during which vulnerabilities can be exploited and raises the baseline quality of the software, since problems that might linger undetected for years inside a proprietary repository are often caught within weeks of appearing in public view.
+
+Finally, visible open-source contributions substantially strengthen an organization's technical reputation and improve its ability to recruit talented engineers. A company whose name appears on respected projects, whose engineers present at community conferences, and whose code is widely used demonstrates its technical seriousness in a way that marketing alone cannot replicate. Skilled engineers pay close attention to these signals when evaluating prospective employers, because open-source activity shows the quality of the organization's work, the sophistication of its engineering culture, and the degree to which it values craft and collaboration. Candidates can review the actual code their future colleagues produce, which builds confidence and attracts applicants who might otherwise never have considered the company. In this way, open-source contributions function simultaneously as proof of competence, a recruiting channel, and a long-term investment in the organization's reputation within the engineering profession."
+M16,prose,Medium,Claude,anthropic/claude-opus-4.7,api_expand,670,"Few innovations of the twentieth century reshaped the material basis of global commerce as thoroughly as the standardized shipping container. Before its widespread adoption in the 1960s and 1970s, oceangoing trade was constrained less by the capacity of ships or the productivity of factories than by the staggering friction of the ports that connected them. The container, a seemingly mundane steel box built to uniform dimensions, dissolved that friction and in doing so helped make possible the integrated world economy that defines modern life.
+
+The most immediate transformation came at the dockside, where containerization sharply reduced the labor and time required to load and unload cargo. In the era of break-bulk shipping, armies of longshoremen manually hoisted barrels, sacks, crates, and bundles into the holds of vessels, a slow and dangerous process in which a ship might spend as much time in port as it did at sea. A midsized freighter could require dozens of workers and more than a week to turn around. With standardized containers, a crane operator and a small ground crew could load or discharge a vastly larger vessel in a day or two. Labor costs per ton of cargo fell by an order of magnitude, port throughput multiplied, and ships, which earn money only when moving, spent dramatically more of their working lives at sea. The savings in wages, berthing fees, and capital tied up in idle vessels translated into ocean freight rates that collapsed to a small fraction of their former levels, making it economically rational to ship goods across the planet that previously could only be sold near where they were made.
+
+Equally consequential was the fact that a single common container size allowed goods to move between ships, trains, and trucks without being unpacked and repacked at every transfer. A container filled at a factory in Shenzhen could be lifted onto a truck, driven to a rail yard, transferred to a flatcar, hauled to a seaport, hoisted aboard a vessel, carried across an ocean, and finally delivered to a warehouse in Ohio without a single hand touching its contents along the way. This intermodal compatibility, enforced by international standards for corner fittings and dimensions, turned shipping into a seamless logistical pipeline rather than a sequence of fragmented, friction-laden steps. It was this seamlessness that made modern global supply chains possible: just-in-time manufacturing, the geographic separation of design from assembly, the sourcing of components from a dozen countries for a single finished product. Without a box that fit equally well on a Maersk vessel, a Union Pacific railcar, and a Peterbilt truck, the fine-grained international division of labor on which contemporary industry depends simply could not operate at its current scale or cost.
+
+The sealed and standardized nature of the container also transformed the economics of risk in transit. Break-bulk cargo, handled piece by piece and left exposed on docks and in warehouses, was notoriously vulnerable to pilferage and damage; losses from theft alone were a significant and openly acknowledged cost of doing business in the great ports, and brittle or perishable goods frequently arrived crushed, soaked, or spoiled. A locked steel container, sealed at the factory and opened only at its destination, drastically curtailed opportunities for theft and shielded contents from weather and rough handling. Insurance premiums fell accordingly, handling charges diminished, and shippers could count on a far higher proportion of their goods arriving intact and on schedule. These reductions in loss and uncertainty, compounded across billions of shipments, added another substantial margin of savings on top of the direct gains in labor and intermodal efficiency.
+
+Taken together, these effects explain why the humble container deserves a place alongside the microchip and the jet engine among the defining economic innovations of the last century. By slashing the cost of moving goods at the port, knitting ocean, rail, and road transport into a single logistical fabric, and making cargo markedly safer in transit, it compressed economic distance between continents and allowed production, trade, and consumption to reorganize themselves on a planetary scale."
+M17,prose,Medium,Claude,anthropic/claude-opus-4.7,api_expand,507,"Citizen science projects make genuine, substantive contributions to scientific research, producing data and analyses that would otherwise be unattainable while simultaneously strengthening the broader culture of inquiry on which science depends. Far from being a peripheral or merely educational endeavor, organized volunteer participation has become an engine of discovery across ecology, astronomy, and many other fields, generating peer-reviewed findings and shaping the questions researchers are able to ask.
+
+The most obvious contribution lies in the sheer scale of observation that volunteers make possible. Professional research teams, however well funded, are limited in number and cannot station themselves across continents or maintain uninterrupted vigilance over decades. Volunteers, by contrast, live in every landscape a scientist might wish to study and can record what they see in their own backyards, parks, and local wetlands year after year. The Christmas Bird Count, which has gathered observations from thousands of participants across the Americas for well over a century, is a canonical example: it produces a dataset tracking avian populations across geographic ranges and time spans that no funded research group could replicate. Similar long-running butterfly transects, phenology networks, and water-quality monitoring programs supply the baselines against which climate change, habitat loss, and species range shifts are measured. Without this distributed effort, entire categories of ecological knowledge would simply not exist.
+
+A second contribution comes from online volunteers who classify and annotate the vast image and audio datasets that modern instruments now generate. Telescopes, camera traps, acoustic recorders, and satellite sensors produce far more data than any small research group could reasonably review on its own. Projects such as Galaxy Zoo have shown that tens of thousands of volunteers, working in parallel on galaxy photographs, can sort and characterize millions of objects in a fraction of the time a graduate student team would require, and with cross-checking across many classifiers to ensure reliability. The same model has been applied to identifying whale calls in underwater recordings, cataloging wildlife in camera-trap imagery, and transcribing historical scientific logs. In each case, human pattern recognition is deployed at a scale that unlocks analyses which would otherwise remain backlogged for years, and the resulting classifications feed directly into published research and into the training of automated systems.
+
+Beyond the data they produce, citizen science projects contribute to science by cultivating a more scientifically literate public. Participants do not merely submit observations; they learn how protocols are designed, why standardization matters, how uncertainty is quantified, and how conclusions follow from evidence. A birder learning to distinguish species under consistent survey conditions, or a volunteer deciding whether a smudge in a telescope image is a merging galaxy or an artifact, is engaging with the actual texture of scientific reasoning. Over time, this fosters a wider community that understands how knowledge is built from careful, cumulative observation, and that appreciates the role of evidence in resolving questions about the natural world. In this way citizen science enriches not only the datasets and publications of its moment but also the long-term intellectual foundation on which future research will stand."
+M18,prose,Medium,Claude,anthropic/claude-opus-4.7,api_expand,540,"Structured code review stands among the most effective practices an engineering team can adopt to improve software quality, and its benefits manifest across technical, organizational, and long-term dimensions of software development.
+
+The most immediate and measurable benefit of code review lies in defect detection. When a second engineer examines a change before it is merged, they bring fresh eyes to logic that the author may have grown too close to see clearly. Edge cases that went unconsidered, null pointer risks buried in conditional branches, race conditions in concurrent code, and incorrect assumptions about input data are routinely surfaced during review. The economic argument here is compelling and well established: a bug caught during review costs minutes of a reviewer's time to flag and perhaps an hour of the author's time to fix, whereas the same bug discovered after release can cascade into customer support tickets, emergency patches, data corruption cleanup, lost revenue, and reputational damage. Studies of defect economics have consistently shown that the cost of fixing a bug grows by roughly an order of magnitude as it moves from development to testing to staging to production, which makes the pre-merge review window one of the highest-leverage moments in the entire software lifecycle.
+
+Beyond catching defects, code review serves as a continuous knowledge-sharing mechanism that strengthens the collective capability of the team. When engineers review each other's changes, they are necessarily exposed to parts of the system they might otherwise never touch. Over time, this exposure builds a shared mental model of the codebase, so that no single engineer becomes the sole person who understands the authentication layer, the billing pipeline, or the data ingestion service. This diffusion of knowledge directly reduces the operational risk that comes from relying on individual experts, whether that risk manifests as blocked work during vacations, panic during on-call incidents, or crises when a key engineer leaves the company. Review also tends to be a vehicle for mentorship in both directions, as senior engineers model good practices for juniors and juniors raise questions that prompt seniors to articulate and sometimes reconsider their reasoning. The result is a team whose depth of expertise expands rather than concentrating in a few irreplaceable individuals.
+
+Finally, the regular practice of review enforces consistent coding standards in a way that no automated linter or style guide can fully accomplish on its own. Reviewers naturally push back on inconsistent naming, unclear abstractions, duplicated logic, poorly structured tests, and departures from established architectural patterns, and over time this steady pressure converges the codebase toward a coherent style. Consistency in a codebase is not a cosmetic concern; it is a direct multiplier of maintainability, because engineers can navigate familiar structures quickly, predict where functionality lives, and modify code with confidence that similar changes have been handled in similar ways elsewhere. A codebase shaped by sustained review reads as the work of a single thoughtful author rather than a chaotic collage, and this quality pays dividends every time the software must be extended, debugged, or handed to a new contributor. Taken together, the defect prevention, knowledge distribution, and standards enforcement that structured review provides make it one of the most durable investments an engineering team can make in the quality of what it builds."
+M19,prose,Medium,Claude,anthropic/claude-opus-4.7,api_expand,489,"Written checklists serve as one of the most effective tools for reducing preventable errors in high-stakes professions such as aviation and surgery, where lapses in attention can produce catastrophic outcomes. Their power lies not in complexity but in the discipline they impose on human cognition, communication, and institutional practice, transforming individual expertise into reliable, repeatable performance.
+
+The first and most immediate benefit of a written checklist is that it relieves practitioners of the burden of recalling routine but critical steps from memory. Pilots and surgeons are highly trained experts, but expertise does not inoculate the mind against the ordinary limits of human cognition. Under conditions of stress, fatigue, interruption, or emergency, memory becomes unreliable precisely when the stakes are highest. A pilot managing an engine failure, or a surgical team responding to unexpected hemorrhage, cannot afford to omit a step because adrenaline and exhaustion have narrowed attention. A written checklist externalizes memory onto paper or a screen, ensuring that essential actions, such as confirming fuel settings, verifying patient identity, or checking antibiotic administration, are completed in the correct sequence regardless of the operator's internal state. By offloading routine recall, the checklist frees cognitive resources for the genuinely novel judgments that only a trained human can make.
+
+A second and equally important function of the checklist is that it standardizes communication within teams by creating defined moments at which every member is expected, and permitted, to speak. In both cockpits and operating rooms, steep hierarchies have historically discouraged junior personnel from voicing concerns, even when they perceive a looming problem. A structured preflight briefing or a surgical time-out interrupts this pattern by giving the nurse, the anesthesiologist, the first officer, or the scrub technician a formal opportunity to confirm details, state concerns, and acknowledge the plan. Because the moment is scripted, raising an issue no longer feels like insubordination; it becomes a required part of the procedure. This shared pause synchronizes the mental models of everyone in the room, reduces ambiguity about roles and expectations, and surfaces discrepancies before they harden into errors.
+
+Finally, the practical value of checklists is not merely theoretical but has been documented repeatedly in rigorous studies, most notably through the World Health Organization's surgical safety checklist. When this nineteen-item checklist was introduced across a diverse group of hospitals in eight cities around the world, researchers observed substantial reductions in both postoperative complications and mortality, with complication rates falling by roughly a third and death rates nearly halving in the pilot study. Subsequent adoption in national health systems and individual institutions has yielded similar patterns of improvement in infection rates, communication failures, and adverse events. Aviation offers a parallel record, with the systematic use of checklists widely credited for the extraordinary safety record of modern commercial flight. These measurable, replicated results demonstrate that the discipline of writing down critical steps and performing them aloud is not a bureaucratic formality but a proven intervention that saves lives."
+M20,prose,Medium,Claude,anthropic/claude-opus-4.7,api_expand,609,"Improvements in weather forecasting over the past several decades rank among the most economically consequential advances in applied science, generating enormous value across sectors that together account for a substantial share of global output. The gains in forecast skill, driven by better satellite observations, denser surface networks, more powerful numerical models, and the assimilation of vast new data streams, have transformed weather information from a vague background condition into a precise operational input that firms, governments, and households use to make billions of decisions every year. The cumulative payoff from these improvements, measured in reduced losses and higher productivity, is almost certainly in the hundreds of billions of dollars annually worldwide.
+
+Agriculture provides perhaps the clearest demonstration of this value. Farmers now rely on forecasts of temperature, precipitation, humidity, and frost risk that are reliable days and even weeks in advance, and they use this information to time planting so that seeds germinate under favorable conditions, to schedule irrigation so that water is applied when crops will actually benefit rather than being wasted ahead of rain, and to coordinate harvest windows so that mature crops are brought in before damaging storms, heat waves, or wet spells degrade their quality. The result is measurably higher yields, lower input costs for water, fuel, and chemicals, and a dramatic reduction in catastrophic crop losses that once routinely devastated rural economies. Insurance data and agronomic studies consistently show that farms with access to high-quality forecasts outperform those without, and in the aggregate the productivity gains across the global food system translate into both cheaper food for consumers and more stable incomes for producers.
+
+The value of improved severe-weather warnings is, if anything, even more striking because it is measured not only in dollars but in lives. Hurricanes, tornadoes, floods, blizzards, and wildfires that would once have struck with little or no warning are now routinely identified days in advance, with increasingly accurate forecasts of track, intensity, and timing. These earlier warnings enable orderly evacuations of coastal zones and floodplains, give families time to board up homes, move vehicles, and secure loose property, allow hospitals and nursing homes to relocate vulnerable patients, and let emergency managers pre-position supplies, repair crews, and shelters. The reduction in hurricane-related fatalities in the United States over the past half century, despite enormous growth in coastal population and property, is a direct consequence of better forecasting, and the same pattern holds for tornado warnings, flash flood alerts, and winter storm advisories around the world. Property losses too are sharply reduced when owners have even a day or two to prepare, and the avoided damages compound across millions of structures exposed to each major event.
+
+Finally, forecasts have become indispensable to the industries that move people, goods, and energy. Airlines use detailed wind, turbulence, icing, and convective forecasts to plan routes that save fuel, avoid dangerous conditions, and minimize the cascading delays that ripple through hub-and-spoke networks when weather disrupts a single major airport. Shipping companies route vessels around storms and through favorable currents and winds, cutting voyage times, fuel burn, and the risk of cargo damage or loss at sea. Electricity grid operators, who must balance supply and demand on a minute-by-minute basis, depend on temperature forecasts to anticipate heating and cooling loads, on wind and solar forecasts to integrate the growing share of variable renewable generation, and on severe-weather forecasts to harden the grid and pre-stage repair crews before storms arrive. Each of these applications converts forecast skill directly into fuel savings, avoided outages, lower consumer prices, and more reliable service, and together they illustrate why continued investment in weather prediction yields returns that vastly exceed its cost."
+H14,prose,Hard,Claude,anthropic/claude-opus-4.7,api_expand,758,"The thesis that causation reduces to regular succession between event-types, inherited from Hume and refined by the deductive-nomological tradition, cannot withstand scrutiny, because the extensional pattern of ""whenever C-type events occur, E-type events follow"" captures too much and discriminates too little. The classic counterexample is the barometer: a sharp drop in barometric reading is reliably followed by a storm, and the generalization linking the two is as exceptionless as any in ordinary life, yet no one supposes that the needle's descent causes the atmospheric disturbance. The regularity is real but derivative, grounded in a common cause—the fall in ambient air pressure—that produces both the instrument's behavior and the meteorological event. Analogous cases proliferate: day regularly succeeds night, the reading on one synchronized clock regularly precedes the chime of another, and symptoms of a disease regularly accompany one another without any one symptom causing the rest. In each instance, a regularity theorist is forced either to count the correlation as causal, which violates our firmest judgments, or to append auxiliary conditions—temporal priority, spatiotemporal contiguity, nomological subsumption—that either fail to exclude the problem cases or smuggle in causal notions the analysis was meant to reduce. The deeper diagnosis is that mere co-occurrence, however lawlike, is a symmetric and undirected relation among event-types, while causation is asymmetric and directed; no amount of refinement internal to the regularity framework supplies the missing directionality.
+
+The interventionist account developed by James Woodward supplies precisely what the regularity account lacks by analyzing causation in terms of what would happen under hypothetical manipulations of the putative cause. On Woodward's view, C is a cause of E, relative to a background of variables, just in case there is some possible intervention on C—an exogenous surgical change that sets the value of C independently of its usual determinants and alters nothing else except via C—under which the value of E would correspondingly change, and the dependency between C and E remains invariant across some suitable range of such interventions. Applied to the barometer, the account yields the correct verdict immediately: were we to intervene directly on the needle, forcing it downward by mechanical means while holding atmospheric pressure fixed, no storm would ensue; the correlation between reading and weather does not survive an intervention on the reading itself, so the reading does not cause the weather. By contrast, an intervention on atmospheric pressure does change both the needle and the storm, correctly identifying pressure as the common cause. The interventionist framework thus recovers the asymmetry of causation from the asymmetry of manipulability: effects do not propagate backward along causal arrows, so wiggling an effect leaves its causes untouched, while wiggling a cause disturbs its effects. Causal relations emerge as those counterfactual dependencies that are robust under the specific class of counterfactuals corresponding to ideal interventions, a class far more restrictive and better behaved than the generic counterfactuals that caused trouble for earlier similarity-based analyses.
+
+The interventionist account further illuminates why randomized controlled experiments enjoy their distinctive epistemic authority in the sciences, since the design of such trials is a concrete attempt to realize, within the constraints of actual practice, the ideal interventions the theory invokes. When investigators randomize subjects to treatment and control arms, they sever the putative cause from the ordinary web of antecedents—genetic predispositions, socioeconomic circumstances, prior health behaviors, self-selection—that would otherwise be correlated with it and would otherwise confound inference from observed regularities to causal structure. The assignment of treatment is made to depend on a chance device rather than on any variable that could independently influence the outcome, which is just what Woodward's definition of an intervention requires: the cause is set exogenously, through a process that bears no relation to the outcome except through the cause itself. Any difference in outcomes between the arms must then reflect a dependency that would survive manipulation of the cause, and that is precisely the dependency the interventionist identifies with causation. Observational studies, however rich in regularities they display, cannot discharge this requirement, because the putative cause there retains its ordinary antecedents, leaving open whether the observed correlation reflects a genuine cause-to-effect dependency or merely a shared ancestry with some lurking variable. The experimental intervention cuts those ancestral links by fiat, which is why a well-designed randomized trial can settle in one stroke causal questions that unlimited observational data cannot. That the interventionist account predicts and explains this methodological fact, rather than treating it as a brute piece of scientific folklore, counts as substantial evidence in its favor and against any analysis content with mere regular succession."
+H15,prose,Hard,Claude,anthropic/claude-opus-4.7,api_expand,773,"The concept of biological function occupies a central place in the life sciences, and how we analyze it determines whether functional discourse can bear the explanatory and normative weight biologists routinely place upon it. Two broad traditions have competed to provide this analysis: the etiological or selected-effect tradition, which locates function in a trait's selection history, and the causal-role tradition descending from Cummins, which identifies function with any contribution a trait makes to a containing system's capacities. There are compelling reasons to prefer the etiological approach, since it alone secures the normativity, objectivity, and explanatory force that functional attributions appear to possess.
+
+The first consideration concerns normativity. Functional ascriptions in biology are not merely descriptive; they license claims about what a trait is supposed to do, and consequently about when it fails to do what it should. A diseased heart that cannot pump blood still has the function of pumping blood, and a cone cell in a colorblind retina still has the function of discriminating wavelengths even when it cannot. This normative dimension, including the very possibility of malfunction, is captured naturally by the selected-effect account. If a trait's function is the effect for which its ancestors were selected, then a token of that trait has a function it may fail to perform, since what it is for is fixed by evolutionary history rather than by its current dispositions. A purely dispositional analysis, by contrast, cannot generate this gap between what a trait does and what it ought to do. If function were simply a matter of what a trait is disposed to produce, then a trait that lacks the disposition would lack the function, and malfunction would become conceptually impossible: a non-pumping heart would simply fail to have the pumping function at all, rather than failing to perform its function. Since biologists plainly treat malfunction as a coherent and important category, only an account that distinguishes function from current disposition can accommodate biological practice, and the etiological account does so by anchoring function in ancestral selection rather than present capacity.
+
+The second consideration concerns objectivity. Cummins-style causal-role analyses define function in terms of a trait's contribution to some capacity of a containing system, where that capacity is itself picked out by the explanatory project of an inquirer. The difficulty is that any trait makes countless contributions to countless systemic capacities, many of which are intuitively accidental rather than functional. The heart contributes to blood circulation, but it also contributes to the production of rhythmic thumping sounds useful to physicians with stethoscopes, to the weight distribution of the thorax, and to a host of other systemic outcomes. To isolate circulation as the heart's function rather than, say, sound production, the causal-role theorist must appeal to which capacity the investigator has chosen to analyze. Function thereby becomes relative to explanatory interests, and the distinction between genuine functions and merely accidental effects collapses into a distinction between effects we happen to care about and effects we do not. This surrenders the objectivity of functional attribution: whether the heart's function is to circulate blood would depend not on the heart itself but on what question an inquirer happens to be asking. The etiological account avoids this consequence because selection history is a mind-independent matter of fact. The heart was selected for pumping blood and not for producing sounds, regardless of what any investigator finds interesting, and this historical fact fixes its function objectively.
+
+The third consideration concerns explanatory force. When a biologist says that the function of a trait is such-and-such, this claim is typically taken to explain something about the trait, in particular why organisms of the relevant kind have it. The etiological account vindicates this explanatory pretension directly. To cite the selected effect of a trait is to answer the question of why the trait is present in the population: it is present because ancestral variants that produced that effect were differentially retained by natural selection. Functional claims thus do genuine explanatory work, situating the trait within a historical process that accounts for its existence and distribution. Causal-role analyses, by contrast, can only describe what a trait currently contributes to a system; they cannot explain why the trait is there to make the contribution in the first place. Saying that the heart contributes to circulation tells us something about how the organism currently operates, but it leaves wholly untouched the question of why organisms are built with hearts at all. Only by appealing to selection history does functional discourse acquire the retrospective, explanatory dimension that distinguishes it from mere systemic description, and only the etiological account makes this dimension constitutive of what functions are."
+H16,prose,Hard,Claude,anthropic/claude-opus-4.7,api_expand,799,"Knowledge gained through testimony constitutes an irreducible epistemic category, one that cannot be analyzed away into the hearer's own perceptions, memories, and inductive generalizations about the reliability of speakers. The reductionist program, descending from Hume, holds that a hearer is justified in accepting what she is told only insofar as she possesses independent evidence, drawn from her own experience, that testimony of the relevant kind tends to be true. Against this program, three considerations converge to show that testimonial knowledge rests on foundations the hearer cannot herself supply.
+
+The first consideration, pressed with particular force by C. A. J. Coady, concerns the sheer scale of our testimonial dependence. The ordinary adult believes, on the word of others, a staggering range of propositions: that there is a country called Peru, that Napoleon lost at Waterloo, that water is composed of hydrogen and oxygen, that the heart pumps blood, that there are cities she has never visited and historical events she did not witness. For reductionism to succeed, the believer would need to have built up, from her own direct checks, an inductive base sufficient to warrant confidence in the various kinds of testimony she accepts. But no human being is in a position to carry out such verification for more than a vanishing fraction of her sources. One cannot personally confirm the honesty of textbook authors, journalists, cartographers, physicians, teachers, and the countless informants whose words shape one's picture of the world. The reductionist's inductive base, when honestly surveyed, turns out to be minuscule relative to the testimonial edifice it is supposed to support. The project of grounding testimonial belief in the hearer's own prior checks is therefore not merely difficult but structurally unavailable; the resources demanded by reductionism simply do not exist in the cognitive life of any actual knower.
+
+The second consideration concerns the epistemic situation of young children. Children acquire enormous bodies of information through testimony long before they possess the sophisticated inferential machinery that reductionism requires. A three-year-old who learns that lions live in Africa, that her grandmother's name is Margaret, that stoves can burn, or that the round object in the sky is called the moon has not conducted, and could not conduct, an inductive survey of adult reliability across domains. She lacks the conceptual apparatus to formulate hypotheses about the correlation between utterance and truth, lacks the memory stores to accumulate the relevant evidence, and lacks the logical skills to draw general conclusions from particular cases. Yet it would be absurd to deny that children come to know a great deal through what they are told. If reductionism were correct, such early learning would not count as knowledge at all, and the entire developmental trajectory by which humans enter the community of knowers would be epistemically illegitimate at its root. Since children plainly do acquire genuine knowledge through testimony, the justification of such knowledge cannot consist in inferences the child is incapable of making.
+
+The third consideration, developed by John Hardwig in his analyses of epistemic dependence, concerns the structure of modern scientific knowledge itself. Contemporary research is organized through an elaborate division of cognitive labor: experiments in high-energy physics involve hundreds of collaborators, each responsible for a specialized component of the apparatus or analysis; medical studies rely on statisticians, clinicians, and laboratory technicians whose work no single investigator can fully reproduce; published papers in nearly every field cite results that the citing author has not personally verified and often could not verify without years of additional training. The physicist who signs a paper on a particle detection relies on the testimony of colleagues who built the detector, calibrated the instruments, wrote the analysis code, and interpreted the raw data. If reductionism were correct, the physicist's belief in the reported result would be unjustified unless she had independently checked these contributions, which she has not and in most cases could not. Yet the scientific community manifestly produces knowledge, and the individual researcher who affirms a collaborative result does so with epistemic warrant. The warrant must therefore come, at least in part, from trust in the testimony of colleagues, trust that cannot be cashed out in the individual's own perceptions and inferences. Scientific knowledge, the paradigm of rigorous epistemic achievement, is thus itself constituted in part by irreducible testimonial dependence.
+
+Taken together, these three considerations show that testimony is a genuine and independent source of knowledge. The scope of ordinary belief outruns any inductive base a single mind could assemble; the testimonial learning of children precedes the inferential capacities reductionism presupposes; and the collaborative character of science makes even its most refined products rest on trust in the words of others. Testimonial knowledge is not perception, memory, or inference in disguise, but a distinct epistemic kind, woven into the very fabric of human cognitive life."
+H17,prose,Hard,Claude,anthropic/claude-opus-4.7,api_expand,652,"Idealized scientific models trade literal accuracy for something more valuable: they expose the structural features of nature that actually do explanatory work. A frictionless plane, an infinite breeding population, a point mass concentrating finite matter at a dimensionless location—each is strictly false of any real system, yet each enables us to see what makes the phenomenon in question the kind of phenomenon it is. The role of such idealizations is not to approximate reality more and more finely, as if the goal were a scale model, but to perform a kind of controlled subtraction. By setting friction to zero, the Galilean analysis of inclined motion isolates the gravitational component that makes bodies accelerate down slopes; by treating a population as infinite, population genetics isolates the selective and mutational pressures whose directional effects would otherwise be masked by sampling noise; by collapsing an extended body to a point, Newtonian mechanics isolates the dependence of orbital trajectories on total mass and center-of-mass separation. In each case, the factors removed are precisely those that, within the explanatory question being asked, do not make a difference to the outcome. Idealization, so understood, is a diagnostic tool for difference-makers: what can be falsified without disturbing the explanandum was never doing explanatory work to begin with, and what cannot be so falsified is thereby revealed as essential.
+
+This diagnostic function connects naturally to a broader conception of what understanding a phenomenon amounts to. To understand why something occurs is to grasp how it would have been different had the relevant conditions been otherwise—to command a map of counterfactual dependencies linking variations in the underlying factors to variations in the outcome. On this view, understanding is not a matter of possessing a literally true description of a system but of possessing a representation that correctly tracks the pattern of what-if-things-had-been-otherwise relations the system actually exhibits. An idealized model can discharge this task superbly even while making assumptions known to be false, because the counterfactual structure it encodes can match the counterfactual structure of the target system in the respects that matter. The frictionless model tells us correctly that doubling the incline angle would increase acceleration in a specific way, that changing the mass would not affect the acceleration, that reversing the slope would reverse the direction of motion; these counterfactuals hold in the world even though frictionless planes do not exist in it. Understanding is thereby decoupled from fidelity of depiction and reattached to fidelity of dependence, which is why a model full of literal falsehoods can still convey genuine insight into how nature hangs together.
+
+The most striking vindication of this picture comes from what Robert Batterman calls minimal-model explanations, which account for universal patterns of behavior shared by systems that differ radically in their microphysical constitution. Fluids near their critical points, uniaxial ferromagnets near the Curie temperature, and binary alloys undergoing phase separation all exhibit the same critical exponents and the same scaling laws, despite being composed of utterly different constituents interacting through utterly different forces. What explains this universality is not any shared microphysical feature but the fact that all these systems, when analyzed through the renormalization group, flow to the same fixed point of a highly idealized model that discards almost every detail of molecular structure, interaction potential, and lattice geometry. The explanatory power of the minimal model derives from precisely those omissions: by throwing away the microscopic specifics that differ across the heterogeneous systems, the model retains only the features responsible for the behavior they share. If the model included realistic microscopic detail, it would be unable to show why systems lacking that detail nevertheless behave identically. The falsehoods built into the minimal model are therefore not regrettable concessions to tractability but the very source of its explanatory reach, allowing a single idealized structure to illuminate a class of real systems unified by their common large-scale behavior rather than by any shared microphysical nature."
+H18,prose,Hard,Claude,anthropic/claude-opus-4.7,api_expand,805,"Practical knowledge, the kind of competence exhibited when a pianist executes a difficult passage or a carpenter squares a joint by feel, cannot be analyzed without remainder into propositional knowledge, the kind of knowledge expressible in sentences of the form ""S knows that p."" The temptation to reduce knowing how to knowing that is understandable, since propositional knowledge enjoys a certain philosophical prestige as the paradigm case of cognition. Yet three considerations, drawn respectively from the logic of intelligent action, the phenomenology of skilled performance, and the empirical findings of neuropsychology, converge to show that practical knowledge is a genuinely distinct cognitive achievement.
+
+The first consideration is Gilbert Ryle's regress argument, which exposes the incoherence of treating every intelligent performance as the application of an antecedently grasped proposition. Suppose that to act intelligently, say to make a sound chess move, an agent must first contemplate some proposition specifying what to do, such as a rule or maxim governing good play. The contemplation of that proposition is itself either an intelligent act or a mere occurrence. If it is a mere occurrence, then intelligence has been smuggled in from nowhere, since nothing distinguishes a thoughtful consultation of the rule from a thoughtless one. If, on the other hand, the contemplation is itself an intelligent act, then by the hypothesis under examination it too must be preceded by the grasp of a further proposition, one that specifies how to apply the first proposition correctly. That second contemplation, being equally intelligent, requires a third proposition, and so on without end. No agent could ever perform a single intelligent act, because each would require an infinite prior sequence of propositional graspings. Since agents manifestly do perform intelligent acts, the reduction must fail: there must be a form of knowing displayed in the performance itself that is not the entertaining of a proposition. Knowing how to apply a rule cannot itself be a matter of knowing that something is the case, on pain of regress, and so practical knowledge is logically prior to, and irreducible to, propositional knowledge.
+
+The second consideration concerns the character of skilled performance in its concrete exercise. A master clinician diagnosing a difficult case, a jazz musician improvising with her ensemble, a native speaker navigating the pragmatics of an awkward conversation—each responds to features of the situation that are inexhaustibly particular and that shift from moment to moment. The clinician registers a subtle pallor, a hesitation in the patient's gait, a mismatch between reported and apparent pain; the musician anticipates the drummer's accelerando and places a note just behind the beat; the speaker calibrates tone to a glance from across the room. These responses are not derived by subsuming particulars under general propositions the agent could, if pressed, articulate. The relevant features are too numerous, too fine-grained, and too holistically interrelated to be captured by any finite list of rules the agent carries about. Even if we grant that the expert could, after the fact, offer some propositional reconstruction of what she did, the reconstruction is always a partial and simplifying gloss on a competence that outruns it. The sensitivity involved is a matter of trained perception and attuned response, not of propositional inference from premises the agent endorses. Since practical knowledge essentially involves this context-sensitive responsiveness, and since no finite propositional base suffices to generate it, practical knowledge exceeds anything that could be captured as knowing that.
+
+The third consideration comes from neuropsychology, where empirical dissociations between the two sorts of knowledge reveal that they can come apart in concrete human beings. The classical case is that of amnesic patients, such as the much-studied H.M., whose hippocampal damage left them unable to form new declarative memories while sparing their capacity to acquire new motor and perceptual skills. Such patients, trained day after day on tasks like mirror drawing, rotary pursuit, or the Tower of Hanoi, show steady improvement in performance across sessions. Their hands grow more fluent, their timing more accurate, their solutions more efficient. Yet when asked about the task, they sincerely deny ever having encountered it before; they can state no propositions about their training, their techniques, or even the existence of the sessions. The skill is manifestly present in what they can do, and manifestly absent from what they can say or believe. If practical knowledge were a species of propositional knowledge, this dissociation would be impossible, since removing the propositional base would ipso facto remove the skill. The empirical fact that it does not shows that the two kinds of knowledge are subserved by distinct cognitive systems and that competence in action can be acquired, retained, and exercised without any accompanying propositional representation of what one has learned. Practical knowledge is therefore not merely conceptually distinct from propositional knowledge; it is really distinct, as the actual architecture of the mind reveals."
+H19,prose,Hard,Claude,anthropic/claude-opus-4.7,api_expand,549,"The loss of biodiversity undermines the long-term stability and functioning of ecosystems because the richness of species in a community is itself a mechanism by which ecological systems absorb disturbance, sustain their productivity, and maintain the web of interactions on which they depend. As species disappear, the capacity of ecosystems to continue functioning in reliable ways deteriorates, and the consequences of each loss ramify well beyond the vanished organism itself.
+
+The insurance hypothesis provides one of the clearest reasons to expect this deterioration. Because species differ in their physiological tolerances, phenologies, and life histories, they respond to environmental fluctuations in divergent ways: a drought that suppresses one grass may favor another, and a cold snap that reduces the activity of one pollinator may coincide with the peak foraging of a second. In a community containing many species, these asynchronous responses tend to average out, so that even as individual populations rise and fall, the aggregate productivity of the community remains comparatively steady. A depauperate community, by contrast, lacks this portfolio of responses, and its total output tracks the fortunes of its few remaining species, swinging more violently as conditions shift. Biodiversity, in this sense, functions as a kind of ecological insurance policy whose premium is paid in species and whose payout is stability across fluctuating environments.
+
+Closely related to this insurance effect is the phenomenon of functional redundancy, in which multiple species perform broadly overlapping ecological roles. When several nitrogen-fixing plants, several detritivores, or several seed-dispersing birds occupy the same system, the removal of any one of them need not halt the process they jointly sustain, because the others can continue to carry out the work. This redundancy buffers critical ecosystem processes, from decomposition to pollination to nutrient cycling, against the loss of individual species. However, the buffer is finite, and it erodes with each extinction. As redundant species are stripped away, the remaining performers of a given function become ever more exposed, and eventually the loss of a single further species can translate directly into the collapse of the process it mediates. What appears to be a resilient system can thus be quietly hollowed out until a seemingly minor loss produces a disproportionate failure.
+
+Beyond these general effects, the loss of keystone species can trigger trophic cascades whose consequences propagate through an entire community. The classic case is that of sea otters along the North Pacific coast: as otter populations declined under hunting pressure, the sea urchins they had kept in check proliferated and grazed down the kelp forests, dismantling habitat structure for fish, invertebrates, and other species that depended on the kelp canopy. The disappearance of a single predator thereby reshaped the architecture of an entire marine ecosystem, converting lush three-dimensional forests into barren urchin-dominated flats. Such cascades illustrate that extinctions are not isolated subtractions from a species list but perturbations transmitted along the lines of ecological interaction, so that the loss of one organism can rearrange the composition, productivity, and physical structure of the systems in which it was embedded. Taken together, the insurance effect of species-level response diversity, the buffering role of functional redundancy, and the cascading influence of keystone species make clear that biodiversity is not an ornamental feature of ecosystems but a condition of their stability and continued functioning over the long term."
+S1,short,Easy,Claude,anthropic/claude-opus-4.7,api_expand,67,"Sunlight is made of many colors, each traveling as waves of different lengths. When it enters Earth's atmosphere, it collides with air molecules that scatter shorter wavelengths—blue and violet—much more strongly than longer ones like red or yellow. Because our eyes are more sensitive to blue than violet, and some violet is absorbed higher in the atmosphere, the scattered light reaching us from all directions looks blue."
+S2,short,Easy,Claude,anthropic/claude-opus-4.7,api_expand,71,"Ice floats on liquid water because it is less dense than the liquid form. When water freezes, its molecules arrange into a hexagonal crystal lattice held together by hydrogen bonds, and this structure forces the molecules farther apart than they are in the liquid state. Since the same mass of water occupies a larger volume as ice, its density drops to about 92% that of liquid water, allowing it to float."
+S3,short,Easy,Claude,anthropic/claude-opus-4.7,api_expand,84,"A rainbow forms when sunlight enters raindrops in the air and is both refracted (bent) and reflected inside each drop before exiting. Because different wavelengths of light bend by slightly different amounts, the white sunlight is separated into its component colors, with red bending least and violet most. You see a rainbow when the sun is behind you and rain is in front of you, with the colored light reaching your eyes at specific angles—about 42 degrees from the point directly opposite the sun."
+S4,short,Medium,Claude,anthropic/claude-opus-4.7,api_expand,80,"Earth has seasons because its rotational axis is tilted about 23.5 degrees relative to the plane of its orbit around the Sun. As Earth travels along its orbit, this tilt causes different hemispheres to receive sunlight at varying angles and for different lengths of time throughout the year. When a hemisphere is tilted toward the Sun, it experiences more direct sunlight and longer days, producing summer, while the hemisphere tilted away gets less direct light and shorter days, producing winter."
+S5,short,Medium,Claude,anthropic/claude-opus-4.7,api_expand,127,"Ocean tides are caused primarily by the gravitational pull of the Moon, and to a lesser extent the Sun, on Earth's water. The Moon's gravity tugs the oceans toward it, creating a bulge of water on the side of Earth facing the Moon, while a second bulge forms on the opposite side due to inertia as the Earth is pulled slightly toward the Moon more than the far-side water is. As Earth rotates through these bulges, coastal areas experience the rise and fall we call high and low tides. When the Sun, Moon, and Earth align during full and new moons, their combined gravitational pull produces especially large ""spring"" tides, whereas smaller ""neap"" tides occur when the Sun and Moon pull at right angles to each other."
+S6,short,Easy,Claude,anthropic/claude-opus-4.7,api_expand,69,"Bread dough rises because yeast, a living microorganism mixed into the dough, feeds on sugars from the flour and produces carbon dioxide gas as a byproduct of fermentation. The stretchy gluten network formed by kneading traps these gas bubbles, causing the dough to expand and become light and airy. Warmth speeds up the yeast's activity, which is why dough rises faster in a warm spot than a cold one."
+S7,short,Medium,Claude,anthropic/claude-opus-4.7,api_expand,99,"A black hole is a region of space where gravity is so intense that nothing, not even light, can escape once it crosses a boundary called the event horizon. They typically form when massive stars collapse under their own gravity at the end of their lives, compressing enormous amounts of matter into an incredibly small volume. At their center lies a singularity, a point where known physics breaks down and density becomes effectively infinite. Although black holes themselves are invisible, astronomers detect them by observing their gravitational effects on nearby stars and the superheated gas that spirals into them."
+S8,short,Medium,Claude,anthropic/claude-opus-4.7,api_expand,69,"Both spoons are actually at the same temperature, but the metal one feels colder because metal is a much better conductor of heat than wood. When you touch the metal spoon, it rapidly draws heat away from your skin, and your nerves register that heat loss as ""cold."" The wooden spoon conducts heat poorly, so warmth stays near the surface of your fingers and it feels closer to neutral."
+S9,short,Medium,Claude,anthropic/claude-opus-4.7,api_expand,84,"A refrigerator keeps food cold by continuously moving heat from inside the insulated compartment to the outside air. It does this using a refrigerant, a fluid that absorbs heat as it evaporates inside coils within the fridge, then releases that heat when a compressor squeezes it back into a liquid in coils on the outside. A thermostat cycles this process on and off to maintain a steady low temperature, while thick insulation and door seals slow the return of warm air from the kitchen."
+S10,short,Easy,Claude,anthropic/claude-opus-4.7,api_expand,68,"Photosynthesis allows a plant to make its own food by converting sunlight, water, and carbon dioxide into glucose, a sugar that fuels its growth and daily functions. The glucose provides energy for processes like building new cells, repairing tissues, and producing flowers or fruit, while any excess is stored for later use. As a byproduct, the plant releases oxygen into the air, which also benefits other living organisms."
+S11,short,Easy,Claude,anthropic/claude-opus-4.7,api_expand,85,"Leaves change color in autumn because trees stop producing chlorophyll, the green pigment that captures sunlight for photosynthesis, as days grow shorter and temperatures drop. Once the chlorophyll fades, other pigments that were present in the leaves all along—yellow and orange carotenoids—become visible. Reds and purples come from anthocyanins, which many trees actively produce in the fall, possibly to protect the leaf as it transfers remaining nutrients back into the tree. Eventually the leaf's connection to the branch is sealed off, and it falls away."
+S12,short,Easy,Claude,anthropic/claude-opus-4.7,api_expand,70,"Weather refers to the short-term state of the atmosphere in a specific place, including conditions like temperature, humidity, precipitation, and wind over minutes, hours, or days. Climate, by contrast, describes the long-term patterns and averages of those weather conditions in a region, typically measured over decades or longer. In short, weather is what you experience day to day, while climate is what you expect based on years of accumulated data."
+S13,short,Easy,Claude,anthropic/claude-opus-4.7,api_expand,65,"A magnetic compass contains a lightweight magnetized needle balanced on a low-friction pivot so it can rotate freely. Earth itself behaves like a giant magnet, producing a magnetic field that runs roughly between its north and south magnetic poles. The needle aligns itself with this field, so one marked end consistently points toward magnetic north, allowing the user to read direction from the compass dial."
+S14,short,Medium,Claude,anthropic/claude-opus-4.7,api_expand,80,"Inflation is the rate at which the general level of prices for goods and services rises over time, which in turn reduces the purchasing power of money. When inflation occurs, each unit of currency buys fewer goods than it did before, so consumers effectively need more money to maintain the same standard of living. Economists typically measure it using price indexes like the Consumer Price Index, and moderate, stable inflation is generally considered a normal feature of a growing economy."
+S15,short,Easy,Claude,anthropic/claude-opus-4.7,api_expand,95,"The Moon doesn't produce its own light; it shines by reflecting sunlight, so only the half facing the Sun is ever illuminated. As the Moon orbits Earth over about a month, we see varying portions of that lit half from our vantage point, which creates the familiar cycle of phases. When the Moon lies roughly between Earth and the Sun, its dark side faces us (new moon), and when Earth sits between the Sun and Moon, we see the fully lit side (full moon), with crescent, quarter, and gibbous shapes appearing at points in between."
+S16,short,Easy,Claude,anthropic/claude-opus-4.7,api_expand,61,"An algorithm is a finite sequence of well-defined instructions designed to solve a problem or accomplish a specific task. Each step must be clear and unambiguous, so that following them in order reliably produces the intended result. Algorithms are the foundation of computer programs, but they also appear in everyday life, such as in a recipe or a set of directions."
+S17,short,Medium,Claude,anthropic/claude-opus-4.7,api_expand,92,"Salt is spread on icy roads because it lowers the freezing point of water, a phenomenon known as freezing-point depression. When salt dissolves into the thin layer of liquid water present on ice, the resulting saltwater solution can remain liquid at temperatures well below 0°C (32°F), causing the ice to melt. This helps break the bond between ice and the road surface, making it easier to clear and safer for drivers. However, salt becomes less effective in very cold conditions, typically below about -9°C (15°F), where other chemicals may be used instead."
+S18,short,Hard,Claude,anthropic/claude-opus-4.7,api_expand,97,"An airplane wing generates lift by deflecting air downward as it moves through the air; by Newton's third law, pushing air down produces an equal upward reaction force on the wing. The wing's shape and its angle of attack (tilt relative to the oncoming air) cause the airflow to curve and accelerate over the upper surface, creating lower pressure above the wing than below it. This pressure difference, integrated across the wing's area, is what we measure as lift. Both the Newtonian ""air deflection"" view and the pressure-difference view describe the same physical phenomenon from different perspectives."
+S19,short,Medium,Claude,anthropic/claude-opus-4.7,api_expand,91,"DNA stores the genetic instructions a cell needs to build and operate itself, encoded in sequences of four chemical bases. When the cell needs to make a protein, specific sections of DNA are transcribed into RNA, which is then translated into chains of amino acids that fold into functional molecules. DNA also copies itself before a cell divides, ensuring that each new cell inherits a complete set of instructions. In this way, it serves as both the cell's working manual and the hereditary material passed from one generation to the next."
+S20,short,Hard,Claude,anthropic/claude-opus-4.7,api_expand,56,"Water boils when its vapor pressure equals the surrounding atmospheric pressure. At high altitude, the atmosphere is thinner and exerts less pressure on the liquid's surface, so water molecules need less thermal energy to escape into vapor. As a result, the boiling point drops—for example, from 100°C at sea level to around 90°C at 3,000 meters."

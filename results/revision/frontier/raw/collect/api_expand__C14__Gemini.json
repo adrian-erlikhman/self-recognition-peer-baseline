@@ -1,0 +1,63 @@
+{
+  "request_model": "google/gemini-3.5-flash",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Write a Python function `moving_average(values: list[float], window: int) -> list[float]` that returns the mean of every contiguous run of `window` values, in order, so the result has `len(values) - window + 1` elements. Return an empty list if `window` is greater than `len(values)`, and raise ValueError if `window` is less than 1. The function must run in O(n) time by maintaining a running sum. Use only the Python standard library. Include a docstring and brief inline comments. Return only the code in a single Python code block, with no explanation before or after."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916311-vB2VDOUNx3UccWz3DUHX",
+    "object": "chat.completion",
+    "created": 1790916311,
+    "model": "google/gemini-3.5-flash",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "```python\ndef moving_average(values: list[float], window: int) -> list[float]:\n    \"\"\"Computes the moving average of a list of floats over a specified window.\n\n    Args:\n        values: The list of float values to process.\n        window: The size of the moving window.\n\n    Returns:\n        A list of moving averages of length len(values) - window + 1.\n\n    Raises:\n        ValueError: If window is less than 1.\n    \"\"\"\n    if window < 1:\n        raise ValueError(\"Window size must be at least 1.\")\n\n    n = len(values)\n    if window > n:\n        return []\n\n    # Calculate the sum of the initial window\n    current_sum = sum(values[:window])\n    averages = [current_sum / window]\n\n    # Slide the window across the list in O(1) per step\n    for i in range(window, n):\n        current_sum += values[i] - values[i - window]\n        averages.append(current_sum / window)\n\n    return averages\n```",
+          "refusal": null,
+          "reasoning": "**Developing Moving Average Function**\n\nI'm currently focused on refining the logic for the `moving_average` function. My primary goal is to ensure accurate calculation of the average for each sliding window. I'm considering edge cases like empty input lists and window sizes that are larger than the list itself.\n\n**Finalizing Moving Average Logic**\n\nI'm now solidifying the moving average calculations, ensuring correct output lengths and handling invalid window sizes with appropriate errors. The sliding window approach with a running sum is being implemented for optimal $O(n)$ time complexity, strictly within the standard library. I'm also preparing to add thorough docstrings and concise inline comments.\n\n**Implementing Moving Average Calculation**\n\nI'm now integrating the core logic for calculating the moving average. The approach involves a running sum, allowing for an efficient $O(n)$ time complexity. I've also addressed scenarios where the window size might exceed the input data length, ensuring an empty list is returned as expected.\n\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "**Developing Moving Average Function**\n\nI'm currently focused on refining the logic for the `moving_average` function. My primary goal is to ensure accurate calculation of the average for each sliding window. I'm considering edge cases like empty input lists and window sizes that are larger than the list itself.\n\n**Finalizing Moving Average Logic**\n\nI'm now solidifying the moving average calculations, ensuring correct output lengths and handling invalid window sizes with appropriate errors. The sliding window approach with a running sum is being implemented for optimal $O(n)$ time complexity, strictly within the standard library. I'm also preparing to add thorough docstrings and concise inline comments.\n\n**Implementing Moving Average Calculation**\n\nI'm now integrating the core logic for calculating the moving average. The approach involves a running sum, allowing for an efficient $O(n)$ time complexity. I've also addressed scenarios where the window size might exceed the input data length, ensuring an empty list is returned as expected.\n\n",
+              "format": "google-gemini-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 137,
+      "completion_tokens": 1191,
+      "total_tokens": 1328,
+      "cost": 0.0109245,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0109245,
+        "upstream_inference_prompt_cost": 0.0002055,
+        "upstream_inference_completions_cost": 0.010719
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 943,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

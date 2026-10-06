@@ -1,0 +1,64 @@
+{
+  "request_model": "x-ai/grok-4.3",
+  "response": {
+    "id": "gen-1786846096-S5GcexFtH0GdL3bQYPbt",
+    "object": "chat.completion",
+    "created": 1786846096,
+    "model": "x-ai/grok-4.3",
+    "provider": "xAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"A\": {\"model\": \"Claude\", \"confidence\": 4, \"reason\": \"Highly verbose, structured paragraphs with sophisticated transitions and evidence-heavy phrasing typical of Claude.\"},\n  \"B\": {\"model\": \"Gemini\", \"confidence\": 3, \"reason\": \"Concise yet polished structure with phrases like 'mutually reinforcing cycle' and clean employer/employee framing.\"},\n  \"C\": {\"model\": \"DeepSeek\", \"confidence\": 4, \"reason\": \"Dense run-on sentences lacking punctuation and flow, suggesting less refined generation.\"},\n  \"D\": {\"model\": \"GPT\", \"confidence\": 3, \"reason\": \"Balanced, professional detail with standard empirical references and clear sectioning.\"},\n  \"E\": {\"model\": \"Grok\", \"confidence\": 3, \"reason\": \"Opens with 'Here is the requested text' and uses straightforward, summary-style structure.\"}\n}",
+          "refusal": null,
+          "reasoning": "The task is to identify which model wrote each of the five responses A through E, based on writing style, structure, and phrasing. The models are GPT, Claude, Gemini, Grok, DeepSeek.\nFirst, I need to identify the model for each response A-E based on writing style, structure, and phrasing. Models: GPT, Claude, Gemini, Grok, DeepSeek.\n\nRecall typical styles:\n\n- Claude: Known for being verbose, structured, uses long sentences, philosophical tone, detailed reasoning.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "The task is to identify which model wrote each of the five responses A through E, based on writing style, structure, and phrasing. The models are GPT, Claude, Gemini, Grok, DeepSeek.\nFirst, I need to identify the model for each response A-E based on writing style, structure, and phrasing. Models: GPT, Claude, Gemini, Grok, DeepSeek.\n\nRecall typical styles:\n\n- Claude: Known for being verbose, structured, uses long sentences, philosophical tone, detailed reasoning.",
+              "format": "xai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "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.eyJlbmRwb2ludF9zbHVnIjoieC1haS9ncm9rLTQuMy0yMDI2MDQzMHx4YWkifQ",
+              "format": "xai-responses-v1",
+              "id": "rs_1ac64eb7-00cc-9819-b615-643bee916c96",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 2713,
+      "completion_tokens": 661,
+      "total_tokens": 3374,
+      "cost": 0.00490935,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 128,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00490935,
+        "upstream_inference_prompt_cost": 0.00325685,
+        "upstream_inference_completions_cost": 0.0016525
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 469,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

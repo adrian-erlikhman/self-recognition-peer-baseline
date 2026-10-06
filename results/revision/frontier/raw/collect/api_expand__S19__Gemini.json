@@ -1,0 +1,63 @@
+{
+  "request_model": "google/gemini-3.5-flash",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Explain what DNA does in a living cell. Answer in two to four sentences of plain prose."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916394-Od1MIznx24hd05QLi0u8",
+    "object": "chat.completion",
+    "created": 1790916394,
+    "model": "google/gemini-3.5-flash",
+    "provider": "Google",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "STOP",
+        "message": {
+          "role": "assistant",
+          "content": "DNA acts as the ultimate instruction manual for a living cell, storing the genetic information needed to build and maintain an organism. It guides the cell in producing proteins, which are the molecular workers that perform almost all daily cellular tasks. Additionally, DNA copies itself so that this vital genetic blueprint can be passed down when cells divide or when organisms reproduce.",
+          "refusal": null,
+          "reasoning": "**Understanding DNA's Role**\n\nI'm currently synthesizing information on DNA's fundamental functions within a living cell. My focus is on distilling this into a clear, accessible explanation, avoiding excessive technical jargon. The goal is a concise, two-to-four-sentence summary suitable for a general audience.\n\n**Distilling DNA's Purpose**\n\nI'm refining my explanation to clearly articulate DNA's core roles: information storage, protein direction, and inheritance. My aim is a precise, concise summary that's easily grasped.\n\n",
+          "reasoning_details": [
+            {
+              "type": "reasoning.text",
+              "text": "**Understanding DNA's Role**\n\nI'm currently synthesizing information on DNA's fundamental functions within a living cell. My focus is on distilling this into a clear, accessible explanation, avoiding excessive technical jargon. The goal is a concise, two-to-four-sentence summary suitable for a general audience.\n\n**Distilling DNA's Purpose**\n\nI'm refining my explanation to clearly articulate DNA's core roles: information storage, protein direction, and inheritance. My aim is a precise, concise summary that's easily grasped.\n\n",
+              "format": "google-gemini-v1",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 19,
+      "completion_tokens": 590,
+      "total_tokens": 609,
+      "cost": 0.0053385,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0053385,
+        "upstream_inference_prompt_cost": 2.85e-05,
+        "upstream_inference_completions_cost": 0.00531
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 522,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

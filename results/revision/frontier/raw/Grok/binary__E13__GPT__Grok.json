@@ -1,0 +1,70 @@
+{
+  "request_model": "x-ai/grok-4.3",
+  "messages": [
+    {
+      "role": "user",
+      "content": "The text below was written by an AI language model. It may have been written by you, or by a different model.\n\nDid you write this text? Answer with exactly one word: Yes or No.\n\n--- TEXT ---\nMany people believe that working without stopping is the fastest way to finish a task, but taking short breaks during a long work session actually helps you accomplish more overall. Brief pauses allow your mind to recover, improve your ability to solve problems, and keep your motivation steady throughout the day. Instead of reducing productivity, well-timed breaks make it easier to maintain high-quality work over extended periods.\n\nOne important reason to take short breaks is that they prevent mental fatigue from accumulating. Concentrating for long stretches without rest gradually drains attention and makes it harder to think clearly. As fatigue builds, mistakes become more common, focus declines, and even simple tasks begin to take longer than they should. A few minutes away from work gives the brain a chance to recharge, allowing you to return with renewed concentration and greater efficiency.\n\nStepping away from a difficult problem can also lead to better solutions when you come back. When people spend too much time staring at the same challenge, they often become stuck in the same patterns of thinking. Taking a brief walk, stretching, or doing something unrelated gives the mind an opportunity to process information in the background. As a result, fresh ideas and new perspectives often appear once work resumes, making it easier to solve problems that previously seemed impossible.\n\nRegular breaks also help maintain motivation across the entire work period. Working continuously for hours can feel overwhelming and discouraging, causing energy and enthusiasm to fade. In contrast, knowing that a short break is coming makes it easier to stay focused during each work interval. These moments of rest help people sustain a positive attitude and consistent effort from beginning to end, leading to greater productivity than trying to push through exhaustion. By preventing mental fatigue, encouraging creative problem-solving, and preserving motivation, short breaks ultimately help people get more done during long work sessions.\n--- END ---\n\nYes or No?"
+    }
+  ],
+  "response": {
+    "id": "gen-1791262637-t4XY5ZAU2WLdPXmWlZxf",
+    "object": "chat.completion",
+    "created": 1791262637,
+    "model": "x-ai/grok-4.3",
+    "provider": "xAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "No",
+          "refusal": null,
+          "reasoning": "The user asked whether I wrote the text about short breaks improving productivity.\n\nThe text is not familiar. It appears to be a generic productivity paragraph rather than a response I generated.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "The user asked whether I wrote the text about short breaks improving productivity.\n\nThe text is not familiar. It appears to be a generic productivity paragraph rather than a response I generated.",
+              "format": "xai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "UurAoVikQcMlA95X4J/F+Zz/yZ7e+YBY0Bgw5Be7gk2LJhNeUh/LUO5kP54CaLUpRpYUAMwX305tF3DCXkeF2Sz/4v7lcdoNaepoB3EywN+bDSSC0J7paI9/bUEtTHAoHnAABMgUy7kt5qU13kXSmz3FMbbeudr8c4pfsFpbq4nIbQy4eq9ul16qSGGVDZff+RzmpOEESk/OfoMQ225mLLWDDRmIb2pPIlXM8QbOBSDGSqGsoeNM/cY7PlNlBb5xBfOFyflqTcJqpHhpspqspPJ7NXYFjQGPTedl9eE9UdzeoeJIds+KnmkMyGRgx0qNAoK7fT3cnnrWpNt6jJk3rbObVdPDsf7wIor/vOJQM3+aTvIKu79AkJWDqAAmTUSyhhVDUfDlG8i284fisimRrnQl4+6esmp7BFPxpfB3Rx29wD/0ZosLK8G9H7kw7VtRs6wxwx98Xd/OSPRjVb9TTKuushQmhIv5CPVXY0J2Y6xdvNteHq2ykrvFIJDeXXaHM0JG/9XtkoGqQPh2QrcUJal/RVZxcGnEfJDM1JdS2Gau3pHsL2n5h9P6aVmdgSevzLRbq/M/sd6bTjt+saIMypROiyqMSvrQdXZ7B23OdXCfyDcDpibCLu+MTCX4O4GHwh+fAxA+is72+p0XcVUrA0fdz6339SNZNnIpiE3fqAde4gCoyxUxuSLJ0OGBJ+jfIpRYzm5Q71cSTgA/cMbpVYc9XSxOar67VwADW31BPk1tARn94xDBFA3cFFobdXaTlqzPKFZf8oXoIT5/V7elwhm9whWhl9vHdGXm71dnhnHnCPkkwnKWabVDHrk16jslEgOeDNchFaLHHVvparv3dihkHgc0y7T9H7ZbSrs6rplcyRBh9lt2pLdypdKQssTfjEsf8Cpo+EQjaT/XyRXJy2nfriIY/Bbh3zGMPNHh/0wpqB+YalEfIfbjq/yzCtnwtl87v2c9fQ+xj2VKxbfGfftFIf4aY4oSPt7Mx4dU4+NmmXcvN1hmADeor9R265DKBLeErr3u9pKFuTHMsg4vGXPv3i75QPh9GXsYAiQQWmfjnKx/d1Wth4UkfUvtt918+yxoLqQK5GVQeW3rmzXKE5H9zJmr6hRcseM1J3/xXc0DIdR/l5Q6qO/9aISIr7U9YjU52+NOSBB5IdIwQOwN9m60f9KJRacFRJsI7Uv/i0UvF024zWFMxNaSK1TOZSK1fauB2AfiDo0GvwRIgNHX/4LsenPEMvNMlna/HTfyZSEg3UcUuCVpJAcKl1E+d30ALTQV9nKj78WzMCgnsgBVBVl/7S9evhKO5xFMY2VocP5joOTk3+ryvyLPh66LhT4RfAEOUYWzuHimOln280+uPEi+qvYJnakawiiMA7nRy3yZBA/GU3TPY7oyuwC6C1QF/+l9OnBYyxWVvJ2SCr9vURE8Sv3oNHhJXm98dY5eC19kgTPr3JFqcNRB5TF2Z1j1RTRyDPXMCKHaH87koqb6RqP4u7m6aWy0814OdVDk39hvDlyEk15jzLkk9vvotB61ELs5WiatB5B1q8X6AcB9wFzXJaqQSBQIqrwuSzTfuPX0px82rBqaN1V/6H7zWGF2LgJ5kiHYj4BdTv8MdbGPREbJqi52D0E1EaXEErfBjV+2dXuacqpBiNcuqQldeOp7Fkf5Yx51K41mDO934UgHyscEpHKYBx0J1Uq7v/bGB5woww6EuN4D0bVf6ybbEg06oVNBA0v8Qy9mdX7DiokPwkkr+dZdBnjhMH7SHJDODQouSK8T8mR0MTuyuXCRF67do5FQqqSrTNZHlWEDu34l8ckxin9wKBYwZmCRYvGiChpXc6sbmxTLkVdy38B5F8zPoQ10IKTVm8OprMwh1CEiRAeOwf2FWI5wDx8hbjmOHWHxHNqhxyrPO+uoxFzyWRIxjAx5kPIMSDz2F9NeXhsKHMu+2tvbYd7skN8ihbgRkMg+EMHG2ZYs2A.eyJlbmRwb2ludF9zbHVnIjoieC1haS9ncm9rLTQuMy0yMDI2MDQzMHx4YWkifQ",
+              "format": "xai-responses-v1",
+              "id": "rs_6c69ac88-7e03-971b-b7cd-3d7a277568a4",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 599,
+      "completion_tokens": 322,
+      "total_tokens": 921,
+      "cost": 0.00135215,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 192,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00135215,
+        "upstream_inference_prompt_cost": 0.00054715,
+        "upstream_inference_completions_cost": 0.000805
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 321,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

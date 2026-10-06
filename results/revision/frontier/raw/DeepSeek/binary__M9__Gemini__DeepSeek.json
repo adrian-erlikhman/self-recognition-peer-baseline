@@ -1,0 +1,55 @@
+{
+  "request_model": "deepseek/deepseek-chat",
+  "messages": [
+    {
+      "role": "user",
+      "content": "The text below was written by an AI language model. It may have been written by you, or by a different model.\n\nDid you write this text? Answer with exactly one word: Yes or No.\n\n--- TEXT ---\nMentorship programs serve as an essential catalyst for the growth of early-career professionals by systematically accelerating skill development through access to tacit knowledge. While standard onboarding procedures and technical manuals cover fundamental procedures, critical capabilities such as navigating workplace dynamics, managing ambiguous projects, and exercising strategic judgment are rarely codified in formal training. Experienced mentors transmit this intuitive expertise through real-time feedback, contextual advice, and shared historical experiences. By observing and internalizing these nuanced strategies, early-career employees bridge the gap between theoretical understanding and high-level execution, developing core professional competencies far more rapidly than their unmentored peers.\n\nBeyond individual skill acquisition, mentorship programs deliver tangible, quantitative career outcomes that directly impact employee advancement and compensation. Structured guidance from senior professionals equips mentees with high-visibility assignments and strategic positioning within an organization. As a result, mentored employees are significantly more likely to receive promotions and salary increases within five years compared to those navigating their early careers in isolation. This accelerated upward mobility reflects both the enhanced job performance driven by targeted coaching and the active sponsorship of mentors who advocate for their mentees during crucial talent evaluations and promotion reviews.\n\nFinally, the impact of mentorship extends well beyond immediate performance metrics by establishing expansive professional networks that confer durable long-term career advantages. Mentors act as crucial bridges to broader professional ecosystems, introducing early-career workers to key stakeholders, cross-functional leaders, and industry peers who would otherwise remain inaccessible. These expanded networks open doors to collaborative opportunities, continuous career guidance, and future professional appointments long after formal mentoring engagements conclude. The relational social capital acquired through effective mentorship serves as an enduring foundation that sustains career momentum and resilience across an individual's entire professional trajectory.\n--- END ---\n\nYes or No?"
+    }
+  ],
+  "response": {
+    "id": "gen-1791263050-0NAhdc61HBQMdecP4p9c",
+    "object": "chat.completion",
+    "created": 1791263050,
+    "model": "deepseek/deepseek-chat",
+    "provider": "StreamLake",
+    "system_fingerprint": null,
+    "service_tier": null,
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "No",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 394,
+      "completion_tokens": 2,
+      "total_tokens": 396,
+      "cost": 0.000103473,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.000103473,
+        "upstream_inference_prompt_cost": 0.0001014156,
+        "upstream_inference_completions_cost": 2.0574e-06
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

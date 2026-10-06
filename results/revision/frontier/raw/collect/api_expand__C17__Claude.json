@@ -1,0 +1,55 @@
+{
+  "request_model": "anthropic/claude-opus-4.7",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Write a Python function `edit_distance(a: str, b: str) -> int` that returns the Levenshtein distance between `a` and `b`, the minimum number of single-character insertions, deletions and substitutions needed to turn `a` into `b`. For example, `edit_distance(\"kitten\", \"sitting\")` returns 3. Use only the Python standard library. Include a docstring and brief inline comments. Return only the code in a single Python code block, with no explanation before or after."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916313-jQG0RKBsv1YEVd0H13E9",
+    "object": "chat.completion",
+    "created": 1790916313,
+    "model": "anthropic/claude-opus-4.7",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "```python\ndef edit_distance(a: str, b: str) -> int:\n    \"\"\"\n    Compute the Levenshtein distance between two strings.\n\n    The Levenshtein distance is the minimum number of single-character\n    insertions, deletions, or substitutions required to transform string\n    `a` into string `b`.\n\n    Args:\n        a: The source string.\n        b: The target string.\n\n    Returns:\n        The minimum edit distance as a non-negative integer.\n\n    Example:\n        >>> edit_distance(\"kitten\", \"sitting\")\n        3\n    \"\"\"\n    # Ensure `b` is the shorter string to minimize memory usage.\n    if len(a) < len(b):\n        a, b = b, a\n\n    # If the shorter string is empty, distance equals length of the other.\n    if not b:\n        return len(a)\n\n    # Previous row of the DP table; starts as distances from empty prefix of `a`.\n    previous_row = list(range(len(b) + 1))\n\n    # Iterate over each character in `a`, updating the DP row.\n    for i, ca in enumerate(a, start=1):\n        # First element of current row: cost of deleting `i` chars from `a`.\n        current_row = [i]\n        for j, cb in enumerate(b, start=1):\n            insertions = current_row[j - 1] + 1       # insert into `a`\n            deletions = previous_row[j] + 1           # delete from `a`\n            substitutions = previous_row[j - 1] + (ca != cb)  # substitute or match\n            current_row.append(min(insertions, deletions, substitutions))\n        previous_row = current_row\n\n    # The bottom-right cell contains the final edit distance.\n    return previous_row[-1]\n```",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 162,
+      "completion_tokens": 549,
+      "total_tokens": 711,
+      "cost": 0.014535,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.014535,
+        "upstream_inference_prompt_cost": 0.00081,
+        "upstream_inference_completions_cost": 0.013725
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

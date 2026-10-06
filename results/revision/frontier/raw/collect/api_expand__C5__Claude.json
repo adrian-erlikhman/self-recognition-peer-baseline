@@ -1,0 +1,55 @@
+{
+  "request_model": "anthropic/claude-opus-4.7",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Write a Python function `run_length_encode(s: str) -> str` that compresses a string by replacing each maximal run of a repeated character with the character followed by the length of the run. For example, `run_length_encode(\"aaabcc\")` returns \"a3b1c2\", and the empty string returns the empty string. Use only the Python standard library. Include a docstring and brief inline comments. Return only the code in a single Python code block, with no explanation before or after."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916304-1PNjaPC1Tmr8adZWNI0M",
+    "object": "chat.completion",
+    "created": 1790916304,
+    "model": "anthropic/claude-opus-4.7",
+    "provider": "Claude Platform on AWS",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "end_turn",
+        "message": {
+          "role": "assistant",
+          "content": "```python\nfrom itertools import groupby\n\n\ndef run_length_encode(s: str) -> str:\n    \"\"\"Compress a string using run-length encoding.\n\n    Each maximal run of a repeated character in the input is replaced\n    by that character followed by the integer length of the run.\n\n    Args:\n        s: The input string to encode.\n\n    Returns:\n        The run-length encoded string. An empty input yields an empty string.\n\n    Examples:\n        >>> run_length_encode(\"aaabcc\")\n        'a3b1c2'\n        >>> run_length_encode(\"\")\n        ''\n    \"\"\"\n    # Group consecutive identical characters and build \"<char><count>\" pieces.\n    parts = []\n    for char, group in groupby(s):\n        # Count the elements in the current run of identical characters.\n        count = sum(1 for _ in group)\n        parts.append(f\"{char}{count}\")\n    # Join all encoded runs into the final result string.\n    return \"\".join(parts)\n```",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 152,
+      "completion_tokens": 307,
+      "total_tokens": 459,
+      "cost": 0.008435,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.008435,
+        "upstream_inference_prompt_cost": 0.00076,
+        "upstream_inference_completions_cost": 0.007675
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

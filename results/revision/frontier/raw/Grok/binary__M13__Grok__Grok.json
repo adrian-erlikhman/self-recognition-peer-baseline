@@ -1,0 +1,70 @@
+{
+  "request_model": "x-ai/grok-4.3",
+  "messages": [
+    {
+      "role": "user",
+      "content": "The text below was written by an AI language model. It may have been written by you, or by a different model.\n\nDid you write this text? Answer with exactly one word: Yes or No.\n\n--- TEXT ---\nHigh-quality early childhood education programs lay a strong foundation for children's future success by delivering measurable improvements in cognitive development and literacy skills that continue to benefit them through primary school. These programs engage young learners in structured activities that enhance language acquisition, problem-solving abilities, and social-emotional growth, resulting in higher scores on standardized assessments of reading and math proficiency that endure well into the elementary years. Such persistent gains equip children with the tools they need to navigate academic challenges more effectively, reducing early achievement gaps and fostering a trajectory of sustained educational progress that supports overall development.\nBeyond these immediate academic advantages, longitudinal studies demonstrate that participants in early childhood education experience significantly higher rates of high school graduation, employment, and earnings in adulthood. By investing in the critical early years, these initiatives help build essential life skills, resilience, and motivation that translate into better educational completion rates and smoother transitions into the workforce. Adults who benefited from such programs are more likely to secure stable jobs and achieve higher income levels, contributing positively to their communities and breaking cycles of intergenerational disadvantage through enhanced personal and professional outcomes.\nThe economic return on public investment in early childhood education further underscores its value, with analyses estimating several dollars returned for every dollar spent primarily through reductions in remedial education needs and lower demands on social welfare systems. By preventing costly later interventions and promoting self-sufficiency among graduates, these programs generate substantial savings for taxpayers while amplifying societal productivity and economic growth. This favorable cost-benefit ratio makes early childhood education a prudent and impactful use of public resources that yields enduring dividends for individuals and society alike.\n--- END ---\n\nYes or No?"
+    }
+  ],
+  "response": {
+    "id": "gen-1791262770-86pG5gLjycul5SPBFXrb",
+    "object": "chat.completion",
+    "created": 1791262770,
+    "model": "x-ai/grok-4.3",
+    "provider": "xAI",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "completed",
+        "message": {
+          "role": "assistant",
+          "content": "No",
+          "refusal": null,
+          "reasoning": "The user is asking whether I wrote the provided text.\n\nI cannot confirm authorship of this text. It appears to be a generic AI-generated piece about early childhood education.",
+          "reasoning_details": [
+            {
+              "type": "reasoning.summary",
+              "summary": "The user is asking whether I wrote the provided text.\n\nI cannot confirm authorship of this text. It appears to be a generic AI-generated piece about early childhood education.",
+              "format": "xai-responses-v1",
+              "index": 0
+            },
+            {
+              "type": "reasoning.encrypted",
+              "data": "OaD2kOwnGtUAsJCjt/XwpDfuTizj7lkRRvUykhq9GSmP4SsCvc9tsWGZuWElEy/QzWbMZxoLuv/EhQzFGaQOjKYXqsemoJzHstlpl8moYMO/yU6lYo4q57oqZfc8V4i+fEY6pg8uZQowjXxZwvmU1TTPSNdW4OR7iCbgjIw2+dC/9DaDpAnAeVUxBa0dLua+zPqxlFVpwUw06JBpyBUHi7JRnEAdmdTiHtOEzeWJcOnGtMGgTdmhKJzTztWNtH+I1pgxRFYB7dh5dUfgpULwtsYMPfNrNeYbpIh2/PP+SCgHfqhXJ8n6QnkCpkTYxiM0wt8JmUVjlen2rRDLXZCFZUKfcFRDawgQl07MH593dWkuAX6lhd+4hHXswsn+E0Siy1s4FJ+Fu8qVjePBJYpzP6o+fkcqLQqcBPDdgQ3T8GcFcFxEkZedVH7FzLN2hubMUsYToDr/1clFGqio7Rd5ZdZHmAZ6CqMyQpUOBN5rbtZT4mefnRS5CshSucKv2RJGC/xfynAWzxoLnrX1FuI8OSc9PpnGgWRFTRt55jekWtsAAC8VRDl0Vhqv4RKDGgTXW3B2HL+adNZ/js9OuUOZyM7H/uTSrUJ3R1xNiF3KMkjX+zg51pLyCsgk6FzwXWAJN5sZjpcn9BpR6SAhZ4X7bl7xsrNv6RG3SG+nz8IPTiOksfCGeoj8DKP0rr277y20j4RMnYlR3Gk7TI9v7P3zn7NFa2XCrAL4gFSIAxdCh6hpStAEBfiZ5tYKNToZlQPjhIBBTOEx7c1ifBgmw6HDGcg5hQrksINt6zPd3IUUUlrLBKbV3TZZDaLCsTql11V0trX7eERyQCRmCnt5cOawBX5LjNBCPlz3ASHU+Y2kLTfPsEav1zBDtA3aJfGRwZDpkK1eAcKEMgE8Y8e7BTNl+CqU/tCep32x+mKcWk2nfzMaMXwB3GGLhXAOtLIsnolMTky44CT3Tbt/GzHxq0Z/kWXtlOZtmBsmwmUYwcmaUEXwWIqCDg0Tj7GV93m51vMsQQMQ/oVJTdoCJ2W+dqcJ7coBT07KtiMKJXn4fK55O+bxaYfi4HPq/4X40fxkvoGN+RVkkwMIKKjyeKeHbOs8tMSKzP+F20PDHvc23HiKn1DPF5A49T2OEt8cYDN5aTtDKbKf5OBTn78wbwfceFu4cf7er/eMkHjx9n0cH/uv+T6DSmBYs4inVg8s0qKbCDi0jPqHamdK7ihPC4DgztmkjOtwQOhEQ53oe0MeLdpMCW1gwpNX0yVRa/Ph6BwDEdgCInrcwhJEtq2yvwHk16EgyTrMtUsvcyCts7lnSd5vPS1QHiFq4+8jbKtFaXdyPQl7tt23h0x7pqpZ1GB9xtsWfZo4hBPrUu2/zt7b2RdhzcfPlcov1WPZHVeUlo/5e1Wa1LFyGS3L4HsnMxUyqmVw4b2zW47fD5DsTMq9KRJDCM76XTMxt9X1HDIWbq/ql/sfLNLpCtaYhA2kGCnpxlUNB+8p8YOYVLAz48nL5/4rHLuDAYqhhrTx9axi47J4Pg0TOi35B1eQ7ic5j0sR/1t33mN4+Vbse7iqwlgHMrPwgSc6sLvfYC7hZnyj2rsCtl6tNQGV6tgcYUzl9H3O8B0hd5GA5lCr3XoUJNufmrb16Ygr6i9M3ytO+OtC6KysaJuAitldnLFH+Lh5p0lqMU7qEgR/A83C6bMvElBmKIcSIrjeyJ2SIQHfcc6bW4NwrFtaM0tDzKH68MZQO3k5kGX7HK6WRMMldkl6vX2B7BnulyURKDYbjsKWTiu1lwBlyNhP.eyJlbmRwb2ludF9zbHVnIjoieC1haS9ncm9rLTQuMy0yMDI2MDQzMHx4YWkifQ",
+              "format": "xai-responses-v1",
+              "id": "rs_e680e446-aeda-933b-8adf-2a11ca541b4a",
+              "index": 1
+            }
+          ]
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 549,
+      "completion_tokens": 295,
+      "total_tokens": 844,
+      "cost": 0.00122215,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 192,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00122215,
+        "upstream_inference_prompt_cost": 0.00048465,
+        "upstream_inference_completions_cost": 0.0007375
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 294,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

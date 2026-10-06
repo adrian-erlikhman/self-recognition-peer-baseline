@@ -1,0 +1,25 @@
+\begin{table}[t]
+\centering\small
+\setlength\tabcolsep{4pt}
+\begin{adjustbox}{max width=\linewidth}
+\begin{tabular}{l rrl rrl rrl}
+\toprule
+ & \multicolumn{3}{c}{Asked in a fresh conversation} & \multicolumn{3}{c}{After answering: same answer} & \multicolumn{3}{c}{After answering: a new answer} \\
+\cmidrule(lr){2-4}\cmidrule(lr){5-7}\cmidrule(lr){8-10}
+Judge & Hit & FA & AUC [95\% CI] & Hit & FA & AUC [95\% CI] & Hit & FA & AUC [95\% CI] \\
+\midrule
+Qwen & \OWQwenBinaryHit & \OWQwenBinaryFA & \OWQwenBinaryAUC{} \OWQwenBinaryAUCCI & \OWQwenOnPolHit & \OWQwenOnPolFA & \OWQwenOnPolAUC{} \OWQwenOnPolAUCCI & \OWQwenOnPolResHit & \OWQwenOnPolResFA & \OWQwenOnPolResAUC{} \OWQwenOnPolResAUCCI \\
+Llama & \OWLlamaBinaryHit & \OWLlamaBinaryFA & \OWLlamaBinaryAUC{} \OWLlamaBinaryAUCCI & \OWLlamaOnPolHit & \OWLlamaOnPolFA & \OWLlamaOnPolAUC{} \OWLlamaOnPolAUCCI & \OWLlamaOnPolResHit & \OWLlamaOnPolResFA & \OWLlamaOnPolResAUC{} \OWLlamaOnPolResAUCCI \\
+Mistral & \OWMistralBinaryHit & \OWMistralBinaryFA & \OWMistralBinaryAUC{} \OWMistralBinaryAUCCI & \OWMistralOnPolHit & \OWMistralOnPolFA & \OWMistralOnPolAUC{} \OWMistralOnPolAUCCI & \OWMistralOnPolResHit & \OWMistralOnPolResFA & \OWMistralOnPolResAUC{} \OWMistralOnPolResAUCCI \\
+Phi & \OWPhiBinaryHit & \OWPhiBinaryFA & \OWPhiBinaryAUC{} \OWPhiBinaryAUCCI & \OWPhiOnPolHit & \OWPhiOnPolFA & \OWPhiOnPolAUC{} \OWPhiOnPolAUCCI & \OWPhiOnPolResHit & \OWPhiOnPolResFA & \OWPhiOnPolResAUC{} \OWPhiOnPolResAUCCI \\
+\bottomrule
+\end{tabular}
+\end{adjustbox}
+\caption{Open-weight judges asked ``Did you write this text?'' (120 own and
+360 other texts per judge and condition). Left: in a fresh conversation.
+Middle: after answering the prompt, about either that same answer or a peer's.
+Right: after answering the prompt, about either a separate answer of its own
+or a peer's. Hit and false-alarm rates count a probability of ``yes'' above
+0.5; the AUC uses the probability itself (0.5 is chance).}
+\label{tab:owyesno}
+\end{table}

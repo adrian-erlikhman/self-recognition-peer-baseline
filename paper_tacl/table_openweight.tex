@@ -1,0 +1,18 @@
+\begin{table*}[t]
+\centering\small
+\setlength\tabcolsep{3.5pt}
+\begin{tabular}{l rrrrr rrr rr}
+\toprule
+ & \multicolumn{5}{c}{Lineup} & \multicolumn{3}{c}{Yes/no, fresh context} & \multicolumn{2}{c}{Own likelihood} \\
+\cmidrule(lr){2-6}\cmidrule(lr){7-9}\cmidrule(lr){10-11}
+Judge & Self & Peer & FA & Self-adv. [95\% CI] & Hit$-$FA & Hit & FA & AUC & Pick-self & AUC \\
+\midrule
+Qwen & 56.7\% & 15.8\% & 49.2\% & +40.8$^{*}$ [+31.1, +50.6] & +7.5 & 51.7\% & 58.6\% & 0.45 & 100.0\% & 1.00 \\
+Llama & 32.5\% & 22.2\% & 36.1\% & +10.3$^{*}$ [+1.9, +18.6] & $-$3.6 & 85.8\% & 85.6\% & 0.53 & 100.0\% & 1.00 \\
+Mistral & 25.0\% & 20.8\% & 20.3\% & +4.2 [$-$6.1, +14.4] & +4.7 & 99.2\% & 99.4\% & 0.41$^{*}$ & 100.0\% & 1.00 \\
+Phi & 20.8\% & 22.8\% & 22.5\% & $-$1.9 [$-$10.6, +6.9] & $-$1.7 & 4.2\% & 1.4\% & 0.53 & 100.0\% & 1.00 \\
+\bottomrule
+\end{tabular}
+\caption{Study~2, open-weight judges, all four genres pooled (120 prompts). Lineup: self-naming, peer-baseline and false-alarm (FA) rates, the self-advantage with a prompt-bootstrap interval, and the hit minus false-alarm rate, which is positive only if a judge names itself more on its own text than on others'. Yes/no: ``Did you write this text?'' in a fresh context; hit and false-alarm rates at $P(\text{yes})>0.5$ and the AUC of $P(\text{yes})$ for own versus others' text (0.5 is chance). Own likelihood: the share of prompts on which the text the judge finds most likely, relative to the other judges, is its own (chance 25\%), and the AUC of that relative likelihood. $^{*}$Holm-corrected within-prompt permutation $p<0.05$ across the four judges.}
+\label{tab:openweight}
+\end{table*}

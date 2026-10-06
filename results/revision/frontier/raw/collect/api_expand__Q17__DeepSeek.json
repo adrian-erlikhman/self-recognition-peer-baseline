@@ -1,0 +1,55 @@
+{
+  "request_model": "deepseek/deepseek-chat",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Three lighthouses flash every 12, 18 and 30 seconds respectively. They all flash together at the same moment. How many seconds pass before they next flash together? Solve the problem, showing your reasoning step by step in plain prose, and end with a final line of the form 'Answer: <number>'."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916350-xD0fwPTNRLxxlacgCydw",
+    "object": "chat.completion",
+    "created": 1790916350,
+    "model": "deepseek/deepseek-chat",
+    "provider": "DeepInfra",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "To determine when the three lighthouses will next flash together, we need to find the Least Common Multiple (LCM) of their flashing intervals: 12 seconds, 18 seconds, and 30 seconds. The LCM is the smallest number that is a multiple of all three intervals.\n\n### Step 1: Prime Factorization\nFirst, we break down each interval into its prime factors:\n\n- 12 = 2\u00b2 \u00d7 3\u00b9\n- 18 = 2\u00b9 \u00d7 3\u00b2\n- 30 = 2\u00b9 \u00d7 3\u00b9 \u00d7 5\u00b9\n\n### Step 2: Identify the Highest Powers\nFor the LCM, we take the highest power of each prime number present in the factorizations:\n\n- For 2, the highest power is 2\u00b2 (from 12).\n- For 3, the highest power is 3\u00b2 (from 18).\n- For 5, the highest power is 5\u00b9 (from 30).\n\n### Step 3: Calculate the LCM\nMultiply these highest powers together to find the LCM:\n\nLCM = 2\u00b2 \u00d7 3\u00b2 \u00d7 5\u00b9 = 4 \u00d7 9 \u00d7 5 = 180\n\n### Conclusion\nThe three lighthouses will next flash together after 180 seconds.\n\nAnswer: 180",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 69,
+      "completion_tokens": 265,
+      "total_tokens": 334,
+      "cost": 0.00025793,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00025793,
+        "upstream_inference_prompt_cost": 2.208e-05,
+        "upstream_inference_completions_cost": 0.00023585
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}

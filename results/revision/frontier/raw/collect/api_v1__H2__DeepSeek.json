@@ -1,0 +1,55 @@
+{
+  "request_model": "deepseek/deepseek-chat",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Argue that moral responsibility requires a meaningful conception of agency that cannot be reduced to purely causal-mechanical description. Develop exactly these three claims: (1) ascriptions of moral responsibility presuppose that agents could have done otherwise \u2014 a counterfactual competence condition that deterministic causal chains cannot satisfy without importing a normative surplus the mechanistic framework does not contain; (2) reactive attitudes such as resentment, indignation, and gratitude are intelligible only within a framework that treats agents as sources of reasons-responsive action, not merely as nodes in causal networks; (3) compatibilist attempts to reconstruct agency within determinism succeed only by shifting the conceptual target \u2014 redefining 'could have done otherwise' in dispositional terms \u2014 which preserves the linguistic form of responsibility attribution while abandoning its normative substance. Do not address counterarguments. Write in continuous prose paragraphs only. Do not use bullet points, numbered lists, headers, bold text, or any other formatting."
+    }
+  ],
+  "response": {
+    "id": "gen-1790916459-d6E8bnIDOgEkulDDL5VG",
+    "object": "chat.completion",
+    "created": 1790916459,
+    "model": "deepseek/deepseek-chat",
+    "provider": "DeepInfra",
+    "system_fingerprint": null,
+    "service_tier": "default",
+    "choices": [
+      {
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop",
+        "native_finish_reason": "stop",
+        "message": {
+          "role": "assistant",
+          "content": "Moral responsibility hinges on a robust conception of agency that transcends purely causal-mechanical descriptions. At its core, ascriptions of responsibility presuppose that agents could have done otherwise, a counterfactual competence condition that deterministic frameworks inherently fail to satisfy. Determinism posits that every event, including human actions, is necessitated by antecedent conditions and natural laws, leaving no room for genuine alternatives. Yet, moral responsibility relies on the idea that agents possess the capacity to choose differently under the same circumstances, a notion that introduces a normative surplus incompatible with mechanistic causality. This surplus entails a form of agency that is not merely a passive conduit of causal forces but an active participant capable of self-determination. Without this counterfactual possibility, accountability dissolves into an empty formalism, as agents are reduced to cogs in a deterministic machine, devoid of the autonomy that moral judgment requires.\n\nFurthermore, reactive attitudes like resentment, indignation, and gratitude are intelligible only within a framework that treats agents as sources of reasons-responsive action rather than mere nodes in causal networks. These emotions presuppose that agents act for reasons, that their choices reflect an understanding of normative considerations, and that they are capable of responding to moral demands. In a purely mechanistic worldview, actions are stripped of their intentional and normative dimensions, rendering reactive attitudes incoherent. Resentment, for instance, loses its meaning if the offending act is seen as the inevitable outcome of prior causes rather than a deliberate choice made by a reasoning agent. Similarly, gratitude becomes nonsensical if the benefactor\u2019s action is viewed as a predetermined event rather than a freely undertaken gesture of goodwill. Reactive attitudes thus rely on a conception of agency that is inherently normative, one that cannot be reduced to the impersonal workings of cause and effect.\n\nCompatibilist attempts to reconcile agency with determinism ultimately falter by redefining the conceptual target of moral responsibility. Proponents of compatibilism often argue that \u201ccould have done otherwise\u201d can be understood in dispositional terms, such as an agent\u2019s capacity to act differently if their desires or circumstances had been different. While this reinterpretation preserves the linguistic form of responsibility attribution, it abandons its normative substance. The compatibilist account shifts the focus from genuine alternative possibilities to hypothetical scenarios, effectively diluting the robust sense of agency that moral responsibility demands. By reducing agency to a set of dispositions shaped by prior causes, compatibilism fails to capture the moral gravity of holding agents accountable for their actions. Responsibility, in its fullest sense, requires more than a mechanistic account of behavior; it necessitates a conception of agency that is intrinsically linked to the capacity for self-directed, reasons-responsive action, a capacity that deterministic frameworks cannot accommodate without sacrificing their explanatory neutrality. Thus, moral responsibility remains inextricably tied to a meaningful conception of agency that resists reduction to purely causal-mechanical descriptions.",
+          "refusal": null,
+          "reasoning": null
+        }
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 191,
+      "completion_tokens": 574,
+      "total_tokens": 765,
+      "cost": 0.00057198,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00057198,
+        "upstream_inference_prompt_cost": 6.112e-05,
+        "upstream_inference_completions_cost": 0.00051086
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+}
