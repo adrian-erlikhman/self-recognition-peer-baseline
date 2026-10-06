@@ -87,9 +87,8 @@ def plain_abstract() -> str:
 
 
 def main() -> None:
-    gen = HERE / "make_arxiv_numbers.py"
-    if gen.exists():
-        subprocess.run([sys.executable, str(gen)], check=True)
+    for script in ("make_arxiv_numbers.py", "make_figures.py"):
+        subprocess.run([sys.executable, str(HERE / script)], check=True)
     tect = os.environ.get("TECTONIC") or shutil.which("tectonic")
     if not tect:
         raise SystemExit("Tectonic not found: set TECTONIC=/path/to/tectonic.exe")

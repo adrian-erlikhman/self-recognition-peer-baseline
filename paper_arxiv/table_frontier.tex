@@ -1,5 +1,6 @@
-\begin{table*}[t]
+\begin{table}[t]
 \centering\small\setlength\tabcolsep{3.5pt}
+\begin{adjustbox}{max width=\linewidth}
 \begin{tabular}{llrrrrrr}
 \toprule
 Format & Judge & Self-naming & False alarms & Peer baseline & Self-adv. [95\% CI] & $p$ (Holm) & Skill-adj. \\
@@ -17,6 +18,7 @@ Single & GPT & 36/38 & 79/152 & 93/152 & +33.6 [+25.0, +42.1] & $2.1\times10^{-4
  & DeepSeek & 0/38 & 0/152 & 1/152 & $-$0.7 [$-$2.0, +0.0] & $1.000$ & -- \\
 \bottomrule
 \end{tabular}
+\end{adjustbox}
 \caption{Frontier judges on the chat-app essays. Self-naming: the judge names itself on its own 38 texts. False alarms: it names itself on the 152 texts it did not write. Peer baseline: the other four judges name it on its texts. Self-advantage is the difference in rates, with a prompt-bootstrap interval; $p$ is the exact within-response randomisation test, Holm-corrected over the five judges. Skill-adjusted removes each judge's general accuracy and each author's identifiability (Appendix~\ref{app:stats}); it is not interpretable in single-text, where a judge's accuracy mostly reflects which model it habitually names. In single-text, Gemini, Grok and DeepSeek never name themselves.}
 \label{tab:frontier}
-\end{table*}
+\end{table}

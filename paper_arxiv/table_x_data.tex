@@ -1,0 +1,19 @@
+\begin{table}[t]
+\centering\small
+\begin{adjustbox}{max width=\linewidth}
+\begin{tabular}{l l r l r l}
+\toprule
+Texts & Written by & Prompts & Genres & Texts & Formats judged \\
+\midrule
+Chat-app essays & 5 frontier models, chat apps & 38 & essays & 190 & lineup, one text, yes/no \\
+API texts & 5 frontier models, API & 120 & all four & 600 & lineup, one text \\
+Open-weight texts & 4 open-weight models & 120 & all four & 480 & lineup, one text, yes/no \\
+\bottomrule
+\end{tabular}
+\end{adjustbox}
+\caption{The three sets of texts. The 38 chat-app prompts are among the 120;
+all 120 are in the repository (\texttt{data/prompts\_v2.csv}), with one
+example per genre in Appendix~\ref{app:data}. In each set, the models that
+wrote the texts also judge them.}
+\label{tab:data}
+\end{table}

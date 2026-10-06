@@ -1,8 +1,9 @@
-% arXiv version, single column. Build: python paper_arxiv/build.py (--bundle for the upload zip)
-\documentclass[11pt]{article}
-\usepackage[letterpaper,margin=1in]{geometry}
+% arXiv version. Build: python paper_arxiv/build.py (--bundle for the upload zip)
+\documentclass[10pt]{article}
+\usepackage[letterpaper,textwidth=5.5in,textheight=9in,top=1in,headheight=12pt,headsep=25pt,footskip=30pt]{geometry}
 \usepackage[T1]{fontenc}
 \usepackage{times,latexsym}
+\usepackage{microtype}
 \usepackage{url}
 \usepackage{xurl}
 \usepackage{natbib}
@@ -15,13 +16,29 @@
 \usepackage{needspace}
 \usepackage{enumitem}
 \usepackage{listings}
+\usepackage{titlesec}
+\usepackage[most]{tcolorbox}
 \usepackage[font=small,labelfont=bf]{caption}
-\usepackage[colorlinks=true,citecolor=blue!50!black,linkcolor=blue!50!black,urlcolor=blue!50!black]{hyperref}
-\setlist{itemsep=2pt,topsep=4pt,leftmargin=*}
+\definecolor{linkblue}{RGB}{0,72,150}
+\usepackage[colorlinks=true,citecolor=linkblue,linkcolor=linkblue,urlcolor=linkblue]{hyperref}
+
+\setlist{itemsep=2pt,topsep=3pt,leftmargin=*}
 \lstset{basicstyle=\ttfamily\footnotesize, breaklines=true, columns=fullflexible,
-  keepspaces=true, frame=single, upquote=true}
-\setlength{\parskip}{3pt}
+  keepspaces=true, frame=single, rulecolor=\color{black!30}, upquote=true}
 \setlength{\emergencystretch}{2em}
+
+% Headings in the usual preprint style.
+\titleformat{\section}{\large\bfseries}{\thesection}{0.8em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection}{0.8em}{}
+\titlespacing*{\section}{0pt}{12pt plus 3pt minus 2pt}{6pt plus 2pt}
+\titlespacing*{\subsection}{0pt}{9pt plus 2pt minus 2pt}{4pt plus 1pt}
+\titleformat{\paragraph}[runin]{\normalsize\bfseries}{}{0pt}{}[.]
+\titlespacing*{\paragraph}{0pt}{6pt plus 2pt minus 1pt}{0.6em}
+
+% A boxed one-sentence takeaway at the end of each results section.
+\newtcolorbox{takeaway}{enhanced, colback=linkblue!4, colframe=linkblue!60,
+  boxrule=0.5pt, arc=2pt, left=7pt, right=7pt, top=4pt, bottom=4pt,
+  fontupper=\small, before skip=8pt, after skip=8pt}
 
 % Study 1's numbers (src/engine_b.py), the shared numbers
 % (paper_tacl/make_numbers.py), then the arXiv additions
@@ -31,27 +48,41 @@
 \input{numbers_arxiv}
 
 \newcommand{\CodeURL}{\url{https://github.com/adrian-erlikhman/self-recognition-peer-baseline}}
+\newcommand{\papertitle}{Most Apparent Self-Recognition in LLM Judges\\Does Not Survive a Peer Baseline}
 
-\title{\bfseries Most Apparent Self-Recognition in LLM Judges\\
-Does Not Survive a Peer Baseline}
-
-\author{Adrian Erlikhman$^{1}$ \qquad Michael Tarekegn$^{1}$ \qquad Philo Juang$^{2}$\\[4pt]
-\normalsize $^{1}$Los Angeles Center for Enriched Studies \qquad
-$^{2}$University of California, Los Angeles\\[2pt]
-\normalsize\texttt{erlikhman.adrian@gmail.com}}
-
-\date{October 2026}
+\hypersetup{pdftitle={Most Apparent Self-Recognition in LLM Judges Does Not Survive a Peer Baseline},
+  pdfauthor={Adrian Erlikhman, Michael Tarekegn, Philo Juang}}
 
 \begin{document}
-\maketitle
 
-\begin{abstract}
+\begin{center}
+\rule{\linewidth}{3pt}\par\vspace{0.18in}
+{\LARGE\bfseries \papertitle\par}
+\vspace{0.16in}\rule{\linewidth}{0.8pt}\par\vspace{0.22in}
+\begin{tabular}{c@{\hspace{2.6em}}c@{\hspace{2.6em}}c}
+\textbf{Adrian Erlikhman} & \textbf{Michael Tarekegn} & \textbf{Philo Juang}\\[1pt]
+Los Angeles Center for & Los Angeles Center for & University of California,\\
+Enriched Studies & Enriched Studies & Los Angeles\\
+\end{tabular}\par\vspace{6pt}
+{\small Correspondence: \href{mailto:erlikhman.adrian@gmail.com}{\texttt{erlikhman.adrian@gmail.com}}}\par
+\vspace{0.12in}
+{\small Code and data: \CodeURL}
+\end{center}
+
+{\let\thefootnote\relax\footnotetext{Preprint. Under review.}}
+
+\vspace{0.1in}
+\begin{center}{\large\bfseries Abstract}\end{center}
+\vspace{-4pt}
+\begin{quote}
 \input{sections/abstract}
-\end{abstract}
+\end{quote}
+\vspace{4pt}
 
 \input{sections/intro}
 \input{sections/related}
 \input{sections/measure}
+\input{sections/setup}
 \input{sections/frontier}
 \input{sections/openweight}
 \input{sections/mechanism}

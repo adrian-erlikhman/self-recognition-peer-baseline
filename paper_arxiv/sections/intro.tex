@@ -14,6 +14,21 @@ own model, a reward model can learn the judge's style rather than quality,
 and a monitor checking a copy of itself is no longer independent
 \citep{khullar2026selfattribution}.
 
+\begin{figure}[t]
+\centering
+\includegraphics[width=\textwidth]{figures/lead.pdf}
+\caption{The same self-naming rate (filled circle) can mean very different
+things. Read it against the peer baseline (open circle: how often the other
+four judges name this judge on its text) and the false-alarm rate ($\times$:
+how often the judge names itself on text it did not write). Five frontier
+judges, 38 essays each; the numbers on the right are the self-advantage in
+percentage points; the dashed line is the 20\% chance level. In the lineup,
+Claude and GPT beat their peers and Grok trails them. Shown the same essays
+one at a time, three judges never name themselves, and Claude's peers name
+Claude almost as often as Claude does.}
+\label{fig:lead}
+\end{figure}
+
 Whether anonymisation holds is usually checked with a single number: how
 often a judge names itself as the author of its own text, compared with
 chance. We call this the \emph{self-naming rate}. It cannot answer the
@@ -32,21 +47,6 @@ We say a judge recognises its own text only if it names itself more often on
 its own text than on others' (it \emph{discriminates}) and more often than
 its peers do (it has a \emph{self-advantage}).
 
-\begin{figure}[t]
-\centering
-\includegraphics[width=\textwidth]{figures/lead.pdf}
-\caption{The same self-naming rate (filled circle) can mean very different
-things. Read it against the peer baseline (open circle: how often the other
-four judges name this judge on its text) and the false-alarm rate ($\times$:
-how often the judge names itself on text it did not write). Five frontier
-judges, 38 essays each; the numbers on the right are the self-advantage in
-percentage points; the dashed line is the 20\% chance level. In the lineup,
-Claude and GPT beat their peers and Grok trails them. Shown the same essays
-one at a time, three judges never name themselves, and Claude's peers name
-Claude almost as often as Claude does.}
-\label{fig:lead}
-\end{figure}
-
 We run this test on nine judges, three sets of texts, three question formats, and more than
 19,000 authorship judgments (Table~\ref{tab:data}). We wrote 120 prompts in
 four genres: essays, Python code, short answers and math word problems. Five
@@ -60,27 +60,9 @@ formats: picking authors for a \emph{lineup} of answers to the same prompt,
 naming the author of \emph{one text at a time}, and answering \emph{``Did you
 write this text?''}.
 
-\begin{table}[t]
-\centering\small
-\begin{tabular}{l l r l r l}
-\toprule
-Texts & Written by & Prompts & Genres & Texts & Formats judged \\
-\midrule
-Chat-app essays & 5 frontier models, chat apps & 38 & essays & 190 & lineup, one text, yes/no \\
-API texts & 5 frontier models, API & 120 & all four & 600 & lineup, one text \\
-Open-weight texts & 4 open-weight models & 120 & all four & 480 & lineup, one text, yes/no \\
-\bottomrule
-\end{tabular}
-\caption{The three sets of texts. The 38 chat-app prompts are among the 120;
-all 120 are in the repository (\texttt{data/prompts\_v2.csv}), with one
-example per genre in Appendix~\ref{app:data}. In each set, the models that
-wrote the texts also judge them.}
-\label{tab:data}
-\end{table}
-
 \input{table_verdicts}
 
-\paragraph{Findings.}
+\paragraph{Main findings}
 \begin{enumerate}
 \item \textbf{The usual check is wrong most of the time it raises an
 alarm.} It reports self-recognition in \SVPStd{} of \SVPCells{}
@@ -92,8 +74,8 @@ asked ``Did you write this text?'', Mistral says yes to \OWMistralBinaryFA{}
 of texts it did not write. The errors run one way: in no case did our test
 find self-recognition that the usual check missed.
 \item \textbf{Real self-recognition exists, and it is large, but it does not
-transfer.} On the chat-app essays, Claude beats its peers by
-\ClaudeAdvLineup{} points and GPT by \GPTAdvLineup{}: a genuine leak that
+transfer.} On the chat-app essays, Claude beats its peers by 33
+points and GPT by 28: a genuine leak that
 anonymisation does not stop. On 600 API texts from the same models, no judge
 beats its peers. A judge certified safe, or flagged, on one set of texts says
 little about the next.
@@ -114,20 +96,22 @@ would recognise itself far better, so a judge that passes an audit today may
 not pass it after an update.
 \end{enumerate}
 
-\paragraph{Contributions.} (1) A diagnosis of why the standard
-self-recognition check fails, and a corrected test, built from a peer
-baseline and a false-alarm rate, that needs no data beyond what a lineup
-already collects (Section~\ref{sec:measure}). (2) A study of LLM
-self-recognition across closed and open models, four genres and three formats,
-with more than 19,000 judgments (Sections~\ref{sec:frontier}
-and~\ref{sec:openweight}).
-(3) Tests of four explanations of what judges rely on, using their stated
-reasons, similarity to their own writing, their likelihoods, quality ratings
-and watermarks (Section~\ref{sec:mechanism}). (4) A practical audit for
-anyone running an LLM-judge pipeline (Section~\ref{sec:recs}), and all data
-and code.\footnote{\CodeURL}
+\paragraph{Contributions} In summary, we make four contributions:
+\begin{itemize}
+\item We show why the standard self-recognition check fails, and give a
+corrected test, built from a peer baseline and a false-alarm rate, that needs
+no data beyond what a lineup already collects (Section~\ref{sec:measure}).
+\item We measure self-recognition across closed and open models, four
+genres and three question formats, with more than 19,000 judgments
+(Sections~\ref{sec:frontier} and~\ref{sec:openweight}).
+\item We test four explanations of what judges rely on: their stated
+reasons, similarity to their own writing, their own likelihoods, and quality,
+and we assess the role of watermarks (Section~\ref{sec:mechanism}).
+\item We give a practical audit for LLM-judge pipelines
+(Section~\ref{sec:recs}) and release all data and code.\footnote{\CodeURL}
+\end{itemize}
 
-\paragraph{Scope.} We study one question: can an LLM judge, shown
+\paragraph{Scope} We study one question: can an LLM judge, shown
 anonymised text, tell which texts it wrote? We test this zero-shot, the way
 anonymised judging pipelines use judges, with no examples and no access to
 probabilities. We do not measure whether judges \emph{prefer} their own

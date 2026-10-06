@@ -1,15 +1,15 @@
 % ===========================================================================
-\section{Data collection}
+\section{Data Collection}
 \label{app:data}
 
-\paragraph{Chat-app texts.} 39 argumentative prompts in three levels of
+\paragraph{Chat-app texts} 39 argumentative prompts in three levels of
 difficulty (13 each), answered by each model in its consumer chat app, in a
 fresh conversation with memory and custom instructions off, between 15 June
 and 31 July 2026. One prompt (M5) is excluded because its DeepSeek answer is a
 copy of its Grok answer and its Gemini answer a copy of another prompt's.
 Mean length runs from 324 words (Grok) to 689 (DeepSeek).
 
-\paragraph{API texts.} 120 prompts: 60 essays (the 40 prompts of the
+\paragraph{API texts} 120 prompts: 60 essays (the 40 prompts of the
 original bank, which include the 39 above, and 20 new ones in the same
 format), 20 Python functions with fully specified behaviour, 20 questions
 answered in two to four sentences, and 20 word problems with a numeric
@@ -37,7 +37,7 @@ spend in total? Solve the problem, showing your reasoning step by step in
 plain prose, and end with a final line of the form `Answer: <number>'.
 \end{itemize}
 
-\paragraph{Frontier judges.} Through OpenRouter at temperature 0, with up to
+\paragraph{Frontier judges} Through OpenRouter at temperature 0, with up to
 8,000 output tokens (16,000 for Gemini, whose reasoning counts against the
 limit). Models: \nolinkurl{openai/gpt-5.5}, \nolinkurl{anthropic/claude-opus-4.7},
 \nolinkurl{google/gemini-3.5-flash}, \nolinkurl{x-ai/grok-4.3},
@@ -53,7 +53,7 @@ writing and judging the API texts about \$31, and the two October conditions
 about \$11.
 
 % ===========================================================================
-\section{Judge instructions}
+\section{Judge Instructions}
 \label{app:instructions}
 
 Every request, word for word, with the texts in angle brackets. The frontier
@@ -63,10 +63,10 @@ instructions with their own four names.
 \input{sections/gen_instructions}
 
 % ===========================================================================
-\section{Statistical details}
+\section{Statistical Details}
 \label{app:stats}
 
-\paragraph{Self-advantage.} Each of a judge's texts is judged by every judge
+\paragraph{Self-advantage} Each of a judge's texts is judged by every judge
 in the panel. If the author has no advantage, the judgments on a text are
 interchangeable with respect to which judge counts as ``self''. We therefore
 compute the $p$-value by randomly reassigning the ``self'' label among the
@@ -77,15 +77,15 @@ also fit a logistic regression with errors clustered by prompt and a model
 with random effects for prompt and judge (Table~\ref{tab:clustered}); none
 changes a verdict for Claude, GPT or Grok.
 
-\paragraph{Discrimination.} We randomly reassign, within each lineup (or each
+\paragraph{Discrimination} We randomly reassign, within each lineup (or each
 prompt's set of texts), which text is the judge's own, and compare the
 observed difference between hit and false-alarm rates with this distribution.
 
-\paragraph{Corrections.} Holm's correction is applied across the judges of a
+\paragraph{Corrections} Holm's correction is applied across the judges of a
 panel within each format. The four peer judgments of a text are nearly
 independent (design effect \PeerDeffLineup{} in the lineup).
 
-\paragraph{Skill adjustment.} A judge that is good at attribution in general
+\paragraph{Skill adjustment} A judge that is good at attribution in general
 has an easier time beating its peers. We subtract, for each judge, the
 advantage its peers show over the remaining judges on texts neither wrote.
 This leaves Claude at \ClaudeAdjAdvLineup{}, GPT at \GPTAdjAdvLineup{} and
@@ -95,7 +95,7 @@ Grok at \GrokAdjAdvLineup{} points, and moves Gemini from no difference to
 \input{table_g_clustered}
 
 % ===========================================================================
-\section{Open-weight models}
+\section{Open-Weight Models}
 \label{app:openweight}
 
 Qwen2.5-7B-Instruct, Llama-3.1-8B-Instruct, Mistral-7B-Instruct-v0.3 and
@@ -113,7 +113,7 @@ second sample of others attributes \OWClfCrossSample{} of texts, so each
 model's style is stable across samples.
 
 % ===========================================================================
-\section{Style classifier}
+\section{Style Classifier}
 \label{app:classifier}
 
 A random forest (500 trees) over 18 interpretable features
@@ -130,7 +130,7 @@ open-weight texts at \OWClfPooled{}, from \OWClfMath{} on math to
 \input{table_s_features}
 
 % ===========================================================================
-\section{Additional results}
+\section{Additional Results}
 \label{app:more}
 
 \input{table_x_blame}
@@ -140,7 +140,7 @@ open-weight texts at \OWClfPooled{}, from \OWClfMath{} on math to
 \input{table_g_ow_likelihood}
 
 % ===========================================================================
-\section{Coding the judges' reasons}
+\section{Coding the Judges' Reasons}
 \label{app:rationales}
 
 Each reason was coded with rules (regular expressions) into eleven

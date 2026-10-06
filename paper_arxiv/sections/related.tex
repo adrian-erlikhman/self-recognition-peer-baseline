@@ -1,7 +1,7 @@
-\section{Related work}
+\section{Related Work}
 \label{sec:related}
 
-\paragraph{Self-preference and self-recognition.}
+\paragraph{Self-preference and self-recognition}
 LLM judges rate their own outputs above others'
 \citep{panickssery2024selfpreference, wataoka2024perplexity, ye2025justice}.
 \citet{panickssery2024selfpreference} link this preference to
@@ -24,14 +24,14 @@ open-weight judges. CALM \citep{ye2025justice} uses other judges' scores as a
 reference for quality; we use other judges' attributions as a reference for
 identifiability.
 
-\paragraph{Judging one's own earlier output.}
+\paragraph{Judging one's own earlier output}
 \citet{khullar2026selfattribution} show that a monitor rates an action more
 favourably when it is framed as its own, especially when the monitor
 produced it earlier in the same conversation. Our ``answer first'' condition
 (Section~\ref{sec:onpolicy}) asks whether that position also helps a judge
 recognise its writing.
 
-\paragraph{Attributing text to models.}
+\paragraph{Attributing text to models}
 Supervised classifiers separate model families with high accuracy
 \citep{sun2025stylometric, bitton2025fingerprints, rosenfeld2026whose,
 zaitsu2025stylometry, russell2026storyscope}, even after the words of each
@@ -39,7 +39,7 @@ text are shuffled \citep{sun2025stylometric}. Few-shot LLM judges can
 approach classifier accuracy \citep{dietrich2026splits}; we study the
 zero-shot case.
 
-\paragraph{Watermarks.}
+\paragraph{Watermarks}
 Text watermarks bias token choices using a secret key
 \citep{kirchenbauer2023watermark, dathathri2024synthid}. Google marks text
 from the Gemini app with SynthID-Text, and Anthropic announced watermarking of

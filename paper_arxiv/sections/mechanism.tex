@@ -1,11 +1,11 @@
-\section{What are the judges relying on?}
+\section{Analysis: What Do the Judges Rely On?}
 \label{sec:mechanism}
 
 The texts carry enough information to identify their authors, yet the judges
 mostly fail to use it. We look at what the judges say, and then test four
 explanations of what drives their answers.
 
-\subsection{The reasons judges give}
+\subsection{Stated Reasons}
 \label{sec:rationales}
 
 Every frontier judgment on the chat-app essays came with a one-sentence
@@ -31,7 +31,7 @@ quoted phrases appear in the text in 238 of 245 cases. The reasons describe
 the text correctly; they just do not separate a judge's own text from
 others'.
 
-\subsection{Is the judge matching its own way of writing?}
+\subsection{Similarity to Their Own Writing}
 \label{sec:genmatch}
 
 \citet{wataoka2024perplexity} suggest that a judge favours, and perhaps
@@ -44,7 +44,7 @@ whose answer is most similar to the text (31.9\% of 630 wrong lineup answers,
 against 30.1\% expected), although the same similarity measures identify the
 true author 74--79\% of the time.
 
-\subsection{Is the judge following its own likelihood?}
+\subsection{Their Own Likelihoods}
 \label{sec:likelihood}
 
 With open weights we can read this directly. For every judge and text we
@@ -59,7 +59,7 @@ survives correction; the strongest effect goes the wrong way). A judge does
 not see its peers' likelihoods when it judges, so this information may not be
 usable in practice.
 
-\subsection{Is the judge picking the best text?}
+\subsection{Quality}
 \label{sec:quality}
 
 \citet{stamand2026sgtr} show that a judge can appear to recognise itself by
@@ -74,10 +74,11 @@ peers rate the same texts, no judge rates its own texts higher than it rates
 others' (largest difference \OWQualSelfPrefMax{} points on the 9-point scale,
 every interval including zero).
 
-\subsection{Is the judge reading a watermark?}
+\subsection{Watermarks}
 \label{sec:watermark}
 
-Three observations argue against it. First, deployed watermarks are designed
+Could a judge be reading a watermark its vendor planted? Three observations
+argue against it. First, deployed watermarks are designed
 to be undetectable without a secret key, which the judges do not have.
 Second, the chat-app essays were written between 15 June and 31 July 2026,
 before Anthropic announced watermarking of Claude text in August
@@ -89,3 +90,12 @@ watermark, yet a classifier still attributes them at \OWClfPooled{}: the
 signal is stylistic. (The shuffled-word test of Section~\ref{sec:frontier}
 would also defeat a watermark, but there the judges lost all ability to
 attribute anything, so it cannot separate the two.)
+
+\begin{takeaway}
+\textbf{Takeaway.} The information a judge would need to recognise itself is
+already present, in the text's style and in the judge's own probabilities,
+yet the judges' answers do not track it. Nor do they track similarity to the
+judge's own writing or the quality of the text, and watermarks cannot explain
+the results. The judges' stated reasons suggest stereotypes of each model,
+applied to every text alike.
+\end{takeaway}

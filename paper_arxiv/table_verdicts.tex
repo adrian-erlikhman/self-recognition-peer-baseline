@@ -1,5 +1,6 @@
 \begin{table}[t]
 \centering\small
+\begin{adjustbox}{max width=\linewidth}
 \begin{tabular}{lll}
 \toprule
 Judges, texts, format & Usual test passes & Our test passes \\
@@ -16,6 +17,7 @@ Open-weight, yes/no & Llama, Mistral & -- \\
 Cases flagged & \SVPStd{} of \SVPCells{} & \SVPProper{} of \SVPCells{} \\
 \bottomrule
 \end{tabular}
+\end{adjustbox}
 \caption{Which judges appear to recognise their own text. Usual test: the
 judge names itself on its own text more often than chance (for yes/no: says
 yes to its own text more than half the time). Our test: the judge names itself

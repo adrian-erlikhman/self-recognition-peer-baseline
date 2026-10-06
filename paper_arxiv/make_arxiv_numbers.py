@@ -204,12 +204,12 @@ def openweight_extra(m: list[str]) -> None:
                   mac(f"OW{j}QualPeerOwn", f"{q['peer_rating_of_own']:.2f}")]
     (HERE / "table_g_ow_likelihood.tex").write_text("\n".join([
         r"\begin{table}[t]", r"\centering\small", r"\setlength\tabcolsep{4pt}",
-        r"\begin{tabular}{l rr rr ccc r}", r"\toprule",
+        r"\begin{adjustbox}{max width=\linewidth}", r"\begin{tabular}{l rr rr ccc r}", r"\toprule",
         r" & \multicolumn{2}{c}{With prompt} & \multicolumn{2}{c}{Without prompt}"
         r" & \multicolumn{3}{c}{Claims follow likelihood? $z$ ($p$)} & Self-pref. \\",
         r"\cmidrule(lr){2-3}\cmidrule(lr){4-5}\cmidrule(lr){6-8}",
         r"Judge & Relative & Raw & Relative & Raw & Lineup & Single & Yes/no & (1--9) \\",
-        r"\midrule", *rows, r"\bottomrule", r"\end{tabular}",
+        r"\midrule", *rows, r"\bottomrule", r"\end{tabular}", r"\end{adjustbox}",
         r"\caption{What the open-weight judges' probabilities contain. Left: the "
         r"share of the 120 prompts on which the text a judge finds most likely is "
         r"its own (chance 25\%), measured relative to the other judges or on its "
@@ -244,10 +244,10 @@ def rationales(m: list[str]) -> None:
     head = " & ".join(["GPT", "Cla.", "Gem.", "Grok", "DS"] * 2)
     (HERE / "table_g_cues.tex").write_text("\n".join([
         r"\begin{table}[t]", r"\centering\small", r"\setlength\tabcolsep{4pt}",
-        r"\begin{tabular}{l rrrrr rrrrr}", r"\toprule",
+        r"\begin{adjustbox}{max width=\linewidth}", r"\begin{tabular}{l rrrrr rrrrr}", r"\toprule",
         r" & \multicolumn{5}{c}{Lineup} & \multicolumn{5}{c}{One text at a time} \\",
         r"\cmidrule(lr){2-6}\cmidrule(lr){7-11}",
-        f"Cue cited & {head} \\\\", r"\midrule", *rows, r"\bottomrule", r"\end{tabular}",
+        f"Cue cited & {head} \\\\", r"\midrule", *rows, r"\bottomrule", r"\end{tabular}", r"\end{adjustbox}",
         r"\caption{Cues the frontier judges cite in their one-sentence reasons, as a "
         r"percentage of each judge's 190 reasons per format (multi-label; "
         f"{R['distribution']['lineup']['_mean_cues_per_reason']:.1f} codes per lineup "
@@ -340,7 +340,7 @@ def appendix_prompts() -> None:
     import conditions as C  # noqa: E402
 
     def lst(title: str, body: str) -> list[str]:
-        return [r"\needspace{10\baselineskip}", rf"\paragraph{{{title}.}}\mbox{{}}",
+        return [r"\needspace{10\baselineskip}", rf"\paragraph{{{title}}}\mbox{{}}",
                 r"\begin{lstlisting}", body.strip(), r"\end{lstlisting}"]
 
     names = FRONTIER

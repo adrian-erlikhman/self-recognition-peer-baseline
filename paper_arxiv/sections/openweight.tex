@@ -1,71 +1,60 @@
-\section{Open-weight judges}
+\section{Results: Open-Weight Judges}
 \label{sec:openweight}
 
-The frontier study has three limits: closed models whose probabilities we
-cannot read, vendors that may watermark their text, and few genres. We
-repeat it with four smaller open-weight models, which avoid all three but are
-much weaker judges, so this study says little about frontier models directly.
+The frontier study has three limitations: we cannot read closed models'
+probabilities, vendors may watermark their text, and the chat-app essays cover
+one genre. The open-weight study removes all three, at the cost of much weaker
+judges, so it complements rather than replaces the frontier results.
 
-\subsection{Setup}
-
-\paragraph{Panel and texts.} Qwen2.5-7B (Alibaba), Llama-3.1-8B (Meta),
-Mistral-7B-v0.3 (Mistral AI) and Phi-4-mini (Microsoft), each run in 4-bit on
-a single laptop GPU (Appendix~\ref{app:openweight}). With four candidates,
-chance is 25\%. Each model answered the same 120 prompts as the API texts
-(temperature 0.7), giving 480 texts, plus a second, independent answer to
-every prompt. We generated the texts ourselves from public weights, so none
-carries a watermark.
-
-\paragraph{Formats.} The judges use the lineup and one-text formats with
-their own four names, and answer ``Did you write this text?'' about every
-text in a fresh conversation. Here we read the probability of ``yes'' from
-the model, so we can compute an AUC. Two further conditions follow
-\citet{khullar2026selfattribution}: the judge first answers the prompt
-itself and is then asked the yes/no question about a candidate answer
-(Section~\ref{sec:onpolicy}). We also read each judge's likelihood of every
-text, and had each judge rate every text's quality (Section~\ref{sec:mechanism}).
-
-\subsection{Results}
+\subsection{Lineup, One Text and Yes/No}
 
 \input{table_openweight}
 
-\paragraph{No open-weight judge recognises itself in the lineup.} Qwen and
+\paragraph{No open-weight judge recognises itself in the lineup} Qwen and
 Llama beat their peers (Table~\ref{tab:openweight}), but neither
-discriminates. Qwen names itself on \OWQwenLineupSelf{} of its own texts, but
-also on \OWQwenLineupFA{} of the texts it did not write; Llama names itself
+discriminates. Qwen names itself on \OWQwenLineupSelf{} of its own texts but
+also on \OWQwenLineupFA{} of the texts it did not write, and Llama names itself
 \emph{more} often on others' texts than on its own. Both put their own name on
-much of what they read, which is enough to beat peers who rarely name them.
-Overall lineup accuracy is \OWLineupAcc{}, at chance, even though a style
-classifier attributes these texts at \OWClfPooled{}.
+much of what they read, which is enough to beat peers who rarely name them:
+exactly the false positive the usual check cannot detect. Overall lineup
+accuracy is \OWLineupAcc{}, at chance, even though the style classifier
+attributes the same texts at \OWClfPooled{}.
 
-\paragraph{One text at a time, and asked directly, each judge answers by
-habit.} Shown one text at a time, Qwen names itself on \OWQwenSingleNamesSelf{}
+\paragraph{One text at a time and asked directly, each judge answers by
+habit} Shown one text at a time, Qwen names itself on \OWQwenSingleNamesSelf{}
 of all texts and Llama on every text, whoever wrote them; all four judges have
-a significant self-advantage and none discriminates
-(Appendix~\ref{app:more}). Asked ``Did you write this text?'', Mistral says
-yes to \OWMistralBinaryHit{} of its own texts and \OWMistralBinaryFA{} of
-everyone else's, while Phi says yes to \OWPhiBinaryHit{} and
-\OWPhiBinaryFA{}. Read as self-naming rates, these would rank the judges from
-near-certain self-recognition to none. The AUC, which ignores how readily a
-judge says yes, is at or below chance for all four (0.41 to 0.53); Mistral's
-is reliably \emph{below} chance.
+a significant self-advantage and none discriminates (Appendix~\ref{app:more}).
+Asked ``Did you write this text?'', Mistral says yes to \OWMistralBinaryHit{}
+of its own texts and \OWMistralBinaryFA{} of everyone else's, while Phi says
+yes to \OWPhiBinaryHit{} and \OWPhiBinaryFA{}. Read as self-naming rates, these
+numbers would rank the judges from near-certain self-recognition to none. The
+AUC, which does not depend on how readily a judge says yes, is at or below
+chance for all four (0.41 to 0.53), and Mistral's is reliably \emph{below}
+chance.
 
-\subsection{Answering the task first}
+\subsection{Answering the Task First}
 \label{sec:onpolicy}
 
 \input{table_x_openweight}
 
 \citet{khullar2026selfattribution} find that a monitor's judgment shifts most
-when it evaluates something it produced earlier in the same conversation.
-Does that position help a judge recognise its writing? In the
-\emph{verbatim} condition the judge answers the prompt and is then shown
-either that same answer, word for word, or a peer's answer. Every judge's
-AUC is now above chance (Table~\ref{tab:owyesno}), but this is a low bar,
-since the candidate is a copy of text already in the conversation; Llama's
-AUC is only \OWLlamaOnPolAUC{}. In the \emph{resampled} condition the judge's
-own turn is a fresh answer and the candidate is its other answer or a peer's,
-so recognising it requires recognising its style rather than a copy. Qwen
-and Phi now tell their own answer from peers' (AUC \OWQwenOnPolResAUC{} and
+when it evaluates something it produced earlier in the same conversation. Does
+that position help a judge recognise its writing? When the judge answers the
+prompt and is then shown either that same answer, word for word, or a peer's
+answer, every judge's AUC rises above chance (Table~\ref{tab:owyesno}). This
+is a low bar, since the candidate is a copy of text already in the
+conversation, and Llama's AUC is still only \OWLlamaOnPolAUC{}. The harder
+test shows the judge a \emph{separate} answer of its own, so that recognising
+it requires recognising its style rather than a copy. Here Qwen and Phi tell
+their own answer from peers' (AUC \OWQwenOnPolResAUC{} and
 \OWPhiOnPolResAUC{}), while Llama and Mistral fall reliably \emph{below}
-chance (\OWLlamaOnPolResAUC{} and \OWMistralOnPolResAUC{}). Seeing its own
+chance (\OWLlamaOnPolResAUC{} and \OWMistralOnPolResAUC{}): seeing its own
 answer to the task helps two judges and misleads the other two.
+
+\begin{takeaway}
+\textbf{Takeaway.} Open-weight judges reproduce every failure of the usual
+check: self-advantages without discrimination, self-naming rates driven by
+habit, and yes/no answers driven by disposition. None recognises its own text
+from a fresh conversation, even though a classifier identifies the author of
+\OWClfPooled{} of the same texts.
+\end{takeaway}

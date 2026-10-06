@@ -1,4 +1,4 @@
-\section{What this means for LLM-judge pipelines}
+\section{Implications for LLM-Judge Pipelines}
 \label{sec:recs}
 
 Our results cut both ways, and both matter. The evidence usually offered for
@@ -38,26 +38,26 @@ released code implements these steps.
 \section{Limitations}
 \label{sec:limits}
 
-\paragraph{Sample size.} The chat-app study has 38 texts per judge, so its
+\paragraph{Sample size} The chat-app study has 38 texts per judge, so its
 intervals are wide (Table~\ref{tab:frontier}). The larger API study has 120
 per judge.
 
-\paragraph{Judges.} The open-weight judges are small (4--8 billion
+\paragraph{Judges} The open-weight judges are small (4--8 billion
 parameters, run in 4-bit) and much weaker than frontier models. No frontier
 provider returned token probabilities, so the frontier yes/no results are
 hard answers, and the likelihood, quality and answer-first analyses were run
 on the open-weight judges only.
 
-\paragraph{Texts.} All texts are in English, and every prompt fixes the
+\paragraph{Texts} All texts are in English, and every prompt fixes the
 content of the answer. Dialogue, long documents and other languages are
 untested. The chat-app essays were collected in consumer apps whose hidden
 system prompts and settings we cannot see.
 
-\paragraph{Reasons.} The coding of the judges' reasons was checked against
+\paragraph{Reasons} The coding of the judges' reasons was checked against
 two LLM annotators, both instances of Claude, which is also one of the judges.
 No human labelled them.
 
-\paragraph{Model versions.} Every result describes particular model versions
+\paragraph{Model versions} Every result describes particular model versions
 at particular dates in 2026. Providers update models behind stable names, and
 the DeepSeek endpoint could not be pinned. The audit should be repeated
 whenever a judge changes.

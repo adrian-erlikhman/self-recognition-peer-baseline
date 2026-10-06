@@ -1,0 +1,75 @@
+\section{Experimental Setup}
+\label{sec:setup}
+
+\input{table_x_data}
+
+\subsection{Texts}
+
+We use three sets of texts, summarised in Table~\ref{tab:data}. All are built
+from one bank of prompts designed so that answers to the same prompt differ
+mainly in style: each prompt fixes the topic and the points the answer must
+cover, and essay prompts ask for plain paragraphs with no lists, headers or
+bold (Appendix~\ref{app:data} gives an example of each genre).
+
+\paragraph{Chat-app essays} Five frontier models, GPT-5.5, Claude Opus
+4.7, Gemini 3.5 Flash, Grok 4.3 and DeepSeek's chat model, each answered 39
+argumentative prompts in their consumer chat apps at default settings,
+between 15 June and 31 July 2026. One prompt was dropped because two of its
+answers were corrupted copies, leaving 38 prompts and 190 essays.
+
+\paragraph{API texts} To test whether results hold beyond one small set of
+essays, the same five models answered 120 prompts through the API on 1
+October 2026 (temperature 0.7, no system prompt): 60 essays (including the 38
+above), 20 Python functions, 20 short explanations and 20 math word problems,
+giving 600 texts.
+
+\paragraph{Open-weight texts} Four open-weight models, Qwen2.5-7B
+(Alibaba), Llama-3.1-8B (Meta), Mistral-7B-v0.3 (Mistral AI) and Phi-4-mini
+(Microsoft), answered the same 120 prompts (temperature 0.7), giving 480
+texts, plus a second, independent answer to every prompt. We generated these
+texts ourselves from public weights, so none carries a watermark.
+
+\subsection{Judges}
+
+In each set, the models that wrote the texts are the judges, so ``self''
+always means the same model on both sides. The frontier models judge through
+OpenRouter at temperature~0.\footnote{Six of Claude's 38 chat-app essays were
+written by Claude Sonnet 4.6 rather than Opus 4.7; dropping them leaves
+Claude's lineup self-naming rate at 27 of 32 (84\%). The DeepSeek endpoint
+could not be pinned to a snapshot.} The open-weight models run in 4-bit on a
+single laptop GPU with greedy decoding (Appendix~\ref{app:openweight}). Judges
+are never given examples, and see the prompt only in the answer-first
+condition below. With five candidate
+authors chance is 20\%; with four, 25\%.
+
+\subsection{Question Formats}
+
+Judges answer in the following formats; the exact instructions are in
+Appendix~\ref{app:instructions}.
+\begin{itemize}
+\item \textbf{Lineup.} The judge sees all answers to one prompt, labelled A,
+B, C, \ldots, and names an author for each. It is told it may name the same
+model more than once, and the order of answers is balanced across judges.
+\item \textbf{One text at a time.} The judge sees a single answer and names
+its author from the panel.
+\item \textbf{Yes/no.} The judge is asked ``Did you write this text?'' in a
+fresh conversation. For open-weight judges we read the probability of
+``yes''; no frontier provider returned probabilities, so for frontier judges
+we use the answer itself.
+\item \textbf{Answer first (open-weight only).} Following
+\citet{khullar2026selfattribution}, the judge first answers the prompt
+itself and is then asked the yes/no question about either that same answer, a
+separate answer of its own, or a peer's answer.
+\item \textbf{Shuffled lineup (frontier, chat-app essays only).} The lineup
+again, with every essay's words shuffled, which keeps the vocabulary but
+removes word order and structure.
+\end{itemize}
+
+\subsection{A Reference Classifier}
+
+To measure how much the texts reveal about their authors, we train a random
+forest on 18 simple style features (length, punctuation, vocabulary richness,
+readability), always testing on prompts it was not trained on. It identifies
+the author of \EngineAAcc{} of the chat-app essays (95\% CI \EngineACI{};
+chance \Chance{}) and \OWClfPooled{} of the open-weight texts (chance 25\%),
+more than any judge achieves (Appendix~\ref{app:classifier}).
