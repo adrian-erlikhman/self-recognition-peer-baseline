@@ -41,16 +41,35 @@ does.}
 \label{fig:lead}
 \end{figure}
 
-We apply this test to nine judges. Five frontier models (GPT-5.5, Claude
-Opus 4.7, Gemini 3.5 Flash, Grok 4.3 and DeepSeek) attribute 190 essays they
-wrote in their chat apps, and 600 texts they wrote through the API in four
-genres (essays, Python code, short answers and math word problems). Four
-open-weight models (Qwen2.5-7B, Llama-3.1-8B, Mistral-7B and Phi-4-mini)
-attribute 480 texts they wrote for the same 120 prompts; with their weights we
-can also read how likely each judge finds each text. The judges answer in
-three formats: picking authors for a \emph{lineup} of answers to the same
-prompt, naming the author of \emph{one text at a time}, and answering
-\emph{``Did you write this text?''}.
+We apply this test to nine judges and three sets of texts
+(Table~\ref{tab:data}). We wrote 120 prompts in four genres: essays, Python
+code, short answers and math word problems. Five frontier models (GPT-5.5,
+Claude Opus 4.7, Gemini 3.5 Flash, Grok 4.3 and DeepSeek) answered all 120
+through the API, and had earlier answered 38 of the essay prompts in their
+consumer chat apps. Four open-weight models (Qwen2.5-7B, Llama-3.1-8B,
+Mistral-7B and Phi-4-mini) answered all 120 as well; with their weights we can
+also read how likely each judge finds each text. In every set, the models that
+wrote the texts are the judges. They answer in three formats: picking authors
+for a \emph{lineup} of answers to the same prompt, naming the author of
+\emph{one text at a time}, and answering \emph{``Did you write this text?''}.
+
+\begin{table}[t]
+\centering\small
+\begin{tabular}{l l r l r l}
+\toprule
+Texts & Written by & Prompts & Genres & Texts & Formats judged \\
+\midrule
+Chat-app essays & 5 frontier models, chat apps & 38 & essays & 190 & lineup, one text, yes/no \\
+API texts & 5 frontier models, API & 120 & all four & 600 & lineup, one text \\
+Open-weight texts & 4 open-weight models & 120 & all four & 480 & lineup, one text, yes/no \\
+\bottomrule
+\end{tabular}
+\caption{The three sets of texts. The 38 chat-app prompts are among the 120;
+all 120 are in the repository (\texttt{data/prompts\_v2.csv}), with one
+example per genre in Appendix~\ref{app:data}. In each set, the models that
+wrote the texts also judge them.}
+\label{tab:data}
+\end{table}
 
 \input{table_verdicts}
 
