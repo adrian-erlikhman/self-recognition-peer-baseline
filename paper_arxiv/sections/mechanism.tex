@@ -2,8 +2,9 @@
 \label{sec:mechanism}
 \label{sec:watermark}
 
-Most judges fail to recognise their own texts, and those that succeed do so
-only on some texts. We consider five explanations:
+Most combinations of judge, text set and format do not pass our test, and the
+cases that pass depend on the set of texts. We consider five possible
+explanations:
 \begin{itemize}
 \item the texts contain too little information about their authors;
 \item judges claim texts similar to what they would have written
@@ -54,8 +55,8 @@ For each open-weight judge and text, we compute the mean token log-probability
 of the text under the judge, minus the mean under the other three judges. On
 every prompt, the text with the highest relative likelihood under a judge is the
 judge's own (\OWLikCondAccMin{}; chance 25\%). This is expected, since each text
-was sampled from its author, and it shows that the judge's own probabilities
-contain the information needed to identify its text. Among texts a judge did not
+was sampled from its author, and it shows that relative likelihood is highly
+informative about authorship in this panel. Among texts a judge did not
 write, the texts it claims are not more likely under its model than the texts it
 does not claim: none of the \OWFamTests{} tests is significant after correction,
 and the largest effect is in the opposite direction (Appendix~\ref{app:more}).
@@ -71,8 +72,9 @@ rates its own texts higher than other texts (largest difference
 \OWQualSelfPrefMax{} points, all intervals including zero).
 
 \paragraph{Watermarks}
-Deployed text watermarks cannot be detected without a secret key, which the
-judges do not have. The chat-app essays were written between 15 June and 31 July
+The deployed watermarking schemes we consider are designed around secret keys
+\citep{kirchenbauer2023watermark, dathathri2024synthid}, which the judges were
+not given. The chat-app essays were written between 15 June and 31 July
 2026, before Anthropic announced watermarking of Claude text in August
 \citep{anthropic2026watermark, anthropic2026marking}, so Claude's self-advantage
 on these essays predates any announced Claude watermark. Text from the Gemini app
@@ -94,7 +96,7 @@ self-attributions (Table~\ref{tab:reasons}): when Claude names itself one text a
 a time, it cites hedging in 31 of 33 correct cases and in 12 of 13 incorrect
 ones. Grok and Gemini attribute their own essays to Claude and describe Claude's
 style as ``polished'' and ``elegant'', similar to the preference for frontier
-model families reported by \citet{bai2025selfrecognition}. The reasons are
-mostly accurate descriptions of the texts, but each judge applies the same
+model families reported by \citet{bai2025selfrecognition}. The reasons
+often plausibly describe surface properties of the texts, but each judge applies the same
 description of a model to all texts, so the reasons do not separate its own
 texts from others'.

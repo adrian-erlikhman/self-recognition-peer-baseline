@@ -7,41 +7,44 @@ We evaluated self-recognition in nine LLM judges on three sets of texts and in
 three question formats. The standard test, a self-naming rate above chance,
 detects self-recognition in \SVPStd{} cases, and \SVPProper{} of these also
 show a self-advantage over the peer baseline and discrimination against the
-false-alarm rate. In these cases the effect is large: Claude and GPT exceed
-their peer baselines by 33 and 28 points on the chat-app essays. The same
-judges show no significant self-advantage on 600 API texts, and the question
-format determines whether a judge names itself at all. The texts and the open-weight
-judges' likelihoods contain enough information to identify authors, but the
-judges' answers do not track this information.
+false-alarm rate. The largest effects are in the lineup, where Claude and GPT
+exceed their peer baselines by 33 and 28 points on the chat-app essays. The
+same judges do not pass our test on 600 API texts, and the question format
+determines whether a judge names itself at all. Both stylometric features and
+the open-weight judges' likelihoods are strongly informative about authorship,
+but the judges' explicit attributions align poorly with these signals.
 
 \paragraph{Implications}
-Our results indicate that self-recognition is a property of a judge, a set of
-texts and a question format, and that it cannot be established for a model in
-general. A judge that shows no self-recognition on one benchmark may show it on
-another, and a model update may change the result. Prior work on
-self-preference often assumes that judges recognise their own outputs. For most
-of the judges we tested, this assumption does not hold, which agrees with
-\citet{davidson2024anonymized} and \citet{bai2025selfrecognition}; their
-self-preference is likely to have other causes. For the judges that do recognise their
+Our results suggest that measured self-recognition depends jointly on the
+judge, the texts it evaluates and the question format, so a result on one
+benchmark may not hold for the same model in general. A judge that shows no
+self-recognition on one benchmark may show it on another, and a model update
+may change the result. Prior work on self-preference often assumes that judges
+recognise their own outputs. We find little evidence for this assumption in
+most of the conditions we tested, consistent with
+\citet{davidson2024anonymized} and \citet{bai2025selfrecognition}.
+Self-recognition should therefore not be assumed to explain self-preference
+without a separate attribution test. For the judges that do recognise their
 own texts, anonymisation does not prevent self-preference, and the standard test
 does not distinguish these judges from those that only appear to recognise
 themselves.
 
 \paragraph{Recommendations}
 (1)~Report the false-alarm rate and the peer baseline alongside the self-naming
-rate, and claim self-recognition only for judges that both discriminate and
-exceed their peer baseline. (2)~Use the lineup format rather than the one-text
+rate, and require evidence of both discrimination and a self-advantage before
+interpreting a high self-naming rate as self-recognition. (2)~Use the lineup format rather than the one-text
 format, in which attributions concentrate on one or two models. Use a yes/no
 question only for judges whose answers vary across texts. (3)~Evaluate each
 judge on the kind of text it will judge, and repeat the evaluation when the judge
-or the texts change. (4)~Do not infer what drives a judge's answers from its
-stated reasons, which are the same for correct and incorrect self-attributions.
+or the texts change. (4)~Do not treat stated reasons alone as evidence of what drives
+attribution; in our data they are the same for correct and incorrect
+self-attributions.
 Our released code implements this procedure.
 
 \paragraph{Future work}
 Because the texts contain authorship information that current judges do not
-use, self-recognition could increase if judges are trained to use stylistic or
-likelihood features, given few-shot examples \citep{dietrich2026splits}, or
+use, future judges may show stronger self-recognition if they are trained to
+use stylistic or likelihood features, given few-shot examples \citep{dietrich2026splits}, or
 given access to their own probabilities. Self-recognition should therefore be
 measured again for new model versions. The test applies directly to pairwise
 preference judgments and to safety monitoring, and can be extended to longer and

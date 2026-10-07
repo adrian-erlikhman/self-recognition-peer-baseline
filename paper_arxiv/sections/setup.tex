@@ -2,9 +2,9 @@
 \label{sec:setup}
 
 We use a cross-evaluation design: each model writes texts and also judges the
-texts of all models in its panel, including its own. For every judge we can
-then compare its answers on its own texts, its answers on other models' texts,
-and the answers of the other judges on its texts.
+texts of all models in its panel, including its own. For every judge, this
+gives its self-attributions on its own texts, its self-attributions on other
+models' texts, and its peers' attributions on its texts.
 
 \paragraph{Models}
 We evaluate two panels. The frontier panel consists of GPT-5.5, Claude Opus
@@ -22,8 +22,8 @@ DeepSeek endpoint could not be pinned to a fixed snapshot.}
 
 \paragraph{Texts}
 Table~\ref{tab:data} summarises the three sets of texts. Each prompt specifies
-the topic and the points the answer must cover, so that answers to the same
-prompt differ mainly in style, and essay prompts ask for plain paragraphs
+the topic and the points the answer must cover, to reduce variation in content
+across answers to the same prompt, and essay prompts ask for plain paragraphs
 without lists, headers or bold text (examples in Appendix~\ref{app:data}). The
 chat-app essays are 190 answers by the five frontier models to 38 argumentative
 prompts, written in each model's consumer chat app between 15 June and 31 July
@@ -58,9 +58,10 @@ judge's texts that the other judges attribute to it. \emph{Discrimination} is
 the self-naming rate minus the false-alarm rate, and \emph{self-advantage} is
 the self-naming rate minus the peer baseline. The standard test asks whether the
 self-naming rate exceeds chance. Our test requires a positive discrimination
-and a positive self-advantage, both statistically significant. A judge that
-discriminates can identify its own texts and therefore defeats anonymisation; a
-judge with a self-advantage identifies its own texts more often than other
+and a positive self-advantage, both statistically significant. Positive
+discrimination indicates that the judge distinguishes its own texts from
+others', which weakens the protection anonymisation provides; a positive
+self-advantage indicates that it identifies its own texts more often than other
 judges do. Under random guessing all three rates equal chance (20\% with five
 candidates, 25\% with four) and both differences are zero. For open-weight
 judges in the yes/no format we also report the AUC of the probability of

@@ -3,10 +3,6 @@
 \label{sec:frontier}
 \label{sec:openweight}
 
-We first compare the standard test with ours across all cases, then report the
-frontier judges on the chat-app essays and the API texts, and finally the
-open-weight judges.
-
 \input{table_verdicts}
 
 \paragraph{Agreement between the two tests}
@@ -14,8 +10,8 @@ Table~\ref{tab:verdicts} applies both tests to every combination of judge, text
 set and format. The standard test detects self-recognition in \SVPStd{} of
 \SVPCells{} cases and our test in \SVPProper{}. In the other \SVPFalse{} cases,
 the judge either names itself on a large share of all texts or is named on its
-texts as often by its peers as by itself. Our test did not detect
-self-recognition in any case that the standard test missed.
+texts as often by its peers as by itself. Every case that passes our test also
+passes the standard test.
 
 \input{table_frontier}
 
@@ -52,8 +48,8 @@ DeepSeek almost none. The dashed line marks a uniform distribution (20\%).}
 \paragraph{One-text format, chat-app essays}
 When essays are shown one at a time, \SingleConcentration{} of attributions name
 GPT or Claude (Figure~\ref{fig:guess}), as in \citet{bai2025selfrecognition}.
-Gemini, Grok and DeepSeek never name themselves, so the format provides no
-measurement for these judges. GPT's self-naming rate rises to \GPTSelfSingle{},
+Gemini, Grok and DeepSeek never name themselves, so this format provides no
+useful measure of discrimination for these judges. GPT's self-naming rate rises to \GPTSelfSingle{},
 and its false-alarm rate to 52\%. Claude's self-naming rate stays at
 \ClaudeSelfSingle{}, but its peer baseline rises to \ClaudePeerSingle{}, and its
 self-advantage falls to \ClaudeAdvSingle{} points
@@ -80,8 +76,8 @@ text and Phi for almost none, regardless of authorship.}
 
 \paragraph{Yes/no format, chat-app essays}
 GPT, Grok and DeepSeek answer no for all 190 essays, including their own 38
-(Figure~\ref{fig:yes-frontier}). Gemini answers yes twice, both times for essays
-it did not write. We refer to this behaviour as \emph{self-denial}. Claude
+(Figure~\ref{fig:yes-frontier}), although all three name themselves in the
+lineup. Gemini answers yes twice, both times for essays it did not write. Claude
 answers yes for \FBClaudeHitK{} of its own essays and \FBClaudeFAK{} of other
 models' essays, a discrimination of \FBClaudeDisc{} points (Holm
 $p=$~\FBClaudeHolm{}). GPT, which names itself on 95\% of its own essays in the
@@ -100,8 +96,8 @@ with the chat-app essays, the self-advantages of Claude and GPT are smaller
 (\FXOldClaudeLineupAdv{} and \FXOldGPTLineupAdv{} points) and not significant.
 Claude's discrimination is largest on essays and near zero on math problems,
 where answers to the same problem share most of their wording
-(Appendix~\ref{app:more}). A result obtained on one set of texts therefore does
-not predict the result on another set from the same models.
+(Appendix~\ref{app:more}). The chat-app results for Claude and GPT therefore do
+not replicate consistently on a second set of texts from the same models.
 
 \input{table_openweight}
 
@@ -126,8 +122,9 @@ attributes \OWClfPooled{} of the same texts.
 \label{sec:onpolicy}
 When a judge first answers the prompt and is then asked about either that same
 answer or a peer's answer, every judge's AUC is above chance
-(Table~\ref{tab:owyesno}). Because the candidate is a copy of text already in
-the conversation, this is an easy test, and Llama's AUC is only
+(Table~\ref{tab:owyesno}). Because the candidate exactly repeats text already in
+the conversation, this condition mainly tests matching within the context
+rather than recognition of style. Even so, Llama's AUC is only
 \OWLlamaOnPolAUC{}. When the candidate is instead a separately sampled answer
 by the judge, Qwen and Phi distinguish it from peers' answers (AUC
 \OWQwenOnPolResAUC{} and \OWPhiOnPolResAUC{}), while Llama and Mistral are
