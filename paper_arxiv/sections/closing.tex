@@ -1,85 +1,86 @@
-\section{Concluding Discussion}
+\section{Discussion}
 \label{sec:conclusion}
 \label{sec:recs}
 \label{sec:limits}
 
-Our study evaluates self-recognition in nine LLM judges across three sets of
-texts and three question formats. The usual test, a self-naming rate above
-chance, flags self-recognition in \SVPStd{} cases, and only \SVPProper{} survive
-a peer baseline and a false-alarm rate. Where self-recognition does exist, it
-is large and invisible to anyone who looks at only one format or one set of
-texts: Claude and GPT beat their peers by 33 and 28 points on chat-app essays
-but not on 600 API texts, and the question format alone produces self-denial in
-some judges and over-attribution in others. The information a judge would need
-to recognise itself is already in the text and in its own probabilities, yet
-the judges' answers do not follow it. Our contribution is not to declare
-anonymisation safe or broken, but to provide a test that separates the two and
-can be applied to any judging pipeline.
+We evaluated self-recognition in nine LLM judges on three sets of texts and in
+three question formats. The standard test, a self-naming rate above chance,
+detects self-recognition in \SVPStd{} cases, and \SVPProper{} of these also
+show a self-advantage over the peer baseline and discrimination against the
+false-alarm rate. In these cases the effect is large: Claude and GPT exceed
+their peer baselines by 33 and 28 points on the chat-app essays. The same
+judges show no significant self-advantage on 600 API texts, and the question
+format determines whether a judge names itself at all. The texts and the open-weight
+judges' likelihoods contain enough information to identify authors, but the
+judges' answers do not track this information.
 
 \paragraph{Implications}
-Self-recognition is not a fixed trait of a model that can be certified once. It
-depends on the judge, the texts and the question, so a judge that passes an
-audit on one benchmark may leak on another, and a model update may change the
-answer. Much of the work on self-preference assumes that judges recognise
-their own outputs; our results suggest that, for most judges, the preference
-must come from elsewhere, consistent with \citet{davidson2024anonymized} and
-\citet{bai2025selfrecognition}. For the judges that do recognise themselves,
-however, anonymisation offers no protection, and the usual test cannot tell
-these judges from the many that merely appear to.
+Our results indicate that self-recognition is a property of a judge, a set of
+texts and a question format, and that it cannot be established for a model in
+general. A judge that shows no self-recognition on one benchmark may show it on
+another, and a model update may change the result. Prior work on
+self-preference often assumes that judges recognise their own outputs. For most
+of the judges we tested, this assumption does not hold, which agrees with
+\citet{davidson2024anonymized} and \citet{bai2025selfrecognition}; their
+self-preference is likely to have other causes. For the judges that do recognise their
+own texts, anonymisation does not prevent self-preference, and the standard test
+does not distinguish these judges from those that only appear to recognise
+themselves.
 
 \paragraph{Recommendations}
-We recommend four practices. (1)~Report the self-naming rate together with the
-false-alarm rate and the peer baseline, which come from the same experiment,
-and claim self-recognition only if a judge both discriminates and beats its
-peers. (2)~Prefer a lineup to the one-text format, in which judges collapse onto
-one or two names; use a yes/no question only if a judge's answers vary.
-(3)~Measure each judge on the kind of text it will judge, and repeat the audit
-when the judge or the texts change. (4)~Do not infer the mechanism from the
-judges' stated reasons, which are the same for right and wrong self-attributions.
-Our released code implements this audit.
+(1)~Report the false-alarm rate and the peer baseline alongside the self-naming
+rate, and claim self-recognition only for judges that both discriminate and
+exceed their peer baseline. (2)~Use the lineup format rather than the one-text
+format, in which attributions concentrate on one or two models. Use a yes/no
+question only for judges whose answers vary across texts. (3)~Evaluate each
+judge on the kind of text it will judge, and repeat the evaluation when the judge
+or the texts change. (4)~Do not infer what drives a judge's answers from its
+stated reasons, which are the same for correct and incorrect self-attributions.
+Our released code implements this procedure.
 
-\paragraph{Future directions}
-The gap between what the texts reveal and what judges use suggests that
-self-recognition could grow quickly if judges learned to use stylistic or
-likelihood cues, through training, few-shot examples \citep{dietrich2026splits}
-or access to their own probabilities. Tracking self-recognition across model
-versions is therefore as important as measuring it once. Our test extends
-directly to other judging tasks, such as pairwise preference and safety
-monitoring, and to longer and multilingual texts. Interpretability work on the
-representations behind self-attribution \citep{ackerman2025inspection} could
-show why some judges discriminate on some genres and not others.
+\paragraph{Future work}
+Because the texts contain authorship information that current judges do not
+use, self-recognition could increase if judges are trained to use stylistic or
+likelihood features, given few-shot examples \citep{dietrich2026splits}, or
+given access to their own probabilities. Self-recognition should therefore be
+measured again for new model versions. The test applies directly to pairwise
+preference judgments and to safety monitoring, and can be extended to longer and
+non-English texts. Analysis of model representations
+\citep{ackerman2025inspection} may explain why some judges discriminate on some
+genres but not on others.
 
 \paragraph{Limitations}
-The chat-app essays contain only 38 texts per judge, so their intervals are
-wide; the API texts have 120 per judge. The open-weight judges are small (4--8
-billion parameters, run in 4-bit) and much weaker than frontier models. No
-frontier provider returned token probabilities, so the frontier yes/no results
-are hard answers, and the likelihood, quality and answer-first analyses cover
-the open-weight judges only. All texts are in English and every prompt fixes the
-content of the answer. The chat-app essays were collected in consumer apps whose
-hidden system prompts we cannot see. The coding of the judges' reasons was
-checked against two LLM annotators, both instances of Claude, which is also a
-judge. Finally, every result describes particular model versions at particular
-dates in 2026; providers update models behind stable names, and the DeepSeek
-endpoint could not be pinned.
+The chat-app essays include only 38 texts per judge, so their confidence
+intervals are wide; the API texts include 120 per judge. The open-weight judges
+have 4 to 8 billion parameters, run with 4-bit weights, and are much weaker
+attributors than frontier models. No frontier provider returned token
+probabilities, so the frontier yes/no results are based on discrete answers, and
+the likelihood, quality and answer-first analyses cover only the open-weight
+judges. All texts are in English, and every prompt specifies the content of the
+answer. The chat-app essays were collected in consumer applications whose system
+prompts we cannot observe. The rule-based coding of the judges' reasons was
+validated against two LLM annotators, both instances of Claude, which is also one
+of the judges, and not against human annotators. Finally, all results refer to
+specific model versions in 2026; providers update models under the same names,
+and the DeepSeek endpoint could not be pinned to a snapshot.
 
 \section*{Acknowledgments}
 We thank Ryan Erlikhman for his work on an earlier version of this study.
 
 \section*{Reproducibility Statement}
-Section~\ref{sec:setup} describes how we built the texts and called the models,
-Appendix~\ref{app:data} gives the collection details, and
-Appendix~\ref{app:instructions} reproduces every instruction given to a judge.
+Section~\ref{sec:setup} describes how the texts were collected and how the
+models were queried. Appendix~\ref{app:data} gives further collection details,
+and Appendix~\ref{app:instructions} lists every instruction given to the judges.
 All texts, prompts, judgments with their reasons, archived API responses,
 open-weight likelihoods and quality ratings, and the analysis code are available
-at \CodeURL{}. Every number in the paper is generated from those files, and none
+at \CodeURL{}. All numbers in the paper are generated from these files, and none
 of the analyses requires an API key.
 
 \section*{Ethics Statement}
-The study involves no human subjects or personal data: every text was written
-by a language model in response to our prompts. The frontier texts were
-collected through the providers' apps and APIs under their terms of use, and the
-open-weight models were run under their licences. We name the judges that
-recognise their own text so that practitioners can account for them; the
-results describe specific model versions and should not be read as permanent
-properties of a vendor's models.
+The study involves no human participants or personal data; all texts were
+written by language models in response to our prompts. Frontier texts were
+collected through the providers' applications and APIs under their terms of use,
+and the open-weight models were used under their licences. We name the judges
+that recognise their own texts so that practitioners can take this into account.
+The results apply to specific model versions and may not hold for later
+versions of the same models.

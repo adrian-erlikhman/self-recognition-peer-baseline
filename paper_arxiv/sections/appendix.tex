@@ -1,7 +1,7 @@
 \section{Additional Results}
 \label{app:more}
 
-This section collects the full results behind Sections~\ref{sec:results}
+This appendix gives the full results for Sections~\ref{sec:results}
 and~\ref{sec:mechanism}. Table~\ref{tab:fshuffle} gives every frontier judge on
 the word-shuffled essays. Table~\ref{tab:blame} shows how often each model is
 named and how accurate each judge is on others' text. Tables~\ref{tab:fxgenre}
@@ -18,7 +18,7 @@ likelihoods contain and whether their claims follow them.
 \input{table_openweight_genre}
 \input{table_g_ow_likelihood}
 
-\section{Additional Reasoning Analysis}
+\section{Coding of Judge Reasons}
 \label{app:rationales}
 
 Each reason was coded with rules (regular expressions) into eleven
@@ -34,10 +34,10 @@ each judge cites each cue.
 
 \input{table_g_cues}
 
-\section{Task Design}
+\section{Data Collection}
 \label{app:data}
 
-\paragraph{Chat-app texts} 39 argumentative prompts in three levels of
+\paragraph{Chat-app essays} 39 argumentative prompts in three levels of
 difficulty (13 each), answered by each model in its consumer chat app, in a
 fresh conversation with memory and custom instructions off, between 15 June
 and 31 July 2026. One prompt (M5) is excluded because its DeepSeek answer is a
@@ -87,7 +87,7 @@ Judging the chat-app essays in the first two formats cost \CostStudyOne{},
 writing and judging the API texts about \$31, and the two October conditions
 about \$11.
 
-\section{Evaluation Prompts}
+\section{Judge Instructions}
 \label{app:instructions}
 
 Every request, word for word, with the texts in angle brackets. The frontier
@@ -118,8 +118,8 @@ observed difference between hit and false-alarm rates with this distribution.
 panel within each format. The four peer judgments of a text are nearly
 independent (design effect \PeerDeffLineup{} in the lineup).
 
-\paragraph{Skill adjustment} A judge that is good at attribution in general
-has an easier time beating its peers. We subtract, for each judge, the
+\paragraph{Skill adjustment} A judge with high overall attribution accuracy
+is more likely to exceed its peer baseline. We subtract, for each judge, the
 advantage its peers show over the remaining judges on texts neither wrote.
 This leaves Claude at \ClaudeAdjAdvLineup{}, GPT at \GPTAdjAdvLineup{} and
 Grok at \GrokAdjAdvLineup{} points, and moves Gemini from no difference to
@@ -149,8 +149,8 @@ model's style is stable across samples.
 
 A random forest (500 trees) over 18 interpretable features
 (Table~\ref{tab:features}), evaluated with five-fold cross-validation in
-which no prompt appears in both training and test data. Length matters: the
-models' essays differ in length by a factor of two. With every length-related
+which no prompt appears in both training and test data. Mean essay length
+differs by a factor of about two across models. With every length-related
 feature removed, a logistic regression still reaches
 \EngineALengthFreeLR{}; with every text cut to the shortest in its prompt
 group, the full feature set still reaches 67\% while a length-only

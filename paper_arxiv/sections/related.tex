@@ -1,49 +1,48 @@
-\section{Additional Related Work}
+\section{Related Work}
 \label{sec:related}
 
-In this section, we provide additional context on self-preference in LLM
-judges, prior measurements of self-recognition, and attribution of text to
-models.
-
 \paragraph{Self-preference in LLM judges}
-LLM judges rate their own outputs above others'
+LLM judges rate their own outputs above those of other models
 \citep{panickssery2024selfpreference, wataoka2024perplexity, ye2025justice},
-and their biases shift with format and position \citep{shi2025positionbias,
-roytburg2026narcissists}. \citet{panickssery2024selfpreference} tie this
-preference to self-recognition through fine-tuning, and
-\citet{wataoka2024perplexity} to familiarity: judges favour text that is
-predictable to them, which their own text usually is. CALM \citep{ye2025justice}
-scores self-enhancement against the scores other judges give the same answer, a
-peer reference for quality; we apply the same idea to authorship.
+and their biases change with question format and answer position
+\citep{shi2025positionbias, roytburg2026narcissists}.
+\citet{panickssery2024selfpreference} relate this preference to
+self-recognition through fine-tuning experiments.
+\citet{wataoka2024perplexity} relate it to familiarity: judges prefer text with
+low perplexity under their own model, which their own text usually has. CALM
+\citep{ye2025justice} compares a judge's score for its own answer with the
+scores other judges give the same answer. We use the same kind of comparison
+for authorship rather than quality.
 
-\paragraph{Empirical results on self-recognition}
-Existing evidence is mixed. \citet{ackerman2025inspection} locate a
-self-recognition direction in Llama-3-8B-Instruct, and \citet{zhou2025implicit}
-find that models recognise their own text in pairs but not alone.
+\paragraph{Measurements of self-recognition}
+\citet{ackerman2025inspection} identify a direction in the activations of
+Llama-3-8B-Instruct associated with self-recognition, and
+\citet{zhou2025implicit} find that models recognise their own text when it is
+paired with another text but not when it is shown alone.
 \citet{davidson2024anonymized} find no consistent self-recognition in
-anonymised panels, \citet{bai2025selfrecognition} find accuracy near chance with
-predictions concentrated on GPT and Claude, and \citet{laine2024sad} include
-self-recognition in a situational-awareness benchmark.
-\citet{stamand2026sgtr} show that picking the better text as one's own can
-masquerade as self-recognition, and \citet{barkhordar2026stylenotself} show for
-code that raw accuracy mostly reflects how readily a model claims authorship.
-We extend this line of work with a peer baseline, a comparison of question
-formats on identical texts, four genres, and likelihoods for open-weight
-judges. \citet{khullar2026selfattribution} show that a monitor rates its own
-earlier actions more favourably within a conversation; our answer-first
-condition tests whether that position also helps a judge recognise its writing.
+anonymised panels. \citet{bai2025selfrecognition} report accuracy near chance
+for ten models, with most predictions naming GPT or Claude, and
+\citet{laine2024sad} include self-recognition in a benchmark of situational
+awareness. \citet{stamand2026sgtr} show that choosing the better of two texts
+can produce apparent self-recognition, and \citet{barkhordar2026stylenotself}
+show that attribution accuracy for code mainly reflects how often a model
+claims authorship. Our study adds a peer baseline, compares question formats
+on the same texts, covers four genres, and uses the likelihoods of open-weight
+judges. \citet{khullar2026selfattribution} find that monitors rate their own
+earlier actions in a conversation more favourably; our answer-first condition
+tests whether this position also helps a judge recognise its writing.
 
-\paragraph{Attributing text to models}
-Supervised classifiers separate model families with high accuracy
+\paragraph{Authorship attribution for LLM text}
+Supervised classifiers distinguish model families with high accuracy
 \citep{sun2025stylometric, bitton2025fingerprints, rosenfeld2026whose,
-zaitsu2025stylometry, russell2026storyscope}, even after the words of each text
-are shuffled \citep{sun2025stylometric}, and few-shot LLM judges can approach
-classifier accuracy \citep{dietrich2026splits}. We study the zero-shot case,
-which is how anonymised judging pipelines use judges.
+zaitsu2025stylometry, russell2026storyscope}, including after the words of each
+text are shuffled \citep{sun2025stylometric}. Few-shot LLM judges can approach
+the accuracy of such classifiers \citep{dietrich2026splits}. We study zero-shot
+judges, as used in anonymised evaluation pipelines.
 
-\paragraph{Watermarks}
-Text watermarks bias token choices using a secret key
-\citep{kirchenbauer2023watermark, dathathri2024synthid}. Google marks text from
-the Gemini app with SynthID-Text, and Anthropic announced watermarking of Claude
-text in August 2026 \citep{anthropic2026watermark}. We discuss whether judges
-could be reading a watermark in Section~\ref{sec:mechanism}.
+\paragraph{Text watermarking}
+Watermarking methods bias token selection using a secret key
+\citep{kirchenbauer2023watermark, dathathri2024synthid}. Google applies
+SynthID-Text to text from the Gemini app, and Anthropic announced watermarking
+of Claude text in August 2026 \citep{anthropic2026watermark}. Section~\ref{sec:mechanism}
+discusses whether judges could be detecting watermarks.

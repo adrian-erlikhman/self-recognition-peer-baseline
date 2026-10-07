@@ -3,36 +3,34 @@
 \label{sec:frontier}
 \label{sec:openweight}
 
-Our evaluation shows that most apparent self-recognition in LLM judges is an
-artefact of the measurement. Three findings emerge. First, the usual test flags
-self-recognition far more often than our test confirms it. Second, genuine
-self-recognition exists but depends on the texts and the question format.
-Third, open-weight judges reproduce every failure of the usual test.
+We first compare the standard test with ours across all cases, then report the
+frontier judges on the chat-app essays and the API texts, and finally the
+open-weight judges.
 
 \input{table_verdicts}
 
-\paragraph{The usual test mostly flags self-recognition that is not there}
-Table~\ref{tab:verdicts} applies both tests to every judge, set of texts and
-format. The usual test finds self-recognition in \SVPStd{} of \SVPCells{}
-cases; only \SVPProper{} pass our test. The other \SVPFalse{} are judges that
-put their own name on much of what they read, or whose peers name them just as
-often. The errors run one way: in no case did our test find self-recognition
-that the usual test missed.
+\paragraph{Agreement between the two tests}
+Table~\ref{tab:verdicts} applies both tests to every combination of judge, text
+set and format. The standard test detects self-recognition in \SVPStd{} of
+\SVPCells{} cases and our test in \SVPProper{}. In the other \SVPFalse{} cases,
+the judge either names itself on a large share of all texts or is named on its
+texts as often by its peers as by itself. Our test did not detect
+self-recognition in any case that the standard test missed.
 
 \input{table_frontier}
 
-\paragraph{In the lineup, Claude and GPT genuinely recognise their own essays}
-On the chat-app essays, Claude names itself on 33 of its 38 essays (87\%) and
-on only 14 of the 152 essays it did not write (9\%), while its peers name
-Claude on 54\% of Claude's essays (Table~\ref{tab:frontier},
-Figure~\ref{fig:lead-lineup}). Its self-advantage is \ClaudeAdvLineup{} points
-\ClaudeAdvLineupCI{}; GPT's is \GPTAdvLineup{} \GPTAdvLineupCI{}. Both
-discriminate, so these are genuine leaks that anonymisation does not stop.
-DeepSeek and Gemini show no advantage, and Grok does significantly \emph{worse}
-on its own essays than its peers do (\GrokAdvLineup{} \GrokAdvLineupCI{}),
-naming itself on only 2 of 38. The verdicts for Claude, GPT and Grok hold under
-mixed-effects models and after adjusting for each judge's general skill at
-attribution (Appendix~\ref{app:stats}).
+\paragraph{Lineup format, chat-app essays}
+Claude names itself on 33 of its 38 essays (87\%) and on 14 of the 152 essays it
+did not write (9\%); the other judges name Claude on 54\% of Claude's essays
+(Table~\ref{tab:frontier}, Figure~\ref{fig:lead-lineup}). Claude's
+self-advantage is \ClaudeAdvLineup{} points \ClaudeAdvLineupCI{} and GPT's is
+\GPTAdvLineup{} \GPTAdvLineupCI{}. Both judges have false-alarm rates near
+10\%, so both also discriminate. DeepSeek and Gemini have no significant
+self-advantage. Grok names itself on 2 of its 38 essays, and its self-advantage
+is significantly negative (\GrokAdvLineup{} \GrokAdvLineupCI{}). The results
+for Claude, GPT and Grok are unchanged in mixed-effects models and after
+adjusting for each judge's overall attribution accuracy
+(Appendix~\ref{app:stats}).
 
 \begin{figure}[t]
 \centering
@@ -44,24 +42,23 @@ attribution (Appendix~\ref{app:stats}).
 \includegraphics[width=\linewidth]{figures/guess_single.pdf}
 \caption{One text at a time}\label{fig:guess-single}
 \end{subfigure}
-\caption{Share of all 950 guesses on the chat-app essays that name each model.
-In the lineup, guesses are spread evenly; one text at a time, GPT and Claude
-receive \SingleConcentration{} of them, and Gemini, Grok and DeepSeek almost
-none. The dashed line is the 20\% expected under uniform guessing.}
+\caption{Share of the 950 attributions on the chat-app essays that name each
+model. In the lineup the shares are close to uniform. One text at a time, GPT
+and Claude receive \SingleConcentration{} of attributions and Gemini, Grok and
+DeepSeek almost none. The dashed line marks a uniform distribution (20\%).}
 \label{fig:guess}
 \end{figure}
 
-\paragraph{One text at a time, predictions collapse onto GPT and Claude}
-Shown a single essay, the judges send \SingleConcentration{} of their guesses
-to GPT or Claude (Figure~\ref{fig:guess}), consistent with
-\citet{bai2025selfrecognition}. Gemini, Grok and DeepSeek never name themselves
-at all, so for them this format measures nothing. GPT's self-naming rate rises
-to \GPTSelfSingle{}, but it also names itself on half of the essays it did not
-write. Claude keeps its self-naming rate (\ClaudeSelfSingle{}) but loses its
-self-advantage (\ClaudeAdvSingle{}), because its peers now name Claude on
-\ClaudePeerSingle{} of Claude's essays (Figure~\ref{fig:lead-single}). The same
-judges on the same essays give a very different answer, and the peer baseline
-is informative only when judges spread their guesses.
+\paragraph{One-text format, chat-app essays}
+When essays are shown one at a time, \SingleConcentration{} of attributions name
+GPT or Claude (Figure~\ref{fig:guess}), as in \citet{bai2025selfrecognition}.
+Gemini, Grok and DeepSeek never name themselves, so the format provides no
+measurement for these judges. GPT's self-naming rate rises to \GPTSelfSingle{},
+and its false-alarm rate to 52\%. Claude's self-naming rate stays at
+\ClaudeSelfSingle{}, but its peer baseline rises to \ClaudePeerSingle{}, and its
+self-advantage falls to \ClaudeAdvSingle{} points
+(Figure~\ref{fig:lead-single}). The peer baseline is informative only when
+judges distribute their attributions across models.
 
 \begin{figure}[t]
 \centering
@@ -73,70 +70,65 @@ is informative only when judges spread their guesses.
 \includegraphics[width=\linewidth]{figures/yes_open.pdf}
 \caption{Open-weight judges}\label{fig:yes-open}
 \end{subfigure}
-\caption{Share of texts on which a judge answers ``yes'' to ``Did you write
-this text?'', for its own texts and for others'. Figure~\ref{fig:yes-frontier}
-shows self-denial: GPT, Grok and DeepSeek say no to every essay, and only
-Claude ever claims its own. Figure~\ref{fig:yes-open} shows that open-weight
-judges answer by disposition: Mistral says yes to nearly everything and Phi to
-nearly nothing, own text or not.}
+\caption{Share of texts for which a judge answers ``yes'' to ``Did you write
+this text?'', separately for its own texts and for other models' texts.
+(a) GPT, Grok and DeepSeek answer no for every essay; Claude is the only judge
+that answers yes for its own essays. (b) Mistral answers yes for almost every
+text and Phi for almost none, regardless of authorship.}
 \label{fig:yes}
 \end{figure}
 
-\paragraph{Asked directly, most frontier judges deny authorship}
-Asked ``Did you write this text?'' about each of the 190 essays, GPT, Grok and
-DeepSeek answer ``No'' to all of them, including their own 38
-(Figure~\ref{fig:yes-frontier}). Gemini says yes twice, both times to essays it
-did not write. We describe this as \emph{self-denial}: these judges exclude
-themselves from consideration altogether. Only Claude ever claims its own
-text: it says yes to \FBClaudeHitK{} of its own essays and \FBClaudeFAK{} of
-others', so it discriminates (\FBClaudeDisc{} points, Holm
-$p=$~\FBClaudeHolm{}) while also claiming half of what it did not write.
-Strikingly, GPT, which names itself on 95\% of its own essays when given five
-names to choose from, never claims one when asked directly.
+\paragraph{Yes/no format, chat-app essays}
+GPT, Grok and DeepSeek answer no for all 190 essays, including their own 38
+(Figure~\ref{fig:yes-frontier}). Gemini answers yes twice, both times for essays
+it did not write. We refer to this behaviour as \emph{self-denial}. Claude
+answers yes for \FBClaudeHitK{} of its own essays and \FBClaudeFAK{} of other
+models' essays, a discrimination of \FBClaudeDisc{} points (Holm
+$p=$~\FBClaudeHolm{}). GPT, which names itself on 95\% of its own essays in the
+one-text format, does not claim any of them in this format.
 
 \input{table_frontier120}
 
-\paragraph{Self-recognition does not transfer to new texts}
-On the 600 API texts, no judge's lineup self-advantage is significant
-(Table~\ref{tab:frontier120}). Claude still discriminates: it names itself on
-\FXClaudeLineupSelf{} of its own texts and \FXClaudeLineupFA{} of others'. But
-its peers now name Claude on \FXClaudeLineupPeer{} of its texts, almost as
-often. Grok, which trailed its peers on the chat-app essays, now discriminates
-too (\FXGrokLineupDisc{}). Even on the 38 prompts the two sets share, Claude's
-and GPT's self-advantages shrink (\FXOldClaudeLineupAdv{} and
-\FXOldGPTLineupAdv{} points) and are no longer significant. Claude's
-discrimination is largest on essays and absent on math, where answers to the
-same problem share most of their words (Appendix~\ref{app:more}). A judge
-certified safe, or flagged, on one set of texts says little about the next.
+\paragraph{Lineup and one-text formats, API texts}
+On the 600 API texts, no judge has a significant self-advantage in the lineup
+(Table~\ref{tab:frontier120}). Claude still discriminates, naming itself on
+\FXClaudeLineupSelf{} of its own texts and \FXClaudeLineupFA{} of other models'
+texts, but its peers name Claude on \FXClaudeLineupPeer{} of its texts. Grok
+also discriminates on these texts (\FXGrokLineupDisc{} points), although its
+self-advantage on the chat-app essays was negative. On the 38 prompts shared
+with the chat-app essays, the self-advantages of Claude and GPT are smaller
+(\FXOldClaudeLineupAdv{} and \FXOldGPTLineupAdv{} points) and not significant.
+Claude's discrimination is largest on essays and near zero on math problems,
+where answers to the same problem share most of their wording
+(Appendix~\ref{app:more}). A result obtained on one set of texts therefore does
+not predict the result on another set from the same models.
 
 \input{table_openweight}
 
-\paragraph{Open-weight judges answer by habit}
+\paragraph{Open-weight judges}
 No open-weight judge recognises itself in the lineup
-(Table~\ref{tab:openweight}). Qwen and Llama beat their peers but do not
-discriminate: Qwen names itself on \OWQwenLineupSelf{} of its own texts and
-\OWQwenLineupFA{} of others', and Llama names itself more often on others'
-texts than on its own. One text at a time, Qwen names itself on
-\OWQwenSingleNamesSelf{} of all texts and Llama on every text, a pattern we
-call \emph{over-attribution}. Asked directly, Mistral says yes to
-\OWMistralBinaryHit{} of its own texts and \OWMistralBinaryFA{} of others',
-while Phi says yes to \OWPhiBinaryHit{} and \OWPhiBinaryFA{}
-(Figure~\ref{fig:yes-open}). Read as self-naming rates, these numbers would rank
-the judges from near-certain self-recognition to none; the AUC, which ignores
-how readily a judge says yes, is at or below chance for all four (0.41 to 0.53).
-Overall lineup accuracy is \OWLineupAcc{}, at chance, although the style
-classifier attributes the same texts at \OWClfPooled{}.
+(Table~\ref{tab:openweight}). Qwen and Llama have significant self-advantages
+but do not discriminate. Qwen names itself on \OWQwenLineupSelf{} of its own
+texts and \OWQwenLineupFA{} of other models' texts, and Llama names itself more
+often on other models' texts than on its own. In the one-text format, Qwen names
+itself on \OWQwenSingleNamesSelf{} of all texts and Llama on all of them, which
+we refer to as \emph{over-attribution}. In the yes/no format, Mistral answers
+yes for \OWMistralBinaryHit{} of its own texts and \OWMistralBinaryFA{} of
+others, and Phi for \OWPhiBinaryHit{} and \OWPhiBinaryFA{}
+(Figure~\ref{fig:yes-open}). The AUC, which does not depend on a judge's overall
+rate of yes answers, lies between 0.41 and 0.53 for all four judges. Overall
+lineup accuracy is \OWLineupAcc{} (chance 25\%), while the style classifier
+attributes \OWClfPooled{} of the same texts.
 
 \input{table_x_openweight}
 
-\paragraph{Answering first helps some judges and misleads others}
+\paragraph{Answer-first condition}
 \label{sec:onpolicy}
-When a judge first answers the prompt and is then shown that same answer, word
-for word, or a peer's, every judge's AUC rises above chance
-(Table~\ref{tab:owyesno}). This is a low bar, since the candidate is a copy of
-text already in the conversation. When it is shown a \emph{separate} answer of
-its own instead, Qwen and Phi tell it from peers' answers (AUC
-\OWQwenOnPolResAUC{} and \OWPhiOnPolResAUC{}), while Llama and Mistral fall
-reliably \emph{below} chance (\OWLlamaOnPolResAUC{} and
-\OWMistralOnPolResAUC{}). Seeing its own answer to the task helps two judges and
-misleads the other two.
+When a judge first answers the prompt and is then asked about either that same
+answer or a peer's answer, every judge's AUC is above chance
+(Table~\ref{tab:owyesno}). Because the candidate is a copy of text already in
+the conversation, this is an easy test, and Llama's AUC is only
+\OWLlamaOnPolAUC{}. When the candidate is instead a separately sampled answer
+by the judge, Qwen and Phi distinguish it from peers' answers (AUC
+\OWQwenOnPolResAUC{} and \OWPhiOnPolResAUC{}), while Llama and Mistral are
+significantly below chance (\OWLlamaOnPolResAUC{} and \OWMistralOnPolResAUC{}).
