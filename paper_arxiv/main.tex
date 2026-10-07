@@ -16,7 +16,13 @@
 \usepackage{subcaption}
 \usepackage{xcolor}
 \usepackage{adjustbox}
-\usepackage{flafter}
+\usepackage{placeins}
+% let floats sit at the top of the page that cites them
+\renewcommand{\topfraction}{0.85}
+\renewcommand{\textfraction}{0.1}
+\renewcommand{\floatpagefraction}{0.75}
+\setcounter{topnumber}{3}
+\setcounter{totalnumber}{4}
 \usepackage{needspace}
 \usepackage{enumitem}
 \usepackage{listings}
@@ -91,7 +97,12 @@ Does Not Survive a Peer Baseline\par}
 \bibliography{references}
 
 \clearpage
+\clearpage
 \appendix
+% in the appendix, tables appear in the text where they are cited
+\makeatletter
+\renewenvironment{table}[1][]{\@float{table}[!ht]}{\end@float}
+\makeatother
 \input{sections/appendix}
 
 \end{document}
