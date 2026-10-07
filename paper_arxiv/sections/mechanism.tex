@@ -1,101 +1,101 @@
-\section{Analysis: What Do the Judges Rely On?}
+\section{Why Do Judges Fail to Recognise Themselves?}
 \label{sec:mechanism}
-
-The texts carry enough information to identify their authors, yet the judges
-mostly fail to use it. We look at what the judges say, and then test four
-explanations of what drives their answers.
-
-\subsection{Stated Reasons}
-\label{sec:rationales}
-
-Every frontier judgment on the chat-app essays came with a one-sentence
-reason. We coded all 1,900 reasons into eleven types of cue (length, tone,
-structure, word choice, hedging, ``typical of model X'', and so on) using
-rules checked against two LLM annotators on a sample of 150
-(Appendix~\ref{app:rationales}).
-
-\emph{No judge ever says ``this is how I write''.} Judges name themselves in
-the third person, as they name any model: 46\% of lineup reasons and 95\% of
-one-text reasons appeal to a model's typical style (``classic Claude
-hedging''), including the 66 in which Claude correctly named itself.
-
-\emph{The reasons are the same whether a judge is right or wrong.} When
-Claude names itself on its own text one at a time, it cites hedging in 31 of
-33 cases; when it names itself on text it did not write, in 12 of 13. This is
-what a judge applying a stereotype of itself would produce, although stated
-reasons cannot prove what drove a decision \citep{marioriyad2025silent}.
-
-\emph{The reasons are mostly accurate about the text.} When a lineup reason
-calls an answer long, it is the longest of the five in 47 of 71 cases, and
-quoted phrases appear in the text in 238 of 245 cases. The reasons describe
-the text correctly; they just do not separate a judge's own text from
-others'.
-
-\subsection{Similarity to Their Own Writing}
-\label{sec:genmatch}
-
-\citet{wataoka2024perplexity} suggest that a judge favours, and perhaps
-claims, text it would have written itself. For the frontier judges we use a
-judge's own answer to the same prompt as ``what it would have written'', and
-ask whether it names itself more often on other models' texts that resemble
-that answer. Across four similarity measures, 1 of 36 tests reaches
-$p<0.05$, about what chance gives. Nor do judges, when wrong, name the model
-whose answer is most similar to the text (31.9\% of 630 wrong lineup answers,
-against 30.1\% expected), although the same similarity measures identify the
-true author 74--79\% of the time.
-
-\subsection{Their Own Likelihoods}
-\label{sec:likelihood}
-
-With open weights we can read this directly. For every judge and text we
-compute how likely the text is under the judge, relative to the other three
-judges. On every prompt, the text each judge finds relatively most likely is
-its own (\OWLikCondAccMin{}; chance 25\%). This is expected, since each text
-was sampled from its author, but it shows that the information is available
-in the judge's probabilities. Yet what a judge \emph{claims} as its own does
-not follow it: among the texts a judge did not write, those it claims are no
-more likely under it than those it does not (none of \OWFamTests{} tests
-survives correction; the strongest effect goes the wrong way). A judge does
-not see its peers' likelihoods when it judges, so this information may not be
-usable in practice.
-
-\subsection{Quality}
-\label{sec:quality}
-
-\citet{stamand2026sgtr} show that a judge can appear to recognise itself by
-claiming whichever text it thinks is best. We had the four open-weight models
-rate every chat-app essay and every open-weight text for quality on a 1--9
-scale. The frontier judges do not claim the better-rated texts, and
-controlling for quality leaves Claude's, GPT's and Grok's lineup
-self-advantages significant. The control is coarse: almost every frontier
-essay is rated near the top of the scale, and the raters agree only weakly.
-The open-weight judges also show no self-preference: relative to how its
-peers rate the same texts, no judge rates its own texts higher than it rates
-others' (largest difference \OWQualSelfPrefMax{} points on the 9-point scale,
-every interval including zero).
-
-\subsection{Watermarks}
 \label{sec:watermark}
 
-Could a judge be reading a watermark its vendor planted? Three observations
-argue against it. First, deployed watermarks are designed
-to be undetectable without a secret key, which the judges do not have.
-Second, the chat-app essays were written between 15 June and 31 July 2026,
-before Anthropic announced watermarking of Claude text in August
-\citep{anthropic2026watermark, anthropic2026marking}, so Claude's
-self-advantage comes from text written before any announced Claude watermark.
-Conversely, Gemini-app text is watermarked \citep{deepmind2026synthid}, and
-Gemini does not recognise itself. Third, the open-weight texts carry no
-watermark, yet a classifier still attributes them at \OWClfPooled{}: the
-signal is stylistic. (The shuffled-word test of Section~\ref{sec:frontier}
-would also defeat a watermark, but there the judges lost all ability to
-attribute anything, so it cannot separate the two.)
+In this section, we explore why most judges fail to recognise their own text,
+and why the few that succeed do so only on some texts. We consider five
+possible explanations:
+\begin{itemize}
+\item \textbf{The texts carry too little signal.} If answers to the same prompt
+were stylistically indistinguishable, no judge could recognise its own.
+\item \textbf{Judges match their own way of writing.} A judge may claim text
+that resembles what it would itself have written
+\citep{wataoka2024perplexity}.
+\item \textbf{Judges follow their own likelihood.} A judge may claim text that
+is familiar, that is, likely under its own distribution.
+\item \textbf{Judges claim the best text.} A judge may name itself on whichever
+text it rates highest \citep{stamand2026sgtr}.
+\item \textbf{Judges read a watermark.} A judge could in principle detect a
+signal its vendor planted in the text.
+\end{itemize}
 
-\begin{takeaway}
-\textbf{Takeaway.} The information a judge would need to recognise itself is
-already present, in the text's style and in the judge's own probabilities,
-yet the judges' answers do not track it. Nor do they track similarity to the
-judge's own writing or the quality of the text, and watermarks cannot explain
-the results. The judges' stated reasons suggest stereotypes of each model,
-applied to every text alike.
-\end{takeaway}
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.8\linewidth]{figures/shuffle.pdf}
+\caption{Lineup accuracy of the frontier judges on the chat-app essays as
+written and with each essay's words shuffled, against a bag-of-words classifier
+on the same essays. The judges fall to chance (dashed line) once word order is
+gone, while the classifier is unaffected: the authorship signal survives in the
+word distribution, but the judges do not use it. Claude's provider refused every
+shuffled lineup, so Claude is omitted.}
+\label{fig:shuffle}
+\end{figure}
+
+\paragraph{The signal is present, but the judges do not use it}
+A random forest over 18 style features attributes \EngineAAcc{} of the chat-app
+essays (95\% CI \EngineACI{}) and \OWClfPooled{} of the open-weight texts, more
+than any judge achieves. To see what the judges rely on, we repeated the lineup
+with every essay's words shuffled. The remaining judges fall to chance
+(accuracy \FSAcc{}; Figure~\ref{fig:shuffle}, Table~\ref{tab:fshuffle}), and no
+self-advantage or discrimination is significant, while a bag-of-words
+classifier still attributes \BowShufAcc{} of the shuffled essays, in line with
+\citet{sun2025stylometric}. Claude's provider refused all 38 of its shuffled
+lineups with a content filter, and Gemini gave no answer on \FSGeminiMissing{}
+of its 38; we treat these as missing. The judges depend on reading the text as
+prose and do not exploit the word statistics a classifier uses.
+
+\paragraph{Similarity to their own writing does not predict self-naming}
+For the frontier judges we take a judge's own answer to the same prompt as
+``what it would have written'' and ask whether it names itself more often on
+others' texts that resemble that answer. Across four similarity measures
+(style features, word and character $n$-grams, function words), 1 of 36 tests
+reaches $p<0.05$, about what chance gives. Nor do judges, when wrong, name the
+model whose answer is most similar to the text (31.9\% of 630 wrong lineup
+answers, against 30.1\% expected), although the same measures identify the true
+author 74--79\% of the time.
+
+\paragraph{Likelihood singles out the judge's own text, but its answers ignore
+it} For each open-weight judge and text we compute how likely the text is
+under the judge relative to the other three judges. On every prompt, the text
+each judge finds relatively most likely is its own (\OWLikCondAccMin{}; chance
+25\%). This is expected, since each text was sampled from its author, but it
+shows that the information is present in the judge's own probabilities. Yet
+among the texts a judge did not write, those it claims are no more likely under
+it than those it does not: none of \OWFamTests{} tests survives correction, and
+the strongest effect goes the wrong way (Appendix~\ref{app:more}).
+
+\paragraph{Quality does not explain self-naming}
+The four open-weight models rated every chat-app essay and open-weight text for
+quality on a 1--9 scale. The frontier judges do not claim the better-rated
+essays, and controlling for quality leaves Claude's, GPT's and Grok's lineup
+self-advantages significant. The control is coarse, since almost every frontier
+essay is rated near the top of the scale. The open-weight judges show no
+self-preference: relative to their peers, none rates its own texts higher than
+others' (largest difference \OWQualSelfPrefMax{} points, every interval
+including zero).
+
+\paragraph{Watermarks cannot explain the results}
+Deployed watermarks are designed to be undetectable without a secret key, which
+the judges do not have. The chat-app essays were written between 15 June and 31
+July 2026, before Anthropic announced watermarking of Claude text in August
+\citep{anthropic2026watermark, anthropic2026marking}, so Claude's self-advantage
+comes from text written before any announced Claude watermark. Conversely,
+Gemini-app text is watermarked \citep{deepmind2026synthid}, and Gemini does not
+recognise itself. The open-weight texts carry no watermark, yet a classifier
+attributes them at \OWClfPooled{}.
+
+\input{table_x_reasons}
+
+\paragraph{Stated reasons reveal stereotypes, not self-knowledge}
+Every frontier judgment came with a one-sentence reason, and we coded all 1,900
+(Appendix~\ref{app:rationales}). No judge ever refers to itself (``this is how I
+write''); judges describe every model in the third person, and 95\% of one-text
+reasons appeal to a model's typical style. The reasons are the same whether a
+judge is right or wrong (Table~\ref{tab:reasons}): when Claude names itself one
+text at a time, it cites hedging in 31 of 33 correct cases and in 12 of 13
+incorrect ones. Grok and Gemini attribute their own essays to Claude, citing
+``polished'' and ``elegant'' prose as Claude's typical style, which echoes the
+hierarchical bias toward frontier families reported by
+\citet{bai2025selfrecognition}. The reasons are mostly accurate about the
+text, but they apply a stereotype of each model to every text alike, which is
+why they rarely separate a judge's own writing from others'.

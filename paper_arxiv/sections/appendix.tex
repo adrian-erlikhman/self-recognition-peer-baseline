@@ -1,5 +1,40 @@
-% ===========================================================================
-\section{Data Collection}
+\section{Additional Results}
+\label{app:more}
+
+This section collects the full results behind Sections~\ref{sec:results}
+and~\ref{sec:mechanism}. Table~\ref{tab:fshuffle} gives every frontier judge on
+the word-shuffled essays. Table~\ref{tab:blame} shows how often each model is
+named and how accurate each judge is on others' text. Tables~\ref{tab:fxgenre}
+and~\ref{tab:fxsplit} split the API texts by genre and by whether a prompt was
+shared with the chat-app essays. Table~\ref{tab:owsingle} gives the open-weight
+judges one text at a time, Table~\ref{tab:genre} breaks the open-weight results
+down by genre, and Table~\ref{tab:owlik} reports what the open-weight judges'
+likelihoods contain and whether their claims follow them.
+
+\input{table_g_frontier_shuffle}
+\input{table_x_blame}
+\input{table_x_api120}
+\input{table_x_owsingle}
+\input{table_openweight_genre}
+\input{table_g_ow_likelihood}
+
+\section{Additional Reasoning Analysis}
+\label{app:rationales}
+
+Each reason was coded with rules (regular expressions) into eleven
+categories; a reason can have several. To check the rules, two annotators
+labelled a sample of 150 reasons, stratified by judge and format, from a
+written codebook. Both annotators were instances of an LLM (Claude): the
+first also wrote the rules, the second saw only the codebook. Against the
+second annotator the rules reach 97\% precision and 96\% recall, and the two
+annotators agree closely ($\kappa$ 0.86--1.00 per category). Because Claude is
+also one of the judges, biases shared by annotator and judge cannot be ruled
+out, and no human labelled the sample. Table~\ref{tab:cues} gives how often
+each judge cites each cue.
+
+\input{table_g_cues}
+
+\section{Task Design}
 \label{app:data}
 
 \paragraph{Chat-app texts} 39 argumentative prompts in three levels of
@@ -52,8 +87,7 @@ Judging the chat-app essays in the first two formats cost \CostStudyOne{},
 writing and judging the API texts about \$31, and the two October conditions
 about \$11.
 
-% ===========================================================================
-\section{Judge Instructions}
+\section{Evaluation Prompts}
 \label{app:instructions}
 
 Every request, word for word, with the texts in angle brackets. The frontier
@@ -62,8 +96,7 @@ instructions with their own four names.
 
 \input{sections/gen_instructions}
 
-% ===========================================================================
-\section{Statistical Details}
+\section{Statistical Methods}
 \label{app:stats}
 
 \paragraph{Self-advantage} Each of a judge's texts is judged by every judge
@@ -94,7 +127,6 @@ Grok at \GrokAdjAdvLineup{} points, and moves Gemini from no difference to
 
 \input{table_g_clustered}
 
-% ===========================================================================
 \section{Open-Weight Models}
 \label{app:openweight}
 
@@ -112,7 +144,6 @@ A classifier trained on the first sample of some prompts and tested on the
 second sample of others attributes \OWClfCrossSample{} of texts, so each
 model's style is stable across samples.
 
-% ===========================================================================
 \section{Style Classifier}
 \label{app:classifier}
 
@@ -128,30 +159,3 @@ open-weight texts at \OWClfPooled{}, from \OWClfMath{} on math to
 \OWClfProse{} on essays.
 
 \input{table_s_features}
-
-% ===========================================================================
-\section{Additional Results}
-\label{app:more}
-
-\input{table_x_blame}
-\input{table_x_api120}
-\input{table_x_owsingle}
-\input{table_openweight_genre}
-\input{table_g_ow_likelihood}
-
-% ===========================================================================
-\section{Coding the Judges' Reasons}
-\label{app:rationales}
-
-Each reason was coded with rules (regular expressions) into eleven
-categories; a reason can have several. To check the rules, two annotators
-labelled a sample of 150 reasons, stratified by judge and format, from a
-written codebook. Both annotators were instances of an LLM (Claude): the
-first also wrote the rules, the second saw only the codebook. Against the
-second annotator the rules reach 97\% precision and 96\% recall, and the two
-annotators agree closely ($\kappa$ 0.86--1.00 per category). Because Claude is
-also one of the judges, biases shared by annotator and judge cannot be ruled
-out, and no human labelled the sample. Table~\ref{tab:cues} gives how often
-each judge cites each cue.
-
-\input{table_g_cues}

@@ -1,101 +1,85 @@
-\section{Implications for LLM-Judge Pipelines}
+\section{Concluding Discussion}
+\label{sec:conclusion}
 \label{sec:recs}
-
-Our results cut both ways, and both matter. The evidence usually offered for
-self-recognition, a self-naming rate above chance, was wrong in \SVPFalse{} of
-\SVPStd{} cases in our data. But where we did
-find genuine self-recognition, it was large (a 33-point advantage for Claude)
-and invisible to anyone who looked at only one format or one set of texts.
-Anonymisation is therefore neither safe by default nor broken by default; it
-has to be measured. We recommend:
-
-\begin{enumerate}
-\item \textbf{Report three numbers, not one.} A self-naming rate means
-little without the false-alarm rate and the peer baseline, and all three come
-from the same experiment. Test discrimination first, since that is what
-breaks anonymisation; claim self-recognition only if the judge also beats its
-peers.
-\item \textbf{Do not measure recognition one text at a time.} In that format
-judges pile their guesses onto one or two models, three of our five frontier
-judges never named themselves, and the peer baseline is inflated for whichever
-model everyone guesses. Use a lineup. A yes/no question works only if the
-judge's answers vary: three of our frontier judges said no to everything.
-\item \textbf{Test each judge on the texts it will judge.} Self-advantage
-ranged from strongly positive to significantly negative within one panel, and
-disappeared for the same judges on a different set of texts. A result on one
-corpus does not transfer.
-\item \textbf{Do not read the mechanism off the judges' reasons.} The reasons
-describe the text accurately but are the same for right and wrong
-self-attributions.
-\end{enumerate}
-
-\noindent In practice: have every judge attribute a sample of the pipeline's
-own texts in lineups, compute the three rates per judge, and test
-discrimination and self-advantage with permutations within prompts. Any
-judge that discriminates can see through anonymisation on those texts. Our
-released code implements these steps.
-
-\section{Limitations}
 \label{sec:limits}
 
-\paragraph{Sample size} The chat-app study has 38 texts per judge, so its
-intervals are wide (Table~\ref{tab:frontier}). The larger API study has 120
-per judge.
+Our study evaluates self-recognition in nine LLM judges across three sets of
+texts and three question formats. The usual test, a self-naming rate above
+chance, flags self-recognition in \SVPStd{} cases, and only \SVPProper{} survive
+a peer baseline and a false-alarm rate. Where self-recognition does exist, it
+is large and invisible to anyone who looks at only one format or one set of
+texts: Claude and GPT beat their peers by 33 and 28 points on chat-app essays
+but not on 600 API texts, and the question format alone produces self-denial in
+some judges and over-attribution in others. The information a judge would need
+to recognise itself is already in the text and in its own probabilities, yet
+the judges' answers do not follow it. Our contribution is not to declare
+anonymisation safe or broken, but to provide a test that separates the two and
+can be applied to any judging pipeline.
 
-\paragraph{Judges} The open-weight judges are small (4--8 billion
-parameters, run in 4-bit) and much weaker than frontier models. No frontier
-provider returned token probabilities, so the frontier yes/no results are
-hard answers, and the likelihood, quality and answer-first analyses were run
-on the open-weight judges only.
+\paragraph{Implications}
+Self-recognition is not a fixed trait of a model that can be certified once. It
+depends on the judge, the texts and the question, so a judge that passes an
+audit on one benchmark may leak on another, and a model update may change the
+answer. Much of the work on self-preference assumes that judges recognise
+their own outputs; our results suggest that, for most judges, the preference
+must come from elsewhere, consistent with \citet{davidson2024anonymized} and
+\citet{bai2025selfrecognition}. For the judges that do recognise themselves,
+however, anonymisation offers no protection, and the usual test cannot tell
+these judges from the many that merely appear to.
 
-\paragraph{Texts} All texts are in English, and every prompt fixes the
-content of the answer. Dialogue, long documents and other languages are
-untested. The chat-app essays were collected in consumer apps whose hidden
-system prompts and settings we cannot see.
+\paragraph{Recommendations}
+We recommend four practices. (1)~Report the self-naming rate together with the
+false-alarm rate and the peer baseline, which come from the same experiment,
+and claim self-recognition only if a judge both discriminates and beats its
+peers. (2)~Prefer a lineup to the one-text format, in which judges collapse onto
+one or two names; use a yes/no question only if a judge's answers vary.
+(3)~Measure each judge on the kind of text it will judge, and repeat the audit
+when the judge or the texts change. (4)~Do not infer the mechanism from the
+judges' stated reasons, which are the same for right and wrong self-attributions.
+Our released code implements this audit.
 
-\paragraph{Reasons} The coding of the judges' reasons was checked against
-two LLM annotators, both instances of Claude, which is also one of the judges.
-No human labelled them.
+\paragraph{Future directions}
+The gap between what the texts reveal and what judges use suggests that
+self-recognition could grow quickly if judges learned to use stylistic or
+likelihood cues, through training, few-shot examples \citep{dietrich2026splits}
+or access to their own probabilities. Tracking self-recognition across model
+versions is therefore as important as measuring it once. Our test extends
+directly to other judging tasks, such as pairwise preference and safety
+monitoring, and to longer and multilingual texts. Interpretability work on the
+representations behind self-attribution \citep{ackerman2025inspection} could
+show why some judges discriminate on some genres and not others.
 
-\paragraph{Model versions} Every result describes particular model versions
-at particular dates in 2026. Providers update models behind stable names, and
-the DeepSeek endpoint could not be pinned. The audit should be repeated
-whenever a judge changes.
+\paragraph{Limitations}
+The chat-app essays contain only 38 texts per judge, so their intervals are
+wide; the API texts have 120 per judge. The open-weight judges are small (4--8
+billion parameters, run in 4-bit) and much weaker than frontier models. No
+frontier provider returned token probabilities, so the frontier yes/no results
+are hard answers, and the likelihood, quality and answer-first analyses cover
+the open-weight judges only. All texts are in English and every prompt fixes the
+content of the answer. The chat-app essays were collected in consumer apps whose
+hidden system prompts we cannot see. The coding of the judges' reasons was
+checked against two LLM annotators, both instances of Claude, which is also a
+judge. Finally, every result describes particular model versions at particular
+dates in 2026; providers update models behind stable names, and the DeepSeek
+endpoint could not be pinned.
 
-\section{Conclusion}
-\label{sec:conclusion}
+\section*{Acknowledgments}
+We thank Ryan Erlikhman for his work on an earlier version of this study.
 
-Self-recognition in LLM judges is usually measured with a number that cannot
-tell recognition from bias. A judge that names itself as the author of its
-own text has not thereby shown that it recognises that text. Scored against
-its own false alarms and against its peers, most apparent self-recognition
-disappears: of the \SVPStd{} cases the usual check flags, only \SVPProper{}
-hold up. Those that do are real and large, Claude and GPT beating their peers
-by 33 and 28 points on chat-app essays, yet they vanish on a second set of
-texts from the same models, and the question format alone can create or erase
-them. Meanwhile the information a judge would need to recognise itself is
-already in the text and in its own probabilities, unused. Self-recognition is
-therefore not a fixed property of a model that can be checked once: it depends
-on the judge, the texts and the question. Any pipeline that relies on
-anonymisation should test each judge, on the texts it actually judges,
-against a peer baseline, and repeat the test whenever the judge or the texts
-change. The audit costs nothing beyond the judgments a lineup already
-produces.
+\section*{Reproducibility Statement}
+Section~\ref{sec:setup} describes how we built the texts and called the models,
+Appendix~\ref{app:data} gives the collection details, and
+Appendix~\ref{app:instructions} reproduces every instruction given to a judge.
+All texts, prompts, judgments with their reasons, archived API responses,
+open-weight likelihoods and quality ratings, and the analysis code are available
+at \CodeURL{}. Every number in the paper is generated from those files, and none
+of the analyses requires an API key.
 
-\section*{Data and code}
-All texts, prompts, judgments (with confidence ratings and reasons), archived
-API responses, open-weight likelihoods and quality ratings, and the analysis
-code are at \CodeURL{}. Every number in this paper is generated from those
-files, and none of the analyses needs an API key.
-
-\section*{Ethics statement}
+\section*{Ethics Statement}
 The study involves no human subjects or personal data: every text was written
 by a language model in response to our prompts. The frontier texts were
-collected through the providers' apps and APIs under their terms of use, and
-the open-weight models were run under their licences. We name the judges that
+collected through the providers' apps and APIs under their terms of use, and the
+open-weight models were run under their licences. We name the judges that
 recognise their own text so that practitioners can account for them; the
 results describe specific model versions and should not be read as permanent
 properties of a vendor's models.
-
-\section*{Acknowledgements}
-We thank Ryan Erlikhman for his work on an earlier version of this study.

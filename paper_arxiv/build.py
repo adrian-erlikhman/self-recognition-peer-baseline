@@ -78,6 +78,7 @@ def plain_abstract() -> str:
                 macros[m.group(1)] = m.group(2)
     s = (HERE / "sections" / "abstract.tex").read_text(encoding="utf-8")
     s = re.sub(r"\\([A-Za-z]+)\{\}", lambda m: macros.get(m.group(1), m.group(0)), s)
+    s = re.sub(r"\\footnote\{.*\}\s*$", "", s.strip(), flags=re.S)
     s = re.sub(r"\\emph\{([^}]*)\}", r"\1", s)
     s = s.replace("\\%", "%").replace("``", '"').replace("''", '"').replace("--", "-")
     s = re.sub(r"\s+", " ", s).strip()
@@ -104,7 +105,7 @@ def main() -> None:
         from pypdf import PdfReader
         r = PdfReader(str(HERE / "main.pdf"))
         ref_page = next((i + 1 for i, p in enumerate(r.pages)
-                         if re.search(r"^\s*References\s*$", p.extract_text() or "", re.M)), None)
+                         if re.search(r"^\s*R\s?EFERENCES\s*$", (p.extract_text() or "").upper(), re.M)), None)
         print(f"{len(r.pages)} pages; references start on page {ref_page}")
     except Exception as exc:  # noqa: BLE001
         print(f"page check skipped: {exc}")

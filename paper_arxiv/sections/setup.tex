@@ -1,75 +1,78 @@
-\section{Experimental Setup}
+\section{Experiment Setup}
 \label{sec:setup}
+
+To evaluate self-recognition systematically, we use a cross-evaluation design
+in which each model serves as both an author and a judge. Every judge therefore
+sees texts of its own among the texts it judges, which lets us compare how it
+treats its own text with how it treats others' and with how other judges treat
+its text.
+
+\paragraph{Models}
+We evaluate nine models in two panels. The \emph{frontier panel} contains
+GPT-5.5, Claude Opus 4.7, Gemini 3.5 Flash, Grok 4.3 and DeepSeek's chat model,
+accessed through the OpenRouter API at temperature 0. The \emph{open-weight
+panel} contains Qwen2.5-7B (Alibaba), Llama-3.1-8B (Meta), Mistral-7B-v0.3
+(Mistral AI) and Phi-4-mini (Microsoft), run in 4-bit on a single laptop GPU
+with greedy decoding (Appendix~\ref{app:openweight}). Within each panel, the
+same model writes and judges, so ``self'' always means the same model on both
+sides.\footnote{Six of Claude's 38 chat-app essays were written by Claude Sonnet
+4.6 rather than Opus 4.7; dropping them leaves Claude's lineup self-naming rate
+at 27 of 32 (84\%). The DeepSeek endpoint could not be pinned to a snapshot.}
 
 \input{table_x_data}
 
-\subsection{Texts}
+\paragraph{Dataset}
+We build three sets of texts (Table~\ref{tab:data}) from one bank of prompts,
+designed so that answers to the same prompt differ mainly in style: each prompt
+fixes the topic and the points the answer must cover, and essay prompts ask for
+plain paragraphs with no lists, headers or bold (Appendix~\ref{app:data}). The
+\emph{chat-app essays} are 190 answers that the five frontier models wrote to 38
+argumentative prompts in their consumer chat apps between 15 June and 31 July
+2026. The \emph{API texts} are 600 answers the same models wrote on 1 October
+2026 to 120 prompts in four genres: 60 essays (including the 38 above), 20
+Python functions, 20 short explanations and 20 math word problems. The
+\emph{open-weight texts} are 480 answers the open-weight models wrote to the
+same 120 prompts, plus a second, independent answer to every prompt. We
+generated the open-weight texts ourselves from public weights, so none carries
+a watermark.
 
-We use three sets of texts, summarised in Table~\ref{tab:data}. All are built
-from one bank of prompts designed so that answers to the same prompt differ
-mainly in style: each prompt fixes the topic and the points the answer must
-cover, and essay prompts ask for plain paragraphs with no lists, headers or
-bold (Appendix~\ref{app:data} gives an example of each genre).
+\paragraph{Task setup}
+Judges never receive examples and never see the prompt, except in the
+answer-first condition and the quality ratings of Section~ef{sec:mechanism}. We use three main formats. In the \emph{lineup}, a judge
+sees all answers to one prompt and names an author for each; it is told it may
+name the same model more than once, and the order of answers is balanced across
+judges. In the \emph{one-text} format, a judge sees a single answer and names
+its author from the panel. In the \emph{yes/no} format, a judge is asked ``Did
+you write this text?'' in a fresh conversation. We add two conditions. In the
+\emph{answer-first} condition (open-weight panel), following
+\citet{khullar2026selfattribution}, the judge answers the prompt itself before
+the yes/no question. In the \emph{shuffled lineup} (frontier panel, chat-app
+essays), every essay's words are shuffled, which keeps the vocabulary but
+removes word order and structure. Appendix~\ref{app:instructions} gives every
+instruction.
 
-\paragraph{Chat-app essays} Five frontier models, GPT-5.5, Claude Opus
-4.7, Gemini 3.5 Flash, Grok 4.3 and DeepSeek's chat model, each answered 39
-argumentative prompts in their consumer chat apps at default settings,
-between 15 June and 31 July 2026. One prompt was dropped because two of its
-answers were corrupted copies, leaving 38 prompts and 190 essays.
+\paragraph{Evaluation metrics}
+For each judge we compute three rates from the same judgments: the
+\emph{self-naming rate}, the share of its own texts it says it wrote; the
+\emph{false-alarm rate}, the share of others' texts it says it wrote; and the
+\emph{peer baseline}, the share of its texts that the other judges attribute to
+it. From these we derive \emph{discrimination}, the self-naming rate minus the
+false-alarm rate, and \emph{self-advantage}, the self-naming rate minus the peer
+baseline. The \emph{usual test} asks only whether the self-naming rate exceeds
+chance. \emph{Our test} requires both discrimination and a self-advantage.
+Discrimination alone means anonymisation fails for that judge; the
+self-advantage shows whether the judge knows its own text better than any other
+judge could. Under random guessing, all three rates equal chance (20\% for five
+candidates, 25\% for four) and both differences are zero. For the yes/no format
+with open-weight judges we also report the AUC of the probability of ``yes'',
+which does not depend on how readily a judge says yes.
 
-\paragraph{API texts} To test whether results hold beyond one small set of
-essays, the same five models answered 120 prompts through the API on 1
-October 2026 (temperature 0.7, no system prompt): 60 essays (including the 38
-above), 20 Python functions, 20 short explanations and 20 math word problems,
-giving 600 texts.
-
-\paragraph{Open-weight texts} Four open-weight models, Qwen2.5-7B
-(Alibaba), Llama-3.1-8B (Meta), Mistral-7B-v0.3 (Mistral AI) and Phi-4-mini
-(Microsoft), answered the same 120 prompts (temperature 0.7), giving 480
-texts, plus a second, independent answer to every prompt. We generated these
-texts ourselves from public weights, so none carries a watermark.
-
-\subsection{Judges}
-
-In each set, the models that wrote the texts are the judges, so ``self''
-always means the same model on both sides. The frontier models judge through
-OpenRouter at temperature~0.\footnote{Six of Claude's 38 chat-app essays were
-written by Claude Sonnet 4.6 rather than Opus 4.7; dropping them leaves
-Claude's lineup self-naming rate at 27 of 32 (84\%). The DeepSeek endpoint
-could not be pinned to a snapshot.} The open-weight models run in 4-bit on a
-single laptop GPU with greedy decoding (Appendix~\ref{app:openweight}). Judges
-are never given examples, and see the prompt only in the answer-first
-condition below. With five candidate
-authors chance is 20\%; with four, 25\%.
-
-\subsection{Question Formats}
-
-Judges answer in the following formats; the exact instructions are in
-Appendix~\ref{app:instructions}.
-\begin{itemize}
-\item \textbf{Lineup.} The judge sees all answers to one prompt, labelled A,
-B, C, \ldots, and names an author for each. It is told it may name the same
-model more than once, and the order of answers is balanced across judges.
-\item \textbf{One text at a time.} The judge sees a single answer and names
-its author from the panel.
-\item \textbf{Yes/no.} The judge is asked ``Did you write this text?'' in a
-fresh conversation. For open-weight judges we read the probability of
-``yes''; no frontier provider returned probabilities, so for frontier judges
-we use the answer itself.
-\item \textbf{Answer first (open-weight only).} Following
-\citet{khullar2026selfattribution}, the judge first answers the prompt
-itself and is then asked the yes/no question about either that same answer, a
-separate answer of its own, or a peer's answer.
-\item \textbf{Shuffled lineup (frontier, chat-app essays only).} The lineup
-again, with every essay's words shuffled, which keeps the vocabulary but
-removes word order and structure.
-\end{itemize}
-
-\subsection{A Reference Classifier}
-
-To measure how much the texts reveal about their authors, we train a random
-forest on 18 simple style features (length, punctuation, vocabulary richness,
-readability), always testing on prompts it was not trained on. It identifies
-the author of \EngineAAcc{} of the chat-app essays (95\% CI \EngineACI{};
-chance \Chance{}) and \OWClfPooled{} of the open-weight texts (chance 25\%),
-more than any judge achieves (Appendix~\ref{app:classifier}).
+\paragraph{Statistical analysis}
+Judgments of the same prompt are not independent, so every test resamples or
+permutes whole prompts or texts. Intervals are 95\% prompt-bootstrap intervals;
+$p$-values come from permutation tests that reassign which judge counts as
+``self'' on each text (self-advantage) or which text is the judge's own
+(discrimination), with Holm correction across the judges of a panel
+(Appendix~\ref{app:stats}). As a reference for how much the texts reveal, we
+train a random forest on 18 style features, always testing on prompts it was
+not trained on (Appendix~\ref{app:classifier}).
