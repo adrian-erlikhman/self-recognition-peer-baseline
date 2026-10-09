@@ -1,0 +1,32 @@
+% Hand-written for the arXiv revision. Each value was recomputed from the
+% archived judgments by the verification report named in its comment.
+\newcommand{\CXClaudeChatSingleDisc}{+78.3}% Claude discrimination, chat-app essays, one text (33/38 vs 13/152); verify-I02, build-verdicts case 7
+\newcommand{\CXClaudeYesNoDiscCI}{[+6.6, +40.1]}% Claude yes/no discrimination, 95% prompt-bootstrap interval; verify-I02, verify-I03
+\newcommand{\CXClaudeYesNoHolmAll}{0.24}% Claude yes/no discrimination, Holm p across all 37 cases; verify-I02 (0.24), verify-I03 (0.236)
+\newcommand{\CXFixedCells}{12}% cases where the judge names itself (or says yes) on <3% or >97% of all texts; verify-I18
+\newcommand{\CXFixedFrontier}{9}% ... of which frontier; verify-I18
+\newcommand{\CXFixedOpen}{3}% ... of which open-weight; verify-I18
+\newcommand{\CXFixedLow}{10}% ... under 3%; verify-I18
+\newcommand{\CXFixedHigh}{2}% ... over 97% (Llama one text, Mistral yes/no); verify-I18
+\newcommand{\CXVaryCells}{25}% the other cases; verify-I18
+\newcommand{\CXVaryFlagged}{13}% ... flagged by the self-naming test; verify-I18
+\newcommand{\CXSlotShare}{60.9\%}% open-weight lineup guesses equal to the judge's modal name for that position (1,170/1,920); verify-I18
+\newcommand{\CXSlotShareMin}{51.0\%}% ... Qwen; verify-I18
+\newcommand{\CXSlotShareMax}{70.0\%}% ... Phi; verify-I18
+\newcommand{\CXReasonGPTN}{18}% yes/no reasoning summaries returned for GPT (of 190); verify-I08
+\newcommand{\CXReasonGPTBroad}{17}% ... citing memory, session or inability to verify; verify-I08
+\newcommand{\CXReasonGPTStrict}{16}% ... memory or session only; verify-I08
+\newcommand{\CXReasonGrokBroad}{125}% Grok, of 190; verify-I08
+\newcommand{\CXReasonGrokStrict}{105}% verify-I08
+\newcommand{\CXReasonGeminiBroad}{116}% Gemini, of 190; verify-I08
+\newcommand{\CXReasonGeminiStrict}{102}% verify-I08
+\newcommand{\CXReasonGrokStyle}{28}% Grok summaries saying the text differs from its own style; verify-I08
+\newcommand{\CXIntactAccFour}{32.6\%}% lineup accuracy on intact chat-app essays, GPT, Gemini, Grok, DeepSeek (248/760); verify-I16
+\newcommand{\CXOneToOneOpen}{65.8\%}% open-weight lineups that use each name once (316/480); verify-I06
+\newcommand{\CXPeerAUCQwen}{0.53}% mean AUC of the other three judges on Qwen's resampled answers; verify-I17
+\newcommand{\CXPeerAUCPhi}{0.52}% ... Phi's; verify-I17
+\newcommand{\CXPeerAUCLlama}{0.47}% ... Llama's; verify-I17
+\newcommand{\CXPeerAUCMistral}{0.44}% ... Mistral's; verify-I17
+\newcommand{\CXQualModalTop}{99\%}% open-weight quality ratings whose most likely value is 7, 8 or 9; verify-I12
+\newcommand{\CXQualNineMistral}{89\%}% Mistral's ratings whose most likely value is 9; verify-I12
+\newcommand{\CXQualNineQwen}{78\%}% Qwen's; verify-I12

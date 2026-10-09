@@ -126,7 +126,12 @@ def shuffle() -> None:
 
 
 if __name__ == "__main__":
-    lead()
+    # Figure 1 is drawn by code_council/make_lead_figures.py: stacked panels at
+    # full text width, so the bar labels print at 7 pt (lead() above is the
+    # earlier side-by-side version).
+    import subprocess, sys
+    subprocess.run([sys.executable, str(Path(__file__).resolve().parent / "code_council" / "make_lead_figures.py")],
+                   check=True)
     yes()
     guesses()
     shuffle()

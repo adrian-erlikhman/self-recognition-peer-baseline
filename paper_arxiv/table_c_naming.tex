@@ -1,0 +1,29 @@
+\begin{table}[t]
+\centering\small
+\setlength\tabcolsep{4pt}
+\begin{adjustbox}{max width=\linewidth}
+\begin{tabular}{l rr rr rr}
+\toprule
+ & \multicolumn{2}{c}{Chat-app, lineup} & \multicolumn{2}{c}{Chat-app, one text} & \multicolumn{2}{c}{API, lineup} \\
+\cmidrule(lr){2-3}\cmidrule(lr){4-5}\cmidrule(lr){6-7}
+Judge & Hit & False alarm & Hit & False alarm & Hit & False alarm \\
+\midrule
+\multicolumn{7}{l}{\emph{Naming Claude}} \\
+GPT & 84.2 & 4.6 & 97.4 & 25.0 & 48.3 & 13.1 \\
+Claude & \textbf{86.8} & \textbf{9.2} & \textbf{86.8} & \textbf{8.6} & \textbf{56.7} & \textbf{12.7} \\
+Gemini & 63.2 & 9.2 & 100.0 & 77.6 & 74.2 & 6.5 \\
+Grok & 34.2 & 20.4 & 100.0 & 86.8 & 55.0 & 12.7 \\
+DeepSeek & 34.2 & 20.4 & 31.6 & 31.6 & 24.2 & 21.2 \\
+\midrule
+\multicolumn{7}{l}{\emph{Naming GPT}} \\
+GPT & \textbf{57.9} & \textbf{10.5} & \textbf{94.7} & \textbf{52.0} & \textbf{19.2} & \textbf{20.4} \\
+Claude & 31.6 & 19.7 & 97.4 & 66.4 & 25.8 & 21.9 \\
+Gemini & 31.6 & 17.1 & 31.6 & 13.8 & 6.7 & 23.3 \\
+Grok & 34.2 & 16.4 & 34.2 & 4.6 & 14.2 & 21.7 \\
+DeepSeek & 23.7 & 25.7 & 81.6 & 65.1 & 13.3 & 27.3 \\
+\bottomrule
+\end{tabular}
+\end{adjustbox}
+\caption{How often each frontier judge names Claude and names GPT (\%). Hit: on the texts that model wrote (38 chat-app essays, 120 API texts). False alarm: on the texts of the other four models (152 and 480). Bold rows are the judge's own texts and repeat the self-naming and false-alarm rates of Tables~\ref{tab:frontier} and~\ref{tab:frontier120}. The mean of the four other hit rates in a block is the peer baseline. The chat-app hit rates are the Claude and GPT columns of Figure~\ref{fig:naming}.}
+\label{tab:naming}
+\end{table}

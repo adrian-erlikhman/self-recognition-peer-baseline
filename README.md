@@ -1,18 +1,24 @@
-# Most Apparent Self-Recognition in LLM Judges Does Not Survive a Peer Baseline
+# Self-Naming Above Chance Overstates Self-Recognition in LLM Judges
 
 Data and code for the paper by Adrian Erlikhman, Michael Tarekegn and Philo
 Juang (arXiv, October 2026).
 
 LLM judges are anonymised on the assumption that they cannot tell who wrote a
-text. The usual check is whether a judge names itself as the author of its own
-text more often than chance. This repository holds everything needed to score
-that check against two references from the same experiment: the judge's
-**false-alarm rate** (how often it names itself on text it did not write) and
-the **peer baseline** (how often the *other* judges name it on its text).
+text. The simplest check, the self-naming test, asks whether a judge names
+itself as the author of its own text more often than chance. This repository
+holds everything needed to score that check against two controls from the same
+experiment: the judge's **false-alarm rate** (how often it names itself on text
+it did not write) and the **peer baseline** (how often the *other* judges name
+it on its text). The self-naming test flags 15 of 37 cases; 8 of them
+discriminate, and 3 of those also exceed their peer baseline (plus Claude in
+the yes/no format, which has no peer baseline).
 
-Every number in the paper is a LaTeX macro generated from the files here. No
-API key is needed to reproduce any of them: every API response was archived
-when it was collected.
+Every number in the paper can be recomputed from the files here with the
+released code. Most are LaTeX macros written by the scripts below; the
+revision's verdict counts, shared-prompt comparison and robustness checks come
+from `paper_arxiv/code_council/`, and the few values entered by hand in
+`paper_arxiv/numbers_c_extra.tex` name the check that produced each one. No API
+key is needed: every API response was archived when it was collected.
 
 ## What is here
 
@@ -36,8 +42,16 @@ python src/revision/bow_shuffle.py                                 # bag-of-word
 python src/revision/standard_vs_proper.py --arxiv                  # rate test vs ours, 37 settings
 python src/revision/analyze_panel.py --panel frontier --tag api120 # API corpus
 python paper_tacl/make_numbers.py        # shared numbers and tables
+python paper_arxiv/code_council/build_verdicts.py   # verdict table, Figure 2, the 37 cases
+python paper_arxiv/code_council/build_shared.py     # the 38 shared prompts, Figure 4
+python paper_arxiv/code_council/build_robust.py     # who names whom (Figure 3), name order
+python paper_arxiv/code_council/peer_discrimination.py  # like-for-like peer comparison
 python paper_arxiv/build.py              # arXiv-only numbers and tables, then compile (needs Tectonic)
 ```
+
+The four `code_council/` scripts rewrite their tables and macro files in
+place; the verdict and shared-prompt captions in the paper carry a sentence or
+two added by hand, so compare rather than overwrite if you rerun them.
 
 `paper_arxiv/` is the source of the arXiv version. `paper_tacl/` holds the
 generators for the numbers and tables the two versions share (and the

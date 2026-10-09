@@ -163,7 +163,14 @@ def frontier_new(m: list[str]) -> None:
                         f"{pct(g['false_alarm'])} & {pp(g['self_advantage'])}{sa} "
                         f"{ci_pp(g['adv_ci95'])} & {pp(g['hit_minus_fa'])}{sd} & "
                         f"\\{j}AdvLineup \\\\")
-        (HERE / "table_g_frontier_shuffle.tex").write_text("\n".join([
+        # The summary mixes samples (Self and Peer on the 24 prompts every
+        # answering judge completed, false alarms on all 38). The table in the
+        # paper is the corrected one on 24 prompts throughout, written by hand
+        # from shuffle_lineup.jsonl; keep it rather than regenerate this one.
+        out = HERE / "table_g_frontier_shuffle.tex"
+        if out.exists() and "SAMPLE RULE" in out.read_text(encoding="utf-8"):
+            return
+        out.write_text("\n".join([
             r"\begin{table}[t]", r"\centering\small", r"\setlength\tabcolsep{2.5pt}",
             r"\begin{adjustbox}{max width=\linewidth}",
             r"\begin{tabular}{l rrr l r r}", r"\toprule",

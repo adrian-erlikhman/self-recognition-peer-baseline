@@ -71,8 +71,11 @@ def plain_abstract() -> str:
     """The abstract with macros expanded and LaTeX removed, for arXiv's
     metadata form (plain text, at most 1,920 characters)."""
     macros: dict[str, str] = {}
-    for f in ("numbers_study1.tex", "numbers_rev.tex", "numbers_arxiv.tex"):
+    for f in ("numbers_study1.tex", "numbers_rev.tex", "numbers_arxiv.tex",
+              "numbers_c_verdicts.tex", "numbers_c_shared.tex",
+              "numbers_c_robust.tex", "numbers_c_extra.tex"):
         for line in (HERE / f).read_text(encoding="utf-8").splitlines():
+            line = re.sub(r"(?<!\\)%.*$", "", line)
             m = re.match(r"\\(?:new|renew|provide)command\{\\([A-Za-z]+)\}\{(.*)\}\s*$", line)
             if m:
                 macros[m.group(1)] = m.group(2)

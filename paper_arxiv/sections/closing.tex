@@ -4,35 +4,52 @@
 \label{sec:limits}
 
 We evaluated self-recognition in nine LLM judges on three sets of texts and in
-three question formats. The standard test, a self-naming rate above chance,
-detects self-recognition in \SVPStd{} cases, and \SVPProper{} of these also
-show a self-advantage over the peer baseline and discrimination against the
-false-alarm rate. The largest effects are in the lineup, where Claude and GPT
-exceed their peer baselines by 33 and 28 points on the chat-app essays. The
-same judges do not pass our test on 600 API texts, and the question format
-determines whether a judge names itself at all. Both stylometric features and
-the open-weight judges' likelihoods are strongly informative about authorship,
-but the judges' explicit attributions align poorly with these signals.
+three question formats. Of the \CVflagged{} cases flagged by the self-naming
+test, the false-alarm control removes \CVfailFA{} and the peer baseline
+\CVfailPeer{}, leaving \CVbothAttr{} that pass both controls and Claude's
+yes/no case, which has no peer baseline. The largest effects are in the
+lineup, where Claude and GPT exceed their peer baselines by 33 and 28 points
+on the chat-app essays. Neither exceeds its peer baseline in the lineup on the
+600 API texts. On the prompts the two sets share, GPT's discrimination
+declines, while Claude's self-naming and discrimination are almost unchanged
+and its smaller self-advantage is statistically compatible with the chat-app
+value.
+Claude discriminates in every setting we tested, and its peers identify its
+texts as well, so its text is identifiable whether or not Claude has an
+advantage in identifying it. The question format determines whether a judge
+names itself at all. Both stylometric features and the open-weight judges'
+likelihoods are informative about authorship, but the judges' explicit
+attributions align poorly with these signals.
 
 \paragraph{Implications}
 Our results suggest that measured self-recognition depends jointly on the
 judge, the texts it evaluates and the question format, so a result on one
 benchmark may not hold for the same model in general. A judge that shows no
 self-recognition on one benchmark may show it on another, and a model update
-may change the result. Prior work on self-preference often assumes that judges
-recognise their own outputs. We find little evidence for this assumption in
-most of the conditions we tested, consistent with
-\citet{davidson2024anonymized} and \citet{bai2025selfrecognition}.
-Self-recognition should therefore not be assumed to explain self-preference
-without a separate attribution test. For the judges that do recognise their
-own texts, anonymisation does not prevent self-preference, and the standard test
-does not distinguish these judges from those that only appear to recognise
-themselves.
+may change the result. \citet{bai2025selfrecognition} observe that much work
+on self-preference presupposes self-recognition, and \citet{panickssery2024selfpreference} propose
+recognition as one of its causes. We find little evidence of explicit
+self-recognition in most of the conditions we tested, consistent with
+\citet{davidson2024anonymized} and \citet{bai2025selfrecognition}. Bai et al.\
+conclude that recognition is unlikely to be the main reason for
+self-preference. Our data cannot test that conclusion: no frontier judge rated
+or ranked the texts, and the open-weight ratings are compressed near the top of
+the scale. A judge that fails an attribution test may still favour its own
+text, since self-preference can arise from familiarity without recognition
+\citep{wataoka2024perplexity}. For a judge that discriminates, removing the
+author's name does not hide authorship from that judge, so anonymisation cannot
+be relied on to prevent self-preference, whether or not its peers can also
+identify its texts; this applies to Claude in every setting we tested. The
+self-naming test does not distinguish such judges from those that name
+themselves on most texts.
 
 \paragraph{Recommendations}
 (1)~Report the false-alarm rate and the peer baseline alongside the self-naming
 rate, and require evidence of both discrimination and a self-advantage before
-interpreting a high self-naming rate as self-recognition. (2)~Use the lineup format rather than the one-text
+interpreting a high self-naming rate as self-recognition. Report the two
+controls separately: discrimination bears on whether anonymisation protects a
+judge, and self-advantage on whether the judge identifies its texts better than
+other judges can. (2)~Use the lineup format rather than the one-text
 format, in which attributions concentrate on one or two models. Use a yes/no
 question only for judges whose answers vary across texts. (3)~Evaluate each
 judge on the kind of text it will judge, and repeat the evaluation when the judge
@@ -44,9 +61,11 @@ Our released code implements this procedure.
 \paragraph{Future work}
 Because the texts contain authorship information that current judges do not
 use, future judges may show stronger self-recognition if they are trained to
-use stylistic or likelihood features, given few-shot examples \citep{dietrich2026splits}, or
-given access to their own probabilities. Self-recognition should therefore be
-measured again for new model versions. The test applies directly to pairwise
+use stylistic or likelihood features, given labelled examples, which raised
+one judge's macro F1 on model-family attribution from 0.71 to 0.996
+\citep{dietrich2026splits}, or given access to their own probabilities.
+Self-recognition should therefore be measured again for new model versions.
+The two controls apply directly to pairwise
 preference judgments and to safety monitoring, and can be extended to longer and
 non-English texts. Analysis of model representations
 \citep{ackerman2025inspection} may explain why some judges discriminate on some
@@ -54,18 +73,33 @@ genres but not on others.
 
 \paragraph{Limitations}
 The chat-app essays include only 38 texts per judge, so their confidence
-intervals are wide; the API texts include 120 per judge. The open-weight judges
-have 4 to 8 billion parameters, run with 4-bit weights, and are much weaker
-attributors than frontier models. No frontier provider returned token
-probabilities, so the frontier yes/no results are based on discrete answers, and
-the likelihood, quality and answer-first analyses cover only the open-weight
-judges. All texts are in English, and every prompt specifies the content of the
-answer. The chat-app essays were collected in consumer applications whose system
-prompts we cannot observe. The rule-based coding of the judges' reasons was
-validated against two LLM annotators, both instances of Claude, which is also one
-of the judges, and not against human annotators. Finally, all results refer to
-specific model versions in 2026; providers update models under the same names,
-and the DeepSeek endpoint could not be pinned to a snapshot.
+intervals are wide; the API texts include 120 per judge. The comparison between
+the two sets rests on the \CSprompts{} prompts they share and cannot settle
+whether Claude's self-advantage carries over to API texts. The open-weight
+judges have 4 to 8 billion parameters, run with 4-bit weights, are much weaker
+attributors than frontier models, and their lineup answers largely follow the
+position of a response. No frontier provider returned token probabilities, so
+the frontier yes/no results are based on discrete answers, and the likelihood,
+quality and answer-first analyses cover only the open-weight judges; we
+collected no preference or quality judgments from the frontier judges. All
+texts are in English, and every prompt specifies the content of the answer.
+Each format was run with one instruction wording and one order of candidate
+names, and the lineups used only five answer orders, so the levels of lineup
+accuracy reported here include an effect of name order; the one-text format, in
+which GPT and Claude are the first two listed names and the most frequent
+answers, was not run with other name orders. The lineup and one-text
+instructions do not tell a judge that it is one of the listed models, and the
+yes/no question is asked without any record of the judge's earlier outputs, so
+a refusal to claim a text in that format may reflect the judge's stance on
+memory more than its reading of the text. The chat-app essays were collected in
+consumer applications whose system prompts we cannot observe, and three of the
+applications labelled the writing model as a product variant (``Limited GPT-5.5
+Instant'', ``Fast Grok 4.3'', ``Deepseek Instant'') that we cannot verify to be
+identical to the API model used as judge. The rule-based coding of the judges'
+reasons was validated against two LLM annotators, both instances of Claude,
+which is also one of the judges, and not against human annotators. Finally, all
+results refer to specific model versions in 2026; providers update models under
+the same names, and the DeepSeek endpoint could not be pinned to a snapshot.
 
 \section*{Acknowledgments}
 We thank Ryan Erlikhman for his work and support of this study.
@@ -76,14 +110,15 @@ models were queried. Appendix~\ref{app:data} gives further collection details,
 and Appendix~\ref{app:instructions} lists every instruction given to the judges.
 All texts, prompts, judgments with their reasons, archived API responses,
 open-weight likelihoods and quality ratings, and the analysis code are available
-at \CodeURL{}. All numbers in the paper are generated from these files, and none
-of the analyses requires an API key.
+at \CodeURL{}. All numbers in the paper can be recomputed from these files
+with the released code, and none of the analyses requires an API key.
 
 \section*{Ethics Statement}
 The study involves no human participants or personal data; all texts were
 written by language models in response to our prompts. Frontier texts were
 collected through the providers' applications and APIs under their terms of use,
 and the open-weight models were used under their licences. We name the judges
-that recognise their own texts so that practitioners can take this into account.
+that distinguish their own texts from others' so that practitioners can take
+this into account.
 The results apply to specific model versions and may not hold for later
 versions of the same models.

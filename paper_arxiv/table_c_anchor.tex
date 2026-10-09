@@ -1,0 +1,29 @@
+\begin{table}[t]
+\centering\small
+\setlength\tabcolsep{5pt}
+\begin{adjustbox}{max width=\linewidth}
+\begin{tabular}{l rr}
+\toprule
+ & Chat-app essays & API texts \\
+\midrule
+Lineups that use each name once & 162/190 (85.3\%) & 539/600 (89.8\%) \\
+\midrule
+\multicolumn{3}{l}{\emph{Attribution accuracy, all five judges}} \\
+\quad Answers in the listed order of the names & 105/190 (55.3\%) & 275/600 (45.8\%) \\
+\quad Answers in the other four orders & 215/760 (28.3\%) & 615/2{,}400 (25.6\%) \\
+\midrule
+\multicolumn{3}{l}{\emph{Self-advantage of Claude (points)}} \\
+\quad As printed, all lineups & +32.9 & +6.2 \\
+\quad Stratified by position of the text & +34.1 & +6.2 \\
+\quad Listed-order lineups removed & +35.9 & +2.9 \\
+\midrule
+\multicolumn{3}{l}{\emph{Self-advantage of GPT (points)}} \\
+\quad As printed, all lineups & +27.6 & +4.2 \\
+\quad Stratified by position of the text & +26.7 & +4.2 \\
+\quad Listed-order lineups removed & +27.8 & +0.5 \\
+\bottomrule
+\end{tabular}
+\end{adjustbox}
+\caption{Lineup design and the frontier results. The answers to a prompt appear in one of five orders, the rotations of the order in which the instructions list the candidate names, so in one fifth of the lineups the answers follow the listed order. Judges tend to assign the names in that order, and accuracy is about twice as high in those lineups. Every judge sees each model's answer in each position equally often, so the effect raises the self-naming rate and the peer baseline together. The self-advantages of Claude and GPT on the chat-app essays change by about 3 points or less when they are computed within each position of the text and averaged, or when the listed-order lineups are removed. On the API texts positions are fully balanced within each judge, so stratifying leaves the self-advantage unchanged. First row: lineups in which the judge assigns each of the five names to one answer, although the instructions allow repeats.}
+\label{tab:anchor}
+\end{table}

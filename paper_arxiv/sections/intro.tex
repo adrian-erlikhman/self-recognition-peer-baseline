@@ -7,25 +7,32 @@ models, and to review the actions of other models. The judge and the models it
 evaluates often come from the same few developers, and judges have been shown
 to rate their own outputs higher than those of other models
 \citep{panickssery2024selfpreference, wataoka2024perplexity, ye2025justice}.
-The usual safeguard is to remove the author's name before judging. This
+A common safeguard is to remove the author's name before judging. This
 safeguard works only if the judge cannot identify its own outputs from the
 text, an ability usually called \emph{self-recognition}.
 
-If a judge can recognise its own text, anonymisation does not protect against
-self-preference: a leaderboard may favour the judge's model, a reward model may
-learn the judge's style, and a monitor that reviews a copy of itself is not
-independent of it \citep{khullar2026selfattribution}. If judges cannot
-recognise their own text, self-recognition cannot by itself explain the
-self-preference reported in prior work, and hiding authorship may not address
-its source.
+If a judge can recognise its own text, anonymisation cannot be relied on to
+prevent self-preference: a leaderboard may favour the judge's model, a reward
+model may learn the judge's style, and a monitor that reviews a copy of itself
+may not be independent of it \citep{khullar2026selfattribution}. If judges
+cannot recognise their own text, recognition is unlikely to be the main source
+of the self-preference reported in prior work
+\citep{bai2025selfrecognition}, and hiding authorship may not address that
+source. Self-preference may also arise without recognition, for example when
+a judge favours text that is likely under its own model
+\citep{wataoka2024perplexity}. We measure recognition, not self-preference, so
+our results concern one possible route to self-preference and say nothing
+about its size.
 
 \begin{figure}[t]
 \centering
-\begin{subfigure}[b]{0.49\linewidth}\centering
+\begin{subfigure}[b]{\linewidth}\centering
 \includegraphics[width=\linewidth]{figures/lead_lineup.pdf}
 \caption{Lineup}\label{fig:lead-lineup}
-\end{subfigure}\hfill
-\begin{subfigure}[b]{0.49\linewidth}\centering
+\end{subfigure}
+
+\vspace{4pt}
+\begin{subfigure}[b]{\linewidth}\centering
 \includegraphics[width=\linewidth]{figures/lead_single.pdf}
 \caption{One text at a time}\label{fig:lead-single}
 \end{subfigure}
@@ -42,22 +49,29 @@ rises to 82\%. The dashed line marks chance (20\%).}
 \label{fig:lead}
 \end{figure}
 
-Self-recognition is usually measured as the rate at which a judge names itself
-as the author of its own texts, compared with chance. We call this the
-\emph{self-naming rate}. A high self-naming rate has several possible causes.
-The judge may recognise its own writing, the texts may be easy for any model to
-attribute, or the judge may name itself on most texts regardless of who wrote
-them. Only the first possibility provides evidence specific to
-self-recognition. Two further rates, both available
-from the same experiment, separate these cases (Figure~\ref{fig:lead}): the
+The simplest measure of self-recognition is the rate at which a judge names
+itself as the author of its own texts, compared with chance
+\citep{davidson2024anonymized}. We call this the \emph{self-naming rate} and
+the comparison the \emph{self-naming test}. A high self-naming rate has several
+possible causes. The judge may recognise its own writing, the judge may name
+itself on most texts regardless of who wrote them, or the texts may be easy for
+any model to attribute. Only the first provides evidence specific to
+self-recognition. Prior work addresses the second. Paired designs ask the judge
+to choose between its own text and another
+\citep{panickssery2024selfpreference, ackerman2025inspection}, and recent
+one-text studies weight own and other texts equally or report balanced accuracy
+\citep{stamand2026sgtr, barkhordar2026stylenotself}. Each of these corrects for
+a judge's overall tendency to claim texts, which we measure as the
 \emph{false-alarm rate}, the share of other models' texts on which the judge
-names itself, and the \emph{peer baseline}, the share of the judge's texts that
-the other judges attribute to it.
+names itself. None addresses the third cause. We add a \emph{peer baseline},
+the share of the judge's texts that the other judges attribute to it, which is
+available from the same experiment (Figure~\ref{fig:lead}).
 
 Existing measurements of LLM self-recognition give conflicting results.
-\citet{panickssery2024selfpreference} report that they do and connect this to
-self-preference. \citet{davidson2024anonymized} find no consistent
-self-recognition in anonymised panels, and \citet{bai2025selfrecognition} find
+\citet{panickssery2024selfpreference} report that LLMs distinguish their own
+text from that of other models and humans with accuracy above chance, and
+connect this to self-preference. \citet{davidson2024anonymized} find no
+consistent self-recognition in anonymised panels, and \citet{bai2025selfrecognition} find
 accuracy close to chance when ten models attribute one text at a time.
 \citet{barkhordar2026stylenotself} show that, for code, attribution accuracy
 mainly reflects how often a model claims authorship. These studies use
@@ -65,44 +79,63 @@ different models, texts and question formats, and none of them compares a
 judge's rate with how often other judges attribute the same texts to it.
 
 Our cross-evaluation design makes every model both an author and a judge. We
-evaluate nine judges, five frontier models and four
-open-weight models, on three sets of texts: 190 essays written by the frontier
-models in their chat apps, 600 texts written by the same models through the API
-in four genres, and 480 texts written by the open-weight models for the same
-120 prompts. Judges attribute the texts in three formats: a \emph{lineup} of all
-answers to one prompt, \emph{one text at a time}, and a direct question, ``Did
-you write this text?''. This design yields more than 19,000 authorship
+evaluate nine judges, five frontier models and four open-weight models, on
+three sets of texts: 190 essays written in the chat apps of the five frontier
+developers, 600 texts in four genres written through the API by the models that
+serve as judges, and 480 texts written by the open-weight models for the same
+120 prompts. Judges attribute the texts in three formats: a \emph{lineup} of
+all answers to one prompt, \emph{one text at a time}, and a direct question,
+``Did you write this text?''. This design yields more than 19,000 authorship
 judgments.
 
-The standard test detects self-recognition in \SVPStd{} of \SVPCells{}
-combinations of judge, text set and format. Only \SVPProper{} of these pass our
-test, which requires the judge to exceed its peer baseline and to name itself
-more often on its own texts than on others'. Where the effect is present it is
-large. In the lineup, Claude's self-advantage is \ClaudeAdvLineup{} points
-\ClaudeAdvLineupCI{} and GPT's is \GPTAdvLineup{} points \GPTAdvLineupCI{}. On
-the 600 API texts, no judge passes our test. The apparent evidence for
-self-recognition also changes sharply with question format. When texts are
-shown one at a time, \SingleConcentration{} of all guesses name GPT or Claude.
-When asked directly, GPT, Grok and DeepSeek answer no for all 190 essays,
-including their own. The open-weight judges show the opposite pattern, which we
-call \emph{over-attribution}: Llama names itself on every text it is shown one
-at a time.
+A case is one judge on one set of texts in one format. The self-naming test
+flags \CVflagged{} of \CVcells{} cases. In \CVfailFA{} of them the judge names
+itself about as often on texts it did not write as on its own, and
+\CVopenFlagged{} of these are open-weight judges. The other \CVdisc{}
+discriminate between their own and other texts. Of these, \CVbothAttr{} also
+exceed their peer baseline, \CVfailPeer{} do not, and one, Claude in the yes/no
+format, has no peer baseline. In the lineup, Claude's self-advantage on the
+chat-app essays is \ClaudeAdvLineup{} points \ClaudeAdvLineupCI{} and GPT's is
+\GPTAdvLineup{} points \GPTAdvLineupCI{}. On the 600 API texts no judge exceeds
+its peer baseline in the lineup, although Claude and Grok still discriminate.
+On the \CSprompts{} essay prompts that the two sets share, GPT's
+discrimination declines. Claude's self-naming and false-alarm rates barely
+change, but its peers name it more often, so the comparison is inconclusive for
+Claude. Claude discriminates in every setting we tested, most weakly in the
+yes/no format, and in the lineup and one-text formats the other judges name
+Claude on \FXClaudeSinglePeer{} to \ClaudePeerSingle{} of its texts: Claude's
+text is identifiable to its peers as well as to Claude.
 
-We next test five candidate explanations for these attributions. The texts
+The evidence also changes sharply with question format. When texts are shown
+one at a time, \SingleConcentration{} of all guesses name GPT or Claude. When
+asked directly in a new conversation, GPT, Grok and DeepSeek answer no for all
+190 essays, including their own. \citet{bai2025selfrecognition} report a
+similar reluctance in earlier models from the same three developers, and most
+of the reasoning summaries returned for GPT and Grok say that the judge has no
+memory of writing the text or did not write it in the current conversation.
+The open-weight judges show the opposite pattern, which
+\citet{bai2025selfrecognition} call \emph{over-attribution}: Llama names itself
+on every text it is shown one at a time.
+
+We next examine five candidate explanations for these attributions. The texts
 contain substantial author-specific information: a classifier over 18 style
-features correctly attributes \EngineAAcc{} of the chat-app essays, and on
-every prompt, each open-weight judge assigns the highest relative likelihood to
-its own text among the four candidates. Judges do not claim the texts that are
-more likely under their own model, more similar to their own answer, or rated
-higher in quality. When the words of each essay are shuffled, a bag-of-words
-classifier still attributes \BowShufAcc{} of the essays, while the judges'
-accuracy drops to chance. Their written reasons invoke the same model-specific
-traits for correct and incorrect self-attributions.
+features correctly attributes \EngineAAcc{} of the chat-app essays, and each
+open-weight judge's own likelihood is highest for its own text among the four
+candidates on \OWLikCondRawMin{}--\OWLikCondRawMax{} of prompts when the prompt
+is supplied and on \OWLikUncRawMin{}--\OWLikUncRawMax{} without it (chance
+25\%). We find no evidence that
+judges claim the texts that are more likely under their own model, more similar
+to their own answer, or rated higher in quality. A bag-of-words classifier,
+which ignores word order, attributes \BowShufAcc{} of the chat-app essays,
+whereas the four judges that answered a lineup of word-shuffled essays are at
+chance. The judges' written reasons invoke the same model-specific traits for
+correct and incorrect self-attributions.
 
-In summary, we show that the standard self-recognition test flags many cases
-that do not survive controls for false alarms and peer attribution, and we
-propose a test based on these two controls that uses only data a lineup
-experiment already collects. We report self-recognition for closed and open
-models across four genres and three question formats, and we test five
-explanations for the judges' behaviour, from which we derive recommendations
-for auditing anonymised evaluation pipelines.
+In summary, we add a peer baseline to the false-alarm correction used in recent
+work. Together the two controls remove \CVfail{} of the \CVflagged{} cases that
+the self-naming test flags, and both use only data a lineup experiment already
+collects. We report
+self-recognition for closed and open models across four genres and three
+question formats, and we examine five explanations for the judges' behaviour,
+from which we derive recommendations for auditing anonymised evaluation
+pipelines.

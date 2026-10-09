@@ -1,29 +1,29 @@
+% Three-column verdict table (code_council/build_verdicts.py); needs numbers_c_verdicts.tex.
 \begin{table}[t]
 \centering\small
 \begin{adjustbox}{max width=\linewidth}
-\begin{tabular}{lll}
+\begin{tabular}{llll}
 \toprule
-Judges, texts, format & Usual test passes & Our test passes \\
+Judges, texts, format & Self-naming above chance & Also discriminates & Also exceeds peers \\
 \midrule
-Frontier, chat-app essays, lineup & GPT, Claude & GPT, Claude \\
-Frontier, chat-app essays, one text & GPT, Claude & GPT \\
-Frontier, chat-app essays, yes/no & Claude & Claude \\
-Frontier, API texts, lineup & Claude, Grok & -- \\
-Frontier, API texts, one text & GPT, Claude & -- \\
-Open-weight, lineup & Qwen & -- \\
-Open-weight, one text & Qwen, Llama, Phi & -- \\
-Open-weight, yes/no & Llama, Mistral & -- \\
+Frontier, chat-app essays, lineup & GPT, Claude & GPT, Claude & GPT, Claude \\
+Frontier, chat-app essays, one text & GPT, Claude & GPT, Claude & GPT \\
+Frontier, chat-app essays, yes/no & Claude & Claude & n/a \\
+Frontier, API texts, lineup & Claude, Grok & Claude, Grok & -- \\
+Frontier, API texts, one text & GPT, Claude & Claude & -- \\
+Open-weight, lineup & Qwen & -- & -- \\
+Open-weight, one text & Qwen, Llama, Phi & -- & -- \\
+Open-weight, yes/no & Llama, Mistral & -- & n/a \\
 \midrule
-Cases flagged & \SVPStd{} of \SVPCells{} & \SVPProper{} of \SVPCells{} \\
+Cases & \CVflagged{} of \CVcells{} & \CVdisc{} of \CVcells{} & \CVbothAttr{} of \CVattr{} with a peer baseline \\
 \bottomrule
 \end{tabular}
 \end{adjustbox}
-\caption{Which judges appear to recognise their own text. Usual test: the
-judge names itself on its own text more often than chance (for yes/no: says
-yes to its own text more than half the time). Our test: the judge names itself
-more often on its own text than on others' \emph{and} more often than its
-peers do (for yes/no, which has no peer baseline, the first condition only).
-All tests are corrected for the number of judges. A case is one judge on one
-set of texts in one format.}
+\caption{Which judges are flagged by the self-naming test, and which of them
+pass each control (definitions in Section~\ref{sec:setup}). The three columns
+are nested. The yes/no format has no peer baseline (n/a), so the last column
+counts only the \CVattr{} lineup and one-text cases; Claude on the chat-app
+essays is the only yes/no case that discriminates. All tests are
+Holm-corrected across the judges of a panel.}
 \label{tab:verdicts}
 \end{table}

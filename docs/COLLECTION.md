@@ -50,6 +50,12 @@ Chi-square 2.01, df 2, p = 0.37. Disclosed as a design note, not corrected for.
 
 ## Version matching
 
-Four of five judge slugs match the corpus author string exactly. The DeepSeek
-corpus rows record "Deepseek Instant", which is not a released version string,
-so `deepseek/deepseek-chat` is an approximate match.
+Two of five judge slugs match the chat-app corpus author string exactly
+(Claude Opus 4.7, Gemini 3.5 Flash). The other three rows record the product
+label shown in each app: "Limited GPT-5.5 Instant", "Fast Grok 4.3" and
+"Deepseek Instant". We do not know whether these variants share weights and
+settings with `openai/gpt-5.5`, `x-ai/grok-4.3` and `deepseek/deepseek-chat`,
+so for those three judges "self" on the chat-app essays is an approximate
+match. Six of Claude's 39 rows record Sonnet 4.6 rather than Opus 4.7. The
+API texts were written by the judge slugs themselves, so there the match is
+exact.

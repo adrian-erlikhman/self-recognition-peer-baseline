@@ -2,18 +2,112 @@
 \label{app:more}
 
 This appendix gives the full results for Sections~\ref{sec:results}
-and~\ref{sec:mechanism}. Table~\ref{tab:fshuffle} gives every frontier judge on
-the word-shuffled essays. Table~\ref{tab:blame} shows how often each model is
-named and how accurate each judge is on others' text. Tables~\ref{tab:fxgenre}
+and~\ref{sec:mechanism}. Figure~\ref{fig:shuffle} and Table~\ref{tab:fshuffle}
+give the frontier judges on the word-shuffled essays. Figure~\ref{fig:guess}
+and Table~\ref{tab:blame} show how often each model is named and how accurate
+each judge is on others' text. Table~\ref{tab:naming} gives how often each
+judge names Claude and GPT, with false-alarm rates, and Table~\ref{tab:anchor}
+repeats the lineup results with the lineups in listed order removed and with
+the self-advantage stratified by position. Tables~\ref{tab:fxgenre}
 and~\ref{tab:fxsplit} split the API texts by genre and by whether a prompt was
-shared with the chat-app essays. Table~\ref{tab:owsingle} gives the open-weight
-judges one text at a time, Table~\ref{tab:genre} breaks the open-weight results
-down by genre, and Table~\ref{tab:owlik} reports what the open-weight judges'
-likelihoods contain and whether their claims follow them.
+shared with the chat-app essays, and Table~\ref{tab:shared} compares the two
+text sets on the shared prompts with intervals. Table~\ref{tab:owyesno} gives
+the open-weight judges in the yes/no format, including the answer-first
+condition, Table~\ref{tab:owsingle} gives them one text at a time,
+Table~\ref{tab:genre} breaks the open-weight results down by genre, and
+Table~\ref{tab:owlik} reports what the open-weight judges' likelihoods contain
+and whether their claims follow them.
+
+\paragraph{Similarity of the named model to the text} One text at a time, the
+model a judge names is the one whose average style is closest to the text in
+33.9\% of judgments for function words, 30.6\% for character $n$-grams and
+30.3\% for word $n$-grams, compared with 31.5\%, 28.7\% and 29.1\% under random
+reassignment.
+
+\paragraph{Prompts used by the likelihood tests} The tests compare texts
+within a prompt. In the lineup they use 61 to 96 prompts per judge, but five of the six tests in the
+other two formats use 34 or fewer, because the judges claim nearly all or
+nearly none of the texts, so those five cannot exclude a moderate effect.
+
+\paragraph{Shuffled lineup} The instruction did not mention the reordering.
+Every reasoning trace returned by Gemini and Grok (38 each) describes the
+essays as scrambled, and every answered lineup assigns each of the five names
+once.
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=0.8\linewidth]{figures/shuffle.pdf}
+\caption{Lineup accuracy of four frontier judges on the chat-app essays in
+their original form and with the words of each essay shuffled, compared with
+a bag-of-words classifier on the same essays. With shuffled words the judges'
+accuracy is between \FSDeepSeekOverall{} and \FSGPTOverall{}, close to chance
+(dashed line). The classifier does not use word order, so its two bars are
+equal by construction. Claude is omitted because its provider refused all
+shuffled lineups, and Gemini's shuffled bar is based on 24 of its 38
+lineups.}
+\label{fig:shuffle}
+\end{figure}
 
 \input{table_g_frontier_shuffle}
+
+\begin{figure}[!ht]
+\centering
+\begin{subfigure}[b]{0.49\linewidth}\centering
+\includegraphics[width=\linewidth]{figures/guess_lineup.pdf}
+\caption{Lineup}\label{fig:guess-lineup}
+\end{subfigure}\hfill
+\begin{subfigure}[b]{0.49\linewidth}\centering
+\includegraphics[width=\linewidth]{figures/guess_single.pdf}
+\caption{One text at a time}\label{fig:guess-single}
+\end{subfigure}
+\caption{Share of the 950 attributions on the chat-app essays that name each
+model. In the lineup the shares are close to uniform. One text at a time, GPT
+and Claude receive \SingleConcentration{} of attributions and Gemini, Grok and
+DeepSeek almost none. The dashed line marks a uniform distribution (20\%).}
+\label{fig:guess}
+\end{figure}
+
+\begin{figure}[!ht]
+\centering
+\begin{subfigure}[b]{0.49\linewidth}\centering
+\includegraphics[width=\linewidth]{figures/yes_frontier.pdf}
+\caption{Frontier judges, chat-app essays}\label{fig:yes-frontier}
+\end{subfigure}\hfill
+\begin{subfigure}[b]{0.49\linewidth}\centering
+\includegraphics[width=\linewidth]{figures/yes_open.pdf}
+\caption{Open-weight judges}\label{fig:yes-open}
+\end{subfigure}
+\caption{Share of texts for which a judge answers ``yes'' to ``Did you write
+this text?'', separately for its own texts and for other models' texts.
+(a) GPT, Grok and DeepSeek answer no for every essay; Claude is the only judge
+that answers yes for its own essays. (b) Mistral answers yes for almost every
+text and Phi for almost none, regardless of authorship.}
+\label{fig:yes}
+\end{figure}
+
 \input{table_x_blame}
+\input{table_c_naming}
+\input{table_c_anchor}
 \input{table_x_api120}
+\input{table_c_shared}
+
+\paragraph{Answer-first condition}
+When a judge first answers the prompt and is then asked about either that same
+answer or a peer's answer, every judge's AUC is above chance
+(Table~\ref{tab:owyesno}). Because the candidate repeats verbatim text already in
+the conversation, this condition mainly tests matching within the context
+rather than recognition of style. Even so, Llama's AUC is only
+\OWLlamaOnPolAUC{}. When the candidate is instead a separately sampled answer
+by the judge, Qwen and Phi distinguish it from peers' answers (AUC
+\OWQwenOnPolResAUC{} and \OWPhiOnPolResAUC{}, against a mean of
+\CXPeerAUCQwen{} and \CXPeerAUCPhi{} when the other three judges are asked
+about the same answers). Llama's and Mistral's AUCs are below 0.5
+(\OWLlamaOnPolResAUC{} and \OWMistralOnPolResAUC{}), but the other judges rank
+these two authors' answers low as well (mean peer AUC \CXPeerAUCLlama{} and
+\CXPeerAUCMistral{}), so the low values mostly reflect the author of the text
+and say little about the judge.
+
+\input{table_x_openweight}
 \input{table_x_owsingle}
 \input{table_openweight_genre}
 \input{table_g_ow_likelihood}
@@ -33,7 +127,24 @@ also one of the judges, biases shared by annotator and judge cannot be ruled
 out, and no human labelled the sample. Table~\ref{tab:cues} gives how often
 each judge cites each cue.
 
+\input{table_x_reasons}
+
 \input{table_g_cues}
+
+\paragraph{Reasoning summaries in the yes/no format}
+The yes/no judgments carry no written reason, but some providers return a
+summary of the model's reasoning with the answer. A summary was returned for
+all 190 of Grok's and Gemini's answers and for \CXReasonGPTN{} of GPT's;
+DeepSeek and Claude returned none. Under a keyword coding, \CXReasonGPTBroad{}
+of GPT's \CXReasonGPTN{} summaries, \CXReasonGrokBroad{} of Grok's 190 and
+\CXReasonGeminiBroad{} of Gemini's 190 state that the judge has no memory of
+writing the text, did not write it in the current conversation, or cannot
+verify its authorship (\CXReasonGPTStrict{}, \CXReasonGrokStrict{} and
+\CXReasonGeminiStrict{} if bare statements that authorship cannot be confirmed
+are excluded). Of Grok's summaries, \CXReasonGrokStyle{} say that the text
+differs from the judge's own style, and none of GPT's does. The summaries are
+written by the providers and need not reflect the computation behind the
+answer, and we do not know why only \CXReasonGPTN{} were returned for GPT.
 
 \FloatBarrier
 \section{Data Collection}
@@ -42,10 +153,11 @@ each judge cites each cue.
 \paragraph{Chat-app essays} 39 argumentative prompts in three levels of
 difficulty (13 each), answered by each model in its consumer chat app, in a
 fresh conversation with memory and custom instructions off, between 15 June
-and 31 July 2026. One prompt (M5) is excluded because its DeepSeek answer is a
-verbatim copy of its Grok answer and its Gemini answer a verbatim copy of
-Gemini's answer to another prompt (E13).
-Mean length runs from 324 words (Grok) to 689 (DeepSeek).
+and 31 July 2026. The model labels recorded at collection are in the
+\texttt{model\_version} column of \texttt{data/responses\_v1.csv}. One prompt
+(M5) is excluded because its DeepSeek answer is a verbatim copy of its Grok
+answer and its Gemini answer a verbatim copy of Gemini's answer to another
+prompt (E13). Mean length runs from 324 words (Grok) to 689 (DeepSeek).
 
 \paragraph{API texts} 120 prompts: 60 essays (the 40 prompts of the
 original bank, which include the 39 above, and 20 new ones in the same
@@ -109,25 +221,54 @@ in the panel. Under the null hypothesis of no self-advantage, the identity of
 the judge designated as ``self'' is exchangeable across the judges of a given
 text. We therefore
 compute the $p$-value by randomly reassigning the ``self'' label among the
-judges of each text (exactly, for the chat-app study). This keeps a text's
+judges of each text (with an exact computation for the chat-app study). This keeps a text's
 peer judgments together and accounts for how easy each text is. Intervals
 resample prompts (10,000 times for the chat-app study, 4,000 elsewhere). We
 also fit a logistic regression with errors clustered by prompt and a model
-with random effects for prompt and judge (Table~\ref{tab:clustered}); none
-changes a verdict for Claude, GPT or Grok.
+with random effects for prompt and judge (Table~\ref{tab:clustered}); in the
+lineup, none changes the sign or the significance of the self-advantage for
+Claude, GPT or Grok. In the one-text format the model-based estimates are less
+stable: under the random-effects model GPT's advantage weakens to an
+uncorrected $p=0.033$ and Claude's self term becomes significantly negative
+(odds ratio 0.16), where the randomisation test finds no difference.
 
 \paragraph{Discrimination} We randomly reassign, within each lineup (or each
 prompt's set of texts), which text is the judge's own, and compare the
 observed difference between hit and false-alarm rates with this distribution.
+If a judge names itself $m$ times per lineup on average and there are $k$
+candidates, its false-alarm rate is $(m-h)/(k-1)$, where $h$ is its self-naming
+rate, so discrimination equals $(kh-m)/(k-1)$ and is positive when $h>m/k$. For
+a judge that names itself once in every lineup, $m=1$ and the discrimination
+test coincides with the self-naming test. The frontier judges use each of the
+five names once in \CROneToOneChat{} of chat-app lineups and \CROneToOneApi{}
+of API lineups ($m$ between 0.87 and 1.24), and the two tests give the same
+verdict in all ten frontier lineup cases. In those cases the peer baseline is
+the only control that changes a verdict (Claude and Grok on the API texts). The
+false-alarm control changes verdicts where judges repeat names: in the one-text
+and yes/no formats, and in the open-weight lineup, where \CXOneToOneOpen{} of
+lineups use each name once and Qwen names itself about twice per lineup.
 
 \paragraph{Corrections} Holm's correction is applied across the judges of a
-panel within each format. The four peer judgments of a text are nearly
+panel within each format. If it is instead applied across all \CVcells{} cases,
+the self-naming test flags 13 cases, of which 7 discriminate and 3 also exceed
+their peer baseline; Claude in the yes/no format is the case that no longer
+discriminates. The four peer judgments of a text are nearly
 independent (design effect \PeerDeffLineup{} in the lineup).
 
+\paragraph{Fixed responses} In \CXFixedCells{} of the \CVcells{} cases
+(\CXFixedFrontier{} frontier, \CXFixedOpen{} open-weight) the judge gives the same answer on at least 97\% of
+all texts in that format, naming itself on fewer than 3\% of texts in
+\CXFixedLow{} cases and on more than 97\% in \CXFixedHigh{} (Llama one text at
+a time, Mistral in the yes/no format). These cases describe a fixed response
+and carry little information about recognition, and the self-naming test flags
+only the last two. Among the other \CXVaryCells{} cases the three counts are
+\CXVaryFlagged{}, \CVdisc{} and \CVbothAttr{}.
+
 \paragraph{Skill adjustment} A judge with high overall attribution accuracy
-is more likely to exceed its peer baseline. We subtract, for each judge, the
-advantage its peers show over the remaining judges on texts neither wrote.
-This leaves Claude at \ClaudeAdjAdvLineup{}, GPT at \GPTAdjAdvLineup{} and
+is more likely to exceed its peer baseline. For each judge and each peer, we
+take the difference between the judge's and the peer's accuracy on the texts
+of the three authors that are neither of them, and we subtract the mean of
+these four differences from the judge's self-advantage. This leaves Claude at \ClaudeAdjAdvLineup{}, GPT at \GPTAdjAdvLineup{} and
 Grok at \GrokAdjAdvLineup{} points, and moves Gemini from no difference to
 \GeminiAdjAdvLineup{}.
 
@@ -148,9 +289,14 @@ because it did not fit in memory. Texts were sampled at temperature 0.7
 one-text judgments use greedy decoding; for yes/no questions and quality
 ratings we read the probabilities of the answer options directly. The
 options received at least 89\% of the probability in every yes/no judgment.
+The most likely quality rating is 9 for \CXQualNineMistral{} of Mistral's
+ratings and \CXQualNineQwen{} of Qwen's, and 7, 8 or 9 for \CXQualModalTop{}
+of all ratings.
 A classifier trained on the first sample of some prompts and tested on the
 second sample of others attributes \OWClfCrossSample{} of texts, so each
-model's style is stable across samples.
+model's style is stable across samples. In the lineup, Phi names Mistral for
+the first response in 116 of 120 lineups and itself for the last in 102, and
+Llama names itself for the first response in 114.
 
 \FloatBarrier
 \section{Style Classifier}

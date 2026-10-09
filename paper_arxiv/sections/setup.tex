@@ -12,11 +12,18 @@ We evaluate two panels. The frontier panel consists of GPT-5.5, Claude Opus
 OpenRouter API at temperature 0. The open-weight panel consists of Qwen2.5-7B
 (Alibaba), Llama-3.1-8B (Meta), Mistral-7B-v0.3 (Mistral AI) and Phi-4-mini
 (Microsoft), run with 4-bit weights on a single laptop GPU with greedy decoding
-(Appendix~\ref{app:openweight}). Within a panel, the model that wrote a text and
-the judge named ``self'' are the same model.\footnote{Six of Claude's 38
-chat-app essays were written by Claude Sonnet 4.6 rather than Opus 4.7.
-Excluding them, Claude's lineup self-naming rate is 27 of 32 (84\%). The
-DeepSeek endpoint could not be pinned to a fixed snapshot.}
+(Appendix~\ref{app:openweight}). Within a panel, the judge named ``self'' is
+the model under whose name a text was written. For the API and open-weight
+texts the writer and the judge are the same model by construction. For the chat-app essays this holds up to the
+product label shown in each application.\footnote{The chat-app essays were
+recorded as written by ``Limited GPT-5.5 Instant'', ``Fast Grok 4.3'',
+``Deepseek Instant'', ``Gemini 3.5 Flash'' and ``Claude Opus 4.7'', whereas the
+judges are the API models listed in Appendix~\ref{app:data}. We do not know
+whether the GPT, Grok and DeepSeek application variants share weights and
+settings with the corresponding API models. Six of Claude's 38 chat-app essays
+were written by Claude Sonnet 4.6 rather than Opus 4.7; excluding them,
+Claude's lineup self-naming rate is 27 of 32 (84\%). The DeepSeek endpoint
+could not be pinned to a fixed snapshot.}
 
 \input{table_x_data}
 
@@ -26,9 +33,9 @@ the topic and the points the answer must cover, to reduce variation in content
 across answers to the same prompt, and essay prompts ask for plain paragraphs
 without lists, headers or bold text (examples in Appendix~\ref{app:data}). The
 chat-app essays are 190 answers by the five frontier models to 38 argumentative
-prompts, written in each model's consumer chat app between 15 June and 31 July
-2026. The API texts are 600 answers by the same models, collected on 1 October
-2026, to 120 prompts: 60 essay prompts (including the 38 above), 20 Python
+prompts, written in each developer's consumer chat app between 15 June and 31
+July 2026. The API texts are 600 answers by the five models that serve as
+judges, written through the API on 1 October 2026, to 120 prompts: 60 essay prompts (including the 38 above), 20 Python
 functions, 20 short explanations and 20 math word problems. The open-weight
 texts are 480 answers by the four open-weight models to the same 120 prompts,
 plus a second, independently sampled answer to each prompt. We generated the
@@ -39,9 +46,17 @@ Judges receive no examples. They see the original prompt only in the
 answer-first condition and in the quality ratings of
 Section~\ref{sec:mechanism}. In the \emph{lineup} format, the judge sees all
 answers to one prompt and names an author for each; the instructions state that
-the same model may be named more than once, and answer order is balanced across
-judges. In the \emph{one-text} format, the judge sees a single answer and names
-its author. In the \emph{yes/no} format, the judge is asked ``Did you write this
+the same model may be named more than once. The answers appear in one of five
+orders, the rotations of the order in which the instructions list the
+candidates (GPT, Claude, Gemini, Grok, DeepSeek), so that every judge sees each
+model's answer in each position equally often; the open-weight lineups rotate
+their own list of four in the same way. Judges tend to assign names in the
+listed order: on the chat-app essays, lineup accuracy is \CRAccListedChat{}
+when the answers follow the listed order and \CRAccOtherChat{} otherwise.
+Because positions are balanced, this raises the self-naming rate, the
+false-alarm rate and the peer baseline together and leaves their differences
+nearly unchanged (Table~\ref{tab:anchor} in Appendix~\ref{app:more}). In the
+\emph{one-text} format, the judge sees a single answer and names its author. In the \emph{yes/no} format, the judge is asked ``Did you write this
 text?'' in a new conversation. In the \emph{answer-first} condition (open-weight
 panel only), following \citet{khullar2026selfattribution}, the judge first
 answers the prompt and is then asked the yes/no question. In the \emph{shuffled
@@ -55,14 +70,25 @@ For each judge we compute three rates from the same set of judgments. The
 attributes to itself. The \emph{false-alarm rate} is the share of other models'
 texts that it attributes to itself. The \emph{peer baseline} is the share of the
 judge's texts that the other judges attribute to it. \emph{Discrimination} is
-the self-naming rate minus the false-alarm rate, and \emph{self-advantage} is
-the self-naming rate minus the peer baseline. The standard test asks whether the
-self-naming rate exceeds chance. Our test requires a positive discrimination
-and a positive self-advantage, both statistically significant. Positive
-discrimination indicates that the judge distinguishes its own texts from
-others', which weakens the protection anonymisation provides; a positive
-self-advantage indicates that it identifies its own texts more often than other
-judges do. Under random guessing all three rates equal chance (20\% with five
+the self-naming rate minus the false-alarm rate, the difference between hit and
+false-alarm rates used in signal detection \citep{green1966signal}, and
+\emph{self-advantage} is the self-naming rate minus the peer baseline. The \emph{self-naming test} asks whether the
+self-naming rate exceeds chance in a one-sided binomial test (in the yes/no
+format, whether the judge answers yes for more than half of its own texts); a
+case that passes is \emph{flagged}. We apply two controls to each case. A judge
+\emph{discriminates} if its discrimination is positive and statistically
+significant, and it \emph{exceeds its peers} if its self-advantage is positive
+and statistically significant. Discrimination indicates that the judge
+distinguishes its own texts from others', which weakens the protection
+anonymisation provides whether or not other judges can do the same. A
+self-advantage indicates that the judge identifies its own texts more often
+than the other judges do on average. The peer baseline pools judges of unequal
+ability and includes each peer's general tendency to name that model, so
+Appendix~\ref{app:more} reports how often each judge names Claude and GPT
+(Table~\ref{tab:naming}). We reserve the term self-recognition for cases that
+pass both controls. The yes/no format has no peer baseline, because each judge
+is asked only about itself, so these cases can be tested for discrimination
+only and we count them separately. Under random guessing all three rates equal chance (20\% with five
 candidates, 25\% with four) and both differences are zero. For open-weight
 judges in the yes/no format we also report the AUC of the probability of
 ``yes'', which does not depend on a judge's overall tendency to answer yes.
