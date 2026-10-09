@@ -44,6 +44,31 @@ tests in Table~\ref{tab:verdicts}.}
 \label{fig:verdictmap}
 \end{figure}
 
+\begin{figure}[t]
+\centering
+\begin{subfigure}[b]{\linewidth}\centering
+\includegraphics[width=\linewidth]{figures/lead_lineup.pdf}
+\caption{Lineup}\label{fig:lead-lineup}
+\end{subfigure}
+
+\vspace{4pt}
+\begin{subfigure}[b]{\linewidth}\centering
+\includegraphics[width=\linewidth]{figures/lead_single.pdf}
+\caption{One text at a time}\label{fig:lead-single}
+\end{subfigure}
+\caption{Self-naming rate, peer baseline and false-alarm rate of the five
+frontier judges on the 38 chat-app essays each wrote. The self-naming rate is
+the share of its own essays a judge attributes to itself, the peer baseline is
+the share of those essays the other four judges attribute to it, and the
+false-alarm rate is the share of other models' essays it attributes to itself.
+In the lineup (a), Claude and GPT exceed their peer baselines by 33 and 28
+points and Grok falls 24 points below its baseline. When the same essays are
+shown one at a time (b), Gemini, Grok and DeepSeek never name themselves, GPT
+names itself on 52\% of essays it did not write, and Claude's peer baseline
+rises to 82\%. The dashed line marks chance (20\%).}
+\label{fig:lead}
+\end{figure}
+
 \input{table_frontier}
 
 \paragraph{Lineup format, chat-app essays}

@@ -130,8 +130,9 @@ if __name__ == "__main__":
     # full text width, so the bar labels print at 7 pt (lead() above is the
     # earlier side-by-side version).
     import subprocess, sys
-    subprocess.run([sys.executable, str(Path(__file__).resolve().parent / "code_council" / "make_lead_figures.py")],
-                   check=True)
+    for script in ("make_lead_figures.py", "make_funnel_figure.py"):
+        subprocess.run([sys.executable, str(Path(__file__).resolve().parent / "code_council" / script)],
+                       check=True)
     yes()
     guesses()
     shuffle()

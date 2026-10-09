@@ -1,27 +1,27 @@
-LLM judges are used to rank models, to provide reward signals for training,
-and to monitor other models. Their outputs are usually anonymised, on the
-assumption that a judge cannot recognise its own text. The simplest test of
-this assumption asks whether a judge names itself as the author of its own
-texts more often than chance. A high self-naming rate can also arise when a
-judge names itself on most texts it sees, which recent work corrects by
-comparing own and other texts, or when a text is easy for any model to
-attribute. For the second case we add a \emph{peer baseline}, the rate at which
-the other judges name the judge as the author of its texts. Nine judges (five
-frontier, four open-weight) attribute 1,270 texts in four genres, giving more
-than 19,000 judgments. The self-naming test flags \CVflagged{} of \CVcells{}
-cases. In \CVfailFA{} of them the judge names itself about as often on other
-models' texts as on its own. Of the \CVdisc{} that discriminate, \CVbothAttr{}
-also exceed their peer baseline, \CVfailPeer{} do not, and one (Claude, yes/no)
-has no peer baseline. In the lineup, Claude and GPT exceed their peer
-baselines by 33 and 28 points on essays written in their chat apps. On API
-texts for the same prompts, GPT's discrimination declines and the result for
-Claude is inconclusive: Claude discriminates in every setting, but its peers
-also identify its texts. Asked in a new conversation whether they wrote a
-text, GPT, Grok and DeepSeek answered no for all 190 essays, including their
-own. A style classifier attributes 86\% of the essays, and each open-weight
-judge's own token probabilities rank its text first on
-\OWLikCondRawMin{}--\OWLikCondRawMax{} of prompts when the prompt is supplied
-(\OWLikUncRawMin{}--\OWLikUncRawMax{} without it), but the judges' answers
-align poorly with both signals. These results motivate a simple audit for
-anonymised evaluation that uses only the judgments a lineup experiment already
+Anonymised LLM evaluation assumes that a judge cannot recognise its own text.
+The usual test asks whether a judge names itself as the author of its own
+texts more often than chance. A judge can pass this test without recognising
+anything: it may name itself on most texts it sees, or its texts may be easy
+for any model to attribute. We test for both with data the same lineup
+experiment already collects: the judge's false-alarm rate on other models'
+texts, a correction from recent work, and a new \emph{peer baseline}, the rate
+at which the other judges name it as the author of its texts. Nine judges
+(five frontier, four open-weight) attribute 1,270 texts in four genres, giving
+more than 19,000 judgments. The self-naming test flags \CVflagged{} of
+\CVcells{} cases (one judge, one set of texts, one question format). The
+false-alarm control removes \CVfailFA{}, and among frontier judges the peer
+baseline removes 4 of the 5 that fail. \CVbothAttr{} cases pass both
+controls, plus one yes/no case that has no peer baseline. In the lineup,
+Claude names itself on 87\% of its own chat-app essays and 9\% of others', and
+Claude and GPT exceed their peer baselines by 33 and 28 points. On API texts
+for the same prompts, GPT's discrimination falls; Claude still names itself
+far more often on its own texts than on others', but its peers name it more
+often too, so its advantage over them is unclear. Asked in a new conversation
+whether they wrote a text, GPT, Grok and DeepSeek answered no for all 190
+essays, including their own. The texts carry authorship information that the
+judges do not use: a style classifier attributes 86\% of the essays, and each
+open-weight judge's own likelihood ranks its text first on \OWLikUncRawMin{}
+to \OWLikUncRawMax{} of prompts even without the prompt, yet those judges are
+at chance in the lineup. These results motivate a simple audit for anonymised
+evaluation that uses only the judgments a lineup experiment already
 collects.\footnote{Code and data: \CodeURL}

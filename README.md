@@ -1,4 +1,4 @@
-# Self-Naming Above Chance Overstates Self-Recognition in LLM Judges
+# Above Chance Is Not Enough: Auditing Self-Recognition in LLM Judges
 
 Data and code for the paper by Adrian Erlikhman, Michael Tarekegn and Philo
 Juang (arXiv, October 2026).
