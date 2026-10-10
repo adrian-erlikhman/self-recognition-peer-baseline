@@ -33,8 +33,11 @@ one set of texts in one question format. The self-naming test flags a case
 when the judge names itself on its own texts more often than chance. A case
 \emph{discriminates} when the judge names itself more often on its own texts
 than on other models' texts, and it \emph{exceeds its peers} when the judge
-names itself on its texts more often than the other judges name it. The
-yes/no format has no peer baseline. (b) The two judges that pass both controls
+names itself on its texts more often than the other judges name it; under a
+like-for-like peer comparison \CXLikeForLike{} cases pass
+(Table~\ref{tab:verdicts}). The yes/no format has no peer baseline, and its one
+case that discriminates (Claude) is significant only with correction within
+its panel. (b) The two judges that pass both controls
 in the lineup on the chat-app essays. Claude names itself on 87\% of its own
 essays and 9\% of the others, and the other four judges name Claude on 54\% of
 its essays. The dashed line marks chance (20\%).}
@@ -87,7 +90,9 @@ the judge names itself about as often on texts it did not write as on its
 own; \CVopenFlagged{} of these are open-weight judges, whose lineup answers
 largely follow the position of a text. The other \CVdisc{} discriminate. Of
 these, \CVbothAttr{} also exceed their peer baseline, \CVfailPeer{} do not,
-and one, Claude in the yes/no format, has no peer baseline. Among the frontier
+and one, Claude in the yes/no format, has no peer baseline and is significant
+only when corrected within its panel ($p=$~\FBClaudeHolm{}, against
+$p=\CXClaudeYesNoHolmAll$ when corrected across all \CVcells{} cases). Among the frontier
 judges the peer baseline is the control that changes verdicts. In the lineup
 they use each of the five names once in \CROneToOneChat{} of lineups, so a
 judge that names itself on its own text rarely names itself on others', and
@@ -96,10 +101,15 @@ peer baseline removes 4 of the 5 frontier cases that fail. The cases that pass
 are Claude and GPT on the chat-app essays. In the lineup, Claude names itself
 on 33 of its 38 essays and on 14 of the 152 it did not write, and its
 self-advantage is \ClaudeAdvLineup{} points \ClaudeAdvLineupCI{}; GPT's is
-\GPTAdvLineup{} points \GPTAdvLineupCI{}. A like-for-like comparison, which
-sets each judge's discrimination against its peers' discrimination for the
-same author, passes five cases; we report the raw peer baseline, which gives
-the smaller count.
+\GPTAdvLineup{} points \GPTAdvLineupCI{}. The raw peer baseline pools peers
+of unequal skill and includes each peer's general tendency to name a model, so
+we also report a like-for-like version, which sets each judge's
+discrimination against its peers' discrimination for the same author. It
+passes \CXLikeForLike{} cases: the same three, and Claude one text at a time
+on both the chat-app essays and the API texts (Table~\ref{tab:verdicts}). The
+choice matters most for Claude in the lineup. GPT names Claude on 32 of
+Claude's 38 essays, so against GPT alone Claude's advantage is
+\CRClaudeVsBestPeer{} points \CRClaudeVsBestPeerCI{}.
 
 The chat-app results do not carry over cleanly to the API texts. On the 600
 API texts no judge exceeds its peer baseline in the lineup, although Claude and
@@ -107,7 +117,8 @@ Grok still discriminate. On the \CSprompts{} essay prompts that the two sets
 share, GPT's discrimination declines. Claude's self-naming and false-alarm
 rates barely change, but its peers name it more often, so the comparison is
 inconclusive for Claude. Claude discriminates in every setting we tested, most
-weakly in the yes/no format, and in the lineup and one-text formats the other
+weakly in the yes/no format, where the result holds only with correction
+within the panel, and in the lineup and one-text formats the other
 judges name Claude on \FXClaudeSinglePeer{} to \ClaudePeerSingle{} of its
 texts: Claude's text is identifiable to its peers as well as to Claude.
 
@@ -133,7 +144,10 @@ correctly in the lineup. We find no evidence that judges claim the texts that
 are more likely under their own model, more similar to their own answer, or
 rated higher in quality. A bag-of-words classifier, which ignores word order,
 attributes \BowShufAcc{} of the chat-app essays, whereas the four judges that
-answered a lineup of word-shuffled essays are at chance. The judges' written
+answered a lineup of word-shuffled essays are at chance. This condition is
+incomplete: Claude's provider refused every shuffled lineup, and the reasoning
+traces of Gemini and Grok show that they noticed the scrambling, so we do not
+read it as evidence about which cues the judges use. The judges' written
 reasons invoke the same model-specific traits for correct and incorrect
 self-attributions.
 
@@ -147,12 +161,12 @@ the paper can be recomputed without an API key, and the frontier experiments
 cost about \$53 in API fees.
 \item The audit applied to \CVcells{} cases: nine judges, three sets of texts
 and three question formats. Of the \CVflagged{} cases that the self-naming
-test flags, \CVbothAttr{} pass both controls and one more discriminates in a
-format without a peer baseline, all of them Claude or GPT on the chat-app
-essays.
+test flags, \CVbothAttr{} pass both controls (\CXLikeForLike{} under the
+like-for-like peer comparison), all of them Claude or GPT, and one more,
+Claude in the yes/no format, discriminates in a format without a peer
+baseline, significant only within its panel.
 \item Evidence that the judges' answers do not follow the authorship
-information in the texts. A style classifier, the open-weight judges' own
-likelihoods and a word-shuffled lineup all show signals that the judges leave
-unused, and the judges' stated reasons are the same for correct and incorrect
-self-attributions.
+information in the texts. A style classifier and the open-weight judges' own
+likelihoods both carry signals that the judges leave unused, and the judges'
+stated reasons are the same for correct and incorrect self-attributions.
 \end{itemize}

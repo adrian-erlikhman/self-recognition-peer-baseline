@@ -7,21 +7,21 @@ experiment already collects: the judge's false-alarm rate on other models'
 texts, a correction from recent work, and a new \emph{peer baseline}, the rate
 at which the other judges name it as the author of its texts. Nine judges
 (five frontier, four open-weight) attribute 1,270 texts in four genres, giving
-more than 19,000 judgments. The self-naming test flags \CVflagged{} of
-\CVcells{} cases (one judge, one set of texts, one question format). The
+over 19,000 judgments. The self-naming test flags \CVflagged{} of
+\CVcells{} cases (one judge, set of texts and question format). The
 false-alarm control removes \CVfailFA{}, and among frontier judges the peer
 baseline removes 4 of the 5 that fail. \CVbothAttr{} cases pass both
-controls, plus one yes/no case that has no peer baseline. In the lineup,
+controls (\CXLikeForLike{} if each judge's discrimination is compared with its
+peers'), plus a yes/no case that has no peer baseline and is significant only
+within its panel. In the lineup,
 Claude names itself on 87\% of its own chat-app essays and 9\% of others', and
 Claude and GPT exceed their peer baselines by 33 and 28 points. On API texts
-for the same prompts, GPT's discrimination falls; Claude still names itself
-far more often on its own texts than on others', but its peers name it more
-often too, so its advantage over them is unclear. Asked in a new conversation
+for the same prompts, GPT's discrimination falls; Claude still discriminates,
+but its peers name it more often too, so its advantage over them is unclear. Asked in a new conversation
 whether they wrote a text, GPT, Grok and DeepSeek answered no for all 190
 essays, including their own. The texts carry authorship information that the
 judges do not use: a style classifier attributes 86\% of the essays, and each
 open-weight judge's own likelihood ranks its text first on \OWLikUncRawMin{}
 to \OWLikUncRawMax{} of prompts even without the prompt, yet those judges are
-at chance in the lineup. These results motivate a simple audit for anonymised
-evaluation that uses only the judgments a lineup experiment already
-collects.\footnote{Code and data: \CodeURL}
+at chance in the lineup. These results motivate a simple audit that uses only
+the judgments a lineup experiment already collects.\footnote{Code and data: \CodeURL}

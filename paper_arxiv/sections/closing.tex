@@ -6,15 +6,17 @@
 We evaluated self-recognition in nine LLM judges on three sets of texts and in
 three question formats. Of the \CVflagged{} cases flagged by the self-naming
 test, the false-alarm control removes \CVfailFA{} and the peer baseline
-\CVfailPeer{}, leaving \CVbothAttr{} that pass both controls and Claude's
-yes/no case, which has no peer baseline. The largest effects are in the
+\CVfailPeer{}, leaving \CVbothAttr{} that pass both controls (\CXLikeForLike{}
+under the like-for-like peer comparison) and Claude's yes/no case, which has
+no peer baseline and is significant only with correction within its panel.
+The largest effects are in the
 lineup, where Claude and GPT exceed their peer baselines by 33 and 28 points
 on the chat-app essays. Neither exceeds its peer baseline in the lineup on the
 600 API texts. On the prompts the two sets share, GPT's discrimination
 declines, while Claude's self-naming and discrimination are almost unchanged
 and its smaller self-advantage is statistically compatible with the chat-app
-value.
-Claude discriminates in every setting we tested, and its peers identify its
+value. Claude discriminates in every setting we tested (in the yes/no format
+only with correction within the panel), and its peers identify its
 texts as well, so its text is identifiable whether or not Claude has an
 advantage in identifying it. The question format determines whether a judge
 names itself at all. Both stylometric features and the open-weight judges'
@@ -49,7 +51,9 @@ rate, and require evidence of both discrimination and a self-advantage before
 interpreting a high self-naming rate as self-recognition. Report the two
 controls separately: discrimination bears on whether anonymisation protects a
 judge, and self-advantage on whether the judge identifies its texts better than
-other judges can. (2)~Use the lineup format rather than the one-text
+other judges can. Report the peer control both as a raw baseline and
+like-for-like, and against the strongest single peer, since a pooled baseline
+can hide one peer that matches the judge. (2)~Use the lineup format rather than the one-text
 format, in which attributions concentrate on one or two models, and rotate the
 order of the answers: on the chat-app essays, lineup accuracy is
 \CRAccListedChat{} when the answers follow the order in which the names are

@@ -1,29 +1,38 @@
-% Three-column verdict table (code_council/build_verdicts.py); needs numbers_c_verdicts.tex.
+% Verdict table (code_council/build_verdicts.py); needs numbers_c_verdicts.tex.
+% The like-for-like column is from code_council/peer_discrimination.py (p_dd, Holm within setting).
 \begin{table}[t]
 \centering\small
 \begin{adjustbox}{max width=\linewidth}
-\begin{tabular}{llll}
+\begin{tabular}{lllll}
 \toprule
-Judges, texts, format & Self-naming above chance & Also discriminates & Also exceeds peers \\
+& & & \multicolumn{2}{c}{Also exceeds peers} \\
+\cmidrule(lr){4-5}
+Judges, texts, format & Self-naming above chance & Also discriminates & Raw baseline & Like-for-like \\
 \midrule
-Frontier, chat-app essays, lineup & GPT, Claude & GPT, Claude & GPT, Claude \\
-Frontier, chat-app essays, one text & GPT, Claude & GPT, Claude & GPT \\
-Frontier, chat-app essays, yes/no & Claude & Claude & n/a \\
-Frontier, API texts, lineup & Claude, Grok & Claude, Grok & -- \\
-Frontier, API texts, one text & GPT, Claude & Claude & -- \\
-Open-weight, lineup & Qwen & -- & -- \\
-Open-weight, one text & Qwen, Llama, Phi & -- & -- \\
-Open-weight, yes/no & Llama, Mistral & -- & n/a \\
+Frontier, chat-app essays, lineup & GPT, Claude & GPT, Claude & GPT, Claude & GPT, Claude \\
+Frontier, chat-app essays, one text & GPT, Claude & GPT, Claude & GPT & GPT, Claude \\
+Frontier, chat-app essays, yes/no & Claude & Claude & n/a & n/a \\
+Frontier, API texts, lineup & Claude, Grok & Claude, Grok & -- & -- \\
+Frontier, API texts, one text & GPT, Claude & Claude & -- & Claude \\
+Open-weight, lineup & Qwen & -- & -- & -- \\
+Open-weight, one text & Qwen, Llama, Phi & -- & -- & -- \\
+Open-weight, yes/no & Llama, Mistral & -- & n/a & n/a \\
 \midrule
-Cases & \CVflagged{} of \CVcells{} & \CVdisc{} of \CVcells{} & \CVbothAttr{} of \CVattr{} with a peer baseline \\
+Cases & \CVflagged{} of \CVcells{} & \CVdisc{} of \CVcells{} & \CVbothAttr{} of \CVattr{} & \CXLikeForLike{} of \CVattr{} \\
 \bottomrule
 \end{tabular}
 \end{adjustbox}
 \caption{Which judges are flagged by the self-naming test, and which of them
-pass each control (definitions in Section~\ref{sec:setup}). The three columns
-are nested. The yes/no format has no peer baseline (n/a), so the last column
-counts only the \CVattr{} lineup and one-text cases; Claude on the chat-app
-essays is the only yes/no case that discriminates. All tests are
-Holm-corrected across the judges of a panel.}
+pass each control (definitions in Section~\ref{sec:setup}). The columns are
+nested from left to right; the last two give the peer control in two forms.
+\emph{Raw baseline}: the judge names itself on its texts more often than the
+other judges name it. \emph{Like-for-like}: the judge's discrimination exceeds
+the mean discrimination of the other judges for the same author, which removes
+each peer's general tendency to name that model. The yes/no format has no peer
+baseline (n/a), so the last two columns count only the \CVattr{} lineup and
+one-text cases. Claude on the chat-app essays is the only yes/no case that
+discriminates, and it does so only with correction within the panel
+($p=$~\FBClaudeHolm{}; $p=\CXClaudeYesNoHolmAll$ across all \CVcells{} cases).
+All tests are Holm-corrected across the judges of a panel.}
 \label{tab:verdicts}
 \end{table}
