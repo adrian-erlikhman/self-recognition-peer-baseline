@@ -1,16 +1,14 @@
 """One visual style for every figure in the paper.
 
-Colours follow meaning, not figure: the same quantity has the same colour in
-every figure, and no colour means two things. The categorical sets were
-checked with the dataviz palette validator (lightness band, chroma floor,
-colour-vision-deficiency separation, normal-vision floor, contrast).
+A restrained palette of navy, two lighter blues and a light grey, separated
+by lightness so every figure also reads in greyscale; the figures carry no
+value labels or notes (the numbers are in the tables and captions).
 
-  measures    self-naming rate  blue      peer baseline     orange
-              strongest peer    dark orange  false-alarm rate violet
-  text sets   chat-app essays   aqua      API texts         ochre
-              open-weight       magenta   (also the open-weight panel)
-  neutral     slate for quantities that are not one of the above
-              (attribution accuracy, share of guesses, frontier panel)
+  measures    self-naming rate  navy      strongest peer    mid blue
+              peer baseline     light blue  false-alarm rate light grey
+  text sets   chat-app essays   navy      API texts         mid blue
+              open-weight       grey      (also the open-weight panel)
+  neutral     navy, with light blue for a second condition
 
 Each figure is drawn at the width it is printed at (TEXT = the 5.5 in text
 block, HALF = one of two side-by-side subfigures), so every font prints at
@@ -26,9 +24,12 @@ from matplotlib.colors import LinearSegmentedColormap  # noqa: E402
 
 TEXT, HALF = 5.5, 2.7
 
-SELF, PEER, BEST, FA = "#2a78d6", "#eb6834", "#a8431b", "#4a3aa7"
-CHAT, API, OPEN = "#1baf7a", "#c98500", "#e87ba4"
-SLATE, SLATE_LIGHT = "#44546a", "#aeb8c6"
+# A restrained palette: navy, two lighter blues and a light grey, separated by
+# lightness so every figure also reads in greyscale.
+NAVY, MID, LIGHT, GREYL = "#1d3f6e", "#4f7fc0", "#a9c4e6", "#cfd3d9"
+SELF, BEST, PEER, FA = NAVY, MID, LIGHT, GREYL
+CHAT, API, OPEN = NAVY, MID, "#9aa3ad"
+SLATE, SLATE_LIGHT = NAVY, LIGHT
 INK, MUTED, GRID, CHANCE = "#1f1f1f", "#666666", "#e6e6e6", "#8c8c8c"
 
 SEQ = LinearSegmentedColormap.from_list(

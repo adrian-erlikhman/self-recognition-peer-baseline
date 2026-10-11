@@ -26,21 +26,12 @@ about its size.
 \begin{figure}[t]
 \centering
 \includegraphics[width=\linewidth]{figures/funnel.pdf}
-\caption{The audit applied to all \CVcells{} cases. A case is one judge on one
-set of texts in one question format. (a) The self-naming test flags a case
-when the judge names itself on its own texts more often than chance. The judge
-\emph{distinguishes its own text} when it also names itself more often on its
-own texts than on other models' texts. It \emph{beats its peers} when it also
-names itself on its texts more often than the other judges name it, on
-average (pooled peers) or compared with the single judge that names it most
-often there (strongest peer). The yes/no format has no peer baseline, and its
-one case that distinguishes its own text (Claude) does so only with correction
-within its panel. Under a like-for-like peer comparison \CXLikeForLike{} cases
-beat their peers (Table~\ref{tab:verdicts}). (b) In the lineup on the
-chat-app essays, the two judges that beat the pooled peers there, next to the
-single peer that names each of them most often. GPT names Claude on 84\% of
-Claude's essays, against Claude's own 87\%. The dashed line marks chance
-(20\%).}
+\caption{The audit on all \CVcells{} cases (one judge, one set of texts, one
+question format). (a) Each bar counts the cases that also pass every test
+above it; the yes/no case has no peer baseline (Table~\ref{tab:verdicts}).
+(b) Claude and GPT in the chat-app lineup. Each judge's strongest peer is the
+other judge that names it most often on its own essays: GPT for Claude, Grok
+for GPT. The dashed line marks chance.}
 \label{fig:funnel}
 \end{figure}
 

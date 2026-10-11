@@ -48,15 +48,10 @@ three counts are \CXVaryFlagged{}, \CVdisc{} and \CVbothAttr{}
 \begin{figure}[t]
 \centering
 \includegraphics[width=\linewidth]{figures/verdict_map.pdf}
-\caption{The \CVattr{} lineup and one-text cases, placed by discrimination
-(horizontal) and self-advantage (vertical). Colour gives the text set, shape
-the format, and filled markers are the \CVflaggedAttr{} cases flagged by the
-self-naming test. The yes/no cases are omitted because they have no peer
-baseline. Flagged cases near the vertical axis exceed their peers, by up to
-\OWQwenSingleAdv{} points, without discriminating; those near the horizontal
-axis discriminate while their peers name them about as often; three are far
-from both axes. The grey bands are reading guides; the verdicts come from the
-tests in Table~\ref{tab:verdicts}.}
+\caption{The \CVattr{} lineup and one-text cases, by discrimination and by
+self-advantage over the pooled peers. Filled markers are the \CVflaggedAttr{}
+cases flagged by the self-naming test; the frontier judges that distinguish
+their own text are named. Yes/no cases have no peer baseline and are omitted.}
 \label{fig:verdictmap}
 \end{figure}
 
@@ -73,15 +68,8 @@ tests in Table~\ref{tab:verdicts}.}
 \caption{One text at a time}\label{fig:lead-single}
 \end{subfigure}
 \caption{Self-naming rate, peer baseline and false-alarm rate of the five
-frontier judges on the 38 chat-app essays each wrote. The self-naming rate is
-the share of its own essays a judge attributes to itself, the peer baseline is
-the share of those essays the other four judges attribute to it, and the
-false-alarm rate is the share of other models' essays it attributes to itself.
-In the lineup (a), Claude and GPT exceed their peer baselines by 33 and 28
-points and Grok falls 24 points below its baseline. When the same essays are
-shown one at a time (b), Gemini, Grok and DeepSeek never name themselves, GPT
-names itself on 52\% of essays it did not write, and Claude's peer baseline
-rises to 82\%. The dashed line marks chance (20\%).}
+frontier judges on the 38 chat-app essays each wrote (values in
+Table~\ref{tab:frontier}). The dashed line marks chance (20\%).}
 \label{fig:lead}
 \end{figure}
 
@@ -115,10 +103,9 @@ computed within each position of the lineup and averaged (Table~\ref{tab:anchor}
 \begin{figure}[t]
 \centering
 \includegraphics[width=\linewidth]{figures/naming_matrix.pdf}
-\caption{How often each frontier judge (row) names the true author (column)
-on that author's 38 chat-app essays, in percent, (a) in the lineup and (b) one
-text at a time. Outlined cells on the diagonal are self-naming rates, and the
-mean of the other four cells in a column is that author's peer baseline.}
+\caption{How often each frontier judge (row) names each author (column) on that
+author's 38 chat-app essays, in percent. Outlined cells are self-naming rates;
+the mean of the other cells in a column is that author's peer baseline.}
 \label{fig:naming}
 \end{figure}
 
@@ -213,13 +200,9 @@ cannot be excluded as a cause of the difference.
 \begin{figure}[t]
 \centering
 \includegraphics[width=\linewidth]{figures/shared38.pdf}
-\caption{Claude and GPT in the lineup on the \CSprompts{} prompts shared by
-the chat-app essays (circles) and the API texts (squares): self-naming rate,
-peer baseline and false-alarm rate, with 95\% bootstrap intervals over
-prompts. Claude's self-naming and false-alarm rates are almost the same on the
-two sets and its peer baseline is higher on the API texts; GPT's self-naming
-rate and peer baseline fall and its false-alarm rate rises. The dashed line
-marks chance (20\%).}
+\caption{Claude and GPT in the lineup on the \CSprompts{} prompts shared by the
+chat-app essays and the API texts, with 95\% bootstrap intervals over prompts
+(values in Table~\ref{tab:shared}). The dashed line marks chance (20\%).}
 \label{fig:shared}
 \end{figure}
 

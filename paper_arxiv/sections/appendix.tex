@@ -37,14 +37,10 @@ once.
 \begin{figure}[!ht]
 \centering
 \includegraphics[width=0.8\linewidth]{figures/shuffle.pdf}
-\caption{Lineup accuracy of four frontier judges on the chat-app essays in
-their original form and with the words of each essay shuffled, compared with
-a bag-of-words classifier on the same essays. With shuffled words the judges'
-accuracy is between \FSDeepSeekOverall{} and \FSGPTOverall{}, close to chance
-(dashed line). The classifier does not use word order, so its two bars are
-equal by construction. Claude is omitted because its provider refused all
-shuffled lineups, and Gemini's shuffled bar is based on 24 of its 38
-lineups.}
+\caption{Lineup accuracy of four frontier judges on the original and
+word-shuffled chat-app essays, and of a bag-of-words classifier, which ignores
+word order. Claude's provider refused every shuffled lineup; Gemini answered 24
+of 38. The dashed line marks chance (20\%).}
 \label{fig:shuffle}
 \end{figure}
 
@@ -61,9 +57,7 @@ lineups.}
 \caption{One text at a time}\label{fig:guess-single}
 \end{subfigure}
 \caption{Share of the 950 attributions on the chat-app essays that name each
-model. In the lineup the shares are close to uniform. One text at a time, GPT
-and Claude receive \SingleConcentration{} of attributions and Gemini, Grok and
-DeepSeek almost none. The dashed line marks a uniform distribution (20\%).}
+model. The dashed line marks a uniform share (20\%).}
 \label{fig:guess}
 \end{figure}
 
@@ -77,11 +71,8 @@ DeepSeek almost none. The dashed line marks a uniform distribution (20\%).}
 \includegraphics[width=\linewidth]{figures/yes_open.pdf}
 \caption{Open-weight judges}\label{fig:yes-open}
 \end{subfigure}
-\caption{Share of texts for which a judge answers ``yes'' to ``Did you write
-this text?'', separately for its own texts and for other models' texts.
-(a) GPT, Grok and DeepSeek answer no for every essay; Claude is the only judge
-that answers yes for its own essays. (b) Mistral answers yes for almost every
-text and Phi for almost none, regardless of authorship.}
+\caption{Share of its own and of other models' texts for which a judge answers
+``yes'' to ``Did you write this text?''.}
 \label{fig:yes}
 \end{figure}
 
