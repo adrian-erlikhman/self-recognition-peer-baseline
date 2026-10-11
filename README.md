@@ -1,4 +1,4 @@
-# Above Chance Is Not Enough: Auditing Self- and Other-Recognition in LLM Judges
+# Whose Line Is It Anyway? Auditing Self- and Other-Recognition in LLM Judges
 
 Data and code for the paper by Adrian Erlikhman, Michael Tarekegn and Philo
 Juang (arXiv, October 2026).
