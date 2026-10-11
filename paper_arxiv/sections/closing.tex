@@ -81,7 +81,10 @@ use stylistic or likelihood features, given labelled examples, which raised
 one judge's macro F1 on model-family attribution from 0.71 to 0.996
 \citep{dietrich2026splits}, or given access to their own probabilities.
 Self-recognition should therefore be measured again for new model versions.
-The two controls apply directly to pairwise
+Running all nine judges through one API, in a single lineup and in all three
+formats, would separate the effect of the panel from that of how the texts
+were collected, and the effect of question format may deserve a study of its
+own. The two controls apply directly to pairwise
 preference judgments and to safety monitoring, and can be extended to longer and
 non-English texts. Analysis of model representations
 \citep{ackerman2025inspection} may explain why some judges discriminate on some
@@ -94,7 +97,11 @@ the two sets rests on the \CSprompts{} prompts they share and cannot settle
 whether Claude's self-advantage carries over to API texts. The open-weight
 judges have 4 to 8 billion parameters, run with 4-bit weights, are much weaker
 attributors than frontier models, and their lineup answers largely follow the
-position of a response. No frontier provider returned token probabilities, so
+position of a response. We ran them locally rather than through an API so that
+the same fixed weights wrote and judged their texts and so that we could read
+token probabilities, which the likelihood, yes/no and quality analyses need.
+The two panels were judged separately, with five and four candidates, so their
+results can be compared only qualitatively. No frontier provider returned token probabilities, so
 the frontier yes/no results are based on discrete answers, and the likelihood,
 quality and answer-first analyses cover only the open-weight judges; we
 collected no preference or quality judgments from the frontier judges. All

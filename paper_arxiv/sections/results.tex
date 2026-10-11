@@ -43,7 +43,10 @@ discriminates is also flagged. By panel, the self-naming test flags
 open-weight cases, of which none does. In \CXFixedCells{} cases the judge gives
 the same answer on at least 97\% of texts; among the other \CXVaryCells{} the
 three counts are \CXVaryFlagged{}, \CVdisc{} and \CVbothAttr{}
-(Appendix~\ref{app:stats}).
+(Appendix~\ref{app:stats}). Five of the \CVdisc{} cases that distinguish their
+own text are on the chat-app essays. The API texts also include code,
+explanations and math, so the two sets are compared like for like only on the
+\CSprompts{} essay prompts they share (Figure~\ref{fig:shared}).
 
 \begin{figure}[t]
 \centering
@@ -104,8 +107,10 @@ computed within each position of the lineup and averaged (Table~\ref{tab:anchor}
 \centering
 \includegraphics[width=\linewidth]{figures/naming_matrix.pdf}
 \caption{How often each frontier judge (row) names each author (column) on that
-author's 38 chat-app essays, in percent. Outlined cells are self-naming rates;
-the mean of the other cells in a column is that author's peer baseline.}
+author's 38 chat-app essays, in percent. Each cell counts only one
+author's essays, so neither rows nor columns sum to 100. Outlined cells are
+self-naming rates; the mean of the other cells in a column is that author's peer
+baseline.}
 \label{fig:naming}
 \end{figure}
 
@@ -230,6 +235,33 @@ four judges. Overall lineup accuracy is \OWLineupAcc{} (chance 25\%), while the
 style classifier attributes \OWClfPooled{} of the same texts. In this panel the
 false-alarm control alone removes every flagged case: none of the
 \CVopenFlagged{} discriminates.
+
+\paragraph{Frontier and open-weight judges compared}
+The two panels differ in judges, texts and number of candidates, so we compare
+them only qualitatively. In both, the self-naming test flags cases that the
+controls remove, no judge both distinguishes its own text and beats its
+strongest peer, the texts carry more authorship information than the judges'
+answers (the style classifier attributes \EngineAAcc{} of the chat-app essays
+and \OWClfPooled{} of the open-weight texts), and judges assign names partly by
+position. The panels differ in three ways. First, a different control does the
+work. Among the frontier judges the peer baseline removes 4 of the 5 flagged
+cases that fail, and in the lineup the false-alarm control changes no verdict,
+because these judges use each name once in most lineups (\CROneToOneChat{} on
+the chat-app essays). The open-weight judges give their own name to many texts
+they did not write, so the false-alarm control alone removes all
+\CVopenFlagged{} of their flagged cases.
+Second, \CVfrontierDisc{} frontier cases distinguish their own text and no
+open-weight case does: frontier lineup accuracy is \LineupAcc{} on the chat-app
+essays and \FXLineupAcc{} on the API texts (chance 20\%), against
+\OWLineupAcc{} for the open-weight judges (chance 25\%). Third, the errors run
+in opposite directions. Several frontier judges never claim a text shown on
+its own: on the chat-app essays Gemini, Grok and DeepSeek never name themselves one text
+at a time, and GPT, Grok and DeepSeek answer no to every yes/no question.
+Open-weight judges over-claim: Llama names itself on every text shown on its
+own, and Mistral answers yes to \OWMistralBinaryFA{} of other models' texts.
+The open-weight judges are also much smaller and run with 4-bit weights, so
+these differences may reflect size and quantisation rather than open weights
+as such.
 
 \paragraph{Answer-first condition}
 \label{sec:onpolicy}

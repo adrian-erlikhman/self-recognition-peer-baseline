@@ -39,9 +39,9 @@ The simplest measure of self-recognition is the rate at which a judge names
 itself as the author of its own texts, compared with chance
 \citep{davidson2024anonymized}. We call this the \emph{self-naming rate} and
 the comparison the \emph{self-naming test}. A high self-naming rate has three
-possible causes: the judge recognises its own writing, it names itself on
-most texts whatever their author, or the texts are easy for any model to
-attribute. Only the first provides evidence specific to self-recognition.
+possible causes: (1)~the judge recognises its own writing, (2)~it names itself
+on most texts whatever their author, or (3)~the texts carry traits of their
+author that make them easy for any model to attribute. Only the first provides evidence specific to self-recognition.
 Prior work addresses the second. Paired designs ask the judge to choose
 between its own text and another
 \citep{panickssery2024selfpreference, ackerman2025inspection}, and recent
@@ -49,7 +49,8 @@ one-text studies weight own and other texts equally or report balanced
 accuracy \citep{stamand2026sgtr, barkhordar2026stylenotself}. Each of these
 corrects for a judge's overall tendency to claim texts, which we measure as
 the \emph{false-alarm rate}, the share of other models' texts on which the
-judge names itself. None addresses the third cause. We add a \emph{peer
+judge names itself. None addresses the third cause, that any model could
+attribute the texts. We add a \emph{peer
 baseline}, the share of the judge's texts that the other judges attribute to
 it, which is available from the same experiment. The peer baseline reflects
 \emph{other-recognition}, how well other models identify a model's text,
@@ -74,15 +75,18 @@ the same texts to it.
 Our cross-evaluation design makes every model both an author and a judge. We
 evaluate nine judges, five frontier models and four open-weight models, on
 three sets of texts: 190 essays written in the chat apps of the five frontier
-developers, 600 texts in four genres written through the API by the models that
+developers, 600 texts in four genres (essays, Python functions, short
+explanations and math word problems) written through the API by the models that
 serve as judges (120 per judge), and 480 texts written by the open-weight
 models for the same 120 prompts. Judges attribute the texts in three formats:
 a \emph{lineup} of all answers to one prompt, \emph{one text at a time}, and a
 direct question, ``Did you write this text?''. This design yields more than
 19,000 authorship judgments.
 
-In our data, the answer to the first question is often yes and the answer to
-the second is never clearly yes (Figure~\ref{fig:funnel}). The self-naming
+In our data, the answer to the first question (does a judge distinguish its
+own texts from other models' texts?) is often yes, and the answer to the
+second (is that recognition specific to the judge?) is never clearly yes
+(Figure~\ref{fig:funnel}). The self-naming
 test flags \CVflagged{} of the \CVcells{} cases. In \CVfailFA{} of them the
 judge names itself about as often on texts it did not write as on its own;
 \CVopenFlagged{} of these are open-weight cases, mostly one text at a time or
@@ -96,7 +100,9 @@ under the like-for-like comparison, one of them on API texts), and none is
 significantly better than its strongest single peer. With 38 essays per judge that last test can detect
 only large advantages, so we read it as showing that no self-specific
 advantage is established, not that none exists. Frontier judges can recognise
-their own text, but none measurably better than its strongest peer.
+their own text, but none measurably better than its strongest peer. In other
+words, having written a text gives a judge no measurable advantage in
+recognising it.
 
 Claude and GPT show the two halves of this result. In the lineup, Claude names
 itself on 33 of its 38 chat-app essays and on 14 of the 152 it did not write,
@@ -162,7 +168,7 @@ reports the peer control three ways: pooled, like-for-like and against the
 strongest single peer. It needs only the judgments a lineup experiment
 already collects. We release all texts, judgments and code; every number in
 the paper can be recomputed without an API key, and the frontier experiments
-cost about \$53 in API fees.
+cost a nominal \$53 in API fees.
 \item The audit applied to \CVcells{} cases: nine judges, three sets of texts
 and three question formats. It narrows the \CVflagged{} cases that the
 self-naming test flags to \CVdisc{} that distinguish their own texts,
@@ -172,5 +178,6 @@ none that is significantly better than its strongest single peer.
 information in the texts. A style classifier and the open-weight judges' own
 likelihoods both carry signals that the judges' answers do not reflect, and
 the judges' stated reasons are the same for correct and incorrect
-self-attributions.
+self-attributions, which suggests that the judges attribute text from a few
+traits they associate with each model rather than from the full signal in it.
 \end{itemize}
