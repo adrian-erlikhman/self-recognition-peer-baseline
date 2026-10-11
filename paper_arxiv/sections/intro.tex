@@ -60,7 +60,14 @@ a judge's overall tendency to claim texts, which we measure as the
 \emph{false-alarm rate}, the share of other models' texts on which the judge
 names itself. None addresses the third cause. We add a \emph{peer baseline},
 the share of the judge's texts that the other judges attribute to it, which is
-available from the same experiment (Figure~\ref{fig:funnel}).
+available from the same experiment (Figure~\ref{fig:funnel}). The peer
+baseline measures \emph{other-recognition}, how well other models identify a
+model's text. Recognising oneself is a special case of attributing text to
+models, and a developer could make it reliable by giving its judge the
+detector for a watermark it controls; recognising another developer's model
+cannot be solved that way. We therefore
+treat self-recognition as recognition beyond what the other judges achieve on
+the same texts.
 
 Existing measurements of LLM self-recognition give conflicting results.
 \citet{panickssery2024selfpreference} report that LLMs distinguish their own
