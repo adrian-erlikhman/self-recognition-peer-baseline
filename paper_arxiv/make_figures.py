@@ -126,14 +126,10 @@ def shuffle() -> None:
 
 
 if __name__ == "__main__":
-    # Figure 1 is drawn by code_council/make_lead_figures.py: stacked panels at
-    # full text width, so the bar labels print at 7 pt (lead() above is the
-    # earlier side-by-side version).
+    # Every figure is now drawn by make_all_figures.py in one style
+    # (figstyle.py); the functions above and the code_council figure scripts
+    # are the earlier versions, kept for reference.
     import subprocess, sys
-    for script in ("make_lead_figures.py", "make_funnel_figure.py"):
-        subprocess.run([sys.executable, str(Path(__file__).resolve().parent / "code_council" / script)],
-                       check=True)
-    yes()
-    guesses()
-    shuffle()
+    subprocess.run([sys.executable, str(Path(__file__).resolve().parent / "make_all_figures.py")],
+                   check=True)
     print("wrote", sorted(p.name for p in OUT.glob("*.pdf")))
