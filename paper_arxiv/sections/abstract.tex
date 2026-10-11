@@ -1,26 +1,26 @@
-Anonymised LLM evaluation assumes that a judge cannot recognise its own text.
-The usual test asks whether a judge names itself as the author of its own
-texts more often than chance. A judge can pass it without recognising
-anything: it may name itself on most texts it sees, or its texts may be easy
-for any model to attribute. We separate these causes with two controls
-from data a lineup experiment already collects: the judge's false-alarm rate
-on other models' texts, and a \emph{peer baseline}, the rate at which the
-other judges name it as the author of its texts, which reflects
-other-recognition. Nine judges (five frontier, four open-weight) attribute
-1,270 texts in four genres, giving over 19,000 judgments. The self-naming test
-flags \CVflagged{} of \CVcells{} cases, and the false-alarm control removes
-\CVfailFA{}. In the other \CVdisc{}, all frontier, the judge distinguishes its
-own texts from others' (Claude asked yes/no only with correction within its
-panel), so anonymisation does not fully hide authorship from it. The other
-judges, however, recognise the same texts. Only \CVbothAttr{} cases, all on 38
-chat-app essays per judge, beat the pooled peers (\CXLikeForLike{} under a
-like-for-like comparison), and none is significantly better than its
-strongest single peer. In the lineup, Claude names itself on 33 of its 38
-chat-app essays; GPT names Claude on 32. Asked directly whether they wrote a text, GPT, Grok and DeepSeek
-answer no for all 190 essays, including their own. The texts carry more
-authorship information than the judges' answers reflect: a style classifier
-attributes 86\% of the essays, and each open-weight judge's own likelihood
-ranks its text first on \OWLikUncRawMin{} to \OWLikUncRawMax{} of prompts, yet
-those judges are at chance in the lineup. Frontier judges can recognise their
-own text, but none measurably better than its strongest peer: much of what
-looks like self-recognition is other-recognition.\footnote{Code and data: \CodeURL}
+Anonymised LLM evaluation assumes that judges cannot identify their own
+outputs. Self-recognition is usually assessed by testing whether a judge
+attributes its own text to itself more often than chance. However,
+above-chance self-attribution may reflect a tendency to claim authorship
+regardless of the source, or writing that other models can identify just as
+readily. We distinguish these possibilities using two controls: a false-alarm
+rate measuring how often a judge claims other models' texts, and a
+\emph{peer baseline} measuring how often other judges identify its writing,
+which reflects other-recognition. We evaluate nine LLM judges (five frontier
+and four open-weight) on 1,270 texts across four genres, collecting over
+19,000 authorship judgments. The self-naming test flags \CVflagged{} of
+\CVcells{} cases, but \CVfailFA{} of them fail to distinguish the judge's own
+texts from others'. Of the remaining \CVdisc{}, all involving frontier models
+(Claude asked yes/no only with correction within its panel), only
+\CVbothAttr{} significantly outperform the pooled peer baseline, and none
+significantly outperforms its strongest individual peer. In the lineup,
+Claude names itself on 33 of its 38 chat-app essays, and GPT names Claude on
+32 of them. The texts carry authorship information that the judges' answers
+do not reflect: a style classifier attributes 86\% of the chat-app essays, and
+each open-weight judge's own likelihood ranks its text first on
+\OWLikUncRawMin{} to \OWLikUncRawMax{} of prompts, yet those judges are near
+chance in the lineup. These findings show that although some LLM judges can
+distinguish their own writing, above-chance self-attribution alone does not
+establish a self-specific recognition advantage. Evaluations of LLM
+self-recognition must account for both false attribution and how readily
+other models recognise the same texts.\footnote{Code and data: \CodeURL}
