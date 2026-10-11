@@ -3,58 +3,65 @@
 \label{sec:recs}
 \label{sec:limits}
 
-We evaluated self-recognition in nine LLM judges on three sets of texts and in
-three question formats. Of the \CVflagged{} cases flagged by the self-naming
-test, the false-alarm control removes \CVfailFA{} and the peer baseline
-\CVfailPeer{}, leaving \CVbothAttr{} that pass both controls (\CXLikeForLike{}
-under the like-for-like peer comparison) and Claude's yes/no case, which has
-no peer baseline and is significant only with correction within its panel.
-The largest effects are in the
-lineup, where Claude and GPT exceed their peer baselines by 33 and 28 points
-on the chat-app essays. Neither exceeds its peer baseline in the lineup on the
-600 API texts. On the prompts the two sets share, GPT's discrimination
-declines, while Claude's self-naming and discrimination are almost unchanged
-and its smaller self-advantage is statistically compatible with the chat-app
-value. Claude discriminates in every setting we tested (in the yes/no format
-only with correction within the panel), and its peers identify its
-texts as well, so its text is identifiable whether or not Claude has an
-advantage in identifying it: much of what looks like Claude's self-recognition
-is other-recognition of Claude's text. The question format determines whether a judge
-names itself at all. Both stylometric features and the open-weight judges'
-likelihoods are informative about authorship, but the judges' explicit
-attributions align poorly with these signals.
+The self-naming test conflates two questions, and the two controls separate
+them. Frontier judges can recognise their own text, but none measurably better
+than its strongest peer: much of what looks like self-recognition is
+other-recognition. The first question is whether a judge recognises its own
+text at all. Of the \CVflagged{} cases the self-naming test flags, the
+false-alarm control removes \CVfailFA{}, almost all open-weight cases in which
+the judge names itself regardless of the author; in the remaining \CVdisc{},
+all frontier, the judge distinguishes its own texts from others'. The second
+question is whether that recognition is the judge's own, and here the evidence
+is weak. Only \CVbothAttr{} cases, all on 38 chat-app essays per judge, beat
+the pooled peers (\CXLikeForLike{} under the like-for-like comparison, one of
+them on API texts). None is significantly better than its strongest single
+peer, though that test can detect only large advantages, and on the 600 API
+texts no case passes both controls with the pooled baseline. Claude
+distinguishes its own texts in every setting we tested (in the yes/no format
+only with correction within the panel), but GPT names Claude on 32 of Claude's
+38 chat-app essays, against Claude's own 33. The question format determines
+whether a judge names itself at all, and the judges' explicit attributions
+reflect little of the authorship information in stylometric features and in
+their own likelihoods.
 
 \paragraph{Implications}
-Our results suggest that measured self-recognition depends jointly on the
-judge, the texts it evaluates and the question format, so a result on one
-benchmark may not hold for the same model in general. A judge that shows no
-self-recognition on one benchmark may show it on another, and a model update
-may change the result. \citet{bai2025selfrecognition} observe that much work
-on self-preference presupposes self-recognition, and \citet{panickssery2024selfpreference} propose
-recognition as one of its causes. We find little evidence of explicit
-self-recognition in most of the conditions we tested, consistent with
-\citet{davidson2024anonymized} and \citet{bai2025selfrecognition}. Bai et al.\
-conclude that recognition is unlikely to be the main reason for
-self-preference. Our data cannot test that conclusion: no frontier judge rated
-or ranked the texts, and the open-weight ratings are compressed near the top of
-the scale. A judge that fails an attribution test may still favour its own
-text, since self-preference can arise from familiarity without recognition
-\citep{wataoka2024perplexity}. For a judge that discriminates, removing the
-author's name does not hide authorship from that judge, so anonymisation cannot
-be relied on to prevent self-preference, whether or not its peers can also
-identify its texts; this applies to Claude in every setting we tested. The
-self-naming test does not distinguish such judges from those that name
-themselves on most texts.
+Other-recognition matters in its own right. Recognising oneself is a special
+case of attributing text to models, and a developer could make it reliable by
+giving its judge the detector for a watermark it controls; recognising another
+developer's model cannot be solved that way. In the chat-app lineup,
+anonymisation hides Claude's authorship from neither Claude nor GPT, so a
+pipeline in which one model judges another's outputs can face the same
+identification problem as one in which a model judges its own. Measured
+self-recognition depends jointly on the judge, the texts it evaluates and the
+question format, so a result on one benchmark may not hold for the same model
+in general, and a model update may change it. \citet{bai2025selfrecognition}
+observe that much work on self-preference presupposes self-recognition, and
+\citet{panickssery2024selfpreference} propose recognition as one of its causes.
+We find frontier judges that recognise their own text, but, consistent with
+\citet{davidson2024anonymized} and \citet{bai2025selfrecognition}, little
+evidence that this recognition is self-specific. Bai et al.\ conclude that
+recognition is unlikely to be the main reason for self-preference. Our data
+cannot test that conclusion: no frontier judge rated or ranked the texts, and
+the open-weight ratings are compressed near the top of the scale. A judge
+that fails an attribution test may still favour its own text, since
+self-preference can arise from familiarity without recognition
+\citep{wataoka2024perplexity}. For a judge that distinguishes its own text,
+such as Claude in every setting we tested, removing the author's name does not
+fully hide authorship, whether or not its peers can also identify the texts.
+Whether the judge then favours those texts is a separate question that we do
+not measure. The self-naming test does not distinguish such judges from those
+that name themselves on most texts, and it does not tell an evaluator whether
+another model in the pipeline could identify the same texts.
 
 \paragraph{Recommendations}
 (1)~Report the false-alarm rate and the peer baseline alongside the self-naming
-rate, and require evidence of both discrimination and a self-advantage before
-interpreting a high self-naming rate as self-recognition. Report the two
-controls separately: discrimination bears on whether anonymisation protects a
-judge, and self-advantage on whether the judge identifies its texts better than
-other judges can. Report the peer control both as a raw baseline and
-like-for-like, and against the strongest single peer, since a pooled baseline
-can hide one peer that matches the judge. (2)~Use the lineup format rather than the one-text
+rate, and require evidence of discrimination before interpreting a high
+self-naming rate as recognition, and of a self-advantage before calling it
+self-specific. Report the two controls separately: discrimination bears on
+whether anonymisation protects a judge, and self-advantage on whether the
+judge identifies its texts better than other judges can. Report the peer
+control as a pooled baseline, like-for-like, and against the strongest single
+peer, since a pooled baseline can hide one peer that matches the judge. (2)~Use the lineup format rather than the one-text
 format, in which attributions concentrate on one or two models, and rotate the
 order of the answers: on the chat-app essays, lineup accuracy is
 \CRAccListedChat{} when the answers follow the order in which the names are

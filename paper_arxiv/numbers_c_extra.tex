@@ -1,5 +1,11 @@
 % Hand-written for the arXiv revision. Each value was recomputed from the
 % archived judgments by the verification report named in its comment.
+\newcommand{\CXStrongestPeer}{0}% cases that discriminate and beat their strongest single peer (Holm within setting); code_council/strongest_peer.py
+\newcommand{\CXStrongestPeerAny}{3}% ... any case, ignoring discrimination (all open-weight: Qwen lineup and one text, Llama one text)
+\newcommand{\CXGPTvsGrok}{+23.7}% GPT chat-app lineup self-naming minus its strongest peer (Grok), points
+\newcommand{\CXGPTvsGrokCI}{[$+$0.0, +44.7]}% ... bootstrap interval
+\newcommand{\CXGPTvsGrokP}{0.039}% ... uncorrected exact McNemar p
+\newcommand{\CXGPTvsGrokHolm}{0.20}% ... Holm-corrected over the five judges
 \newcommand{\CXLikeForLike}{5}% attribution cases whose discrimination exceeds the peers' mean discrimination for the same author (Holm within setting); code_council/peer_discrimination.py
 \newcommand{\CXClaudeChatSingleDisc}{+78.3}% Claude discrimination, chat-app essays, one text (33/38 vs 13/152); verify-I02, build-verdicts case 7
 \newcommand{\CXClaudeYesNoDiscCI}{[+6.6, +40.1]}% Claude yes/no discrimination, 95% prompt-bootstrap interval; verify-I02, verify-I03

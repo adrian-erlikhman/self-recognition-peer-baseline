@@ -46,10 +46,11 @@ python paper_arxiv/code_council/build_verdicts.py   # verdict table, Figure 2, t
 python paper_arxiv/code_council/build_shared.py     # the 38 shared prompts, Figure 4
 python paper_arxiv/code_council/build_robust.py     # who names whom (Figure 3), name order
 python paper_arxiv/code_council/peer_discrimination.py  # like-for-like peer comparison
+python paper_arxiv/code_council/strongest_peer.py        # strongest single peer (Table 2, Figure 1)
 python paper_arxiv/build.py              # arXiv-only numbers and tables, then compile (needs Tectonic)
 ```
 
-The four `code_council/` scripts rewrite their tables and macro files in
+The `code_council/` scripts rewrite their tables and macro files in
 place; the verdict and shared-prompt captions in the paper carry a sentence or
 two added by hand, so compare rather than overwrite if you rerun them.
 

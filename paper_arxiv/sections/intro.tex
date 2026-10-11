@@ -1,9 +1,8 @@
 \section{Introduction}
 \label{sec:intro}
 
-LLM judges are now a common tool for evaluating language models. They are
-used to rank systems on leaderboards, to label preference data for reward
-models, and to review the actions of other models. The judge and the models it
+LLM judges now rank systems on leaderboards, label preference data for reward
+models, and review the actions of other models. The judge and the models it
 evaluates often come from the same few developers, and judges have been shown
 to rate their own outputs higher than those of other models
 \citep{panickssery2024selfpreference, wataoka2024perplexity, ye2025justice}.
@@ -27,47 +26,47 @@ about its size.
 \begin{figure}[t]
 \centering
 \includegraphics[width=\linewidth]{figures/funnel.pdf}
-\caption{Two controls from the same lineup data remove \CVfail{} of the
-\CVflagged{} cases that the self-naming test flags. (a) A case is one judge on
-one set of texts in one question format. The self-naming test flags a case
-when the judge names itself on its own texts more often than chance. A case
-\emph{discriminates} when the judge names itself more often on its own texts
-than on other models' texts, and it \emph{exceeds its peers} when the judge
-names itself on its texts more often than the other judges name it; under a
-like-for-like peer comparison \CXLikeForLike{} cases pass
-(Table~\ref{tab:verdicts}). The yes/no format has no peer baseline, and its one
-case that discriminates (Claude) is significant only with correction within
-its panel. (b) The two judges that pass both controls
-in the lineup on the chat-app essays. Claude names itself on 87\% of its own
-essays and 9\% of the others, and the other four judges name Claude on 54\% of
-its essays. The dashed line marks chance (20\%).}
+\caption{The audit applied to all \CVcells{} cases. A case is one judge on one
+set of texts in one question format. (a) The self-naming test flags a case
+when the judge names itself on its own texts more often than chance. The judge
+\emph{distinguishes its own text} when it also names itself more often on its
+own texts than on other models' texts. It \emph{beats its peers} when it also
+names itself on its texts more often than the other judges name it, on
+average (pooled peers) or compared with the single judge that names it most
+often there (strongest peer). The yes/no format has no peer baseline, and its
+one case that distinguishes its own text (Claude) does so only with correction
+within its panel. Under a like-for-like peer comparison \CXLikeForLike{} cases
+beat their peers (Table~\ref{tab:verdicts}). (b) In the lineup on the
+chat-app essays, the two judges that beat the pooled peers there, next to the
+single peer that names each of them most often. GPT names Claude on 84\% of
+Claude's essays, against Claude's own 87\%. The dashed line marks chance
+(20\%).}
 \label{fig:funnel}
 \end{figure}
 
 The simplest measure of self-recognition is the rate at which a judge names
 itself as the author of its own texts, compared with chance
 \citep{davidson2024anonymized}. We call this the \emph{self-naming rate} and
-the comparison the \emph{self-naming test}. A high self-naming rate has several
-possible causes. The judge may recognise its own writing, the judge may name
-itself on most texts regardless of who wrote them, or the texts may be easy for
-any model to attribute. Only the first provides evidence specific to
-self-recognition. Prior work addresses the second. Paired designs ask the judge
-to choose between its own text and another
+the comparison the \emph{self-naming test}. A high self-naming rate has three
+possible causes: the judge recognises its own writing, it names itself on
+most texts whatever their author, or the texts are easy for any model to
+attribute. Only the first provides evidence specific to self-recognition.
+Prior work addresses the second. Paired designs ask the judge to choose
+between its own text and another
 \citep{panickssery2024selfpreference, ackerman2025inspection}, and recent
-one-text studies weight own and other texts equally or report balanced accuracy
-\citep{stamand2026sgtr, barkhordar2026stylenotself}. Each of these corrects for
-a judge's overall tendency to claim texts, which we measure as the
-\emph{false-alarm rate}, the share of other models' texts on which the judge
-names itself. None addresses the third cause. We add a \emph{peer baseline},
-the share of the judge's texts that the other judges attribute to it, which is
-available from the same experiment (Figure~\ref{fig:funnel}). The peer
-baseline measures \emph{other-recognition}, how well other models identify a
-model's text. Recognising oneself is a special case of attributing text to
-models, and a developer could make it reliable by giving its judge the
-detector for a watermark it controls; recognising another developer's model
-cannot be solved that way. We therefore
-treat self-recognition as recognition beyond what the other judges achieve on
-the same texts.
+one-text studies weight own and other texts equally or report balanced
+accuracy \citep{stamand2026sgtr, barkhordar2026stylenotself}. Each of these
+corrects for a judge's overall tendency to claim texts, which we measure as
+the \emph{false-alarm rate}, the share of other models' texts on which the
+judge names itself. None addresses the third cause. We add a \emph{peer
+baseline}, the share of the judge's texts that the other judges attribute to
+it, which is available from the same experiment. The peer baseline reflects
+\emph{other-recognition}, how well other models identify a model's text,
+together with each peer's general tendency to name that model; a
+like-for-like version separates the two. The two controls answer two separate
+questions. Does a judge distinguish its own texts from other models' texts?
+And if it does, is that recognition specific to the judge, or do other models
+identify the same texts as well?
 
 Existing measurements of LLM self-recognition give conflicting results.
 \citet{panickssery2024selfpreference} report that LLMs distinguish their own
@@ -85,95 +84,102 @@ Our cross-evaluation design makes every model both an author and a judge. We
 evaluate nine judges, five frontier models and four open-weight models, on
 three sets of texts: 190 essays written in the chat apps of the five frontier
 developers, 600 texts in four genres written through the API by the models that
-serve as judges, and 480 texts written by the open-weight models for the same
-120 prompts. Judges attribute the texts in three formats: a \emph{lineup} of
-all answers to one prompt, \emph{one text at a time}, and a direct question,
-``Did you write this text?''. This design yields more than 19,000 authorship
-judgments.
+serve as judges (120 per judge), and 480 texts written by the open-weight
+models for the same 120 prompts. Judges attribute the texts in three formats:
+a \emph{lineup} of all answers to one prompt, \emph{one text at a time}, and a
+direct question, ``Did you write this text?''. This design yields more than
+19,000 authorship judgments.
 
-The self-naming test flags \CVflagged{} of the \CVcells{} cases, and the two
-controls remove \CVfail{} of them (Figure~\ref{fig:funnel}a). In \CVfailFA{}
-the judge names itself about as often on texts it did not write as on its
-own; \CVopenFlagged{} of these are open-weight judges, whose lineup answers
-largely follow the position of a text. The other \CVdisc{} discriminate. Of
-these, \CVbothAttr{} also exceed their peer baseline, \CVfailPeer{} do not,
-and one, Claude in the yes/no format, has no peer baseline and is significant
-only when corrected within its panel ($p=$~\FBClaudeHolm{}, against
-$p=\CXClaudeYesNoHolmAll$ when corrected across all \CVcells{} cases). Among the frontier
-judges the peer baseline is the control that changes verdicts. In the lineup
-they use each of the five names once in \CROneToOneChat{} of lineups, so a
-judge that names itself on its own text rarely names itself on others', and
-the discrimination test gives the same verdict as the self-naming test. The
-peer baseline removes 4 of the 5 frontier cases that fail. The cases that pass
-are Claude and GPT on the chat-app essays. In the lineup, Claude names itself
-on 33 of its 38 essays and on 14 of the 152 it did not write, and its
-self-advantage is \ClaudeAdvLineup{} points \ClaudeAdvLineupCI{}; GPT's is
-\GPTAdvLineup{} points \GPTAdvLineupCI{}. The raw peer baseline pools peers
-of unequal skill and includes each peer's general tendency to name a model, so
-we also report a like-for-like version, which sets each judge's
-discrimination against its peers' discrimination for the same author. It
-passes \CXLikeForLike{} cases: the same three, and Claude one text at a time
-on both the chat-app essays and the API texts (Table~\ref{tab:verdicts}). The
-choice matters most for Claude in the lineup. GPT names Claude on 32 of
-Claude's 38 essays, so against GPT alone Claude's advantage is
-\CRClaudeVsBestPeer{} points \CRClaudeVsBestPeerCI{}.
+In our data, the answer to the first question is often yes and the answer to
+the second is never clearly yes (Figure~\ref{fig:funnel}). The self-naming
+test flags \CVflagged{} of the \CVcells{} cases. In \CVfailFA{} of them the
+judge names itself about as often on texts it did not write as on its own;
+\CVopenFlagged{} of these are open-weight cases, mostly one text at a time or
+yes/no, in which the judge names itself on most texts (Llama on every one). In
+the other \CVdisc{}, all frontier, the judge distinguishes its own texts from
+others' (Claude asked yes/no only with correction within its panel), so
+removing the author's name does not fully hide authorship from it. The other
+judges, however, recognise the same texts. Only \CVbothAttr{} cases, all on
+the 38 chat-app essays per judge, beat the pooled peers (\CXLikeForLike{}
+under the like-for-like comparison, one of them on API texts), and none is
+significantly better than its strongest single peer. With 38 essays per judge that last test can detect
+only large advantages, so we read it as showing that no self-specific
+advantage is established, not that none exists. Frontier judges can recognise
+their own text, but none measurably better than its strongest peer.
+
+Claude and GPT show the two halves of this result. In the lineup, Claude names
+itself on 33 of its 38 chat-app essays and on 14 of the 152 it did not write,
+and it beats the pooled peers by \ClaudeAdvLineup{} points
+\ClaudeAdvLineupCI{}. GPT, however, names Claude on 32 of the same 38 essays,
+and on only 7 of the other 152, so against GPT alone Claude's advantage is
+\CRClaudeVsBestPeer{} points \CRClaudeVsBestPeerCI{}: for Claude, another
+judge does nearly as well. GPT beats the pooled peers by \GPTAdvLineup{}
+points \GPTAdvLineupCI{} and its strongest peer, Grok, by \CXGPTvsGrok{} points
+\CXGPTvsGrokCI{}, which is not significant after correction
+($p=$~\CXGPTvsGrokHolm{}); GPT's chat-app essays were written by an app variant
+that we cannot verify to be the judge model (Section~\ref{sec:setup}). For the
+frontier judges it is mostly the peer controls that change verdicts: they
+remove 4 of the 5 frontier cases that fail, and in the lineup the frontier
+judges use each of the five names once in \CROneToOneChat{} of lineups, so the
+discrimination test there gives the same verdict as the self-naming test.
 
 The chat-app results do not carry over cleanly to the API texts. On the 600
-API texts no judge exceeds its peer baseline in the lineup, although Claude and
-Grok still discriminate. On the \CSprompts{} essay prompts that the two sets
-share, GPT's discrimination declines. Claude's self-naming and false-alarm
-rates barely change, but its peers name it more often, so the comparison is
-inconclusive for Claude. Claude discriminates in every setting we tested, most
-weakly in the yes/no format, where the result holds only with correction
-within the panel, and in the lineup and one-text formats the other
-judges name Claude on \FXClaudeSinglePeer{} to \ClaudePeerSingle{} of its
-texts: Claude's text is identifiable to its peers as well as to Claude.
+API texts no case passes both controls with the pooled baseline (only Claude,
+one text at a time, passes like-for-like), although Claude and Grok still
+distinguish their own texts in the lineup. On the \CSprompts{} essay prompts
+that the two sets share, GPT's discrimination declines. Claude's self-naming
+and false-alarm rates barely change, but its peers name it more often, so the
+comparison is inconclusive for Claude. In the chat-app lineup, every frontier
+judge names Claude more often on Claude's essays than on other models'
+essays: Claude's writing is recognisable to other models, not only to Claude.
 
-The evidence also changes sharply with question format. When texts are shown
-one at a time, \SingleConcentration{} of all guesses name GPT or Claude. When
-asked directly in a new conversation, GPT, Grok and DeepSeek answer no for all
-190 essays, including their own. \citet{bai2025selfrecognition} report a
-similar reluctance in earlier models from the same three developers. Most of
-the reasoning summaries returned for GPT and Grok say that the judge has no
-memory of writing the text or did not write it in the current conversation,
-so we read these answers as a stance on the question rather than as evidence
-about recognition. The open-weight judges show the opposite pattern, which
-\citet{bai2025selfrecognition} call \emph{over-attribution}: Llama names itself
-on every text it is shown one at a time.
+Question format determines whether a judge names itself at all. When the
+chat-app essays are shown one at a time, \SingleConcentration{} of all guesses
+name GPT or Claude. When asked directly in a new conversation, GPT, Grok and
+DeepSeek answer no for all 190 essays, including their own.
+\citet{bai2025selfrecognition} report a similar reluctance in earlier models
+from the same three developers. Most of the reasoning summaries returned for
+GPT and Grok say that the judge has no memory of writing the text or did not
+write it in the current conversation, so we read these answers as a stance on
+the question rather than as evidence about recognition. The open-weight judges
+show the opposite pattern, which \citet{bai2025selfrecognition} call
+\emph{over-attribution}: Llama names itself on every text it is shown one at a
+time.
 
-We next examine five candidate explanations for these attributions. The texts
-carry authorship information that the judges do not use. A classifier over 18
-style features correctly attributes \EngineAAcc{} of the chat-app essays. Each
-open-weight judge's own likelihood ranks its text first among the four
-candidates on \OWLikUncRawMin{} to \OWLikUncRawMax{} of prompts even without
-the prompt (chance 25\%), yet the same judges attribute \OWLineupAcc{} of texts
-correctly in the lineup. We find no evidence that judges claim the texts that
-are more likely under their own model, more similar to their own answer, or
-rated higher in quality. A bag-of-words classifier, which ignores word order,
+Of five candidate explanations (Section~\ref{sec:mechanism}), the clearest
+result is negative: the texts carry more authorship information than the
+judges' answers reflect. A classifier over 18 style features correctly
+attributes \EngineAAcc{} of the chat-app essays. Each open-weight judge's own
+likelihood ranks its text first among the four candidates on
+\OWLikUncRawMin{} to \OWLikUncRawMax{} of prompts even without the prompt
+(chance 25\%), yet the same judges attribute \OWLineupAcc{} of texts correctly
+in the lineup. We find no evidence that judges claim the texts that are more
+likely under their own model, more similar to their own answer, or rated
+higher in quality. A bag-of-words classifier, which ignores word order,
 attributes \BowShufAcc{} of the chat-app essays, whereas the four judges that
-answered a lineup of word-shuffled essays are at chance. This condition is
-incomplete: Claude's provider refused every shuffled lineup, and the reasoning
-traces of Gemini and Grok show that they noticed the scrambling, so we do not
-read it as evidence about which cues the judges use. The judges' written
-reasons invoke the same model-specific traits for correct and incorrect
-self-attributions.
+answered a lineup of word-shuffled essays are at chance; this condition is
+incomplete (Section~\ref{sec:mechanism}), so we do not read it as evidence
+about which cues the judges use. The judges' written reasons invoke the same
+model-specific traits for correct and incorrect self-attributions.
 
 The paper makes three contributions.
 \begin{itemize}
-\item A peer baseline for self-recognition, which to our knowledge no earlier
-study of self-recognition has used. With the false-alarm correction of recent
-work it gives an audit that needs only the judgments a lineup experiment
+\item An audit that separates self-recognition from other-recognition. It
+combines the false-alarm correction of recent work with a peer baseline,
+which to our knowledge no earlier study of self-recognition has used, and
+reports the peer control three ways: pooled, like-for-like and against the
+strongest single peer. It needs only the judgments a lineup experiment
 already collects. We release all texts, judgments and code; every number in
 the paper can be recomputed without an API key, and the frontier experiments
 cost about \$53 in API fees.
 \item The audit applied to \CVcells{} cases: nine judges, three sets of texts
-and three question formats. Of the \CVflagged{} cases that the self-naming
-test flags, \CVbothAttr{} pass both controls (\CXLikeForLike{} under the
-like-for-like peer comparison), all of them Claude or GPT, and one more,
-Claude in the yes/no format, discriminates in a format without a peer
-baseline, significant only within its panel.
-\item Evidence that the judges' answers do not follow the authorship
+and three question formats. It narrows the \CVflagged{} cases that the
+self-naming test flags to \CVdisc{} that distinguish their own texts,
+\CVbothAttr{} that beat the pooled peers (\CXLikeForLike{} like-for-like), and
+none that is significantly better than its strongest single peer.
+\item Evidence that the judges' answers reflect little of the authorship
 information in the texts. A style classifier and the open-weight judges' own
-likelihoods both carry signals that the judges leave unused, and the judges'
-stated reasons are the same for correct and incorrect self-attributions.
+likelihoods both carry signals that the judges' answers do not reflect, and
+the judges' stated reasons are the same for correct and incorrect
+self-attributions.
 \end{itemize}

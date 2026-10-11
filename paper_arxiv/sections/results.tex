@@ -10,17 +10,33 @@ Table~\ref{tab:verdicts} applies the self-naming test and both controls to
 every case. The self-naming test flags \CVflagged{} of the \CVcells{} cases.
 In \CVfailFA{} of them the judge names itself about as often on texts it did
 not write as on its own: \CVopenFlagged{} open-weight cases, and GPT on the API
-texts shown one at a time. The other \CVdisc{} discriminate. \CVbothAttr{} of
-these also exceed their peer baseline, and one, Claude in the yes/no format,
-has no peer baseline. The remaining \CVfailPeer{}, Claude in three settings and
-Grok in one, discriminate by \FXGrokLineupDisc{} to \CXClaudeChatSingleDisc{}
-points without exceeding their peers. These judges can tell their own texts
-from others', so anonymisation offers them limited protection; what they lack
-is an advantage over the other judges. Figure~\ref{fig:verdictmap} shows that
-the two kinds of failure lie along different axes. Of the \CVflaggedAttr{}
-flagged cases that have a peer baseline, \CVpeerSurvive{} pass it, so the
-false-alarm control removes most cases overall, and the peer baseline removes
-most of those among the frontier judges (4 of 5). Every case that
+texts shown one at a time. In the other \CVdisc{} the judge distinguishes its
+own text. \CVbothAttr{} of these also beat the pooled peers, and one, Claude in
+the yes/no format, has no peer baseline. The remaining \CVfailPeer{}, Claude in
+three settings and Grok in one, discriminate by \FXGrokLineupDisc{} to
+\CXClaudeChatSingleDisc{} points without beating their peers. These judges
+recognise their own texts, so anonymisation does not fully hide authorship
+from them. What they lack is a self-specific advantage: the other judges
+recognise the same texts. None of the \CVbothAttr{} cases that beat the pooled
+peers is significantly better than its strongest single peer
+(Table~\ref{tab:verdicts}, last column). The closest is GPT on the chat-app
+essays in the lineup, which names itself on 22 of its 38 essays against 13 for
+Grok, a difference of \CXGPTvsGrok{} points \CXGPTvsGrokCI{}
+($p=$~\CXGPTvsGrokP{} uncorrected; \CXGPTvsGrokHolm{} after correction over
+the five judges, 0.08 over the two that beat the pooled peers in that
+setting). This test has little power. In this case there are 21 essays on
+which exactly one of GPT and Grok names GPT, and at least 17 of them would have
+to favour GPT for the difference to survive correction over the five judges,
+an advantage of about 34 points, larger than GPT's whole advantage over the
+pooled peers. Across all
+\CVattr{} lineup and one-text cases, only three beat their strongest peer, all
+open-weight judges that do not distinguish their own text.
+Figure~\ref{fig:verdictmap} shows that the two kinds of failure lie along
+different axes. Of the \CVflaggedAttr{} flagged cases that have a peer
+baseline, \CVpeerSurvive{} pass it, so overall the false-alarm control removes
+more flagged cases than the peer baseline (\CVfailFA{} against
+\CVfailPeer{}), while among the frontier judges the peer baseline removes 4 of
+the 5 that fail. Every case that
 discriminates is also flagged. By panel, the self-naming test flags
 \CVfrontierFlagged{} of the \CVfrontierCells{} frontier cases, of which
 \CVfrontierDisc{} discriminate, and \CVopenFlagged{} of the \CVopenCells{}
@@ -210,7 +226,7 @@ marks chance (20\%).}
 \input{table_openweight}
 
 \paragraph{Open-weight judges}
-No open-weight judge recognises itself in the lineup
+No open-weight judge distinguishes its own text in the lineup
 (Table~\ref{tab:openweight}). Qwen and Llama have significant self-advantages
 but do not discriminate. Qwen names itself on \OWQwenLineupSelf{} of its own
 texts and \OWQwenLineupFA{} of other models' texts, and Llama names itself more

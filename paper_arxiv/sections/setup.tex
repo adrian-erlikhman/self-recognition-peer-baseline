@@ -75,20 +75,24 @@ false-alarm rates used in signal detection \citep{green1966signal}, and
 \emph{self-advantage} is the self-naming rate minus the peer baseline. The \emph{self-naming test} asks whether the
 self-naming rate exceeds chance in a one-sided binomial test (in the yes/no
 format, whether the judge answers yes for more than half of its own texts); a
-case that passes is \emph{flagged}. We apply two controls to each case. A judge
-\emph{discriminates} if its discrimination is positive and statistically
-significant, and it \emph{exceeds its peers} if its self-advantage is positive
-and statistically significant. Discrimination indicates that the judge
-distinguishes its own texts from others', which weakens the protection
-anonymisation provides whether or not other judges can do the same. A
-self-advantage indicates that the judge identifies its own texts more often
-than the other judges do on average. The peer baseline pools judges of unequal
-ability and includes each peer's general tendency to name that model, so
-Appendix~\ref{app:more} reports how often each judge names Claude and GPT
-(Table~\ref{tab:naming}). We reserve the term self-recognition for cases that
-pass both controls. The yes/no format has no peer baseline, because each judge
-is asked only about itself, so these cases can be tested for discrimination
-only and we count them separately. Under random guessing all three rates equal chance (20\% with five
+case that passes is \emph{flagged}. We apply two controls to each flagged
+case. A judge \emph{distinguishes its own text}, or \emph{discriminates}, if
+its discrimination is positive and statistically significant. This is the
+property that matters for anonymisation: removing the author's name does not
+fully hide authorship from such a judge, whether or not other judges can do
+the same. A judge has a \emph{self-specific advantage}, or \emph{exceeds its
+peers}, if it also identifies its texts better than other judges do. We
+measure this three ways. The primary measure is the self-advantage over the
+pooled peer baseline. Because the peer baseline pools judges of unequal
+ability and includes each peer's general tendency to name that model, we also
+report a like-for-like version, the judge's discrimination minus the mean
+discrimination of the other judges for the same author, and a comparison with
+the \emph{strongest single peer}, the other judge that names the judge most
+often on the judge's texts. Appendix~\ref{app:more} reports how often each
+judge names Claude and GPT (Table~\ref{tab:naming}). The yes/no format has no
+peer baseline, because each judge is asked only about itself, so these cases
+can be tested for discrimination only and we count them separately. Under
+random guessing all three rates equal chance (20\% with five
 candidates, 25\% with four) and both differences are zero. For open-weight
 judges in the yes/no format we also report the AUC of the probability of
 ``yes'', which does not depend on a judge's overall tendency to answer yes.
@@ -98,7 +102,12 @@ Judgments that share a prompt are not independent, so all tests resample or
 permute at the level of prompts or texts. We report 95\% confidence intervals
 from a bootstrap over prompts. Self-advantage is tested by permuting which judge
 is labelled ``self'' on each text, and discrimination by permuting which text
-in a lineup is the judge's own. $p$-values are Holm-corrected across the judges
+in a lineup is the judge's own. The strongest-peer comparison is an exact
+one-sided McNemar test on the judge's texts. Choosing the strongest peer after
+seeing the data biases this test toward finding no advantage, and it compares
+raw naming rates, so in the one-text format, where peers name Claude and GPT
+on nearly every one of their texts, it is uninformative; the lineup is the
+informative case. $p$-values are Holm-corrected across the judges
 in a panel (Appendix~\ref{app:stats}). As a reference for how much authorship
 information the texts contain, we train a random forest on 18 style features and
 always evaluate it on prompts it was not trained on
