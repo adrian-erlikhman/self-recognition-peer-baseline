@@ -97,9 +97,9 @@ the two sets rests on the \CSprompts{} prompts they share and cannot settle
 whether Claude's self-advantage carries over to API texts. The open-weight
 judges have 4 to 8 billion parameters, run with 4-bit weights, are much weaker
 attributors than frontier models, and their lineup answers largely follow the
-position of a response. We ran them locally rather than through an API so that
-the same fixed weights wrote and judged their texts and so that we could read
-token probabilities, which the likelihood, yes/no and quality analyses need.
+position of a response. Running them locally kept the same fixed weights for
+writing and judging, and let us read the token probabilities that the
+likelihood, yes/no and quality analyses need.
 The two panels were judged separately, with five and four candidates, so their
 results can be compared only qualitatively. No frontier provider returned token probabilities, so
 the frontier yes/no results are based on discrete answers, and the likelihood,
