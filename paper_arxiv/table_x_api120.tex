@@ -27,7 +27,7 @@ DeepSeek & \FXDeepSeekSingleProseAdv & \FXDeepSeekSingleProseDisc & \FXDeepSeekS
 \caption{Frontier judges on the API texts, by genre: self-advantage (Adv.) and hit minus
 false-alarm rate (Disc.), in points, for each judge. Per judge, 60 own texts
 in prose and 20 in each other genre. Claude's discrimination is largest on
-prose and absent on math; Grok's is largest on code.}
+prose and, in the lineup, absent on math; Grok's is largest on code.}
 \label{tab:fxgenre}
 \end{table}
 
@@ -37,7 +37,7 @@ prose and absent on math; Grok's is largest on code.}
 \begin{adjustbox}{max width=\linewidth}
 \begin{tabular}{l rrrr rrrr}
 \toprule
- & \multicolumn{4}{c}{38 shared prompts} & \multicolumn{4}{c}{82 new prompts} \\
+ & \multicolumn{4}{c}{38 shared prompts} & \multicolumn{4}{c}{82 other prompts} \\
 \cmidrule(lr){2-5}\cmidrule(lr){6-9}
 Judge & Self & Peer & Adv. & Disc. & Self & Peer & Adv. & Disc. \\
 \midrule
@@ -50,7 +50,7 @@ DeepSeek & \FXOldDeepSeekLineupSelf & \FXOldDeepSeekLineupPeer & \FXOldDeepSeekL
 \end{tabular}
 \end{adjustbox}
 \caption{Frontier judges on the API texts, lineup, split into the 38 prompts shared with the
-chat-app essays and the 82 added for this study. On the shared prompts
+chat-app essays and the other 82. On the shared prompts
 Claude's self-naming rate (\FXOldClaudeLineupSelf) is close to its chat-app
 rate (\ClaudeSelfLineup), while its peers name it on \FXOldClaudeLineupPeer{}
 of its texts, compared with \ClaudePeerLineup{} on the chat-app essays.

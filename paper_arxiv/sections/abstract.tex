@@ -11,9 +11,10 @@ and four open-weight) on 1,270 texts across four genres, collecting over
 19,000 authorship judgments. The self-naming test flags \CVflagged{} of
 \CVcells{} cases, but \CVfailFA{} of them fail to distinguish the judge's own
 texts from others'. Of the remaining \CVdisc{}, all involving frontier models
-(Claude asked yes/no only with correction within its panel), only
+(Claude in the yes/no format only with correction within its panel), only
 \CVbothAttr{} significantly outperform the pooled peer baseline, and none
-significantly outperforms its strongest individual peer. In the lineup,
+significantly outperforms its strongest single peer, a test that detects only
+large advantages with 38 essays per judge. In the lineup,
 Claude names itself on 33 of its 38 chat-app essays, and GPT names Claude on
 32 of them. The texts carry authorship information that the judges' answers
 do not reflect: a style classifier attributes 86\% of the chat-app essays, and
@@ -21,6 +22,6 @@ each open-weight judge's own likelihood ranks its text first on
 \OWLikUncRawMin{} to \OWLikUncRawMax{} of prompts, yet those judges are near
 chance in the lineup. These findings show that although some LLM judges can
 distinguish their own writing, above-chance self-attribution alone does not
-establish a self-specific recognition advantage. Evaluations of LLM
+establish a self-specific advantage. Evaluations of LLM
 self-recognition must account for both false attribution and how readily
 other models recognise the same texts.\footnote{Code and data: \CodeURL}

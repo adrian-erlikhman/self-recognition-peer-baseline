@@ -11,13 +11,15 @@ every case. The self-naming test flags \CVflagged{} of the \CVcells{} cases.
 In \CVfailFA{} of them the judge names itself about as often on texts it did
 not write as on its own: \CVopenFlagged{} open-weight cases, and GPT on the API
 texts shown one at a time. In the other \CVdisc{} the judge distinguishes its
-own text. \CVbothAttr{} of these also beat the pooled peers, and one, Claude in
+own text. Of these, \CVbothAttr{} also beat the pooled peers, and one, Claude in
 the yes/no format, has no peer baseline. The remaining \CVfailPeer{}, Claude in
 three settings and Grok in one, discriminate by \FXGrokLineupDisc{} to
 \CXClaudeChatSingleDisc{} points without beating their peers. These judges
 recognise their own texts, so anonymisation does not fully hide authorship
-from them. What they lack is a self-specific advantage: the other judges
-recognise the same texts. None of the \CVbothAttr{} cases that beat the pooled
+from them. What they lack, by the pooled measure, is a self-specific
+advantage: the other judges name them on their texts about as often. For Claude
+one text at a time, on both sets of texts, this reflects peers that name Claude
+on most texts, and both of those cases exceed their peers like-for-like. None of the \CVbothAttr{} cases that beat the pooled
 peers is significantly better than its strongest single peer
 (Table~\ref{tab:verdicts}, last column). The closest is GPT on the chat-app
 essays in the lineup, which names itself on 22 of its 38 essays against 13 for
@@ -42,10 +44,11 @@ discriminates is also flagged. By panel, the self-naming test flags
 \CVfrontierDisc{} discriminate, and \CVopenFlagged{} of the \CVopenCells{}
 open-weight cases, of which none does. In \CXFixedCells{} cases the judge gives
 the same answer on at least 97\% of texts; among the other \CXVaryCells{} the
-three counts are \CXVaryFlagged{}, \CVdisc{} and \CVbothAttr{}
+numbers of flagged, discriminating and peer-beating cases are \CXVaryFlagged{},
+\CVdisc{} and \CVbothAttr{}
 (Appendix~\ref{app:stats}). Five of the \CVdisc{} cases that distinguish their
 own text are on the chat-app essays. The API texts also include code,
-explanations and math, so the two sets are compared like for like only on the
+explanations and math, so the two sets are compared directly only on the
 \CSprompts{} essay prompts they share (Figure~\ref{fig:shared}).
 
 \begin{figure}[t]
@@ -71,7 +74,8 @@ their own text are named. Yes/no cases have no peer baseline and are omitted.}
 \caption{One text at a time}\label{fig:lead-single}
 \end{subfigure}
 \caption{Self-naming rate, peer baseline and false-alarm rate of the five
-frontier judges on the 38 chat-app essays each wrote (values in
+frontier judges: self-naming rate and peer baseline on the 38 chat-app essays
+each judge wrote, false-alarm rate on the 152 it did not (values in
 Table~\ref{tab:frontier}). The dashed line marks chance (20\%).}
 \label{fig:lead}
 \end{figure}
@@ -83,11 +87,11 @@ Claude names itself on 33 of its 38 essays (87\%) and on 14 of the 152 essays it
 did not write (9\%); the other judges name Claude on 54\% of Claude's essays
 (Table~\ref{tab:frontier}, Figure~\ref{fig:lead-lineup}). Claude's
 self-advantage is \ClaudeAdvLineup{} points \ClaudeAdvLineupCI{} and GPT's is
-\GPTAdvLineup{} \GPTAdvLineupCI{}. Both judges have false-alarm rates near
+\GPTAdvLineup{} points \GPTAdvLineupCI{}. Both judges have false-alarm rates near
 10\% and discriminate. In this format the discrimination test adds little to
 the self-naming test, because the frontier judges use each of the five names
-once in \CROneToOneChat{} of lineups (Appendix~\ref{app:stats}); the peer
-baseline is the control that separates the two here. The peers are unequal
+once in \CROneToOneChat{} of lineups (Appendix~\ref{app:stats}), so here the
+peer baseline is the more informative control. The peers are unequal
 (Figure~\ref{fig:naming}a). GPT names Claude on \CRGPTOnClaudeHitK{} of
 Claude's 38 essays (\CRGPTOnClaudeHit{}) and on \CRGPTOnClaudeFAK{} of the 152
 other essays, which matches Claude's own rates, whereas Grok and DeepSeek each
@@ -97,7 +101,7 @@ is \CRClaudeVsBestPeer{} points \CRClaudeVsBestPeerCI{}. GPT names itself more
 often than each individual peer names it (\GPTSelfLineup{} against
 \CRPeersOnGPTMin{} to \CRPeersOnGPTMax{}). DeepSeek and Gemini have no significant
 self-advantage. Grok names itself on 2 of its 38 essays, and its self-advantage
-is significantly negative (\GrokAdvLineup{} \GrokAdvLineupCI{}). The results
+is significantly negative (\GrokAdvLineup{} points \GrokAdvLineupCI{}). The results
 for Claude, GPT and Grok are unchanged in mixed-effects models and after
 adjusting for each judge's overall attribution accuracy
 (Appendix~\ref{app:stats}). They are also unchanged when the self-advantage is
@@ -119,7 +123,7 @@ When essays are shown one at a time, \SingleConcentration{} of attributions name
 GPT or Claude (Figure~\ref{fig:guess} in Appendix~\ref{app:more}), as in \citet{bai2025selfrecognition}.
 Gemini, Grok and DeepSeek never name themselves, so this format provides no
 useful measure of discrimination for these judges. GPT's self-naming rate
-rises to \GPTSelfSingle{}, and its false-alarm rate to 52\%. Claude's
+rises to \GPTSelfSingle{}, and its false-alarm rate to \GPTFASingle{}. Claude's
 self-naming rate stays at \ClaudeSelfSingle{}, but its peer baseline rises to
 \ClaudePeerSingle{}, and its self-advantage falls to \ClaudeAdvSingle{} points
 (Figure~\ref{fig:lead-single}). Claude's discrimination is almost the same as
@@ -149,13 +153,13 @@ and 13 of its essays (Figure~\ref{fig:naming}b).
 GPT, Grok and DeepSeek answer no for all 190 essays, including their own 38
 (Figure~\ref{fig:yes-frontier} in Appendix~\ref{app:more}), although all three name themselves in the
 lineup. Gemini answers yes twice, both times for essays it did not write. Claude
-answers yes for \FBClaudeHitK{} of its own essays and \FBClaudeFAK{} of other
-models' essays, a discrimination of \FBClaudeDisc{} points (Holm
+answers yes for 28 of its 38 essays and 76 of the 152 other models'
+essays, a discrimination of \FBClaudeDisc{} points (Holm
 $p=$~\FBClaudeHolm{}). This is the weakest of the \CVdisc{} cases that
 discriminate: the bootstrap interval for its discrimination is
 \CXClaudeYesNoDiscCI{}, and the result is not significant when corrected
 across all \CVcells{} cases ($p=\CXClaudeYesNoHolmAll$). GPT, which names
-itself on 95\% of its own essays in the one-text format, does not claim any of
+itself on \GPTSelfSingle{} of its own essays in the one-text format, does not claim any of
 them in this format. These uniform answers are hard to interpret. The question
 is asked in a new conversation, and \CXReasonGPTBroad{} of the
 \CXReasonGPTN{} reasoning summaries returned for GPT and \CXReasonGrokBroad{}
@@ -175,8 +179,8 @@ Gemini does so on \CRGeminiOnClaudeApiHit{}, more often than Claude itself.
 Grok also discriminates on these texts (\FXGrokLineupDisc{} points), although
 its self-advantage on the chat-app essays was negative. Shown one text at a
 time, Claude again discriminates (\FXClaudeSingleDisc{} points) and its
-self-advantage is negative. Claude's discrimination is largest on essays and
-near zero on math problems, where answers to the same problem share most of
+self-advantage is negative. In the lineup, Claude's discrimination is largest
+on essays and near zero on math problems, where answers to the same problem share most of
 their wording (Appendix~\ref{app:more}).
 
 The direct comparison with the chat-app essays uses the \CSprompts{} essay
@@ -239,8 +243,7 @@ false-alarm control alone removes every flagged case: none of the
 \paragraph{Frontier and open-weight judges compared}
 The two panels differ in judges, texts and number of candidates, so we compare
 them only qualitatively. In both, the self-naming test flags cases that the
-controls remove, no judge both distinguishes its own text and beats its
-strongest peer, the texts carry more authorship information than the judges'
+controls remove, the texts carry more authorship information than the judges'
 answers (the style classifier attributes \EngineAAcc{} of the chat-app essays
 and \OWClfPooled{} of the open-weight texts), and judges assign names partly by
 position. The panels differ in three ways. First, a different control does the
@@ -253,20 +256,20 @@ they did not write, so the false-alarm control alone removes all
 Second, \CVfrontierDisc{} frontier cases distinguish their own text and no
 open-weight case does: frontier lineup accuracy is \LineupAcc{} on the chat-app
 essays and \FXLineupAcc{} on the API texts (chance 20\%), against
-\OWLineupAcc{} for the open-weight judges (chance 25\%). Third, the errors run
-in opposite directions. Several frontier judges never claim a text shown on
-its own: on the chat-app essays Gemini, Grok and DeepSeek never name themselves one text
+\OWLineupAcc{} for the open-weight judges (chance 25\%). Third, the uniform answers run
+in opposite directions. Several frontier judges rarely claim a text outside the
+lineup: on the chat-app essays Gemini, Grok and DeepSeek never name themselves one text
 at a time, and GPT, Grok and DeepSeek answer no to every yes/no question.
-Open-weight judges over-claim: Llama names itself on every text shown on its
-own, and Mistral answers yes to \OWMistralBinaryFA{} of other models' texts.
+Open-weight judges over-attribute: Llama names itself on every text it is
+shown one at a time, and Mistral answers yes to \OWMistralBinaryFA{} of other models' texts.
 The open-weight judges are also much smaller and run with 4-bit weights, so
 these differences may reflect size and quantisation rather than open weights
 as such.
 
 \paragraph{Answer-first condition}
 \label{sec:onpolicy}
-Every judge's AUC is above chance when the candidate is the answer it has just
-given, which mainly tests matching within the context. Only Qwen and Phi
+Every judge's AUC is significantly above chance, although Llama's is only
+\OWLlamaOnPolAUC{}, when the candidate is the answer it has just given, which mainly tests matching within the context. Only Qwen and Phi
 distinguish a separately sampled answer of their own from peers' answers (AUC
 \OWQwenOnPolResAUC{} and \OWPhiOnPolResAUC{}; Table~\ref{tab:owyesno} in
 Appendix~\ref{app:more}).

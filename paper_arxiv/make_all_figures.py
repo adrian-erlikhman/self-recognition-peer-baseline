@@ -68,8 +68,8 @@ def funnel() -> None:
     fr = lambda t: int((t.panel == "frontier").sum())
     ow = lambda t: int((t.panel != "frontier").sum())
     stages = [("Flagged by the\nself-naming test", fr(flagged), ow(flagged), 0),
-              ("Distinguish\ntheir own text", fr(disc), ow(disc), 0),
-              ("Beat the\npooled peers", fr(both), ow(both), len(nopeer)),
+              ("Distinguish\ntheir own text", fr(disc) - len(nopeer), ow(disc), len(nopeer)),
+              ("Beat the\npooled peers", fr(both), ow(both), 0),
               ("Beat the\nstrongest peer", fr(best), ow(best), 0)]
 
     fig, (ax, bx) = plt.subplots(1, 2, figsize=(S.TEXT, 2.1),
@@ -95,7 +95,7 @@ def funnel() -> None:
     ax.xaxis.grid(True, color=S.GRID, lw=0.5, zorder=0)
     ax.set_axisbelow(True)
     top_legend(ax, [Patch(color=S.NAVY, label="Frontier"), Patch(color=S.OPEN, label="Open-weight"),
-                    Patch(facecolor="white", edgecolor=S.NAVY, hatch="////", lw=0.6, label="Yes/no")],
+                    Patch(facecolor="white", edgecolor=S.NAVY, hatch="////", lw=0.6, label="Yes/no (no peer baseline)")],
                fontsize=S.FS_NOTE)
     ax.set_ylim(-0.6, 3.5)
 

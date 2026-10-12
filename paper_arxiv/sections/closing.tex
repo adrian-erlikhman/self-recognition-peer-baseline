@@ -5,8 +5,8 @@
 
 The self-naming test conflates two questions, and the two controls separate
 them. Frontier judges can recognise their own text, but none measurably better
-than its strongest peer: much of what looks like self-recognition is
-other-recognition. The first question is whether a judge recognises its own
+than its strongest peer: among the frontier judges, much of what looks like
+self-recognition is other-recognition. The first question is whether a judge recognises its own
 text at all. Of the \CVflagged{} cases the self-naming test flags, the
 false-alarm control removes \CVfailFA{}, almost all open-weight cases in which
 the judge names itself regardless of the author; in the remaining \CVdisc{},
@@ -37,9 +37,10 @@ question format, so a result on one benchmark may not hold for the same model
 in general, and a model update may change it. \citet{bai2025selfrecognition}
 observe that much work on self-preference presupposes self-recognition, and
 \citet{panickssery2024selfpreference} propose recognition as one of its causes.
-We find frontier judges that recognise their own text, but, consistent with
-\citet{davidson2024anonymized} and \citet{bai2025selfrecognition}, little
-evidence that this recognition is self-specific. Bai et al.\ conclude that
+We find frontier judges that recognise their own text, but little evidence
+that this recognition is self-specific; \citet{davidson2024anonymized} and
+\citet{bai2025selfrecognition} found little consistent self-recognition at
+all. Bai et al.\ conclude that
 recognition is unlikely to be the main reason for self-preference. Our data
 cannot test that conclusion: no frontier judge rated or ranked the texts, and
 the open-weight ratings are compressed near the top of the scale. A judge
@@ -66,9 +67,9 @@ format, in which attributions concentrate on one or two models, and rotate the
 order of the answers: on the chat-app essays, lineup accuracy is
 \CRAccListedChat{} when the answers follow the order in which the names are
 listed and \CRAccOtherChat{} otherwise. Before testing any judge, check that
-its answers vary; in \CXFixedCells{} of our \CVcells{} cases the judge gives
-the same answer on at least 97\% of texts. Use a yes/no question only for
-judges whose answers vary across texts. (3)~Evaluate each
+its answers vary, and use a yes/no question only for judges whose answers do;
+in \CXFixedCells{} of our \CVcells{} cases the judge gives the same answer on
+at least 97\% of texts. (3)~Evaluate each
 judge on the kind of text it will judge, and repeat the evaluation when the judge
 or the texts change. (4)~Do not treat stated reasons alone as evidence of what drives
 attribution; in our data they are the same for correct and incorrect
@@ -77,9 +78,9 @@ self-attributions. Our released code implements this procedure.
 \paragraph{Future work}
 Because the texts contain authorship information that current judges do not
 use, future judges may show stronger self-recognition if they are trained to
-use stylistic or likelihood features, given labelled examples, which raised
-one judge's macro F1 on model-family attribution from 0.71 to 0.996
-\citep{dietrich2026splits}, or given access to their own probabilities.
+use stylistic or likelihood features, are given labelled examples (which raised
+one judge's macro F1 on model-family attribution from 0.71 to 0.996;
+\citealp{dietrich2026splits}), or are given access to their own probabilities.
 Self-recognition should therefore be measured again for new model versions.
 Running all nine judges through one API, in a single lineup and in all three
 formats, would separate the effect of the panel from that of how the texts
@@ -95,8 +96,8 @@ The chat-app essays include only 38 texts per judge, so their confidence
 intervals are wide; the API texts include 120 per judge. The comparison between
 the two sets rests on the \CSprompts{} prompts they share and cannot settle
 whether Claude's self-advantage carries over to API texts. The open-weight
-judges have 4 to 8 billion parameters, run with 4-bit weights, are much weaker
-attributors than frontier models, and their lineup answers largely follow the
+judges have 3.8 to 8 billion parameters, run with 4-bit weights, are much
+weaker attributors than frontier models, and answer the lineup largely by the
 position of a response. Running them locally kept the same fixed weights for
 writing and judging, and let us read the token probabilities that the
 likelihood, yes/no and quality analyses need.
@@ -118,13 +119,15 @@ memory more than its reading of the text. The chat-app essays were collected in
 consumer applications whose system prompts we cannot observe, and three of the
 applications labelled the writing model as a product variant (``Limited GPT-5.5
 Instant'', ``Fast Grok 4.3'', ``Deepseek Instant'') that we cannot verify to be
-identical to the API model used as judge. The rule-based coding of the judges'
+identical to the API model used as judge. Six of Claude's 38 chat-app essays
+were written by Claude Sonnet 4.6, so for Claude ``self'' there means the model
+family; excluding them, Claude names itself on 27 of 32. The rule-based coding of the judges'
 reasons was validated against two LLM annotators, both instances of Claude,
 which is also one of the judges, and not against human annotators. Finally, all
 results refer to specific model versions in 2026; providers update models under
 the same names, and the DeepSeek endpoint could not be pinned to a snapshot.
 
-\section*{Acknowledgments}
+\section*{Acknowledgements}
 We thank Ryan Erlikhman for his work and support of this study.
 
 \section*{Reproducibility Statement}
@@ -133,8 +136,10 @@ models were queried. Appendix~\ref{app:data} gives further collection details,
 and Appendix~\ref{app:instructions} lists every instruction given to the judges.
 All texts, prompts, judgments with their reasons, archived API responses,
 open-weight likelihoods and quality ratings, and the analysis code are available
-at \CodeURL{}. All numbers in the paper can be recomputed from these files
-with the released code, and none of the analyses requires an API key.
+at \CodeURL{}. All numbers in the paper can be recomputed from these files,
+and none of the analyses requires an API key. The released scripts produce
+the tables, figures and most values in the text; a few values in the text come
+from checks run on the same files.
 
 \section*{Ethics Statement}
 The study involves no human participants or personal data; all texts were
